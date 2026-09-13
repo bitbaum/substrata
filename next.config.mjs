@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // The box's launch.sh looks for a server.js — see fleetcrown sync-infra.sh.
+  // The box's launch.sh looks for a server.js — see loki sync-infra.sh.
   output: 'standalone',
   reactStrictMode: true,
 };

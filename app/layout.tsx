@@ -36,13 +36,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         {children}
 
-        {/* The FleetCrown feedback widget: point at what is wrong on the page,
+        {/* The Loki feedback widget: point at what is wrong on the page,
             and an agent changes it. Env-gated, so a local run and a fork carry
             no widget — and if this site is ever handed to someone else, they
             unset one variable rather than editing code. */}
         {process.env.NEXT_PUBLIC_FC_WIDGET_TOKEN && (
           <Script
-            src="https://fleetcrown.orangecat.ch/widget.js"
+            src="https://loki.orangecat.ch/widget.js"
             strategy="afterInteractive"
             data-fc-project={process.env.NEXT_PUBLIC_FC_WIDGET_TOKEN}
           />
