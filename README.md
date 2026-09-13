@@ -42,7 +42,7 @@ pnpm run verify     # format check + type-check + lint + tests
 ## Deployment
 
 Push to `main`. CD is the shared self-host pipeline
-(`bitbaum/fleetcrown/.github/workflows/selfhost-deploy.yml`), which waits
+(`bitbaum/loki/.github/workflows/selfhost-deploy.yml`), which waits
 for this commit's CI, builds, rsyncs to bitbaum and health-checks before
 declaring done. Port and hostname come from `scripts/hetzner/apps.conf` in
-fleetcrown — the SSOT for what runs on the box.
+loki — the SSOT for what runs on the box.
