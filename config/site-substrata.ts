@@ -503,9 +503,13 @@ function researchPage(): SitePage {
           layer.name,
           layer.period,
           layer.turn,
-          layer.gatedBy.join(' · '),
+          // A layer gated by every material is a fact about the layer, not a
+          // list to scan — fifteen names in a cell hides the finding in noise.
+          MATERIALS.every((m) => layer.gatedBy.includes(m.title))
+            ? `Every material under coverage — all ${MATERIALS.length}`
+            : layer.gatedBy.join(' · '),
         ]),
-        note: 'The materials layer cites the whole coverage universe, which is what the universe was assembled to describe.',
+        note: 'The materials layer is gated by the whole coverage universe, which is what the universe was assembled to describe.',
       },
       {
         kind: 'definitions',
