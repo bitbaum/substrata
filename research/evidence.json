@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-14T11:08:49.352Z",
+  "rows": [
+    {
+      "material": "High-purity tin, EUV droplet grade",
+      "producer": "Malaysia Smelting Corporation",
+      "query": "\"Malaysia Smelting Corporation\" high-purity high purity",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:08:49.352Z",
+      "candidates": [
+        {
+          "url": "https://www.msmelt.com/our-business.php",
+          "title": "Malaysia Smelting Corporation Berhad",
+          "excerpt": "Malaysia Smelting Corporation Berhad About Us Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mu",
+          "matched": [
+            "Malaysia Smelting",
+            "high purity",
+            "tin"
+          ]
+        },
+        {
+          "url": "https://www.straitstrading.com.sg/resources.html",
+          "title": "Resources – The Straits Trading Company Limited",
+          "excerpt": "Resources – The Straits Trading Company Limited Straits Trading's Businesses Resources Malaysia Smelting Corporation Berhad Straits Trading owns a 52% stake in Malaysia Smelting Corporation Berhad (“ MSC ”). MSC is one of the world’s leading integrated producers o",
+          "matched": [
+            "Malaysia Smelting",
+            "high purity",
+            "tin"
+          ]
+        },
+        {
+          "url": "https://www.msmelt.com/our-history.php",
+          "title": "Malaysia Smelting Corporation Berhad",
+          "excerpt": "Malaysia Smelting Corporation Berhad About Us Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mu",
+          "matched": [
+            "Malaysia Smelting",
+            "high purity",
+            "tin"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "High-purity tin, EUV droplet grade",
+      "producer": "Minsur",
+      "query": "\"Minsur\" high-purity high purity",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:08:25.505Z",
+      "candidates": []
+    },
+    {
+      "material": "High-purity tin, EUV droplet grade",
+      "producer": "PT Timah",
+      "query": "\"PT Timah\" high-purity high purity",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:08:29.561Z",
+      "candidates": [
+        {
+          "url": "https://timah.com/blog/about-us/processing-smelting",
+          "title": "Processing & Smelting | PT TIMAH TBK",
+          "excerpt": "Processing & Smelting | PT TIMAH TBK HOME About Us Processing & Smelting About Us PT TIMAH Tbk has Mining Business Permits (IUP) for the area of 473.310 hectares onshore and offshore of Bangka",
+          "matched": [
+            "Timah",
+            "tin"
+          ]
+        },
+        {
+          "url": "https://www.marketdataforecast.com/market-reports/tin-market",
+          "title": "Tin Market Size, Share, Trends, Growth and Analysis, 2034",
+          "excerpt": "h moderate but growing tin consumption. Competitive Landscape Leading companies in the global tin market include Yunnan Tin, Malaysia Smelting Corp. Berhad, PT Timah, Minsur, Thaisarco, Yunnan Chengfeng, Guangxi China Tin, EM Vinto, Hindustan Tin Works Ltd, and Ardagh Group S.A. These players focus on expansion of mining op",
+          "matched": [
+            "Timah",
+            "high-purity",
+            "tin"
+          ]
+        },
+        {
+          "url": "https://www.timahindustri.com/",
+          "title": "Home - PT. TIMAH INDUSTRI INDONESIA",
+          "excerpt": "Home - PT. TIMAH INDUSTRI INDONESIA CN | EN | ID Call Us OUR WORLDWIDE PRODUCT DELIVERING INDONESIA’S TIN INNOVATIONS TO THE WORLD Exporting high-quality downstream tin product",
+          "matched": [
+            "Timah",
+            "tin"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "High-purity tin, EUV droplet grade",
+      "producer": "Yunnan Tin",
+      "query": "\"Yunnan Tin\" high-purity high purity",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:08:20.485Z",
+      "candidates": []
+    }
+  ]
+}
