@@ -31,6 +31,42 @@ the directory exist once, and the pages are those objects rendered.
 Every producer row starts unsourced and renders as "unverified lead", never as
 a finding. There is no trading desk and nothing here implies one.
 
+## Research engine
+
+`research/evidence.json` is what the engine has found; `config/substrata-coverage.ts`
+is what the firm asserts. They are kept apart on purpose. A row reads one of
+three ways — unverified lead, candidate source, sourced — and only the last is
+a finding.
+
+```bash
+# The fleet's SearXNG listens on the box's loopback only. From a laptop, tunnel it.
+ssh -N -L 8899:127.0.0.1:8899 ubuntu@167.233.22.31 &
+SEARXNG_URL=http://127.0.0.1:8899 pnpm research:source            # rows not yet examined
+SEARXNG_URL=http://127.0.0.1:8899 pnpm research:source --all      # re-examine everything
+SEARXNG_URL=http://127.0.0.1:8899 pnpm research:source --limit 5  # a quick run
+```
+
+For each unverified producer row it searches for the company with the
+material's keywords, reads the top pages through ai-kit's SSRF-checked reader,
+and files a page as a candidate only if it names the company AND a material
+term, with the matching excerpt. Promotion to "sourced" is a deliberate edit
+to the coverage file by someone who read the excerpt. Commit the evidence file
+after a run: git is the timestamp.
+
+## Programmes
+
+`config/substrata-programmes.ts` holds the questions the firm has been
+commissioned to answer, each layer of a question cross-referenced to rows in
+the coverage universe (a test enforces that every cited row exists), and an
+open question is only open if it names what would settle it.
+
+## API
+
+- `GET /api/health` — liveness plus the coverage meter.
+- `GET /api/map` — the whole map as one JSON document: materials, producers with
+  their three-valued verification and candidate URLs, chokepoints, participants,
+  thesis, programmes, readiness. Built from the same config the pages render.
+
 ## Development
 
 ```bash

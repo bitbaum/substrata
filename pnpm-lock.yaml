@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@bitbaum/ai-kit':
+        specifier: ^1.7.0
+        version: 1.7.0(react@19.3.0)
       next:
         specifier: 16.3.4
         version: 16.3.4(@babel/core@7.29.7)(@types/node@26.5.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
@@ -127,6 +130,15 @@ packages:
   '@babel/types@7.29.8':
     resolution: {integrity: sha512-Vj1jF3cPfxg7OAfoI7QnVKLoILlm2JF9pnVHrX8qx7AHMiYWT+NDAA7jChlNgRS4WTLc/fD1lXLmPixluj+3Gg==}
     engines: {node: '>=6.9.0'}
+
+  '@bitbaum/ai-kit@1.7.0':
+    resolution: {integrity: sha512-y+5Bbx4OYb44HfihdboWlQOloFHluZ4jBXxC+32RKf0fKPWIbTR4j24GZauLj37CKpDV6adraDpOfLR467flTg==}
+    engines: {node: '>=20'}
+    peerDependencies:
+      react: '>=18'
+    peerDependenciesMeta:
+      react:
+        optional: true
 
   '@bitbaum/sitekit@0.3.0':
     resolution: {integrity: sha512-DnIwW3F92PEXFW4h9VSW2q+HS4fYSlEX/TnjIUjQ+Pcjja38hRN5eo45B1c6nDOiXl2/8v9V7yRYjtLQ1zG6pQ==}
@@ -944,6 +956,15 @@ packages:
     resolution: {integrity: sha512-lGq+9yr1/GuAWaVYIHRjvvySG5/4VfKIvC8EWxStPdcDh/Ka7FG3twP6v4d5BkravUilhIAsG4Qj83t02LWUPQ==}
     engines: {node: '>=0.4.0'}
     hasBin: true
+
+  ai-forms@0.1.2:
+    resolution: {integrity: sha512-agadca4pN0iGlZTlNy1Vo2SmnQB+0dNkrQSDE3wCJYeaVxKDs5KaxiwGj5+GL6mVYcI1xZ8pwnT9kL9WcxnBHA==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      react: '>=18'
+    peerDependenciesMeta:
+      react:
+        optional: true
 
   ajv@6.15.0:
     resolution: {integrity: sha512-fgFx7Hfoq60ytK2c7DhnF8jIvzYgOMxfugjLOSMHjLIPgenqa7S7oaagATUq99mV6IYvN2tRmC0wnTYX6iPbMw==}
@@ -2269,6 +2290,12 @@ snapshots:
       '@babel/helper-string-parser': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
 
+  '@bitbaum/ai-kit@1.7.0(react@19.3.0)':
+    dependencies:
+      ai-forms: 0.1.2(react@19.3.0)
+    optionalDependencies:
+      react: 19.3.0
+
   '@bitbaum/sitekit@0.3.0(react@19.3.0)':
     dependencies:
       react: 19.3.0
@@ -2890,6 +2917,10 @@ snapshots:
       acorn: 8.18.0
 
   acorn@8.18.0: {}
+
+  ai-forms@0.1.2(react@19.3.0):
+    optionalDependencies:
+      react: 19.3.0
 
   ajv@6.15.0:
     dependencies:

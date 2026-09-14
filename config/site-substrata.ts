@@ -52,8 +52,15 @@ import {
   chokepointProgress,
   coverageProgress,
 } from './substrata-coverage';
+import { VERIFICATION_LABEL, evidenceProgress, verificationFor } from './substrata-evidence';
+import {
+  DELIVERABLE_STATUS_LABEL,
+  RESEARCH_PROGRAMMES,
+  programmeProgress,
+  rowsCitedBy,
+} from './substrata-programmes';
 import type { SiteChrome, SitePage, SiteSection } from './site-content';
-import { SITE } from '../lib/site';
+import { SITE, correctionUrl } from '../lib/site';
 
 const ROLE_LABEL: Record<string, string> = Object.fromEntries(
   PRODUCER_ROLES.map((role) => [role.id, role.label]),
@@ -231,6 +238,7 @@ function materialAnchor(material: string): string {
 
 function mapPage(): SitePage {
   const progress = coverageProgress();
+  const evidence = evidenceProgress();
 
   // The material's own research — why it gates, and which grade actually ships
   // — used to live on the desk page. With no desk there is no desk page, and
@@ -255,7 +263,7 @@ function mapPage(): SitePage {
         producer.name,
         producer.jurisdictions.join(' '),
         ROLE_LABEL[producer.role] ?? producer.role,
-        producer.source ? 'Sourced' : 'Unverified lead',
+        VERIFICATION_LABEL[verificationFor(entry.material, producer.name, producer.source)],
       ]),
     };
   });
@@ -267,19 +275,36 @@ function mapPage(): SitePage {
     intro: 'Every qualified producer of the fifteen materials on the desk.',
     sections: [
       {
-        kind: 'prose',
-        paragraphs: [
-          'This is Phase 1, published as it is built rather than when it is finished. Each row ' +
+        kind: 'hero',
+        eyebrow: 'Phase 1 · Published as it is built',
+        statement: 'The map',
+        lead: [
+          'Every qualified producer of the fifteen materials under coverage. Each row ' +
             'asserts three things and no more: a company’s name, where it operates, and which ' +
             'step of the chain it occupies. There is no column for capacity, market share or ' +
             'revenue, because this firm has not sourced those numbers — and a table that ' +
             'implies otherwise is worse than an empty one.',
-          'A row marked “unverified lead” is exactly that: a research lead we believe is right ' +
-            'and have not yet confirmed against a primary source. It is not a finding. When an ' +
-            'analyst attaches the source, the row flips to “sourced” and the meter below moves. ' +
-            'That meter is the honest measure of how far along this is.',
           'Corrections are the reason this is public. If you work in one of these chains and a ' +
             'row is wrong, telling us makes the map better for everyone who reads it next.',
+        ],
+        actions: [
+          { label: 'Report a wrong row', href: correctionUrl('The map') },
+          { label: 'The map as JSON', href: '/api/map' },
+        ],
+      },
+      {
+        kind: 'prose',
+        heading: 'How a row is verified',
+        paragraphs: [
+          'A row reads one of three ways. “Unverified lead” is a research lead we believe is ' +
+            'right and have not confirmed against a primary source. “Candidate source” means ' +
+            'the research engine has found a page that names the company alongside the ' +
+            'material, and filed it with the excerpt for an analyst to read. “Sourced” means ' +
+            'an analyst read that excerpt, agreed, and attached the source. Only the last one ' +
+            'is a finding, and only it moves the meter.',
+          'The engine runs against the fleet’s own search backend and files everything it ' +
+            'finds into a committed evidence file, so every run is a dated entry in the ' +
+            'repository’s history. It narrows the work; it does not lower the bar.',
         ],
       },
       {
@@ -288,7 +313,10 @@ function mapPage(): SitePage {
         label: 'Producer rows confirmed against a primary source',
         value: progress.sourced,
         of: progress.total,
-        caption: `${COVERAGE.length} materials, ${progress.total} producer rows. Phase 1 completes when every row carries a source.`,
+        caption:
+          `${COVERAGE.length} materials, ${progress.total} producer rows, ` +
+          `${evidence.candidates} with a candidate source waiting on an analyst. ` +
+          'Phase 1 completes when every row carries a source.',
       },
       {
         kind: 'index',
@@ -410,6 +438,111 @@ function thesisPage(): SitePage {
         blurb: claim.detail,
         items: [{ term: 'What would prove this wrong', detail: claim.falsifier }],
       })),
+    ],
+  };
+}
+
+// =====================================================================
+// RESEARCH PROGRAMMES
+// =====================================================================
+
+function researchPage(): SitePage {
+  // One programme today, so the page IS the programme. When there are two,
+  // this becomes an index and each programme gets its own path.
+  const programme = RESEARCH_PROGRAMMES[0];
+  const progress = programmeProgress(programme);
+  const cited = rowsCitedBy(programme);
+
+  return {
+    path: 'research',
+    navLabel: 'Research',
+    title: programme.title,
+    intro: programme.question,
+    sections: [
+      {
+        kind: 'hero',
+        eyebrow: `Programme · Commissioned ${programme.commissioned} · ${programme.status}`,
+        statement: programme.title,
+        lead: [programme.question, ...programme.framing.slice(0, 1)],
+        actions: [
+          { label: 'Contribute a source', href: correctionUrl(programme.title) },
+          { label: 'The programme as JSON', href: '/api/map' },
+        ],
+      },
+      { kind: 'prose', paragraphs: programme.framing.slice(1) },
+      {
+        kind: 'stats',
+        heading: 'The shape of the loop',
+        stats: [
+          {
+            label: 'Layers',
+            value: String(programme.layers.length),
+            note: 'From minutes per turn to years per turn.',
+          },
+          {
+            label: 'Coverage rows cited',
+            value: String(cited.length),
+            note: 'Every one exists in the universe; a test says so.',
+          },
+          {
+            label: 'Open questions',
+            value: String(programme.questions.length),
+            note: 'Each with the observation that would settle it.',
+          },
+        ],
+      },
+      {
+        kind: 'table',
+        heading: 'The layers, by period',
+        blurb:
+          'Ordered by how long one design → build → measure turn takes. The jumps between ' +
+          'rows are where the recursion waits, and the last column names what it waits on.',
+        columns: ['Layer', 'One turn', 'What a turn is', 'Gated by'],
+        monoColumns: [1],
+        rows: programme.layers.map((layer) => [
+          layer.name,
+          layer.period,
+          layer.turn,
+          // A layer gated by every material is a fact about the layer, not a
+          // list to scan — fifteen names in a cell hides the finding in noise.
+          MATERIALS.every((m) => layer.gatedBy.includes(m.title))
+            ? `Every material under coverage — all ${MATERIALS.length}`
+            : layer.gatedBy.join(' · '),
+        ]),
+        note: 'The materials layer is gated by the whole coverage universe, which is what the universe was assembled to describe.',
+      },
+      {
+        kind: 'definitions',
+        heading: 'Why each period is what it is',
+        items: programme.layers.map((layer) => ({
+          term: `${layer.name} — ${layer.period.toLowerCase()}`,
+          detail: layer.note,
+        })),
+      },
+      ...programme.questions.map((question) => ({
+        kind: 'definitions' as const,
+        heading: question.question,
+        blurb: question.whyItMatters,
+        items: [{ term: 'What would settle it', detail: question.settledBy }],
+      })),
+      {
+        kind: 'meter',
+        heading: 'Deliverables',
+        label: 'Programme deliverables complete',
+        value: progress.done,
+        of: progress.total,
+        caption:
+          `${progress.done} done, ${progress.inProgress} in progress. Same rule as every ` +
+          'other meter on this site: drawn from the same data the page is, so it cannot flatter the work.',
+      },
+      {
+        kind: 'definitions',
+        heading: 'The ledger',
+        items: programme.deliverables.map((item) => ({
+          term: `${item.what} — ${DELIVERABLE_STATUS_LABEL[item.status]}`,
+          detail: item.detail,
+        })),
+      },
     ],
   };
 }
@@ -657,6 +790,7 @@ export function substrataSitePages(): SitePage[] {
     homePage(),
     mandatePage(),
     thesisPage(),
+    researchPage(),
     mapPage(),
     chokepointsPage(),
     participantsPage(),

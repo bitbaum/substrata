@@ -13,11 +13,13 @@
     "lint": "eslint .",
     "type-check": "tsc --noEmit",
     "test": "tsx --test test/*.test.ts",
+    "research:source": "tsx scripts/research/source-producers.ts",
     "verify": "pnpm run format:check && pnpm run type-check && pnpm run lint && pnpm run test",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
   "dependencies": {
+    "@bitbaum/ai-kit": "^1.7.0",
     "next": "16.3.4",
     "react": "19.3.0",
     "react-dom": "19.3.0",

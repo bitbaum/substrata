@@ -80,7 +80,6 @@ jobs:
             nextjs-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}-
             nextjs-${{ runner.os }}-
 
-
       - name: Type check
         run: pnpm run type-check
 

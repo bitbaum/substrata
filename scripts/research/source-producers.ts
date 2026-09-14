@@ -1,0 +1,254 @@
+/**
+ * The research engine: look for a primary source behind every unverified
+ * producer row, and file what it finds as evidence.
+ *
+ *   pnpm research:source              every unverified row not yet examined
+ *   pnpm research:source --all        re-examine every unverified row
+ *   pnpm research:source --limit 10   stop after N rows (for a quick run)
+ *   pnpm research:source --material "Neon, excimer laser grade"
+ *
+ * What it does, per row: build a query from the company name and the
+ * material's keywords, search through ai-kit's web layer (the fleet's own
+ * SearXNG, or Brave / Tavily when those are what the env configures), read
+ * the top results through ai-kit's SSRF-checked page reader, and keep a page
+ * as a candidate only if its text carries the company name AND at least one
+ * material keyword. The excerpt around the match is filed with the URL.
+ *
+ * What it does not do: flip a row to "sourced". The coverage file is the
+ * firm's claim and an analyst promotes a candidate by reading the excerpt and
+ * attaching the URL there. The engine narrows the search; it does not lower
+ * the bar. Its output is three-valued for the same reason ai-kit's is — a dead
+ * search backend files "could_not_look", never "nothing", so an outage cannot
+ * be read as an absence of producers.
+ *
+ * Needs SEARXNG_URL (or a Brave / Tavily key) in the environment. The fleet's
+ * SearXNG listens on the box's loopback only; from a laptop, tunnel it:
+ *   ssh -N -L 8899:127.0.0.1:8899 ubuntu@167.233.22.31 &
+ *   SEARXNG_URL=http://127.0.0.1:8899 pnpm research:source
+ *
+ * Created: 2026-09-14
+ */
+
+import { readFile, writeFile } from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { webSearch, readPage, type WebResult } from '@bitbaum/ai-kit/web';
+
+import { COVERAGE } from '../../config/substrata-coverage';
+import { MATERIALS } from '../../config/substrata';
+import {
+  evidenceKey,
+  type EvidenceCandidate,
+  type EvidenceFile,
+  type EvidenceRow,
+  type EvidenceStatus,
+} from '../../config/substrata-evidence';
+
+const HERE = path.dirname(fileURLToPath(import.meta.url));
+const EVIDENCE_PATH = path.resolve(HERE, '../../research/evidence.json');
+
+/** Results considered per row. More is slower and rarely better. */
+const RESULTS_PER_ROW = 5;
+/** Pages actually read per row — reading is the expensive half. */
+const PAGES_PER_ROW = 3;
+/** Excerpt window either side of the company-name match, in characters. */
+const EXCERPT_RADIUS = 160;
+/** Sequential, with a pause: the fleet's SearXNG is shared and the sites are not ours. */
+const PAUSE_BETWEEN_ROWS_MS = 1500;
+
+interface Args {
+  all: boolean;
+  limit: number | null;
+  material: string | null;
+}
+
+function parseArgs(argv: string[]): Args {
+  const args: Args = { all: false, limit: null, material: null };
+  for (let i = 0; i < argv.length; i++) {
+    const arg = argv[i];
+    if (arg === '--all') args.all = true;
+    else if (arg === '--limit') args.limit = Number(argv[++i]);
+    else if (arg === '--material') args.material = argv[++i] ?? null;
+    else throw new Error(`Unknown argument: ${arg}`);
+  }
+  return args;
+}
+
+function listingFor(material: string) {
+  const listing = MATERIALS.find((m) => m.title === material);
+  if (!listing) throw new Error(`"${material}" is not in the catalogue`);
+  return listing;
+}
+
+/**
+ * Terms that count as "the material" on a page: the listing's trade name
+ * (what the engine searched on) plus its catalogue tags, hyphens also tried
+ * as spaces. "High-purity tin, EUV droplet grade" → tin, euv, lithography,
+ * high-purity, high purity.
+ */
+function materialTerms(material: string): string[] {
+  const listing = listingFor(material);
+  const terms = new Set<string>([listing.search.toLowerCase()]);
+  for (const tag of listing.tags) {
+    terms.add(tag.toLowerCase());
+    if (tag.includes('-')) terms.add(tag.replace(/-/g, ' ').toLowerCase());
+  }
+  return [...terms];
+}
+
+/** The query is the company name, quoted, plus what the trade calls the material. */
+function queryFor(producer: string, material: string): string {
+  return `"${producer}" ${listingFor(material).search}`;
+}
+
+/** The part of a company name that will actually appear in prose ("Yunnan Tin" stays; "PT Timah" → "Timah"). */
+function nameStem(producer: string): string {
+  const stripped = producer
+    .replace(/\b(PT|AG|SA|SE|NV|Inc\.?|Corp\.?|Corporation|Ltd\.?|Co\.?|GmbH|Group)\b/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  return stripped.length >= 4 ? stripped : producer;
+}
+
+/**
+ * A page is a candidate only where the company name and a material term sit
+ * in the SAME window of text. A name in the header and the material in the
+ * footer is a page about both things, not a page that connects them — and
+ * the excerpt filed is the passage an analyst will actually read, so it has
+ * to be the one that makes the connection.
+ */
+function matchOnPage(text: string, producer: string, material: string): EvidenceCandidate | null {
+  const lower = text.toLowerCase();
+  const stem = nameStem(producer);
+  const needle = stem.toLowerCase();
+  const terms = materialTerms(material);
+
+  let at = lower.indexOf(needle);
+  while (at >= 0) {
+    const start = Math.max(0, at - EXCERPT_RADIUS);
+    const end = Math.min(text.length, at + stem.length + EXCERPT_RADIUS);
+    const window = lower.slice(start, end);
+    const matchedTerms = terms.filter((term) => window.includes(term));
+    if (matchedTerms.length > 0) {
+      const excerpt = text.slice(start, end).replace(/\s+/g, ' ').trim();
+      return { url: '', title: '', excerpt, matched: [stem, ...matchedTerms] };
+    }
+    at = lower.indexOf(needle, at + needle.length);
+  }
+  return null;
+}
+
+async function examine(producer: string, material: string): Promise<EvidenceRow> {
+  const query = queryFor(producer, material);
+  const checkedAt = new Date().toISOString();
+  const search = await webSearch(query, { limit: RESULTS_PER_ROW, timeoutMs: 15_000 });
+
+  if (search.status === 'could_not_look') {
+    return { material, producer, query, status: 'could_not_look', checkedAt, candidates: [] };
+  }
+  if (search.status === 'nothing') {
+    return { material, producer, query, status: 'nothing', checkedAt, candidates: [] };
+  }
+
+  const candidates: EvidenceCandidate[] = [];
+  const toRead: WebResult[] = search.results.slice(0, PAGES_PER_ROW);
+  for (const result of toRead) {
+    const page = await readPage(result.url, { timeoutMs: 15_000, maxChars: 60_000 });
+    if (!page.ok) continue;
+    const match = matchOnPage(page.text, producer, material);
+    if (match) candidates.push({ ...match, url: page.url, title: page.title || result.title });
+  }
+
+  const status: EvidenceStatus = candidates.length > 0 ? 'candidate' : 'nothing';
+  return { material, producer, query, status, checkedAt, candidates };
+}
+
+async function loadEvidence(): Promise<EvidenceFile> {
+  const raw = JSON.parse(await readFile(EVIDENCE_PATH, 'utf8')) as EvidenceFile;
+  if (raw.version !== 1)
+    throw new Error(`evidence.json is version ${raw.version}; this engine writes version 1`);
+  return raw;
+}
+
+async function saveEvidence(file: EvidenceFile): Promise<void> {
+  // Stable order so a diff shows what changed, not what moved.
+  file.rows.sort(
+    (a, b) => a.material.localeCompare(b.material) || a.producer.localeCompare(b.producer),
+  );
+  await writeFile(EVIDENCE_PATH, `${JSON.stringify(file, null, 2)}\n`);
+}
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function main(): Promise<void> {
+  const args = parseArgs(process.argv.slice(2));
+  const evidence = await loadEvidence();
+  const examined = new Set(evidence.rows.map((row) => evidenceKey(row.material, row.producer)));
+
+  const queue = COVERAGE.flatMap((entry) =>
+    entry.producers
+      .filter((p) => p.source === null)
+      .filter(() => args.material === null || entry.material === args.material)
+      .filter((p) => args.all || !examined.has(evidenceKey(entry.material, p.name)))
+      .map((p) => ({ material: entry.material, producer: p.name })),
+  ).slice(0, args.limit ?? undefined);
+
+  if (queue.length === 0) {
+    console.log(
+      'Nothing to examine: every unverified row already has an entry (use --all to re-run).',
+    );
+    return;
+  }
+  console.log(`Examining ${queue.length} row(s).`);
+
+  let couldNotLook = 0;
+  for (const [index, item] of queue.entries()) {
+    const row = await examine(item.producer, item.material);
+    const key = evidenceKey(row.material, row.producer);
+    const existing = evidence.rows.findIndex((r) => evidenceKey(r.material, r.producer) === key);
+    if (existing >= 0) evidence.rows[existing] = row;
+    else evidence.rows.push(row);
+
+    const summary =
+      row.status === 'candidate'
+        ? `${row.candidates.length} candidate page(s)`
+        : row.status === 'nothing'
+          ? 'nothing usable'
+          : 'could not look';
+    console.log(`[${index + 1}/${queue.length}] ${row.producer} — ${row.material}: ${summary}`);
+
+    if (row.status === 'could_not_look') {
+      couldNotLook += 1;
+      // Three in a row means the backend is down, not the rows. Stop and say so
+      // rather than filing ninety "could not look" entries.
+      if (couldNotLook >= 3) {
+        console.error(
+          'Search backend unreachable three rows running — stopping. Is SEARXNG_URL set and tunnelled?',
+        );
+        break;
+      }
+    } else {
+      couldNotLook = 0;
+    }
+
+    evidence.generatedAt = row.checkedAt;
+    await saveEvidence(evidence);
+    if (index < queue.length - 1) await sleep(PAUSE_BETWEEN_ROWS_MS);
+  }
+
+  const totals = evidence.rows.reduce(
+    (acc, row) => ({ ...acc, [row.status]: (acc[row.status] ?? 0) + 1 }),
+    {} as Record<EvidenceStatus, number>,
+  );
+  console.log(
+    `Evidence file now holds ${evidence.rows.length} row(s): ` +
+      `${totals.candidate ?? 0} with candidates, ${totals.nothing ?? 0} with nothing, ${totals.could_not_look ?? 0} could not look.`,
+  );
+}
+
+main().catch((err) => {
+  console.error(err instanceof Error ? err.message : err);
+  process.exit(1);
+});
