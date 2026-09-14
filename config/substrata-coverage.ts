@@ -84,6 +84,20 @@ function lead(name: string, jurisdictions: string[], role: ProducerRole): Produc
   return { name, jurisdictions, role, source: null };
 }
 
+/**
+ * A row an analyst has confirmed: the source is the company's own page, filing
+ * or release stating that it handles this material in this step. Read on the
+ * date the row was promoted; git carries that date.
+ */
+function sourced(
+  name: string,
+  jurisdictions: string[],
+  role: ProducerRole,
+  source: string,
+): Producer {
+  return { name, jurisdictions, role, source };
+}
+
 // =====================================================================
 // THE UNIVERSE
 // =====================================================================
@@ -95,12 +109,27 @@ export const COVERAGE: readonly MaterialCoverage[] = [
     thesis:
       'Tin metal is not scarce; tin at seven nines, qualified for an EUV source, is. The chokepoint is the upgrading step, not the mine.',
     producers: [
-      lead('Yunnan Tin', ['CN'], 'refine'),
+      sourced('Yunnan Tin', ['CN'], 'refine', 'https://en.ytc.cn/'),
       lead('Minsur', ['PE'], 'refine'),
-      lead('PT Timah', ['ID'], 'refine'),
-      lead('Malaysia Smelting Corporation', ['MY'], 'refine'),
-      lead('Indium Corporation', ['US'], 'convert'),
-      lead('5N Plus', ['CA', 'DE'], 'convert'),
+      sourced('PT Timah', ['ID'], 'refine', 'https://timah.com/blog/about-us/processing-smelting'),
+      sourced(
+        'Malaysia Smelting Corporation',
+        ['MY'],
+        'refine',
+        'https://www.msmelt.com/our-business.php',
+      ),
+      sourced(
+        'Indium Corporation',
+        ['US'],
+        'convert',
+        'https://www.indium.com/products/metals/tin/',
+      ),
+      sourced(
+        '5N Plus',
+        ['CA', 'DE'],
+        'convert',
+        'https://www.5nplus.com/en/products/high-purity-metals/',
+      ),
       lead('Aurubis', ['DE'], 'recycle'),
     ],
   },
@@ -109,11 +138,16 @@ export const COVERAGE: readonly MaterialCoverage[] = [
     thesis:
       'Neon is separated from air, but economically only alongside large-scale air separation attached to steelmaking — which is why an industrial gas map and a war map turned out to be the same map in 2022.',
     producers: [
-      lead('Linde', ['GB', 'US', 'DE'], 'refine'),
-      lead('Air Liquide', ['FR'], 'refine'),
-      lead('Messer', ['DE'], 'refine'),
+      sourced(
+        'Linde',
+        ['GB', 'US', 'DE'],
+        'refine',
+        'https://www.linde-gas.de/shop/de/de-ig/neon-45-hiq%C2%AE-minican-neon-45-hiq%C2%AE-minican',
+      ),
+      sourced('Air Liquide', ['FR'], 'refine', 'https://uk.airliquide.com/gases-and-products/neon'),
+      sourced('Messer', ['DE'], 'refine', 'https://www.messer-us.com/specialty-gases/neon'),
       lead('Iceblick', ['UA'], 'refine'),
-      lead('Cryoin Engineering', ['UA'], 'refine'),
+      sourced('Cryoin Engineering', ['UA'], 'refine', 'https://cryoin.com/en/products/'),
       lead('Baosteel Gases', ['CN'], 'refine'),
     ],
   },
@@ -124,11 +158,36 @@ export const COVERAGE: readonly MaterialCoverage[] = [
     producers: [
       lead('Sibanye-Stillwater', ['ZA'], 'mine'),
       lead('Impala Platinum', ['ZA'], 'mine'),
-      lead('Nornickel', ['RU'], 'mine'),
-      lead('Heraeus', ['DE'], 'refine'),
-      lead('Johnson Matthey', ['GB'], 'refine'),
-      lead('Umicore', ['BE'], 'refine'),
-      lead('Furuya Metal', ['JP'], 'convert'),
+      sourced(
+        'Nornickel',
+        ['RU'],
+        'mine',
+        'https://nornickel.com/business/products/ruthenium/ruthenium-rua/',
+      ),
+      sourced(
+        'Heraeus',
+        ['DE'],
+        'refine',
+        'https://www.heraeus-precious-metals.com/de/products-solutions/metal/ruthenium/',
+      ),
+      sourced(
+        'Johnson Matthey',
+        ['GB'],
+        'refine',
+        'https://matthey.com/products-and-markets/pgms-and-circularity/pgm-markets/ruthenium',
+      ),
+      sourced(
+        'Umicore',
+        ['BE'],
+        'refine',
+        'https://www.umicore.com/en/markets-products/metals/ruthenium/about/',
+      ),
+      sourced(
+        'Furuya Metal',
+        ['JP'],
+        'convert',
+        'https://www.furuyametals.co.jp/english/innovation/ru/',
+      ),
       lead('Tanaka Kikinzoku', ['JP'], 'convert'),
     ],
   },
@@ -139,11 +198,36 @@ export const COVERAGE: readonly MaterialCoverage[] = [
     thesis:
       'Solar-grade polysilicon has many producers; electronic-grade has very few, and the gap between the two is measured in orders of magnitude of impurity, not in price.',
     producers: [
-      lead('Wacker Chemie', ['DE', 'US'], 'refine'),
-      lead('Hemlock Semiconductor', ['US'], 'refine'),
-      lead('Tokuyama', ['JP', 'MY'], 'refine'),
-      lead('OCI', ['KR', 'MY'], 'refine'),
-      lead('Mitsubishi Materials', ['JP'], 'refine'),
+      sourced(
+        'Wacker Chemie',
+        ['DE', 'US'],
+        'refine',
+        'https://www.wacker.com/cms/de-de/products/brands/polysilicon/polysilicon.html',
+      ),
+      sourced(
+        'Hemlock Semiconductor',
+        ['US'],
+        'refine',
+        'https://www.hscpoly.com/markets-technologies/electronics/',
+      ),
+      sourced(
+        'Tokuyama',
+        ['JP', 'MY'],
+        'refine',
+        'https://www.tokuyama.co.jp/eng/products/electronic_materials/polysilicon.html',
+      ),
+      sourced(
+        'OCI',
+        ['KR', 'MY'],
+        'refine',
+        'https://www.oci.co.kr/en/products/semiconductor/polysilicon',
+      ),
+      sourced(
+        'Mitsubishi Materials',
+        ['JP'],
+        'refine',
+        'https://www.mmtc.co.jp/en/products/silicon-h.html',
+      ),
       lead('REC Silicon', ['US', 'NO'], 'refine'),
     ],
   },
@@ -152,11 +236,11 @@ export const COVERAGE: readonly MaterialCoverage[] = [
     thesis:
       'Five firms supply essentially all prime 300 mm wafer capacity. Qualification at a leading-edge fab takes years, so the barrier is certification history rather than capital.',
     producers: [
-      lead('Shin-Etsu Handotai', ['JP'], 'convert'),
-      lead('SUMCO', ['JP'], 'convert'),
-      lead('GlobalWafers', ['TW'], 'convert'),
-      lead('Siltronic', ['DE'], 'convert'),
-      lead('SK Siltron', ['KR'], 'convert'),
+      sourced('Shin-Etsu Handotai', ['JP'], 'convert', 'https://www.sehe.com/products/'),
+      sourced('SUMCO', ['JP'], 'convert', 'https://www.sumcosi.com/english/products/lineup.html'),
+      sourced('GlobalWafers', ['TW'], 'convert', 'https://www.gw-semi.com/products/'),
+      sourced('Siltronic', ['DE'], 'convert', 'https://www.siltronic.com/en/'),
+      sourced('SK Siltron', ['KR'], 'convert', 'https://www.sksiltron.com/m/en/wafer/wafer.do'),
     ],
   },
   {
@@ -164,12 +248,27 @@ export const COVERAGE: readonly MaterialCoverage[] = [
     thesis:
       'The clearest single point of failure in the entire chain: inner-layer crucible quartz comes, in practice, from a very small number of deposits, and every Czochralski puller on earth needs it.',
     producers: [
-      lead('The Quartz Corp', ['NO', 'US'], 'mine'),
-      lead('Sibelco', ['BE', 'US'], 'mine'),
-      lead('Russian Quartz', ['RU'], 'mine'),
-      lead('Jiangsu Pacific Quartz', ['CN'], 'refine'),
-      lead('Momentive Technologies', ['US'], 'convert'),
-      lead('Shin-Etsu Quartz', ['JP'], 'convert'),
+      sourced('The Quartz Corp', ['NO', 'US'], 'mine', 'https://www.thequartzcorp.com/'),
+      sourced(
+        'Sibelco',
+        ['BE', 'US'],
+        'mine',
+        'https://www.sibelco.com/en/materials/high-purity-quartz',
+      ),
+      sourced('Russian Quartz', ['RU'], 'mine', 'https://russianquartz.com/en/products/'),
+      sourced('Jiangsu Pacific Quartz', ['CN'], 'refine', 'https://www.quartzpacificglobal.com/'),
+      sourced(
+        'Momentive Technologies',
+        ['US'],
+        'convert',
+        'https://www.momentivetech.com/products/quartz',
+      ),
+      sourced(
+        'Shin-Etsu Quartz',
+        ['JP'],
+        'convert',
+        'https://www.shinetsu.co.jp/en/products/electronics-materials/quartz-glass-products-materials-for-quartz-glass-products/',
+      ),
       lead('Ferrotec', ['JP', 'CN'], 'convert'),
     ],
   },
@@ -181,7 +280,12 @@ export const COVERAGE: readonly MaterialCoverage[] = [
       lead('Chinalco', ['CN'], 'refine'),
       lead('East Hope Group', ['CN'], 'refine'),
       lead('Zhuhai Fangyuan', ['CN'], 'refine'),
-      lead('Rio Tinto', ['CA'], 'refine'),
+      sourced(
+        'Rio Tinto',
+        ['CA'],
+        'refine',
+        'https://www.riotinto.com/en/news/releases/2025/rio-tinto-extracts-first-gallium-from-its-alumina-refining-process-with-partner-indium-corporation',
+      ),
       lead('Nyrstar', ['AU'], 'refine'),
       lead('5N Plus', ['CA'], 'convert'),
     ],
@@ -193,11 +297,26 @@ export const COVERAGE: readonly MaterialCoverage[] = [
     thesis:
       'Reactor time, not raw material, is the constraint. Growing optical-grade polycrystalline diamond is slow, and the qualified capacity is held by a handful of firms.',
     producers: [
-      lead('Element Six', ['GB', 'IE'], 'convert'),
-      lead('Coherent', ['US'], 'convert'),
-      lead('Diamond Materials', ['DE'], 'convert'),
-      lead('Applied Diamond', ['US'], 'convert'),
-      lead('Sumitomo Electric', ['JP'], 'convert'),
+      sourced(
+        'Element Six',
+        ['GB', 'IE'],
+        'convert',
+        'https://www.e6.com/products/next-generation-applications',
+      ),
+      sourced(
+        'Coherent',
+        ['US'],
+        'convert',
+        'https://www.coherent.com/optics/crystals/bulk-optical-materials/cvd-diamond-substrates',
+      ),
+      sourced('Diamond Materials', ['DE'], 'convert', 'https://www.diamond-materials.com/'),
+      sourced('Applied Diamond', ['US'], 'convert', 'https://usapplieddiamond.com/'),
+      sourced(
+        'Sumitomo Electric',
+        ['JP'],
+        'convert',
+        'https://sumitomoelectric.com/products/cvd-diamond',
+      ),
     ],
   },
   {
@@ -205,12 +324,22 @@ export const COVERAGE: readonly MaterialCoverage[] = [
     thesis:
       'The 150 mm to 200 mm transition resets everyone’s yield curve at once. Semi-insulating grade is a much smaller field than conductive SiC, and defect density is the gate.',
     producers: [
-      lead('Wolfspeed', ['US'], 'convert'),
-      lead('Coherent', ['US'], 'convert'),
+      sourced('Wolfspeed', ['US'], 'convert', 'https://www.wolfspeed.com/products/materials/'),
+      sourced(
+        'Coherent',
+        ['US'],
+        'convert',
+        'https://www.coherent.com/materials/wide-bandgap-electronics/sic-substrates-epitaxy',
+      ),
       lead('SK Siltron CSS', ['KR', 'US'], 'convert'),
-      lead('Resonac', ['JP'], 'convert'),
-      lead('SICC', ['CN'], 'convert'),
-      lead('TankeBlue', ['CN'], 'convert'),
+      sourced(
+        'Resonac',
+        ['JP'],
+        'convert',
+        'https://www.resonac.com/products/device-solution/82/12896.html',
+      ),
+      sourced('SICC', ['CN'], 'convert', 'https://www.sicc.cc/en'),
+      sourced('TankeBlue', ['CN'], 'convert', 'https://en.tankeblue.com/thgcd/index.html'),
     ],
   },
   {
@@ -232,13 +361,43 @@ export const COVERAGE: readonly MaterialCoverage[] = [
     thesis:
       'The binding constraint on datacentre energisation. Large power transformers queue for years, and the core steel behind them is made on a small number of qualified lines.',
     producers: [
-      lead('Nippon Steel', ['JP'], 'convert'),
-      lead('JFE Steel', ['JP'], 'convert'),
+      sourced(
+        'Nippon Steel',
+        ['JP'],
+        'convert',
+        'https://www.nipponsteel.com/en/product/sheet/magnetic_sheet.html',
+      ),
+      sourced(
+        'JFE Steel',
+        ['JP'],
+        'convert',
+        'https://www.jfe-steel.co.jp/en/products/electrical/product/',
+      ),
       lead('POSCO', ['KR'], 'convert'),
-      lead('ThyssenKrupp Electrical Steel', ['DE'], 'convert'),
-      lead('Cleveland-Cliffs', ['US'], 'convert'),
-      lead('Baosteel', ['CN'], 'convert'),
-      lead('Stalprodukt', ['PL'], 'convert'),
+      sourced(
+        'ThyssenKrupp Electrical Steel',
+        ['DE'],
+        'convert',
+        'https://www.thyssenkrupp-steel.com/de/unternehmen/business-units/electrical-steel/',
+      ),
+      sourced(
+        'Cleveland-Cliffs',
+        ['US'],
+        'convert',
+        'https://www.clevelandcliffs.com/operations/steelmaking/butler-works',
+      ),
+      sourced(
+        'Baosteel',
+        ['CN'],
+        'convert',
+        'http://www.ibaosteel.com/ibaosteel/productInfoEn/download',
+      ),
+      sourced(
+        'Stalprodukt',
+        ['PL'],
+        'convert',
+        'https://www.stalprodukt.com.pl/en/offer/grain-oriented-electrical-steel/',
+      ),
     ],
   },
   {
@@ -246,7 +405,12 @@ export const COVERAGE: readonly MaterialCoverage[] = [
     thesis:
       'A single high-field fusion magnet consumes tape by the kilometre. Annual world output is small enough that one programme’s order book moves the whole market.',
     producers: [
-      lead('Fujikura', ['JP'], 'convert'),
+      sourced(
+        'Fujikura',
+        ['JP'],
+        'convert',
+        'https://www.europe.fujikura.com/markets/industrial/superconductors/',
+      ),
       lead('Faraday Factory Japan', ['JP'], 'convert'),
       lead('SuperPower', ['US'], 'convert'),
       lead('MetOx', ['US'], 'convert'),
