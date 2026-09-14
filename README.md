@@ -31,6 +31,24 @@ the directory exist once, and the pages are those objects rendered.
 Every producer row starts unsourced and renders as "unverified lead", never as
 a finding. There is no trading desk and nothing here implies one.
 
+## The portal
+
+The front of the site is a board, not a document: four numbers, then every
+bottleneck as one row, grouped by the curve it gates and narrowed by links
+(`listkit` owns the URL query). Each row is a page — why it gates, who makes
+it, and the evidence — and the research programme is drawn as a ladder of loop
+layers to scale. The long-form pages (mandate, thesis, participants, acting,
+disclosure) still render from the same config and live in the footer.
+
+```
+app/page.tsx                    the board (/)
+app/bottlenecks/[slug]/page.tsx one page per bottleneck
+app/research/page.tsx           the programme, as a ladder
+app/[...path]/page.tsx          the document pages, via sitekit
+components/portal/              shell, board, ladder, status — portal-only markup
+lib/bottlenecks.ts              materials + chokepoints as one list, and the list spec
+```
+
 ## Research engine
 
 `research/evidence.json` is what the engine has found; `config/substrata-coverage.ts`
