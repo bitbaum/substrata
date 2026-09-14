@@ -1,41 +1,1268 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-14T11:08:49.352Z",
+  "generatedAt": "2026-09-14T11:21:08.673Z",
   "rows": [
+    {
+      "material": "300 mm prime silicon wafers",
+      "producer": "GlobalWafers",
+      "query": "\"GlobalWafers\" silicon wafer",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:15:27.203Z",
+      "candidates": [
+        {
+          "url": "https://www.gw-semi.com/",
+          "title": "Silicon Wafer Manufacturing | Globalwafers",
+          "excerpt": "Silicon Wafer Manufacturing | Globalwafers Skip to content About GlobalWafers Leading-Edge design and manufacturing. Manufacturing Locations We have state-of-the-art manufacturing locations around the w",
+          "matched": [
+            "GlobalWafers",
+            "silicon wafer",
+            "wafer",
+            "silicon"
+          ]
+        },
+        {
+          "url": "https://www.gw-semi.com/products/",
+          "title": "Products | High Resistivity Silicon Wafers by Globalwafers",
+          "excerpt": "Products | High Resistivity Silicon Wafers by Globalwafers Skip to content PRODUCTS Wafer Solutions GlobalWafers is a global leader in the manufacture and sale of wafers and related products to the semiconductor indust",
+          "matched": [
+            "GlobalWafers",
+            "silicon wafer",
+            "wafer",
+            "silicon"
+          ]
+        },
+        {
+          "url": "https://www.gw-semi.com/technology/",
+          "title": "Technology | Silicon Wafer Gettering Tech by Globalwafers",
+          "excerpt": "Technology | Silicon Wafer Gettering Tech by Globalwafers Skip to content TECHNOLOGY Application Issues Gettering Expand What is gettering and how does MDZ® help? The management of metal contamination is one of the mo",
+          "matched": [
+            "GlobalWafers",
+            "silicon wafer",
+            "wafer",
+            "silicon"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "300 mm prime silicon wafers",
+      "producer": "Shin-Etsu Handotai",
+      "query": "\"Shin-Etsu Handotai\" silicon wafer",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:15:17.631Z",
+      "candidates": [
+        {
+          "url": "https://www.sehe.com/",
+          "title": "Polished Wafer & Epitaxial Wafer | Shin-Etsu Handotai Europe",
+          "excerpt": "Polished Wafer & Epitaxial Wafer | Shin-Etsu Handotai Europe - - - - A GLOBAL LEADER Shin-Etsu Handotai Europe read more SEH Europe supports the semiconductor market with 150mm & 200mm, Polished Wafer & Epitaxial",
+          "matched": [
+            "Shin-Etsu Handotai",
+            "wafer"
+          ]
+        },
+        {
+          "url": "https://www.sehe.com/products/",
+          "title": "Products | Shin-Etsu Handotai Europe",
+          "excerpt": "Products | Shin-Etsu Handotai Europe A GLOBAL LEADER Products Introduction As the world’s leading silicon wafer (a substrate for integrated circuits) manufacturer, the Shin-Etsu Group conti",
+          "matched": [
+            "Shin-Etsu Handotai",
+            "silicon wafer",
+            "wafer",
+            "silicon"
+          ]
+        },
+        {
+          "url": "https://www.sehmy.com/Product/sehWafers.htm",
+          "title": "S.E.H. Malaysia Group",
+          "excerpt": "S.E.H. Malaysia Group Product S.E.H. Wafers Shin-Etsu Handotai, as a leading manufacturer of silicon wafer, is now providing various kinds of semiconductor substrate, to say nothing of silicon wafer, based on crystal growt",
+          "matched": [
+            "Shin-Etsu Handotai",
+            "silicon wafer",
+            "wafer",
+            "silicon"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "300 mm prime silicon wafers",
+      "producer": "Siltronic",
+      "query": "\"Siltronic\" silicon wafer",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:15:32.130Z",
+      "candidates": [
+        {
+          "url": "https://www.siltronic.com/de/produkte.html",
+          "title": "Produkte – Siltronic / perfect silicon solutions",
+          "excerpt": "Produkte – Siltronic / perfect silicon solutions Sprachen Deutsch English Siltronic AG Produkte Ohne das grau-schwarz glänzende Halbmetall Silizium, dem nach Sauerstoff zweithäufig",
+          "matched": [
+            "Siltronic",
+            "silicon"
+          ]
+        },
+        {
+          "url": "https://www.siltronic.com/de/index.html",
+          "title": "Siltronic / perfect silicon solutions",
+          "excerpt": "Siltronic / perfect silicon solutions Sprachen Deutsch English Unternehmensprofil Als einer der führenden Anbieter von Hightech-Waferlösungen ist Siltronic global ausger",
+          "matched": [
+            "Siltronic",
+            "wafer",
+            "silicon"
+          ]
+        },
+        {
+          "url": "https://www.siltronic.com/en/",
+          "title": "Siltronic / perfect silicon solutions",
+          "excerpt": "Siltronic / perfect silicon solutions Languages Deutsch English Company profile As one of the leading providers of high tech wafer solutions, Siltronic operates globally",
+          "matched": [
+            "Siltronic",
+            "wafer",
+            "silicon"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "300 mm prime silicon wafers",
+      "producer": "SK Siltron",
+      "query": "\"SK Siltron\" silicon wafer",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:15:35.606Z",
+      "candidates": [
+        {
+          "url": "https://www.sksiltron.com/m/en/wafer/wafer.do",
+          "title": "SK실트론",
+          "excerpt": "increasing for next-generation wafers. 200 mm Non-memory chip Analog (PMIC) Power Discrete CIS 300 mm Non-memory chip MPU CIS Logic (Driver IC) Core Technology SK siltron offers advanced solutions for future markets that demand higher perfection and to satisfy the various needs of global partners based on world-class defect free",
+          "matched": [
+            "SK Siltron",
+            "wafer"
+          ]
+        },
+        {
+          "url": "https://www.sksiltron.com/en/wafer/waferC.do",
+          "title": "SK실트론",
+          "excerpt": "e epitaxy. ApplicationSchottky Schottky Diode, Pin Diodes and Switches, High Current and Voltage MOSFETs / JFETs / BJTs Prime Grade Portfolio All SiC wafers in SK Siltron CSS’s 100 mm and 150 mm Prime Grade portfolios deliver consistently excellent mechanical characteristics to ensure compatibility with existing and developing d",
+          "matched": [
+            "SK Siltron",
+            "wafer"
+          ]
+        },
+        {
+          "url": "https://www.thelec.net/news/articleView.html?idxno=12315",
+          "title": "SK Siltron to Liquidate US SiC Wafer Subsidiary This Year < Supply Chain < 기사본문 - The Elec Inc.",
+          "excerpt": "SK Siltron to Liquidate US SiC Wafer Subsidiary This Year 이전 기사보기 다음 기사보기 SK Siltron to Liquidate US SiC Wafer Subsidiary This Year 가 가 The body content of the article wi",
+          "matched": [
+            "SK Siltron",
+            "wafer"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "300 mm prime silicon wafers",
+      "producer": "SUMCO",
+      "query": "\"SUMCO\" silicon wafer",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:15:22.265Z",
+      "candidates": [
+        {
+          "url": "https://www.sumcosi.com/english/",
+          "title": "SUMCO CORPORATION - High Quality Silicon Wafers",
+          "excerpt": "SUMCO CORPORATION - High Quality Silicon Wafers Empowering the World through Silicon Wafers 01 / 04 Official website of SUMCO Corporation, a manufacturer of high-qua",
+          "matched": [
+            "SUMCO",
+            "silicon wafer",
+            "wafer",
+            "silicon"
+          ]
+        },
+        {
+          "url": "https://www.sumcosi.com/english/products/lineup.html",
+          "title": "Product Lineup│Products│SUMCO CORPORATION",
+          "excerpt": "Product Lineup│Products│SUMCO CORPORATION Product Lineup SUMCO provides high-quality silicon wafers supporting the semiconductor industry at the leading edge. Raw materials with the highest",
+          "matched": [
+            "SUMCO",
+            "silicon wafer",
+            "wafer",
+            "silicon"
+          ]
+        },
+        {
+          "url": "https://www.sumcosi.com/english/products/",
+          "title": "Products│SUMCO CORPORATION",
+          "excerpt": "Products│SUMCO CORPORATION Products Anticipating needs to evolve toward a richer future, SUMCO's silicon wafers deliver high-performance and high-quality products. Silicon wa",
+          "matched": [
+            "SUMCO",
+            "silicon wafer",
+            "wafer",
+            "silicon"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Crucible-grade high-purity quartz sand",
+      "producer": "Ferrotec",
+      "query": "\"Ferrotec\" quartz",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:16:11.899Z",
+      "candidates": [
+        {
+          "url": "https://quartz.ferrotec.com/",
+          "title": "Ferrotec Fabricated Quartzware",
+          "excerpt": "Ferrotec Fabricated Quartzware Fabricated Quartzware Partnering with OEMs to supply high-volume, cost-effective precision fabrication Learn More Partnering with OEMs to",
+          "matched": [
+            "Ferrotec",
+            "quartz"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Crucible-grade high-purity quartz sand",
+      "producer": "Jiangsu Pacific Quartz",
+      "query": "\"Jiangsu Pacific Quartz\" quartz",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:15:52.608Z",
+      "candidates": [
+        {
+          "url": "https://www.quartzpacificglobal.com/",
+          "title": "China Quartz for Semiconductor Application, Quartz for Lighting Application, Quartz for Solar Application Suppliers, Manufacturers, Factory - Jiangsu Pacific Quartz Co., Ltd",
+          "excerpt": "China Quartz for Semiconductor Application, Quartz for Lighting Application, Quartz for Solar Application Suppliers, Manufacturers, Factory - Jiangsu Pacific Quartz Co., Ltd Provide High-End Quartz Material Solutions Learn More Provide High-End Quartz Material Solutions Learn More Provide High-End Quartz Material Solutions",
+          "matched": [
+            "Jiangsu Pacific Quartz",
+            "quartz"
+          ]
+        },
+        {
+          "url": "https://de.quartzpacificglobal.com/",
+          "title": "China Quarz für Halbleiteranwendungen, Quarz für Beleuchtungsanwendungen, Quarz für Solaranwendungen Lieferanten, Hersteller, Fabrik - Jiangsu Pacific Quartz Co., Ltd",
+          "excerpt": "China Quarz für Halbleiteranwendungen, Quarz für Beleuchtungsanwendungen, Quarz für Solaranwendungen Lieferanten, Hersteller, Fabrik - Jiangsu Pacific Quartz Co., Ltd Provide High-End Quartz Material Solutions Learn More Provide High-End Quartz Material Solutions Learn More Provide High-End Quartz Material Solutions",
+          "matched": [
+            "Jiangsu Pacific Quartz",
+            "quartz"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Crucible-grade high-purity quartz sand",
+      "producer": "Momentive Technologies",
+      "query": "\"Momentive Technologies\" quartz",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:15:56.753Z",
+      "candidates": [
+        {
+          "url": "https://www.momentivetech.com/products/quartz",
+          "title": "Fused Quartz – Momentive Technologies",
+          "excerpt": "Fused Quartz – Momentive Technologies Menu Fused Quartz: Uniquely Versatile Home | Products | Fused Quartz Momentive Technologies offers a comprehensive range of high-purity fused quartz products d",
+          "matched": [
+            "Momentive Technologies",
+            "quartz"
+          ]
+        },
+        {
+          "url": "https://www.momentivetech.com/product_category/quartz",
+          "title": "Quartz – Momentive Technologies",
+          "excerpt": "Quartz – Momentive Technologies Skip to content Quartz Rods Offering strength and optical clarity. Ideal for precision equipment and semiconductor manufacturing. Rods Read More » Tubes Offeri",
+          "matched": [
+            "Momentive Technologies",
+            "quartz"
+          ]
+        },
+        {
+          "url": "https://www.momentivetech.com/home-2025",
+          "title": "Home – Momentive Technologies",
+          "excerpt": "alued for its exceptional purity and stability under extreme temperatures. This makes our products indispensable across a variety of demanding applications. At Momentive Technologies, we stand as the global leader in fused quartz. As the original user to one of the purest quartz mines in the U.S., we ensure an unmatched and reliable supply",
+          "matched": [
+            "Momentive Technologies",
+            "quartz"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Crucible-grade high-purity quartz sand",
+      "producer": "Russian Quartz",
+      "query": "\"Russian Quartz\" quartz",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:15:48.898Z",
+      "candidates": [
+        {
+          "url": "https://russianquartz.com/en/products/",
+          "title": "Products",
+          "excerpt": "Products / Products Products The Company produces HPQ concentrates under the brand name Russian Quartz (RQ). RQ’s HPQ is a product of grinding of natural quartz, purified from mineral and chemical impurities. RQ offers the following product rage of HPQ products:",
+          "matched": [
+            "Russian Quartz",
+            "quartz"
+          ]
+        },
+        {
+          "url": "https://russianquartz.com/en/about-us/quartz-deposit/",
+          "title": "Quartz Deposit",
+          "excerpt": "1960s and for more than 50 years has been successfully used as a raw material for different applications. Now the deposit is being a reliable resource base for Russian Quartz LLC. The main source of high-purity quartz lump is a unique object - Quartz Vein No. 175, containing natural quartz with a rare combination of properties: larg",
+          "matched": [
+            "Russian Quartz",
+            "quartz"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Crucible-grade high-purity quartz sand",
+      "producer": "Shin-Etsu Quartz",
+      "query": "\"Shin-Etsu Quartz\" quartz",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:16:00.304Z",
+      "candidates": [
+        {
+          "url": "https://www.shinetsu.co.jp/en/products/electronics-materials/quartz-glass-products-materials-for-quartz-glass-products/",
+          "title": "Quartz glass products, Materials for quartz glass products | Electronics Materials | Business & Products | Shin-Etsu Chemical Co., Ltd.",
+          "excerpt": "s products, Materials for quartz glass products Home > Business & Products > Electronics Materials > Quartz glass products, Materials for quartz glass products Shin-Etsu Quartz Products Co., Ltd. offers quartz glass products for various manufacturing process that requires good heat resistance and high purity, basaed on customer’s spec",
+          "matched": [
+            "Shin-Etsu Quartz",
+            "quartz"
+          ]
+        },
+        {
+          "url": "https://www.shinetsu.co.jp/en/products/electronics-materials/quartz-glass-for-lamps/",
+          "title": "Quartz Glass for Lamps | Electronics Materials | Business & Products | Shin-Etsu Chemical Co., Ltd.",
+          "excerpt": "ocial Sustainability Report Sustainability Data News &times; Quartz Glass for Lamps Home > Business & Products > Electronics Materials > Quartz Glass for Lamps Shin-Etsu Quartz Products Co., Ltd. offers a broad line-up, from natural quartz glass and ozone-free quartz glass all the way to ultra-high purity synthetic quartz glass suitab",
+          "matched": [
+            "Shin-Etsu Quartz",
+            "quartz"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Crucible-grade high-purity quartz sand",
+      "producer": "Sibelco",
+      "query": "\"Sibelco\" quartz",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:15:45.060Z",
+      "candidates": [
+        {
+          "url": "https://www.sibelco.com/en/materials/high-purity-quartz",
+          "title": "High Purity Quartz",
+          "excerpt": "aiwan Thailand Asia Pacific Europe, Middle East & Africa North America South America Back to all products High Purity Quartz Explore the wide range of benefits Sibelco IOTA® high purity quartz (HPQ) brings to semiconductors, photovoltaic cells, optical fiber, and quartz lighting. Scroll down about High Purity Quartz Sibelco’s",
+          "matched": [
+            "Sibelco",
+            "quartz"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Crucible-grade high-purity quartz sand",
+      "producer": "The Quartz Corp",
+      "query": "\"The Quartz Corp\" quartz",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:15:42.063Z",
+      "candidates": [
+        {
+          "url": "https://www.thequartzcorp.com/",
+          "title": "The Quartz Corp | The Quartz Corp",
+          "excerpt": "The Quartz Corp | The Quartz Corp Skip to main content We Engineer Rocks for a Better World Powering the industries of tomorrow with ultra-pure quartz essential to the te",
+          "matched": [
+            "The Quartz",
+            "quartz"
+          ]
+        },
+        {
+          "url": "https://www.thequartzcorp.com/quartz-in-your-world",
+          "title": "Quartz in your world | The Quartz Corp",
+          "excerpt": "Quartz in your world | The Quartz Corp Skip to main content We engineer rocks that advance us advance us Quartz is the invisible hero in the production of the high tech tools you know and love",
+          "matched": [
+            "The Quartz",
+            "quartz"
+          ]
+        },
+        {
+          "url": "https://www.thequartzcorp.com/from-quartz-to-life",
+          "title": "From Quartz to Life | The Quartz Corp",
+          "excerpt": "From Quartz to Life | The Quartz Corp Skip to main content From quartz to life “ It's gone from manual labor to very high-tech in a few years, and we are able to be part of an industry in tran",
+          "matched": [
+            "The Quartz",
+            "quartz"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "CVD synthetic diamond heat spreader",
+      "producer": "Applied Diamond",
+      "query": "\"Applied Diamond\" CVD diamond",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:17:13.668Z",
+      "candidates": [
+        {
+          "url": "https://usapplieddiamond.com/",
+          "title": "Applied Diamond, Inc.",
+          "excerpt": "Applied Diamond, Inc. Natural and synthetic diamond products In-house diamond synthesis by microwave plasma CVD process Diamond in orientations of <110>, <111>, and <100> HP/H",
+          "matched": [
+            "Applied Diamond",
+            "diamond",
+            "cvd"
+          ]
+        },
+        {
+          "url": "https://usapplieddiamond.com/why-diamond/",
+          "title": "“Why Diamond?” | Applied Diamond, Inc.",
+          "excerpt": "“Why Diamond?” | Applied Diamond, Inc. Why Diamond? Diamond is a unique material in many ways beyond just its position on the Mohs scale. It possesses the highest thermal conductivity of any m",
+          "matched": [
+            "Applied Diamond",
+            "diamond",
+            "thermal"
+          ]
+        },
+        {
+          "url": "https://www.azom.com/suppliers.aspx?SupplierID=10776",
+          "title": "Applied Diamond, Inc. : Quotes, Address, Contact",
+          "excerpt": "Applied Diamond, Inc. : Quotes, Address, Contact",
+          "matched": [
+            "Applied Diamond",
+            "diamond"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "CVD synthetic diamond heat spreader",
+      "producer": "Coherent",
+      "query": "\"Coherent\" CVD diamond",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:17:04.330Z",
+      "candidates": [
+        {
+          "url": "https://www.coherent.com/optics/crystals/bulk-optical-materials/cvd-diamond-substrates",
+          "title": "CVD Diamond Substrates | Coherent",
+          "excerpt": "CVD Diamond Substrates | Coherent Optics CVD Diamond Substrates Enjoy the benefits of diamond's unique properties – very broad transmission range, extraordinary hardness, high thermal conductiv",
+          "matched": [
+            "Coherent",
+            "cvd diamond",
+            "diamond",
+            "thermal",
+            "cvd"
+          ]
+        },
+        {
+          "url": "https://www.coherent.com/de/optics/crystals/bulk-optical-materials/cvd-diamond-substrates",
+          "title": "CVD-Diamantsubstrate | Coherent",
+          "excerpt": "CVD-Diamantsubstrate | Coherent Optiken CVD-Diamantsubstrate Profitieren Sie von den einzigartigen Eigenschaften von Diamanten – sehr breiter Übertragungsbereich, außergewöhnliche Härte und h",
+          "matched": [
+            "Coherent",
+            "cvd"
+          ]
+        },
+        {
+          "url": "https://www.coherent.com/news/blog/diamond-heat-spreaders",
+          "title": "The Cold Hard Facts about Diamond Heat Spreaders | Coherent",
+          "excerpt": "The Cold Hard Facts about Diamond Heat Spreaders | Coherent The Cold Hard Facts about Diamond Heat Spreaders An unmatched combination of high thermal conductivity and extreme electrical insulation is key to the growing",
+          "matched": [
+            "Coherent",
+            "diamond",
+            "thermal"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "CVD synthetic diamond heat spreader",
+      "producer": "Diamond Materials",
+      "query": "\"Diamond Materials\" CVD diamond",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:17:10.070Z",
+      "candidates": [
+        {
+          "url": "https://www.diamond-materials.com/cvd-diamant/",
+          "title": "Eigenschaften von CVD-Diamant – Diamond Materials",
+          "excerpt": "Eigenschaften von CVD-Diamant – Diamond Materials Startseite CVD-Diamant Eigenschaften von CVD-Diamant div; cls: uk-animation-slide-left-small; delay: 100\"> Strahlteiler Zu den Kernkompetenzen von Diamond Mate",
+          "matched": [
+            "Diamond Materials",
+            "diamond",
+            "cvd"
+          ]
+        },
+        {
+          "url": "https://www.diamond-materials.com/",
+          "title": "Diamond Materials – Diamond grown in Freiburg, Germany",
+          "excerpt": "Diamond Materials – Diamond grown in Freiburg, Germany Advanced diamond technology CVD diamond: an extreme material for extreme applications Unsere Produkte Advanced diamond tec",
+          "matched": [
+            "Diamond Materials",
+            "cvd diamond",
+            "diamond",
+            "cvd"
+          ]
+        },
+        {
+          "url": "https://www.diamond-materials.com/cvd-diamant/optisch/",
+          "title": "Optische Eigenschaften von CVD-Diamant – Diamond Materials",
+          "excerpt": "Optische Eigenschaften von CVD-Diamant – Diamond Materials Startseite CVD-Diamant Optisch Optische Eigenschaften von CVD-Diamant div; cls: uk-animation-slide-left-small; delay: 100\"> Der Transparenzbereich von Diamant",
+          "matched": [
+            "Diamond Materials",
+            "diamond",
+            "cvd"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "CVD synthetic diamond heat spreader",
+      "producer": "Element Six",
+      "query": "\"Element Six\" CVD diamond",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:16:59.766Z",
+      "candidates": [
+        {
+          "url": "https://www.e6.com/products/next-generation-applications",
+          "title": "CVD Diamond Applications | Element Six - Element Six",
+          "excerpt": "CVD Diamond Applications | Element Six - Element Six Contact Us 中文 English Deutsch 日本語 Home Products Energy Machining Road, Mining & Construction Thermal Management Wear Grits Semiconductors Optics",
+          "matched": [
+            "Element Six",
+            "cvd diamond",
+            "diamond",
+            "thermal",
+            "cvd"
+          ]
+        },
+        {
+          "url": "https://www.e6.com/de/products/next-generation-applications",
+          "title": "APPLIKATIONEN DER NäCHSTEN GENERATION - HOCHLEISTUNGSWERKSTOFFE, DIE DIE ZUKUNFT GESTALTEN - Element Six",
+          "excerpt": "Sie uns Deutsch 中文 English Deutsch 日本語 APPLIKATIONEN DER NäCHSTEN GENERATION HOCHLEISTUNGSWERKSTOFFE, DIE DIE ZUKUNFT GESTALTEN Die CVD-Diamant-Qualitäten von Element Six treten Ihnen Herausforderungen entgegen, und liefern einzigartige Lösungen für eine Vielzahl an Anwendungen. Von unvergleichlicher Audioqualität bis zur Quante",
+          "matched": [
+            "Element Six",
+            "cvd"
+          ]
+        },
+        {
+          "url": "https://www.e6.com/de/products/thermal-management",
+          "title": "THERMISCHES WÄRMEMANAGEMENT - CVD-DIAMANT FÜR GRÖSSERE ENERGIEDICHTE - Element Six",
+          "excerpt": "THERMISCHES WÄRMEMANAGEMENT - CVD-DIAMANT FÜR GRÖSSERE ENERGIEDICHTE - Element Six Kontaktieren Sie uns 中文 English Deutsch 日本語 Startseite Produkte Energie ZERSPANUNG STRASSENBAU, BERGBAU UND BAUWESEN Thermisches Wärmemanagement Verschleiss Kö",
+          "matched": [
+            "Element Six",
+            "cvd"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "CVD synthetic diamond heat spreader",
+      "producer": "Sumitomo Electric",
+      "query": "\"Sumitomo Electric\" CVD diamond",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:17:22.605Z",
+      "candidates": [
+        {
+          "url": "https://sumitomoelectric.com/products/cvd-diamond",
+          "title": "CVD diamond (Chemical Vapor Deposition-Diamond) | Sumitomo Electric",
+          "excerpt": "CVD diamond (Chemical Vapor Deposition-Diamond) | Sumitomo Electric Contact Us Global | EN R&D R&D Message from General Manager of R&D Unit R&D Vision Environment and Energy Infocommunications Automotive Electronics Industrial",
+          "matched": [
+            "Sumitomo Electric",
+            "cvd diamond",
+            "diamond",
+            "cvd"
+          ]
+        },
+        {
+          "url": "https://sumitomoelectric.com/products/diamonds-single-crystal",
+          "title": "Diamonds (Single Crystal) | Sumitomo Electric",
+          "excerpt": "Diamonds (Single Crystal) | Sumitomo Electric Contact Us Global | EN R&D R&D Message from General Manager of R&D Unit R&D Vision Environment and Energy Infocommunications Automotive Electronics Industrial",
+          "matched": [
+            "Sumitomo Electric",
+            "diamond"
+          ]
+        },
+        {
+          "url": "https://sumitomoelectric.com/articles/nano-polycrystalline-diamonds-for-cutting-tools-in-manufacturing",
+          "title": "\"Synthetic Diamonds Strengthen Our Future | Articles | Sumitomo Electric Industries, Ltd.\"",
+          "excerpt": "\"Synthetic Diamonds Strengthen Our Future | Articles | Sumitomo Electric Industries, Ltd.\" Contact Us Global | EN R&D R&D Message from General Manager of R&D Unit R&D Vision Environment and Energy Infocommunications Automotive Elect",
+          "matched": [
+            "Sumitomo Electric",
+            "diamond"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Didymium (Nd-Pr) metal, magnet feed",
+      "producer": "China Northern Rare Earth",
+      "query": "\"China Northern Rare Earth\" rare earth",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:20:41.697Z",
+      "candidates": []
+    },
+    {
+      "material": "Didymium (Nd-Pr) metal, magnet feed",
+      "producer": "Lynas Rare Earths",
+      "query": "\"Lynas Rare Earths\" rare earth",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:20:50.684Z",
+      "candidates": []
+    },
+    {
+      "material": "Didymium (Nd-Pr) metal, magnet feed",
+      "producer": "MP Materials",
+      "query": "\"MP Materials\" rare earth",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:20:52.796Z",
+      "candidates": []
+    },
+    {
+      "material": "Didymium (Nd-Pr) metal, magnet feed",
+      "producer": "Neo Performance Materials",
+      "query": "\"Neo Performance Materials\" rare earth",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:20:55.110Z",
+      "candidates": []
+    },
+    {
+      "material": "Didymium (Nd-Pr) metal, magnet feed",
+      "producer": "Shenghe Resources",
+      "query": "\"Shenghe Resources\" rare earth",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:20:44.018Z",
+      "candidates": []
+    },
+    {
+      "material": "Didymium (Nd-Pr) metal, magnet feed",
+      "producer": "Solvay",
+      "query": "\"Solvay\" rare earth",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:20:57.638Z",
+      "candidates": []
+    },
+    {
+      "material": "Dysprosium metal",
+      "producer": "China Rare Earth Group",
+      "query": "\"China Rare Earth Group\" dysprosium",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:20:59.710Z",
+      "candidates": []
+    },
+    {
+      "material": "Dysprosium metal",
+      "producer": "Less Common Metals",
+      "query": "\"Less Common Metals\" dysprosium",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:21:08.673Z",
+      "candidates": []
+    },
+    {
+      "material": "Dysprosium metal",
+      "producer": "Lynas Rare Earths",
+      "query": "\"Lynas Rare Earths\" dysprosium",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:21:04.102Z",
+      "candidates": []
+    },
+    {
+      "material": "Dysprosium metal",
+      "producer": "Neo Performance Materials",
+      "query": "\"Neo Performance Materials\" dysprosium",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:21:06.425Z",
+      "candidates": []
+    },
+    {
+      "material": "Dysprosium metal",
+      "producer": "Shenghe Resources",
+      "query": "\"Shenghe Resources\" dysprosium",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:21:02.088Z",
+      "candidates": []
+    },
+    {
+      "material": "Electronic-grade polysilicon",
+      "producer": "Hemlock Semiconductor",
+      "query": "\"Hemlock Semiconductor\" polysilicon",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:14:45.776Z",
+      "candidates": [
+        {
+          "url": "https://www.hscpoly.com/",
+          "title": "Home - Hemlock Semiconductor",
+          "excerpt": "Home - Hemlock Semiconductor Skip to content We create the world’s purest human-made substance: polysilicon. Hemlock Semiconductor celebrates 65 years of innovation and impact Connecting &",
+          "matched": [
+            "Hemlock Semiconductor",
+            "polysilicon"
+          ]
+        },
+        {
+          "url": "https://www.hscpoly.com/about/",
+          "title": "Hemlock Semiconductor: Advancing technology with polysilicon - Hemlock Semiconductor",
+          "excerpt": "Hemlock Semiconductor: Advancing technology with polysilicon - Hemlock Semiconductor Skip to content Home › About Hemlock Semiconductor: Creating polysilicon, advancing technology.",
+          "matched": [
+            "Hemlock Semiconductor",
+            "polysilicon"
+          ]
+        },
+        {
+          "url": "https://www.hscpoly.com/markets-technologies/electronics/",
+          "title": "Electronics - Hemlock Semiconductor",
+          "excerpt": "Electronics - Hemlock Semiconductor Skip to content Home › Markets & Technologies › Electronics Electronics HSC polysilicon and Electronics: A Collaboration for Innovation. The invention of the i",
+          "matched": [
+            "Hemlock Semiconductor",
+            "polysilicon"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Electronic-grade polysilicon",
+      "producer": "Mitsubishi Materials",
+      "query": "\"Mitsubishi Materials\" polysilicon",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:15:03.105Z",
+      "candidates": [
+        {
+          "url": "https://www.mmtc.co.jp/en/products/silicon-h.html",
+          "title": "High-purity polycrystalline silicon and single-crystal silicon | Products, Services | MITSUBISHI MATERIALS TRADING CORPORATION",
+          "excerpt": "High-purity polycrystalline silicon and single-crystal silicon | Products, Services | MITSUBISHI MATERIALS TRADING CORPORATION High-purity polycrystalline silicon and single-crystal silicon Stop Play The polycrystalline silicon is “Eleven 9s,” or 99.999999999% pure,",
+          "matched": [
+            "Mitsubishi Materials",
+            "high-purity"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Electronic-grade polysilicon",
+      "producer": "OCI",
+      "query": "\"OCI\" polysilicon",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:14:58.147Z",
+      "candidates": [
+        {
+          "url": "https://www.oci.co.kr/en/products/semiconductor/polysilicon",
+          "title": "OCI",
+          "excerpt": "OCI OCI NOW Stock price information KRX - % Main report News Product inquiry Recruitment Contact HOME PRODUCTS Semiconductor Materials Polysilicon Polysilicon #Sem",
+          "matched": [
+            "OCI",
+            "polysilicon"
+          ]
+        },
+        {
+          "url": "https://www.pv-tech.org/oci-holdings-double-polysilicon-production-meet-us-demand/",
+          "title": "OCI Holdings to double polysilicon production to meet US demand - PV Tech",
+          "excerpt": "OCI Holdings to double polysilicon production to meet US demand - PV Tech Skip to content News OCI Holdings to double polysilicon production to meet US demand By J",
+          "matched": [
+            "OCI",
+            "polysilicon"
+          ]
+        },
+        {
+          "url": "https://www.pv-magazine.com/2026/07/28/oci-holdings-plans-to-double-polysilicon-production-capacity-by-2029/",
+          "title": "OCI Holdings plans to double polysilicon production capacity by 2029 - pv magazine Global",
+          "excerpt": "OCI Holdings plans to double polysilicon production capacity by 2029 - pv magazine Global Advertisement Advertisement Advertisement Advertisement Technology & Prod",
+          "matched": [
+            "OCI",
+            "polysilicon"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Electronic-grade polysilicon",
+      "producer": "REC Silicon",
+      "query": "\"REC Silicon\" polysilicon",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:15:09.461Z",
+      "candidates": [
+        {
+          "url": "https://www.bernreuter.com/newsroom/polysilicon-news/article/how-hanwha-sabotaged-rec-silicon-s-granular-polysilicon-plant/",
+          "title": "How Hanwha sabotaged REC Silicon’s granular-polysilicon plant",
+          "excerpt": "How Hanwha sabotaged REC Silicon’s granular-polysilicon plant EN Newsroom Polysilicon News Article How Hanwha sabotaged REC Silicon’s granular-polysilicon plant September 08, 2025 Has Hanwha i",
+          "matched": [
+            "REC Silicon",
+            "polysilicon"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Electronic-grade polysilicon",
+      "producer": "Tokuyama",
+      "query": "\"Tokuyama\" polysilicon",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:14:51.782Z",
+      "candidates": [
+        {
+          "url": "https://www.tokuyama.co.jp/eng/products/electronic_materials/polysilicon.html",
+          "title": "High-purity Polycrystalline Silicon | Electronic Materials Business Division | Products | Tokuyama",
+          "excerpt": "High-purity Polycrystalline Silicon | Electronic Materials Business Division | Products | Tokuyama Products HOME Products High-purity Polycrystalline Silicon High-purity Polycrystalline Silicon Tokuyama’s high-purity polycrystalline silicon has the world’s h",
+          "matched": [
+            "Tokuyama",
+            "high-purity"
+          ]
+        },
+        {
+          "url": "https://www.finanznachrichten.de/nachrichten-2026-08/69413907-japan-s-tokuyama-opens-polysilicon-factory-in-vietnam-451.htm",
+          "title": "Japan's Tokuyama opens polysilicon factory in Vietnam",
+          "excerpt": "Japan's Tokuyama opens polysilicon factory in Vietnam Anzeige ❌ Mehr » Ad hoc-Mitteilungen : Aktien &raquo; Nachrichten &raquo; TOKUYAMA AKTIE &raquo; Japan's Tokuyama opens po",
+          "matched": [
+            "Tokuyama",
+            "polysilicon"
+          ]
+        },
+        {
+          "url": "https://www.pv-magazine-india.com/2026/08/27/japans-tokuyama-opens-polysilicon-factory-in-vietnam/",
+          "title": "Japan’s Tokuyama opens polysilicon factory in Vietnam - pv magazine India",
+          "excerpt": "Japan’s Tokuyama opens polysilicon factory in Vietnam - pv magazine India Advertisement Advertisement Advertisement Advertisement Markets & Policy See all Japan’s Tokuyama open",
+          "matched": [
+            "Tokuyama",
+            "polysilicon"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Electronic-grade polysilicon",
+      "producer": "Wacker Chemie",
+      "query": "\"Wacker Chemie\" polysilicon",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:14:42.432Z",
+      "candidates": [
+        {
+          "url": "https://www.wacker.com/cms/de-de/about-wacker/profile-and-organization/wacker-polysilicon.html",
+          "title": "Geschäftsbereich Polysilicon – rein und kostengünstig - Wacker Chemie AG",
+          "excerpt": "Geschäftsbereich Polysilicon – rein und kostengünstig - Wacker Chemie AG Direkt zum Inhalt Suche Schließen Produktsuche Jobsuche Medienbibliothek Menü Unser System hat erkannt, dass Sie aus kommen aber die aktuelle Ländereinstell",
+          "matched": [
+            "Wacker Chemie",
+            "polysilicon"
+          ]
+        },
+        {
+          "url": "https://www.wacker.com/cms/de-de/products/brands/polysilicon/polysilicon.html",
+          "title": "POLYSILICIUM Rohstoff - Wacker Chemie AG",
+          "excerpt": "POLYSILICIUM Rohstoff - Wacker Chemie AG Direkt zum Inhalt Suche Schließen Produktsuche Jobsuche Medienbibliothek Menü Home Produkte & Services Marken POLYSILICON &reg; POLYSILICIUM WACKER ist ein",
+          "matched": [
+            "Wacker Chemie",
+            "polysilicon"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Gallium, refined",
+      "producer": "5N Plus",
+      "query": "\"5N Plus\" gallium",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:16:54.250Z",
+      "candidates": [
+        {
+          "url": "http://www.5nplus.com.s3-website-us-east-1.amazonaws.com/pure-metals.html",
+          "title": "Pure Metals",
+          "excerpt": "materials on earth and in space Visit the website > Visit the website > \" /> Bismuth Tellurium Gallium Pure Metals Starting with commercial quality materials, 5N Plus uses a combination of physical and chemical purification techniques to produce 5N, 6N and 7N purity metals, which we offer in a variety of shapes for electroni",
+          "matched": [
+            "5N Plus",
+            "gallium"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Gallium, refined",
+      "producer": "Chinalco",
+      "query": "\"Chinalco\" gallium",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:16:16.426Z",
+      "candidates": [
+        {
+          "url": "https://www.yicaiglobal.com/news/central-soe-chinalco-to-set-up-rare-metals-operation-platform-for-resource-integration",
+          "title": "Chinalco, Units to Pool Rare Metal Assets in Bid to Cement Industry Lead",
+          "excerpt": "g Zinc will mainly add assets. Chinalco will have the largest stake at 25 percent. Chalco, Yunnan Copper, and Yunnan Chihong Zinc will each own 20 percent, and Chinalco Capital 15 percent. Chalco will mainly chip in its high-purity gallium production lines, while Yunnan Chihong Zinc will contribute its wholly owned subsidiary,",
+          "matched": [
+            "Chinalco",
+            "gallium"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Gallium, refined",
+      "producer": "East Hope Group",
+      "query": "\"East Hope Group\" gallium",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:16:28.900Z",
+      "candidates": [
+        {
+          "url": "https://www.mordorintelligence.com/industry-reports/gallium-market",
+          "title": "Gallium Market Share, Size & Growth Outlook to 2030",
+          "excerpt": "allium market is partially consolidated in nature. The major players in the market (not in any particular order) include Aluminum Corporation of China Limited, East Hope Group, Infineon Technologies AG, NXP Semiconductors, and Qorvo, Inc, among others. Gallium Industry Leaders Aluminum Corporation of China Limited East Hope Gro",
+          "matched": [
+            "East Hope",
+            "gallium"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Gallium, refined",
+      "producer": "Nyrstar",
+      "query": "\"Nyrstar\" gallium",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:16:49.611Z",
+      "candidates": []
+    },
+    {
+      "material": "Gallium, refined",
+      "producer": "Rio Tinto",
+      "query": "\"Rio Tinto\" gallium",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:16:41.851Z",
+      "candidates": [
+        {
+          "url": "https://www.riotinto.com/en/news/releases/2026/rio-tinto-advances-gallium-metal-rd-project-in-partnership-with-the-government-of-canada",
+          "title": "Rio Tinto advances gallium metal R&D project in partnership with the Government of Canada | Global",
+          "excerpt": "Rio Tinto advances gallium metal R&D project in partnership with the Government of Canada | Global Rio Tinto advances gallium metal R&D project in partnership with the G",
+          "matched": [
+            "Rio Tinto",
+            "gallium"
+          ]
+        },
+        {
+          "url": "https://www.riotinto.com/en/news/releases/2025/rio-tinto-extracts-first-gallium-from-its-alumina-refining-process-with-partner-indium-corporation",
+          "title": "Rio Tinto extracts first gallium from its alumina refining process with partner Indium Corporation | Global",
+          "excerpt": "Rio Tinto extracts first gallium from its alumina refining process with partner Indium Corporation | Global Rio Tinto extracts first gallium from its alumina refining pr",
+          "matched": [
+            "Rio Tinto",
+            "gallium"
+          ]
+        },
+        {
+          "url": "https://portfoliopilot.com/explore/stock-screener/gallium-mining-stocks-today",
+          "title": "Gallium Mining Stocks Today - Live Rankings | PortfolioPilot.com",
+          "excerpt": "his quarter bottle recycling south australia Highest 1-year return Fitness & Wellness stocks for value investors Frequently Asked Questions Q: Why might \"RIO\" (Rio Tinto) be appealing for investors interested in gallium mining? A: Rio Tinto (RIO) has a diversified mining portfolio, potentially including rare metals like gallium",
+          "matched": [
+            "Rio Tinto",
+            "gallium"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Gallium, refined",
+      "producer": "Zhuhai Fangyuan",
+      "query": "\"Zhuhai Fangyuan\" gallium",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:16:35.326Z",
+      "candidates": [
+        {
+          "url": "https://wap.asianmetal.com/interview/2019/interview_jialibingEn.shtml",
+          "title": "Fanya gallium metal stocks not expected to enter market soon - Asian Metal",
+          "excerpt": "ew with Jia Libing Chairman Zhuhai SEZ Fangyuan Inc. Registered and founded in Zhuhai, Guangdong in 1996, Zhuhai SEZ Fangyuan Inc. (hereinafter referred to as \"Zhuhai Fangyuan\") is a comprehensive company integrating R&D, design, production and sales of gallium metal and chelating resin. By closely cooperating with several alumina pr",
+          "matched": [
+            "Zhuhai Fangyuan",
+            "gallium"
+          ]
+        },
+        {
+          "url": "https://www.marketreportsworld.com/market-reports/gallium-market-14715650",
+          "title": "Gallium Market Size, Demand, Growth By 2035",
+          "excerpt": "ucture development. Investments in renewable energy and electronics manufacturing could drive future demand for gallium. List of Top Gallium Companies Chinalco Zhuhai Fangyuan Jinjiang Group Beijin Jiya East Hope Kaiman CNGE INGAL Stade PPM Chemetall Enrc UC RusalTop of FormBottom of Form Top Two Companies with Highest Market Shares",
+          "matched": [
+            "Zhuhai Fangyuan",
+            "gallium"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Grain-oriented electrical steel (GOES)",
+      "producer": "Baosteel",
+      "query": "\"Baosteel\" electrical steel",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:19:08.859Z",
+      "candidates": [
+        {
+          "url": "http://www.ibaosteel.com/ibaosteel/productInfoEn/download",
+          "title": "download",
+          "excerpt": "ted Electrical Steel  Non-oriented Silicon Steel Application Techonology  Non-oriented Silicon Steel AHR  BaoXM  GO Silicon Steel Application Techonology  Baosteel GA Automotive Sheet  Cold-rolled Non-oriented Electrical Steel for Use at Medium Frequencies  Wuhan Iron & Steel Co., LTD. Cold-rolled NGO Electrical Steel H",
+          "matched": [
+            "Baosteel",
+            "electrical steel"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Grain-oriented electrical steel (GOES)",
+      "producer": "Cleveland-Cliffs",
+      "query": "\"Cleveland-Cliffs\" electrical steel",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:19:05.397Z",
+      "candidates": [
+        {
+          "url": "https://www.clevelandcliffs.com/products",
+          "title": "American Steel Products :: Cleveland-Cliffs Inc. (CLF)",
+          "excerpt": "ip Galvanized Steel Electrogalvanized Steel Agion® Antimicrobial Steel Coating Martensite Battery Electric Vehicles Enameling Steels Innovative Steel Solutions Cleveland-Cliffs Battery Enclosure Electrical Steels Innovative Steel Solutions Stainless Steels Innovative Steel Solutions Stainless Steels Over 50 Stainless Steel Alloys Manu",
+          "matched": [
+            "Cleveland-Cliffs",
+            "electrical steel"
+          ]
+        },
+        {
+          "url": "https://www.clevelandcliffs.com/products/motor-max-steels",
+          "title": "MOTOR-MAX® Steels :: Cleveland-Cliffs Inc. (CLF)",
+          "excerpt": "MOTOR-MAX® Steels :: Cleveland-Cliffs Inc. (CLF) MOTOR-MAX® High-Frequency Non-Oriented Electrical Steels: Driving America’s BEV Revolution The push towards electrification has transformed the auto",
+          "matched": [
+            "Cleveland-Cliffs",
+            "electrical steel"
+          ]
+        },
+        {
+          "url": "https://www.clevelandcliffs.com/operations/steelmaking/butler-works",
+          "title": "Butler Works :: Cleveland-Cliffs Inc. (CLF)",
+          "excerpt": "electrical steel made in the United States, used in power transformers. Regular Grain-Oriented (RGO) products are used for power and distribution transformers. Cleveland-Cliffs is the only producer of this in the United States. Cold Rolled Non-Oriented (CRNO) grades are used primarily in electric motors, generators, and lighting balla",
+          "matched": [
+            "Cleveland-Cliffs",
+            "electrical steel",
+            "transformer"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Grain-oriented electrical steel (GOES)",
+      "producer": "JFE Steel",
+      "query": "\"JFE Steel\" electrical steel",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:18:46.717Z",
+      "candidates": [
+        {
+          "url": "https://www.jfe-steel.co.jp/en/products/electrical/index.php",
+          "title": "JFE Steel CorporationJFE Steel Corporation | Electrical Steel Sheets | Index",
+          "excerpt": "JFE Steel CorporationJFE Steel Corporation | Electrical Steel Sheets | Index Electrical Steel Sheets TOP Products Applications Catalog Topics Contact Us HOME Products Co",
+          "matched": [
+            "JFE Steel",
+            "electrical steel"
+          ]
+        },
+        {
+          "url": "https://www.jfe-steel.co.jp/en/products/electrical/product/",
+          "title": "JFE Steel CorporationJFE Steel Corporation | Electrical Steel Sheets | Products",
+          "excerpt": "JFE Steel CorporationJFE Steel Corporation | Electrical Steel Sheets | Products Electrical Steel Sheets TOP Products Applications Catalog Topics Contact Us HOME Products",
+          "matched": [
+            "JFE Steel",
+            "electrical steel"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Grain-oriented electrical steel (GOES)",
+      "producer": "Nippon Steel",
+      "query": "\"Nippon Steel\" electrical steel",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:18:38.848Z",
+      "candidates": [
+        {
+          "url": "https://www.nipponsteel.com/en/product/electrolytic-tinplate/",
+          "title": "Electrical Steel Sheets | Nippon Steel Corporation",
+          "excerpt": "Electrical Steel Sheets | Nippon Steel Corporation Electrical Steel Sheets Contact Information NIPPON STEEL manufactures a wide range of electrical steel sheets in order to meet the demands of vario",
+          "matched": [
+            "Nippon Steel",
+            "electrical steel"
+          ]
+        },
+        {
+          "url": "https://www.nipponsteel.com/en/product/sheet/magnetic_sheet.html",
+          "title": "Electrical steel sheet | Steel sheets | Products | Nippon Steel & Sumitomo Metal Corporation",
+          "excerpt": "Electrical steel sheet | Steel sheets | Products | Nippon Steel & Sumitomo Metal Corporation News Catalogs Used in these applications Contact Information Electrical steel sheet is a functional material manufactured by modif",
+          "matched": [
+            "Nippon Steel",
+            "electrical steel"
+          ]
+        },
+        {
+          "url": "https://www.nipponsteel.com/en/product/electrolytic-tinplate/01.html",
+          "title": "Non-Oriented Electrical Steel Sheets | Nippon Steel Corporation",
+          "excerpt": "Non-Oriented Electrical Steel Sheets | Nippon Steel Corporation Non-Oriented Electrical Steel Sheets Contact Information NIPPON STEEL manufactures a wide range of electrical steel sheets in order to meet the dem",
+          "matched": [
+            "Nippon Steel",
+            "electrical steel"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Grain-oriented electrical steel (GOES)",
+      "producer": "POSCO",
+      "query": "\"POSCO\" electrical steel",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:18:51.254Z",
+      "candidates": []
+    },
+    {
+      "material": "Grain-oriented electrical steel (GOES)",
+      "producer": "Stalprodukt",
+      "query": "\"Stalprodukt\" electrical steel",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:19:47.529Z",
+      "candidates": [
+        {
+          "url": "https://www.stalprodukt.com.pl/en/home/",
+          "title": "Home - Stalprodukt",
+          "excerpt": "Home - Stalprodukt Meet us Cold Rolled Sections SEND REQUEST! Steel Service Center SEND REQUEST! Steel Safety Barriers SEND REQUEST! Grain Oriented Electrical Steel SEND REQUEST!",
+          "matched": [
+            "Stalprodukt",
+            "electrical steel"
+          ]
+        },
+        {
+          "url": "https://www.stalprodukt.com.pl/en/offer/grain-oriented-electrical-steel/",
+          "title": "Grain Oriented Electrical Steel - Stalprodukt",
+          "excerpt": "Grain Oriented Electrical Steel - Stalprodukt Strona główna Oferta Grain Oriented Electrical Steel Grain Oriented Electrical Steel Description Stalprodukt S.A has been manufacturing cold rolled electrical",
+          "matched": [
+            "Stalprodukt",
+            "electrical steel"
+          ]
+        },
+        {
+          "url": "https://www.stalprodukt.com.pl/en/contact/contact-details/",
+          "title": "Contact details - Stalprodukt",
+          "excerpt": "Contact details - Stalprodukt Contact details Contact details Contact details Stalprodukt S.A. 32-700 Bochnia ul. Wygoda 69 14/ 615 10 00 market@stalprodukt.com.pl Departments Departments Contact Board Office / Investor Relations 14/ 615-11-01 14 / 615-12-01 sekretariat@stalprodukt.pl Electrical Steel Sales Divisio",
+          "matched": [
+            "Stalprodukt",
+            "electrical steel"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Grain-oriented electrical steel (GOES)",
+      "producer": "ThyssenKrupp Electrical Steel",
+      "query": "\"ThyssenKrupp Electrical Steel\" electrical steel",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:19:01.266Z",
+      "candidates": [
+        {
+          "url": "https://www.thyssenkrupp-steel.com/de/unternehmen/business-units/electrical-steel/",
+          "title": "Electrical Steel: powercore® Elektroband | thyssenkrupp Steel",
+          "excerpt": "ge und nachhaltigere Energieversorgung für künftige Generationen. Energie für die Zukunft Elektrische Energie ist der Herzschlag der Energiewende, und GOES von thyssenkrupp Electrical Steel gibt den Rhythmus vor und hält ihn am Leben. Unsere Mission und Vision spiegeln unser Engagement für Nachhaltigkeit und Innovation wider: Unser Stahl ist die G",
+          "matched": [
+            "ThyssenKrupp Electrical Steel",
+            "electrical steel",
+            "goes"
+          ]
+        },
+        {
+          "url": "https://www.thyssenkrupp-steel.com/de/newsroom/pressemitteilungen/thyssenkrupp-electrical-steel-weitet-produktionskuerzungen-am-franzoesischen-standort-isbergues-aus.html",
+          "title": "thyssenkrupp Electrical Steel weitet Produktionskürzungen am französischen Standort Isbergues aus",
+          "excerpt": "thyssenkrupp Electrical Steel weitet Produktionskürzungen am französischen Standort Isbergues aus Ihr Browser Internet Explorer wird nicht mehr unterstützt. Bitte laden Sie sich einen aktue",
+          "matched": [
+            "ThyssenKrupp Electrical Steel",
+            "electrical steel"
+          ]
+        },
+        {
+          "url": "https://de.linkedin.com/company/thyssenkrupp-electricalsteel",
+          "title": "thyssenkrupp Electrical Steel | LinkedIn",
+          "excerpt": "thyssenkrupp Electrical Steel | LinkedIn LinkedIn nimmt den Schutz Ihrer Privatsphäre sehr ernst LinkedIn und Drittanbieter setzen essenzielle und nicht zwingend erforderliche Cookies ein,",
+          "matched": [
+            "ThyssenKrupp Electrical Steel",
+            "electrical steel"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "High-purity tin, EUV droplet grade",
+      "producer": "5N Plus",
+      "query": "\"5N Plus\" tin",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:12:58.886Z",
+      "candidates": [
+        {
+          "url": "https://www.5nplus.com/en/products/",
+          "title": "5N Plus Products - Specialty Semiconductors & High-Purity Metals | 5N Plus",
+          "excerpt": "5N Plus Products - Specialty Semiconductors & High-Purity Metals | 5N Plus Home Products Products As a leading global producer of specialty semiconductors and performa",
+          "matched": [
+            "5N Plus",
+            "high-purity"
+          ]
+        },
+        {
+          "url": "https://www.5nplus.com/en/products/high-purity-metals/",
+          "title": "High Purity Metals - 5N Plus Products - Specialty Semiconductors & High-Purity Metals | 5N Plus",
+          "excerpt": "High Purity Metals - 5N Plus Products - Specialty Semiconductors & High-Purity Metals | 5N Plus Home Products High Purity Metals High Purity Metals Antimony 3N5 - 7N Available Forms Ingot",
+          "matched": [
+            "5N Plus",
+            "high-purity",
+            "high purity"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "High-purity tin, EUV droplet grade",
+      "producer": "Aurubis",
+      "query": "\"Aurubis\" tin",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:13:04.137Z",
+      "candidates": []
+    },
+    {
+      "material": "High-purity tin, EUV droplet grade",
+      "producer": "Indium Corporation",
+      "query": "\"Indium Corporation\" tin",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:12:52.889Z",
+      "candidates": [
+        {
+          "url": "https://www.indium.com/products/metals/tin/",
+          "title": "Tin | Metals | Products made by Indium Corporation",
+          "excerpt": "Tin | Metals | Products made by Indium Corporation Skip to content Products Metals Tin Metals Tin Indium Corporation is a global leader in high-purity tin and tin-based alloys and compounds. With un",
+          "matched": [
+            "Indium",
+            "tin",
+            "high-purity"
+          ]
+        },
+        {
+          "url": "https://www.indium.com/de/products/metals/tin/high-purity-tin/",
+          "title": "High-Purity Tin | Indium Corporation",
+          "excerpt": "High-Purity Tin | Indium Corporation Zum Inhalt springen Produkte Metalle Hochreines Zinn Zinn Hochreines Zinn Hochreine Zinnprodukte bieten durch das Fehlen von Verunreinigungen zusät",
+          "matched": [
+            "Indium",
+            "tin",
+            "high-purity"
+          ]
+        },
+        {
+          "url": "https://www.indium.com/",
+          "title": "Indium Corporation Global Solder & PCB Assembly Materials Supplier",
+          "excerpt": "ustainable manufacturing across the global electronics industry. Explore Sustainability Talk to a Specialist Driving E-Mobility with Rel-ion ™ Products Explore Indium Corporation’s cutting-edge high-reliability soldering and thermal interface material solutions Explore Products Talk to a Specialist Liquid Metal Pioneer As th",
+          "matched": [
+            "Indium",
+            "tin"
+          ]
+        }
+      ]
+    },
     {
       "material": "High-purity tin, EUV droplet grade",
       "producer": "Malaysia Smelting Corporation",
-      "query": "\"Malaysia Smelting Corporation\" high-purity high purity",
+      "query": "\"Malaysia Smelting Corporation\" tin",
       "status": "candidate",
-      "checkedAt": "2026-09-14T11:08:49.352Z",
+      "checkedAt": "2026-09-14T11:12:47.943Z",
       "candidates": [
         {
-          "url": "https://www.msmelt.com/our-business.php",
+          "url": "https://www.msmelt.com/",
           "title": "Malaysia Smelting Corporation Berhad",
-          "excerpt": "Malaysia Smelting Corporation Berhad About Us Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mu",
+          "excerpt": "Malaysia Smelting Corporation Berhad",
           "matched": [
             "Malaysia Smelting",
-            "high purity",
             "tin"
           ]
         },
         {
-          "url": "https://www.straitstrading.com.sg/resources.html",
-          "title": "Resources – The Straits Trading Company Limited",
-          "excerpt": "Resources – The Straits Trading Company Limited Straits Trading's Businesses Resources Malaysia Smelting Corporation Berhad Straits Trading owns a 52% stake in Malaysia Smelting Corporation Berhad (“ MSC ”). MSC is one of the world’s leading integrated producers o",
+          "url": "https://theedgemalaysia.com/node/817815",
+          "title": "Malaysia Smelting Corp's subsidiary resumes mining operations",
+          "excerpt": "Malaysia Smelting Corp's subsidiary resumes mining operations Monday 14 Sep 2026 BURSA SGX Make The Edge Malaysia your preferred source on Google KUALA LUMPUR (Sept 11): Malaysi",
           "matched": [
             "Malaysia Smelting",
-            "high purity",
-            "tin"
-          ]
-        },
-        {
-          "url": "https://www.msmelt.com/our-history.php",
-          "title": "Malaysia Smelting Corporation Berhad",
-          "excerpt": "Malaysia Smelting Corporation Berhad About Us Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mu",
-          "matched": [
-            "Malaysia Smelting",
-            "high purity",
             "tin"
           ]
         }
@@ -44,41 +1271,41 @@
     {
       "material": "High-purity tin, EUV droplet grade",
       "producer": "Minsur",
-      "query": "\"Minsur\" high-purity high purity",
-      "status": "nothing",
-      "checkedAt": "2026-09-14T11:08:25.505Z",
-      "candidates": []
+      "query": "\"Minsur\" tin",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:12:38.616Z",
+      "candidates": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Minsur",
+          "title": "Minsur - Wikipedia",
+          "excerpt": "S$]] 706.9 Million (2008)\"},\"operating_income\":{\"wt\":\"\"},\"net_income\":{\"wt\":\"\"},\"num_employees\":{\"wt\":\"\"},\"subsidiaries\":{\"wt\":\"\"},\"website\":{\"wt\":\"[http://www.minsur.com www.minsur.com]\"}},\"i\":0}}]}'> Minsur Type Public Traded as BVL : MINSURI1 Industry Mining Founded (1966) Headquarters Lima , Peru Key people Fortunato Bre",
+          "matched": [
+            "Minsur",
+            "tin"
+          ]
+        }
+      ]
     },
     {
       "material": "High-purity tin, EUV droplet grade",
       "producer": "PT Timah",
-      "query": "\"PT Timah\" high-purity high purity",
+      "query": "\"PT Timah\" tin",
       "status": "candidate",
-      "checkedAt": "2026-09-14T11:08:29.561Z",
+      "checkedAt": "2026-09-14T11:12:41.878Z",
       "candidates": [
         {
-          "url": "https://timah.com/blog/about-us/processing-smelting",
-          "title": "Processing & Smelting | PT TIMAH TBK",
-          "excerpt": "Processing & Smelting | PT TIMAH TBK HOME About Us Processing & Smelting About Us PT TIMAH Tbk has Mining Business Permits (IUP) for the area of 473.310 hectares onshore and offshore of Bangka",
+          "url": "https://timah.com/",
+          "title": "Home | PT TIMAH TBK",
+          "excerpt": "g techniques with environmental conservation policies. More International recognition Production activities are guaranteed by ISO 9001 which makes products. PT TIMAH is of high quality and is recognized in the international market More Historical mining PT TIMAH inherited 200 years of the history of tin mining in Indonesia.",
           "matched": [
             "Timah",
             "tin"
           ]
         },
         {
-          "url": "https://www.marketdataforecast.com/market-reports/tin-market",
-          "title": "Tin Market Size, Share, Trends, Growth and Analysis, 2034",
-          "excerpt": "h moderate but growing tin consumption. Competitive Landscape Leading companies in the global tin market include Yunnan Tin, Malaysia Smelting Corp. Berhad, PT Timah, Minsur, Thaisarco, Yunnan Chengfeng, Guangxi China Tin, EM Vinto, Hindustan Tin Works Ltd, and Ardagh Group S.A. These players focus on expansion of mining op",
-          "matched": [
-            "Timah",
-            "high-purity",
-            "tin"
-          ]
-        },
-        {
-          "url": "https://www.timahindustri.com/",
-          "title": "Home - PT. TIMAH INDUSTRI INDONESIA",
-          "excerpt": "Home - PT. TIMAH INDUSTRI INDONESIA CN | EN | ID Call Us OUR WORLDWIDE PRODUCT DELIVERING INDONESIA’S TIN INNOVATIONS TO THE WORLD Exporting high-quality downstream tin product",
+          "url": "https://markets.ft.com/data/equities/tearsheet/summary?s=TINS%3AJKT",
+          "title": "Timah (Persero) Tbk PT, TINS:JKT summary - FT.com",
+          "excerpt": "Timah (Persero) Tbk PT, TINS:JKT summary - FT.com Financial Times Close Equities Timah (Persero) Tbk PT TINS:JKT Indonesia TINS:JKT Indonesia Stock Exchange Germany",
           "matched": [
             "Timah",
             "tin"
@@ -89,9 +1316,716 @@
     {
       "material": "High-purity tin, EUV droplet grade",
       "producer": "Yunnan Tin",
-      "query": "\"Yunnan Tin\" high-purity high purity",
+      "query": "\"Yunnan Tin\" tin",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:12:34.718Z",
+      "candidates": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Yunnan_Tin",
+          "title": "Yunnan Tin - Wikipedia",
+          "excerpt": "Yunnan Tin - Wikipedia Jump to content From Wikipedia, the free encyclopedia 雲南錫業集團(控股)有限公司\"},\"logo\":{\"wt\":\"[[File:Yunnan Tin Group (logo).png]]\"},\"type\":{\"wt\":\"[[State-o",
+          "matched": [
+            "Yunnan Tin",
+            "tin"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Liquid helium (He-4)",
+      "producer": "Air Liquide",
+      "query": "\"Air Liquide\" helium",
       "status": "nothing",
-      "checkedAt": "2026-09-14T11:08:20.485Z",
+      "checkedAt": "2026-09-14T11:20:39.338Z",
+      "candidates": []
+    },
+    {
+      "material": "Liquid helium (He-4)",
+      "producer": "Air Products",
+      "query": "\"Air Products\" helium",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:20:34.102Z",
+      "candidates": []
+    },
+    {
+      "material": "Liquid helium (He-4)",
+      "producer": "ExxonMobil",
+      "query": "\"ExxonMobil\" helium",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:20:25.022Z",
+      "candidates": []
+    },
+    {
+      "material": "Liquid helium (He-4)",
+      "producer": "Gazprom",
+      "query": "\"Gazprom\" helium",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:20:31.627Z",
+      "candidates": []
+    },
+    {
+      "material": "Liquid helium (He-4)",
+      "producer": "Linde",
+      "query": "\"Linde\" helium",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:20:36.869Z",
+      "candidates": []
+    },
+    {
+      "material": "Liquid helium (He-4)",
+      "producer": "QatarEnergy",
+      "query": "\"QatarEnergy\" helium",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:20:22.928Z",
+      "candidates": []
+    },
+    {
+      "material": "Neon, excimer laser grade",
+      "producer": "Air Liquide",
+      "query": "\"Air Liquide\" neon",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:13:17.444Z",
+      "candidates": [
+        {
+          "url": "https://uk.airliquide.com/gases-and-products/neon",
+          "title": "Neon",
+          "excerpt": "applications such as fluorescent light bulbs and signage. The first modern neon sign debuted in 1910 in Paris and was created by Georges Claude, co-founder of Air Liquide. More than a century later Air Liquide leads the field as the world’s largest supplier of rare gases to the lighting industry. Air Liquide’s specialty gas prod",
+          "matched": [
+            "Air Liquide",
+            "neon"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Neon, excimer laser grade",
+      "producer": "Baosteel Gases",
+      "query": "\"Baosteel Gases\" neon",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:13:39.747Z",
+      "candidates": [
+        {
+          "url": "https://www.einpresswire.com/article/818680629/rare-gas-market-the-silent-backbone-of-semiconductor-lithography-and-the-push-for-neon-supply-independence",
+          "title": "Rare Gas Market: The Silent Backbone of Semiconductor Lithography and the Push for Neon Supply Independence",
+          "excerpt": "ly expanding its own rare gas production and purification capacity in an effort to achieve semiconductor self-sufficiency. Companies like Hangzhou Hangyang and Baosteel Gases are investing in air separation units and neon purification facilities to support domestic chip fabs. 𝐆𝐞𝐧𝐞𝐫𝐚𝐥 & 𝐀𝐝𝐯𝐚𝐧𝐜𝐞𝐝 𝐌𝐚𝐭𝐞𝐫𝐢𝐚𝐥𝐬 𝐈𝐧",
+          "matched": [
+            "Baosteel Gases",
+            "neon"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Neon, excimer laser grade",
+      "producer": "Cryoin Engineering",
+      "query": "\"Cryoin Engineering\" neon",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:13:33.721Z",
+      "candidates": [
+        {
+          "url": "https://cryoin.com/en/",
+          "title": "Cryoin Engineering - Rare Gases Manufacturer | Gases production & sale",
+          "excerpt": "d more Expert in high purity rare gases production Our patented facilities and production methods help to achieve the highest quality of our products read more Cryoin Engineering Rare gases of high purity Cryoin Engineering produces and supplies worldwide rare gases of ultra high purity: Neon, Helium, Xenon, Krypton. We hold high standa",
+          "matched": [
+            "Cryoin Engineering",
+            "neon"
+          ]
+        },
+        {
+          "url": "https://cryoin.com/en/products/",
+          "title": "Gas products: Neon, Helium, Xenon, Krypton | Cryoin",
+          "excerpt": "est… подробнее Important note Important note : it’s prohibited to re-export or transship or products to an end-user and/or… подробнее Rare gases of high purity Cryoin Engineering produces and supplies worldwide rare gases of ultra high purity: Neon, Isotopes 20 Ne, 21 Ne, 22 Ne , Helium, Xenon, Krypton and mixtures containing these gase",
+          "matched": [
+            "Cryoin Engineering",
+            "neon"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Neon, excimer laser grade",
+      "producer": "Iceblick",
+      "query": "\"Iceblick\" neon",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:13:28.770Z",
+      "candidates": []
+    },
+    {
+      "material": "Neon, excimer laser grade",
+      "producer": "Linde",
+      "query": "\"Linde\" neon",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:13:12.210Z",
+      "candidates": [
+        {
+          "url": "https://www.linde-gas.de/shop/de/de-ig/neon-45-hiq%C2%AE-minican-neon-45-hiq%C2%AE-minican",
+          "title": "Neon 4.5 HiQ® MINICAN | Technische Gase von Linde online kaufen",
+          "excerpt": "Neon 4.5 HiQ® MINICAN | Technische Gase von Linde online kaufen OverduePayment is Pending X Sicherheitsdatenblatt Produktdatenblatt Show More Less More Home Online-Shop Gase in Kleinbehältern Neon 4.5 HiQ® MIN",
+          "matched": [
+            "Linde",
+            "neon"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Neon, excimer laser grade",
+      "producer": "Messer",
+      "query": "\"Messer\" neon",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:13:22.815Z",
+      "candidates": [
+        {
+          "url": "https://www.messer.at/de-DE/neon",
+          "title": "Neon kaufen - Qualität & Service – Messer - Messer Austria GmbH",
+          "excerpt": "Neon kaufen - Qualität & Service – Messer - Messer Austria GmbH Internet explorer not supported - Please switch to Edge, Firefox, Chrome, Opera or other browser and improve the safety of your navigatio",
+          "matched": [
+            "Messer",
+            "neon"
+          ]
+        },
+        {
+          "url": "https://www.messer-us.com/specialty-gases/neon",
+          "title": "Trusted Neon Gas Supplier | Messer Industrial Gases",
+          "excerpt": "Trusted Neon Gas Supplier | Messer Industrial Gases Neon | Messer Specialty Gases A Secure Supply of High-Purity Neon for Precision Electronics Applications Safety Why Messer Types Distribution",
+          "matched": [
+            "Messer",
+            "neon"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "REBCO superconducting tape, 12 mm",
+      "producer": "AMSC",
+      "query": "\"AMSC\" REBCO",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:20:20.763Z",
+      "candidates": []
+    },
+    {
+      "material": "REBCO superconducting tape, 12 mm",
+      "producer": "Faraday Factory Japan",
+      "query": "\"Faraday Factory Japan\" REBCO",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:20:00.607Z",
+      "candidates": []
+    },
+    {
+      "material": "REBCO superconducting tape, 12 mm",
+      "producer": "Fujikura",
+      "query": "\"Fujikura\" REBCO",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:19:54.520Z",
+      "candidates": [
+        {
+          "url": "https://www.europe.fujikura.com/markets/industrial/superconductors/",
+          "title": "Superconductors - Fujikura Europe",
+          "excerpt": "Superconductors - Fujikura Europe Skip to content Superconductors We are one of the world’s leading producers of high temperature superconductors. Superconductors have the potential to p",
+          "matched": [
+            "Fujikura",
+            "superconductor"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "REBCO superconducting tape, 12 mm",
+      "producer": "MetOx",
+      "query": "\"MetOx\" REBCO",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:20:05.397Z",
+      "candidates": []
+    },
+    {
+      "material": "REBCO superconducting tape, 12 mm",
+      "producer": "Shanghai Superconductor",
+      "query": "\"Shanghai Superconductor\" REBCO",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:20:14.133Z",
+      "candidates": []
+    },
+    {
+      "material": "REBCO superconducting tape, 12 mm",
+      "producer": "SuperPower",
+      "query": "\"SuperPower\" REBCO",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:20:02.897Z",
+      "candidates": []
+    },
+    {
+      "material": "REBCO superconducting tape, 12 mm",
+      "producer": "THEVA",
+      "query": "\"THEVA\" REBCO",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:20:12.023Z",
+      "candidates": []
+    },
+    {
+      "material": "Ruthenium, sputtering and ALD grade",
+      "producer": "Furuya Metal",
+      "query": "\"Furuya Metal\" ruthenium",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:14:27.709Z",
+      "candidates": [
+        {
+          "url": "https://www.furuyametals.co.jp/english/innovation/ru/",
+          "title": "Ruthenium Processing Technology｜FURUYA METAL",
+          "excerpt": "Ruthenium Processing Technology｜FURUYA METAL Ruthenium Processing Technology Ruthenium (Ru) is a precious metal renowned for its exceptional corrosion resistance and catalytic properties. It is utilized a",
+          "matched": [
+            "Furuya Metal",
+            "ruthenium"
+          ]
+        },
+        {
+          "url": "https://www.furuyametals.co.jp/english/stories/future01/",
+          "title": "FURUYA × FUTURE：Ruthenium Wiring｜FURUYA METAL",
+          "excerpt": "FURUYA × FUTURE：Ruthenium Wiring｜FURUYA METAL Innovation begins here — shaping the future no one has imagined Ruthenium Wiring: Pioneering Semiconductor Miniaturization for the AI Era As generative AI spre",
+          "matched": [
+            "Furuya Metal",
+            "ruthenium"
+          ]
+        },
+        {
+          "url": "https://www.furuyametals.co.jp/english/products/chemical/precious-metal-compounds/",
+          "title": "Precious Metal Compounds and High-Purity Powders｜FURUYA METAL",
+          "excerpt": "Precious Metal Compounds and High-Purity Powders｜FURUYA METAL Chemical Products Precious Metal Compounds and High-Purity Powders Furuya Metal manufactures high-purity powders and compounds by re-refining iridium and ruthenium sourced from mines according to application requirements. Ir (Iridium) Irid",
+          "matched": [
+            "Furuya Metal",
+            "ruthenium"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Ruthenium, sputtering and ALD grade",
+      "producer": "Heraeus",
+      "query": "\"Heraeus\" ruthenium",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:14:04.932Z",
+      "candidates": [
+        {
+          "url": "https://www.heraeus-precious-metals.com/de/products-solutions/metal/ruthenium/",
+          "title": "Ruthenium",
+          "excerpt": "Ruthenium Heraeus Precious Metals: Innovative Products, Trading & Recycling / Produkte & Lösungen / Nach Metall / Ruthenium Produkte & Lösungen mit Ruthenium Ruthenium Ruthenium",
+          "matched": [
+            "Heraeus",
+            "ruthenium"
+          ]
+        },
+        {
+          "url": "https://www.heraeus.com/de/news-and-stories/green-chemistry--from-celluslose/",
+          "title": "Grüne Chemie aus Zellulose: Möbel ohne Erdöl",
+          "excerpt": "d&ouml;l in unseren M&ouml;beln. Effiziente Umwandlung dank Ruthenium F&uuml;r die Umwandlung von 5-HMF in DFF haben die Spezialisten der Gesch&auml;ftseinheit Heraeus Precious Metals einen Katalysator entwickelt, der auf Ruthenium basiert, einem seltenen Edelmetall . &bdquo;Studien haben gezeigt, dass Ruthenium ein immenses",
+          "matched": [
+            "Heraeus",
+            "ruthenium"
+          ]
+        },
+        {
+          "url": "https://www.heraeus.com/de/news-and-stories/green-hydrogen/",
+          "title": "Wasserstoffökonomie als Energiekonzept der Zukunft",
+          "excerpt": "e von Wasserstoff nehmen. Voraussetzung f&uuml;r das Einbringen und Ausl&ouml;sen von Wasserstoff aus diesem Tr&auml;gergas ist eine entsprechende Technologie. Heraeus bietet dazu einsatzbereite Katalysatorkonzepte mit Ruthenium an. Die Entwicklung zielt dabei auf eine effiziente Nutzung des Edelmetalls zur m&ouml;glichst vol",
+          "matched": [
+            "Heraeus",
+            "ruthenium"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Ruthenium, sputtering and ALD grade",
+      "producer": "Impala Platinum",
+      "query": "\"Impala Platinum\" ruthenium",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:13:50.335Z",
+      "candidates": [
+        {
+          "url": "https://implats-ir.co.za/reports/implats-iar-2016/Implats-MRR-2016/index.php",
+          "title": "Implats | Mineral Resources and Mineral Reserves Statement 2016 | Overview",
+          "excerpt": "Implats | Mineral Resources and Mineral Reserves Statement 2016 | Overview Scroll down Introduction Impala Platinum Holdings Limited (Implats) is one of the world’s foremost producers of platinum and associated platinum group metals (PGMs). Implats is structured around five",
+          "matched": [
+            "Impala Platinum",
+            "pgm"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Ruthenium, sputtering and ALD grade",
+      "producer": "Johnson Matthey",
+      "query": "\"Johnson Matthey\" ruthenium",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:14:12.817Z",
+      "candidates": [
+        {
+          "url": "https://matthey.com/products-and-markets/pgms-and-circularity/pgm-management",
+          "title": "PGM prices and trading | Johnson Matthey",
+          "excerpt": "PGM prices and trading | Johnson Matthey PGM management Our global team of Platinum Group Metal (PGM) experts support you in effectively sourcing and managing PGMs, enabling their sustainable and circ",
+          "matched": [
+            "Johnson Matthey",
+            "pgm"
+          ]
+        },
+        {
+          "url": "https://matthey.com/products-and-markets/pgms-and-circularity/pgm-markets/ruthenium",
+          "title": "Ruthenium | Johnson Matthey",
+          "excerpt": "Ruthenium | Johnson Matthey Ruthenium (Ru) Ruthenium is considered one of the earth's rarest metals. Its unique properties are particularly useful in electronic and electrochemical indust",
+          "matched": [
+            "Johnson Matthey",
+            "ruthenium"
+          ]
+        },
+        {
+          "url": "https://matthey.com/products-and-markets/pgms-and-circularity/pgm-chemicals-and-catalysts/catalysts/homogeneous/ru-complexes",
+          "title": "Ruthenium complexes | Johnson Matthey | Johnson Matthey",
+          "excerpt": "Ruthenium complexes | Johnson Matthey | Johnson Matthey Ruthenium complexes Johnson Matthey offers a selection of ruthenium complexes and Ru catalyst products for a variety of applications. JM’s ru",
+          "matched": [
+            "Johnson Matthey",
+            "ruthenium"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Ruthenium, sputtering and ALD grade",
+      "producer": "Nornickel",
+      "query": "\"Nornickel\" ruthenium",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:13:56.246Z",
+      "candidates": [
+        {
+          "url": "https://nornickel.com/business/products/ruthenium/ruthenium-rua/",
+          "title": "Ruthenium RuA-0, RuA-1, RuA-2 - Products - Nornickel",
+          "excerpt": "Ruthenium RuA-0, RuA-1, RuA-2 - Products - Nornickel",
+          "matched": [
+            "Nornickel",
+            "ruthenium"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Ruthenium, sputtering and ALD grade",
+      "producer": "Sibanye-Stillwater",
+      "query": "\"Sibanye-Stillwater\" ruthenium",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:13:45.983Z",
+      "candidates": []
+    },
+    {
+      "material": "Ruthenium, sputtering and ALD grade",
+      "producer": "Tanaka Kikinzoku",
+      "query": "\"Tanaka Kikinzoku\" ruthenium",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:14:37.886Z",
+      "candidates": []
+    },
+    {
+      "material": "Ruthenium, sputtering and ALD grade",
+      "producer": "Umicore",
+      "query": "\"Umicore\" ruthenium",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:14:22.824Z",
+      "candidates": [
+        {
+          "url": "https://pmm.umicore.com/en/prices/ruthenium/",
+          "title": "Ruthenium price | Umicore Precious Metals Management",
+          "excerpt": "Ruthenium price | Umicore Precious Metals Management Skip to main content Skip to primary navigation Precious Metals Management Prices Ruthenium 44 Ru Ruthenium $ / Ounce &euro; / kg Ru",
+          "matched": [
+            "Umicore",
+            "ruthenium"
+          ]
+        },
+        {
+          "url": "https://www.umicore.com/en/markets-products/metals/ruthenium/about/",
+          "title": "Ruthenium | Umicore",
+          "excerpt": "Ruthenium | Umicore Ruthenium (symbol Ru, atomic number 44) is one of the six Platinum Group Metals (PGMs), alongside rhodium, palladium, osmium, iridium, and platinum. Grouped ne",
+          "matched": [
+            "Umicore",
+            "ruthenium",
+            "pgm"
+          ]
+        },
+        {
+          "url": "https://pmm.umicore.com/de/preise/ruthenium/",
+          "title": "Rutheniumpreis | Umicore Precious Metals Management",
+          "excerpt": "Rutheniumpreis | Umicore Precious Metals Management Skip to main content Skip to primary navigation Home Preise Ruthenium 44 Ru Ruthenium $ / Unze &euro; / kg Ruthenium 14 September 20",
+          "matched": [
+            "Umicore",
+            "ruthenium"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Silicon carbide substrate, 200 mm semi-insulating",
+      "producer": "Coherent",
+      "query": "\"Coherent\" silicon carbide",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:17:38.156Z",
+      "candidates": [
+        {
+          "url": "https://www.coherent.com/materials/wide-bandgap-electronics/sic-substrates-epitaxy",
+          "title": "SiC Substrates & Epitaxy | Coherent",
+          "excerpt": "SiC Substrates & Epitaxy | Coherent S i C Substrates & Epitaxy Fabricate a wide range of high-performance power electronics devices on high-quality SiC wafers as large as 200 mm in diameter. SiC",
+          "matched": [
+            "Coherent",
+            "sic",
+            "power",
+            "substrate"
+          ]
+        },
+        {
+          "url": "https://www.coherent.com/news/press-releases/Coherent-expands-silicon-carbide-platform-with-300mm-capability-to-support-growing-demand-of-ai-and-datacenters",
+          "title": "Coherent Expands Silicon Carbide Platform With 300mm Capability To Support Growing Demand Of Ai And Datacenters",
+          "excerpt": "Coherent Expands Silicon Carbide Platform With 300mm Capability To Support Growing Demand Of Ai And Datacenters 12/3/2025 For Immediate Release COHERENT EXPANDS SILICON",
+          "matched": [
+            "Coherent",
+            "silicon carbide"
+          ]
+        },
+        {
+          "url": "https://www.coherent.com/de/materials/wide-bandgap-electronics/sic-substrates-epitaxy",
+          "title": "Substrate und Epitaxie auf SiC-Basis | Coherent",
+          "excerpt": "Substrate und Epitaxie auf SiC-Basis | Coherent Substrate und Epitaxie auf SiC-Basis Stelle Sie ein breiten Spektrum von Hochleistungs-Leistungselektronikgeräten auf hochwertigen SiC-Wafern mit einem Durchme",
+          "matched": [
+            "Coherent",
+            "sic",
+            "substrate"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Silicon carbide substrate, 200 mm semi-insulating",
+      "producer": "Resonac",
+      "query": "\"Resonac\" silicon carbide",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:17:49.741Z",
+      "candidates": [
+        {
+          "url": "https://www.resonac.com/products/device-solution/82",
+          "title": "SiC | 製品情報 | レゾナック",
+          "excerpt": "| レゾナック SiC As key devices for energy conservation, SiC receives a lot of attention for the material of power semiconductor and the market continues to expand. Resonac challenges to lead the SiC epi wafer market with low defect and stable quality product in a speedy and timely way. Product List of SiC Hard Disk SiC Optical Se",
+          "matched": [
+            "Resonac",
+            "sic",
+            "power"
+          ]
+        },
+        {
+          "url": "https://www.resonac.com/products/device-solution/82/12896.html",
+          "title": "SiC Epitaxial Wafer | Components for Electronic Devices | RESONAC",
+          "excerpt": "SiC Epitaxial Wafer | Components for Electronic Devices | RESONAC SiC Epitaxial Wafer About the product Applications Benefits About the product High-quality SiC bulk wafers with epitaxial layers featuring precisely controlled",
+          "matched": [
+            "Resonac",
+            "sic"
+          ]
+        },
+        {
+          "url": "https://www.resonac.com/products/innovation-materials/cerramics/2056.html",
+          "title": "Alumina / Silicon Carbide Ceramic Powders for Abrasives and Polishing | 製品情報 | レゾナック",
+          "excerpt": "Polishing | 製品情報 | レゾナック Alumina / Silicon Carbide Ceramic Powders for Abrasives and Polishing About the product Applications Features Lineup About the product Resonac supplies ceramic powders used as raw materials for abrasive and polishing products. A wide range of grades is available, including alumina-based and silicon ca",
+          "matched": [
+            "Resonac",
+            "silicon carbide"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Silicon carbide substrate, 200 mm semi-insulating",
+      "producer": "SICC",
+      "query": "\"SICC\" silicon carbide",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:17:54.613Z",
+      "candidates": [
+        {
+          "url": "https://www.sicc.cc/en",
+          "title": "SICC Co.,Ltd.",
+          "excerpt": "SICC Co.,Ltd. CN | JP CN | JP Toggle navigation About SICC About us Enterprise Mission Philosophy and Vision Brand and Culture History Locations Product 4H n-Type 4",
+          "matched": [
+            "SICC",
+            "sic"
+          ]
+        },
+        {
+          "url": "https://www.sicc.cc/en/about1.html",
+          "title": "SICC Co.,Ltd.",
+          "excerpt": "SICC Co.,Ltd. CN | JP CN | JP Toggle navigation About SICC About us Enterprise Mission Philosophy and Vision Brand and Culture History Locations Product 4H n-Type 4",
+          "matched": [
+            "SICC",
+            "sic"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Silicon carbide substrate, 200 mm semi-insulating",
+      "producer": "SK Siltron CSS",
+      "query": "\"SK Siltron CSS\" silicon carbide",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:17:42.848Z",
+      "candidates": [
+        {
+          "url": "https://www.sksiltroncss.com/",
+          "title": "SK Siltron CSS | US/Korea-Made SiC Wafer Manufacturer",
+          "excerpt": "SK Siltron CSS | US/Korea-Made SiC Wafer Manufacturer top of page Powering Sustainable Solutions At SK siltron css, our products help you build environmentally friendly SiC d",
+          "matched": [
+            "SK Siltron CSS",
+            "sic",
+            "power"
+          ]
+        },
+        {
+          "url": "https://www.thelec.net/news/articleView.html?idxno=12315",
+          "title": "SK Siltron to Liquidate US SiC Wafer Subsidiary This Year < Supply Chain < 기사본문 - The Elec Inc.",
+          "excerpt": "s restructuring plan discussed during sale negotiations with Doosan. According to industry sources on July 17, SK Siltron is proceeding with the liquidation of SK Siltron CSS, its SiC wafer manufacturing subsidiary located in Michigan. The process is expected to be completed by the end of this year. Operations at the company's manuf",
+          "matched": [
+            "SK Siltron CSS",
+            "sic"
+          ]
+        },
+        {
+          "url": "https://www.sksiltron.com/en/wafer/waferC.do",
+          "title": "SK실트론",
+          "excerpt": "e epitaxy. ApplicationSchottky Schottky Diode, Pin Diodes and Switches, High Current and Voltage MOSFETs / JFETs / BJTs Prime Grade Portfolio All SiC wafers in SK Siltron CSS’s 100 mm and 150 mm Prime Grade portfolios deliver consistently excellent mechanical characteristics to ensure compatibility with existing and developing devic",
+          "matched": [
+            "SK Siltron CSS",
+            "sic"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Silicon carbide substrate, 200 mm semi-insulating",
+      "producer": "TankeBlue",
+      "query": "\"TankeBlue\" silicon carbide",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:17:59.710Z",
+      "candidates": [
+        {
+          "url": "https://en.tankeblue.com/",
+          "title": "TanKeBlue,PIONEER IN CHINA’S SIC SUBSTRATE INDUSTRY",
+          "excerpt": "TanKeBlue,PIONEER IN CHINA’S SIC SUBSTRATE INDUSTRY Home About TanKeBlue Company Culture History Honors Layout News News Announcement Product Center SiC Substrate SiC Ep",
+          "matched": [
+            "TankeBlue",
+            "sic",
+            "substrate"
+          ]
+        },
+        {
+          "url": "https://en.tankeblue.com/thgcd/index.html",
+          "title": "TanKeBlue SiC Substrate",
+          "excerpt": "TanKeBlue SiC Substrate Home About TanKeBlue Company Culture History Honors Layout News News Announcement Product Center SiC Substrate SiC Epi-Wafer Others Join Us Caree",
+          "matched": [
+            "TankeBlue",
+            "sic",
+            "substrate"
+          ]
+        },
+        {
+          "url": "https://en.tankeblue.com/qt/info.html?id=19",
+          "title": "SiC Powder ,TanKeBlue silicon carbide - Others",
+          "excerpt": "SiC Powder ,TanKeBlue silicon carbide - Others Home About TanKeBlue Company Culture History Honors Layout News News Announcement Product Center SiC Substrate SiC Epi-Wafer Others Jo",
+          "matched": [
+            "TankeBlue",
+            "silicon carbide",
+            "sic",
+            "substrate"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Silicon carbide substrate, 200 mm semi-insulating",
+      "producer": "Wolfspeed",
+      "query": "\"Wolfspeed\" silicon carbide",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:17:32.924Z",
+      "candidates": [
+        {
+          "url": "https://www.wolfspeed.com/",
+          "title": "Home | Silicon Carbide Power Solutions & Materials | Wolfspeed",
+          "excerpt": "Home | Silicon Carbide Power Solutions & Materials | Wolfspeed Two Families. One Vision. Powering the applications that power the world Discover two new 3.3 kV SiC modules that unlock the full potential of renewable energy",
+          "matched": [
+            "Wolfspeed",
+            "silicon carbide",
+            "sic",
+            "power"
+          ]
+        },
+        {
+          "url": "https://www.wolfspeed.com/products/materials/",
+          "title": "Silicon Carbide Materials Products | Wolfspeed",
+          "excerpt": "Silicon Carbide Materials Products | Wolfspeed SiC Materials Materials Products Delivering quality at scale As a pioneer in silicon carbide, we are leading the industry’s transition to the 200mm n-type wafe",
+          "matched": [
+            "Wolfspeed",
+            "silicon carbide",
+            "sic"
+          ]
+        },
+        {
+          "url": "https://www.wolfspeed.com/products/power/",
+          "title": "Silicon Carbide Power Products | Wolfspeed",
+          "excerpt": "Silicon Carbide Power Products | Wolfspeed Power Products From inception to production, we design our products with the most critical design challenges in mind. We are dedicated to enabling our customer",
+          "matched": [
+            "Wolfspeed",
+            "silicon carbide",
+            "power"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Two-phase dielectric immersion coolant",
+      "producer": "3M",
+      "query": "\"3M\" immersion cooling",
+      "status": "candidate",
+      "checkedAt": "2026-09-14T11:18:04.506Z",
+      "candidates": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Fluorinert",
+          "title": "Fluorinert - Wikipedia",
+          "excerpt": "remains a liquid, or for \"two-phase\" applications, where the liquid boils to remove additional heat by evaporative cooling . An example of one of the compounds 3M uses is FC-72 ( perfluorohexane , C 6 F 14 ). Perfluorohexane is used for low-temperature heat-transfer applications due to its 56 °C (133 °F) boiling point. A",
+          "matched": [
+            "3M",
+            "cooling"
+          ]
+        }
+      ]
+    },
+    {
+      "material": "Two-phase dielectric immersion coolant",
+      "producer": "AGC",
+      "query": "\"AGC\" immersion cooling",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:18:30.588Z",
+      "candidates": []
+    },
+    {
+      "material": "Two-phase dielectric immersion coolant",
+      "producer": "Chemours",
+      "query": "\"Chemours\" immersion cooling",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:18:23.729Z",
+      "candidates": []
+    },
+    {
+      "material": "Two-phase dielectric immersion coolant",
+      "producer": "Engineered Fluids",
+      "query": "\"Engineered Fluids\" immersion cooling",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:18:35.694Z",
+      "candidates": []
+    },
+    {
+      "material": "Two-phase dielectric immersion coolant",
+      "producer": "Syensqo",
+      "query": "\"Syensqo\" immersion cooling",
+      "status": "nothing",
+      "checkedAt": "2026-09-14T11:18:27.237Z",
       "candidates": []
     }
   ]
