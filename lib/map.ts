@@ -25,19 +25,17 @@ import {
 } from '@/config/substrata-coverage';
 import { INVESTMENT_THESIS, READINESS } from '@/config/substrata-acting';
 import { CHAIN_LAYERS, PARTICIPANTS } from '@/config/substrata-participants';
-import {
-  EVIDENCE,
-  evidenceFor,
-  evidenceProgress,
-  verificationFor,
-} from '@/config/substrata-evidence';
+import { EVIDENCE, evidenceFor, verificationFor } from '@/config/substrata-evidence';
 import { RESEARCH_PROGRAMMES, programmeProgress } from '@/config/substrata-programmes';
+import { portalTotals } from '@/lib/bottlenecks';
 import { SITE } from '@/lib/site';
 
 export function buildMap() {
   const coverage = coverageProgress();
   const chokepoints = chokepointProgress();
-  const evidence = evidenceProgress();
+  // Candidates are counted on the joined rows, not the evidence file: a row
+  // an analyst has since sourced is no longer waiting on anyone.
+  const totals = portalTotals();
 
   return {
     name: COMPANY.name,
@@ -53,7 +51,7 @@ export function buildMap() {
       producers: {
         total: coverage.total,
         sourced: coverage.sourced,
-        withCandidate: evidence.candidates,
+        withCandidate: totals.candidates,
       },
       chokepoints: { total: chokepoints.total, sourced: chokepoints.sourced },
     },
