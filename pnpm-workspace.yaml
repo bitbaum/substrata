@@ -3,6 +3,9 @@ allowBuilds:
   esbuild: true
   sharp: true
   unrs-resolver: true
+  # Git dep needs its prepare build; pnpm demands the exact resolved URL (the
+  # same shape loki uses). If the listkit pin moves, pnpm prints the new key.
+  listkit@https://codeload.github.com/bitbaum/listkit/tar.gz/69cb4f4ef12d6a2a56b56db1bb4d4ac14aced525: true
 
 # Own package published to npm <24h ago; exempt from the minimum-release-age
 # supply-chain window. Redundant once the release ages past the window.
