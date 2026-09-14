@@ -310,6 +310,8 @@ export interface MaterialListing {
   why: string;
   /** The grade that actually ships. Naming it is most of the specialism. */
   spec: string;
+  /** What the trade calls it — the term the research engine searches a producer against. */
+  search: string;
   tags: string[];
 }
 
@@ -320,6 +322,7 @@ export const MATERIALS: readonly MaterialListing[] = [
     area: 'lithography',
     why: 'Every EUV photon in production today starts as a tin droplet hit by a CO₂ laser. Purity, not tonnage, is the constraint.',
     spec: '7N (99.99999%) tin, shot or ingot, certificate of analysis per lot.',
+    search: 'tin',
     tags: ['euv', 'lithography', 'tin', 'high-purity'],
   },
   {
@@ -327,6 +330,7 @@ export const MATERIALS: readonly MaterialListing[] = [
     area: 'lithography',
     why: 'DUV excimer sources run on neon mixtures. The 2022 squeeze showed how thin and how geographically concentrated that supply is.',
     spec: '≥99.999% neon, cylinder or ISO container, blended mixes to order.',
+    search: 'neon',
     tags: ['neon', 'noble-gas', 'duv', 'lithography'],
   },
   {
@@ -334,6 +338,7 @@ export const MATERIALS: readonly MaterialListing[] = [
     area: 'lithography',
     why: 'Caps EUV multilayer mirrors and lines advanced interconnect. Annual world supply is a few dozen tonnes, almost all a by-product of other mining.',
     spec: '4N ruthenium, targets or precursor feed, PGM-refiner traceable.',
+    search: 'ruthenium',
     tags: ['ruthenium', 'pgm', 'euv', 'interconnect'],
   },
 
@@ -343,6 +348,7 @@ export const MATERIALS: readonly MaterialListing[] = [
     area: 'feedstock',
     why: 'The first material in the chain. Solar-grade will not do: one part per billion of boron changes the device.',
     spec: '11N (99.999999999%) polysilicon chunk or rod, Siemens process.',
+    search: 'polysilicon',
     tags: ['polysilicon', 'feedstock', 'wafer', 'high-purity'],
   },
   {
@@ -350,6 +356,7 @@ export const MATERIALS: readonly MaterialListing[] = [
     area: 'feedstock',
     why: 'The unit of account for all leading-edge capacity. Every fab expansion is ultimately a wafer-start number.',
     spec: 'Prime polished 300 mm, p-type or n-type, epi to specification.',
+    search: 'silicon wafer',
     tags: ['wafer', '300mm', 'silicon', 'feedstock'],
   },
   {
@@ -357,6 +364,7 @@ export const MATERIALS: readonly MaterialListing[] = [
     area: 'feedstock',
     why: 'Czochralski crucibles need a quartz purity that comes, in practice, from a very small number of deposits. A genuine single point of failure for the whole industry.',
     spec: 'Inner-layer crucible grade, ≤ 20 ppm total impurities.',
+    search: 'quartz',
     tags: ['quartz', 'crucible', 'czochralski', 'feedstock'],
   },
   {
@@ -364,6 +372,7 @@ export const MATERIALS: readonly MaterialListing[] = [
     area: 'feedstock',
     why: 'GaN power stages and RF front-ends. A by-product of alumina refining, so supply cannot respond quickly to demand — and it is export-controlled.',
     spec: '4N–7N gallium metal. Export-licence and end-use documentation required.',
+    search: 'gallium',
     tags: ['gallium', 'gan', 'compound-semiconductor', 'export-controlled'],
   },
 
@@ -373,6 +382,7 @@ export const MATERIALS: readonly MaterialListing[] = [
     area: 'thermal',
     why: 'The highest thermal conductivity available at any price. Where the die is hot enough that copper has stopped being an answer.',
     spec: 'Polycrystalline CVD diamond, 10 × 10 mm, metallised to specification.',
+    search: 'CVD diamond',
     tags: ['diamond', 'thermal', 'packaging', 'cvd'],
   },
   {
@@ -380,6 +390,7 @@ export const MATERIALS: readonly MaterialListing[] = [
     area: 'thermal',
     why: 'Wide-bandgap power conversion is how a datacentre stops wasting a tenth of its intake as heat in the power train.',
     spec: '200 mm semi-insulating 4H-SiC, micropipe density to specification.',
+    search: 'silicon carbide',
     tags: ['sic', 'wide-bandgap', 'power', 'substrate'],
   },
   {
@@ -387,6 +398,7 @@ export const MATERIALS: readonly MaterialListing[] = [
     area: 'thermal',
     why: 'Air cooling ends somewhere around 50 kW a rack. Immersion is what the next order of magnitude of density runs on.',
     spec: 'Engineered fluid, boiling point matched to the target die temperature.',
+    search: 'immersion cooling',
     tags: ['immersion', 'cooling', 'datacenter', 'dielectric'],
   },
 
@@ -396,6 +408,7 @@ export const MATERIALS: readonly MaterialListing[] = [
     area: 'power',
     why: 'Every megawatt reaching a GPU passes through transformer cores. Lead times on large power transformers, not chip supply, are the binding constraint on many buildouts.',
     spec: 'M3-class grain-oriented silicon steel, coil, coated.',
+    search: 'electrical steel',
     tags: ['goes', 'transformer', 'grid', 'electrical-steel'],
   },
   {
@@ -403,6 +416,7 @@ export const MATERIALS: readonly MaterialListing[] = [
     area: 'power',
     why: 'High-field magnets for fusion and for compact motors. The kilometre-per-machine numbers make tape output an industry-level bottleneck.',
     spec: '12 mm REBCO tape, critical current specified at 77 K, self-field.',
+    search: 'REBCO',
     tags: ['rebco', 'superconductor', 'fusion', 'magnets'],
   },
   {
@@ -410,6 +424,7 @@ export const MATERIALS: readonly MaterialListing[] = [
     area: 'power',
     why: 'Nothing else reaches 4 K at scale. Superconducting magnets and every dilution refrigerator in quantum computing depend on a supply tied to a handful of gas fields.',
     spec: '5N liquid helium, dewar or ISO container, boil-off terms per contract.',
+    search: 'helium',
     tags: ['helium', 'cryogenics', 'superconductor', 'quantum'],
   },
 
@@ -419,6 +434,7 @@ export const MATERIALS: readonly MaterialListing[] = [
     area: 'actuation',
     why: 'The bulk of every NdFeB magnet, and therefore of every robot joint, traction motor and hard-drive actuator.',
     spec: 'Nd-Pr metal ingot, 75/25 nominal, ≥99% RE.',
+    search: 'rare earth',
     tags: ['rare-earth', 'ndfeb', 'magnets', 'robotics'],
   },
   {
@@ -426,6 +442,7 @@ export const MATERIALS: readonly MaterialListing[] = [
     area: 'actuation',
     why: 'The heavy rare earth that keeps a magnet coercive when the motor gets hot. Small quantities, no substitute, single-country refining.',
     spec: '≥99% dysprosium metal. Export-licence and end-use documentation required.',
+    search: 'dysprosium',
     tags: ['dysprosium', 'rare-earth', 'magnets', 'export-controlled'],
   },
 ];

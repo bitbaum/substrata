@@ -7,24 +7,26 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
+import { MATERIALS } from '../config/substrata';
 import { COVERAGE } from '../config/substrata-coverage';
 import {
   EVIDENCE,
   VERIFICATION_LABEL,
   evidenceFor,
+  evidenceKey,
   evidenceProgress,
   verificationFor,
 } from '../config/substrata-evidence';
 
 const ROWS = new Set(
-  COVERAGE.flatMap((entry) => entry.producers.map((p) => `${entry.material} ${p.name}`)),
+  COVERAGE.flatMap((entry) => entry.producers.map((p) => evidenceKey(entry.material, p.name))),
 );
 
 test('every evidence row refers to a producer row that exists', () => {
   assert.equal(EVIDENCE.version, 1);
   for (const row of EVIDENCE.rows) {
     assert.ok(
-      ROWS.has(`${row.material} ${row.producer}`),
+      ROWS.has(evidenceKey(row.material, row.producer)),
       `evidence for unknown row ${row.material} / ${row.producer}`,
     );
   }
@@ -59,6 +61,15 @@ test('evidence never promotes a row on its own', () => {
   }
   assert.equal(verificationFor('no such material', 'no such producer', null), 'unverified');
   assert.equal(VERIFICATION_LABEL.candidate, 'Candidate source');
+});
+
+test('every material tells the engine what the trade calls it', () => {
+  for (const material of MATERIALS) {
+    assert.ok(
+      material.search.trim().length > 1,
+      `${material.title} has no search term for the engine`,
+    );
+  }
 });
 
 test('progress sums to the rows examined', () => {
