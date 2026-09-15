@@ -400,7 +400,7 @@ export const COVERAGE: readonly MaterialCoverage[] = [
         'convert',
         'https://www.jfe-steel.co.jp/en/products/electrical/product/',
       ),
-      lead('POSCO', ['KR'], 'convert', ['POSCO Holdings', 'POSCO International']),
+      sourced('POSCO', ['KR'], 'convert', 'https://www.poscointl.com/eng/steelProduct'),
       sourced(
         'ThyssenKrupp Electrical Steel',
         ['DE'],
@@ -442,7 +442,12 @@ export const COVERAGE: readonly MaterialCoverage[] = [
       sourced('SuperPower', ['US'], 'convert', 'https://www.superpower-inc.com/specification.aspx'),
       sourced('MetOx', ['US'], 'convert', 'https://www.metoxtech.com/technology'),
       sourced('THEVA', ['DE'], 'convert', 'https://www.theva.com/products/'),
-      lead('Shanghai Superconductor', ['CN'], 'convert'),
+      sourced(
+        'Shanghai Superconductor',
+        ['CN'],
+        'convert',
+        'https://www.shsctec.com/en/products/tape/',
+      ),
       lead('AMSC', ['US'], 'convert', ['American Superconductor', 'Amperium']),
     ],
   },
@@ -452,11 +457,16 @@ export const COVERAGE: readonly MaterialCoverage[] = [
       'Helium is produced only as a by-product of a few natural gas fields with unusual composition, so supply is set by unrelated gas economics and by a handful of political jurisdictions.',
     producers: [
       lead('QatarEnergy', ['QA'], 'mine'),
-      lead('ExxonMobil', ['US'], 'mine'),
-      lead('Gazprom', ['RU'], 'mine'),
+      sourced(
+        'ExxonMobil',
+        ['US'],
+        'mine',
+        'https://corporate.exxonmobil.com/what-we-do/materials-for-modern-living/labarge-helium-extraction-energy-production-wyoming',
+      ),
+      sourced('Gazprom', ['RU'], 'mine', 'http://www.gazprominfo.de/terms/orenburg-helium-plant/'),
       lead('Air Products', ['US'], 'refine'),
       lead('Linde', ['US', 'GB'], 'refine'),
-      lead('Air Liquide', ['FR'], 'refine'),
+      sourced('Air Liquide', ['FR'], 'refine', 'https://de.airliquide.com/unsere-gase/helium'),
     ],
   },
 

@@ -85,10 +85,24 @@ const NEVER_AN_EVENT = [
   'neonscience.org',
 ];
 
+/**
+ * Matched on a host boundary, not a substring.
+ *
+ * `host.includes('x.com')` is true of `semiconductorx.com` and
+ * `simplytronix.com`, so the list was quietly discarding trade press it was
+ * never meant to touch — invisibly, because a filtered result leaves no trace.
+ *
+ * The list mixes two spellings and both have to keep working: a full host
+ * (`linkedin.com`) matches that host or a subdomain of it, and a bare name
+ * (`researchandmarkets`) matches a whole label, so it catches every TLD the
+ * same farm publishes under without also catching a name it is a substring of.
+ */
 function isNeverAnEvent(url: string): boolean {
   try {
-    const host = new URL(url).hostname.toLowerCase();
-    return NEVER_AN_EVENT.some((bad) => host.includes(bad));
+    const host = new URL(url).hostname.toLowerCase().replace(/^www\./, '');
+    return NEVER_AN_EVENT.some((bad) =>
+      bad.includes('.') ? host === bad || host.endsWith(`.${bad}`) : host.split('.').includes(bad),
+    );
   } catch {
     return true;
   }
@@ -102,14 +116,17 @@ const LOOSENS =
 interface Args {
   limit: number | null;
   name: string | null;
+  /** Drop stored candidates the CURRENT filter would never have filed. */
+  prune: boolean;
 }
 
 function parseArgs(argv: string[]): Args {
-  const args: Args = { limit: null, name: null };
+  const args: Args = { limit: null, name: null, prune: false };
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i];
     if (arg === '--limit') args.limit = Number(argv[++i]);
     else if (arg === '--name') args.name = argv[++i] ?? null;
+    else if (arg === '--prune') args.prune = true;
     else throw new Error(`Unknown argument: ${arg}`);
   }
   return args;
@@ -223,6 +240,24 @@ const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 async function main(): Promise<void> {
   const args = parseArgs(process.argv.slice(2));
   const file = await load();
+
+  // The block list grows as the sweep learns what a market-report farm looks
+  // like, but rows filed before a domain was added sit in the worklist forever
+  // — a human cost, since every one of them has to be read and rejected by
+  // hand. Pruning applies today's filter to yesterday's rows, from the same
+  // list, so there is never a second definition of what counts as junk.
+  if (args.prune) {
+    const before = file.candidates.length;
+    file.candidates = file.candidates.filter((c) => !isNeverAnEvent(c.url));
+    const dropped = before - file.candidates.length;
+    file.generatedAt = new Date().toISOString();
+    await save(file);
+    console.log(
+      `Pruned ${dropped} candidate(s) the filter now rejects; ${file.candidates.length} left.`,
+    );
+    return;
+  }
+
   const known = new Set(file.candidates.map((c) => c.id));
 
   const queue = nodes()
