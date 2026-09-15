@@ -16,7 +16,7 @@ import { BOTTLENECKS, portalTotals } from '@/lib/bottlenecks';
 import { BindingBar } from '@/components/portal/Board';
 import { EventList } from '@/components/portal/EventList';
 import { Heading, Page, Shell } from '@/components/portal/Shell';
-import { Status } from '@/components/portal/Status';
+import { Status, rowLabel } from '@/components/portal/Status';
 
 export const metadata: Metadata = {
   title: { absolute: `${COMPANY.name} — bottlenecks on the path to transformative technology` },
@@ -152,7 +152,7 @@ export default function TodayPage() {
                   </Link>
                   <span className="flex items-center gap-4">
                     <BindingBar value={b.binding} />
-                    <Status state={b.state} compact />
+                    <Status state={b.state} compact label={rowLabel(b.counts)} />
                   </span>
                 </li>
               ))}

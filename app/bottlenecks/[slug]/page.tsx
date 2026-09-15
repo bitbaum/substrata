@@ -11,7 +11,7 @@ import { correctionUrl } from '@/lib/site';
 import { BindingBar } from '@/components/portal/Board';
 import { EventList } from '@/components/portal/EventList';
 import { Heading, Page, Shell } from '@/components/portal/Shell';
-import { Status } from '@/components/portal/Status';
+import { Status, rowLabel } from '@/components/portal/Status';
 
 interface RouteParams {
   params: Promise<{ slug: string }>;
@@ -82,7 +82,7 @@ export default async function BottleneckPage({ params }: RouteParams) {
           <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2">
             <BindingBar value={b.binding} />
             <span className="text-sm text-fg-secondary">{HORIZON_LABEL[b.horizon]}</span>
-            <Status state={b.state} />
+            <Status state={b.state} label={rowLabel(b.counts)} />
             <a
               href={correctionUrl(b.name)}
               className="text-sm text-accent underline-offset-4 hover:underline"

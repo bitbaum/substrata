@@ -15,7 +15,7 @@ import { HORIZON_LABEL, type Horizon } from '@/config/substrata-assessment';
 import { STAGES, type StageId } from '@/config/substrata-stages';
 import { BOARD_SPEC, KIND_LABEL, STATE_LABEL, type Bottleneck } from '@/lib/bottlenecks';
 import { Chip } from './Chip';
-import { Progress, Status } from './Status';
+import { Progress, Status, rowLabel } from './Status';
 
 /** Rows in loop order, one block per stage that has any. */
 function groupByStage(rows: readonly Bottleneck[]): Array<[StageId, Bottleneck[]]> {
@@ -208,7 +208,7 @@ export function Board({ params, query, result, basePath = '/board' }: Props) {
                       {HORIZON_LABEL[row.horizon]}
                     </td>
                     <td className="py-3 align-top">
-                      <Status state={row.state} compact />
+                      <Status state={row.state} compact label={rowLabel(row.counts)} />
                     </td>
                   </tr>
                 )),

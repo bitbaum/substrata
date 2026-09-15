@@ -151,6 +151,128 @@ export const EVENTS: readonly CoverageEvent[] = [
     quote: "Japan's Tokuyama opens polysilicon factory in Vietnam.",
     acceptedOn: '2026-09-15',
   },
+  {
+    id: '2022-11-10-tsmc-neon-supply-chain',
+    date: '2022-11-10',
+    headline:
+      'TSMC moves to build a neon supply chain in Taiwan after the war in Ukraine cut global supply.',
+    kind: 'capacity',
+    effect: 'loosens',
+    bottlenecks: ['Neon, excimer laser grade'],
+    participants: ['TSMC'],
+    jurisdictions: ['TW'],
+    source: 'https://www.tomshardware.com/news/tsmc-to-build-neon-supply-chain-in-taiwan',
+    quote: 'TSMC to Build Neon Supply Chain After Russia Decimated Global Supply.',
+    acceptedOn: '2026-09-15',
+  },
+  {
+    id: '2026-03-27-eu-goes-safeguard-investigation',
+    date: '2026-03-27',
+    headline:
+      'The European Commission opens a safeguard investigation into imports of grain-oriented electrical steel.',
+    kind: 'policy',
+    effect: 'tightens',
+    bottlenecks: ['Grain-oriented electrical steel (GOES)'],
+    participants: [],
+    jurisdictions: ['EU'],
+    source:
+      'https://aslgate.com/european-union-officially-initiates-safeguard-investigation-on-grain-oriented-electrical-steel-goes/',
+    quote:
+      'On March 27, 2026, the European Commission issued a notice initiating a safeguard investigation on grain-oriented electrical steel.',
+    acceptedOn: '2026-09-15',
+  },
+  {
+    id: '2026-04-15-asml-60-euv-shipments',
+    date: '2026-04-15',
+    headline:
+      'ASML plans to ship more than 60 EUV scanners in 2026, high-NA and low-NA together, on memory demand.',
+    kind: 'capacity',
+    effect: 'loosens',
+    bottlenecks: ['EUV lithography scanners'],
+    participants: ['ASML'],
+    jurisdictions: ['NL'],
+    source:
+      'https://www.techpowerup.com/348239/asml-targets-60-euv-shipments-in-2026-as-memory-demand-surges',
+    quote:
+      'In the latest Q1 2026 quarterly figures, ASML announced plans to ship over 60 EUV units this year, including both High-NA and Low-NA EUV lithography scanners.',
+    acceptedOn: '2026-09-15',
+  },
+  {
+    id: '2026-06-30-quartz-corp-restructures-us',
+    date: '2026-06-30',
+    headline:
+      'The Quartz Corp restructures its US operations, citing persistent losses in its renewable-energy business.',
+    kind: 'filing',
+    effect: 'neutral',
+    bottlenecks: ['Crucible-grade high-purity quartz sand'],
+    participants: ['The Quartz Corp'],
+    jurisdictions: ['US', 'NO'],
+    source: 'https://www.thequartzcorp.com/articles/restructuring-us',
+    quote:
+      'The renewable energy industry, a significant business area for The Quartz Corp (TQC), is affected internationally by persistent losses.',
+    acceptedOn: '2026-09-15',
+  },
+  {
+    id: '2026-08-15-samsung-backend-to-vietnam-for-hbm',
+    date: '2026-08-15',
+    headline:
+      'Samsung weighs moving legacy memory packaging to Vietnam to free Korean lines for HBM stacking.',
+    kind: 'capacity',
+    effect: 'loosens',
+    bottlenecks: ['High-bandwidth memory stacking yield'],
+    participants: ['Samsung Memory'],
+    jurisdictions: ['KR', 'VN'],
+    source:
+      'https://www.techtimes.com/articles/324595/20260815/samsung-weighs-shipping-legacy-memory-backend-vietnam-unlock-hbm-capacity.htm',
+    quote:
+      'A move that would free floor space and specialized equipment lines at both sites for the high-bandwidth memory stacking work.',
+    acceptedOn: '2026-09-15',
+  },
+  {
+    id: '2026-09-05-tennessee-polysilicon-plant-at-risk',
+    date: '2026-09-05',
+    headline: 'A polysilicon plant in Tennessee is reported at risk of closure.',
+    kind: 'capacity',
+    effect: 'tightens',
+    bottlenecks: ['Electronic-grade polysilicon'],
+    participants: [],
+    jurisdictions: ['US'],
+    source: 'https://www.arkansasonline.com/news/2026/sep/05/polysilicon-plant-at-risk-of-closure/',
+    quote: 'Polysilicon plant in Tennessee at risk of closure. September 5, 2026.',
+    acceptedOn: '2026-09-15',
+  },
+  {
+    id: '2026-09-13-shanghai-electric-first-overseas-turbine-order',
+    date: '2026-09-13',
+    headline:
+      'Shanghai Electric wins its first overseas heavy-duty gas turbine order, 500 MW in Malaysia.',
+    kind: 'milestone',
+    effect: 'loosens',
+    bottlenecks: ['Heavy-duty gas turbine order books'],
+    participants: [],
+    jurisdictions: ['CN', 'MY'],
+    source:
+      'https://www.prnewswire.com/news-releases/shanghai-electric-secures-first-overseas-heavy-duty-gas-turbine-order-for-500-mw-malaysian-project-302876154.html',
+    quote:
+      'Shanghai Electric has achieved a milestone in the high-end equipment sector, securing its first overseas heavy-duty gas turbine order.',
+    acceptedOn: '2026-09-15',
+  },
+  {
+    id: '2026-09-14-eu-dual-use-list-adds-ru-ald',
+    date: '2026-09-14',
+    headline:
+      'The EU updates its dual-use control list to add atomic layer deposition equipment for molybdenum and ruthenium.',
+    kind: 'policy',
+    effect: 'tightens',
+    bottlenecks: ['Ruthenium, sputtering and ALD grade'],
+    participants: [],
+    jurisdictions: ['EU'],
+    source:
+      'https://policy.trade.ec.europa.eu/news/2026-update-eu-control-list-dual-use-items-2026-09-14_en',
+    quote:
+      'The EU control list provides for the addition of new dual-use items, including semiconductor manufacturing and testing equipment and materials (e.g. Atomic Layer Deposition equipment for molybdenum and Ruthenium).',
+    acceptedOn: '2026-09-15',
+  },
 ];
 
 /** Newest first. */
