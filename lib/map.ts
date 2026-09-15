@@ -27,6 +27,7 @@ import { INVESTMENT_THESIS } from '@/config/substrata-acting';
 import { CHAIN_LAYERS, PARTICIPANTS } from '@/config/substrata-participants';
 import { EVIDENCE, evidenceFor, verificationFor } from '@/config/substrata-evidence';
 import { RESEARCH_PROGRAMMES, programmeProgress } from '@/config/substrata-programmes';
+import { CALLS, record } from '@/config/substrata-calls';
 import { eventsNewestFirst } from '@/config/substrata-events';
 import { STAGES } from '@/config/substrata-stages';
 import { BOTTLENECKS } from '@/lib/bottlenecks';
@@ -77,6 +78,19 @@ export function buildMap() {
       events: b.events.map((e) => e.id),
     })),
     events: eventsNewestFirst(),
+    calls: {
+      record: record(),
+      items: CALLS.map((call) => ({
+        id: call.id,
+        madeOn: call.madeOn,
+        claim: call.claim,
+        tests: call.tests,
+        bottlenecks: call.bottlenecks,
+        resolveBy: call.resolveBy,
+        settledBy: call.settledBy,
+        resolution: call.resolution,
+      })),
+    },
     curves: MANDATE_CURVES.map((curve) => ({ id: curve.id, label: curve.label, test: curve.test })),
     materials: COVERAGE.map((entry) => {
       const listing = MATERIALS.find((m) => m.title === entry.material);

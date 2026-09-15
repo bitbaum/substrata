@@ -136,11 +136,12 @@ export const WHAT_EXISTS_NOT = [
       'declaration.',
   },
   {
-    term: 'No track record yet',
+    term: 'A track record that has only just started',
     detail:
-      'A research project is worth what its past calls were worth, and this one has not made ' +
-      'any yet. Dated, falsifiable calls scored in public are the next thing to build, and ' +
-      'until they exist there is nothing to point at.',
+      'A research project is worth what its past calls were worth. The first dated calls were ' +
+      'published on 2026-09-15, each with the observation that settles it, and none has come ' +
+      'due yet. So there is a record, it is empty, and no hit rate will be shown until enough ' +
+      'calls have resolved for a percentage to mean anything. Wrong ones will stay on the page.',
   },
   {
     term: 'Out of scope on purpose',

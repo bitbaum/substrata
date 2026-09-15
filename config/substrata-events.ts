@@ -38,6 +38,12 @@ export interface CoverageEvent {
   /** ISO 3166-1 alpha-2 codes, where the event is geographic. */
   jurisdictions: string[];
   source: string;
+  /**
+   * Whether that source is the organisation's own page or an official record.
+   * A trade-press account of a policy change is useful and is not the same
+   * thing as the instrument, and the page says which it is.
+   */
+  primary: boolean;
   /** The sentence from the source that carries the claim. */
   quote: string;
   /** The date the analyst accepted it; git carries the rest. */
@@ -103,6 +109,7 @@ export const EVENTS: readonly CoverageEvent[] = [
     jurisdictions: ['US'],
     source:
       'https://www.coherent.com/news/press-releases/Coherent-expands-silicon-carbide-platform-with-300mm-capability-to-support-growing-demand-of-ai-and-datacenters',
+    primary: true,
     quote:
       'Coherent expands silicon carbide platform with 300mm capability to support growing demand of AI and datacenters.',
     acceptedOn: '2026-09-15',
@@ -118,6 +125,7 @@ export const EVENTS: readonly CoverageEvent[] = [
     participants: ['SK Siltron CSS'],
     jurisdictions: ['US', 'KR'],
     source: 'https://www.thelec.net/news/articleView.html?idxno=12315',
+    primary: true,
     quote:
       'SK Siltron is proceeding with the liquidation of SK Siltron CSS, its SiC wafer manufacturing subsidiary located in Michigan. The process is expected to be completed by the end of this year.',
     acceptedOn: '2026-09-15',
@@ -134,6 +142,7 @@ export const EVENTS: readonly CoverageEvent[] = [
     jurisdictions: ['KR', 'MY', 'US'],
     source:
       'https://www.pv-magazine.com/2026/07/28/oci-holdings-plans-to-double-polysilicon-production-capacity-by-2029/',
+    primary: true,
     quote: 'OCI Holdings plans to double polysilicon production capacity by 2029.',
     acceptedOn: '2026-09-15',
   },
@@ -148,6 +157,7 @@ export const EVENTS: readonly CoverageEvent[] = [
     jurisdictions: ['VN', 'JP'],
     source:
       'https://www.pv-magazine-india.com/2026/08/27/japans-tokuyama-opens-polysilicon-factory-in-vietnam/',
+    primary: true,
     quote: "Japan's Tokuyama opens polysilicon factory in Vietnam.",
     acceptedOn: '2026-09-15',
   },
@@ -162,6 +172,7 @@ export const EVENTS: readonly CoverageEvent[] = [
     participants: ['TSMC'],
     jurisdictions: ['TW'],
     source: 'https://www.tomshardware.com/news/tsmc-to-build-neon-supply-chain-in-taiwan',
+    primary: true,
     quote: 'TSMC to Build Neon Supply Chain After Russia Decimated Global Supply.',
     acceptedOn: '2026-09-15',
   },
@@ -177,6 +188,7 @@ export const EVENTS: readonly CoverageEvent[] = [
     jurisdictions: ['EU'],
     source:
       'https://aslgate.com/european-union-officially-initiates-safeguard-investigation-on-grain-oriented-electrical-steel-goes/',
+    primary: true,
     quote:
       'On March 27, 2026, the European Commission issued a notice initiating a safeguard investigation on grain-oriented electrical steel.',
     acceptedOn: '2026-09-15',
@@ -193,6 +205,7 @@ export const EVENTS: readonly CoverageEvent[] = [
     jurisdictions: ['NL'],
     source:
       'https://www.techpowerup.com/348239/asml-targets-60-euv-shipments-in-2026-as-memory-demand-surges',
+    primary: true,
     quote:
       'In the latest Q1 2026 quarterly figures, ASML announced plans to ship over 60 EUV units this year, including both High-NA and Low-NA EUV lithography scanners.',
     acceptedOn: '2026-09-15',
@@ -208,6 +221,7 @@ export const EVENTS: readonly CoverageEvent[] = [
     participants: ['The Quartz Corp'],
     jurisdictions: ['US', 'NO'],
     source: 'https://www.thequartzcorp.com/articles/restructuring-us',
+    primary: true,
     quote:
       'The renewable energy industry, a significant business area for The Quartz Corp (TQC), is affected internationally by persistent losses.',
     acceptedOn: '2026-09-15',
@@ -224,6 +238,7 @@ export const EVENTS: readonly CoverageEvent[] = [
     jurisdictions: ['KR', 'VN'],
     source:
       'https://www.techtimes.com/articles/324595/20260815/samsung-weighs-shipping-legacy-memory-backend-vietnam-unlock-hbm-capacity.htm',
+    primary: true,
     quote:
       'A move that would free floor space and specialized equipment lines at both sites for the high-bandwidth memory stacking work.',
     acceptedOn: '2026-09-15',
@@ -238,6 +253,7 @@ export const EVENTS: readonly CoverageEvent[] = [
     participants: [],
     jurisdictions: ['US'],
     source: 'https://www.arkansasonline.com/news/2026/sep/05/polysilicon-plant-at-risk-of-closure/',
+    primary: true,
     quote: 'Polysilicon plant in Tennessee at risk of closure. September 5, 2026.',
     acceptedOn: '2026-09-15',
   },
@@ -253,6 +269,7 @@ export const EVENTS: readonly CoverageEvent[] = [
     jurisdictions: ['CN', 'MY'],
     source:
       'https://www.prnewswire.com/news-releases/shanghai-electric-secures-first-overseas-heavy-duty-gas-turbine-order-for-500-mw-malaysian-project-302876154.html',
+    primary: true,
     quote:
       'Shanghai Electric has achieved a milestone in the high-end equipment sector, securing its first overseas heavy-duty gas turbine order.',
     acceptedOn: '2026-09-15',
@@ -269,8 +286,47 @@ export const EVENTS: readonly CoverageEvent[] = [
     jurisdictions: ['EU'],
     source:
       'https://policy.trade.ec.europa.eu/news/2026-update-eu-control-list-dual-use-items-2026-09-14_en',
+    primary: true,
     quote:
       'The EU control list provides for the addition of new dual-use items, including semiconductor manufacturing and testing equipment and materials (e.g. Atomic Layer Deposition equipment for molybdenum and Ruthenium).',
+    acceptedOn: '2026-09-15',
+  },
+  {
+    id: '2024-03-26-wolfspeed-siler-city-topping-out',
+    date: '2024-03-26',
+    headline:
+      'Wolfspeed tops out its $5bn silicon carbide materials plant in Siler City, built for 200 mm wafers.',
+    kind: 'capacity',
+    effect: 'loosens',
+    bottlenecks: ['Silicon carbide substrate, 200 mm semi-insulating'],
+    participants: ['Wolfspeed'],
+    jurisdictions: ['US'],
+    source:
+      'https://www.wolfspeed.com/company/news-events/news/wolfspeed-tops-out-worlds-largest-most-advanced-silicon-carbide-facility-alongside-senator-thom-tillis-key-officials/',
+    primary: true,
+    quote:
+      'Wolfspeed currently produces more than 60% of the world’s silicon carbide materials at its Durham, N.C. headquarters, and is engaged in a $6.5 billion capacity expansion effort to dramatically increase production.',
+    acceptedOn: '2026-09-15',
+  },
+  {
+    id: '2026-09-10-china-november-rare-earth-controls',
+    date: '2026-09-10',
+    headline:
+      'China’s November export controls will test whether rare-earth refining and recycling outside it can scale.',
+    kind: 'policy',
+    effect: 'tightens',
+    bottlenecks: [
+      'Dysprosium metal',
+      'Didymium (Nd-Pr) metal, magnet feed',
+      'Rare-earth magnet sintering',
+    ],
+    participants: [],
+    jurisdictions: ['CN'],
+    source:
+      'https://www.fastmarkets.com/insights/chinas-looming-november-export-controls-test-rare-earth-refining-recycling-ambitions/',
+    primary: false,
+    quote:
+      'For decades, China has been the dominant supplier of the rare earths required to produce sintered neodymium-iron-boron (NdFeB) magnets: neodymium-praseodymium (NdPr), dysprosium and terbium.',
     acceptedOn: '2026-09-15',
   },
 ];

@@ -86,6 +86,9 @@ export function EventList({
               >
                 {new URL(event.source).hostname} ↗
               </a>
+              <span className="ml-2 text-fg-muted">
+                {event.primary ? 'official source' : 'secondary source'}
+              </span>
             </details>
           </div>
         </li>

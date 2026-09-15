@@ -8,6 +8,7 @@ import {
   JURISDICTION_LABEL,
   instrumentsFor,
 } from '@/config/substrata-policy';
+import { callsAbout } from '@/config/substrata-calls';
 import { RESEARCH_PROGRAMMES } from '@/config/substrata-programmes';
 import { readinessLabel, scienceFor } from '@/config/substrata-science';
 import { STAGE_LABEL, stageById } from '@/config/substrata-stages';
@@ -53,6 +54,7 @@ export default async function BottleneckPage({ params }: RouteParams) {
   const stage = stageById(b.stage);
   const rules = instrumentsFor(b.name);
   const fixes = scienceFor(b.name);
+  const calls = callsAbout(b.name);
   const layers = RESEARCH_PROGRAMMES.flatMap((programme) =>
     programme.layers.filter((layer) => layer.gatedBy.includes(b.name)),
   );
@@ -371,6 +373,42 @@ export default async function BottleneckPage({ params }: RouteParams) {
             </ul>
           )}
         </section>
+
+        {calls.length > 0 && (
+          <section className="mb-12">
+            <Heading
+              index={next()}
+              title="What we have predicted"
+              aside={
+                <Link
+                  href="/calls"
+                  className="underline-offset-4 hover:text-fg-primary hover:underline"
+                >
+                  All calls →
+                </Link>
+              }
+            />
+            <ul className="divide-y divide-subtle border-y border-subtle">
+              {calls.map((call) => (
+                <li key={call.id} className="py-4">
+                  <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                    <span className="font-mono text-xs tabular-nums text-fg-tertiary">
+                      {call.madeOn}
+                    </span>
+                    <span className="font-mono text-xs uppercase tracking-caps text-fg-muted">
+                      {call.resolution ? call.resolution.verdict : `open until ${call.resolveBy}`}
+                    </span>
+                  </div>
+                  <p className="mt-1 max-w-prose text-fg-primary">{call.claim}</p>
+                  <p className="mt-1 max-w-prose text-xs leading-relaxed text-fg-tertiary">
+                    <span className="font-mono uppercase tracking-caps">Settled by · </span>
+                    {call.settledBy}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         <section className="mb-12">
           <Heading

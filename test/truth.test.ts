@@ -19,6 +19,8 @@
  */
 
 import { test } from 'node:test';
+import { readFileSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
 import assert from 'node:assert/strict';
 
 import {
@@ -29,6 +31,7 @@ import {
   WHO_MAKES_IT,
 } from '../config/substrata-about';
 import { JOIN } from '../config/substrata-join';
+import { CALLS } from '../config/substrata-calls';
 import { INVESTMENT_THESIS } from '../config/substrata-acting';
 import { ASSESSMENTS } from '../config/substrata-assessment';
 import { COVERAGE, CHOKEPOINTS } from '../config/substrata-coverage';
@@ -80,6 +83,8 @@ function stringsIn(value: unknown, path: string, out: { path: string; text: stri
   return out;
 }
 
+const NOTES_DIR = join(process.cwd(), 'content', 'notes');
+
 const RENDERED = [
   ...stringsIn(sitePages(), 'sitePages()'),
   ...stringsIn(siteChrome(), 'siteChrome()'),
@@ -97,6 +102,7 @@ const RENDERED = [
   ...stringsIn(RESEARCH_PROGRAMMES, 'programmes'),
   ...stringsIn(labels, 'labels'),
   ...stringsIn(JOIN, 'join'),
+  ...stringsIn(CALLS, 'calls'),
 ];
 
 /**
@@ -158,4 +164,44 @@ test('anything presented as verified carries a link, and anything else says it d
       `${entry.id}: no reasoning behind the readiness score`,
     );
   }
+});
+
+/**
+ * Prose goes stale when the data catches up with it.
+ *
+ * The About page and one of the notes both said this project had never made a
+ * call. Publishing the first seven made both sentences false — not through
+ * carelessness in the copy, but because the copy was true when written. That is
+ * a recurring class of error and it deserves a gate rather than vigilance.
+ *
+ * Add a pair here whenever a claim about "none yet" is written down.
+ */
+test('no page claims an absence the data has already filled', () => {
+  const absences: { when: boolean; patterns: RegExp[]; what: string }[] = [
+    {
+      when: CALLS.length > 0,
+      what: `${CALLS.length} calls exist`,
+      patterns: [/no dated,? falsifiable call/i, /has not made any yet/i, /no track record yet/i],
+    },
+  ];
+
+  const notes = readdirSync(NOTES_DIR)
+    .filter((f) => f.endsWith('.md'))
+    .map((f) => ({ path: `content/notes/${f}`, text: readFileSync(join(NOTES_DIR, f), 'utf8') }));
+  const everything = [...RENDERED, ...notes.map((n) => ({ path: n.path, text: n.text }))];
+
+  const failures: string[] = [];
+  for (const absence of absences) {
+    if (!absence.when) continue;
+    for (const { path, text } of everything) {
+      for (const pattern of absence.patterns) {
+        if (pattern.test(text)) {
+          failures.push(
+            `${path}: still claims none exist, but ${absence.what} — /${pattern.source}/`,
+          );
+        }
+      }
+    }
+  }
+  assert.deepEqual(failures, [], `Stale claims of absence:\n  ${failures.join('\n  ')}`);
 });
