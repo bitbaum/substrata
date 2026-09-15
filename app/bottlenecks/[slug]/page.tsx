@@ -14,7 +14,7 @@ import { RESEARCH_PROGRAMMES } from '@/config/substrata-programmes';
 import { readinessLabel, scienceFor } from '@/config/substrata-science';
 import { STAGE_LABEL, stageById } from '@/config/substrata-stages';
 import { INDUSTRY_LABEL, TECHNOLOGY_LABEL } from '@/config/substrata-taxonomy';
-import { BOTTLENECKS, KIND_LABEL, bottleneckBySlug, slugOf } from '@/lib/bottlenecks';
+import { BOTTLENECKS, KIND_LABEL, bottleneckBySlug } from '@/lib/bottlenecks';
 import { EVIDENCE, SEVERITY, WHEN, WHEN_LABEL } from '@/lib/labels';
 import { capitalHref, marketHref, policyHref, scienceHref } from '@/lib/links';
 import { correctionUrl } from '@/lib/site';

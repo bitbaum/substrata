@@ -6,7 +6,6 @@ import { notFound } from 'next/navigation';
 import { CHAIN_LAYERS, SCARCITY_DETAIL } from '@/config/substrata-participants';
 import { INDUSTRY_LABEL, TECHNOLOGY_LABEL } from '@/config/substrata-taxonomy';
 import { MARKET_PARTICIPANTS, SCARCITY_LABEL, participantBySlug } from '@/lib/participants';
-import { slugOf } from '@/lib/bottlenecks';
 import { bottleneckHref } from '@/lib/links';
 import { correctionUrl } from '@/lib/site';
 import { EventList } from '@/components/portal/EventList';

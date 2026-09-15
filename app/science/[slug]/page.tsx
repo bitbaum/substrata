@@ -10,7 +10,7 @@ import {
   readinessLabel,
 } from '@/config/substrata-science';
 import { INDUSTRY_LABEL, TECHNOLOGY_LABEL } from '@/config/substrata-taxonomy';
-import { bottleneckByName, slugOf } from '@/lib/bottlenecks';
+import { bottleneckByName } from '@/lib/bottlenecks';
 import { bottleneckHref } from '@/lib/links';
 import { correctionUrl } from '@/lib/site';
 import { Heading, Page, Shell } from '@/components/portal/Shell';
