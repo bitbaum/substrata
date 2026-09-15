@@ -16,7 +16,8 @@ import {
 } from '@/config/substrata-policy';
 import { slugOf } from '@/lib/bottlenecks';
 import { Empty, Heading, Page, SectionHeader, Shell } from '@/components/portal/Shell';
-import { bottleneckHref, policyHref } from '@/lib/links';
+import { bottleneckHref, marketHref, policyHref } from '@/lib/links';
+import { hasMarketPage } from '@/lib/participants';
 
 export const metadata: Metadata = {
   title: 'Policy',
@@ -98,14 +99,25 @@ function InstrumentCard({ instrument }: { instrument: Instrument }) {
             {instrument.proponents.map((p, i) => (
               <span key={p.name}>
                 {i > 0 && '; '}
+                {hasMarketPage(p.name) ? (
+                  <Link
+                    href={marketHref(p.name)}
+                    className="text-fg-primary underline-offset-4 hover:underline"
+                  >
+                    {p.name}
+                  </Link>
+                ) : (
+                  <span className="text-fg-primary">{p.name}</span>
+                )}{' '}
+                (
                 <a
                   href={p.source}
                   rel="noreferrer"
                   className="text-accent underline-offset-4 hover:underline"
                 >
-                  {p.name}
-                </a>{' '}
-                — {p.asked}
+                  what they filed ↗
+                </a>
+                ) — {p.asked}
               </span>
             ))}
           </span>

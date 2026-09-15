@@ -34,6 +34,7 @@ import {
 } from '@/config/substrata-participants';
 import type { IndustryId, TechnologyId } from '@/config/substrata-taxonomy';
 import { BOTTLENECKS, slugOf, type Bottleneck } from '@/lib/bottlenecks';
+import { slugify } from '@/lib/links';
 
 export interface Produces {
   bottleneck: string;
@@ -186,6 +187,18 @@ function build(): MarketParticipant[] {
 export const MARKET_PARTICIPANTS: readonly MarketParticipant[] = build();
 
 const BY_SLUG = new Map(MARKET_PARTICIPANTS.map((p) => [p.slug, p]));
+
+/**
+ * Whether an organisation named anywhere on the site has a page under Markets.
+ *
+ * Matched on the slug, not the name. Policy records a proponent as
+ * "thyssenkrupp Electrical Steel" and the directory carries "ThyssenKrupp
+ * Electrical Steel"; an exact-name lookup calls that a miss and silently
+ * renders the one lobbying record on the site as unlinkable plain text.
+ */
+export function hasMarketPage(nameOrSlug: string): boolean {
+  return BY_SLUG.has(slugify(nameOrSlug));
+}
 
 export function participantBySlug(slug: string): MarketParticipant | undefined {
   return BY_SLUG.get(slug);

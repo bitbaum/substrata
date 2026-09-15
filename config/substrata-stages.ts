@@ -105,7 +105,10 @@ export const STAGES: readonly Stage[] = [
     consumes: 'Allocation to relieve a constraint before price forces it.',
     reliefTime: 'Quarters',
     relief: 7,
-    coverage: 'Not covered yet. Candidates: project finance for firm power, fab capex cycles.',
+    coverage:
+      'Covered: ten kinds of capital and what each will not fund, three providers sourced to ' +
+      'their own mandate, and a per-bottleneck read on whether funding is the constraint at all. ' +
+      'For most rows it is not.',
   },
   {
     id: 'permission',

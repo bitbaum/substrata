@@ -44,7 +44,7 @@ import {
   scienceHref,
 } from '../lib/links';
 import { allLearn, allNotes } from '../lib/notes';
-import { MARKET_PARTICIPANTS } from '../lib/participants';
+import { MARKET_PARTICIPANTS, hasMarketPage } from '../lib/participants';
 
 /** What each dynamic route can actually serve, from the same source the pages use. */
 const GENERATED: Record<string, Set<string>> = {
@@ -100,6 +100,10 @@ function everyLink(): { from: string; href: string }[] {
   }
   for (const i of INSTRUMENTS) {
     add(`policy ${i.id}`, policyHref(i.jurisdiction));
+    // Same `hasMarketPage` guard the page makes, so the two cannot drift.
+    for (const p of i.proponents) {
+      if (hasMarketPage(p.name)) add(`policy ${i.id} proponent`, marketHref(p.name));
+    }
     for (const name of i.bottlenecks) add(`policy ${i.id} bears on`, bottleneckHref(name));
   }
   for (const r of RECOMMENDATIONS) {

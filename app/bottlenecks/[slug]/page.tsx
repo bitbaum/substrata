@@ -9,13 +9,14 @@ import {
   instrumentsFor,
 } from '@/config/substrata-policy';
 import { callsAbout } from '@/config/substrata-calls';
+import { CONSTRAINT_LABEL, fundingFor, providersFor, kindById } from '@/config/substrata-capital';
 import { RESEARCH_PROGRAMMES } from '@/config/substrata-programmes';
 import { readinessLabel, scienceFor } from '@/config/substrata-science';
 import { STAGE_LABEL, stageById } from '@/config/substrata-stages';
 import { INDUSTRY_LABEL, TECHNOLOGY_LABEL } from '@/config/substrata-taxonomy';
 import { BOTTLENECKS, KIND_LABEL, bottleneckBySlug, slugOf } from '@/lib/bottlenecks';
 import { EVIDENCE, SEVERITY, WHEN, WHEN_LABEL } from '@/lib/labels';
-import { marketHref, policyHref, scienceHref } from '@/lib/links';
+import { capitalHref, marketHref, policyHref, scienceHref } from '@/lib/links';
 import { correctionUrl } from '@/lib/site';
 import { EventList } from '@/components/portal/EventList';
 import { Empty, Heading, Page, Shell } from '@/components/portal/Shell';
@@ -56,6 +57,8 @@ export default async function BottleneckPage({ params }: RouteParams) {
   const rules = instrumentsFor(b.name);
   const fixes = scienceFor(b.name);
   const calls = callsAbout(b.name);
+  const funding = fundingFor(b.name);
+  const providers = providersFor(b.name);
   const layers = RESEARCH_PROGRAMMES.flatMap((programme) =>
     programme.layers.filter((layer) => layer.gatedBy.includes(b.name)),
   );
@@ -408,6 +411,62 @@ export default async function BottleneckPage({ params }: RouteParams) {
                 </li>
               ))}
             </ul>
+          </section>
+        )}
+
+        {(funding || providers.length > 0) && (
+          <section className="mb-12">
+            <Heading
+              index={next()}
+              title="Who could fund relief"
+              aside={
+                <Link
+                  href="/capital"
+                  className="underline-offset-4 hover:text-fg-primary hover:underline"
+                >
+                  All capital →
+                </Link>
+              }
+            />
+            {funding && (
+              <div className="mb-4 rounded-lg border border-strong bg-surface-raised px-5 py-4">
+                <p className="font-mono text-xs uppercase tracking-caps text-fg-tertiary">
+                  Is funding the constraint? · {CONSTRAINT_LABEL[funding.constraint]}
+                </p>
+                <p className="mt-2 max-w-prose text-sm leading-relaxed text-fg-secondary">
+                  {funding.why}
+                </p>
+              </div>
+            )}
+            {providers.length > 0 && (
+              <ul className="divide-y divide-subtle border-y border-subtle">
+                {providers.map((provider) => (
+                  <li key={provider.id} className="py-3">
+                    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                      <Link
+                        href={capitalHref(provider.id)}
+                        className="font-medium text-fg-primary underline-offset-4 hover:underline"
+                      >
+                        {provider.name}
+                      </Link>
+                      <span className="font-mono text-xs uppercase tracking-caps text-fg-muted">
+                        {kindById(provider.kind).name}
+                      </span>
+                    </div>
+                    <p className="mt-1 max-w-prose text-sm leading-relaxed text-fg-secondary">
+                      {provider.mandate}
+                    </p>
+                    <p className="mt-1 max-w-prose text-xs leading-relaxed text-fg-tertiary">
+                      Will not fund: {kindById(provider.kind).willNotFund}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            )}
+            <p className="mt-3 max-w-prose text-xs leading-relaxed text-fg-muted">
+              A mandate covering the kind of asset that would relieve this row. Not a claim that
+              anyone has funded one, and not advice.
+            </p>
           </section>
         )}
 

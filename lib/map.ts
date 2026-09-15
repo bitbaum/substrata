@@ -24,6 +24,7 @@ import {
   chokepointProgress,
 } from '@/config/substrata-coverage';
 import { INVESTMENT_THESIS } from '@/config/substrata-acting';
+import { CAPITAL_KINDS, CAPITAL_PROVIDERS, FUNDING_ASSESSMENTS } from '@/config/substrata-capital';
 import { CHAIN_LAYERS, PARTICIPANTS } from '@/config/substrata-participants';
 import { EVIDENCE, evidenceFor, verificationFor } from '@/config/substrata-evidence';
 import { RESEARCH_PROGRAMMES, programmeProgress } from '@/config/substrata-programmes';
@@ -130,6 +131,38 @@ export function buildMap() {
         role: item.role,
         jurisdictions: item.jurisdictions,
         scarcity: item.scarcity,
+        why: item.why,
+      })),
+    },
+    // Capital is a map of who funds what on whose mandate. `willNotFund` is the
+    // field that carries it, and `constraint` says out loud where money is not
+    // what is missing — which, for most rows here, is the answer. Nothing in
+    // this block is advice on where to put money.
+    capital: {
+      kinds: CAPITAL_KINDS.map((kind) => ({
+        id: kind.id,
+        name: kind.name,
+        plain: kind.plain,
+        chequeSize: kind.chequeSize,
+        horizon: kind.horizon,
+        willFund: kind.willFund,
+        willNotFund: kind.willNotFund,
+      })),
+      providers: CAPITAL_PROVIDERS.map((provider) => ({
+        id: provider.id,
+        name: provider.name,
+        kind: provider.kind,
+        jurisdiction: provider.jurisdiction,
+        mandate: provider.mandate,
+        canMove: provider.canMove,
+        source: provider.source,
+        primary: provider.primary,
+        quote: provider.quote,
+        readOn: provider.readOn,
+      })),
+      funding: FUNDING_ASSESSMENTS.map((item) => ({
+        bottleneck: item.bottleneck,
+        constraint: item.constraint,
         why: item.why,
       })),
     },

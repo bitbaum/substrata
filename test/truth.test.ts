@@ -213,3 +213,30 @@ test('no page claims an absence the data has already filled', () => {
   }
   assert.deepEqual(failures, [], `Stale claims of absence:\n  ${failures.join('\n  ')}`);
 });
+
+/**
+ * The loop stages each carry a `coverage` line, and three of them honestly say
+ * "not covered yet". That phrase is true of some stages and false of others, so
+ * it cannot be banned by pattern — it has to be checked against the data for the
+ * stage that claims it. Capital said it for a week after /capital shipped.
+ */
+test('a stage does not say it is uncovered while its section exists', () => {
+  const covered: { stage: string; when: boolean; what: string }[] = [
+    {
+      stage: 'capital',
+      when: CAPITAL_PROVIDERS.length > 0 || FUNDING_ASSESSMENTS.length > 0,
+      what: `${CAPITAL_PROVIDERS.length} providers and ${FUNDING_ASSESSMENTS.length} funding assessments`,
+    },
+  ];
+
+  for (const row of covered) {
+    if (!row.when) continue;
+    const stage = STAGES.find((s) => s.id === row.stage);
+    assert.ok(stage, `no stage "${row.stage}"`);
+    assert.doesNotMatch(
+      stage.coverage,
+      /not covered yet/i,
+      `stage "${row.stage}" still says it is uncovered, but the site has ${row.what}`,
+    );
+  }
+});
