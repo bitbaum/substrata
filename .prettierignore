@@ -33,3 +33,6 @@ yarn.lock
 # Written by the research engine (scripts/research/source-producers.ts), not by hand.
 research/evidence.json
 research/events.json
+
+# Screenshot and trace output from the Playwright MCP server.
+.playwright-mcp

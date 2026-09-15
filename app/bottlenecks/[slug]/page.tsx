@@ -439,8 +439,11 @@ export default async function BottleneckPage({ params }: RouteParams) {
               </div>
             )}
             {providers.length > 0 && (
+              // `willNotFund` belongs to the KIND, not the provider, so two
+              // development banks in a row would print the same sentence twice
+              // and read as a rendering fault. Say it once per kind.
               <ul className="divide-y divide-subtle border-y border-subtle">
-                {providers.map((provider) => (
+                {providers.map((provider, index) => (
                   <li key={provider.id} className="py-3">
                     <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                       <Link
@@ -456,9 +459,14 @@ export default async function BottleneckPage({ params }: RouteParams) {
                     <p className="mt-1 max-w-prose text-sm leading-relaxed text-fg-secondary">
                       {provider.mandate}
                     </p>
-                    <p className="mt-1 max-w-prose text-xs leading-relaxed text-fg-tertiary">
-                      Will not fund: {kindById(provider.kind).willNotFund}
-                    </p>
+                    {providers.findIndex((other) => other.kind === provider.kind) === index && (
+                      <p className="mt-1 max-w-prose text-xs leading-relaxed text-fg-tertiary">
+                        <span className="font-mono uppercase tracking-caps text-fg-muted">
+                          {kindById(provider.kind).name} will not fund ·{' '}
+                        </span>
+                        {kindById(provider.kind).willNotFund}
+                      </p>
+                    )}
                   </li>
                 ))}
               </ul>

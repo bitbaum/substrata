@@ -6,3 +6,6 @@ next-env.d.ts
 *.tsbuildinfo
 .staging
 .env.selfhost.local
+
+# Screenshot and trace output from the Playwright MCP server, never committed.
+.playwright-mcp
