@@ -14,7 +14,6 @@ import {
   policyTotals,
   type Instrument,
 } from '@/config/substrata-policy';
-import { slugOf } from '@/lib/bottlenecks';
 import { Empty, Heading, Page, SectionHeader, Shell } from '@/components/portal/Shell';
 import { bottleneckHref, marketHref, policyHref } from '@/lib/links';
 import { hasMarketPage } from '@/lib/participants';
