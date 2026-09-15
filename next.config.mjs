@@ -5,6 +5,8 @@ const nextConfig = {
   reactStrictMode: true,
   // Routes that moved as the portal grew sections. Old links keep working.
   redirects: async () => [
+    { source: '/blog', destination: '/notes', permanent: true },
+    { source: '/blog/:slug', destination: '/notes/:slug', permanent: true },
     { source: '/map', destination: '/bottlenecks', permanent: true },
     { source: '/board', destination: '/bottlenecks', permanent: true },
     { source: '/participants', destination: '/markets', permanent: true },

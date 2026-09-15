@@ -7,7 +7,7 @@ import { Empty, Page, SectionHeader, Shell } from '@/components/portal/Shell';
 import { noteHref } from '@/lib/links';
 
 export const metadata: Metadata = {
-  title: 'Notes',
+  title: 'Blog & notes',
   description:
     'Written pieces: what the map implies, where the research is weak, and what a recent change actually changed.',
 };
@@ -20,8 +20,8 @@ export default function NotesPage() {
     <Shell currentPath="notes">
       <Page>
         <SectionHeader
-          title="Notes"
-          lede="The map states facts. These are the arguments about what they mean, including the ones about where this research is weakest."
+          title="The Substrata journal"
+          lede="Research arguments, explanations and development notes: what we are learning, what we are building, and where the evidence still falls short."
           stats={
             notes.length > 0
               ? [

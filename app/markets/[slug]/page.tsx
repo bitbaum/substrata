@@ -11,6 +11,8 @@ import { correctionUrl } from '@/lib/site';
 import { EventList } from '@/components/portal/EventList';
 import { Empty, Heading, Page, Shell } from '@/components/portal/Shell';
 import { Status } from '@/components/portal/Status';
+import { SCIENCE } from '@/config/substrata-science';
+import { scienceHref } from '@/lib/links';
 
 interface RouteParams {
   params: Promise<{ slug: string }>;
@@ -38,6 +40,9 @@ export default async function ParticipantPage({ params }: RouteParams) {
   if (!p) notFound();
 
   const layer = CHAIN_LAYERS.find((l) => l.id === p.layer);
+  const relief = SCIENCE.filter((s) =>
+    s.relieves.some((r) => p.produces.some((x) => x.bottleneck === r.bottleneck)),
+  );
   let n = 0;
   const next = () => String(++n).padStart(2, '0');
 
@@ -208,6 +213,43 @@ export default async function ParticipantPage({ params }: RouteParams) {
             </div>
           </section>
         )}
+
+        <section className="mb-12">
+          <Heading index={next()} title="What could change its position" />
+          <p className="mb-4 max-w-prose text-sm text-fg-secondary">
+            These research approaches address materials mapped to this organisation. This does not
+            establish a partnership, investment or adoption by the company.
+          </p>
+          {relief.length === 0 ? (
+            <p className="text-sm text-fg-secondary">No relevant science entries are mapped yet.</p>
+          ) : (
+            <div className="research-card-grid">
+              {relief.map((s) => (
+                <article key={s.id}>
+                  <h2>
+                    <Link href={scienceHref(s.id)}>{s.name}</Link>
+                  </h2>
+                  <p>{s.plain}</p>
+                  <p>
+                    Readiness {s.readiness}/9 · analyst judgement · {s.judgedOn}
+                  </p>
+                  <Link href={scienceHref(s.id)}>Mechanism and evidence →</Link>
+                </article>
+              ))}
+            </div>
+          )}
+          <div className="research-prose">
+            <h3>Questions the profile does not yet answer</h3>
+            <p>
+              Revenue, production capacity, customer contracts, hiring needs and private supplier
+              relationships are not established by this directory. Help document them with dated,
+              public sources.
+            </p>
+            <Link href={`/chat?topic=${encodeURIComponent(p.name)}`}>
+              Ask Substrata about {p.name}, or contribute expertise →
+            </Link>
+          </div>
+        </section>
 
         <section>
           <Heading

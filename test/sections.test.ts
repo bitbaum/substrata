@@ -7,6 +7,7 @@
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { existsSync } from 'node:fs';
 
 import { MATERIALS } from '../config/substrata';
 import { CHOKEPOINTS } from '../config/substrata-coverage';
@@ -189,7 +190,7 @@ test('every navigation entry resolves to a route that exists', () => {
   for (const href of navPaths(groups)) {
     const path = href.replace(/^\//, '');
     assert.ok(
-      documents.has(path) || routes.has(path),
+      documents.has(path) || routes.has(path) || existsSync(`app/${path}/page.tsx`),
       `navigation points at a missing route: ${href}`,
     );
   }

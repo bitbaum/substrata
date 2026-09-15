@@ -80,11 +80,8 @@ jobs:
             nextjs-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}-
             nextjs-${{ runner.os }}-
 
-      - name: Type check
-        run: pnpm run type-check
-
-      - name: Lint
-        run: pnpm run lint
+      - name: Verify
+        run: pnpm run verify
 
       # The build is the real test for a content site: a broken import or a bad
       # config surfaces here and nowhere earlier.

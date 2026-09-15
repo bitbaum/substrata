@@ -96,44 +96,69 @@ export function Board({ params, query, result, basePath = '/bottlenecks' }: Prop
 
   return (
     <section>
-      <div className="flex flex-col gap-3 border-y border-subtle py-4">
-        <FilterRow label="Technology">
-          {chips(
-            'tech',
-            TECHNOLOGIES.map((t) => ({ id: t.id, name: t.name })),
-          )}
-        </FilterRow>
-        <FilterRow label="Industry">
-          {chips(
-            'industry',
-            INDUSTRIES.map((i) => ({ id: i.id, name: i.name })),
-          )}
-        </FilterRow>
-        <FilterRow label="Stage">
-          {chips(
-            'stage',
-            STAGES.map((s) => ({ id: s.id, name: s.name })),
-          )}
-        </FilterRow>
-        <FilterRow label={WHEN.label}>
-          {chips(
-            'horizon',
-            HORIZONS.map((h) => ({ id: h, name: WHEN_LABEL[h] })),
-            false,
-          )}
-        </FilterRow>
-        <FilterRow label={EVIDENCE.label}>
-          {chips(
-            'state',
-            (['sourced', 'candidate', 'unverified'] as const).map((s) => ({
-              id: s,
-              name: EVIDENCE_LABEL[s],
-            })),
-            false,
-          )}
-        </FilterRow>
-      </div>
-
+      <form method="GET" action={basePath} className="research-search mb-4">
+        {Object.entries(query.facets).map(([key, values]) =>
+          values.length > 0 ? (
+            <input key={key} type="hidden" name={key} value={values.join(',')} />
+          ) : null,
+        )}
+        <label htmlFor="board-search" className="sr-only">
+          Search bottlenecks
+        </label>
+        <input
+          id="board-search"
+          name="q"
+          type="search"
+          defaultValue={query.q}
+          placeholder="Search a material, company or technology"
+        />
+        <button type="submit">Search</button>
+        <Link href={basePath} className="text-sm text-accent">
+          Clear all
+        </Link>
+      </form>
+      <details className="mb-6" open={Object.values(query.facets).some((v) => v.length > 0)}>
+        <summary className="cursor-pointer py-3 text-sm text-fg-secondary">
+          Refine by technology, industry, stage or evidence · {result.matched} matches
+        </summary>
+        <div className="flex flex-col gap-3 border-y border-subtle py-4">
+          <FilterRow label="Technology">
+            {chips(
+              'tech',
+              TECHNOLOGIES.map((t) => ({ id: t.id, name: t.name })),
+            )}
+          </FilterRow>
+          <FilterRow label="Industry">
+            {chips(
+              'industry',
+              INDUSTRIES.map((i) => ({ id: i.id, name: i.name })),
+            )}
+          </FilterRow>
+          <FilterRow label="Stage">
+            {chips(
+              'stage',
+              STAGES.map((s) => ({ id: s.id, name: s.name })),
+            )}
+          </FilterRow>
+          <FilterRow label={WHEN.label}>
+            {chips(
+              'horizon',
+              HORIZONS.map((h) => ({ id: h, name: WHEN_LABEL[h] })),
+              false,
+            )}
+          </FilterRow>
+          <FilterRow label={EVIDENCE.label}>
+            {chips(
+              'state',
+              (['sourced', 'candidate', 'unverified'] as const).map((s) => ({
+                id: s,
+                name: EVIDENCE_LABEL[s],
+              })),
+              false,
+            )}
+          </FilterRow>
+        </div>
+      </details>
       <div className="overflow-x-auto">
         <table className="w-full border-collapse text-left">
           <thead>
