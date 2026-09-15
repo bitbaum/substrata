@@ -13,7 +13,7 @@ import {
   type CoverageEvent,
   type EventEffect,
 } from '@/config/substrata-events';
-import { slugOf } from '@/lib/bottlenecks';
+import { bottleneckHref, marketHref } from '@/lib/links';
 
 const EFFECT_DOT: Record<EventEffect, string> = {
   tightens: 'bg-status-negative',
@@ -66,7 +66,21 @@ export function EventList({
                 {event.bottlenecks.map((name) => (
                   <Link
                     key={name}
-                    href={`/bottlenecks/${slugOf(name)}`}
+                    href={bottleneckHref(name)}
+                    className="text-fg-secondary underline-offset-4 hover:text-fg-primary hover:underline"
+                  >
+                    {name}
+                  </Link>
+                ))}
+              </p>
+            )}
+            {event.participants.length > 0 && (
+              <p className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-xs">
+                <span className="font-mono uppercase tracking-caps text-fg-muted">Who</span>
+                {event.participants.map((name) => (
+                  <Link
+                    key={name}
+                    href={marketHref(name)}
                     className="text-fg-secondary underline-offset-4 hover:text-fg-primary hover:underline"
                   >
                     {name}

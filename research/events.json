@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-15T04:40:52.393Z",
+  "generatedAt": "2026-09-15T14:35:00.276Z",
   "candidates": [
     {
       "id": "561dec6f60ef",
@@ -15,18 +15,6 @@
       "status": "candidate"
     },
     {
-      "id": "1f760dac661d",
-      "bottleneck": "300 mm prime silicon wafers",
-      "term": "silicon wafer",
-      "url": "https://www.researchandmarkets.com/reports/6235254/silicon-wafer-semiconductor-market-trends",
-      "title": "Silicon Wafer for Semiconductor Market: Trends, Forecast, and Competitive Landscape",
-      "published": null,
-      "excerpt": "Silicon Wafer for Semiconductor Market: Trends, Forecast, and Competitive Landscape Price From: €3500 EUR $4,211 USD £3,113 GBP View Pricing Home / Telecommunications and Computing / Computing and Technology / Sem",
-      "effectGuess": "neutral",
-      "foundAt": "2026-09-15T04:38:25.289Z",
-      "status": "candidate"
-    },
-    {
       "id": "3b920f56e4a2",
       "bottleneck": "Advanced packaging capacity",
       "term": "advanced packaging",
@@ -34,18 +22,6 @@
       "title": "TSMC's Advanced Process Nodes in Short Supply; Reportedly Set for Four Consecutive Years of Price Hikes Starting 2026 — BigGo Finance",
       "published": null,
       "excerpt": "k of viable alternatives. However, this success is accompanied by operational challenges including a labor shortage, soaring capital expenditures (potentially reaching $50 billion in 2026), and tight advanced packaging capacity. This move is expected to support TSMC's revenue and underscores its irreplaceable, critical role in the global semiconductor supply chain. Key Elements TSMC NVIDIA AMD Apple 2-nanometer 3-n",
-      "effectGuess": "neutral",
-      "foundAt": "2026-09-15T04:39:33.871Z",
-      "status": "candidate"
-    },
-    {
-      "id": "9c5a482192e3",
-      "bottleneck": "Advanced packaging capacity",
-      "term": "advanced packaging",
-      "url": "https://www.techinsights.com/outlook-reports-2026/advanced-packaging-outlook-report",
-      "title": "2026 Advanced Packaging Outlook Report | TechInsights",
-      "published": null,
-      "excerpt": "2026 Advanced Packaging Outlook Report | TechInsights Skip to main content TechInsights 2026 Advanced Packaging Outlook Report Our Semiconductor Outlook Report series provides a comprehensive look into key trends in end mar",
       "effectGuess": "neutral",
       "foundAt": "2026-09-15T04:39:33.871Z",
       "status": "candidate"
@@ -72,30 +48,6 @@
       "excerpt": "Accredited expansion of expertise: VOC, SVOC and quartz analysis in a DAkkS-accredited laboratory | Müller-BBM Industry Solutions GmbH Accredited expansion of expertise: VOC, SVOC and quartz analysis in a DAkkS-accredited laboratory event 08/27/2026 News",
       "effectGuess": "loosens",
       "foundAt": "2026-09-15T04:38:29.461Z",
-      "status": "candidate"
-    },
-    {
-      "id": "da74ced60887",
-      "bottleneck": "CVD synthetic diamond heat spreader",
-      "term": "CVD diamond",
-      "url": "https://www.linkedin.com/pulse/growth-trajectory-cvd-diamond-market-2026-2033-projected-yg5ac",
-      "title": "Growth Trajectory of CVD Diamond Market 2026-2033 with Projected 13.9% CAGR and Emerging Trend Insights",
-      "published": null,
-      "excerpt": "Growth Trajectory of CVD Diamond Market 2026-2033 with Projected 13.9% CAGR and Emerging Trend Insights LinkedIn respects your privacy LinkedIn and 3rd parties use essential and non-essential cookies to provide, secure, analyze and",
-      "effectGuess": "neutral",
-      "foundAt": "2026-09-15T04:38:40.198Z",
-      "status": "candidate"
-    },
-    {
-      "id": "1b3eaa3c8086",
-      "bottleneck": "CVD synthetic diamond heat spreader",
-      "term": "CVD diamond",
-      "url": "https://www.globenewswire.com/news-release/2026/09/14/3360851/28124/en/advanced-diamond-materials-and-technology-market-set-for-strong-growth-through-2036-driven-by-semiconductor-quantum-computing-and-thermal-management-demand.html",
-      "title": "Advanced Diamond Materials and Technology Market Set for",
-      "published": null,
-      "excerpt": "ting Nanomaterials 3 SYNTHETIC DIAMOND PRODUCTION METHODS 3.1 Chemical Vapour Deposition (CVD) 3.1.1 Process Description and Reactor Technologies 3.1.2 Single-Crystal CVD Growth 3.1.3 Polycrystalline CVD Diamond Films 3.1.4 Quantum-Grade CVD (Ultra-Pure, Controlled NV Density) 3.1.5 Treatments and Post-Processing 3.1.6 Scaling Challenges and Wafer-Size Development (2-Inch to 4-Inch) 3.2 High Pressure High Te",
-      "effectGuess": "tightens",
-      "foundAt": "2026-09-15T04:38:40.198Z",
       "status": "candidate"
     },
     {
@@ -255,18 +207,6 @@
       "status": "candidate"
     },
     {
-      "id": "60cc4b08f900",
-      "bottleneck": "EUV projection optics",
-      "term": "euv projection optics",
-      "url": "https://www.patsnap.com/resources/blog/articles/high-na-euv-lithography-patent-landscape-2026/",
-      "title": "High-NA EUV lithography patent landscape 2026 | Patsnap",
-      "published": null,
-      "excerpt": "EUV mask phase as direct input to illumination cost-function optimisation — a shift from heuristic to mathematically rigorous source-mask co-optimisation. 3. Projection Optics and Mirror Architecture EUV projection optics use all-reflective mirror trains; High-NA systems require increased mirror counts with tighter surface requirements. Carl Zeiss SMT GmbH dominates this domain. Their 2025 KR filing describes a four-m",
-      "effectGuess": "loosens",
-      "foundAt": "2026-09-15T04:39:29.067Z",
-      "status": "candidate"
-    },
-    {
       "id": "5f0ae7aaa66d",
       "bottleneck": "EUV projection optics",
       "term": "euv projection optics",
@@ -347,30 +287,6 @@
       "published": null,
       "excerpt": "European Union Officially Initiates Safeguard Investigation on Grain-Oriented Electrical Steel (GOES) | ASL LAW Skip to content According to information from the Vietnam Mission in Geneva, on March 27, 2026, the European Commission issued a notice initiating a safeguard investigation on certai",
       "effectGuess": "loosens",
-      "foundAt": "2026-09-15T04:38:57.937Z",
-      "status": "candidate"
-    },
-    {
-      "id": "f9d59cb40b9c",
-      "bottleneck": "Grain-oriented electrical steel (GOES)",
-      "term": "electrical steel",
-      "url": "https://gtaic.ai/trends/european-grain-oriented-electrical-steel-imports-ltm-2025-2026",
-      "title": "European Grain-Oriented Electrical Steel Imports: LTM 2025-2026",
-      "published": null,
-      "excerpt": "European Grain-Oriented Electrical Steel Imports: LTM 2025-2026 Visual for European Grain-Oriented Electrical Steel Imports: Key Trends and Market Dynamics (LTM 2025-2026) June 4, 2026 European Grain-Oriented Electrical Steel Imports: Key T",
-      "effectGuess": "neutral",
-      "foundAt": "2026-09-15T04:38:57.937Z",
-      "status": "candidate"
-    },
-    {
-      "id": "5b5bd77746f8",
-      "bottleneck": "Grain-oriented electrical steel (GOES)",
-      "term": "electrical steel",
-      "url": "https://www.mordorintelligence.com/industry-reports/electrical-steel-market",
-      "title": "Electrical Steel Market Size, Share & 2031 Growth Trends Report",
-      "published": null,
-      "excerpt": "Electrical Steel Market Size, Share & 2031 Growth Trends Report Electrical Steel Market Size & Share Analysis - Growth Trends and Forecast (2026 - 2031) The Electrical Steel Market Report is Segmented by Product Type",
-      "effectGuess": "neutral",
       "foundAt": "2026-09-15T04:38:57.937Z",
       "status": "candidate"
     },
@@ -468,18 +384,6 @@
       "excerpt": "Shanghai Electric Secures First Overseas Heavy-Duty Gas Turbine Order for 500 MW Malaysian Project Accessibility Statement Skip Navigation SHANGHAI , Sept. 13, 2026 /PRNewswire/ -- Shanghai Electric (SEHK: 02727, SSE: 601727) has achieved a milestone in the high-",
       "effectGuess": "neutral",
       "foundAt": "2026-09-15T04:40:19.469Z",
-      "status": "candidate"
-    },
-    {
-      "id": "6d920354b34e",
-      "bottleneck": "High-bandwidth memory stacking yield",
-      "term": "high-bandwidth memory stacking",
-      "url": "https://www.patsnap.com/resources/blog/articles/advanced-packaging-heterogeneous-integration-patent-landscap/",
-      "title": "Advanced Packaging Physical Limits: What the Patent Record Shows | Patsnap",
-      "published": null,
-      "excerpt": "ents governing die-to-die electrical interfaces are becoming a new licensing frontier. Explore in Eureka → Memory Integration HBM4 and High-Bandwidth Memory Packaging: Patent Landscape and Key Filers High-bandwidth memory stacking is a critical dependency for AI accelerator roadmaps, and the IP controlling HBM integration is increasingly contested. Explore in Eureka → Thermal Management Thermal Design in Multi-Die Assemblies:",
-      "effectGuess": "tightens",
-      "foundAt": "2026-09-15T04:39:40.770Z",
       "status": "candidate"
     },
     {
@@ -675,30 +579,6 @@
       "status": "candidate"
     },
     {
-      "id": "77ccb66123cf",
-      "bottleneck": "Neon, excimer laser grade",
-      "term": "neon",
-      "url": "https://markwideresearch.com/neon-gas-market",
-      "title": "Neon Gas Market Size, Share, and Industry Trends Forecast 2026-2036 | MarkWide Research",
-      "published": null,
-      "excerpt": "Neon Gas Market Size, Share, and Industry Trends Forecast 2026-2036 | MarkWide Research Neon Gas Market | 2026-2036 Download Sample Request Customization Report Details Historical Year 2020-2024 Base Year",
-      "effectGuess": "neutral",
-      "foundAt": "2026-09-15T04:38:09.409Z",
-      "status": "candidate"
-    },
-    {
-      "id": "aef89e515878",
-      "bottleneck": "Neon, excimer laser grade",
-      "term": "neon",
-      "url": "https://www.neonscience.org/impact/observatory-blog/next-week-required-logins-and-data-licensing-updates",
-      "title": "Next Week: Required Logins and Data Licensing Updates | NSF NEON | Open Data to Understand our Ecosystems",
-      "published": null,
-      "excerpt": "Next Week: Required Logins and Data Licensing Updates | NSF NEON | Open Data to Understand our Ecosystems Skip to main content NEON is updating how users access NEON data and the data license for NEON data products. The original announcement of this change is here",
-      "effectGuess": "neutral",
-      "foundAt": "2026-09-15T04:38:09.409Z",
-      "status": "candidate"
-    },
-    {
       "id": "aa13898e73cd",
       "bottleneck": "Photoresist formulation",
       "term": "photoresist",
@@ -720,30 +600,6 @@
       "excerpt": "ials and policy pressures disrupt supply Material shortages and policy shifts are intensifying risks to the semiconductor supply chain. Upstream dependency challenges continue to compound as Japanese photoresist suppliers sound the alarm on potential shortages. Naphtha, a key chemical in semiconductor manufacturing, is becoming increasingly constrained as the U.S.-Israel and Iran conflict rages on. For South",
       "effectGuess": "tightens",
       "foundAt": "2026-09-15T04:39:55.309Z",
-      "status": "candidate"
-    },
-    {
-      "id": "4280aec22add",
-      "bottleneck": "Precision reduction drives",
-      "term": "precision reduction",
-      "url": "https://www.linkedin.com/pulse/high-precision-reduction-gearboxes-market-insights-tquue",
-      "title": "The High Precision Reduction Gearboxes Market insights include historical trends and future projections, with a growth rate of 11.9% from 2026 to 2033",
-      "published": null,
-      "excerpt": "The High Precision Reduction Gearboxes Market insights include historical trends and future projections, with a growth rate of 11.9% from 2026 to 2033 LinkedIn respects your privacy LinkedIn and 3rd parties use essential and non",
-      "effectGuess": "neutral",
-      "foundAt": "2026-09-15T04:40:44.735Z",
-      "status": "candidate"
-    },
-    {
-      "id": "ae73ef71f0df",
-      "bottleneck": "Precision reduction drives",
-      "term": "precision reduction",
-      "url": "https://www.precedenceresearch.com/precision-reduction-gears-market",
-      "title": "Precision Reduction Gears Market Size to Hit USD 5.23 Billion by 2034",
-      "published": null,
-      "excerpt": "Precision Reduction Gears Market Size to Hit USD 5.23 Billion by 2034 Home Report Store AI Impact Assessment Industries Our Services Syndicated Reports Customized Reports Expert Consultation Go-to-Market (GTM) Cross-Sec",
-      "effectGuess": "neutral",
-      "foundAt": "2026-09-15T04:40:44.735Z",
       "status": "candidate"
     },
     {
@@ -771,42 +627,6 @@
       "status": "candidate"
     },
     {
-      "id": "86fef47bfb9e",
-      "bottleneck": "REBCO superconducting tape, 12 mm",
-      "term": "REBCO",
-      "url": "https://x.com/TankerTrackers/status/2036041343521153259",
-      "title": "TankerTrackers.com, Inc. on X: \"#Primorsk is (was?) Russia's top sea terminal for exporting crude oil. The crude is known as REBCO (Russian Export Blend Crude Oil); which is the medium-sour crude oil from the Urals. Ukraine's drone-backed sanctions remain powerfully effective. #OOTT #Russia #Ukrain…",
-      "published": null,
-      "excerpt": "TankerTrackers.com, Inc. on X: \"#Primorsk is (was?) Russia's top sea terminal for exporting crude oil. The crude is known as REBCO (Russian Export Blend Crude Oil); which is the medium-sour crude oil from the Urals. Ukraine's drone-backed sanctions remain powerfully effective. #OOTT #Russia #Ukrain… / X Post Log in Sign up Post",
-      "effectGuess": "tightens",
-      "foundAt": "2026-09-15T04:39:03.460Z",
-      "status": "candidate"
-    },
-    {
-      "id": "9b0f7e2f031f",
-      "bottleneck": "REBCO superconducting tape, 12 mm",
-      "term": "REBCO",
-      "url": "https://www.datainsightsreports.com/reports/rebco-superconducting-tape-for-fusion-magnets-market-58235",
-      "title": "Rebco Superconducting Tape Market Trends & 2033 Projections",
-      "published": null,
-      "excerpt": "Rebco Superconducting Tape Market Trends & 2033 Projections Home About Us Industries Healthcare Chemical and Materials ICT, Automation, Semiconductor... Consumer Goods Energy Food and Beverages Packaging O",
-      "effectGuess": "neutral",
-      "foundAt": "2026-09-15T04:39:03.460Z",
-      "status": "candidate"
-    },
-    {
-      "id": "1408be5a8dc8",
-      "bottleneck": "REBCO superconducting tape, 12 mm",
-      "term": "REBCO",
-      "url": "https://www.unjobnet.org/jobs/detail/cern-electromechanical-technician-temschsd2026193grae-88337988",
-      "title": "CERN Electro-Mechanical Technician (TE-MSC-HSD---GRAE)",
-      "published": null,
-      "excerpt": "elopment of High Temperature Superconducting (HTS) cables and coils. You will work on the design, assembly, commissioning and operation of winding and cabling machines used to produce HTS cables with REBCO tapes. We will teach you everything you need to know, the most important is that you are curious and eager to learn. Your responsibilities Perform quality control (QC) and measurements on REBCO tapes",
-      "effectGuess": "neutral",
-      "foundAt": "2026-09-15T04:39:03.460Z",
-      "status": "candidate"
-    },
-    {
       "id": "531bad922c3e",
       "bottleneck": "Ruthenium, sputtering and ALD grade",
       "term": "ruthenium",
@@ -816,30 +636,6 @@
       "excerpt": "EU control list provides for the addition of new dual-use items, including: Semiconductor manufacturing and testing equipment and materials (e.g. Atomic Layer Deposition equipment for molybdenum and Ruthenium, equipment for the development and the inspection of Extreme Ultra-Violet masks and reticles, and single wafer cleaning equipment); Advanced computing integrated circuits (ICs) and electronic assembl",
       "effectGuess": "tightens",
       "foundAt": "2026-09-15T04:38:16.432Z",
-      "status": "candidate"
-    },
-    {
-      "id": "268e4c444a63",
-      "bottleneck": "Ruthenium, sputtering and ALD grade",
-      "term": "ruthenium",
-      "url": "https://www.linkedin.com/pulse/ruthenium-catalyst-market-forecast-2026-2033-trends-insights-rhboe",
-      "title": "Ruthenium Catalyst Market Forecast 2026-2033: Trends, Insights, and Key Growth Drivers",
-      "published": null,
-      "excerpt": "Ruthenium Catalyst Market Forecast 2026-2033: Trends, Insights, and Key Growth Drivers LinkedIn respects your privacy LinkedIn and 3rd parties use essential and non-essential cookies to provide, secure, analyz",
-      "effectGuess": "neutral",
-      "foundAt": "2026-09-15T04:38:16.432Z",
-      "status": "candidate"
-    },
-    {
-      "id": "83e3ebfff1d0",
-      "bottleneck": "Semiconductor process engineers",
-      "term": "semiconductor process",
-      "url": "https://www.linkedin.com/pulse/global-semiconductor-projects-aug-2026-richard-casey-9kjde",
-      "title": "Global Semiconductor Projects: Aug 2026",
-      "published": null,
-      "excerpt": "programme. Micron Opens Semiconductor Training Centre in Boise Micron has opened a new 60,000-square-foot semiconductor training centre beside its Boise, Idaho campus. The facility contains up to 20 semiconductor process tools that replicate the equipment trainees will ultimately encounter inside operational fabs. Micron and the US Department of Commerce are also providing $3 million to the College of Western Idaho t",
-      "effectGuess": "loosens",
-      "foundAt": "2026-09-15T04:40:00.675Z",
       "status": "candidate"
     },
     {
@@ -855,18 +651,6 @@
       "status": "candidate"
     },
     {
-      "id": "a67c0682307b",
-      "bottleneck": "Silicon carbide substrate, 200 mm semi-insulating",
-      "term": "silicon carbide",
-      "url": "https://www.globenewswire.com/news-release/2026/08/12/3343410/28124/en/silicon-carbide-companies-expand-wafer-capacity-and-vertical-integration-as-sic-discrete-devices-reach-usd-2-5-billion.html",
-      "title": "Silicon Carbide Companies Expand Wafer Capacity and",
-      "published": null,
-      "excerpt": "Silicon Carbide Companies Expand Wafer Capacity and Accessibility: Skip TopNav Silicon Carbide Companies Expand Wafer Capacity and Vertical Integration as SiC Discrete Devices Reach USD 2.5 Billion Silicon Carbide A",
-      "effectGuess": "loosens",
-      "foundAt": "2026-09-15T04:38:46.563Z",
-      "status": "candidate"
-    },
-    {
       "id": "9373a687c6e1",
       "bottleneck": "Silicon carbide substrate, 200 mm semi-insulating",
       "term": "silicon carbide",
@@ -874,30 +658,6 @@
       "title": "Wolfspeed Tops Out World’s Largest, Most Advanced Silicon Carbide Facility Alongside Senator Thom Tillis, Key Officials | Wolfspeed",
       "published": null,
       "excerpt": "Wolfspeed Tops Out World’s Largest, Most Advanced Silicon Carbide Facility Alongside Senator Thom Tillis, Key Officials | Wolfspeed Corporate Wolfspeed Tops Out World’s Largest, Most Advanced Silicon Carbide Facility Alongside Senator Thom Tillis, Key Officials Mar",
-      "effectGuess": "neutral",
-      "foundAt": "2026-09-15T04:38:46.563Z",
-      "status": "candidate"
-    },
-    {
-      "id": "8fe6b46fc668",
-      "bottleneck": "Silicon carbide substrate, 200 mm semi-insulating",
-      "term": "silicon carbide",
-      "url": "https://www.datamintelligence.com/research-report/silicon-carbide-market",
-      "title": "Silicon Carbide (SiC) Market Forecast 2026-2035",
-      "published": null,
-      "excerpt": "Silicon Carbide (SiC) Market Forecast 2026-2035 NEW Access our entire reports database for one fixed price. Know more Solutions Project Tracker Drug Pipeline Tracker Plant and Capacity Expansion Tracker Customer Ide",
-      "effectGuess": "loosens",
-      "foundAt": "2026-09-15T04:38:46.563Z",
-      "status": "candidate"
-    },
-    {
-      "id": "db0132d6697b",
-      "bottleneck": "Silicon carbide substrate, 200 mm semi-insulating",
-      "term": "silicon carbide",
-      "url": "https://www.linkedin.com/pulse/comprehensive-report-silicon-carbide-sic-g0ese",
-      "title": "Comprehensive Report on the Silicon Carbide (SiC) Epitaxy Furnace Market: New Trends, Competition, and Projected CAGR of 6.9%, 2026 to 2033",
-      "published": null,
-      "excerpt": "Comprehensive Report on the Silicon Carbide (SiC) Epitaxy Furnace Market: New Trends, Competition, and Projected CAGR of 6.9%, 2026 to 2033 LinkedIn respects your privacy LinkedIn and 3rd parties use essential and non-essential cookies to prov",
       "effectGuess": "neutral",
       "foundAt": "2026-09-15T04:38:46.563Z",
       "status": "candidate"

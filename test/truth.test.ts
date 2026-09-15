@@ -23,15 +23,11 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import assert from 'node:assert/strict';
 
-import {
-  GLOSSARY,
-  METHOD,
-  WHAT_EXISTS_NOT,
-  WHAT_IT_IS,
-  WHO_MAKES_IT,
-} from '../config/substrata-about';
+import { METHOD, WHAT_EXISTS_NOT, WHAT_IT_IS, WHO_MAKES_IT } from '../config/substrata-about';
+import { GLOSSARY } from '../config/substrata-glossary';
 import { JOIN } from '../config/substrata-join';
 import { CALLS } from '../config/substrata-calls';
+import { CAPITAL_KINDS, CAPITAL_PROVIDERS, FUNDING_ASSESSMENTS } from '../config/substrata-capital';
 import { INVESTMENT_THESIS } from '../config/substrata-acting';
 import { ASSESSMENTS } from '../config/substrata-assessment';
 import { COVERAGE, CHOKEPOINTS } from '../config/substrata-coverage';
@@ -103,6 +99,9 @@ const RENDERED = [
   ...stringsIn(labels, 'labels'),
   ...stringsIn(JOIN, 'join'),
   ...stringsIn(CALLS, 'calls'),
+  ...stringsIn(CAPITAL_KINDS, 'capitalKinds'),
+  ...stringsIn(CAPITAL_PROVIDERS, 'capitalProviders'),
+  ...stringsIn(FUNDING_ASSESSMENTS, 'funding'),
 ];
 
 /**
@@ -213,4 +212,31 @@ test('no page claims an absence the data has already filled', () => {
     }
   }
   assert.deepEqual(failures, [], `Stale claims of absence:\n  ${failures.join('\n  ')}`);
+});
+
+/**
+ * The loop stages each carry a `coverage` line, and three of them honestly say
+ * "not covered yet". That phrase is true of some stages and false of others, so
+ * it cannot be banned by pattern — it has to be checked against the data for the
+ * stage that claims it. Capital said it for a week after /capital shipped.
+ */
+test('a stage does not say it is uncovered while its section exists', () => {
+  const covered: { stage: string; when: boolean; what: string }[] = [
+    {
+      stage: 'capital',
+      when: CAPITAL_PROVIDERS.length > 0 || FUNDING_ASSESSMENTS.length > 0,
+      what: `${CAPITAL_PROVIDERS.length} providers and ${FUNDING_ASSESSMENTS.length} funding assessments`,
+    },
+  ];
+
+  for (const row of covered) {
+    if (!row.when) continue;
+    const stage = STAGES.find((s) => s.id === row.stage);
+    assert.ok(stage, `no stage "${row.stage}"`);
+    assert.doesNotMatch(
+      stage.coverage,
+      /not covered yet/i,
+      `stage "${row.stage}" still says it is uncovered, but the site has ${row.what}`,
+    );
+  }
 });

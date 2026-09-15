@@ -15,11 +15,12 @@ import Link from 'next/link';
 import { siteChrome } from '@/config/site-content';
 import { NAV_ACTION, navGroups } from '@/config/site-nav';
 import { CALLS } from '@/config/substrata-calls';
+import { CAPITAL_PROVIDERS } from '@/config/substrata-capital';
 import { EVENTS } from '@/config/substrata-events';
 import { INSTRUMENTS } from '@/config/substrata-policy';
 import { SCIENCE } from '@/config/substrata-science';
 import { BOTTLENECKS, portalTotals } from '@/lib/bottlenecks';
-import { noteCount } from '@/lib/notes';
+import { learnCount, noteCount } from '@/lib/notes';
 import { MARKET_PARTICIPANTS } from '@/lib/participants';
 import { SITE, correctionUrl } from '@/lib/site';
 import { Megamenu } from './Megamenu';
@@ -36,10 +37,12 @@ export const GROUP_FOR_PATH: Record<string, string> = {
   markets: 'map',
   policy: 'map',
   science: 'map',
+  capital: 'map',
   about: 'about',
   thesis: 'about',
   research: 'about',
   calls: 'about',
+  learn: 'about',
   join: 'join',
 };
 
@@ -51,6 +54,7 @@ const FOOTER_GROUPS = [
       { href: '/markets', label: 'Markets' },
       { href: '/policy', label: 'Policy' },
       { href: '/science', label: 'Science' },
+      { href: '/capital', label: 'Capital' },
     ],
   },
   {
@@ -64,6 +68,7 @@ const FOOTER_GROUPS = [
   {
     label: 'About',
     links: [
+      { href: '/learn', label: 'Learn' },
       { href: '/about', label: 'What this is' },
       { href: '/thesis', label: 'What we think' },
       { href: '/calls', label: 'Calls' },
@@ -97,6 +102,8 @@ export function Shell({
     events: EVENTS.length,
     notes: noteCount(),
     calls: CALLS.length,
+    capital: CAPITAL_PROVIDERS.length,
+    learn: learnCount(),
     bindingNow: BOTTLENECKS.filter((b) => b.horizon === 'now').length,
   });
 

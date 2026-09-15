@@ -10,21 +10,21 @@ import {
   INSTRUMENT_STATUS_LABEL,
   JURISDICTIONS,
   JURISDICTION_LABEL,
+  POLICY_PAGES,
   instrumentsIn,
   recommendationsIn,
   type JurisdictionId,
 } from '@/config/substrata-policy';
 import { slugOf } from '@/lib/bottlenecks';
 import { Empty, Heading, Page, Shell } from '@/components/portal/Shell';
+import { bottleneckHref } from '@/lib/links';
 
 interface RouteParams {
   params: Promise<{ jurisdiction: string }>;
 }
 
 export function generateStaticParams(): Array<{ jurisdiction: string }> {
-  return JURISDICTIONS.filter((j) => INSTRUMENTS.some((i) => i.jurisdiction === j.id)).map((j) => ({
-    jurisdiction: j.id,
-  }));
+  return [...POLICY_PAGES].map((jurisdiction) => ({ jurisdiction }));
 }
 
 export async function generateMetadata({ params }: RouteParams): Promise<Metadata> {
@@ -95,7 +95,7 @@ export default async function JurisdictionPage({ params }: RouteParams) {
                       {instrument.bottlenecks.map((name) => (
                         <Link
                           key={name}
-                          href={`/bottlenecks/${slugOf(name)}`}
+                          href={bottleneckHref(name)}
                           className="text-fg-secondary underline-offset-4 hover:text-fg-primary hover:underline"
                         >
                           {name}

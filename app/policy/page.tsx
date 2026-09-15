@@ -16,6 +16,8 @@ import {
 } from '@/config/substrata-policy';
 import { slugOf } from '@/lib/bottlenecks';
 import { Empty, Heading, Page, SectionHeader, Shell } from '@/components/portal/Shell';
+import { bottleneckHref, marketHref, policyHref } from '@/lib/links';
+import { hasMarketPage } from '@/lib/participants';
 
 export const metadata: Metadata = {
   title: 'Policy',
@@ -45,7 +47,7 @@ function InstrumentCard({ instrument }: { instrument: Instrument }) {
           {INSTRUMENT_KIND_LABEL[instrument.kind]}
         </span>
         <Link
-          href={`/policy/${instrument.jurisdiction}`}
+          href={policyHref(instrument.jurisdiction)}
           className="font-mono text-xs uppercase tracking-caps text-fg-tertiary underline-offset-4 hover:text-fg-primary hover:underline"
         >
           {JURISDICTION_LABEL[instrument.jurisdiction]}
@@ -79,7 +81,7 @@ function InstrumentCard({ instrument }: { instrument: Instrument }) {
           {instrument.bottlenecks.map((name) => (
             <Link
               key={name}
-              href={`/bottlenecks/${slugOf(name)}`}
+              href={bottleneckHref(name)}
               className="text-fg-secondary underline-offset-4 hover:text-fg-primary hover:underline"
             >
               {name}
@@ -97,14 +99,25 @@ function InstrumentCard({ instrument }: { instrument: Instrument }) {
             {instrument.proponents.map((p, i) => (
               <span key={p.name}>
                 {i > 0 && '; '}
+                {hasMarketPage(p.name) ? (
+                  <Link
+                    href={marketHref(p.name)}
+                    className="text-fg-primary underline-offset-4 hover:underline"
+                  >
+                    {p.name}
+                  </Link>
+                ) : (
+                  <span className="text-fg-primary">{p.name}</span>
+                )}{' '}
+                (
                 <a
                   href={p.source}
                   rel="noreferrer"
                   className="text-accent underline-offset-4 hover:underline"
                 >
-                  {p.name}
-                </a>{' '}
-                — {p.asked}
+                  what they filed ↗
+                </a>
+                ) — {p.asked}
               </span>
             ))}
           </span>
@@ -230,7 +243,7 @@ export default function PolicyPage() {
                       <td className="py-3 pr-4">
                         {mine.length > 0 ? (
                           <Link
-                            href={`/policy/${j.id}`}
+                            href={policyHref(j.id)}
                             className="font-medium text-fg-primary underline-offset-4 group-hover:underline"
                           >
                             {j.name}

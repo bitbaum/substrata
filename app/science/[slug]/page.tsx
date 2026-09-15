@@ -11,6 +11,7 @@ import {
 } from '@/config/substrata-science';
 import { INDUSTRY_LABEL, TECHNOLOGY_LABEL } from '@/config/substrata-taxonomy';
 import { bottleneckByName, slugOf } from '@/lib/bottlenecks';
+import { bottleneckHref } from '@/lib/links';
 import { correctionUrl } from '@/lib/site';
 import { Heading, Page, Shell } from '@/components/portal/Shell';
 import { SeverityBar } from '@/components/portal/Status';
@@ -84,7 +85,7 @@ export default async function SciencePage({ params }: RouteParams) {
                 <li key={relief.bottleneck} className="py-4">
                   <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
                     <Link
-                      href={`/bottlenecks/${slugOf(relief.bottleneck)}`}
+                      href={bottleneckHref(relief.bottleneck)}
                       className="font-medium text-fg-primary underline-offset-4 hover:underline"
                     >
                       {relief.bottleneck}

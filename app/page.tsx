@@ -18,6 +18,7 @@ import { marketTotals } from '@/lib/participants';
 import { EventList } from '@/components/portal/EventList';
 import { Empty, Heading, Page, Shell } from '@/components/portal/Shell';
 import { SeverityBar, Status, rowLabel } from '@/components/portal/Status';
+import { bottleneckHref, policyHref } from '@/lib/links';
 
 export const metadata: Metadata = {
   title: { absolute: `${COMPANY.name} — the bottlenecks between here and much faster technology` },
@@ -164,7 +165,7 @@ export default function TodayPage() {
                   <li key={b.slug} className="py-3">
                     <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
                       <Link
-                        href={`/bottlenecks/${b.slug}`}
+                        href={bottleneckHref(b.slug)}
                         className="font-medium text-fg-primary underline-offset-4 hover:underline"
                       >
                         {b.name}
@@ -245,7 +246,7 @@ export default function TodayPage() {
               <Heading index="04" title="Latest rule" />
               {latestRule ? (
                 <Link
-                  href={`/policy/${latestRule.jurisdiction}`}
+                  href={policyHref(latestRule.jurisdiction)}
                   className="block rounded-lg border border-subtle bg-surface-raised p-5 transition-colors hover:border-strong"
                 >
                   <p className="font-mono text-xs uppercase tracking-caps text-fg-tertiary">

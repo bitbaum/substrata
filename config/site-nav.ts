@@ -45,6 +45,8 @@ export function navGroups(counts: {
   events: number;
   notes: number;
   calls: number;
+  capital: number;
+  learn: number;
   bindingNow: number;
 }): NavGroup[] {
   return [
@@ -76,6 +78,12 @@ export function navGroups(counts: {
           href: '/science',
           blurb: 'What would remove a bottleneck, and how far off it is.',
           badge: String(counts.solutions),
+        },
+        {
+          label: 'Capital',
+          href: '/capital',
+          blurb: 'Who could fund relief — and where money is not the constraint.',
+          badge: String(counts.capital),
         },
       ],
       feature: {
@@ -114,14 +122,15 @@ export function navGroups(counts: {
       blurb: 'How this is made, and what the words mean.',
       items: [
         {
+          label: 'Learn',
+          href: '/learn',
+          blurb: 'What the words mean and how to read the tables. No prior knowledge needed.',
+          badge: String(counts.learn),
+        },
+        {
           label: 'What this is',
           href: '/about',
           blurb: 'The project, the method, and what it deliberately is not.',
-        },
-        {
-          label: 'Plain English',
-          href: '/about#plain-english',
-          blurb: 'Every term the subject cannot avoid, in one line each.',
         },
         {
           label: 'What we think',

@@ -21,6 +21,22 @@ import { parseContentBlocks, parseFrontmatter, readingTime, type ContentBlock } 
 
 const NOTES_DIR = path.join(process.cwd(), 'content', 'notes');
 
+/**
+ * The Learn section holds the same kind of file in a different folder, so the
+ * reader below takes a directory rather than closing over one. Everything else
+ * — the frontmatter contract, the parse, the sort — is shared.
+ */
+export interface Collection {
+  dir: string;
+  label: string;
+}
+
+export const NOTES: Collection = { dir: NOTES_DIR, label: 'notes' };
+export const LEARN: Collection = {
+  dir: path.join(process.cwd(), 'content', 'learn'),
+  label: 'learn',
+};
+
 export interface NoteMeta {
   slug: string;
   title: string;
@@ -35,21 +51,26 @@ export interface Note extends NoteMeta {
   blocks: ContentBlock[];
 }
 
-function fileFor(slug: string): string {
-  return path.join(NOTES_DIR, `${slug}.md`);
+function fileFor(collection: Collection, slug: string): string {
+  return path.join(collection.dir, `${slug}.md`);
 }
 
-/** A field the frontmatter must carry, or the note is a bug rather than a draft. */
-function required(meta: Record<string, unknown>, key: string, slug: string): string {
+/** A field the frontmatter must carry, or the file is a bug rather than a draft. */
+function required(
+  collection: Collection,
+  meta: Record<string, unknown>,
+  key: string,
+  slug: string,
+): string {
   const value = meta[key];
   if (typeof value !== 'string' || value.trim() === '') {
-    throw new Error(`content/notes/${slug}.md: frontmatter is missing "${key}"`);
+    throw new Error(`content/${collection.label}/${slug}.md: frontmatter is missing "${key}"`);
   }
   return value.trim();
 }
 
-function read(slug: string): Note {
-  const raw = readFileSync(fileFor(slug), 'utf8');
+function read(collection: Collection, slug: string): Note {
+  const raw = readFileSync(fileFor(collection, slug), 'utf8');
   const { meta, body } = parseFrontmatter(raw);
   const blocks = parseContentBlocks(body);
   const tags = Array.isArray(meta.tags)
@@ -58,16 +79,16 @@ function read(slug: string): Note {
       ? meta.tags.split(',').map((t) => t.trim())
       : [];
 
-  const publishedAt = required(meta as Record<string, unknown>, 'publishedAt', slug);
+  const publishedAt = required(collection, meta as Record<string, unknown>, 'publishedAt', slug);
   if (!/^\d{4}-\d{2}-\d{2}$/.test(publishedAt)) {
-    throw new Error(`content/notes/${slug}.md: publishedAt must be YYYY-MM-DD`);
+    throw new Error(`content/${collection.label}/${slug}.md: publishedAt must be YYYY-MM-DD`);
   }
 
   return {
     slug,
-    title: required(meta as Record<string, unknown>, 'title', slug),
-    summary: required(meta as Record<string, unknown>, 'summary', slug),
-    author: required(meta as Record<string, unknown>, 'author', slug),
+    title: required(collection, meta as Record<string, unknown>, 'title', slug),
+    summary: required(collection, meta as Record<string, unknown>, 'summary', slug),
+    author: required(collection, meta as Record<string, unknown>, 'author', slug),
     publishedAt,
     tags,
     readingMinutes: readingTime(blocks).minutes,
@@ -75,27 +96,35 @@ function read(slug: string): Note {
   };
 }
 
-function slugs(): string[] {
-  if (!existsSync(NOTES_DIR)) return [];
-  return readdirSync(NOTES_DIR)
+function slugs(collection: Collection): string[] {
+  if (!existsSync(collection.dir)) return [];
+  return readdirSync(collection.dir)
     .filter((name) => name.endsWith('.md'))
     .map((name) => name.replace(/\.md$/, ''));
 }
 
-/** Every note, newest first. Throws on a malformed file rather than hiding it. */
-export function allNotes(): Note[] {
-  return slugs()
-    .map(read)
+/** Every file in a collection, newest first. Throws on a malformed one rather than hiding it. */
+export function allIn(collection: Collection): Note[] {
+  return slugs(collection)
+    .map((slug) => read(collection, slug))
     .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt) || a.title.localeCompare(b.title));
 }
 
-export function noteBySlug(slug: string): Note | undefined {
-  return slugs().includes(slug) ? read(slug) : undefined;
+export function bySlugIn(collection: Collection, slug: string): Note | undefined {
+  return slugs(collection).includes(slug) ? read(collection, slug) : undefined;
 }
 
-export function noteCount(): number {
-  return slugs().length;
+export function countIn(collection: Collection): number {
+  return slugs(collection).length;
 }
+
+export const allNotes = (): Note[] => allIn(NOTES);
+export const noteBySlug = (slug: string): Note | undefined => bySlugIn(NOTES, slug);
+export const noteCount = (): number => countIn(NOTES);
+
+export const allLearn = (): Note[] => allIn(LEARN);
+export const learnBySlug = (slug: string): Note | undefined => bySlugIn(LEARN, slug);
+export const learnCount = (): number => countIn(LEARN);
 
 /** Tags in use, with how many notes carry each. */
 export function noteTags(): { tag: string; count: number }[] {

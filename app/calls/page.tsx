@@ -15,6 +15,7 @@ import {
 } from '@/config/substrata-calls';
 import { slugOf } from '@/lib/bottlenecks';
 import { Empty, Heading, Page, SectionHeader, Shell } from '@/components/portal/Shell';
+import { bottleneckHref } from '@/lib/links';
 
 export const metadata: Metadata = {
   title: 'Calls',
@@ -100,7 +101,7 @@ function CallCard({ call }: { call: Call }) {
         {call.bottlenecks.map((name) => (
           <Link
             key={name}
-            href={`/bottlenecks/${slugOf(name)}`}
+            href={bottleneckHref(name)}
             className="text-fg-secondary underline-offset-4 hover:text-fg-primary hover:underline"
           >
             {name}
