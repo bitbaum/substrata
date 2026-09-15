@@ -12,6 +12,7 @@ import {
 import { TECHNOLOGIES, TECHNOLOGY_LABEL } from '@/config/substrata-taxonomy';
 import { slugOf } from '@/lib/bottlenecks';
 import { Heading, Legend, Page, SectionHeader, Shell } from '@/components/portal/Shell';
+import { bottleneckHref, scienceHref } from '@/lib/links';
 
 export const metadata: Metadata = {
   title: 'Science',
@@ -88,7 +89,7 @@ export default function SciencePage() {
                   <li key={entry.id} className="py-5">
                     <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
                       <Link
-                        href={`/science/${entry.id}`}
+                        href={scienceHref(entry.id)}
                         className="font-medium text-fg-primary underline-offset-4 hover:underline"
                       >
                         {entry.name}
@@ -112,7 +113,7 @@ export default function SciencePage() {
                       {entry.relieves.map((r) => (
                         <Link
                           key={r.bottleneck}
-                          href={`/bottlenecks/${slugOf(r.bottleneck)}`}
+                          href={bottleneckHref(r.bottleneck)}
                           className="text-fg-secondary underline-offset-4 hover:text-fg-primary hover:underline"
                         >
                           {r.bottleneck}

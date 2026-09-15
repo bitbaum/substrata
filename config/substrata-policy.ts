@@ -494,6 +494,28 @@ export const JURISDICTION_LABEL: Record<JurisdictionId, string> = Object.fromEnt
   JURISDICTIONS.map((j) => [j.id, j.name]),
 ) as Record<JurisdictionId, string>;
 
+/**
+ * The jurisdictions that actually have a page.
+ *
+ * A jurisdiction only earns one once something is recorded under it, so ten
+ * jurisdictions are defined and three are served. This set is the single fact:
+ * `generateStaticParams` builds from it, and anything linking to a jurisdiction
+ * asks it first rather than assuming. Germany is the case that proved the need
+ * — a capital provider is German, and `/policy/de` does not exist.
+ */
+export const POLICY_PAGES: ReadonlySet<JurisdictionId> = new Set(
+  JURISDICTIONS.filter(
+    (j) =>
+      INSTRUMENTS.some((i) => i.jurisdiction === j.id) ||
+      RECOMMENDATIONS.some((r) => r.jurisdiction === j.id),
+  ).map((j) => j.id),
+);
+
+/** Whether a jurisdiction can be linked to without producing a 404. */
+export function hasPolicyPage(jurisdiction: string): boolean {
+  return POLICY_PAGES.has(jurisdiction as JurisdictionId);
+}
+
 export const INSTRUMENT_KIND_LABEL: Record<InstrumentKind, string> = {
   'export-control': 'Export control',
   'licence-regime': 'Licence regime',

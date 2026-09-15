@@ -15,6 +15,7 @@ import {
 import { Chip } from '@/components/portal/Chip';
 import { FilterRow, Legend, Page, SectionHeader, Shell } from '@/components/portal/Shell';
 import { Status } from '@/components/portal/Status';
+import { marketHref } from '@/lib/links';
 
 export const metadata: Metadata = {
   title: 'Markets',
@@ -187,7 +188,7 @@ export default async function MarketsPage({
                   <tr key={row.slug} className="group align-top">
                     <td className="py-3 pr-4">
                       <Link
-                        href={`/markets/${row.slug}`}
+                        href={marketHref(row.slug)}
                         className="font-medium text-fg-primary underline-offset-4 group-hover:underline"
                       >
                         {row.name}

@@ -15,6 +15,7 @@ import { STAGE_LABEL, stageById } from '@/config/substrata-stages';
 import { INDUSTRY_LABEL, TECHNOLOGY_LABEL } from '@/config/substrata-taxonomy';
 import { BOTTLENECKS, KIND_LABEL, bottleneckBySlug, slugOf } from '@/lib/bottlenecks';
 import { EVIDENCE, SEVERITY, WHEN, WHEN_LABEL } from '@/lib/labels';
+import { marketHref, policyHref, scienceHref } from '@/lib/links';
 import { correctionUrl } from '@/lib/site';
 import { EventList } from '@/components/portal/EventList';
 import { Empty, Heading, Page, Shell } from '@/components/portal/Shell';
@@ -214,7 +215,7 @@ export default async function BottleneckPage({ params }: RouteParams) {
                     <tr key={p.name} className="group align-top">
                       <td className="py-3 pr-4">
                         <Link
-                          href={`/markets/${slugOf(p.name)}`}
+                          href={marketHref(p.name)}
                           className="text-fg-primary underline-offset-4 group-hover:underline"
                         >
                           {p.name}
@@ -302,7 +303,7 @@ export default async function BottleneckPage({ params }: RouteParams) {
                       {rule.date}
                     </span>
                     <Link
-                      href={`/policy/${rule.jurisdiction}`}
+                      href={policyHref(rule.jurisdiction)}
                       className="font-mono text-xs uppercase tracking-caps text-fg-tertiary underline-offset-4 hover:text-fg-primary hover:underline"
                     >
                       {JURISDICTION_LABEL[rule.jurisdiction]}
@@ -353,7 +354,7 @@ export default async function BottleneckPage({ params }: RouteParams) {
                   <li key={fix.id} className="py-4">
                     <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
                       <Link
-                        href={`/science/${fix.id}`}
+                        href={scienceHref(fix.id)}
                         className="font-medium text-fg-primary underline-offset-4 hover:underline"
                       >
                         {fix.name}

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-15T10:50:56.814Z",
+  "generatedAt": "2026-09-15T13:35:18.217Z",
   "rows": [
     {
       "material": "300 mm prime silicon wafers",
@@ -204,7 +204,7 @@
       "material": "Crucible-grade high-purity quartz sand",
       "producer": "Ferrotec",
       "query": "\"Ferrotec\" quartz",
-      "checkedAt": "2026-09-15T10:47:34.488Z",
+      "checkedAt": "2026-09-15T13:30:41.534Z",
       "status": "candidate",
       "candidates": [
         {
@@ -606,9 +606,40 @@
       "material": "Didymium (Nd-Pr) metal, magnet feed",
       "producer": "China Northern Rare Earth",
       "query": "\"China Northern Rare Earth\" rare earth",
-      "status": "nothing",
-      "checkedAt": "2026-09-14T11:20:41.697Z",
-      "candidates": []
+      "checkedAt": "2026-09-15T13:34:52.089Z",
+      "status": "candidate",
+      "candidates": [
+        {
+          "url": "https://rare-earth-mining.com/chinese-rare-earth-companies/",
+          "title": "Chinese Rare Earth Companies: Top 10 Producers 2026",
+          "excerpt": "bal market impact. State-owned enterprises dominate this list — that is a deliberate feature of China’s rare earth industrial policy, formalised most visibly through the creation of China Rare Earth Group in December 2021. 1. China Northern Rare Earth (Group) High-Tech Co., Ltd. (600111.SH) China Northern Rare Earth is the world’s largest rare earth producer by output volume, built on privileged access to the Bayan Obo deposit in Inner Mongolia — the single lar",
+          "matched": [
+            "China Northern Rare Earth",
+            "rare earth",
+            "rare earth"
+          ]
+        },
+        {
+          "url": "https://de.finance.yahoo.com/quote/600111.SS/",
+          "title": "China Northern Rare Earth (Group) High-Tech Co.,Ltd (600111.SS) Aktienkurs, Nachrichten, Kurs und Verlauf – Yahoo Finanzen",
+          "excerpt": "China Northern Rare Earth (Group) High-Tech Co.,Ltd (600111.SS) Aktienkurs, Nachrichten, Kurs und Verlauf – Yahoo Finanzen Ein Fehler ist aufgetreten. Zur Navigation springen Zum Hauptinhalt springen Zur rechten Spalte springen Shanghai - Delaye",
+          "matched": [
+            "China Northern Rare Earth",
+            "rare earth",
+            "rare earth"
+          ]
+        },
+        {
+          "url": "https://www.onvista.de/aktien/China-Northern-Rare-Earth-Aktie-CNE000000T18",
+          "title": "China Northern Rare Earth Aktie • A0M339 • CNE000000T18 • onvista",
+          "excerpt": "China Northern Rare Earth Aktie • A0M339 • CNE000000T18 • onvista Zum Hauptinhalt springen Börse & Kurse Aktien China Northern Rare Earth Aktie Aktie China Northern Rare Earth Aktie WKN A0M339 ISIN CNE000000T18 Land China 🇨🇳 Ticker 600111 WKN",
+          "matched": [
+            "China Northern Rare Earth",
+            "rare earth",
+            "rare earth"
+          ]
+        }
+      ]
     },
     {
       "material": "Didymium (Nd-Pr) metal, magnet feed",
@@ -638,9 +669,40 @@
       "material": "Didymium (Nd-Pr) metal, magnet feed",
       "producer": "Shenghe Resources",
       "query": "\"Shenghe Resources\" rare earth",
-      "status": "nothing",
-      "checkedAt": "2026-09-14T11:20:44.018Z",
-      "candidates": []
+      "checkedAt": "2026-09-15T13:35:02.094Z",
+      "status": "candidate",
+      "candidates": [
+        {
+          "url": "http://en.shengheholding.com/about.aspx?t=4",
+          "title": "About Shenghe",
+          "excerpt": "tection Social Responsibility Corporate Governance Investor’s Relations Announcement SSE E-interaction Procurement Procurement Information Bidding Results Human Resources Ideals Meet Our Team Open Position About Shenghe Shenghe Resources Holding Co., Ltd Stock Code: 600392 Shenghe built its core business in rare earths (RE), while also takes serious account to other “Precious, Rare, and Scatted” resources. Our main products include RE concentrate, RE ox",
+          "matched": [
+            "Shenghe Resources",
+            "rare earth",
+            "rare earth"
+          ]
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Shenghe_Resources",
+          "title": "Shenghe Resources - Wikipedia",
+          "excerpt": "Shenghe Resources - Wikipedia Jump to content From Wikipedia, the free encyclopedia Chinese partly state-owned rare earths mining and processing company \"}},\"i\":0}}]}'> Shenghe Resources Holding Co., Ltd. Native name 盛和資源控股股份有限公司 Type Pu",
+          "matched": [
+            "Shenghe Resources",
+            "rare earth",
+            "rare earth"
+          ]
+        },
+        {
+          "url": "https://www.minenportal.de/minen/2091--Peak-Rare-Earths-Ltd",
+          "title": "Peak Rare Earths Ltd. (nicht mehr an einer B&ouml;rse gelistet)",
+          "excerpt": "ahme durch Mamba Minerals Corporation Ltd. statt. &Auml;ltere Artikel von und &uuml;ber die Gesellschaft befinden sich (sofern vorhanden) im Archiv. Nachrichten, deutsch zu Peak Rare Earths Ltd. Peak Rare Earths Ltd. wird von Shenghe Resources Pte. Ltd. �bernommen PEK gibt ein Update in Bezug auf die geplante �bernahme aller Aktien von Peak durch Shenghe Resources Pte. Ltd. im Rahmen eines Scheme of Arrangement bekannt. Peak teilt mit, dass das Scheme n",
+          "matched": [
+            "Shenghe Resources",
+            "rare earth",
+            "rare earth"
+          ]
+        }
+      ]
     },
     {
       "material": "Didymium (Nd-Pr) metal, magnet feed",
@@ -784,7 +846,7 @@
       "material": "Electronic-grade polysilicon",
       "producer": "REC Silicon",
       "query": "\"REC Silicon\" polysilicon",
-      "checkedAt": "2026-09-15T10:47:23.824Z",
+      "checkedAt": "2026-09-15T13:30:32.623Z",
       "status": "candidate",
       "candidates": [
         {
@@ -797,18 +859,18 @@
           ]
         },
         {
-          "url": "https://www.bernreuter.com/newsroom/polysilicon-news/article/how-hanwha-sabotaged-rec-silicon-s-granular-polysilicon-plant/",
-          "title": "How Hanwha sabotaged REC Silicon’s granular-polysilicon plant",
-          "excerpt": "How Hanwha sabotaged REC Silicon’s granular-polysilicon plant EN Newsroom Polysilicon News Article How Hanwha sabotaged REC Silicon’s granular-polysilicon plant September 08, 2025 Has Hanwha intentionally run the operations at REC Silicon’s polysilicon",
+          "url": "https://www.pv-tech.org/rec-silicon-abandons-us-polysilicon-production-at-moses-lake/",
+          "title": "REC Silicon abandons US polysilicon production at Moses Lake- PV Tech",
+          "excerpt": "REC Silicon abandons US polysilicon production at Moses Lake- PV Tech Skip to content News REC Silicon abandons US polysilicon production at Moses Lake By Will Norman January 2, 2025 Manufacturing , Materials Americas Latest REPowe",
           "matched": [
             "REC Silicon",
             "polysilicon"
           ]
         },
         {
-          "url": "https://www.pv-tech.org/rec-silicon-abandons-us-polysilicon-production-at-moses-lake/",
-          "title": "REC Silicon abandons US polysilicon production at Moses Lake- PV Tech",
-          "excerpt": "REC Silicon abandons US polysilicon production at Moses Lake- PV Tech Skip to content News REC Silicon abandons US polysilicon production at Moses Lake By Will Norman January 2, 2025 Manufacturing , Materials Americas Latest Idemit",
+          "url": "https://www.bernreuter.com/newsroom/polysilicon-news/article/how-hanwha-sabotaged-rec-silicon-s-granular-polysilicon-plant/",
+          "title": "How Hanwha sabotaged REC Silicon’s granular-polysilicon plant",
+          "excerpt": "How Hanwha sabotaged REC Silicon’s granular-polysilicon plant EN Newsroom Polysilicon News Article How Hanwha sabotaged REC Silicon’s granular-polysilicon plant September 08, 2025 Has Hanwha intentionally run the operations at REC Silicon’s polysilicon",
           "matched": [
             "REC Silicon",
             "polysilicon"
@@ -883,18 +945,9 @@
       "material": "Gallium, refined",
       "producer": "5N Plus",
       "query": "\"5N Plus\" gallium",
-      "checkedAt": "2026-09-15T10:48:21.509Z",
+      "checkedAt": "2026-09-15T13:31:25.209Z",
       "status": "candidate",
       "candidates": [
-        {
-          "url": "https://www.5nplus.com/en/investors/overview/",
-          "title": "Invest in 5N Plus: Leader in Specialty Semiconductors & Performance Materials | 5N Plus",
-          "excerpt": "oldman Ventum Capital Markets Daniel Lavoie Latest News 5N+ Selected to Establish Domestic Production of Gallium Arsenide Components for U.S. Defence Applications Through US$7.3M Award September 3, 2026 | Montréal, Québec 5N Plus Inc. (TSX:VNP) (“5N+” or “the Company”), a leading global producer of specialty semiconductors and performance materials, today announced that it has been selected by the U.S. Department of War to receive a US$7.3 mil",
-          "matched": [
-            "5N Plus",
-            "gallium"
-          ]
-        },
         {
           "url": "http://www.5nplus.com.s3-website-us-east-1.amazonaws.com/pure-metals.html",
           "title": "Pure Metals",
@@ -905,12 +958,21 @@
           ]
         },
         {
-          "url": "https://www.5nplus.com/en/products/semiconductors/",
-          "title": "Specialty Semiconductors - 5N Plus Products - Specialty Semiconductors & High-Purity Metals | 5N Plus",
-          "excerpt": "ahertz radiation detectors. Markets Terrestrial Renewable Energy Imaging and Sensing Also available Cadmium Telluride Cadmium Zinc Telluride Lead Chloride 4N5+ Product sheet download Available Forms Fine Powder Tailored Particles 5N Plus offers a full range of inorganic perovskite precursor compounds, including lead chloride (PbCl 2 ), for use in high-efficiency solar cells that convert solar energy into electricity. Markets Terrestrial Renewa",
+          "url": "https://www.5nplus.com/en/investors/overview/",
+          "title": "Invest in 5N Plus: Leader in Specialty Semiconductors & Performance Materials | 5N Plus",
+          "excerpt": "oldman Ventum Capital Markets Daniel Lavoie Latest News 5N+ Selected to Establish Domestic Production of Gallium Arsenide Components for U.S. Defence Applications Through US$7.3M Award September 3, 2026 | Montréal, Québec 5N Plus Inc. (TSX:VNP) (“5N+” or “the Company”), a leading global producer of specialty semiconductors and performance materials, today announced that it has been selected by the U.S. Department of War to receive a US$7.3 mil",
           "matched": [
             "5N Plus",
-            "gan"
+            "gallium"
+          ]
+        },
+        {
+          "url": "https://rare-earth-mining.com/5n-plus/",
+          "title": "5N Plus (TSX: VNP): Critical Metals Producer Profile",
+          "excerpt": "Germany, which manufactures space-grade solar cells for satellite programmes. AZUR SPACE expanded capacity approximately 30% in 2025, with a further 25% expansion planned for H2 2026. The project pipeline extends beyond 2028. 5N Plus Key Metals and Markets Three metals sit at the centre of 5N Plus’s critical minerals relevance: germanium, gallium, and indium. All three are subject to China export controls introduced from July 2023 — a restrict",
+          "matched": [
+            "5N Plus",
+            "gallium"
           ]
         }
       ]
@@ -919,7 +981,7 @@
       "material": "Gallium, refined",
       "producer": "Chinalco",
       "query": "\"Chinalco\" gallium",
-      "checkedAt": "2026-09-15T10:47:40.652Z",
+      "checkedAt": "2026-09-15T13:30:49.845Z",
       "status": "candidate",
       "candidates": [
         {
@@ -941,9 +1003,9 @@
           ]
         },
         {
-          "url": "https://tradium.com/market-insight/rare-earths-china-success-path-raw-materials-giant/",
-          "title": "Rare earths: China's long road to success as a raw materials giant - TRADIUM",
-          "excerpt": "outh, but it took until 2016 for the first sustainable centralisation to be completed. By consolidating hundreds of companies into five - Xiamen Tungsten, Minmetals Rare Earth, Guangdong Rare Earth, the rare earth division of Chinalco (Aluminium Corporation of China) and China Southern Rare Earth - the industry in the south was now also streamlined in organisational terms. Together with the China Northern Rare Earth Group in the north, China's",
+          "url": "https://rare-earth-mining.com/china-rare-earth-group/",
+          "title": "China Rare Earth Group: National Champion Profile",
+          "excerpt": "ual industrial footprint spans the full rare earth value chain across multiple provinces. The group was formed by merging rare earth-related assets from five major state entities: China Minmetals Corp, Aluminum Corp of China (Chinalco), Ganzhou Rare Earth Group, China Iron and Steel Research Institute Group, and China GRINM Group Corp . The consolidation was explicitly designed to end the provincial fragmentation and informal competition that h",
           "matched": [
             "Chinalco",
             "gan"
@@ -955,7 +1017,7 @@
       "material": "Gallium, refined",
       "producer": "East Hope Group",
       "query": "\"East Hope Group\" gallium",
-      "checkedAt": "2026-09-15T10:47:53.698Z",
+      "checkedAt": "2026-09-15T13:30:59.269Z",
       "status": "candidate",
       "candidates": [
         {
@@ -991,7 +1053,7 @@
       "material": "Gallium, refined",
       "producer": "Nyrstar",
       "query": "\"Nyrstar\" gallium",
-      "checkedAt": "2026-09-15T10:48:14.898Z",
+      "checkedAt": "2026-09-15T13:31:15.672Z",
       "status": "candidate",
       "candidates": [
         {
@@ -1004,18 +1066,18 @@
           ]
         },
         {
-          "url": "https://www.nyrstar.com/resource-center/press-releases/nyrstars-middle-tennessee-mines-operations-to-temporarily-pause-production",
-          "title": "Nyrstar’s Middle Tennessee Mines operations to temporarily pause production | Nyrstar",
-          "excerpt": "d profitability of the mines.”, said Bill Hart, Nyrstar's Vice President Environment, Health & Safety, Human Resources and Corporate Affairs for North American Mining. During this temporary pause in production operations, Nyrstar plans to conduct drilling to explore and define additional zinc, germanium, and gallium resources to position the company to increase the supply to Nyrstar’s Clarksville, TN smelter upon completion of a planned invest",
+          "url": "https://www.nyrstarcollective.eu/post/if-nyrstar-were-worthless-why-is-everyone-fighting-over-it",
+          "title": "If Nyrstar Were Worthless, Why Is Everyone Fighting Over It?",
+          "excerpt": "dictions. That framing has flipped almost overnight. Governments across Australia, Europe and North America are now waking up to what these facilities actually process alongside their base metals. Besides zinc and lead, Nyrstar recovers antimony, germanium, indium, bismuth, tellurium and gallium. This cluster of by-product metals has become indispensable to defence manufacturing, semiconductors, energy storage and the broader clean-energy tran",
           "matched": [
             "Nyrstar",
             "gallium"
           ]
         },
         {
-          "url": "https://www.nyrstarcollective.eu/post/if-nyrstar-were-worthless-why-is-everyone-fighting-over-it",
-          "title": "If Nyrstar Were Worthless, Why Is Everyone Fighting Over It?",
-          "excerpt": "dictions. That framing has flipped almost overnight. Governments across Australia, Europe and North America are now waking up to what these facilities actually process alongside their base metals. Besides zinc and lead, Nyrstar recovers antimony, germanium, indium, bismuth, tellurium and gallium. This cluster of by-product metals has become indispensable to defence manufacturing, semiconductors, energy storage and the broader clean-energy tran",
+          "url": "https://www.trafigura.com/news-and-insights/in-the-news/2023/nyrstar-considers-potential-germanium-and-gallium-projects/",
+          "title": "Nyrstar considers potential germanium and gallium projects | Trafigura",
+          "excerpt": "Nyrstar considers potential germanium and gallium projects | Trafigura Trafigura in brief Trafigura in kürze Trafigura en resumen Trafigura em resumo Trafigura en bref 托克简介 Trafigura会社概要 Trafigura in brief Trafigura in kürze Tr",
           "matched": [
             "Nyrstar",
             "gallium"
@@ -1063,7 +1125,7 @@
       "material": "Gallium, refined",
       "producer": "Zhuhai Fangyuan",
       "query": "\"Zhuhai Fangyuan\" gallium",
-      "checkedAt": "2026-09-15T10:48:06.571Z",
+      "checkedAt": "2026-09-15T13:31:06.289Z",
       "status": "candidate",
       "candidates": [
         {
@@ -1217,7 +1279,7 @@
       "material": "Grain-oriented electrical steel (GOES)",
       "producer": "POSCO",
       "query": "\"POSCO\" electrical steel",
-      "checkedAt": "2026-09-15T10:50:01.168Z",
+      "checkedAt": "2026-09-15T13:33:25.634Z",
       "status": "candidate",
       "candidates": [
         {
@@ -1243,7 +1305,7 @@
         {
           "url": "https://gmk.center/en/news/posco-and-hyundai-are-developing-innovative-electrical-steel-to-improve-the-efficiency-of-electric-vehicles/",
           "title": "Posco and Hyundai are developing innovative electrical steel to improve the efficiency of electric vehicles",
-          "excerpt": "Posco and Hyundai are developing innovative electrical steel to improve the efficiency of electric vehicles News Posts Infographic Interview Analysis Manufacturers Сonsulting All news View all 15 September 2026 Nucor has rais",
+          "excerpt": "Posco and Hyundai are developing innovative electrical steel to improve the efficiency of electric vehicles News Posts Infographic Interview Analysis Manufacturers Сonsulting All news View all 15 September 2026 A block of sha",
           "matched": [
             "POSCO",
             "electrical steel",
@@ -1521,49 +1583,189 @@
       "material": "Liquid helium (He-4)",
       "producer": "Air Liquide",
       "query": "\"Air Liquide\" helium",
-      "status": "nothing",
-      "checkedAt": "2026-09-14T11:20:39.338Z",
-      "candidates": []
+      "checkedAt": "2026-09-15T13:34:47.237Z",
+      "status": "candidate",
+      "candidates": [
+        {
+          "url": "https://de.airliquide.com/unsere-gase/helium",
+          "title": "Helium He",
+          "excerpt": "eturn Produkte & Services Helium He: Vielfältig in seiner Anwendung Arbeiten Sie mit Helium im Bereich Labor & Analytik oder Schweißen & Schneiden? Oder nutzen Sie es als Gas zum Befüllen und Steigen lassen von Ballons? Air Liquide erzeugt und liefert Helium europaweit – sicher und maßgeschneidert für jeden Kunden als Zylinder- oder Bündelprodukt. Helium kaufen Produktcharakteristik Anwendungsmöglichkeiten Lieferformen Rundum-Service Beratung Prod",
+          "matched": [
+            "Air Liquide",
+            "helium"
+          ]
+        },
+        {
+          "url": "https://de.airliquide.com/ballongas-helium-kaufen",
+          "title": "Ballongas Helium kaufen",
+          "excerpt": "e Anwendungen in Wissenschaft, Industrie und Medizin geeignet sind. Helium in der Nähe kaufen Jetzt Helium kaufen! Helium Ballongas jetzt online kaufen BALLONGAS 10L 200 bar Für Ballons & Dekorationen. Sicheres Helium von Air Liquide – maßgeschneidert für jeden Anlass. Jetzt anfragen BALLONGAS 20L 200 bar Für Ballons & Dekorationen. Sicheres Helium von Air Liquide – maßgeschneidert für jeden Anlass. Jetzt anfragen BALLONGAS 50L 200 bar Für Ballons",
+          "matched": [
+            "Air Liquide",
+            "helium"
+          ]
+        },
+        {
+          "url": "https://de.airliquide.com/ueber-uns/medien/news-blog/weltpremiere-air-liquide-betreibt-die-erste-speicheranlage-fuer-reines-helium",
+          "title": "Weltpremiere: Air Liquide betreibt die erste Speicheranlage für reines Helium",
+          "excerpt": "Weltpremiere: Air Liquide betreibt die erste Speicheranlage für reines Helium Skip to main content Home Über uns Medien News Weltpremiere: Air Liquide betreibt die erste Speicheranlage für reines Helium Return News Weltpremiere: Air Liquide betr",
+          "matched": [
+            "Air Liquide",
+            "helium"
+          ]
+        }
+      ]
     },
     {
       "material": "Liquid helium (He-4)",
       "producer": "Air Products",
       "query": "\"Air Products\" helium",
+      "checkedAt": "2026-09-15T13:34:31.181Z",
       "status": "nothing",
-      "checkedAt": "2026-09-14T11:20:34.102Z",
       "candidates": []
     },
     {
       "material": "Liquid helium (He-4)",
       "producer": "ExxonMobil",
       "query": "\"ExxonMobil\" helium",
-      "status": "nothing",
-      "checkedAt": "2026-09-14T11:20:25.022Z",
-      "candidates": []
+      "checkedAt": "2026-09-15T13:34:17.074Z",
+      "status": "candidate",
+      "candidates": [
+        {
+          "url": "https://corporate.exxonmobil.com/what-we-do/materials-for-modern-living/labarge-helium-extraction-energy-production-wyoming",
+          "title": "Labarge: Helium explained | ExxonMobil",
+          "excerpt": "Labarge: Helium explained | ExxonMobil Skip to content selected item Carbon capture Perspective Nov. 15, 2022 Share Labarge: Helium explained While helium helps make party balloons lighter than air, it’s also a critical element for many advanced technologies",
+          "matched": [
+            "ExxonMobil",
+            "helium"
+          ]
+        },
+        {
+          "url": "https://corporate.exxonmobil.com/what-we-do/materials-for-modern-living/nine-things-you-might-not-know-about-helium",
+          "title": "9 Helium fun facts for your next trivia night | ExxonMobil",
+          "excerpt": "9 Helium fun facts for your next trivia night | ExxonMobil Skip to content 9 Helium fun facts for your next trivia night selected item December 4th, 2019 Helium is usually known for its party tricks. It gives buoyancy to balloons and a cartoon-like squeak to voices. But in the",
+          "matched": [
+            "ExxonMobil",
+            "helium"
+          ]
+        },
+        {
+          "url": "https://de.marketscreener.com/boerse-nachrichten/exxon-mobil-duerfte-laut-ubs-von-weltweiter-helium-knappheit-profitieren-ce7e51d2d08fff22",
+          "title": "Exxon Mobil dürfte laut UBS von weltweiter Helium-Knappheit profitieren | MarketScreener Deutschland",
+          "excerpt": "Exxon Mobil dürfte laut UBS von weltweiter Helium-Knappheit profitieren | MarketScreener Deutschland EXXONMOBIL HOLDINGS CORPORATION Zu einer Liste hinzufügen PDF-Bericht ExxonMobil Holdings Corporation Aktien A426ZY US30233Q1085 XOM Erdöl / Gas - Marketing Realtime-Estimate Cboe BZX 15:33:45 15.09.2026 Perf. 5 T Veränd. 1. Jan.",
+          "matched": [
+            "ExxonMobil",
+            "helium"
+          ]
+        }
+      ]
     },
     {
       "material": "Liquid helium (He-4)",
       "producer": "Gazprom",
       "query": "\"Gazprom\" helium",
-      "status": "nothing",
-      "checkedAt": "2026-09-14T11:20:31.627Z",
-      "candidates": []
+      "checkedAt": "2026-09-15T13:34:23.749Z",
+      "status": "candidate",
+      "candidates": [
+        {
+          "url": "http://www.gazprominfo.de/articles/helium/",
+          "title": "Wie wird aus Erdgas Helium gewonnen",
+          "excerpt": "Wie wird aus Erdgas Helium gewonnen Unsere Websites × Alpines Touristikzentrum der PAO Gazprom (Russisch) Ausbau der Erdgasinfrastruktur in Russland (Russisch) EcoGas (Russisch) EcoGas in Belarus (Russisch) Erdgastankstellennetz der Gazprom (Russisch) Gazprom am Südpol (Russisch) Gazprom Energy (Englisch) Gazprom",
+          "matched": [
+            "Gazprom",
+            "helium"
+          ]
+        },
+        {
+          "url": "http://www.gazprominfo.de/terms/orenburg-helium-plant/",
+          "title": "Orenburger Heliumwerk",
+          "excerpt": "Orenburger Heliumwerk Unsere Websites × Alpines Touristikzentrum der PAO Gazprom (Russisch) Ausbau der Erdgasinfrastruktur in Russland (Russisch) EcoGas (Russisch) EcoGas in Belarus (Russisch) Erdgastankstellennetz der Gazprom (Russisch) Gazprom am Südpol (Russisch) Gazprom Energy (Englisch) Gazprom",
+          "matched": [
+            "Gazprom",
+            "helium"
+          ]
+        },
+        {
+          "url": "https://www.polyus.com/en/media/press-releases/polyus-signs-an-agreement-with-gazprom-helium-service/",
+          "title": "Polyus signs an agreement with Gazprom Helium Service — Polyus",
+          "excerpt": "Polyus signs an agreement with Gazprom Helium Service — Polyus Stocks Stocks Ru Gold (USD) 0.00 0.00 MOEX (RUB) 0.00 0.00 LSE (USD) 0.00 0.00 Polyus Finance website Personal Data Legal Notice Anti-corruption Sitemap Regulatory Disclosure on the Interfax Info",
+          "matched": [
+            "Gazprom",
+            "helium"
+          ]
+        }
+      ]
     },
     {
       "material": "Liquid helium (He-4)",
       "producer": "Linde",
       "query": "\"Linde\" helium",
-      "status": "nothing",
-      "checkedAt": "2026-09-14T11:20:36.869Z",
-      "candidates": []
+      "checkedAt": "2026-09-15T13:34:35.451Z",
+      "status": "candidate",
+      "candidates": [
+        {
+          "url": "https://www.linde-gas.de/shop/de/de-ig/online-shop/gase-kaufen/helium-und-ballongas",
+          "title": "Ballongas und Helium | Technische Gase von Linde online kaufen",
+          "excerpt": "Ballongas und Helium | Technische Gase von Linde online kaufen OverduePayment is Pending X Helium kaufen – Ballongas und technische Heliumqualitäten für jeden Einsatzbereich Helium ist ein besonders vielseitiges Gas, das sowohl bei Events als auch in technischen und w",
+          "matched": [
+            "Linde",
+            "helium"
+          ]
+        },
+        {
+          "url": "https://www.linde-gas.de/shop/de/de-ig/helium",
+          "title": "Helium und Ballongas | Linde Gas Deutschland",
+          "excerpt": "Helium und Ballongas | Linde Gas Deutschland OverduePayment is Pending X Home Helium und Ballongas Helium und Ballongas Was ist Helium? Helium ist ein farb- und geruchloses Edelgas und hat den niedrigsten Siedepunkt aller Elemente. Nach Wasserstoff",
+          "matched": [
+            "Linde",
+            "helium"
+          ]
+        },
+        {
+          "url": "https://www.linde-gas.de/shop/de/de-ig/helium-60-reingas-helium-60",
+          "title": "Helium 6.0 | Technische Gase von Linde online kaufen",
+          "excerpt": "Helium 6.0 | Technische Gase von Linde online kaufen OverduePayment is Pending X Sicherheitsdatenblatt Produktdatenblatt Show More Less More Home Online-Shop Gase kaufen Helium- und Ballongas Helium 6.0 Content for FullForEmpty Attribute Content for No New B",
+          "matched": [
+            "Linde",
+            "helium"
+          ]
+        }
+      ]
     },
     {
       "material": "Liquid helium (He-4)",
       "producer": "QatarEnergy",
       "query": "\"QatarEnergy\" helium",
-      "status": "nothing",
-      "checkedAt": "2026-09-14T11:20:22.928Z",
-      "candidates": []
+      "checkedAt": "2026-09-15T13:34:03.650Z",
+      "status": "candidate",
+      "candidates": [
+        {
+          "url": "https://newsroom.messergroup.com/de/messer-sichert-sich-langfristige-lieferung-von-hochreinem-helium-von-qatarenergy-zur-versorgung-seiner-kunden-weltweit/",
+          "title": "Messer sichert sich langfristige Lieferung von hochreinem Helium von QatarEnergy zur Versorgung seiner Kunden weltweit",
+          "excerpt": "Messer sichert sich langfristige Lieferung von hochreinem Helium von QatarEnergy zur Versorgung seiner Kunden weltweit Zum Hauptinhalt springen Navigation Menu Newsroom Messer SE & Co.KGaA Messer sichert sich langfristige Lieferung von hochreinem Helium von QatarEnergy zur Versorgung seiner Kunden w",
+          "matched": [
+            "QatarEnergy",
+            "helium"
+          ]
+        },
+        {
+          "url": "https://www.linkedin.com/posts/qatarenergy_qatarenergy-yourenergytransitionpartner-activity-7421505287766835200-Zkwx",
+          "title": "QatarEnergy Signs Helium Sales Agreement with Air Liquide | QatarEnergy posted on the topic | LinkedIn",
+          "excerpt": "QatarEnergy Signs Helium Sales Agreement with Air Liquide | QatarEnergy posted on the topic | LinkedIn LinkedIn respects your privacy LinkedIn and 3rd parties use essential and non-essential cookies to provide, secure, analyze and",
+          "matched": [
+            "QatarEnergy",
+            "helium"
+          ]
+        },
+        {
+          "url": "https://www.environmentenergyleader.com/stories/qatar-helium-shock-keeps-asias-chip-supply-under-pressure,134483",
+          "title": "Qatar Helium Shock Keeps Asia's Chip Supply Under Pressure - Environment+Energy Leader",
+          "excerpt": "y managed allocations. Qatar's helium facilities normally account for approximately one-quarter to 30% of global supply, depending on the measure used. Iranian strikes on Qatar's Ras Laffan Industrial City in March forced QatarEnergy to halt production at one of the world's largest LNG and helium export hubs, removing one of the market's largest concentrated production sources. QatarEnergy later estimated that damage to specific facilities would l",
+          "matched": [
+            "QatarEnergy",
+            "helium"
+          ]
+        }
+      ]
     },
     {
       "material": "Neon, excimer laser grade",
@@ -1587,22 +1789,13 @@
       "material": "Neon, excimer laser grade",
       "producer": "Baosteel Gases",
       "query": "\"Baosteel Gases\" neon",
-      "checkedAt": "2026-09-15T10:46:37.618Z",
+      "checkedAt": "2026-09-15T13:29:43.506Z",
       "status": "candidate",
       "candidates": [
         {
           "url": "https://www.einpresswire.com/article/818680629/rare-gas-market-the-silent-backbone-of-semiconductor-lithography-and-the-push-for-neon-supply-independence",
           "title": "Rare Gas Market: The Silent Backbone of Semiconductor Lithography and the Push for Neon Supply Independence",
           "excerpt": "political shift toward localized supply chains. China, in particular, is rapidly expanding its own rare gas production and purification capacity in an effort to achieve semiconductor self-sufficiency. Companies like Hangzhou Hangyang and Baosteel Gases are investing in air separation units and neon purification facilities to support domestic chip fabs. 𝐆𝐞𝐧𝐞𝐫𝐚𝐥 & 𝐀𝐝𝐯𝐚𝐧𝐜𝐞𝐝 𝐌𝐚𝐭𝐞𝐫𝐢𝐚𝐥𝐬 𝐈𝐧𝐝𝐮𝐬𝐭𝐫𝐲 𝐀𝐧𝐚𝐥𝐲𝐬𝐢𝐬: https://www",
-          "matched": [
-            "Baosteel Gases",
-            "neon"
-          ]
-        },
-        {
-          "url": "https://www.maximizemarketresearch.com/market-report/neon-gas-market/146699/",
-          "title": "Neon Gas Market- Industry Analysis and Forecast (2026-2034)",
-          "excerpt": "ses Co., Ltd. (China) 21. Shenandoah Industrial Gases (USA) 22. PGNIG (Poland) 23. Dakota Gasification Company (USA) 24. Yingde Gases Group (China) 25. China National Offshore Oil Corporation (CNOOC) – Gas Division (China) 26. Baosteel Gases (China) 27. Buzwair Industrial Gases Factories (Qatar) 28. SIAD Group (Italy) 29. SOL Group (Italy) 30. Southern Gas Ltd. (India) Frequently Asked Questions: 1] What segments are covered in the Global Neon Gas Ma",
           "matched": [
             "Baosteel Gases",
             "neon"
@@ -1723,9 +1916,42 @@
       "material": "REBCO superconducting tape, 12 mm",
       "producer": "AMSC",
       "query": "\"AMSC\" REBCO",
-      "status": "nothing",
-      "checkedAt": "2026-09-14T11:20:20.763Z",
-      "candidates": []
+      "checkedAt": "2026-09-15T13:33:54.935Z",
+      "status": "candidate",
+      "candidates": [
+        {
+          "url": "https://www.nature.com/articles/s41598-023-27996-4?error=cookies_not_supported&code=e3c9e7f5-7de1-4408-a0ed-cddfd2a513e8",
+          "title": "Numerical modelling of soldered superconducting REBCO stacks of tapes suggests strong reduction in cross-field demagnetization | Scientific Reports",
+          "excerpt": "modeled. The superconductor tape is 40 mm in width and 18 cm in length, with assumed critical current of 3702.4 A at 25 K. These parameters are relevant for RABiTS-based REBCO tapes, such as those from American Superconductor (AMSC). Indeed, this critical current or higher could be achieved with AMSC (coil formulation) at 25 K and magnetic fields below 1 T (see dataset in 44 of the database in 45 obtained as detailed in 46 ). We chose this",
+          "matched": [
+            "AMSC",
+            "rebco",
+            "rebco",
+            "superconductor"
+          ]
+        },
+        {
+          "url": "https://eureka.patsnap.com/report-rebco-tape-architecture-substrates-buffers-and-stabilizers-trade-offs",
+          "title": "REBCO Tape Architecture: Substrates, Buffers And Stabilizers Trade-Offs",
+          "excerpt": "uperconductors; limited production scale compared to larger manufacturers; specialized design may limit versatility for non-fusion applications. American Superconductor Corp. Technical Solution: American Superconductor (AMSC) has pioneered advanced REBCO tape architectures through their proprietary MOD/RABiTS™ (Metal Organic Deposition/Rolling Assisted Biaxially Textured Substrates) technology. Their approach utilizes nickel-tungsten alloy",
+          "matched": [
+            "AMSC",
+            "rebco",
+            "rebco",
+            "superconductor",
+            "fusion"
+          ]
+        },
+        {
+          "url": "https://www.oaepublish.com/articles/ss.2022.10",
+          "title": "Advances in second-generation high-temperature superconducting tapes and their applications in high-field magnets",
+          "excerpt": "the 2G-HTS tapes can reach 120 m/h, and through the self-designed RGB color analysis method, the average I c is increased to 561 A/cm (the uniformity of I c reaches 95%) [ 65 , 66 ] . In 2009, the American Superconducting Corporation (AMSC) produced 2G-HTS tapes with an I c of 260 A/cm and a length of 500 m using a low-cost MOD method [ 67 ] . In 2011, Fujikura in Japan used the IBAD+PLD route to prepare 2G-HTS tapes with a length of 816 m",
+          "matched": [
+            "AMSC",
+            "2g hts"
+          ]
+        }
+      ]
     },
     {
       "material": "REBCO superconducting tape, 12 mm",
@@ -1826,9 +2052,40 @@
       "material": "REBCO superconducting tape, 12 mm",
       "producer": "Shanghai Superconductor",
       "query": "\"Shanghai Superconductor\" REBCO",
-      "status": "nothing",
-      "checkedAt": "2026-09-14T11:20:14.133Z",
-      "candidates": []
+      "checkedAt": "2026-09-15T13:33:46.460Z",
+      "status": "candidate",
+      "candidates": [
+        {
+          "url": "https://www.shsctec.com/en/products/tape/",
+          "title": "HTS Tapes | Shanghai Superconductor Official Website",
+          "excerpt": "HTS Tapes | Shanghai Superconductor Official Website 2G-HTS Tapes Performance Core Strengths Technical Service 2G-HTS Tapes Introduction Shanghai Superconductor's ReBCO tapes (wires), produced with physical vapor deposition, have world-leading low-tempera",
+          "matched": [
+            "Shanghai Superconductor",
+            "rebco",
+            "2g hts",
+            "rebco",
+            "superconductor"
+          ]
+        },
+        {
+          "url": "https://cn.linkedin.com/company/shsctec",
+          "title": "Shanghai Superconductor Technology | 领英",
+          "excerpt": "Shanghai Superconductor Technology | 领英 领英尊重您的隐私 领英和第三方使用必要和非必要 Cookie 来提供、保护、分析和改善我们的服务，以及在领英站内外向您展示相关广告 (包含 专业和职位广告 )。请阅读领英 Cookie 政策 了解详情。 选择“接受”同意或选择“拒绝”拒绝将非必要 Cookie 用于此目的。您可以随时在 设置 中进行更改。 接受 拒绝 跳到主要内容 Shanghai Superconductor Technology 电",
+          "matched": [
+            "Shanghai Superconductor",
+            "superconductor"
+          ]
+        },
+        {
+          "url": "https://www.eurekalert.org/news-releases/1101339",
+          "title": "Commercial compact fusion triggered REBCO tape industry: Pulsed laser deposition technology opportunities and challenges | EurekAlert!",
+          "excerpt": "EBCO Currently, there are approximately 15 HTS tape manufacturers worldwide, with an annual production capacity exceeding 5,000 km (12 mm width). Among them, four top-tier manufacturers adopt the PLD route: FFJ (Japan), Shanghai Superconductor Technology (China), Fujikura (Japan), and S-innovation (Russia). These four manufacturers contribute more than half of the global total production. Additionally, new manufacturers such as HTSI (USA), SuperMag Technology",
+          "matched": [
+            "Shanghai Superconductor",
+            "superconductor"
+          ]
+        }
+      ]
     },
     {
       "material": "REBCO superconducting tape, 12 mm",
@@ -1981,25 +2238,16 @@
       "material": "Ruthenium, sputtering and ALD grade",
       "producer": "Impala Platinum",
       "query": "\"Impala Platinum\" ruthenium",
-      "checkedAt": "2026-09-15T10:47:00.722Z",
+      "checkedAt": "2026-09-15T13:30:13.250Z",
       "status": "candidate",
       "candidates": [
         {
-          "url": "https://www.wallstreet-online.de/aktien/164676-impala-platinum-holdings-aktie",
-          "title": "Impala Platinum Holdings Aktie (0S2J) | Aktienkurs » US4525533083 | wallstreetONLINE",
-          "excerpt": "tion der Aktivitäten in Südafrika und Simbabwe ist Impala Platinum eng mit der wirtschaftlichen, regulatorischen und energiepolitischen Entwicklung dieser Länder verflochten, bleibt aber zugleich ein global ausgerichteter Anbieter in einem international gehandelten Markt. Die Erlöse von Impala Platinum stammen überwiegend aus dem Verkauf von Platin, Palladium und Rhodium, ergänzt um kleinere Beiträge weiterer Platingruppenmetalle wie Ruthenium und Iri",
+          "url": "https://www.forbes.com/companies/impala-platinum-holdings/",
+          "title": "Impala Platinum Holdings | Company Overview & News",
+          "excerpt": "upgrade profile Upgrade To Receive Expanded Profile Features Impala Platinum Holdings Northlands, South Africa Forbes does not accept payment for placement on lists. From the Editor Last Updated Jun 8, 2023, 7:00pm EDT Impala Platinum Holdings Ltd. is engaged in the business of mining, refining and marketing of platinum group metals, includes platinum, palladium, rhodium, osmium, ruthenium and iridium, as well as nickel, copper and cobalt. It operate",
           "matched": [
             "Impala Platinum",
             "ruthenium"
-          ]
-        },
-        {
-          "url": "https://www.miningweekly.com/article/new-phase-r60bn-capex-programme-announced-by-impala-platinum-2026-09-03",
-          "title": "New-phase R60bn capex programme announced by Impala Platinum",
-          "excerpt": "an upgrade your subscription now at this link . If you are a Creamer Media subscriber, click here to log in. 3rd September 2026 By: Martin Creamer Creamer Media Editor Font size: - + JOHANNESBURG (miningweekly.com) – A big part of Impala Platinum is focused on the future and on developing future strengths and competitive positioning, Implats CEO Nico Muller outlined on Thursday, September 3, when this Johannesburg Stock Exchange-listed platinum group",
-          "matched": [
-            "Impala Platinum",
-            "pgm"
           ]
         },
         {
@@ -2009,6 +2257,15 @@
           "matched": [
             "Impala Platinum",
             "pgm"
+          ]
+        },
+        {
+          "url": "https://www.wallstreet-online.de/aktien/164676-impala-platinum-holdings-aktie",
+          "title": "Impala Platinum Holdings Aktie (0S2J) | Aktienkurs » US4525533083 | wallstreetONLINE",
+          "excerpt": "n der Aktivitäten in Südafrika und Simbabwe ist Impala Platinum eng mit der wirtschaftlichen, regulatorischen und energiepolitischen Entwicklung dieser Länder verflochten, bleibt aber zugleich ein global ausgerichteter Anbieter in einem international gehandelten Markt. Die Erlöse von Impala Platinum stammen überwiegend aus dem Verkauf von Platin, Palladium und Rhodium, ergänzt um kleinere Beiträge weiterer Platingruppenmetalle wie Ruthenium und Iridiu",
+          "matched": [
+            "Impala Platinum",
+            "ruthenium"
           ]
         }
       ]
@@ -2071,9 +2328,18 @@
       "material": "Ruthenium, sputtering and ALD grade",
       "producer": "Sibanye-Stillwater",
       "query": "\"Sibanye-Stillwater\" ruthenium",
-      "checkedAt": "2026-09-15T10:46:51.319Z",
+      "checkedAt": "2026-09-15T13:30:02.129Z",
       "status": "candidate",
       "candidates": [
+        {
+          "url": "https://lithium.org/en/members/sibanye-stillwater/",
+          "title": "Sibanye-Stillwater - International Lithium Association",
+          "excerpt": "Sibanye-Stillwater - International Lithium Association Skip to content Sibanye-Stillwater Associate Member Sibanye-Stillwater is a multinational mining and metals processing group with a diverse portfolio of operations, projects and investments across five continents. The Group is also one of the foremost global recyclers of PGM autocatalyst",
+          "matched": [
+            "Sibanye-Stillwater",
+            "pgm"
+          ]
+        },
         {
           "url": "https://www.miningweekly.com/article/new-longer-term-platinum-metal-applications-needed-sibanye-stillwater-headlines-2026-06-25",
           "title": "New longer-term platinum metal applications needed, Sibanye-Stillwater headlines",
@@ -2084,21 +2350,12 @@
           ]
         },
         {
-          "url": "https://www.justetf.com/de/stock-profiles/US82575P1075",
-          "title": "Sibanye Stillwater Ltd. Aktie | US82575P1075 | A2P0BU",
-          "excerpt": "on von Gold. Darüber hinaus produziert und raffiniert es Iridium, Ruthenium, Nickel, Chrom, Kupfer und Kobalt. Das Unternehmen hat sein Anlagenportfolio auf den Abbau und die Verarbeitung von Batteriemetallen ausgedehnt. Sibanye Stillwater wurde am 1. Februar 2013 gegründet und hat seinen Hauptsitz in Weltevreden Park, Südafrika. Mehr anzeigen Weniger anzeigen Grundstoffe und fertige Erzeugnisse Bergbau und mineralische Produkte Metallerzbergbau Südafrik",
+          "url": "https://www.globalhydrogenreview.com/hydrogen/14112023/heraeus-and-sibanye-stillwater-develop-ruthenium-based-catalyst/",
+          "title": "Heraeus and Sibanye-Stillwater develop ruthenium-based catalyst | Global Hydrogen Review",
+          "excerpt": "Heraeus and Sibanye-Stillwater develop ruthenium-based catalyst | Global Hydrogen Review Skip to main content Advertisement Home Hydrogen 14 Nov 23 Heraeus and Sibanye-Stillwater develop ruthenium-based catalyst Advertisement Heraeus and Sibanye-Stil",
           "matched": [
             "Sibanye-Stillwater",
             "ruthenium"
-          ]
-        },
-        {
-          "url": "https://www.wallstreet-online.de/aktien/us82575p1075-sibanye-stillwater-aktie",
-          "title": "Sibanye Stillwater Aktie (SBSW) | Aktienkurs » US82575P1075 | wallstreetONLINE",
-          "excerpt": "poration 16,19 EUR % \" data-push=\"2;ls;quotes;1051148@21@27;tpr\" > -0,58 % +80,14 % Coeur Mining 17,025 EUR % \" data-push=\"2;ls;quotes;6449774@21@27;tpr\" > -1,05 % +29,94 % Wheaton Precious Metals 130,70 EUR % \" data-push=\"2;ls;quotes;271301130@21@27;tpr\" > +0,81 % +42,15 % Mehr entdecken Sibanye Stillwater 2,5800 EUR % \" data-push=\"2;ls;quotes;337189823@21@27;tpr\" > -0,39 % Watchlist Portfolio Viking Therapeutics 27,40 EUR % \" data-push=\"2;ls;quotes;159",
-          "matched": [
-            "Sibanye-Stillwater",
-            "precious metal"
           ]
         }
       ]
@@ -2403,34 +2660,38 @@
       "material": "Two-phase dielectric immersion coolant",
       "producer": "3M",
       "query": "\"3M\" immersion cooling",
-      "checkedAt": "2026-09-15T10:48:33.615Z",
+      "checkedAt": "2026-09-15T13:31:30.732Z",
       "status": "candidate",
       "candidates": [
         {
-          "url": "https://www.youtube.com/watch?v=YyKIZPuepl8",
-          "title": "PC Cooling Submerged in 3M LIQUID? - YouTube",
-          "excerpt": "PC Cooling Submerged in 3M LIQUID? - YouTube About Press Copyright Contact us Creators Advertise Developers Terms Privacy Policy & Safety How YouTube works Test new features &copy; 2026 Google L",
+          "url": "https://en.wikipedia.org/wiki/Fluorinert",
+          "title": "Fluorinert - Wikipedia",
+          "excerpt": "llowing it to be used in \"single-phase\" applications, where it remains a liquid, or for \"two-phase\" applications, where the liquid boils to remove additional heat by evaporative cooling . An example of one of the compounds 3M uses is FC-72 ( perfluorohexane , C 6 F 14 ). Perfluorohexane is used for low-temperature heat-transfer applications due to its 56 °C (133 °F) boiling point. Another example is FC-75 , perfluoro(2-butyl-tetrahydrofur",
           "matched": [
             "3M",
             "cooling"
           ]
         },
         {
-          "url": "https://www.puretecs.de/en/products/coolant/3m-novec-649-en.html",
-          "title": "3M™ Novec™ 649 – Highly effective thermal interface fluid",
-          "excerpt": "ost of ownership. This makes FK-649 particularly suitable for heat transfer, electronics cooling, and thermal management applications where flammability or environmental impacts are a concern. Properties of FK-649 compared to 3M™ Novec™ 649 FK-649 3M™ Novec™ 649 Chemistry Fluorinated ketone(>99,9%) Fluorinated ketone (99,99%) CAS # 756-13-8 756-13-8 Boiling point 49°C 49°C Pour point -108°C -108°C Density @ 25°C 1,6 g/cm³ 1,6 g/cm³ Vapor",
+          "url": "https://www.youtube.com/watch?v=BH9_m7o_i-U",
+          "title": "3M Novec immersion-cooling - YouTube",
+          "excerpt": "3M Novec immersion-cooling - YouTube About Press Copyright Contact us Creators Advertise Developers Terms Privacy Policy & Safety How YouTube works Test new features &copy; 2026 Google L",
           "matched": [
             "3M",
+            "immersion cooling",
+            "immersion",
             "cooling"
           ]
         },
         {
-          "url": "https://www.datacenterknowledge.com/cooling/closer-look-3m-s-boiling-liquid-cooling",
-          "title": "Closer Look: 3M's Boiling Liquid Cooling",
-          "excerpt": "Closer Look: 3M's Boiling Liquid Cooling Newsletter Sign-Up Newsletter Sign-Up Infrastructure Related Topics Hardware Networking Cooling Data Storage Recent in Infrastructure See All Infrastructure Energy & Power Supply Speed Is the Ne",
+          "url": "https://aiworldjournal.com/ai-chip-cooling-systems-the-hidden-bottleneck-of-the-intelligence-era-3m-dielectric-fluids/",
+          "title": "AI Chip Cooling Systems: The Hidden Bottleneck of the Intelligence Era : 3M Dielectric Fluids - AI World Journal",
+          "excerpt": "AI Chip Cooling Systems: The Hidden Bottleneck of the Intelligence Era : 3M Dielectric Fluids - AI World Journal Skip to content As artificial intelligence models scale in size and capability, a less visible but critical challenge is shaping the future of computation: heat. The performance of m",
           "matched": [
             "3M",
-            "cooling"
+            "dielectric fluid",
+            "cooling",
+            "dielectric"
           ]
         }
       ]
@@ -2477,7 +2738,7 @@
       "material": "Two-phase dielectric immersion coolant",
       "producer": "Chemours",
       "query": "\"Chemours\" immersion cooling",
-      "checkedAt": "2026-09-15T10:49:12.532Z",
+      "checkedAt": "2026-09-15T13:32:10.039Z",
       "status": "candidate",
       "candidates": [
         {
@@ -2497,6 +2758,15 @@
             "Chemours",
             "cooling"
           ]
+        },
+        {
+          "url": "https://liquidstack.com/white-papers/unlock-the-future-of-data-center-cooling",
+          "title": "Unlocking the Future of Data Center Cooling | LiquidStack",
+          "excerpt": "tectures. The quest for sustainable, efficient cooling solutions has never been more critical. Our groundbreaking white paper, “Comparison of Server Liquid-Cooling Technologies,” co-developed with Syska Hennessy and the Chemours group, reveals how advanced liquid cooling technologies compare across different climate zones to help our customers determine the right fit for their needs. Why Download? Insightful Analysis: Discover comprehensive tot",
+          "matched": [
+            "Chemours",
+            "cooling"
+          ]
         }
       ]
     },
@@ -2504,7 +2774,7 @@
       "material": "Two-phase dielectric immersion coolant",
       "producer": "Engineered Fluids",
       "query": "\"Engineered Fluids\" immersion cooling",
-      "checkedAt": "2026-09-15T10:49:50.580Z",
+      "checkedAt": "2026-09-15T13:33:08.476Z",
       "status": "candidate",
       "candidates": [
         {
@@ -2515,18 +2785,6 @@
             "Engineered Fluids",
             "immersion"
           ]
-        },
-        {
-          "url": "https://www.linkedin.com/company/engineeredfluids",
-          "title": "Engineered Fluids. Inc. | LinkedIn",
-          "excerpt": "LinkedIn. Learn more in our Cookie Policy . Select Accept to consent or Reject to decline non-essential cookies for this use. You can update your choices at any time in your settings . Accept Reject Skip to main content Engineered Fluids. Inc. Chemical Manufacturing Tyler, Texas 1,305 followers The Single-phase Liquid Immersion Cooling Experts. Biodegradable & Non-toxic Synthetic Dielectric Coolants Follow Discover all 15 employees Report this company A",
-          "matched": [
-            "Engineered Fluids",
-            "immersion cooling",
-            "immersion",
-            "cooling",
-            "dielectric"
-          ]
         }
       ]
     },
@@ -2534,9 +2792,20 @@
       "material": "Two-phase dielectric immersion coolant",
       "producer": "Syensqo",
       "query": "\"Syensqo\" immersion cooling",
-      "checkedAt": "2026-09-15T10:49:24.490Z",
+      "checkedAt": "2026-09-15T13:32:18.416Z",
       "status": "candidate",
       "candidates": [
+        {
+          "url": "https://www.fuelsandlubes.com/syensqo-unveils-immersion-cooling-fluids-for-ai-data-centres/",
+          "title": "Syensqo unveils immersion cooling fluids for AI data centres - F&L Asia",
+          "excerpt": "Syensqo unveils immersion cooling fluids for AI data centres - F&L Asia Skip to main content Lubricants · F+L Daily Syensqo unveils immersion cooling fluids for AI data centres Belgian specialty materials firm Syensqo has launc",
+          "matched": [
+            "Syensqo",
+            "immersion cooling",
+            "immersion",
+            "cooling"
+          ]
+        },
         {
           "url": "https://salesandserviceinc.com/data-center-liquid-cooling/",
           "title": "Galden® PFPE for Data Center Liquid Cooling",
@@ -2547,15 +2816,6 @@
             "dielectric fluid",
             "immersion",
             "cooling",
-            "dielectric"
-          ]
-        },
-        {
-          "url": "https://www.lesker.com/newweb/fluids/heattransfer-galden-ht/",
-          "title": "Kurt J. Lesker Company | Galden&reg; Heat Transfer Fluids | Enabling Technology for a Better World",
-          "excerpt": "ine of Novec&trade; and Fluorinert&trade; fluids. Syensqo's Galden &reg; PFPE fluids emerge as an ideal replacement for 3M's fluoropolymer products. These high-performance, fluorinated fluids are available for immediate use. Syensqo's Galden &reg; PFPE fluids offer exceptional chemical stability, good dielectric properties, and the ability to operate across a wide temperature range, from -70&deg;C to 290&deg;C. Their inert nature and versatili",
-          "matched": [
-            "Syensqo",
             "dielectric"
           ]
         }

@@ -14,14 +14,7 @@
  */
 
 import { COMPANY } from './substrata';
-import {
-  GLOSSARY,
-  METHOD,
-  STARTED,
-  WHAT_EXISTS_NOT,
-  WHAT_IT_IS,
-  WHO_MAKES_IT,
-} from './substrata-about';
+import { METHOD, STARTED, WHAT_EXISTS_NOT, WHAT_IT_IS, WHO_MAKES_IT } from './substrata-about';
 import { INVESTMENT_THESIS } from './substrata-acting';
 import { callsTesting } from './substrata-calls';
 import { JOIN } from './substrata-join';
@@ -99,11 +92,13 @@ function aboutPage(): SitePage {
         items: WHAT_EXISTS_NOT.map((item) => ({ term: item.term, detail: item.detail })),
       },
       {
-        kind: 'definitions',
-        anchor: 'plain-english',
+        kind: 'prose',
         heading: 'Plain English',
-        blurb: 'The terms this subject cannot avoid, in one line each.',
-        items: GLOSSARY.map((item) => ({ term: item.term, detail: item.detail })),
+        paragraphs: [
+          'Every term this subject cannot avoid is defined at /learn, one line each, with an ' +
+            'anchor per term so anything on the site can link straight to a definition. That is ' +
+            'also where the explainers live, for readers who do not work in these industries.',
+        ],
       },
     ],
   };

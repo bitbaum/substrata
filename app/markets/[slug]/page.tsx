@@ -7,6 +7,7 @@ import { CHAIN_LAYERS, SCARCITY_DETAIL } from '@/config/substrata-participants';
 import { INDUSTRY_LABEL, TECHNOLOGY_LABEL } from '@/config/substrata-taxonomy';
 import { MARKET_PARTICIPANTS, SCARCITY_LABEL, participantBySlug } from '@/lib/participants';
 import { slugOf } from '@/lib/bottlenecks';
+import { bottleneckHref } from '@/lib/links';
 import { correctionUrl } from '@/lib/site';
 import { EventList } from '@/components/portal/EventList';
 import { Empty, Heading, Page, Shell } from '@/components/portal/Shell';
@@ -86,7 +87,7 @@ export default async function ParticipantPage({ params }: RouteParams) {
             <p className="mt-4 max-w-prose rounded border-l-2 border-status-positive bg-surface-raised px-4 py-2 text-xs leading-relaxed text-fg-tertiary">
               That this organisation makes{' '}
               <Link
-                href={`/bottlenecks/${slugOf(p.existenceVerifiedBy.bottleneck)}`}
+                href={bottleneckHref(p.existenceVerifiedBy.bottleneck)}
                 className="text-accent underline-offset-4 hover:underline"
               >
                 {p.existenceVerifiedBy.bottleneck}
@@ -144,7 +145,7 @@ export default async function ParticipantPage({ params }: RouteParams) {
                     <tr key={item.bottleneck} className="align-top">
                       <td className="py-3 pr-4">
                         <Link
-                          href={`/bottlenecks/${item.slug}`}
+                          href={bottleneckHref(item.slug)}
                           className="text-fg-primary underline-offset-4 hover:underline"
                         >
                           {item.bottleneck}

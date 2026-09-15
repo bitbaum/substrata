@@ -23,15 +23,11 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import assert from 'node:assert/strict';
 
-import {
-  GLOSSARY,
-  METHOD,
-  WHAT_EXISTS_NOT,
-  WHAT_IT_IS,
-  WHO_MAKES_IT,
-} from '../config/substrata-about';
+import { METHOD, WHAT_EXISTS_NOT, WHAT_IT_IS, WHO_MAKES_IT } from '../config/substrata-about';
+import { GLOSSARY } from '../config/substrata-glossary';
 import { JOIN } from '../config/substrata-join';
 import { CALLS } from '../config/substrata-calls';
+import { CAPITAL_KINDS, CAPITAL_PROVIDERS, FUNDING_ASSESSMENTS } from '../config/substrata-capital';
 import { INVESTMENT_THESIS } from '../config/substrata-acting';
 import { ASSESSMENTS } from '../config/substrata-assessment';
 import { COVERAGE, CHOKEPOINTS } from '../config/substrata-coverage';
@@ -103,6 +99,9 @@ const RENDERED = [
   ...stringsIn(labels, 'labels'),
   ...stringsIn(JOIN, 'join'),
   ...stringsIn(CALLS, 'calls'),
+  ...stringsIn(CAPITAL_KINDS, 'capitalKinds'),
+  ...stringsIn(CAPITAL_PROVIDERS, 'capitalProviders'),
+  ...stringsIn(FUNDING_ASSESSMENTS, 'funding'),
 ];
 
 /**

@@ -170,6 +170,8 @@ test('every navigation entry resolves to a route that exists', () => {
     'notes',
     'join',
     'calls',
+    'capital',
+    'learn',
     'api/map',
   ]);
   const groups = navGroups({
@@ -180,6 +182,8 @@ test('every navigation entry resolves to a route that exists', () => {
     events: 1,
     notes: 1,
     calls: 1,
+    capital: 1,
+    learn: 1,
     bindingNow: 1,
   });
   for (const href of navPaths(groups)) {

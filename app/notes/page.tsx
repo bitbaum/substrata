@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 
 import { allNotes, noteTags } from '@/lib/notes';
 import { Empty, Page, SectionHeader, Shell } from '@/components/portal/Shell';
+import { noteHref } from '@/lib/links';
 
 export const metadata: Metadata = {
   title: 'Notes',
@@ -51,7 +52,7 @@ export default function NotesPage() {
                   {note.tags.length > 0 && ` · ${note.tags.join(' · ')}`}
                 </p>
                 <h2 className="mt-2 max-w-3xl font-heading text-2xl font-semibold leading-tight tracking-display text-fg-primary">
-                  <Link href={`/notes/${note.slug}`} className="underline-offset-4 hover:underline">
+                  <Link href={noteHref(note.slug)} className="underline-offset-4 hover:underline">
                     {note.title}
                   </Link>
                 </h2>
@@ -60,7 +61,7 @@ export default function NotesPage() {
                 </p>
                 <p className="mt-3">
                   <Link
-                    href={`/notes/${note.slug}`}
+                    href={noteHref(note.slug)}
                     className="text-sm text-accent underline-offset-4 hover:underline"
                   >
                     Read →
