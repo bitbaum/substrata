@@ -23,9 +23,11 @@ import {
   WHO_MAKES_IT,
 } from './substrata-about';
 import { INVESTMENT_THESIS } from './substrata-acting';
+import { JOIN } from './substrata-join';
 import { coverageProgress } from './substrata-coverage';
 import { EVENTS } from './substrata-events';
 import { evidenceProgress } from './substrata-evidence';
+import { renderContribute } from '../lib/contribute';
 import type { SiteChrome, SitePage } from './site-content';
 import { SITE } from '../lib/site';
 
@@ -97,6 +99,7 @@ function aboutPage(): SitePage {
       },
       {
         kind: 'definitions',
+        anchor: 'plain-english',
         heading: 'Plain English',
         blurb: 'The terms this subject cannot avoid, in one line each.',
         items: GLOSSARY.map((item) => ({ term: item.term, detail: item.detail })),
@@ -137,7 +140,26 @@ function thesisPage(): SitePage {
 }
 
 // =====================================================================
+// JOIN
+// =====================================================================
+
+/**
+ * The invitation to contribute. Its shape comes from `lib/contribute.ts`,
+ * which is written to be copied into a sibling project unchanged — the model
+ * is the part that differs, not the page.
+ */
+function joinPage(): SitePage {
+  return {
+    path: 'join',
+    navLabel: 'Join',
+    title: JOIN.title,
+    intro: JOIN.lede,
+    sections: renderContribute(JOIN),
+  };
+}
+
+// =====================================================================
 
 export function substrataSitePages(): SitePage[] {
-  return [aboutPage(), thesisPage()];
+  return [aboutPage(), thesisPage(), joinPage()];
 }

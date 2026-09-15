@@ -12,3 +12,6 @@ allowBuilds:
 minimumReleaseAgeExclude:
   - '@bitbaum/sitekit'
   - '@bitbaum/ai-kit@1.7.0'
+  # Our own package, published 2026-09-14, inside the 24h window. Redundant
+  # once the release ages past it.
+  - 'bip-kit@0.2.8'

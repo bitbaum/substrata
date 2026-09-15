@@ -13,50 +13,69 @@ import React from 'react';
 import Link from 'next/link';
 
 import { siteChrome } from '@/config/site-content';
+import { NAV_ACTION, navGroups } from '@/config/site-nav';
+import { EVENTS } from '@/config/substrata-events';
+import { INSTRUMENTS } from '@/config/substrata-policy';
+import { SCIENCE } from '@/config/substrata-science';
+import { BOTTLENECKS, portalTotals } from '@/lib/bottlenecks';
+import { noteCount } from '@/lib/notes';
+import { MARKET_PARTICIPANTS } from '@/lib/participants';
 import { SITE, correctionUrl } from '@/lib/site';
+import { Megamenu } from './Megamenu';
 
-export const PORTAL_NAV = [
-  { path: '', label: 'Today' },
-  { path: 'bottlenecks', label: 'Bottlenecks' },
-  { path: 'markets', label: 'Markets' },
-  { path: 'policy', label: 'Policy' },
-  { path: 'science', label: 'Science' },
-  { path: 'research', label: 'Research' },
-  { path: 'about', label: 'About' },
+/**
+ * Which menu group a page belongs to, so the right one reads as current.
+ * Pages pass their own id; anything unrecognised simply highlights nothing.
+ */
+export const GROUP_FOR_PATH: Record<string, string> = {
+  '': 'latest',
+  events: 'latest',
+  notes: 'latest',
+  bottlenecks: 'map',
+  markets: 'map',
+  policy: 'map',
+  science: 'map',
+  about: 'about',
+  thesis: 'about',
+  research: 'about',
+  join: 'join',
+};
+
+const FOOTER_GROUPS = [
+  {
+    label: 'The map',
+    links: [
+      { href: '/bottlenecks', label: 'Bottlenecks' },
+      { href: '/markets', label: 'Markets' },
+      { href: '/policy', label: 'Policy' },
+      { href: '/science', label: 'Science' },
+    ],
+  },
+  {
+    label: 'Latest',
+    links: [
+      { href: '/', label: 'Today' },
+      { href: '/events', label: 'Events' },
+      { href: '/notes', label: 'Notes' },
+    ],
+  },
+  {
+    label: 'About',
+    links: [
+      { href: '/about', label: 'What this is' },
+      { href: '/thesis', label: 'What we think' },
+      { href: '/research', label: 'Open questions' },
+      { href: '/join', label: 'Join' },
+    ],
+  },
+  {
+    label: 'Open',
+    links: [
+      { href: '/api/map', label: 'The map as JSON' },
+      { href: SITE.repo, label: 'Source on GitHub' },
+    ],
+  },
 ] as const;
-
-const FOOTER_LINKS = [
-  { href: '/events', label: 'Events' },
-  { href: '/thesis', label: 'Thesis' },
-  { href: '/about', label: 'Method & glossary' },
-  { href: '/api/map', label: 'API' },
-  { href: SITE.repo, label: 'Source on GitHub' },
-] as const;
-
-function Nav({ currentPath }: { currentPath: string }) {
-  return (
-    <nav aria-label="Sections" className="-mx-1 flex gap-x-1 overflow-x-auto scrollbar-hide">
-      {PORTAL_NAV.map((item) => {
-        const current = item.path === currentPath;
-        return (
-          <Link
-            key={item.path}
-            href={item.path ? `/${item.path}` : '/'}
-            aria-current={current ? 'page' : undefined}
-            className={[
-              'inline-flex min-h-11 shrink-0 items-center rounded px-2 font-mono text-xs uppercase tracking-caps transition-colors',
-              current
-                ? 'text-fg-primary underline decoration-accent decoration-2 underline-offset-8'
-                : 'text-fg-tertiary hover:text-fg-primary',
-            ].join(' ')}
-          >
-            {item.label}
-          </Link>
-        );
-      })}
-    </nav>
-  );
-}
 
 export function Shell({
   currentPath,
@@ -66,52 +85,82 @@ export function Shell({
   children: React.ReactNode;
 }) {
   const chrome = siteChrome();
+  const totals = portalTotals();
+  const groups = navGroups({
+    bottlenecks: totals.bottlenecks,
+    organisations: MARKET_PARTICIPANTS.length,
+    rules: INSTRUMENTS.length,
+    solutions: SCIENCE.length,
+    events: EVENTS.length,
+    notes: noteCount(),
+    bindingNow: BOTTLENECKS.filter((b) => b.horizon === 'now').length,
+  });
+
   return (
     <div className="flex min-h-screen flex-col bg-surface-page">
-      <header className="sticky top-0 z-30 border-b border-subtle bg-surface-page/90 backdrop-blur">
-        <div className="mx-auto flex max-w-shell flex-col gap-1 px-4 py-2 sm:flex-row sm:items-center sm:gap-6 sm:px-6 lg:px-8">
+      <header className="sticky top-0 z-30 border-b border-subtle bg-surface-page/95 backdrop-blur">
+        <div className="relative mx-auto flex max-w-shell items-center gap-4 px-4 py-2 sm:px-6 lg:gap-2 lg:px-8">
           <Link
             href="/"
-            className="inline-flex shrink-0 items-center rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className="mr-2 inline-flex shrink-0 items-center rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             <span className="font-heading text-lg font-semibold tracking-display text-fg-primary">
               {chrome.name}
             </span>
           </Link>
-          <Nav currentPath={currentPath} />
+          <Megamenu groups={groups} currentGroup={GROUP_FOR_PATH[currentPath]} />
+          <Link
+            href={NAV_ACTION.href}
+            className="ml-auto inline-flex min-h-9 items-center rounded-full border border-accent px-3 text-sm font-medium text-accent lg:hidden"
+          >
+            {NAV_ACTION.label}
+          </Link>
         </div>
       </header>
       <main className="flex-1">{children}</main>
       <footer className="mt-16 border-t border-subtle">
-        <div className="mx-auto flex max-w-shell flex-col gap-6 px-4 py-10 sm:px-6 lg:px-8">
-          <nav aria-label="More" className="flex flex-wrap gap-x-6 gap-y-2">
-            {FOOTER_LINKS.map((link) =>
-              link.href.startsWith('/') ? (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="font-mono text-xs uppercase tracking-caps text-fg-tertiary hover:text-fg-primary"
-                >
-                  {link.label}
-                </Link>
-              ) : (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="font-mono text-xs uppercase tracking-caps text-fg-tertiary hover:text-fg-primary"
-                >
-                  {link.label}
-                </a>
-              ),
-            )}
+        <div className="mx-auto max-w-shell px-4 py-10 sm:px-6 lg:px-8">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {FOOTER_GROUPS.map((group) => (
+              <nav key={group.label} aria-label={group.label}>
+                <h2 className="font-mono text-xs uppercase tracking-caps text-fg-tertiary">
+                  {group.label}
+                </h2>
+                <ul className="mt-2 space-y-1">
+                  {group.links.map((link) => (
+                    <li key={link.href}>
+                      {link.href.startsWith('/') ? (
+                        <Link
+                          href={link.href}
+                          className="text-sm text-fg-secondary hover:text-fg-primary"
+                        >
+                          {link.label}
+                        </Link>
+                      ) : (
+                        <a
+                          href={link.href}
+                          className="text-sm text-fg-secondary hover:text-fg-primary"
+                        >
+                          {link.label}
+                        </a>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            ))}
+          </div>
+          <div className="mt-10 border-t border-subtle pt-6">
             <a
               href={correctionUrl('Substrata')}
               className="font-mono text-xs uppercase tracking-caps text-fg-tertiary hover:text-fg-primary"
             >
               Report an error on GitHub
             </a>
-          </nav>
-          <p className="max-w-prose text-xs leading-relaxed text-fg-muted">{chrome.footerNote}</p>
+            <p className="mt-3 max-w-prose text-xs leading-relaxed text-fg-muted">
+              {chrome.footerNote}
+            </p>
+          </div>
         </div>
       </footer>
     </div>

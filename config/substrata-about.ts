@@ -26,34 +26,51 @@ export const WHAT_IT_IS = [
   'The research is free and public. Every row is either backed by a source you can open or ' +
     'marked as unverified, and the site shows which. That distinction is the whole product: a ' +
     'map of this kind is only worth reading if it is honest about what it has not checked.',
+  'It is also open. If you work in one of these chains, the fastest way to change what this ' +
+    'site says is to say so — every page carries a link that files the correction in public.',
 ];
 
 export const WHO_MAKES_IT = [
   {
-    term: 'One person and a set of AI agents',
+    term: 'An open project, not a private one',
     detail:
-      'There is no staff, no analyst team and no editorial board. The research is written by ' +
-      'one person working with software agents that search for sources and file candidates. ' +
-      'A person reads every source before anything is marked verified.',
+      'The data, the method, the code and the list of what has not been checked are all public. ' +
+      'Anyone can read how a row got here, disagree with it in the open, and change it. That is ' +
+      'the point of publishing rather than a side effect of it.',
+  },
+  {
+    term: 'Contributors, and how to become one',
+    detail:
+      'The contributor list is short and the project is young. The parts that need expert ' +
+      'knowledge — which firm ships the qualified grade, what a lead time really is, where an ' +
+      'export control actually bites — are exactly the parts that cannot be settled from a desk. ' +
+      'If that is your work, the Join page says which rows would benefit most.',
+  },
+  {
+    term: 'Research assisted by software, checked by people',
+    detail:
+      'Automated agents search for sources and file candidates; they never publish. A person ' +
+      'reads the source before a row is marked verified, and the site shows which rows have had ' +
+      'that read and which have not. The automation widens the search. It does not lower the bar.',
   },
   {
     term: `Built in public since ${STARTED}`,
     detail:
       'The whole site is generated from files in a public repository, so its history is the ' +
-      'commit log. Nothing is backdated, and corrections are visible as commits.',
+      'commit log. Nothing is backdated, and every correction is visible as a commit.',
   },
   {
     term: 'Not a firm, not a fund',
     detail:
-      'Substrata is a repository and a website. There is no legal entity, no licence, no ' +
-      'trading desk, no fund and no client. It holds no position in anything it covers and is ' +
-      'paid by nobody it writes about.',
+      'Substrata is a repository and a website. There is no legal entity, no licence, no trading ' +
+      'desk, no fund, no client and no staff. It holds no position in anything it covers, is ' +
+      'paid by nobody it writes about, and pays nobody.',
   },
   {
     term: 'No schedule',
     detail:
-      'There is no note series and no publication calendar. Things are published when they are ' +
-      'ready, and the dates are whatever the repository says they are.',
+      'There is no note series on a calendar. Things are published when they are ready, and the ' +
+      'dates are whatever the repository says they are.',
   },
 ];
 
