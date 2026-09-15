@@ -11,6 +11,9 @@ importers:
       '@bitbaum/ai-kit':
         specifier: ^1.7.0
         version: 1.7.0(react@19.3.0)
+      bip-kit:
+        specifier: ^0.2.8
+        version: 0.2.8(react@19.3.0)
       listkit:
         specifier: github:bitbaum/listkit#v0.1.0
         version: https://codeload.github.com/bitbaum/listkit/tar.gz/69cb4f4ef12d6a2a56b56db1bb4d4ac14aced525
@@ -1038,6 +1041,22 @@ packages:
     resolution: {integrity: sha512-Grytf1xOxOEMTGRwx6rLGKkTabd4vMg3VrKdj/7joCmV0qgh4QwMMO6xh34YEXQqirAuUdgQGa5orJQQ+69RBw==}
     engines: {node: '>=6.0.0'}
     hasBin: true
+
+  bip-kit@0.2.8:
+    resolution: {integrity: sha512-ddSZBjQnMb/UMGnsScoaNj/WK1b4AdhysonSOy+TJCaDb8wF9iN0jPGHfbAV1UQkzywltGsjci2Y3xBz+dZl6g==}
+    engines: {node: '>=20'}
+    peerDependencies:
+      katex: '>=0.16'
+      mermaid: '>=10'
+      react: '>=18'
+      shiki: '>=1'
+    peerDependenciesMeta:
+      katex:
+        optional: true
+      mermaid:
+        optional: true
+      shiki:
+        optional: true
 
   brace-expansion@1.1.18:
     resolution: {integrity: sha512-Edep/X9fGqVNmzKBVsDYIOtD+z1tuezV70LBjdCst9Tqu76lsnvRiZ6oTic1n+/BIwX6QDGAO94PN4N2SADvtw==}
@@ -3023,6 +3042,10 @@ snapshots:
   balanced-match@4.0.4: {}
 
   baseline-browser-mapping@2.11.19: {}
+
+  bip-kit@0.2.8(react@19.3.0):
+    dependencies:
+      react: 19.3.0
 
   brace-expansion@1.1.18:
     dependencies:

@@ -28,6 +28,7 @@ import {
   WHAT_IT_IS,
   WHO_MAKES_IT,
 } from '../config/substrata-about';
+import { JOIN } from '../config/substrata-join';
 import { INVESTMENT_THESIS } from '../config/substrata-acting';
 import { ASSESSMENTS } from '../config/substrata-assessment';
 import { COVERAGE, CHOKEPOINTS } from '../config/substrata-coverage';
@@ -95,6 +96,7 @@ const RENDERED = [
   ...stringsIn(STAGES, 'stages'),
   ...stringsIn(RESEARCH_PROGRAMMES, 'programmes'),
   ...stringsIn(labels, 'labels'),
+  ...stringsIn(JOIN, 'join'),
 ];
 
 /**

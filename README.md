@@ -34,28 +34,59 @@ built by one person with AI agents; the site says so.
 
 ## The portal
 
-Seven destinations, and every section opens the same way: a plain sentence
-saying what it is for, four numbers, then a table narrowed by links.
+Three menu groups and one action, because seven flat items was more than a
+reader could hold. Every destination carries a one-line description in the
+menu, so a reader chooses from what they will find rather than from a noun.
 
-| Route | What it holds |
+| Group | Routes |
 | --- | --- |
-| `/` | Today: what changed in the last 30 days, what is worst now, ways in |
-| `/bottlenecks` | Every constraint, grouped by stage, with severity and evidence |
-| `/markets` | The organisations that make them, ore to buyer |
-| `/policy` | Rules that slow or speed building, and who publicly asked for them |
-| `/science` | What would remove a bottleneck, and how far off it is |
-| `/research` | The open programme and its questions |
-| `/about` | What this is, who makes it, what it is not, and a glossary |
+| The map | `/bottlenecks` · `/markets` · `/policy` · `/science` |
+| Latest | `/` (Today) · `/events` · `/notes` |
+| About | `/about` · `/thesis` · `/research` · `/api/map` |
+| Action | `/join` |
 
 ```
+config/site-nav.ts              the navigation, as data — both menus render from it
 config/substrata-taxonomy.ts    technologies, industries, plain-English lines
 config/substrata-policy.ts      instruments, proponents, recommendations
 config/substrata-science.ts     candidate reliefs and readiness
+config/substrata-join.ts        what expertise this project is short of
+content/notes/*.md              the notes, one file each
 lib/bottlenecks.ts              the bottleneck join and its list spec
 lib/participants.ts             the markets join
+lib/notes.ts                    the listing layer over bip-kit
+lib/contribute.ts               a join page as a model — portable, see below
 lib/labels.ts                   the words the interface uses
-components/portal/              shell, board, chips, status — portal-only markup
+components/portal/Megamenu.tsx  grouped nav, no JavaScript in either breakpoint
 ```
+
+## Notes
+
+`content/notes/<slug>.md`, with frontmatter `title`, `summary`, `publishedAt`,
+`author`, `tags`. [bip-kit](https://github.com/bitbaum/bip-kit) parses markdown
+into typed blocks and renders them with no raw HTML anywhere, which is what
+makes a plain file in the repository safe to publish. It ships no filesystem
+layer on purpose, so `lib/notes.ts` is the listing half. The `bp-*` classes are
+dressed in this site's tokens in `app/globals.css` — the package owns the
+parsing, this repo owns every visual decision.
+
+Publishing a note is adding a file and committing it.
+
+## Reusing the join page in another project
+
+`lib/contribute.ts` has no imports from this project. It is a typed model plus
+a pure function to sitekit sections, and it enforces the one rule that matters:
+an invitation to contribute is not an offer of employment, so `terms` is
+required and renders above the ask.
+
+To use it elsewhere: copy that file, write your own `ContributeModel`, render it
+into a sitekit page. `validateContribute()` returns the problems so the project
+can fail its own build rather than publish a page that implies a job.
+
+It is deliberately not a package yet. The fleet's rule is that a shared package
+earns a dependency when it removes a decision you keep re-making, and markup is
+not shareable in any case. When a third project wants this, the file lifts into
+sitekit unchanged and the copies become an import.
 
 ## Nothing untrue
 
