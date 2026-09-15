@@ -3,35 +3,41 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 import { COMPANY } from '@/config/substrata';
-import { HORIZON_LABEL } from '@/config/substrata-assessment';
 import {
   EVENTS,
   candidatesAwaiting,
   eventsNewestFirst,
   eventsSince,
 } from '@/config/substrata-events';
-import { RESEARCH_PROGRAMMES, programmeProgress } from '@/config/substrata-programmes';
-import { STAGES } from '@/config/substrata-stages';
+import { instrumentsNewestFirst, policyTotals } from '@/config/substrata-policy';
+import { SCIENCE } from '@/config/substrata-science';
+import { INDUSTRIES, TECHNOLOGIES } from '@/config/substrata-taxonomy';
 import { BOTTLENECKS, portalTotals } from '@/lib/bottlenecks';
-import { BindingBar } from '@/components/portal/Board';
+import { WHEN_LABEL } from '@/lib/labels';
+import { marketTotals } from '@/lib/participants';
 import { EventList } from '@/components/portal/EventList';
-import { Heading, Page, Shell } from '@/components/portal/Shell';
-import { Status, rowLabel } from '@/components/portal/Status';
+import { Empty, Heading, Page, Shell } from '@/components/portal/Shell';
+import { SeverityBar, Status, rowLabel } from '@/components/portal/Status';
 
 export const metadata: Metadata = {
-  title: { absolute: `${COMPANY.name} — bottlenecks on the path to transformative technology` },
-  description: COMPANY.tagline,
+  title: { absolute: `${COMPANY.name} — the bottlenecks between here and much faster technology` },
+  description:
+    'What is holding back compute, energy, materials and robots: what each constraint is, who makes it, which rules govern it and what would remove it.',
 };
 
 const WINDOW_DAYS = 30;
 
 /**
- * Today: what moved. The front page is a diff, because a diff is the only
- * thing worth reading twice. Numbers first, then the events of the last
- * thirty days, then the nodes binding now, then where the loop is covered.
+ * Today: what moved, and the four ways into the rest of the site.
+ *
+ * The front page answers three questions in order — what changed, what is
+ * worst right now, and where do I start — and nothing else. Everything below
+ * the fold is a route into a section rather than an essay.
  */
 export default function TodayPage() {
   const totals = portalTotals();
+  const markets = marketTotals();
+  const policy = policyTotals();
   const recent = eventsSince(WINDOW_DAYS);
   const tightening = new Set(
     recent.filter((e) => e.effect === 'tightens').flatMap((e) => e.bottlenecks),
@@ -39,180 +45,227 @@ export default function TodayPage() {
   const loosening = new Set(
     recent.filter((e) => e.effect === 'loosens').flatMap((e) => e.bottlenecks),
   );
-  const bindingNow = BOTTLENECKS.filter((b) => b.horizon === 'now').sort(
-    (a, b) => b.binding - a.binding,
-  );
-  const programme = RESEARCH_PROGRAMMES[0];
-  const progress = programmeProgress(programme);
-  const candidates = candidatesAwaiting();
-  const latest = eventsNewestFirst()[0];
+  const worst = [...BOTTLENECKS]
+    .filter((b) => b.horizon === 'now')
+    .sort((a, b) => b.binding - a.binding)
+    .slice(0, 8);
+  const latestEvent = eventsNewestFirst()[0];
+  const latestRule = instrumentsNewestFirst()[0];
 
   const tiles = [
     {
-      label: `Events, last ${WINDOW_DAYS} days`,
-      value: recent.length,
-      note: `${EVENTS.length} accepted in total · ${candidates} candidates awaiting review`,
+      label: 'Bottlenecks mapped',
+      value: String(totals.bottlenecks),
+      note: `${totals.bindingNow} judged to be binding right now`,
+      href: '/bottlenecks',
     },
     {
-      label: 'Tightening',
-      value: tightening.size,
-      note: `${loosening.size} loosening. Bottlenecks touched by an accepted event.`,
+      label: 'Makers verified',
+      value: `${totals.sourced}/${totals.producers}`,
+      note: `across ${markets.organisations} organisations`,
+      href: '/markets',
     },
     {
-      label: 'Binding now',
-      value: totals.bindingNow,
-      note: `of ${totals.bottlenecks} bottlenecks, by the analyst's horizon.`,
+      label: 'Rules tracked',
+      value: String(policy.instruments),
+      note: `${policy.tightening} slow building, ${policy.loosening} speed it`,
+      href: '/policy',
     },
     {
-      label: 'Rows verified',
-      value: totals.sourced,
-      note: `of ${totals.producers} producer rows · ${totals.candidates} candidates`,
+      label: 'Possible fixes',
+      value: String(SCIENCE.length),
+      note: 'technologies that would relieve a constraint',
+      href: '/science',
     },
   ];
 
   return (
     <Shell currentPath="">
       <Page>
-        <header className="mb-8">
+        <header className="mb-10">
           <p className="font-mono text-xs uppercase tracking-caps text-fg-tertiary">
-            Today · {latest ? `latest event ${latest.date}` : 'no events yet'}
+            Updated {latestEvent ? latestEvent.date : latestRule?.date}
           </p>
           <h1 className="mt-3 max-w-3xl font-heading text-3xl font-semibold leading-tight tracking-display text-fg-primary sm:text-5xl">
-            What moved among the constraints on technological progress.
+            What is holding technology back, and what is changing.
           </h1>
-          <p className="mt-3 max-w-2xl text-base text-fg-secondary">
-            Every constraint progress waits on, dated, sourced, and marked as tightening or
-            loosening.
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-fg-secondary">
+            Substrata maps the constraints on building more compute, more power, better materials
+            and better machines. Every row says how well it is evidenced, and every claim links to a
+            source you can open.
+          </p>
+          <p className="mt-3 max-w-2xl text-sm text-fg-tertiary">
+            Free to read.{' '}
+            <Link href="/about" className="text-accent underline-offset-4 hover:underline">
+              How this is made
+            </Link>
+            .
           </p>
         </header>
 
-        <dl className="mb-10 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-subtle bg-border-subtle lg:grid-cols-4">
+        <dl className="mb-12 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-subtle bg-border-subtle lg:grid-cols-4">
           {tiles.map((tile) => (
-            <div key={tile.label} className="bg-surface-raised px-4 py-4 sm:px-5">
+            <Link
+              key={tile.label}
+              href={tile.href}
+              className="group bg-surface-raised px-4 py-4 transition-colors hover:bg-surface-page sm:px-5"
+            >
               <dt className="font-mono text-xs uppercase tracking-caps text-fg-tertiary">
                 {tile.label}
               </dt>
-              <dd className="mt-2 font-heading text-3xl font-semibold tabular-nums text-fg-primary sm:text-4xl">
+              <dd className="mt-2 font-heading text-3xl font-semibold tabular-nums text-fg-primary group-hover:text-accent sm:text-4xl">
                 {tile.value}
               </dd>
-              <dd className="mt-1 text-xs text-fg-muted">{tile.note}</dd>
-            </div>
+              <dd className="mt-1 text-xs leading-snug text-fg-muted">{tile.note}</dd>
+            </Link>
           ))}
         </dl>
 
-        <Heading
-          index="01"
-          title={`Last ${WINDOW_DAYS} days`}
-          aside={
-            <Link
-              href="/events"
-              className="underline-offset-4 hover:text-fg-primary hover:underline"
-            >
-              All events →
-            </Link>
-          }
-        />
-        <EventList events={recent} />
-
-        <div className="mt-14 grid gap-10 lg:grid-cols-[3fr_2fr]">
-          <section>
-            <Heading
-              index="02"
-              title="Binding now"
-              aside={
-                <Link
-                  href="/board?horizon=now"
-                  className="underline-offset-4 hover:text-fg-primary hover:underline"
-                >
-                  On the board →
-                </Link>
-              }
-            />
-            <ol className="divide-y divide-subtle border-y border-subtle">
-              {bindingNow.map((b) => (
-                <li
-                  key={b.slug}
-                  className="flex flex-wrap items-center justify-between gap-x-6 gap-y-1 py-2.5"
-                >
+        <div className="grid gap-12 lg:grid-cols-[3fr_2fr]">
+          <div>
+            <section className="mb-12">
+              <Heading
+                index="01"
+                title={`What changed, last ${WINDOW_DAYS} days`}
+                aside={
                   <Link
-                    href={`/bottlenecks/${b.slug}`}
-                    className="min-w-0 flex-1 text-fg-primary underline-offset-4 hover:underline"
+                    href="/events"
+                    className="underline-offset-4 hover:text-fg-primary hover:underline"
                   >
-                    {b.name}
-                    {tightening.has(b.name) && (
-                      <span className="ml-2 font-mono text-xs uppercase tracking-caps text-status-negative">
-                        tightening
-                      </span>
-                    )}
-                    {loosening.has(b.name) && (
-                      <span className="ml-2 font-mono text-xs uppercase tracking-caps text-status-positive">
-                        loosening
-                      </span>
-                    )}
+                    All {EVENTS.length} events →
                   </Link>
-                  <span className="flex items-center gap-4">
-                    <BindingBar value={b.binding} />
-                    <Status state={b.state} compact label={rowLabel(b.counts)} />
-                  </span>
-                </li>
-              ))}
-            </ol>
-            <p className="mt-3 font-mono text-xs text-fg-muted">
-              {HORIZON_LABEL.now} · {bindingNow.length} nodes · judged {bindingNow[0]?.judgedOn}
-            </p>
-          </section>
+                }
+              />
+              {recent.length === 0 ? (
+                <Empty
+                  what={`Nothing recorded in the last ${WINDOW_DAYS} days.`}
+                  next={`${candidatesAwaiting()} candidates found by the automated sweep are waiting to be read.`}
+                />
+              ) : (
+                <EventList events={recent} />
+              )}
+            </section>
 
-          <section>
-            <Heading
-              index="03"
-              title="The loop"
-              aside={
-                <Link
-                  href="/research"
-                  className="underline-offset-4 hover:text-fg-primary hover:underline"
-                >
-                  Research →
-                </Link>
-              }
-            />
-            <ol className="divide-y divide-subtle border-y border-subtle">
-              {STAGES.map((stage) => {
-                const count = BOTTLENECKS.filter((b) => b.stage === stage.id).length;
-                return (
-                  <li key={stage.id} className="flex items-baseline justify-between gap-4 py-2">
-                    {count > 0 ? (
+            <section>
+              <Heading
+                index="02"
+                title="Worst right now"
+                aside={
+                  <Link
+                    href="/bottlenecks?horizon=now"
+                    className="underline-offset-4 hover:text-fg-primary hover:underline"
+                  >
+                    All {totals.bindingNow} →
+                  </Link>
+                }
+              />
+              <ol className="divide-y divide-subtle border-y border-subtle">
+                {worst.map((b) => (
+                  <li key={b.slug} className="py-3">
+                    <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
                       <Link
-                        href={`/board?stage=${stage.id}`}
-                        className="text-fg-primary underline-offset-4 hover:underline"
+                        href={`/bottlenecks/${b.slug}`}
+                        className="font-medium text-fg-primary underline-offset-4 hover:underline"
                       >
-                        {stage.name}
+                        {b.name}
                       </Link>
-                    ) : (
-                      <span className="text-fg-tertiary">{stage.name}</span>
-                    )}
-                    <span className="font-mono text-xs tabular-nums text-fg-muted">
-                      {count > 0 ? `${count} covered` : 'not yet'}
-                    </span>
+                      <span className="flex items-center gap-4">
+                        <SeverityBar value={b.binding} />
+                        <Status state={b.state} compact label={rowLabel(b.counts)} />
+                      </span>
+                    </div>
+                    <p className="mt-0.5 max-w-prose text-xs leading-snug text-fg-tertiary">
+                      {b.plain}
+                      {tightening.has(b.name) && (
+                        <span className="ml-2 font-mono uppercase tracking-caps text-status-negative">
+                          got worse
+                        </span>
+                      )}
+                      {loosening.has(b.name) && (
+                        <span className="ml-2 font-mono uppercase tracking-caps text-status-positive">
+                          eased
+                        </span>
+                      )}
+                    </p>
                   </li>
-                );
-              })}
-            </ol>
-            <Link
-              href="/research"
-              className="mt-4 block rounded-lg border border-subtle bg-surface-raised p-4 transition-colors hover:border-strong"
-            >
-              <p className="font-mono text-xs uppercase tracking-caps text-fg-tertiary">
-                Programme · since {programme.commissioned}
+                ))}
+              </ol>
+              <p className="mt-3 font-mono text-xs text-fg-muted">
+                {WHEN_LABEL.now} · ranked by severity · judged {worst[0]?.judgedOn}
               </p>
-              <p className="mt-1 font-heading text-lg font-semibold text-fg-primary">
-                {programme.title}
+            </section>
+          </div>
+
+          <div>
+            <section className="mb-12">
+              <Heading index="03" title="Start with a technology" />
+              <ul className="flex flex-wrap gap-2">
+                {TECHNOLOGIES.map((t) => {
+                  const count = BOTTLENECKS.filter((b) => b.technologies.includes(t.id)).length;
+                  return (
+                    <li key={t.id}>
+                      <Link
+                        href={`/bottlenecks?tech=${t.id}`}
+                        className="inline-flex min-h-9 items-center gap-2 rounded-full border border-strong px-3 text-sm text-fg-secondary transition-colors hover:border-accent hover:text-fg-primary"
+                      >
+                        {t.name}
+                        <span className="font-mono text-xs tabular-nums text-fg-muted">
+                          {count}
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+
+              <h3 className="mt-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary">
+                Or an industry
+              </h3>
+              <ul className="mt-2 flex flex-wrap gap-2">
+                {INDUSTRIES.map((i) => {
+                  const count = BOTTLENECKS.filter((b) => b.industries.includes(i.id)).length;
+                  return (
+                    <li key={i.id}>
+                      <Link
+                        href={`/bottlenecks?industry=${i.id}`}
+                        className="inline-flex min-h-9 items-center gap-2 rounded-full border border-strong px-3 text-sm text-fg-secondary transition-colors hover:border-accent hover:text-fg-primary"
+                      >
+                        {i.name}
+                        <span className="font-mono text-xs tabular-nums text-fg-muted">
+                          {count}
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </section>
+
+            <section>
+              <Heading index="04" title="Latest rule" />
+              {latestRule ? (
+                <Link
+                  href={`/policy/${latestRule.jurisdiction}`}
+                  className="block rounded-lg border border-subtle bg-surface-raised p-5 transition-colors hover:border-strong"
+                >
+                  <p className="font-mono text-xs uppercase tracking-caps text-fg-tertiary">
+                    {latestRule.date} · {latestRule.body}
+                  </p>
+                  <p className="mt-2 font-medium text-fg-primary">{latestRule.title}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-fg-secondary">
+                    {latestRule.summary}
+                  </p>
+                </Link>
+              ) : (
+                <Empty what="No rules tracked yet." />
+              )}
+              <p className="mt-3 text-sm">
+                <Link href="/policy" className="text-accent underline-offset-4 hover:underline">
+                  Which rules slow building, and who asked for them →
+                </Link>
               </p>
-              <p className="mt-1 font-mono text-xs text-fg-muted">
-                {programme.questions.length} open questions · {progress.done}/{progress.total}{' '}
-                delivered
-              </p>
-            </Link>
-          </section>
+            </section>
+          </div>
         </div>
       </Page>
     </Shell>

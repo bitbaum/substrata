@@ -42,6 +42,13 @@ import {
   type Horizon,
 } from '@/config/substrata-assessment';
 import { eventsFor, type CoverageEvent } from '@/config/substrata-events';
+import {
+  INDUSTRIES,
+  TECHNOLOGIES,
+  classificationFor,
+  type IndustryId,
+  type TechnologyId,
+} from '@/config/substrata-taxonomy';
 import { STAGES, type StageId } from '@/config/substrata-stages';
 
 export interface BottleneckProducer {
@@ -62,6 +69,12 @@ export interface Bottleneck {
   /** Coverage area, for materials. */
   area: string | null;
   jurisdictions: string[];
+  /** What it is, for someone who has never heard of it. */
+  plain: string;
+  /** Fronts of progress this bears on. */
+  technologies: TechnologyId[];
+  /** Trades a reader would look under. */
+  industries: IndustryId[];
   /** Why it gates the curve — the research claim, one paragraph. */
   why: string;
   /** The grade that actually ships, for materials. */
@@ -97,12 +110,20 @@ function stateOf(counts: Bottleneck['counts']): Verification {
   return 'unverified';
 }
 
-/** The assessment is mandatory: a bottleneck without one cannot be built, and a test says which is missing. */
+/**
+ * The assessment and the classification are both mandatory: a bottleneck
+ * without either cannot be built, so a missing row is a failed build rather
+ * than a blank cell on a live page.
+ */
 function assessed(name: string) {
   const assessment = assessmentFor(name);
   if (!assessment)
     throw new Error(`No assessment for bottleneck "${name}" in config/substrata-assessment.ts`);
+  const classification = classificationFor(name);
   return {
+    plain: classification.plain,
+    technologies: [...classification.technologies],
+    industries: [...classification.industries],
     stage: assessment.stage,
     score: assessment.score,
     binding: bindingScore(assessment.score),
@@ -222,13 +243,27 @@ export const BOARD_SPEC: ListSpec<Bottleneck> = {
       options: ['sourced', 'candidate', 'unverified'],
     },
     {
+      key: 'tech',
+      kind: 'many',
+      value: (b) => b.technologies,
+      options: TECHNOLOGIES.map((t) => t.id),
+    },
+    {
+      key: 'industry',
+      kind: 'many',
+      value: (b) => b.industries,
+      options: INDUSTRIES.map((i) => i.id),
+    },
+    {
       key: 'kind',
       kind: 'many',
       value: (b) => b.kind,
       options: Object.keys(NODE_TYPE_LABEL),
     },
   ],
-  search: { text: (b) => [b.name, b.why, ...b.jurisdictions, ...b.producers.map((p) => p.name)] },
+  search: {
+    text: (b) => [b.name, b.plain, b.why, ...b.jurisdictions, ...b.producers.map((p) => p.name)],
+  },
   sorts: [
     {
       key: 'stage',

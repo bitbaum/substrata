@@ -1,6 +1,6 @@
 /**
- * Research programmes — the questions Substrata has been commissioned to
- * answer, written down before the answers exist.
+ * Research programmes — the questions Substrata has set itself, written down
+ * before the answers exist.
  *
  * The coverage universe (`substrata-coverage.ts`) says WHAT gates the three
  * curves. A programme says WHY a reader would want that answered in a
@@ -63,7 +63,7 @@ export interface ResearchProgramme {
   /** The question, in one sentence a reader can disagree with. */
   question: string;
   /** ISO date the programme was opened. Git carries the rest of the history. */
-  commissioned: string;
+  opened: string;
   status: ProgrammeStatus;
   curves: CurveId[];
   framing: string[];
@@ -78,7 +78,7 @@ export const RESEARCH_PROGRAMMES: readonly ResearchProgramme[] = [
     title: 'The substrate of recursion',
     question:
       'Which bottleneck sets the pace of recursive self-improvement — and where in the chain does it bind?',
-    commissioned: '2026-09-14',
+    opened: '2026-09-14',
     status: 'active',
     curves: ['compute-per-joule', 'joules-delivered', 'actuation'],
     framing: [
@@ -212,7 +212,7 @@ export const RESEARCH_PROGRAMMES: readonly ResearchProgramme[] = [
         ],
         note:
           'Not a layer of the loop so much as its power budget. Every faster layer above ' +
-          'runs inside the megawatts this one delivers, and this firm’s thesis is that ' +
+          'runs inside the megawatts this one delivers, and the claim made here is that ' +
           'it binds before silicon does.',
       },
       {

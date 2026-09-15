@@ -9,7 +9,7 @@
  * the site does not.
  *
  * The verification vocabulary is the site's, and it is three-valued on
- * purpose: `sourced` is the firm's claim, `candidate` is the engine's lead,
+ * purpose: `sourced` is a checked claim, `candidate` is the engine's lead,
  * and `unverified` is neither. A consumer that treats a candidate as a
  * finding has been told, in the field name, that it is not one.
  *
@@ -23,7 +23,7 @@ import {
   coverageProgress,
   chokepointProgress,
 } from '@/config/substrata-coverage';
-import { INVESTMENT_THESIS, READINESS } from '@/config/substrata-acting';
+import { INVESTMENT_THESIS } from '@/config/substrata-acting';
 import { CHAIN_LAYERS, PARTICIPANTS } from '@/config/substrata-participants';
 import { EVIDENCE, evidenceFor, verificationFor } from '@/config/substrata-evidence';
 import { RESEARCH_PROGRAMMES, programmeProgress } from '@/config/substrata-programmes';
@@ -128,7 +128,7 @@ export function buildMap() {
       id: programme.id,
       title: programme.title,
       question: programme.question,
-      commissioned: programme.commissioned,
+      opened: programme.opened,
       status: programme.status,
       progress: programmeProgress(programme),
       layers: programme.layers.map((layer) => ({
@@ -142,11 +142,6 @@ export function buildMap() {
         question: q.question,
         settledBy: q.settledBy,
       })),
-    })),
-    readiness: READINESS.map((item) => ({
-      id: item.id,
-      requirement: item.requirement,
-      status: item.status,
     })),
   };
 }

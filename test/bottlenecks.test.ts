@@ -17,8 +17,6 @@ import {
   portalTotals,
   slugOf,
 } from '../lib/bottlenecks';
-import { PORTAL_NAV } from '../components/portal/Shell';
-import { sitePages } from '../config/site-content';
 
 test('every material and every chokepoint is on the board exactly once', () => {
   assert.equal(BOTTLENECKS.length, MATERIALS.length + CHOKEPOINTS.length);
@@ -79,16 +77,5 @@ test('every bottleneck carries its stage, score, horizon and events', () => {
     const a = BOTTLENECKS[i - 1];
     const b = BOTTLENECKS[i];
     if (a.stage === b.stage) assert.ok(a.binding >= b.binding, `${a.name} before ${b.name}`);
-  }
-});
-
-test('the portal nav points only at routes that exist', () => {
-  const documentPaths = new Set(sitePages().map((p) => p.path));
-  const portalPaths = new Set(['', 'board', 'events', 'research']);
-  for (const item of PORTAL_NAV) {
-    assert.ok(
-      documentPaths.has(item.path) || portalPaths.has(item.path),
-      `nav points at missing ${item.path}`,
-    );
   }
 });

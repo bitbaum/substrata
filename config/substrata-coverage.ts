@@ -1,7 +1,7 @@
 /**
  * Substrate — Phase 1 coverage universe: the producers of the fifteen.
  *
- * The firm's first research product. For every material on the desk
+ * The first research output. For every material under coverage
  * (`substrata.ts` → CATALOGUE), the set of companies that mine, refine,
  * convert or recycle it. Mostly private, mostly uncovered: there is a great
  * deal of published research on chip designers and almost none on who fires
@@ -13,12 +13,12 @@
  * and which step of the chain it occupies. Those are stable, widely documented
  * facts. It asserts NOTHING about capacity, market share, revenue, cost
  * position, or quality — the claims that go stale within a quarter, that move
- * markets when wrong, and that this firm has not yet sourced. There is no
+ * markets when wrong, and that this project has not yet sourced. There is no
  * field for them on purpose: the structure is the discipline, and the research
  * phase is what adds those numbers, each with a citation.
  *
  * Consequently every entry starts at `source: null`, which reads as UNVERIFIED
- * — a research lead, not a finding. An analyst clears a row by attaching the
+ * — a research lead, not a finding. A person clears a row by attaching the
  * primary source that confirms the company's role in that material. Coverage
  * progress is measured by how many rows have a source, not by how many rows
  * exist, and `coverageProgress()` below is what reports it.
@@ -508,7 +508,7 @@ export function materialsFor(companyName: string): string[] {
 // table. The two tests do not care what a node is made of, so these enter the
 // universe the same way and carry the same verification discipline: each row
 // claims what the node is and why it gates, and nothing about capacity,
-// share or price, because those are the numbers this firm has not sourced.
+// share or price, because those are numbers nobody here has sourced.
 // =====================================================================
 
 export interface Chokepoint {

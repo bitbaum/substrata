@@ -66,7 +66,7 @@ test('every open question names what would settle it', () => {
 
 test('ids are unique within a programme and programmes carry a real date', () => {
   for (const programme of RESEARCH_PROGRAMMES) {
-    assert.match(programme.commissioned, /^\d{4}-\d{2}-\d{2}$/);
+    assert.match(programme.opened, /^\d{4}-\d{2}-\d{2}$/);
     for (const list of [programme.layers, programme.questions, programme.deliverables]) {
       const ids = list.map((item) => item.id);
       assert.equal(
