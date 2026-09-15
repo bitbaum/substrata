@@ -4,7 +4,6 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import {
-  INSTRUMENTS,
   INSTRUMENT_EFFECT_LABEL,
   INSTRUMENT_KIND_LABEL,
   INSTRUMENT_STATUS_LABEL,
@@ -15,7 +14,6 @@ import {
   recommendationsIn,
   type JurisdictionId,
 } from '@/config/substrata-policy';
-import { slugOf } from '@/lib/bottlenecks';
 import { Empty, Heading, Page, Shell } from '@/components/portal/Shell';
 import { bottleneckHref } from '@/lib/links';
 

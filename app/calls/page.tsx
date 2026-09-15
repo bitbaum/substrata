@@ -13,7 +13,6 @@ import {
   resolvedCalls,
   type Call,
 } from '@/config/substrata-calls';
-import { slugOf } from '@/lib/bottlenecks';
 import { Empty, Heading, Page, SectionHeader, Shell } from '@/components/portal/Shell';
 import { bottleneckHref } from '@/lib/links';
 
