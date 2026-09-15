@@ -36,7 +36,7 @@ jobs:
       base_branch: main
       ci_workflow: ci.yml
       # SPACE-separated: the sweep word-splits this.
-      rearm_workflows: 'ci.yml publish.yml'
+      rearm_workflows: 'ci.yml'
       # Reconcile deployment: a sweep merge is a GITHUB_TOKEN push, which fires
       # no workflows — without this, main goes green and NOTHING deploys.
       deploy_workflow: deploy.yml
