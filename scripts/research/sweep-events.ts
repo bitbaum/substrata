@@ -47,6 +47,53 @@ const PAUSE_MS = 1500;
 const EVENT_WORDS =
   'shortage OR expansion OR "new plant" OR "lead time" OR export OR licence OR license OR closure OR outage OR contract';
 
+/**
+ * Domains that never carry an event.
+ *
+ * A triage of the first 77 candidates found 54 were not events at all, and
+ * almost all of that noise came from the same handful of sources: market-size
+ * forecasts, SEO listicles, press-release wires and "industry outlook"
+ * vendors. They rank well for exactly the terms this sweep searches, so they
+ * crowd out the announcement that actually happened.
+ *
+ * This is a blocklist rather than an allowlist on purpose: a real event can
+ * appear anywhere, and refusing everything unfamiliar would lose more than it
+ * saves.
+ */
+const NEVER_AN_EVENT = [
+  'researchandmarkets',
+  'mordorintelligence',
+  'precedenceresearch',
+  'marketreportsworld',
+  'markwideresearch',
+  'maximizemarketresearch',
+  'datainsightsreports',
+  'datamintelligence',
+  'globenewswire',
+  'einpresswire',
+  'linkedin.com',
+  'techinsights.com',
+  'patsnap.com',
+  'gtaic.ai',
+  'hdinresearch',
+  'x.com',
+  'youtube.com',
+  'justetf.com',
+  'wallstreet-online',
+  'pitchbook.com',
+  'unjobnet.org',
+  'neonscience.org',
+];
+
+function isNeverAnEvent(url: string): boolean {
+  try {
+    const host = new URL(url).hostname.toLowerCase();
+    return NEVER_AN_EVENT.some((bad) => host.includes(bad));
+  } catch {
+    return true;
+  }
+}
+
 const TIGHTENS =
   /shortag|delay|cut|halt|suspend|ban|restrict|control|licen[cs]e requir|liquidat|clos(e|ure|ing)|outage|fire|explosion|strike|sanction|tariff|backlog|sold out|wait(ing)? list|years? of lead/i;
 const LOOSENS =
@@ -133,7 +180,9 @@ async function sweep(node: { name: string; term: string }): Promise<CandidateEve
   if (search.status === 'nothing') return [];
 
   const out: CandidateEvent[] = [];
-  for (const result of search.results.slice(0, PAGES_PER_NODE)) {
+  for (const result of search.results
+    .filter((r) => !isNeverAnEvent(r.url))
+    .slice(0, PAGES_PER_NODE)) {
     const page = await readPage(result.url, { timeoutMs: 15_000, maxChars: 60_000 });
     if (!page.ok) continue;
     const excerpt = excerptAround(page.text, node.term);

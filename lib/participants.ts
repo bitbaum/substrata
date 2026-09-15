@@ -63,6 +63,19 @@ export interface MarketParticipant {
   inDirectory: boolean;
   /** True when at least one of its producer rows is verified. */
   hasVerifiedRow: boolean;
+  /**
+   * A source that this organisation exists and does this in the chain, derived
+   * from its verified maker rows rather than copied here.
+   *
+   * The directory's own rows carry no sources and its grades are judgements,
+   * which is a real gap the page states. But where the coverage file has
+   * already verified that this company makes a covered material, that same URL
+   * establishes the factual half of the directory row too — so it is surfaced
+   * rather than researched twice, and it appears the moment a maker row is
+   * promoted. The GRADE is never sourced this way: no single page asserts how
+   * replaceable a company is.
+   */
+  existenceVerifiedBy: { url: string; bottleneck: string } | null;
 }
 
 const ROLE_LABEL: Record<string, string> = Object.fromEntries(
@@ -97,6 +110,7 @@ function build(): MarketParticipant[] {
       industries: [],
       inDirectory: true,
       hasVerifiedRow: false,
+      existenceVerifiedBy: null,
     });
   }
 
@@ -118,6 +132,7 @@ function build(): MarketParticipant[] {
           industries: [],
           inDirectory: false,
           hasVerifiedRow: false,
+          existenceVerifiedBy: null,
         };
         byName.set(producer.name, record);
       }
@@ -139,6 +154,10 @@ function build(): MarketParticipant[] {
 
   const events = eventsNewestFirst();
   for (const record of byName.values()) {
+    const verified = record.produces.find((p) => p.verification === 'sourced' && p.source);
+    record.existenceVerifiedBy = verified
+      ? { url: verified.source as string, bottleneck: verified.bottleneck }
+      : null;
     record.events = events.filter((event) => event.participants.includes(record.name));
     const bottlenecks = record.produces
       .map((p) => BOTTLENECK_BY_NAME.get(p.bottleneck))
@@ -233,6 +252,8 @@ export interface MarketTotals {
   graded: number;
   chokepoints: number;
   withProducerRows: number;
+  /** Directory rows whose existence and role are backed by a source. */
+  existenceVerified: number;
   jurisdictions: number;
 }
 
@@ -242,6 +263,7 @@ export function marketTotals(): MarketTotals {
     graded: MARKET_PARTICIPANTS.filter((p) => p.scarcity !== null).length,
     chokepoints: MARKET_PARTICIPANTS.filter((p) => p.scarcity === 'chokepoint').length,
     withProducerRows: MARKET_PARTICIPANTS.filter((p) => p.produces.length > 0).length,
+    existenceVerified: MARKET_PARTICIPANTS.filter((p) => p.existenceVerifiedBy !== null).length,
     jurisdictions: new Set(MARKET_PARTICIPANTS.flatMap((p) => p.jurisdictions)).size,
   };
 }

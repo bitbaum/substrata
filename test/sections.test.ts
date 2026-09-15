@@ -79,7 +79,30 @@ test('a market row never claims evidence the coverage file does not have', () =>
     const verified = p.produces.filter((x) => x.verification === 'sourced');
     assert.equal(p.hasVerifiedRow, verified.length > 0, p.name);
     for (const row of verified) assert.ok(row.source, `${p.name}: verified with no source`);
+
+    // The existence source is derived, never asserted: a row may only claim it
+    // where a maker row actually carries a URL. The replaceability grade is a
+    // judgement and is deliberately never sourced this way.
+    if (p.existenceVerifiedBy) {
+      assert.ok(verified.length > 0, `${p.name}: claims a source with no verified maker row`);
+      assert.match(p.existenceVerifiedBy.url, /^https?:\/\//, `${p.name}: existence source`);
+      assert.ok(
+        verified.some((row) => row.source === p.existenceVerifiedBy?.url),
+        `${p.name}: existence source is not one of its own maker rows`,
+      );
+    } else {
+      assert.equal(verified.length, 0, `${p.name}: has a verified row but claims no source`);
+    }
   }
+  const totals = marketTotals();
+  assert.equal(
+    totals.existenceVerified,
+    MARKET_PARTICIPANTS.filter((p) => p.existenceVerifiedBy !== null).length,
+  );
+  assert.ok(
+    totals.existenceVerified < totals.organisations,
+    'the directory is not fully sourced, and should not claim to be',
+  );
 });
 
 test('every policy instrument is dated, sourced, and points at real things', () => {

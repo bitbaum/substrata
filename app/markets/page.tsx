@@ -108,9 +108,9 @@ export default async function MarketsPage({
               note: `${totals.chokepoints} would be hard to replace at all`,
             },
             {
-              label: 'Making something mapped',
-              value: totals.withProducerRows,
-              note: 'the rest appear as chain context',
+              label: 'Existence verified',
+              value: totals.existenceVerified,
+              note: `of ${totals.organisations}, from their maker rows`,
             },
             {
               label: 'Chain layers',
@@ -206,9 +206,9 @@ export default async function MarketsPage({
                             {row.produces.length}
                           </span>
                           <Status
-                            state={row.hasVerifiedRow ? 'sourced' : 'unverified'}
+                            state={row.existenceVerifiedBy ? 'sourced' : 'unverified'}
                             compact
-                            label={row.hasVerifiedRow ? 'verified' : 'unverified'}
+                            label={row.existenceVerifiedBy ? 'verified' : 'unverified'}
                           />
                         </span>
                       ) : (

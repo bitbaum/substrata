@@ -78,8 +78,9 @@ export const SCIENCE: readonly ScienceEntry[] = [
     ],
     readiness: 6,
     readinessWhy:
-      'Full-scale magnets have been built and tested; no power plant has run on them. The constraint has moved from physics to tape supply.',
-    source: null,
+      'Full-scale magnets have passed acceptance testing and are in serial production, validated by the US Department of Energy. No power plant has run on them. The constraint has moved from physics to tape supply.',
+    source:
+      'https://cfs.energy/news-and-media/us-department-of-energy-validates-commonwealth-fusion-systems-completion-of-magnet-tech/',
     nextMilestone:
       'A machine sustaining more fusion power out than heating power in, using these magnets.',
     judgedOn: ON,
@@ -106,7 +107,8 @@ export const SCIENCE: readonly ScienceEntry[] = [
     readiness: 6,
     readinessWhy:
       'Designs are licensed or in licensing and first units are under construction; none is yet delivering power at scale in a Western market.',
-    source: null,
+    source:
+      'https://www.energy.gov/ne/articles/nrc-dockets-construction-permit-application-tva-small-modular-reactor',
     nextMilestone: 'A commercial unit delivering power to a datacentre-scale load.',
     judgedOn: ON,
   },
@@ -124,10 +126,11 @@ export const SCIENCE: readonly ScienceEntry[] = [
           'Printing finer features in a single exposure removes multi-pass steps, so each machine produces more finished wafers.',
       },
     ],
-    readiness: 7,
+    readiness: 8,
     readinessWhy:
-      'Systems have been delivered to chipmakers and are in use for development work, not yet in volume production.',
-    source: null,
+      'Past development: ASML says Intel Foundry entered high-volume manufacturing on High-NA-patterned layers in 2026, at yields matching the previous generation. This row said "not yet volume production" until the source was read.',
+    source:
+      'https://www.asml.com/en/news/press-releases/2026/high-na-euv-reaches-new-readiness-milestone',
     nextMilestone: 'A product shipping in volume from a high-NA layer.',
     judgedOn: ON,
   },
@@ -148,7 +151,8 @@ export const SCIENCE: readonly ScienceEntry[] = [
     readiness: 6,
     readinessWhy:
       'Demonstrated on production-class tools and being qualified; qualification is per process and per factory, which is the slow part.',
-    source: null,
+    source:
+      'https://investor.lamresearch.com/2025-01-14-Lam-Research-Establishes-28nm-Pitch-in-High-Resolution-Patterning-Through-Dry-Photoresist-Technology',
     nextMilestone: 'A leading-edge node qualifying it for a production layer.',
     judgedOn: ON,
   },
@@ -174,7 +178,7 @@ export const SCIENCE: readonly ScienceEntry[] = [
     readiness: 7,
     readinessWhy:
       'In production for some image sensors and logic stacks; ramping for memory stacks.',
-    source: null,
+    source: 'https://www.sony-semicon.com/en/feature/2022120204.html',
     nextMilestone: 'A memory generation shipping in volume on hybrid bonding.',
     judgedOn: ON,
   },
@@ -195,7 +199,7 @@ export const SCIENCE: readonly ScienceEntry[] = [
     readiness: 8,
     readinessWhy:
       'In volume production for consumer and datacentre power; higher-voltage grid use is earlier.',
-    source: null,
+    source: 'https://www.sec.gov/Archives/edgar/data/1821769/000182176925000021/nvts-20241231.htm',
     nextMilestone: 'Deployment at medium voltage in datacentre distribution.',
     judgedOn: ON,
   },
@@ -215,7 +219,8 @@ export const SCIENCE: readonly ScienceEntry[] = [
     readiness: 8,
     readinessWhy:
       'In production at several makers and expanding; the market is currently oversupplied rather than short.',
-    source: null,
+    source:
+      'https://www.wolfspeed.com/company/news-events/news/wolfspeed-announces-the-commercial-launch-of-200mm-silicon-carbide-materials-portfolio-unlocking-the-industrys-ability-to-manufacture-at-scale/',
     nextMilestone: 'Whether 300 mm follows, and whether demand returns to absorb the capacity.',
     judgedOn: ON,
   },
@@ -236,7 +241,8 @@ export const SCIENCE: readonly ScienceEntry[] = [
     readiness: 6,
     readinessWhy:
       'City-scale links have run for years as demonstrations; no routine procurement path exists.',
-    source: null,
+    source:
+      'https://www.nexans.fr/en/business/power-transmission-distribution/superconductivity/chicago-protecting-US-power-grid.html',
     nextMilestone: 'A utility buying one as ordinary infrastructure rather than as a pilot.',
     judgedOn: ON,
   },
@@ -262,7 +268,8 @@ export const SCIENCE: readonly ScienceEntry[] = [
     readiness: 8,
     readinessWhy:
       'Grain-boundary diffusion is standard practice and rare-earth-free traction motors are in production; the trade-off is mass and efficiency, not feasibility.',
-    source: null,
+    source:
+      'https://www.renaultgroup.com/en/magazine/energy-and-powertrains/all-about-electric-motors-with-no-rare-earths/',
     nextMilestone: 'Whether humanoid and robotics programmes adopt them, where mass matters most.',
     judgedOn: ON,
   },
@@ -279,32 +286,33 @@ export const SCIENCE: readonly ScienceEntry[] = [
         mechanism: 'Cuts demand per factory and decouples supply from one region’s steel industry.',
       },
     ],
-    readiness: 8,
+    readiness: 6,
     readinessWhy:
-      'Adopted after the 2022 shortage and demonstrably effective; coverage across the industry is uneven.',
-    source: null,
+      'Scored 8 here until the source was read. Two years after the shortage, a leading memory maker was still calling its own system an industry first, recovering 72.7% with 77% as a target — which is a working pilot at one firm, not an industry that has adopted it.',
+    source:
+      'https://news.skhynix.com/en/sk-hynix-teams-up-with-local-partners-to-develop-pioneering-neon-gas-recycling-tech/',
     nextMilestone:
       'Whether recycling holds through the next demand step, or the 2022 squeeze repeats.',
     judgedOn: ON,
   },
   {
     id: 'synthetic-crucible-quartz',
-    name: 'Synthetic high-purity quartz for crucibles',
+    name: 'A fully synthetic crucible',
     front: 'manufacturing',
     industries: ['semiconductors', 'mining-materials'],
     plain:
-      'Manufacturing the ultra-pure quartz that lines a crystal-growing crucible, rather than mining it from one deposit.',
+      'Making the whole crystal-growing crucible from manufactured quartz, rather than only its inner lining.',
     relieves: [
       {
         bottleneck: 'Crucible-grade high-purity quartz sand',
         mechanism:
-          'Replaces a geological concentration with a factory, which can be built anywhere and expanded on demand.',
+          'Would replace a geological concentration with a factory. Only the thin inner layer is synthetic today; the body of the crucible is still natural sand from a very small number of deposits, and that is the part the bottleneck is actually about.',
       },
     ],
-    readiness: 5,
+    readiness: 4,
     readinessWhy:
-      'Synthetic quartz is routine for other uses; matching the inner-layer crucible grade at acceptable cost is the open question.',
-    source: null,
+      'This entry originally claimed the synthetic inner layer was the open question. The source says the opposite: fusing synthetic powder onto the inside of a natural-quartz crucible is established practice. So the relief is narrower and earlier than scored — replacing the natural BODY has no demonstrated production route.',
+    source: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC9919415/',
     nextMilestone: 'A crystal grower qualifying a synthetic inner layer in production.',
     judgedOn: ON,
   },
@@ -329,7 +337,7 @@ export const SCIENCE: readonly ScienceEntry[] = [
     readiness: 5,
     readinessWhy:
       'Used in specialist radio-frequency and laser parts; not standard in high-volume logic packaging.',
-    source: null,
+    source: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC12894734/',
     nextMilestone: 'A mainstream accelerator package adopting a diamond layer.',
     judgedOn: ON,
   },

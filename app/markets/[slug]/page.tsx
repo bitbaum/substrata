@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import { CHAIN_LAYERS, SCARCITY_DETAIL } from '@/config/substrata-participants';
 import { INDUSTRY_LABEL, TECHNOLOGY_LABEL } from '@/config/substrata-taxonomy';
 import { MARKET_PARTICIPANTS, SCARCITY_LABEL, participantBySlug } from '@/lib/participants';
+import { slugOf } from '@/lib/bottlenecks';
 import { correctionUrl } from '@/lib/site';
 import { EventList } from '@/components/portal/EventList';
 import { Empty, Heading, Page, Shell } from '@/components/portal/Shell';
@@ -81,11 +82,33 @@ export default async function ParticipantPage({ params }: RouteParams) {
               Report an error on GitHub
             </a>
           </div>
-          {p.inDirectory && (
-            <p className="mt-4 max-w-prose rounded border-l-2 border-status-warning bg-surface-raised px-4 py-2 text-xs leading-relaxed text-fg-tertiary">
-              The description and grade above come from the directory, which is not yet sourced.
-              Treat them as leads. The table below is the part that carries evidence.
+          {p.existenceVerifiedBy ? (
+            <p className="mt-4 max-w-prose rounded border-l-2 border-status-positive bg-surface-raised px-4 py-2 text-xs leading-relaxed text-fg-tertiary">
+              That this organisation makes{' '}
+              <Link
+                href={`/bottlenecks/${slugOf(p.existenceVerifiedBy.bottleneck)}`}
+                className="text-accent underline-offset-4 hover:underline"
+              >
+                {p.existenceVerifiedBy.bottleneck}
+              </Link>{' '}
+              is{' '}
+              <a
+                href={p.existenceVerifiedBy.url}
+                rel="noreferrer"
+                className="text-accent underline-offset-4 hover:underline"
+              >
+                backed by a source ↗
+              </a>
+              . The replaceability grade above is a judgement and is not sourced — no single page
+              asserts how hard a company would be to replace.
             </p>
+          ) : (
+            p.inDirectory && (
+              <p className="mt-4 max-w-prose rounded border-l-2 border-status-warning bg-surface-raised px-4 py-2 text-xs leading-relaxed text-fg-tertiary">
+                Nothing on this row is sourced yet. The description and grade come from the
+                directory and are leads, not findings.
+              </p>
+            )
           )}
         </header>
 
