@@ -5,6 +5,6 @@ const nextConfig = {
   reactStrictMode: true,
   // The fifteen-table map page became the board and one page per bottleneck.
   // Links to the old page keep working.
-  redirects: async () => [{ source: '/map', destination: '/', permanent: true }],
+  redirects: async () => [{ source: '/map', destination: '/board', permanent: true }],
 };
 export default nextConfig;

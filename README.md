@@ -1,7 +1,7 @@
 # Substrata
 
 Open-source research on the physical chokepoints between here and a
-technological singularity.
+much faster technological progress.
 
 Live at **https://substrata.orangecat.ch** — that is an address, not an
 affiliation. Substrata is its own firm, its own repository and its own
@@ -70,6 +70,23 @@ and files a page as a candidate only if it names the company AND a material
 term, with the matching excerpt. Promotion to "sourced" is a deliberate edit
 to the coverage file by someone who read the excerpt. Commit the evidence file
 after a run: git is the timestamp.
+
+## Events and the sweep
+
+`config/substrata-events.ts` holds accepted events: one line, one date, one
+source, one effect (tightens / loosens / neutral) on the bottlenecks it names.
+`research/events.json` is the sweep's worklist of candidates. The site counts
+candidates and lists only accepted events.
+
+```bash
+SEARXNG_URL=http://127.0.0.1:8899 pnpm research:sweep             # every bottleneck
+SEARXNG_URL=http://127.0.0.1:8899 pnpm research:sweep --limit 5   # a quick run
+```
+
+Accepting a candidate means reading the page, taking the date from the page
+(search engines rarely supply one), writing the headline, and adding the row
+to the accepted file. `config/substrata-assessment.ts` holds each bottleneck's
+stage, binding score and horizon; events are what should move them.
 
 ## Programmes
 

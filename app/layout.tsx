@@ -6,7 +6,7 @@ import { SITE } from '@/lib/site';
 export const metadata: Metadata = {
   title: { default: SITE.name, template: `%s · ${SITE.name}` },
   description:
-    'Open-source research on the bottlenecks on the path to recursive self-improvement and a technological singularity.',
+    'Open-source research on the bottlenecks on the path to transformative technology: compute, energy, materials, actuation, talent, capital and permission.',
   metadataBase: new URL(`https://${SITE.host}`),
   // siteName and type alone render no og:title and no og:description, so a
   // shared link previewed with whatever the scraper could infer. Naming them
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     type: 'website',
     title: SITE.name,
     description:
-      'Open-source research on the bottlenecks on the path to recursive self-improvement and a technological singularity.',
+      'Open-source research on the bottlenecks on the path to transformative technology: compute, energy, materials, actuation, talent, capital and permission.',
   },
   twitter: { card: 'summary_large_image', title: SITE.name },
 };

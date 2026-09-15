@@ -14,16 +14,37 @@ const DOT: Record<Verification, string> = {
   unverified: 'bg-fg-muted',
 };
 
-export function Status({ state, compact = false }: { state: Verification; compact?: boolean }) {
+export function Status({
+  state,
+  compact = false,
+  label,
+}: {
+  state: Verification;
+  compact?: boolean;
+  /** Overrides the word, keeps the dot — "6/7 sourced" on a partly sourced row. */
+  label?: string;
+}) {
   return (
     <span className="inline-flex items-center gap-2 whitespace-nowrap text-sm text-fg-secondary">
       <span
         aria-hidden
         className={`inline-block h-1.5 w-1.5 shrink-0 rounded-full ${DOT[state]}`}
       />
-      {compact ? STATE_LABEL[state].split(' ')[0] : STATE_LABEL[state]}
+      {label ?? (compact ? STATE_LABEL[state].split(' ')[0] : STATE_LABEL[state])}
     </span>
   );
+}
+
+/** The row-level word: a node whose producers are partly sourced says how many, not "candidate". */
+export function rowLabel(counts: {
+  sourced: number;
+  candidate: number;
+  total: number;
+}): string | undefined {
+  if (counts.total > 1 && counts.sourced > 0 && counts.sourced < counts.total) {
+    return `${counts.sourced}/${counts.total} sourced`;
+  }
+  return undefined;
 }
 
 /** Three counts as a tiny stacked bar: sourced, candidate, unverified. */

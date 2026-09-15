@@ -3,11 +3,15 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
+import { HORIZON_LABEL } from '@/config/substrata-assessment';
 import { RESEARCH_PROGRAMMES } from '@/config/substrata-programmes';
-import { BOTTLENECKS, CURVE_LABEL, KIND_LABEL, bottleneckBySlug } from '@/lib/bottlenecks';
+import { STAGE_LABEL } from '@/config/substrata-stages';
+import { BOTTLENECKS, KIND_LABEL, bottleneckBySlug } from '@/lib/bottlenecks';
 import { correctionUrl } from '@/lib/site';
+import { BindingBar } from '@/components/portal/Board';
+import { EventList } from '@/components/portal/EventList';
 import { Heading, Page, Shell } from '@/components/portal/Shell';
-import { Status } from '@/components/portal/Status';
+import { Status, rowLabel } from '@/components/portal/Status';
 
 interface RouteParams {
   params: Promise<{ slug: string }>;
@@ -23,10 +27,17 @@ export async function generateMetadata({ params }: RouteParams): Promise<Metadat
   return b ? { title: b.name, description: b.why } : {};
 }
 
+const TESTS = [
+  ['concentration', 'How few suppliers qualify'],
+  ['substitution', 'How hard to replace'],
+  ['leadTime', 'Decision to new capacity'],
+  ['inelasticity', 'Can the buyer walk away'],
+] as const;
+
 /**
- * One bottleneck: why it gates, who holds it, and the evidence row by row.
- * Candidate pages are linked with their excerpt, so an analyst can promote a
- * row from here in one read.
+ * One bottleneck, in the portal's fixed order: strip, claim, facts, score,
+ * evidence, related, timeline, correct. A reader who has seen one page has
+ * seen them all.
  */
 export default async function BottleneckPage({ params }: RouteParams) {
   const { slug } = await params;
@@ -36,16 +47,20 @@ export default async function BottleneckPage({ params }: RouteParams) {
   const layers = RESEARCH_PROGRAMMES.flatMap((programme) =>
     programme.layers.filter((layer) => layer.gatedBy.includes(b.name)),
   );
+  let section = 0;
+  const next = () => String(++section).padStart(2, '0');
 
   return (
-    <Shell currentPath="">
+    <Shell currentPath="board">
       <Page>
         <nav className="mb-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary">
-          <Link href="/" className="hover:text-fg-primary">
+          <Link href="/board" className="hover:text-fg-primary">
             Board
           </Link>
           <span className="mx-2">/</span>
-          {CURVE_LABEL[b.curve]}
+          <Link href={`/board?stage=${b.stage}`} className="hover:text-fg-primary">
+            {STAGE_LABEL[b.stage]}
+          </Link>
         </nav>
 
         <header className="mb-8 border-b border-subtle pb-8">
@@ -64,8 +79,10 @@ export default async function BottleneckPage({ params }: RouteParams) {
               {b.spec}
             </p>
           )}
-          <div className="mt-5 flex flex-wrap items-center gap-4">
-            <Status state={b.state} />
+          <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2">
+            <BindingBar value={b.binding} />
+            <span className="text-sm text-fg-secondary">{HORIZON_LABEL[b.horizon]}</span>
+            <Status state={b.state} label={rowLabel(b.counts)} />
             <a
               href={correctionUrl(b.name)}
               className="text-sm text-accent underline-offset-4 hover:underline"
@@ -75,10 +92,34 @@ export default async function BottleneckPage({ params }: RouteParams) {
           </div>
         </header>
 
+        <section className="mb-12">
+          <Heading
+            index={next()}
+            title="How hard it binds"
+            aside={`judged ${b.judgedOn} · analyst, not measured`}
+          />
+          <div className="grid gap-px overflow-hidden rounded-lg border border-subtle bg-border-subtle sm:grid-cols-4">
+            {TESTS.map(([key, label]) => (
+              <div key={key} className="bg-surface-raised px-4 py-3">
+                <div className="font-mono text-xs uppercase tracking-caps text-fg-tertiary">
+                  {label}
+                </div>
+                <div className="mt-1 font-heading text-2xl font-semibold tabular-nums text-fg-primary">
+                  {b.score[key]}
+                  <span className="text-sm font-normal text-fg-muted"> / 3</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="mt-3 max-w-prose text-sm leading-relaxed text-fg-secondary">
+            {b.rationale}
+          </p>
+        </section>
+
         {b.producers.length > 0 && (
           <section className="mb-12">
             <Heading
-              index="01"
+              index={next()}
               title="Who makes it"
               aside={`${b.counts.sourced} sourced · ${b.counts.candidate} candidate · ${b.counts.total} rows`}
             />
@@ -152,9 +193,25 @@ export default async function BottleneckPage({ params }: RouteParams) {
           </section>
         )}
 
+        <section className="mb-12">
+          <Heading
+            index={next()}
+            title="Timeline"
+            aside={
+              <Link
+                href="/events"
+                className="underline-offset-4 hover:text-fg-primary hover:underline"
+              >
+                All events →
+              </Link>
+            }
+          />
+          <EventList events={b.events} showBottlenecks={false} />
+        </section>
+
         {layers.length > 0 && (
           <section>
-            <Heading index={b.producers.length > 0 ? '02' : '01'} title="Which loops wait on it" />
+            <Heading index={next()} title="Which loops wait on it" />
             <ul className="divide-y divide-subtle border-y border-subtle">
               {layers.map((layer) => (
                 <li
