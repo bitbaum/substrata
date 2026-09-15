@@ -4,8 +4,8 @@ Open-source research on the physical chokepoints between here and a
 much faster technological progress.
 
 Live at **https://substrata.orangecat.ch** — that is an address, not an
-affiliation. Substrata is its own firm, its own repository and its own
-deployment, the same as every other site in the studio. The subdomain is used
+affiliation. Substrata is its own repository and its own deployment, like the
+other sites built here. The subdomain is used
 because that apex domain is already owned; it moves to its own domain the day
 one is bought, and nothing in this repository changes when it does.
 
@@ -28,26 +28,45 @@ app/globals.css   every design token, and the only place a colour is defined.
 Nothing on the site is authored twice: the mandate, the coverage universe and
 the directory exist once, and the pages are those objects rendered.
 
-Every producer row starts unsourced and renders as "unverified lead", never as
-a finding. There is no trading desk and nothing here implies one.
+Every producer row starts unsourced and renders as unverified, never as a
+finding. There is no trading desk and nothing here implies one. Substrata is
+built by one person with AI agents; the site says so.
 
 ## The portal
 
-The front of the site is a board, not a document: four numbers, then every
-bottleneck as one row, grouped by the curve it gates and narrowed by links
-(`listkit` owns the URL query). Each row is a page — why it gates, who makes
-it, and the evidence — and the research programme is drawn as a ladder of loop
-layers to scale. The long-form pages (mandate, thesis, participants, acting,
-disclosure) still render from the same config and live in the footer.
+Seven destinations, and every section opens the same way: a plain sentence
+saying what it is for, four numbers, then a table narrowed by links.
+
+| Route | What it holds |
+| --- | --- |
+| `/` | Today: what changed in the last 30 days, what is worst now, ways in |
+| `/bottlenecks` | Every constraint, grouped by stage, with severity and evidence |
+| `/markets` | The organisations that make them, ore to buyer |
+| `/policy` | Rules that slow or speed building, and who publicly asked for them |
+| `/science` | What would remove a bottleneck, and how far off it is |
+| `/research` | The open programme and its questions |
+| `/about` | What this is, who makes it, what it is not, and a glossary |
 
 ```
-app/page.tsx                    the board (/)
-app/bottlenecks/[slug]/page.tsx one page per bottleneck
-app/research/page.tsx           the programme, as a ladder
-app/[...path]/page.tsx          the document pages, via sitekit
-components/portal/              shell, board, ladder, status — portal-only markup
-lib/bottlenecks.ts              materials + chokepoints as one list, and the list spec
+config/substrata-taxonomy.ts    technologies, industries, plain-English lines
+config/substrata-policy.ts      instruments, proponents, recommendations
+config/substrata-science.ts     candidate reliefs and readiness
+lib/bottlenecks.ts              the bottleneck join and its list spec
+lib/participants.ts             the markets join
+lib/labels.ts                   the words the interface uses
+components/portal/              shell, board, chips, status — portal-only markup
 ```
+
+## Nothing untrue
+
+`test/truth.test.ts` walks every string the site can render and fails the build
+on phrases that claim a firm this is not: staff, a desk, a schedule, phases,
+declining business. Those were all on the site once. Add to that list whenever
+a false claim is found; never remove a line without a reason written next to it.
+
+Policy rows carry the date they were fetched, one verbatim sentence from the
+source, and whether the source was the issuing body. A company is named as
+having asked for a rule only where it says so in its own document.
 
 ## Research engine
 

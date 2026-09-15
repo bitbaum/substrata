@@ -40,7 +40,7 @@ export default function ResearchPage() {
       <Page>
         <header className="mb-8">
           <p className="font-mono text-xs uppercase tracking-caps text-fg-tertiary">
-            Programme · commissioned {programme.commissioned} · {programme.status}
+            Programme · opened {programme.opened} · {programme.status}
           </p>
           <h1 className="mt-3 max-w-3xl font-heading text-3xl font-semibold leading-tight tracking-display text-fg-primary sm:text-5xl">
             {programme.title}

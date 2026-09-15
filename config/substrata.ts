@@ -17,17 +17,15 @@
  * with the disclosure rules that already sit below, written in advance
  * precisely so they cannot look like a reaction later.
  *
- * This file is the single source of truth for the firm's identity, its mandate
- * (the tests that make "focused" a rule rather than a slogan), its phases, its
- * desks, its listed catalogue, and its compliance and disclosure stance. The
- * Phase 1 coverage universe lives next door in `substrata-coverage.ts`. The
- * seed that registers the firm on-platform (scripts/seed-substrata.ts) reads
- * these two files and nothing else.
+ * This file holds the identity and the mandate: the two tests that decide
+ * whether a node enters coverage, the coverage areas, and the catalogue of
+ * materials. The producers of each material live next door in
+ * `substrata-coverage.ts`.
  *
- * On-platform shape: a `group` with label 'company' (public, so the research
- * and the book are both readable), its own `actors` row of actor_type 'group',
- * and a catalogue of `user_products` owned by that group actor. Ownership
- * follows the Revive My Old Ride convention — the founder's `mao` actor
+ * What this file no longer holds: phases, desks, a disclosure policy written
+ * for a firm with staff, and listing copy claiming two workstreams running at
+ * once. None of that was true of a project made by one person and a set of
+ * agents. What is true is on /about, in `substrata-about.ts`.
  *
  * Created: 2026-08-26
  */
@@ -38,7 +36,7 @@
 export const COMPANY = {
   name: 'Substrata',
   slug: 'substrata',
-  tagline: 'The bottlenecks on the path to transformative technology, written down in public.',
+  tagline: 'The bottlenecks between here and much faster technology, written down in public.',
 } as const;
 
 // =====================================================================
@@ -118,32 +116,17 @@ export const CHOKEPOINT_TEST = [
   },
 ] as const;
 
-/**
- * The exclusion rule, stated plainly because it is the harder half of focus.
- * A firm that will cover anything has no edge, in the same way that an analyst
- * with an opinion on everything has none worth reading.
- */
-export const EXCLUSION_RULE = {
-  rule: 'On a curve, and a chokepoint. Fail either test and it does not enter coverage.',
-  explainer:
-    'We decline business and coverage every week. Not because either is ' +
-    'unprofitable, but because a universe that drifts into general commodities ' +
-    'and general tech loses the only edge a specialist has: knowing, for a ' +
-    'countable number of nodes, every qualified producer, every grade that ' +
-    'actually ships, and every lead time that is real rather than quoted.',
-} as const;
-
 // =====================================================================
 // NODE TYPES — how the universe grows without becoming "everything"
 // =====================================================================
 
 /**
- * The unit of coverage is a chokepoint NODE, not an asset class. A node can be
+ * The unit of coverage is a bottleneck NODE, not an asset class. A node can be
  * a material, a company, a person, a machine or a process — the tests above
- * apply identically to all of them. This is what lets the firm move from rare
- * earths into robotics, AI hardware and additive manufacturing without a
- * change of strategy: you do not decide to cover robotics, you ARRIVE at it by
- * tracing dysprosium downstream. The graph grows by traversal, not by ambition.
+ * apply identically to all of them. That is what lets coverage reach robotics,
+ * AI hardware and additive manufacturing without a change of strategy: you do
+ * not decide to cover robotics, you arrive at it by tracing dysprosium
+ * downstream. The graph grows by traversal, not by ambition.
  */
 export const NODE_TYPES = [
   {
@@ -170,60 +153,6 @@ export const NODE_TYPES = [
 ] as const;
 
 export type NodeType = (typeof NODE_TYPES)[number]['id'];
-
-// =====================================================================
-// PHASES — research first, trade second, integrate third
-// =====================================================================
-
-/**
- * Research leads because it costs nothing but attention, because it IS the
- * sourcing work the desk needs anyway, and because publishing is the
- * distribution engine: put the map out, the people who work in it correct it,
- * and you become the place people check. The research is given away; what is
- * monetised is the position it buys — deal flow, counterparty access, and a
- * view of where the chain is thin.
- */
-export const PHASES = [
-  {
-    id: 'producers-of-the-fifteen',
-    label: 'Phase 1 — the producers of the fifteen',
-    status: 'active',
-    detail:
-      'Map every qualified producer of the fifteen materials under coverage. ' +
-      'Mostly private, mostly uncovered: the sell side writes about chip ' +
-      'designers, not about who fires crucible-grade quartz.',
-  },
-  {
-    id: 'beyond-materials',
-    label: 'Phase 2 — the chokepoints that are not materials',
-    status: 'active',
-    detail:
-      'A material is only one kind of chokepoint. A tool with one supplier, ' +
-      'packaging capacity allocated years ahead, a transformer order book, an ' +
-      'interconnection queue and a process that lives in people rather than ' +
-      'equipment all gate the same curves. These enter coverage on the same ' +
-      'two tests, and the universe has already started admitting them.',
-  },
-  {
-    id: 'one-hop-out',
-    label: 'Phase 3 — one hop out',
-    status: 'planned',
-    detail:
-      'From each node, one hop upstream and one downstream. This is where ' +
-      'robotics, AI hardware and additive manufacturing enter on their own — ' +
-      'as counterparties in a chain already being mapped, not as a new vertical.',
-  },
-  {
-    id: 'desk',
-    label: 'Later — a desk, if and when it is licensed',
-    status: 'not-started',
-    detail:
-      'Acting on the map rather than only publishing it means a regulated ' +
-      'book: licensing, compliance, capital and counterparty onboarding, none ' +
-      'of it quick. It is an intention, not a service, and nothing on this ' +
-      'site should be read as an offer to trade.',
-  },
-] as const;
 
 // =====================================================================
 // COVERAGE AREAS
@@ -292,7 +221,7 @@ export const COVERAGE_AREAS: readonly CoverageArea[] = [
 // MATERIALS UNDER COVERAGE
 //
 // Research subjects, not a price list. There are deliberately no prices, no
-// units and no lot sizes here: this firm does not trade, and a page carrying
+// units and no lot sizes here: nothing here is traded, and a page carrying
 // indicative levels reads as an invitation to deal whatever the small print
 // says. What is kept is the part that is research — why the material gates a
 // curve, and which grade actually ships, since "tin" and "seven-nines tin
@@ -448,96 +377,6 @@ export const MATERIALS: readonly MaterialListing[] = [
 ];
 
 // =====================================================================
-// SCOPE — what this firm does not do
-// =====================================================================
-
-/**
- * Several materials under coverage are dual-use and export-controlled
- * (gallium, germanium, the heavy rare earths). That is a fact ABOUT them and a
- * reason to cover them carefully — it is not an operating obligation here,
- * because nothing is bought, sold, brokered or moved. Saying so plainly
- * matters more than a compliance section would: an export-licence policy on a
- * firm with no shipments is theatre, and theatre is what makes the honest
- * parts of a page harder to believe.
- */
-export const SCOPE = {
-  today: [
-    'We publish research. We do not trade, broker, quote, or arrange the ' +
-      'movement of any material under coverage.',
-    'Nothing on this site is an offer, a solicitation, an inducement to deal, ' +
-      'or investment advice.',
-    'We hold no position in anything we cover. When that changes it will be ' +
-      'disclosed before the note, not after.',
-  ],
-  outOfScope:
-    'Nothing on the weapons or nuclear-fuel-cycle path is covered, and no ' +
-    'coverage is written to help anyone acquire a controlled material. The ' +
-    'three curves are compute, energy and actuation.',
-} as const;
-
-// =====================================================================
-// DISCLOSURE — written before there is anything to disclose
-// =====================================================================
-
-/**
- * Today the disclosure is short, because the firm holds nothing: no book, no
- * positions, no counterparties. The rules below are kept anyway, in advance of
- * the desk that may one day exist, for the reason a disclosure policy is only
- * ever credible before it is needed. Written after the first position, every
- * clause reads as a response to something.
- */
-export const DISCLOSURE = {
-  today:
-    'Substrata holds no position in anything it covers, trades nothing, and ' +
-    'is paid by nobody it writes about. There is currently nothing to declare, ' +
-    'and that itself is the declaration.',
-  rules: [
-    'Every published note states the firm’s position in what it covers — long, ' +
-      'short, flat, or none — at time of publication.',
-    'Research is never withheld, delayed or softened because of a position. If ' +
-      'the two conflict, the position is the thing that moves.',
-    'Nothing is published to move a price the firm is about to act on. Notes go ' +
-      'out on a schedule.',
-    'Sources are named. An unsourced claim is marked unverified rather than ' +
-      'stated, however confident the analyst is.',
-  ],
-  openByDefault:
-    'The research is free and public. What it buys is standing — being the ' +
-    'place people check, and being told when a row is wrong by someone who ' +
-    'works in that chain.',
-} as const;
-
-// =====================================================================
-// PUBLIC LISTING COPY
-// =====================================================================
-
-export const LISTING_COPY = {
-  headline: COMPANY.name,
-  subhead: COMPANY.tagline,
-  body: [
-    'Substrata is an open-source research firm covering the physical ' +
-      'bottlenecks on the path to transformative technology. The research ' +
-      'is free and the map is the product. There is no trading desk and no ' +
-      'position in anything covered here.',
-    'A node enters coverage only if it passes two tests: it moves one of ' +
-      'three curves — compute per joule, joules delivered, or actuation — and ' +
-      'it genuinely gates that curve, on concentration, substitutability, ' +
-      'lead time and demand inelasticity. A node can be a material, a machine, ' +
-      'a company, a process or a person; the tests do not care, and a tool ' +
-      'with one supplier gates a curve as hard as an element does.',
-    'Two phases run at once. Every qualified producer of the fifteen ' +
-      'materials under coverage, and the chokepoints that are not materials ' +
-      'at all — packaging capacity, transformer order books, interconnection ' +
-      'queues, process knowledge that does not transfer with equipment.',
-  ],
-  cta: 'Read the map',
-} as const;
-
-// =====================================================================
-// GROUP PROFILE PAYLOAD (maps 1:1 to the live `groups` table)
-// =====================================================================
-
-export // =====================================================================
 // LOOKUPS
 // =====================================================================
 

@@ -70,7 +70,7 @@ export function evidenceFor(material: string, producer: string): EvidenceRow | u
 
 /**
  * The three-valued verification state of a row, for the site and the API
- * alike. `sourced` is the firm's claim; `candidate` is the engine's lead;
+ * alike. `sourced` is a checked claim; `candidate` is the search engine's lead;
  * `unverified` is neither. Only the first is a finding.
  */
 export type Verification = 'sourced' | 'candidate' | 'unverified';

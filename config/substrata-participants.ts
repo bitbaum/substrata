@@ -1,5 +1,5 @@
 /**
- * Substrata — the participants of the singularity chain, graded by scarcity.
+ * Substrata — the participants of the chain, graded by how hard they are to replace.
  *
  * The producer map answers "who makes this material". This answers the bigger
  * question: who is in the chain at all, from the ore to the buyer, and which of
