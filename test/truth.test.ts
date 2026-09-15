@@ -179,6 +179,15 @@ test('anything presented as verified carries a link, and anything else says it d
 test('no page claims an absence the data has already filled', () => {
   const absences: { when: boolean; patterns: RegExp[]; what: string }[] = [
     {
+      when: SCIENCE.some((entry) => entry.source !== null),
+      what: `${SCIENCE.filter((e) => e.source !== null).length} science entries now cite a source`,
+      patterns: [
+        /none of them yet carries a citation/i,
+        /not yet cited/i,
+        /no readiness score is cited/i,
+      ],
+    },
+    {
       when: CALLS.length > 0,
       what: `${CALLS.length} calls exist`,
       patterns: [/no dated,? falsifiable call/i, /has not made any yet/i, /no track record yet/i],

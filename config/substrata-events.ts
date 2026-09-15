@@ -244,17 +244,19 @@ export const EVENTS: readonly CoverageEvent[] = [
     acceptedOn: '2026-09-15',
   },
   {
-    id: '2026-09-05-tennessee-polysilicon-plant-at-risk',
+    id: '2026-09-05-wacker-charleston-closure-risk',
     date: '2026-09-05',
-    headline: 'A polysilicon plant in Tennessee is reported at risk of closure.',
+    headline:
+      'Wacker’s 600-worker Charleston polysilicon plant may close after a US trade measure drove off both its customers.',
     kind: 'capacity',
     effect: 'tightens',
     bottlenecks: ['Electronic-grade polysilicon'],
-    participants: [],
-    jurisdictions: ['US'],
+    participants: ['Wacker Chemie'],
+    jurisdictions: ['US', 'DE'],
     source: 'https://www.arkansasonline.com/news/2026/sep/05/polysilicon-plant-at-risk-of-closure/',
-    primary: true,
-    quote: 'Polysilicon plant in Tennessee at risk of closure. September 5, 2026.',
+    primary: false,
+    quote:
+      'The move follows a White House proclamation last month that seeks to incentivize purchases of American polysilicon, the sources said, declining to be named because the matter was not public.',
     acceptedOn: '2026-09-15',
   },
   {
@@ -327,6 +329,153 @@ export const EVENTS: readonly CoverageEvent[] = [
     primary: false,
     quote:
       'For decades, China has been the dominant supplier of the rare earths required to produce sintered neodymium-iron-boron (NdFeB) magnets: neodymium-praseodymium (NdPr), dysprosium and terbium.',
+    acceptedOn: '2026-09-15',
+  },
+  {
+    id: '2026-09-14-arcelormittal-china-oriental-electrical-steel',
+    date: '2026-09-14',
+    headline:
+      'ArcelorMittal and China Oriental open a 1.8 Mt/yr electrical steel joint venture in Changzhou; the first phase is non-oriented.',
+    kind: 'capacity',
+    effect: 'neutral',
+    bottlenecks: ['Grain-oriented electrical steel (GOES)'],
+    participants: [],
+    jurisdictions: ['CN'],
+    source:
+      'https://gmk.center/en/news/arcelormittal-and-china-oriental-are-to-produce-electrical-steel-in-china/',
+    primary: false,
+    quote:
+      'The total production capacity of the facility in Changzhou will be 1.8 million tonnes of high-quality electrical steel sheets.',
+    acceptedOn: '2026-09-15',
+  },
+  {
+    id: '2026-07-31-semi-q2-wafer-shipments',
+    date: '2026-07-31',
+    headline:
+      'Silicon wafer shipments reached 3,573 million square inches in the second quarter, up 7.4% on the year.',
+    kind: 'capacity',
+    effect: 'neutral',
+    bottlenecks: ['300 mm prime silicon wafers'],
+    participants: [],
+    jurisdictions: [],
+    source: 'https://www.eenewseurope.com/en/semi-reports-7-4-rise-in-silicon-wafer-shipments/',
+    primary: false,
+    quote:
+      'According to the SEMI Silicon Manufacturers Group (SMG), worldwide silicon wafer shipments reached 3,573 million square inches (MSI) in the second quarter of 2026.',
+    acceptedOn: '2026-09-15',
+  },
+  {
+    id: '2026-07-30-samsung-taylor-second-fab',
+    date: '2026-07-30',
+    headline:
+      'Samsung brings its first Taylor, Texas fab online and will start a second by year end, warning the shortage runs to 2028.',
+    kind: 'capacity',
+    effect: 'loosens',
+    bottlenecks: ['Leading-edge foundry capacity'],
+    participants: ['Samsung Foundry'],
+    jurisdictions: ['US', 'KR'],
+    source: 'https://www.koreaherald.com/article/10825142',
+    primary: false,
+    quote:
+      'Samsung Electronics is accelerating its US chip expansion, bringing its first Taylor, Texas, foundry online this year and starting construction of a second fab by year-end.',
+    acceptedOn: '2026-09-15',
+  },
+  {
+    id: '2026-06-30-quartz-corp-spruce-pine-closure',
+    date: '2026-06-30',
+    headline:
+      'The Quartz Corp indefinitely closes one of its Spruce Pine plants, the most concentrated node in the chain.',
+    kind: 'capacity',
+    effect: 'tightens',
+    bottlenecks: ['Crucible-grade high-purity quartz sand'],
+    participants: ['The Quartz Corp'],
+    jurisdictions: ['US'],
+    source: 'https://www.thequartzcorp.com/articles/restructuring-us',
+    primary: true,
+    quote:
+      'We are stabilizing our operations including the indefinite closure of one quartz production facility located at Altapass Highway in Spruce Pine, NC, U.S. and reducing our workforce by 20-30 people as a result.',
+    acceptedOn: '2026-09-15',
+  },
+  {
+    id: '2026-06-14-energy-fuels-dysprosium-terbium',
+    date: '2026-06-14',
+    headline:
+      'Energy Fuels begins converting White Mesa to commercial dysprosium and terbium production from July.',
+    kind: 'capacity',
+    effect: 'loosens',
+    bottlenecks: ['Dysprosium metal'],
+    participants: [],
+    jurisdictions: ['US'],
+    source:
+      'https://www.boerse-global.de/energy-fuels-aktie-dysprosium-produktion-ab-juli-2026/797298',
+    primary: false,
+    quote:
+      'Energy Fuels startet im Juli die Umstellung auf die Produktion von Dysprosium und Terbium. (Energy Fuels begins the switch to production of dysprosium and terbium in July.)',
+    acceptedOn: '2026-09-15',
+  },
+  {
+    id: '2026-04-23-japan-photoresist-solvent-shortage',
+    date: '2026-04-23',
+    headline:
+      'Japanese photoresist makers warn Samsung and SK hynix that the Iran war has cut supply of the solvents the chemistry needs.',
+    kind: 'outage',
+    effect: 'tightens',
+    bottlenecks: ['Photoresist formulation'],
+    participants: [],
+    jurisdictions: ['JP', 'KR'],
+    source: 'https://www.thelec.net/news/articleView.html?idxno=6735',
+    primary: false,
+    quote:
+      'A shortage of key solvents is disrupting production of photoresist and other photolithography materials in Japan.',
+    acceptedOn: '2026-09-15',
+  },
+  {
+    id: '2026-03-18-iran-war-helium-shortage',
+    date: '2026-03-18',
+    headline:
+      'The war that began in Iran in February triggers a helium shortage that could slow chip production.',
+    kind: 'outage',
+    effect: 'tightens',
+    bottlenecks: ['Liquid helium (He-4)'],
+    participants: [],
+    jurisdictions: ['QA', 'IR'],
+    source:
+      'https://www.dw.com/en/iran-war-helium-semiconductor-industry-chips-oil-qatar-us-evs-smartphones/a-76380869',
+    primary: false,
+    quote:
+      'Among the latest geopolitical uncertainties for the industry is a shortage of helium that could slow global production.',
+    acceptedOn: '2026-09-15',
+  },
+  {
+    id: '2025-12-02-nabtesco-rvmini-monocrank',
+    date: '2025-12-02',
+    headline:
+      'Nabtesco launches two compact precision reduction gear series aimed at smaller robot joints.',
+    kind: 'milestone',
+    effect: 'loosens',
+    bottlenecks: ['Precision reduction drives'],
+    participants: [],
+    jurisdictions: ['JP'],
+    source: 'https://www.nabtesco.com/en/news/20251202-17329/',
+    primary: true,
+    quote:
+      'Nabtesco will add two new products to its lineup: the RVmini Series, a compact and lightweight high-precision strain wave generator, and the Monocrank Series.',
+    acceptedOn: '2026-09-15',
+  },
+  {
+    id: '2025-11-07-mofcom-suspends-october-package',
+    date: '2025-11-07',
+    headline:
+      'China suspends the export-control package it issued a month earlier, including its gallium measures, until November 2026.',
+    kind: 'policy',
+    effect: 'loosens',
+    bottlenecks: ['Gallium, refined'],
+    participants: [],
+    jurisdictions: ['CN'],
+    source: 'https://www.gvw.com/en/news/blog/detail/china-export-control-update',
+    primary: false,
+    quote:
+      'On November 7, 2025, MOFCOM announced the suspension of the entire package of export controls issued just one month prior.',
     acceptedOn: '2026-09-15',
   },
 ];

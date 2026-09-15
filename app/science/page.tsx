@@ -55,16 +55,22 @@ export default function SciencePage() {
               value: reaching,
               note: 'qualified or shipping at scale',
             },
-            { label: 'Sourced', value: 0, note: 'readiness is judged, not yet cited — see below' },
+            {
+              label: 'Sourced',
+              value: SCIENCE.filter((s) => s.source !== null).length,
+              note: `of ${SCIENCE.length}, each citing the claim behind its score`,
+            },
           ]}
         />
 
         <div className="mb-8 rounded-lg border border-strong bg-surface-raised px-5 py-4">
           <p className="max-w-prose text-sm leading-relaxed text-fg-secondary">
             <span className="font-medium text-fg-primary">Read this first.</span> The readiness
-            numbers on this page are judgements written by hand, with the reasoning next to each
-            one. None of them yet carries a citation, and every row says so. Attaching sources is
-            the next pass; until then treat this section as a structured argument, not as evidence.
+            numbers are judgements written by hand, each now citing a source that bears on it — a
+            company announcement, a filing, an agency report or a paper. Reading those sources moved
+            three of the twelve scores, one of them because the entry turned out to describe the
+            wrong half of the problem. The reasoning sits next to every number so you can disagree
+            with it.
           </p>
         </div>
 
