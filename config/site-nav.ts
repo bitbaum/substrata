@@ -44,6 +44,7 @@ export function navGroups(counts: {
   solutions: number;
   events: number;
   notes: number;
+  calls: number;
   bindingNow: number;
 }): NavGroup[] {
   return [
@@ -126,6 +127,12 @@ export function navGroups(counts: {
           label: 'What we think',
           href: '/thesis',
           blurb: 'Six claims, each with what would show it is wrong.',
+        },
+        {
+          label: 'Calls',
+          href: '/calls',
+          blurb: 'Dated predictions with what would settle them, scored in public.',
+          badge: String(counts.calls),
         },
         {
           label: 'Open questions',

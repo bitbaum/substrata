@@ -69,6 +69,13 @@ export interface Producer {
    * finding — see the header.
    */
   source: string | null;
+  /**
+   * Other names this company is written under, where the row's name is not the
+   * one the web uses. Tanaka Kikinzoku trades in English as TANAKA Precious
+   * Metals; Syensqo was Solvay's specialty spin-out and most pages still say
+   * Solvay. Without these the search looks for a string nobody writes.
+   */
+  aliases?: string[];
 }
 
 export interface MaterialCoverage {
@@ -80,8 +87,13 @@ export interface MaterialCoverage {
 }
 
 /** Shorthand: every row starts unverified, because every row starts unsourced. */
-function lead(name: string, jurisdictions: string[], role: ProducerRole): Producer {
-  return { name, jurisdictions, role, source: null };
+function lead(
+  name: string,
+  jurisdictions: string[],
+  role: ProducerRole,
+  aliases?: string[],
+): Producer {
+  return { name, jurisdictions, role, source: null, ...(aliases ? { aliases } : {}) };
 }
 
 /**
@@ -110,7 +122,7 @@ export const COVERAGE: readonly MaterialCoverage[] = [
       'Tin metal is not scarce; tin at seven nines, qualified for an EUV source, is. The chokepoint is the upgrading step, not the mine.',
     producers: [
       sourced('Yunnan Tin', ['CN'], 'refine', 'https://en.ytc.cn/'),
-      lead('Minsur', ['PE'], 'refine'),
+      sourced('Minsur', ['PE'], 'refine', 'https://www.internationaltin.org/tag/minsur/'),
       sourced('PT Timah', ['ID'], 'refine', 'https://timah.com/blog/about-us/processing-smelting'),
       sourced(
         'Malaysia Smelting Corporation',
@@ -130,7 +142,12 @@ export const COVERAGE: readonly MaterialCoverage[] = [
         'convert',
         'https://www.5nplus.com/en/products/high-purity-metals/',
       ),
-      lead('Aurubis', ['DE'], 'recycle'),
+      sourced(
+        'Aurubis',
+        ['DE'],
+        'recycle',
+        'https://www.internationaltin.org/aurubis-to-recover-tin-from-new-copper-waste-processing-plant-in-belgium/',
+      ),
     ],
   },
   {
@@ -146,7 +163,12 @@ export const COVERAGE: readonly MaterialCoverage[] = [
       ),
       sourced('Air Liquide', ['FR'], 'refine', 'https://uk.airliquide.com/gases-and-products/neon'),
       sourced('Messer', ['DE'], 'refine', 'https://www.messer-us.com/specialty-gases/neon'),
-      lead('Iceblick', ['UA'], 'refine'),
+      sourced(
+        'Iceblick',
+        ['UA'],
+        'refine',
+        'https://spie.org/news/photonics-focus/mayjune-2023/supplying-noble-gases-for-photonics-in-war-time',
+      ),
       sourced('Cryoin Engineering', ['UA'], 'refine', 'https://cryoin.com/en/products/'),
       lead('Baosteel Gases', ['CN'], 'refine'),
     ],
@@ -188,7 +210,12 @@ export const COVERAGE: readonly MaterialCoverage[] = [
         'convert',
         'https://www.furuyametals.co.jp/english/innovation/ru/',
       ),
-      lead('Tanaka Kikinzoku', ['JP'], 'convert'),
+      sourced(
+        'Tanaka Kikinzoku',
+        ['JP'],
+        'convert',
+        'https://www.newsfilecorp.com/release/130663/Neues-Verfahren-von-TANAKA-erzeugt-ultradnne-RutheniumHalbleiterschichten-von-hoher-Qualitt',
+      ),
     ],
   },
 
@@ -286,7 +313,7 @@ export const COVERAGE: readonly MaterialCoverage[] = [
         'refine',
         'https://www.riotinto.com/en/news/releases/2025/rio-tinto-extracts-first-gallium-from-its-alumina-refining-process-with-partner-indium-corporation',
       ),
-      lead('Nyrstar', ['AU'], 'refine'),
+      lead('Nyrstar', ['AU'], 'refine', ['Nyrstar Australia', 'Trafigura']),
       lead('5N Plus', ['CA'], 'convert'),
     ],
   },
@@ -331,7 +358,7 @@ export const COVERAGE: readonly MaterialCoverage[] = [
         'convert',
         'https://www.coherent.com/materials/wide-bandgap-electronics/sic-substrates-epitaxy',
       ),
-      lead('SK Siltron CSS', ['KR', 'US'], 'convert'),
+      sourced('SK Siltron CSS', ['KR', 'US'], 'convert', 'https://www.sksiltroncss.com/'),
       sourced(
         'Resonac',
         ['JP'],
@@ -349,8 +376,8 @@ export const COVERAGE: readonly MaterialCoverage[] = [
     producers: [
       lead('3M', ['US'], 'refine'),
       lead('Chemours', ['US'], 'refine'),
-      lead('Syensqo', ['BE'], 'refine'),
-      lead('AGC', ['JP'], 'refine'),
+      lead('Syensqo', ['BE'], 'refine', ['Solvay Specialty Polymers', 'Solvay']),
+      lead('AGC', ['JP'], 'refine', ['AGC Inc', 'Asahi Glass']),
       lead('Engineered Fluids', ['US'], 'convert'),
     ],
   },
@@ -373,7 +400,7 @@ export const COVERAGE: readonly MaterialCoverage[] = [
         'convert',
         'https://www.jfe-steel.co.jp/en/products/electrical/product/',
       ),
-      lead('POSCO', ['KR'], 'convert'),
+      lead('POSCO', ['KR'], 'convert', ['POSCO Holdings', 'POSCO International']),
       sourced(
         'ThyssenKrupp Electrical Steel',
         ['DE'],
@@ -411,12 +438,12 @@ export const COVERAGE: readonly MaterialCoverage[] = [
         'convert',
         'https://www.europe.fujikura.com/markets/industrial/superconductors/',
       ),
-      lead('Faraday Factory Japan', ['JP'], 'convert'),
-      lead('SuperPower', ['US'], 'convert'),
-      lead('MetOx', ['US'], 'convert'),
-      lead('THEVA', ['DE'], 'convert'),
+      sourced('Faraday Factory Japan', ['JP'], 'convert', 'https://www.faradaygroup.com/en/'),
+      sourced('SuperPower', ['US'], 'convert', 'https://www.superpower-inc.com/specification.aspx'),
+      sourced('MetOx', ['US'], 'convert', 'https://www.metoxtech.com/technology'),
+      sourced('THEVA', ['DE'], 'convert', 'https://www.theva.com/products/'),
       lead('Shanghai Superconductor', ['CN'], 'convert'),
-      lead('AMSC', ['US'], 'convert'),
+      lead('AMSC', ['US'], 'convert', ['American Superconductor', 'Amperium']),
     ],
   },
   {

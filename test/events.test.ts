@@ -68,6 +68,11 @@ test('every event names real nodes, real participants, a real date and a closed 
     for (const name of event.participants)
       assert.ok(PEOPLE.has(name), `${event.id}: unknown participant ${name}`);
     assert.match(event.source, /^https?:\/\//, `${event.id}: source`);
+    assert.equal(
+      typeof event.primary,
+      'boolean',
+      `${event.id}: does not say whether the source is official`,
+    );
     assert.ok(event.quote.length > 10, `${event.id}: quote`);
   }
 });

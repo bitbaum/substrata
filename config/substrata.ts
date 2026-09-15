@@ -241,6 +241,13 @@ export interface MaterialListing {
   spec: string;
   /** What the trade calls it — the term the research engine searches a producer against. */
   search: string;
+  /**
+   * Other names the trade uses, for a material whose primary term is a common
+   * word. "immersion cooling" is a datacentre phrase; the firms that make the
+   * fluid write "dielectric fluid" or a brand name, and a search for the first
+   * never reaches them.
+   */
+  searchAlso?: string[];
   tags: string[];
 }
 
@@ -268,6 +275,7 @@ export const MATERIALS: readonly MaterialListing[] = [
     why: 'Caps EUV multilayer mirrors and lines advanced interconnect. Annual world supply is a few dozen tonnes, almost all a by-product of other mining.',
     spec: '4N ruthenium, targets or precursor feed, PGM-refiner traceable.',
     search: 'ruthenium',
+    searchAlso: ['ruthenium target', 'precious metal'],
     tags: ['ruthenium', 'pgm', 'euv', 'interconnect'],
   },
 
@@ -328,6 +336,7 @@ export const MATERIALS: readonly MaterialListing[] = [
     why: 'Air cooling ends somewhere around 50 kW a rack. Immersion is what the next order of magnitude of density runs on.',
     spec: 'Engineered fluid, boiling point matched to the target die temperature.',
     search: 'immersion cooling',
+    searchAlso: ['dielectric fluid', 'two-phase coolant', 'heat transfer fluid'],
     tags: ['immersion', 'cooling', 'datacenter', 'dielectric'],
   },
 
@@ -338,6 +347,7 @@ export const MATERIALS: readonly MaterialListing[] = [
     why: 'Every megawatt reaching a GPU passes through transformer cores. Lead times on large power transformers, not chip supply, are the binding constraint on many buildouts.',
     spec: 'M3-class grain-oriented silicon steel, coil, coated.',
     search: 'electrical steel',
+    searchAlso: ['electrical steel sheet', 'grain oriented'],
     tags: ['goes', 'transformer', 'grid', 'electrical-steel'],
   },
   {
@@ -346,6 +356,7 @@ export const MATERIALS: readonly MaterialListing[] = [
     why: 'High-field magnets for fusion and for compact motors. The kilometre-per-machine numbers make tape output an industry-level bottleneck.',
     spec: '12 mm REBCO tape, critical current specified at 77 K, self-field.',
     search: 'REBCO',
+    searchAlso: ['coated conductor', 'high temperature superconducting tape', '2G HTS'],
     tags: ['rebco', 'superconductor', 'fusion', 'magnets'],
   },
   {
@@ -354,6 +365,7 @@ export const MATERIALS: readonly MaterialListing[] = [
     why: 'Nothing else reaches 4 K at scale. Superconducting magnets and every dilution refrigerator in quantum computing depend on a supply tied to a handful of gas fields.',
     spec: '5N liquid helium, dewar or ISO container, boil-off terms per contract.',
     search: 'helium',
+    searchAlso: ['helium gas', 'helium supply'],
     tags: ['helium', 'cryogenics', 'superconductor', 'quantum'],
   },
 
@@ -364,6 +376,7 @@ export const MATERIALS: readonly MaterialListing[] = [
     why: 'The bulk of every NdFeB magnet, and therefore of every robot joint, traction motor and hard-drive actuator.',
     spec: 'Nd-Pr metal ingot, 75/25 nominal, ≥99% RE.',
     search: 'rare earth',
+    searchAlso: ['neodymium praseodymium', 'NdPr', 'rare earth metal'],
     tags: ['rare-earth', 'ndfeb', 'magnets', 'robotics'],
   },
   {
@@ -372,6 +385,7 @@ export const MATERIALS: readonly MaterialListing[] = [
     why: 'The heavy rare earth that keeps a magnet coercive when the motor gets hot. Small quantities, no substitute, single-country refining.',
     spec: '≥99% dysprosium metal. Export-licence and end-use documentation required.',
     search: 'dysprosium',
+    searchAlso: ['heavy rare earth', 'dysprosium oxide'],
     tags: ['dysprosium', 'rare-earth', 'magnets', 'export-controlled'],
   },
 ];

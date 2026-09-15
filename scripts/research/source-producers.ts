@@ -7,19 +7,35 @@
  *   pnpm research:source --limit 10   stop after N rows (for a quick run)
  *   pnpm research:source --material "Neon, excimer laser grade"
  *
- * What it does, per row: build a query from the company name and the
- * material's keywords, search through ai-kit's web layer (the fleet's own
- * SearXNG, or Brave / Tavily when those are what the env configures), read
- * the top results through ai-kit's SSRF-checked page reader, and keep a page
- * as a candidate only if its text carries the company name AND at least one
- * material keyword. The excerpt around the match is filed with the URL.
+ * What it does, per row: build a query from the company name and the material's
+ * trade name, search through ai-kit's web layer, read the results through its
+ * SSRF-checked page reader, and keep a page as a candidate only if its text
+ * carries the company name AND a material term in the same window. The excerpt
+ * around the match is filed with the URL.
  *
  * What it does not do: flip a row to "sourced". The coverage file is the
- * firm's claim and an analyst promotes a candidate by reading the excerpt and
- * attaching the URL there. The engine narrows the search; it does not lower
- * the bar. Its output is three-valued for the same reason ai-kit's is — a dead
- * search backend files "could_not_look", never "nothing", so an outage cannot
- * be read as an absence of producers.
+ * project's claim and a person promotes a candidate by reading the excerpt and
+ * attaching the URL there. The engine narrows the search; it does not lower the
+ * bar.
+ *
+ * ---------------------------------------------------------------------------
+ * THE BUG THIS FILE ALREADY HAD, AND THE GUARD THAT NOW PREVENTS IT
+ *
+ * The first full run filed 33 rows as "nothing" — including `"Air Liquide"
+ * helium` and `"MP Materials" rare earth`, which cannot plausibly return zero
+ * results. The timestamps gave it away: 18 of those rows completed in under
+ * three seconds, which is the inter-row pause plus a search and no page read at
+ * all. The shared SearXNG instance had started answering HTTP 200 with an empty
+ * result list. ai-kit reports that as `nothing`, correctly — the request
+ * succeeded — and `nothing` is not `could_not_look`, so the outage guard below
+ * never fired and a backend brownout was recorded as an absence of producers.
+ *
+ * That is the precise failure this engine's three-valued design exists to stop,
+ * and it still happened, because the third value was attached to the wrong
+ * signal. So: a run of consecutive empty searches is now treated as blindness
+ * rather than as evidence. An engine that cannot tell "nobody makes this" from
+ * "I could not see" is worse than no engine.
+ * ---------------------------------------------------------------------------
  *
  * Needs SEARXNG_URL (or a Brave / Tavily key) in the environment. The fleet's
  * SearXNG listens on the box's loopback only; from a laptop, tunnel it:
@@ -47,14 +63,25 @@ import {
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const EVIDENCE_PATH = path.resolve(HERE, '../../research/evidence.json');
 
-/** Results considered per row. More is slower and rarely better. */
-const RESULTS_PER_ROW = 5;
-/** Pages actually read per row — reading is the expensive half. */
-const PAGES_PER_ROW = 3;
+/**
+ * Results considered per row, and how many get read.
+ *
+ * Every one of the 131 candidates the first run accepted came from the
+ * company's OWN website — not one from a news site, an aggregator or an
+ * encyclopaedia. For a generic trade term the first few results are news and
+ * market-report spam, so reading only three meant never reaching the page that
+ * actually answers the question.
+ */
+const RESULTS_PER_ROW = 10;
+const PAGES_PER_ROW = 8;
+/** Enough excerpts for a person to judge; more is noise. */
+const MAX_CANDIDATES_PER_ROW = 3;
 /** Excerpt window either side of the company-name match, in characters. */
-const EXCERPT_RADIUS = 160;
-/** Sequential, with a pause: the fleet's SearXNG is shared and the sites are not ours. */
-const PAUSE_BETWEEN_ROWS_MS = 1500;
+const EXCERPT_RADIUS = 220;
+/** Sequential, with a pause: the SearXNG instance is shared and the sites are not ours. */
+const PAUSE_BETWEEN_ROWS_MS = 2500;
+/** Consecutive empty searches before we conclude we are blind rather than alone. */
+const EMPTY_RUN_IS_BLINDNESS = 3;
 
 interface Args {
   all: boolean;
@@ -81,86 +108,179 @@ function listingFor(material: string) {
 }
 
 /**
- * Terms that count as "the material" on a page: the listing's trade name
- * (what the engine searched on) plus its catalogue tags, hyphens also tried
- * as spaces. "High-purity tin, EUV droplet grade" → tin, euv, lithography,
- * high-purity, high purity.
+ * Text as it should be compared: lowercase, no diacritics, and every kind of
+ * dash collapsed to a space. Pages write "Sibanye Stillwater",
+ * "Sibanye-Stillwater" and "Sibanye‑Stillwater" (non-breaking hyphen) for the
+ * same company, and an exact `indexOf` misses two of the three.
  */
+function normalise(text: string): string {
+  return text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[-–—‑_/]+/g, ' ')
+    .replace(/\s+/g, ' ');
+}
+
+/** Terms that count as "the material" on a page. */
 function materialTerms(material: string): string[] {
   const listing = listingFor(material);
-  const terms = new Set<string>([listing.search.toLowerCase()]);
-  for (const tag of listing.tags) {
-    terms.add(tag.toLowerCase());
-    if (tag.includes('-')) terms.add(tag.replace(/-/g, ' ').toLowerCase());
-  }
-  return [...terms];
+  const terms = new Set<string>([listing.search, ...(listing.searchAlso ?? []), ...listing.tags]);
+  return [...terms].map(normalise).filter((t) => t.length > 2);
 }
 
-/** The query is the company name, quoted, plus what the trade calls the material. */
-function queryFor(producer: string, material: string): string {
-  return `"${producer}" ${listingFor(material).search}`;
+/** Every name a company might be written under: the row's name plus its aliases. */
+function namesFor(producer: { name: string; aliases?: string[] }): string[] {
+  return [producer.name, ...(producer.aliases ?? [])];
 }
 
-/** The part of a company name that will actually appear in prose ("Yunnan Tin" stays; "PT Timah" → "Timah"). */
+/** The query: the company, quoted, plus what the trade calls the material. */
+function queryFor(producerName: string, material: string): string {
+  return `"${producerName}" ${listingFor(material).search}`;
+}
+
+/** The part of a company name that appears in prose ("PT Timah" → "Timah"). */
 function nameStem(producer: string): string {
   const stripped = producer
-    .replace(/\b(PT|AG|SA|SE|NV|Inc\.?|Corp\.?|Corporation|Ltd\.?|Co\.?|GmbH|Group)\b/g, ' ')
+    .replace(
+      /\b(PT|AG|SA|SE|NV|Inc\.?|Corp\.?|Corporation|Ltd\.?|Co\.?|GmbH|Group|Holdings)\b/gi,
+      ' ',
+    )
     .replace(/\s+/g, ' ')
     .trim();
   return stripped.length >= 4 ? stripped : producer;
 }
 
+/** Words in a hostname that say nothing about which company owns it. */
+const GENERIC_NAME_WORDS = new Set([
+  'the',
+  'and',
+  'group',
+  'company',
+  'corporation',
+  'corp',
+  'inc',
+  'ltd',
+  'limited',
+  'holdings',
+  'international',
+  'industries',
+  'materials',
+  'metals',
+  'resources',
+  'technologies',
+  'energy',
+  'steel',
+  'chemical',
+  'chemicals',
+  'precious',
+  'rare',
+]);
+
 /**
- * A page is a candidate only where the company name and a material term sit
- * in the SAME window of text. A name in the header and the material in the
- * footer is a page about both things, not a page that connects them — and
- * the excerpt filed is the passage an analyst will actually read, so it has
- * to be the one that makes the connection.
+ * Does this URL belong to the company itself?
+ *
+ * Worth asking because 100% of the candidates the first run accepted were on a
+ * company-owned domain, which makes search-result order the wrong order to read
+ * in. This puts `airliquide.com` ahead of a news article about Air Liquide
+ * without needing to know the domain in advance.
  */
-function matchOnPage(text: string, producer: string, material: string): EvidenceCandidate | null {
-  const lower = text.toLowerCase();
-  const stem = nameStem(producer);
-  const needle = stem.toLowerCase();
+function looksLikeOwnDomain(url: string, names: string[]): boolean {
+  let host: string;
+  try {
+    host = new URL(url).hostname.toLowerCase().replace(/^www\./, '');
+  } catch {
+    return false;
+  }
+  const flat = host.replace(/[^a-z0-9]/g, '');
+  return names.some((name) =>
+    normalise(name)
+      .split(' ')
+      .filter((token) => token.length > 2 && !GENERIC_NAME_WORDS.has(token))
+      .some((token) => flat.includes(token)),
+  );
+}
+
+/** Search results ordered so the company's own pages are read first. */
+function readOrder(results: WebResult[], names: string[]): WebResult[] {
+  const own = results.filter((r) => looksLikeOwnDomain(r.url, names));
+  return [...own, ...results.filter((r) => !own.includes(r))];
+}
+
+/**
+ * A page is a candidate only where a company name and a material term sit in
+ * the SAME window of text. A name in the header and the material in the footer
+ * is a page about both things, not a page that connects them — and the excerpt
+ * filed is the passage a person will actually read, so it has to be the one
+ * that makes the connection.
+ */
+function matchOnPage(text: string, names: string[], material: string): EvidenceCandidate | null {
+  const haystack = normalise(text);
   const terms = materialTerms(material);
 
-  let at = lower.indexOf(needle);
-  while (at >= 0) {
-    const start = Math.max(0, at - EXCERPT_RADIUS);
-    const end = Math.min(text.length, at + stem.length + EXCERPT_RADIUS);
-    const window = lower.slice(start, end);
-    const matchedTerms = terms.filter((term) => window.includes(term));
-    if (matchedTerms.length > 0) {
-      const excerpt = text.slice(start, end).replace(/\s+/g, ' ').trim();
-      return { url: '', title: '', excerpt, matched: [stem, ...matchedTerms] };
+  for (const name of names) {
+    const stem = nameStem(name);
+    const needle = normalise(stem);
+    let at = haystack.indexOf(needle);
+    while (at >= 0) {
+      const start = Math.max(0, at - EXCERPT_RADIUS);
+      const end = Math.min(haystack.length, at + needle.length + EXCERPT_RADIUS);
+      const window = haystack.slice(start, end);
+      const matched = terms.filter((term) => window.includes(term));
+      if (matched.length > 0) {
+        // Slice the ORIGINAL text at the same offsets: normalise preserves
+        // length, so the excerpt a person reads keeps its real punctuation.
+        const excerpt = text.slice(start, end).replace(/\s+/g, ' ').trim();
+        return { url: '', title: '', excerpt, matched: [stem, ...matched] };
+      }
+      at = haystack.indexOf(needle, at + needle.length);
     }
-    at = lower.indexOf(needle, at + needle.length);
   }
   return null;
 }
 
-async function examine(producer: string, material: string): Promise<EvidenceRow> {
-  const query = queryFor(producer, material);
+interface Examined {
+  row: EvidenceRow;
+  /** True when the search itself came back empty — which may mean blindness. */
+  searchWasEmpty: boolean;
+}
+
+async function examine(
+  producer: { name: string; aliases?: string[] },
+  material: string,
+): Promise<Examined> {
+  const names = namesFor(producer);
+  const query = queryFor(producer.name, material);
   const checkedAt = new Date().toISOString();
+  const base = { material, producer: producer.name, query, checkedAt };
+
   const search = await webSearch(query, { limit: RESULTS_PER_ROW, timeoutMs: 15_000 });
 
   if (search.status === 'could_not_look') {
-    return { material, producer, query, status: 'could_not_look', checkedAt, candidates: [] };
+    return {
+      row: { ...base, status: 'could_not_look', candidates: [] },
+      searchWasEmpty: false,
+    };
   }
   if (search.status === 'nothing') {
-    return { material, producer, query, status: 'nothing', checkedAt, candidates: [] };
+    // Recorded as nothing for now; the caller decides whether a RUN of these
+    // means the backend went dark, in which case the row is rewritten.
+    return { row: { ...base, status: 'nothing', candidates: [] }, searchWasEmpty: true };
   }
 
   const candidates: EvidenceCandidate[] = [];
-  const toRead: WebResult[] = search.results.slice(0, PAGES_PER_ROW);
-  for (const result of toRead) {
+  for (const result of readOrder(search.results, names).slice(0, PAGES_PER_ROW)) {
     const page = await readPage(result.url, { timeoutMs: 15_000, maxChars: 60_000 });
     if (!page.ok) continue;
-    const match = matchOnPage(page.text, producer, material);
-    if (match) candidates.push({ ...match, url: page.url, title: page.title || result.title });
+    const match = matchOnPage(page.text, names, material);
+    if (match) {
+      candidates.push({ ...match, url: page.url, title: page.title || result.title });
+      if (candidates.length >= MAX_CANDIDATES_PER_ROW) break;
+    }
   }
 
   const status: EvidenceStatus = candidates.length > 0 ? 'candidate' : 'nothing';
-  return { material, producer, query, status, checkedAt, candidates };
+  return { row: { ...base, status, candidates }, searchWasEmpty: false };
 }
 
 async function loadEvidence(): Promise<EvidenceFile> {
@@ -171,16 +291,13 @@ async function loadEvidence(): Promise<EvidenceFile> {
 }
 
 async function saveEvidence(file: EvidenceFile): Promise<void> {
-  // Stable order so a diff shows what changed, not what moved.
   file.rows.sort(
     (a, b) => a.material.localeCompare(b.material) || a.producer.localeCompare(b.producer),
   );
   await writeFile(EVIDENCE_PATH, `${JSON.stringify(file, null, 2)}\n`);
 }
 
-function sleep(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 async function main(): Promise<void> {
   const args = parseArgs(process.argv.slice(2));
@@ -192,59 +309,113 @@ async function main(): Promise<void> {
       .filter((p) => p.source === null)
       .filter(() => args.material === null || entry.material === args.material)
       .filter((p) => args.all || !examined.has(evidenceKey(entry.material, p.name)))
-      .map((p) => ({ material: entry.material, producer: p.name })),
+      .map((p) => ({ material: entry.material, producer: p })),
   ).slice(0, args.limit ?? undefined);
 
   if (queue.length === 0) {
-    console.log(
-      'Nothing to examine: every unverified row already has an entry (use --all to re-run).',
-    );
+    console.log('Nothing to examine: every unverified row already has an entry (use --all).');
     return;
   }
   console.log(`Examining ${queue.length} row(s).`);
 
-  let couldNotLook = 0;
-  for (const [index, item] of queue.entries()) {
-    const row = await examine(item.producer, item.material);
+  let blindStreak = 0;
+  let emptyStreak = 0;
+  const pending: EvidenceRow[] = [];
+
+  /**
+   * Write a row into the file — but never replace a better one with a worse.
+   *
+   * `--all` re-examines rows that already had candidates. The first attempt at
+   * this overwrote three good rows with failed looks when the search backend
+   * hiccuped mid-run, which is the same mistake as filing a brownout as an
+   * absence: a look that failed today says nothing about a page that was read
+   * successfully yesterday. So a new result only replaces the stored one when
+   * it is at least as informative.
+   */
+  const RANK: Record<EvidenceStatus, number> = {
+    candidate: 2,
+    nothing: 1,
+    could_not_look: 0,
+  };
+  const record = (row: EvidenceRow) => {
     const key = evidenceKey(row.material, row.producer);
-    const existing = evidence.rows.findIndex((r) => evidenceKey(r.material, r.producer) === key);
-    if (existing >= 0) evidence.rows[existing] = row;
-    else evidence.rows.push(row);
+    const at = evidence.rows.findIndex((r) => evidenceKey(r.material, r.producer) === key);
+    if (at < 0) {
+      evidence.rows.push(row);
+      return;
+    }
+    const stored = evidence.rows[at];
+    if (RANK[row.status] < RANK[stored.status]) {
+      console.log(
+        `      keeping the earlier ${stored.status} for ${row.producer} — this look was worse`,
+      );
+      return;
+    }
+    evidence.rows[at] = row;
+  };
+
+  for (const [index, item] of queue.entries()) {
+    const { row, searchWasEmpty } = await examine(item.producer, item.material);
+
+    if (searchWasEmpty) {
+      emptyStreak += 1;
+      pending.push(row);
+      // A run of empty searches is a dark backend, not an empty world. Rewrite
+      // the whole run as "could not look" so nobody reads it as a finding.
+      if (emptyStreak >= EMPTY_RUN_IS_BLINDNESS) {
+        for (const stale of pending) record({ ...stale, status: 'could_not_look', candidates: [] });
+        pending.length = 0;
+        console.error(
+          `Search returned nothing ${emptyStreak} rows running — treating this as blindness, ` +
+            'not as an absence of producers. Stopping so the run can be repeated.',
+        );
+        evidence.generatedAt = new Date().toISOString();
+        await saveEvidence(evidence);
+        break;
+      }
+    } else {
+      // The streak broke, so the empties before it were real: keep them as filed.
+      for (const real of pending) record(real);
+      pending.length = 0;
+      emptyStreak = 0;
+      record(row);
+    }
 
     const summary =
       row.status === 'candidate'
         ? `${row.candidates.length} candidate page(s)`
         : row.status === 'nothing'
-          ? 'nothing usable'
+          ? searchWasEmpty
+            ? 'search returned nothing'
+            : 'read pages, none usable'
           : 'could not look';
     console.log(`[${index + 1}/${queue.length}] ${row.producer} — ${row.material}: ${summary}`);
 
     if (row.status === 'could_not_look') {
-      couldNotLook += 1;
-      // Three in a row means the backend is down, not the rows. Stop and say so
-      // rather than filing ninety "could not look" entries.
-      if (couldNotLook >= 3) {
-        console.error(
-          'Search backend unreachable three rows running — stopping. Is SEARXNG_URL set and tunnelled?',
-        );
+      if (++blindStreak >= EMPTY_RUN_IS_BLINDNESS) {
+        console.error('Search backend unreachable three rows running — stopping.');
         break;
       }
     } else {
-      couldNotLook = 0;
+      blindStreak = 0;
     }
 
-    evidence.generatedAt = row.checkedAt;
+    evidence.generatedAt = new Date().toISOString();
     await saveEvidence(evidence);
     if (index < queue.length - 1) await sleep(PAUSE_BETWEEN_ROWS_MS);
   }
+
+  for (const leftover of pending) record(leftover);
+  await saveEvidence(evidence);
 
   const totals = evidence.rows.reduce(
     (acc, row) => ({ ...acc, [row.status]: (acc[row.status] ?? 0) + 1 }),
     {} as Record<EvidenceStatus, number>,
   );
   console.log(
-    `Evidence file now holds ${evidence.rows.length} row(s): ` +
-      `${totals.candidate ?? 0} with candidates, ${totals.nothing ?? 0} with nothing, ${totals.could_not_look ?? 0} could not look.`,
+    `Evidence file holds ${evidence.rows.length} row(s): ` +
+      `${totals.candidate ?? 0} with candidates, ${totals.nothing ?? 0} read but nothing usable, ` +
+      `${totals.could_not_look ?? 0} could not look.`,
   );
 }
 

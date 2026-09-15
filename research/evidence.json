@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-14T11:21:08.673Z",
+  "generatedAt": "2026-09-15T10:50:56.814Z",
   "rows": [
     {
       "material": "300 mm prime silicon wafers",
@@ -204,13 +204,31 @@
       "material": "Crucible-grade high-purity quartz sand",
       "producer": "Ferrotec",
       "query": "\"Ferrotec\" quartz",
+      "checkedAt": "2026-09-15T10:47:34.488Z",
       "status": "candidate",
-      "checkedAt": "2026-09-14T11:16:11.899Z",
       "candidates": [
         {
           "url": "https://quartz.ferrotec.com/",
           "title": "Ferrotec Fabricated Quartzware",
-          "excerpt": "Ferrotec Fabricated Quartzware Fabricated Quartzware Partnering with OEMs to supply high-volume, cost-effective precision fabrication Learn More Partnering with OEMs to",
+          "excerpt": "Ferrotec Fabricated Quartzware Fabricated Quartzware Partnering with OEMs to supply high-volume, cost-effective precision fabrication Learn More Partnering with OEMs to supply high-volume, cost-effective precision fabrication Si",
+          "matched": [
+            "Ferrotec",
+            "quartz"
+          ]
+        },
+        {
+          "url": "https://www.ferrotec.com/products-technologies/fabricated-quartzware/",
+          "title": "Fabricated Quartzware - Corporate",
+          "excerpt": "nd diffusion process, or as jigs and consumables in the transport and cleaning process of wafers, our quartz products play an important role in the processing of increasingly thinning and high purification semiconductors. Ferrotec’s Precision Quartz Fabrication Ferrotec offers a wide variety of quartzware for semiconductor, optical, and other leading edge industrial applications. With world-class product quality and competitive prices, Ferrotec",
+          "matched": [
+            "Ferrotec",
+            "quartz"
+          ]
+        },
+        {
+          "url": "https://quartz.ferrotec.com/about/",
+          "title": "About - Fabricated Quartz",
+          "excerpt": "About - Fabricated Quartz Skip to content Home | About About Ferrotec’s Fabricated Quartz Business Ferrotec’s quartz business is a global operation dedicated to providing the world’s leading semiconductor manufacturing OEMs with fabricated quartzware. In the US, Ferrotec’s quartz busine",
           "matched": [
             "Ferrotec",
             "quartz"
@@ -766,13 +784,31 @@
       "material": "Electronic-grade polysilicon",
       "producer": "REC Silicon",
       "query": "\"REC Silicon\" polysilicon",
+      "checkedAt": "2026-09-15T10:47:23.824Z",
       "status": "candidate",
-      "checkedAt": "2026-09-14T11:15:09.461Z",
       "candidates": [
+        {
+          "url": "https://cen.acs.org/energy/solar-power/REC-Silicon-stop-polysilicon-production/103/web/2025/01",
+          "title": "REC Silicon to stop polysilicon production",
+          "excerpt": "REC Silicon to stop polysilicon production Advertisement Close Log in or create an account Access thousands of C&EN articles Get personalized recommendations Follow your preferred chemistry topics Save your favorite articles Log In",
+          "matched": [
+            "REC Silicon",
+            "polysilicon"
+          ]
+        },
         {
           "url": "https://www.bernreuter.com/newsroom/polysilicon-news/article/how-hanwha-sabotaged-rec-silicon-s-granular-polysilicon-plant/",
           "title": "How Hanwha sabotaged REC Silicon’s granular-polysilicon plant",
-          "excerpt": "How Hanwha sabotaged REC Silicon’s granular-polysilicon plant EN Newsroom Polysilicon News Article How Hanwha sabotaged REC Silicon’s granular-polysilicon plant September 08, 2025 Has Hanwha i",
+          "excerpt": "How Hanwha sabotaged REC Silicon’s granular-polysilicon plant EN Newsroom Polysilicon News Article How Hanwha sabotaged REC Silicon’s granular-polysilicon plant September 08, 2025 Has Hanwha intentionally run the operations at REC Silicon’s polysilicon",
+          "matched": [
+            "REC Silicon",
+            "polysilicon"
+          ]
+        },
+        {
+          "url": "https://www.pv-tech.org/rec-silicon-abandons-us-polysilicon-production-at-moses-lake/",
+          "title": "REC Silicon abandons US polysilicon production at Moses Lake- PV Tech",
+          "excerpt": "REC Silicon abandons US polysilicon production at Moses Lake- PV Tech Skip to content News REC Silicon abandons US polysilicon production at Moses Lake By Will Norman January 2, 2025 Manufacturing , Materials Americas Latest Idemit",
           "matched": [
             "REC Silicon",
             "polysilicon"
@@ -847,16 +883,34 @@
       "material": "Gallium, refined",
       "producer": "5N Plus",
       "query": "\"5N Plus\" gallium",
+      "checkedAt": "2026-09-15T10:48:21.509Z",
       "status": "candidate",
-      "checkedAt": "2026-09-14T11:16:54.250Z",
       "candidates": [
         {
-          "url": "http://www.5nplus.com.s3-website-us-east-1.amazonaws.com/pure-metals.html",
-          "title": "Pure Metals",
-          "excerpt": "materials on earth and in space Visit the website > Visit the website > \" /> Bismuth Tellurium Gallium Pure Metals Starting with commercial quality materials, 5N Plus uses a combination of physical and chemical purification techniques to produce 5N, 6N and 7N purity metals, which we offer in a variety of shapes for electroni",
+          "url": "https://www.5nplus.com/en/investors/overview/",
+          "title": "Invest in 5N Plus: Leader in Specialty Semiconductors & Performance Materials | 5N Plus",
+          "excerpt": "oldman Ventum Capital Markets Daniel Lavoie Latest News 5N+ Selected to Establish Domestic Production of Gallium Arsenide Components for U.S. Defence Applications Through US$7.3M Award September 3, 2026 | Montréal, Québec 5N Plus Inc. (TSX:VNP) (“5N+” or “the Company”), a leading global producer of specialty semiconductors and performance materials, today announced that it has been selected by the U.S. Department of War to receive a US$7.3 mil",
           "matched": [
             "5N Plus",
             "gallium"
+          ]
+        },
+        {
+          "url": "http://www.5nplus.com.s3-website-us-east-1.amazonaws.com/pure-metals.html",
+          "title": "Pure Metals",
+          "excerpt": "AZUR Space Uniquely positioned to supply advanced semiconductor materials on earth and in space Visit the website > Visit the website > \" /> Bismuth Tellurium Gallium Pure Metals Starting with commercial quality materials, 5N Plus uses a combination of physical and chemical purification techniques to produce 5N, 6N and 7N purity metals, which we offer in a variety of shapes for electronic, consumer and industrial applications. Contact us Antim",
+          "matched": [
+            "5N Plus",
+            "gallium"
+          ]
+        },
+        {
+          "url": "https://www.5nplus.com/en/products/semiconductors/",
+          "title": "Specialty Semiconductors - 5N Plus Products - Specialty Semiconductors & High-Purity Metals | 5N Plus",
+          "excerpt": "ahertz radiation detectors. Markets Terrestrial Renewable Energy Imaging and Sensing Also available Cadmium Telluride Cadmium Zinc Telluride Lead Chloride 4N5+ Product sheet download Available Forms Fine Powder Tailored Particles 5N Plus offers a full range of inorganic perovskite precursor compounds, including lead chloride (PbCl 2 ), for use in high-efficiency solar cells that convert solar energy into electricity. Markets Terrestrial Renewa",
+          "matched": [
+            "5N Plus",
+            "gan"
           ]
         }
       ]
@@ -865,16 +919,34 @@
       "material": "Gallium, refined",
       "producer": "Chinalco",
       "query": "\"Chinalco\" gallium",
+      "checkedAt": "2026-09-15T10:47:40.652Z",
       "status": "candidate",
-      "checkedAt": "2026-09-14T11:16:16.426Z",
       "candidates": [
         {
           "url": "https://www.yicaiglobal.com/news/central-soe-chinalco-to-set-up-rare-metals-operation-platform-for-resource-integration",
           "title": "Chinalco, Units to Pool Rare Metal Assets in Bid to Cement Industry Lead",
-          "excerpt": "g Zinc will mainly add assets. Chinalco will have the largest stake at 25 percent. Chalco, Yunnan Copper, and Yunnan Chihong Zinc will each own 20 percent, and Chinalco Capital 15 percent. Chalco will mainly chip in its high-purity gallium production lines, while Yunnan Chihong Zinc will contribute its wholly owned subsidiary,",
+          "excerpt": "arm Chinalco Capital Holdings, the units said in separate statements yesterday. Chinalco, Chinalco Capital, and Yunnan Copper will contribute cash to the project, while Chalco and Yunnan Chihong Zinc will mainly add assets. Chinalco will have the largest stake at 25 percent. Chalco, Yunnan Copper, and Yunnan Chihong Zinc will each own 20 percent, and Chinalco Capital 15 percent. Chalco will mainly chip in its high-purity gallium production lin",
           "matched": [
             "Chinalco",
             "gallium"
+          ]
+        },
+        {
+          "url": "https://www.huawei.com/en/media-center/transform/23/17-chinalco",
+          "title": "Chinalco's Digital Aluminum Journey: From Traditional Workshops to Intelligent Cloud Control - Huawei",
+          "excerpt": "pplications from beverage cans and new energy vehicles to high-voltage power grids and aerospace materials. As the world's largest producer and consumer of aluminum, China has maintained this dominant position for many years. As a leading enterprise in China's non-ferrous metal industry, Chinalco's industrial chain encompasses over 20 non-ferrous metal elements such as aluminum, copper, lead, zinc, gallium, and germanium, making it the world's",
+          "matched": [
+            "Chinalco",
+            "gallium"
+          ]
+        },
+        {
+          "url": "https://tradium.com/market-insight/rare-earths-china-success-path-raw-materials-giant/",
+          "title": "Rare earths: China's long road to success as a raw materials giant - TRADIUM",
+          "excerpt": "outh, but it took until 2016 for the first sustainable centralisation to be completed. By consolidating hundreds of companies into five - Xiamen Tungsten, Minmetals Rare Earth, Guangdong Rare Earth, the rare earth division of Chinalco (Aluminium Corporation of China) and China Southern Rare Earth - the industry in the south was now also streamlined in organisational terms. Together with the China Northern Rare Earth Group in the north, China's",
+          "matched": [
+            "Chinalco",
+            "gan"
           ]
         }
       ]
@@ -883,13 +955,31 @@
       "material": "Gallium, refined",
       "producer": "East Hope Group",
       "query": "\"East Hope Group\" gallium",
+      "checkedAt": "2026-09-15T10:47:53.698Z",
       "status": "candidate",
-      "checkedAt": "2026-09-14T11:16:28.900Z",
       "candidates": [
+        {
+          "url": "https://www.technik-einkauf.de/technik/top-10-polysilizium-hersteller-fast-alle-kommen-aus-china/2587159",
+          "title": "Top 10 Polysilizium-Hersteller: China dominiert",
+          "excerpt": "s eigenen Kohlekraftwerks extrem niedrige Stromkosten hat. Eine zweite Anlage mit einer Kapazität von 125.000 Tonnen in Shizuishan, Ningxia, wurde im Mai 2024 fertiggestellt, die Testproduktion begann jedoch erst im Oktober 2025. East Hope Platz 5: Qinghai Lihao Qingneng. Lihao Qingneng wurde im April 2021 als Qinghai Lihao Semiconductor Materials gegründet und war einer der ersten neuen Marktteilnehmer in China. Unter der Leitung von Duan Yong,",
+          "matched": [
+            "East Hope",
+            "gan"
+          ]
+        },
         {
           "url": "https://www.mordorintelligence.com/industry-reports/gallium-market",
           "title": "Gallium Market Share, Size & Growth Outlook to 2030",
-          "excerpt": "allium market is partially consolidated in nature. The major players in the market (not in any particular order) include Aluminum Corporation of China Limited, East Hope Group, Infineon Technologies AG, NXP Semiconductors, and Qorvo, Inc, among others. Gallium Industry Leaders Aluminum Corporation of China Limited East Hope Gro",
+          "excerpt": "se requires attribution under CC BY 4.0. Competitive Landscape The gallium market is partially consolidated in nature. The major players in the market (not in any particular order) include Aluminum Corporation of China Limited, East Hope Group, Infineon Technologies AG, NXP Semiconductors, and Qorvo, Inc, among others. Gallium Industry Leaders Aluminum Corporation of China Limited East Hope Group Infineon Technologies AG NXP Semiconductors Qorvo",
+          "matched": [
+            "East Hope",
+            "gallium"
+          ]
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9995487/",
+          "title": "A micro-vibration-driven direct ink write printing method of gallium–indium alloys - PMC",
+          "excerpt": "method General information Eutectic Gallium–indium (EGaIn) (%75 Ga, %25 In) was chosen as the liquid metal material. Gallium and indium were weighed in a 3:1 ratio at a concentration of 99.99% each. Gallium was purchased from East Hope Group Co., Ltd. Indium was purchased from Zhuzhou Smelting Group Co., Ltd. The physical properties of the EGaIn are shown in Table 1 . The properties of the EGaIn droplets extruded under micro-vibration directly",
           "matched": [
             "East Hope",
             "gallium"
@@ -901,9 +991,37 @@
       "material": "Gallium, refined",
       "producer": "Nyrstar",
       "query": "\"Nyrstar\" gallium",
-      "status": "nothing",
-      "checkedAt": "2026-09-14T11:16:49.611Z",
-      "candidates": []
+      "checkedAt": "2026-09-15T10:48:14.898Z",
+      "status": "candidate",
+      "candidates": [
+        {
+          "url": "https://www.nyrstar.com/resource-center/news/innovation-keeps-our-company-futureproof",
+          "title": "‘Innovation keeps our company futureproof’ | Nyrstar",
+          "excerpt": "ecessary in order to make our organisation futureproof.’ Naturally, all projects must be economically viable. But it is also possible that certain projects will be realised because, in the first instance, they will make Nyrstar’s business activities more sustainable or more energy-efficient. ‘In addition to our site in Balen, we have worked with partners and built one of the largest wind farms in the country. That was an investment in improvin",
+          "matched": [
+            "Nyrstar",
+            "gan"
+          ]
+        },
+        {
+          "url": "https://www.nyrstar.com/resource-center/press-releases/nyrstars-middle-tennessee-mines-operations-to-temporarily-pause-production",
+          "title": "Nyrstar’s Middle Tennessee Mines operations to temporarily pause production | Nyrstar",
+          "excerpt": "d profitability of the mines.”, said Bill Hart, Nyrstar's Vice President Environment, Health & Safety, Human Resources and Corporate Affairs for North American Mining. During this temporary pause in production operations, Nyrstar plans to conduct drilling to explore and define additional zinc, germanium, and gallium resources to position the company to increase the supply to Nyrstar’s Clarksville, TN smelter upon completion of a planned invest",
+          "matched": [
+            "Nyrstar",
+            "gallium"
+          ]
+        },
+        {
+          "url": "https://www.nyrstarcollective.eu/post/if-nyrstar-were-worthless-why-is-everyone-fighting-over-it",
+          "title": "If Nyrstar Were Worthless, Why Is Everyone Fighting Over It?",
+          "excerpt": "dictions. That framing has flipped almost overnight. Governments across Australia, Europe and North America are now waking up to what these facilities actually process alongside their base metals. Besides zinc and lead, Nyrstar recovers antimony, germanium, indium, bismuth, tellurium and gallium. This cluster of by-product metals has become indispensable to defence manufacturing, semiconductors, energy storage and the broader clean-energy tran",
+          "matched": [
+            "Nyrstar",
+            "gallium"
+          ]
+        }
+      ]
     },
     {
       "material": "Gallium, refined",
@@ -945,13 +1063,13 @@
       "material": "Gallium, refined",
       "producer": "Zhuhai Fangyuan",
       "query": "\"Zhuhai Fangyuan\" gallium",
+      "checkedAt": "2026-09-15T10:48:06.571Z",
       "status": "candidate",
-      "checkedAt": "2026-09-14T11:16:35.326Z",
       "candidates": [
         {
           "url": "https://wap.asianmetal.com/interview/2019/interview_jialibingEn.shtml",
           "title": "Fanya gallium metal stocks not expected to enter market soon - Asian Metal",
-          "excerpt": "ew with Jia Libing Chairman Zhuhai SEZ Fangyuan Inc. Registered and founded in Zhuhai, Guangdong in 1996, Zhuhai SEZ Fangyuan Inc. (hereinafter referred to as \"Zhuhai Fangyuan\") is a comprehensive company integrating R&D, design, production and sales of gallium metal and chelating resin. By closely cooperating with several alumina pr",
+          "excerpt": "gallium metal stocks not expected to enter market soon ----Interview with Jia Libing Chairman Zhuhai SEZ Fangyuan Inc. Registered and founded in Zhuhai, Guangdong in 1996, Zhuhai SEZ Fangyuan Inc. (hereinafter referred to as \"Zhuhai Fangyuan\") is a comprehensive company integrating R&D, design, production and sales of gallium metal and chelating resin. By closely cooperating with several alumina producers, Zhuhai Fangyuan has set up six production bas",
           "matched": [
             "Zhuhai Fangyuan",
             "gallium"
@@ -960,7 +1078,16 @@
         {
           "url": "https://www.marketreportsworld.com/market-reports/gallium-market-14715650",
           "title": "Gallium Market Size, Demand, Growth By 2035",
-          "excerpt": "ucture development. Investments in renewable energy and electronics manufacturing could drive future demand for gallium. List of Top Gallium Companies Chinalco Zhuhai Fangyuan Jinjiang Group Beijin Jiya East Hope Kaiman CNGE INGAL Stade PPM Chemetall Enrc UC RusalTop of FormBottom of Form Top Two Companies with Highest Market Shares",
+          "excerpt": "olds potential due to ongoing industrialization and infrastructure development. Investments in renewable energy and electronics manufacturing could drive future demand for gallium. List of Top Gallium Companies Chinalco Zhuhai Fangyuan Jinjiang Group Beijin Jiya East Hope Kaiman CNGE INGAL Stade PPM Chemetall Enrc UC RusalTop of FormBottom of Form Top Two Companies with Highest Market Shares Chinalco: As one of China's leading aluminum producers, Chin",
+          "matched": [
+            "Zhuhai Fangyuan",
+            "gallium"
+          ]
+        },
+        {
+          "url": "https://www.persistencemarketresearch.com/market-research/gallium-market.asp",
+          "title": "Gallium Market Size, Share | Industry Report, 2026-2033",
+          "excerpt": "are (2025) Top-ranking Purity Level 4N–6N (99.99%–99.9999%), ~52% market share (2025) Incremental Opportunity (2026–2033) US$ 1.9 Billion Companies Covered in Gallium Market China Aluminum Corporation (CHALCO) China Germanium Co., Ltd. Zhuhai Fangyuan Environmental Protection Technology Co., Ltd. Nippon Rare Metal, Inc. Dowa Holdings Co., Ltd. 5N Plus Inc. Neo Performance Materials Inc. Sumitomo Electric Industries, Ltd. Freiberger Compound Materials",
           "matched": [
             "Zhuhai Fangyuan",
             "gallium"
@@ -1090,9 +1217,40 @@
       "material": "Grain-oriented electrical steel (GOES)",
       "producer": "POSCO",
       "query": "\"POSCO\" electrical steel",
-      "status": "nothing",
-      "checkedAt": "2026-09-14T11:18:51.254Z",
-      "candidates": []
+      "checkedAt": "2026-09-15T10:50:01.168Z",
+      "status": "candidate",
+      "candidates": [
+        {
+          "url": "https://www.poscointl.com/eng/steelProduct",
+          "title": "POSCO INTERNATIONAL",
+          "excerpt": "POSCO INTERNATIONAL Materials>Steel - Products'> Steel - Products Hot Rolled Steel Steel Plate Wire Rod Cold Rolled Steel Galvanized Steel Electrical Galvanized Steel Electrical Steel Stainless Steel Hot rolled products consi",
+          "matched": [
+            "POSCO",
+            "electrical steel",
+            "electrical steel"
+          ]
+        },
+        {
+          "url": "https://newsroom.posco.com/en/posco-partners-with-hyundai-motor-and-8-organizations-to-develop-next-generation-high-efficiency-electrical-steel-for-evs/",
+          "title": "POSCO Partners with Hyundai Motor and 8 Organizations to Develop Next-Generation High-Efficiency Electrical Steel for EVs – Official POSCO Group Newsroom",
+          "excerpt": "POSCO Partners with Hyundai Motor and 8 Organizations to Develop Next-Generation High-Efficiency Electrical Steel for EVs – Official POSCO Group Newsroom Search Layer Close Layer Close Minimum 2 characters required. Ok Home P",
+          "matched": [
+            "POSCO",
+            "electrical steel",
+            "electrical steel"
+          ]
+        },
+        {
+          "url": "https://gmk.center/en/news/posco-and-hyundai-are-developing-innovative-electrical-steel-to-improve-the-efficiency-of-electric-vehicles/",
+          "title": "Posco and Hyundai are developing innovative electrical steel to improve the efficiency of electric vehicles",
+          "excerpt": "Posco and Hyundai are developing innovative electrical steel to improve the efficiency of electric vehicles News Posts Infographic Interview Analysis Manufacturers Сonsulting All news View all 15 September 2026 Nucor has rais",
+          "matched": [
+            "POSCO",
+            "electrical steel",
+            "electrical steel"
+          ]
+        }
+      ]
     },
     {
       "material": "Grain-oriented electrical steel (GOES)",
@@ -1199,9 +1357,19 @@
       "material": "High-purity tin, EUV droplet grade",
       "producer": "Aurubis",
       "query": "\"Aurubis\" tin",
-      "status": "nothing",
-      "checkedAt": "2026-09-14T11:13:04.137Z",
-      "candidates": []
+      "checkedAt": "2026-09-15T10:46:18.275Z",
+      "status": "candidate",
+      "candidates": [
+        {
+          "url": "https://www.internationaltin.org/aurubis-to-recover-tin-from-new-copper-waste-processing-plant-in-belgium/",
+          "title": "Aurubis to recover tin from new copper waste processing plant in Belgium - International Tin Association",
+          "excerpt": "Aurubis to recover tin from new copper waste processing plant in Belgium - International Tin Association Aurubis to recover tin from new copper waste processing plant in Belgium Sep 10, 2024 Aurubis’ new advanced sludge process",
+          "matched": [
+            "Aurubis",
+            "tin"
+          ]
+        }
+      ]
     },
     {
       "material": "High-purity tin, EUV droplet grade",
@@ -1272,13 +1440,31 @@
       "material": "High-purity tin, EUV droplet grade",
       "producer": "Minsur",
       "query": "\"Minsur\" tin",
+      "checkedAt": "2026-09-15T10:46:06.307Z",
       "status": "candidate",
-      "checkedAt": "2026-09-14T11:12:38.616Z",
       "candidates": [
         {
-          "url": "https://en.wikipedia.org/wiki/Minsur",
-          "title": "Minsur - Wikipedia",
-          "excerpt": "S$]] 706.9 Million (2008)\"},\"operating_income\":{\"wt\":\"\"},\"net_income\":{\"wt\":\"\"},\"num_employees\":{\"wt\":\"\"},\"subsidiaries\":{\"wt\":\"\"},\"website\":{\"wt\":\"[http://www.minsur.com www.minsur.com]\"}},\"i\":0}}]}'> Minsur Type Public Traded as BVL : MINSURI1 Industry Mining Founded (1966) Headquarters Lima , Peru Key people Fortunato Bre",
+          "url": "https://www.internationaltin.org/tag/minsur/",
+          "title": "Minsur Archives - International Tin Association",
+          "excerpt": "Minsur Archives - International Tin Association Minsur Becomes First ITA Member to Achieve Full Conformance with All 10 Tin Code Priority Standards Nov 17, 2025 The International Tin Association (ITA) is pleased to announce th",
+          "matched": [
+            "Minsur",
+            "tin"
+          ]
+        },
+        {
+          "url": "https://www.latin-metals.com/news/2026/latin-metals-and-minsur-sa-agree-option-terms-for-lacsha-c2026-08-18-060503",
+          "title": "Latin Metals Inc. - Latin Metals and Minsur S.A. Agree Option Terms for Lacsha Copper Project, Lima Department, Peru",
+          "excerpt": "Latin Metals Inc. - Latin Metals and Minsur S.A. Agree Option Terms for Lacsha Copper Project, Lima Department, Peru Latin Metals Inc. News Release Latin Metals and Minsur S.A. Agree Option Terms for Lacsha Copper Project, Lima Department, Peru Aug 18, 2026 Ter",
+          "matched": [
+            "Minsur",
+            "tin"
+          ]
+        },
+        {
+          "url": "https://www.icmm.com/en-gb/our-story/our-members/company-members/minsur",
+          "title": "ICMM - Minsur",
+          "excerpt": "ICMM - Minsur Share Our Story Minsur ICMM company member Minsur operates in Peru and Brazil where they mine tin, gold, niobium and tantalum. Minsur has its headquarters in Lima, Peru. Visit website Sustainability Reports ICMM membe",
           "matched": [
             "Minsur",
             "tin"
@@ -1401,13 +1587,22 @@
       "material": "Neon, excimer laser grade",
       "producer": "Baosteel Gases",
       "query": "\"Baosteel Gases\" neon",
+      "checkedAt": "2026-09-15T10:46:37.618Z",
       "status": "candidate",
-      "checkedAt": "2026-09-14T11:13:39.747Z",
       "candidates": [
         {
           "url": "https://www.einpresswire.com/article/818680629/rare-gas-market-the-silent-backbone-of-semiconductor-lithography-and-the-push-for-neon-supply-independence",
           "title": "Rare Gas Market: The Silent Backbone of Semiconductor Lithography and the Push for Neon Supply Independence",
-          "excerpt": "ly expanding its own rare gas production and purification capacity in an effort to achieve semiconductor self-sufficiency. Companies like Hangzhou Hangyang and Baosteel Gases are investing in air separation units and neon purification facilities to support domestic chip fabs. 𝐆𝐞𝐧𝐞𝐫𝐚𝐥 & 𝐀𝐝𝐯𝐚𝐧𝐜𝐞𝐝 𝐌𝐚𝐭𝐞𝐫𝐢𝐚𝐥𝐬 𝐈𝐧",
+          "excerpt": "political shift toward localized supply chains. China, in particular, is rapidly expanding its own rare gas production and purification capacity in an effort to achieve semiconductor self-sufficiency. Companies like Hangzhou Hangyang and Baosteel Gases are investing in air separation units and neon purification facilities to support domestic chip fabs. 𝐆𝐞𝐧𝐞𝐫𝐚𝐥 & 𝐀𝐝𝐯𝐚𝐧𝐜𝐞𝐝 𝐌𝐚𝐭𝐞𝐫𝐢𝐚𝐥𝐬 𝐈𝐧𝐝𝐮𝐬𝐭𝐫𝐲 𝐀𝐧𝐚𝐥𝐲𝐬𝐢𝐬: https://www",
+          "matched": [
+            "Baosteel Gases",
+            "neon"
+          ]
+        },
+        {
+          "url": "https://www.maximizemarketresearch.com/market-report/neon-gas-market/146699/",
+          "title": "Neon Gas Market- Industry Analysis and Forecast (2026-2034)",
+          "excerpt": "ses Co., Ltd. (China) 21. Shenandoah Industrial Gases (USA) 22. PGNIG (Poland) 23. Dakota Gasification Company (USA) 24. Yingde Gases Group (China) 25. China National Offshore Oil Corporation (CNOOC) – Gas Division (China) 26. Baosteel Gases (China) 27. Buzwair Industrial Gases Factories (Qatar) 28. SIAD Group (Italy) 29. SOL Group (Italy) 30. Southern Gas Ltd. (India) Frequently Asked Questions: 1] What segments are covered in the Global Neon Gas Ma",
           "matched": [
             "Baosteel Gases",
             "neon"
@@ -1446,9 +1641,38 @@
       "material": "Neon, excimer laser grade",
       "producer": "Iceblick",
       "query": "\"Iceblick\" neon",
-      "status": "nothing",
-      "checkedAt": "2026-09-14T11:13:28.770Z",
-      "candidates": []
+      "checkedAt": "2026-09-15T10:46:28.061Z",
+      "status": "candidate",
+      "candidates": [
+        {
+          "url": "https://www.hdinresearch.com/news/149",
+          "title": "Neon Gas Producers and Neon Gas Market Trend",
+          "excerpt": "as due to war, but the production can resume quickly after the war. The market size is expected to reach 980 tons globally in 2027, with a CAGR of 16.8% from 2022 to 2027. Global producers of neon gas include Ingas, Cryoin, Iceblick, Air Products, Air Liquide, Linde, Beijing Shougang Oxygen Plant, HBIS, TEMC, Nippon Sanso. Iceblick, Ingas and Cryoin hold 71.5% of the global neon gas market share. Neon gas is mainly used in semiconductors, accou",
+          "matched": [
+            "Iceblick",
+            "neon"
+          ]
+        },
+        {
+          "url": "https://spie.org/news/photonics-focus/mayjune-2023/supplying-noble-gases-for-photonics-in-war-time",
+          "title": "Noble gases and the shock of war: Laser and semiconductor manufacturers adjust to price increases while securing supply chains",
+          "excerpt": "hain complexity. Before the invasion, Ukraine accounted for 50 to 70 percent of global neon gas production and 40 and 30 percent, respectively, of global krypton and xenon gas production. Companies like Cryoin, Ingas, and Iceblick had major operations in Mariupol, Odessa, and elsewhere in Ukraine. Before the war, Ingas was producing 15,000 to 20,000 cubic meters of neon gas per month. Cryoin Business Development Director Larissa Bondarenko has",
+          "matched": [
+            "Iceblick",
+            "neon"
+          ]
+        },
+        {
+          "url": "https://www.z2data.com/insights/critical-materials-affected-by-russia-ukraine-conflict/",
+          "title": "Critical Materials Affected by Russia-Ukraine Conflict | Z2Data",
+          "excerpt": "ssia-Ukraine Conflict in 2014 Ukraine’s production of neon gas is necessary for the manufacturing of lasers in lithography machines that are used to etch the circuit designs into silicon wafers. Three key market players—Iceblick, Ingas, and Cryoin—in the world’s neon gas supply are located in Ukraine. In fact, 65 percent of the world’s Neon production is supplied by Iceblick, alone. Additionally, 15 percent of the world’s krypton (used as a fil",
+          "matched": [
+            "Iceblick",
+            "neon",
+            "lithography"
+          ]
+        }
+      ]
     },
     {
       "material": "Neon, excimer laser grade",
@@ -1507,9 +1731,39 @@
       "material": "REBCO superconducting tape, 12 mm",
       "producer": "Faraday Factory Japan",
       "query": "\"Faraday Factory Japan\" REBCO",
-      "status": "nothing",
-      "checkedAt": "2026-09-14T11:20:00.607Z",
-      "candidates": []
+      "checkedAt": "2026-09-15T10:50:16.904Z",
+      "status": "candidate",
+      "candidates": [
+        {
+          "url": "https://www.faradaygroup.com/en/",
+          "title": "FaradayFactoryJapan LLC | Hachioji City, Tokyo, Sagamihara City, Kanagawa Prefecture",
+          "excerpt": "ce and on time. View More TECHNOLOGY IBAD (Ion Beam Assisted Deposition) More PLD (Pulsed Laser Deposition) More Silver magnetron sputtering More Copper electrochemical plating More Quality Control More View More ABOUT US Faraday Factory Japan LLC was founded in 2011 and joined the US-based Faraday Group in 2022. Our goal is to make HTS tape affordable and available – just in time to enable multiple disruptive projects in industries like compact fusion, low",
+          "matched": [
+            "Faraday Factory Japan",
+            "fusion"
+          ]
+        },
+        {
+          "url": "https://mark-wedell.com/news/integrating-2g-hts-tape-into-superconducting-current-leads/",
+          "title": "Advanced 2G HTS Tape into Superconducting Current Leads",
+          "excerpt": "Advanced 2G HTS Tape into Superconducting Current Leads M&W Current Leads Mark & Wedell Partners with Faraday Factory September 10, 2025 Mark & Wedell Partners with Faraday Factory Japan to Integrate Advanced 2G HTS Tape into Superconducting Current Leads Through a strategic partnership, Mark & Wedell will integrate Faraday Factory Japan‘s cutting-edge REBCO 2G HTS tape into our superconducting current",
+          "matched": [
+            "Faraday Factory Japan",
+            "rebco",
+            "2g hts",
+            "rebco"
+          ]
+        },
+        {
+          "url": "https://nationalmaglab.org/news-events/news/a-prototype-miniature-superconducting-magnet/",
+          "title": "MagLab Sets A New World Record Magnetic Field - MagLab",
+          "excerpt": "old in your hand. But packed into that small package is more than 720 feet of a superconducting wire precision-manufactured by the Japanese company Faraday Factory. \"This is an outstanding accomplishment,\" said Sergey Lee, CEO of Faraday Factory Japan, \"We are proud to have contributed our superconductor material and expertise for it.\" A previous version of the test coil reached a record 45.5 tesla in 2017. The coils face challenges with mechanical and ther",
+          "matched": [
+            "Faraday Factory Japan",
+            "superconductor"
+          ]
+        }
+      ]
     },
     {
       "material": "REBCO superconducting tape, 12 mm",
@@ -1533,9 +1787,40 @@
       "material": "REBCO superconducting tape, 12 mm",
       "producer": "MetOx",
       "query": "\"MetOx\" REBCO",
-      "status": "nothing",
-      "checkedAt": "2026-09-14T11:20:05.397Z",
-      "candidates": []
+      "checkedAt": "2026-09-15T10:50:31.805Z",
+      "status": "candidate",
+      "candidates": [
+        {
+          "url": "https://www.metoxtech.com/technology",
+          "title": "Technology | Xeus™ HTS Wire Platform by MetOx — MetOx",
+          "excerpt": "HTS Wire Xeus™ wire is MetOx’s proprietary brand of HTS wire. Xeus ™ is designed to operate at much higher temperatures and can produce much higher stronger magnetic fields than low temperature superconducting wire (LTS). MetOx proprietary manufacturing process is the most advanced in the world for large scale HTS wire production. Large scale production of HTS allows for widespread adoption in a variety of applications. Superconductor Techno",
+          "matched": [
+            "MetOx",
+            "superconductor"
+          ]
+        },
+        {
+          "url": "https://www.metoxtech.com/superconductors-101",
+          "title": "Superconductors 101 — MetOx",
+          "excerpt": "Superconductors 101 — MetOx 0 Superconductors 101 High temperature superconducting (HTS) materials are unlocking groundbreaking innovation in cables, magnets, and power electronics. A leading U.S. manufacturer of HTS wire, MetOx delivers efficie",
+          "matched": [
+            "MetOx",
+            "superconductor",
+            "magnets"
+          ]
+        },
+        {
+          "url": "https://www.datainsightsreports.com/reports/rebco-superconducting-tape-for-fusion-magnets-market-58235",
+          "title": "Rebco Superconducting Tape Market Trends & 2033 Projections",
+          "excerpt": "d for high-power applications and fusion energy research. Furukawa Electric Co., Ltd.: A global manufacturer with strong capabilities in advanced materials, including the development of superconducting cables and wires. MetOx Technologies, Inc.: A US-based producer of high-performance REBCO HTS wire, focusing on robust and scalable manufacturing processes. Trithor GmbH: A German company engaged in the development and production of HTS wires,",
+          "matched": [
+            "MetOx",
+            "rebco",
+            "rebco",
+            "fusion"
+          ]
+        }
+      ]
     },
     {
       "material": "REBCO superconducting tape, 12 mm",
@@ -1549,17 +1834,76 @@
       "material": "REBCO superconducting tape, 12 mm",
       "producer": "SuperPower",
       "query": "\"SuperPower\" REBCO",
-      "status": "nothing",
-      "checkedAt": "2026-09-14T11:20:02.897Z",
-      "candidates": []
+      "checkedAt": "2026-09-15T10:50:26.574Z",
+      "status": "candidate",
+      "candidates": [
+        {
+          "url": "https://www.superpower-inc.com/specification.aspx",
+          "title": "2G HTS Wire Specification | SuperPower",
+          "excerpt": "2G HTS Wire Specification | SuperPower About Us Our Goals & SDGs SuperPower Chronicle Management Products Specifications Quality Assurance Technology Superconductivity Our Technology News Contact Home About Us Our Goals & SDGs SuperPower Chronicle Management",
+          "matched": [
+            "SuperPower",
+            "2g hts"
+          ]
+        },
+        {
+          "url": "https://www.superpower-inc.com/",
+          "title": "Home Page | SuperPower",
+          "excerpt": "e Technology Superconductivity Our Technology News Contact Search Previous Slide ◀︎ Next Slide ▶︎ Superior Performance Powerful Technology Superior Wire For Many Applications Superior Wire For Many Applications About Us SuperPower Inc. is a leading manufacturer and provider of second-generation high-temperature superconducting (2G-HTS) wires. For the past 10 years or more, we have provided, and contributed to, many solutions to various advanced a",
+          "matched": [
+            "SuperPower",
+            "2g hts"
+          ]
+        },
+        {
+          "url": "https://nationalmaglab.org/magnet-development/applied-superconductivity-center/research/science-highlights/measuring-transport-dependencie-rebco-tapes/",
+          "title": "Characterization of Improved SuperPower REBCO Tapes up to 31 Tesla Field - MagLab",
+          "excerpt": "Characterization of Improved SuperPower REBCO Tapes up to 31 Tesla Field - MagLab Skip to main content Home / Magnet Development / Applied Superconductivity Center / Research / Science Highlights / Measuring Transport Dependencie REBCO Tapes Characterization",
+          "matched": [
+            "SuperPower",
+            "rebco",
+            "rebco"
+          ]
+        }
+      ]
     },
     {
       "material": "REBCO superconducting tape, 12 mm",
       "producer": "THEVA",
       "query": "\"THEVA\" REBCO",
-      "status": "nothing",
-      "checkedAt": "2026-09-14T11:20:12.023Z",
-      "candidates": []
+      "checkedAt": "2026-09-15T10:50:37.849Z",
+      "status": "candidate",
+      "candidates": [
+        {
+          "url": "https://www.theva.com/products/",
+          "title": "Products - THEVA",
+          "excerpt": "Products - THEVA Skip to content PRODUCTS Products linda 2025-10-17T13:15:19+02:00 THEVA Pro-Line Extremely High Power Density. Easy Processing. New Possibilities. THEVA Pro-Line is our high temperature superconductor (HTS) wire. It i",
+          "matched": [
+            "THEVA",
+            "superconductor"
+          ]
+        },
+        {
+          "url": "https://www.theva.de/theva-mt29-konferenz/",
+          "title": "THEVA @ MT29 Konferenz",
+          "excerpt": "erenz Zeige grösseres Bild Bald ist es so weit und die 29. Episode der International Conference on Magnet Technology (MT 29) steht an. Dieses Mal versammeln sich Vertreter aus Industrie und Forschung in Boston, USA. Für THEVA reist Dr. Anis Smara an und hält einen Vortrag „ High-Performance REBCO HTS tapes for high-field applications: advancements in medical imaging and fusion energy. “ im Rahmen der Session zur Herstellung von Hochtemperatu",
+          "matched": [
+            "THEVA",
+            "rebco",
+            "rebco",
+            "fusion"
+          ]
+        },
+        {
+          "url": "https://www.cleanthinking.de/subra-supraleiter-theva/",
+          "title": "Subra: Supraleiterkabel aus Dänemark und Bayern",
+          "excerpt": "m flexiblen Rundleiter. (Foto: Subra) Subra ist ein dänisches Cleantech-Unternehmen, das supraleitende Stromkabel für Netze, Industrieanschlüsse und Fusionsanlagen baut. Mit der Übernahme des bayerischen Bandherstellers THEVA im April 2026 kontrolliert Subra erstmals die gesamte Fertigungskette von der Beschichtung bis zum Kabel innerhalb Europas. Wie ein Supraleiterkabel Strom nahezu verlustfrei transportiert Ein Hochtemperatur-Supraleiter,",
+          "matched": [
+            "THEVA",
+            "fusion"
+          ]
+        }
+      ]
     },
     {
       "material": "Ruthenium, sputtering and ALD grade",
@@ -1637,13 +1981,31 @@
       "material": "Ruthenium, sputtering and ALD grade",
       "producer": "Impala Platinum",
       "query": "\"Impala Platinum\" ruthenium",
+      "checkedAt": "2026-09-15T10:47:00.722Z",
       "status": "candidate",
-      "checkedAt": "2026-09-14T11:13:50.335Z",
       "candidates": [
+        {
+          "url": "https://www.wallstreet-online.de/aktien/164676-impala-platinum-holdings-aktie",
+          "title": "Impala Platinum Holdings Aktie (0S2J) | Aktienkurs » US4525533083 | wallstreetONLINE",
+          "excerpt": "tion der Aktivitäten in Südafrika und Simbabwe ist Impala Platinum eng mit der wirtschaftlichen, regulatorischen und energiepolitischen Entwicklung dieser Länder verflochten, bleibt aber zugleich ein global ausgerichteter Anbieter in einem international gehandelten Markt. Die Erlöse von Impala Platinum stammen überwiegend aus dem Verkauf von Platin, Palladium und Rhodium, ergänzt um kleinere Beiträge weiterer Platingruppenmetalle wie Ruthenium und Iri",
+          "matched": [
+            "Impala Platinum",
+            "ruthenium"
+          ]
+        },
+        {
+          "url": "https://www.miningweekly.com/article/new-phase-r60bn-capex-programme-announced-by-impala-platinum-2026-09-03",
+          "title": "New-phase R60bn capex programme announced by Impala Platinum",
+          "excerpt": "an upgrade your subscription now at this link . If you are a Creamer Media subscriber, click here to log in. 3rd September 2026 By: Martin Creamer Creamer Media Editor Font size: - + JOHANNESBURG (miningweekly.com) – A big part of Impala Platinum is focused on the future and on developing future strengths and competitive positioning, Implats CEO Nico Muller outlined on Thursday, September 3, when this Johannesburg Stock Exchange-listed platinum group",
+          "matched": [
+            "Impala Platinum",
+            "pgm"
+          ]
+        },
         {
           "url": "https://implats-ir.co.za/reports/implats-iar-2016/Implats-MRR-2016/index.php",
           "title": "Implats | Mineral Resources and Mineral Reserves Statement 2016 | Overview",
-          "excerpt": "Implats | Mineral Resources and Mineral Reserves Statement 2016 | Overview Scroll down Introduction Impala Platinum Holdings Limited (Implats) is one of the world’s foremost producers of platinum and associated platinum group metals (PGMs). Implats is structured around five",
+          "excerpt": "Implats | Mineral Resources and Mineral Reserves Statement 2016 | Overview Scroll down Introduction Impala Platinum Holdings Limited (Implats) is one of the world’s foremost producers of platinum and associated platinum group metals (PGMs). Implats is structured around five main operations with a total of 21 underground shafts. Our o",
           "matched": [
             "Impala Platinum",
             "pgm"
@@ -1709,17 +2071,74 @@
       "material": "Ruthenium, sputtering and ALD grade",
       "producer": "Sibanye-Stillwater",
       "query": "\"Sibanye-Stillwater\" ruthenium",
-      "status": "nothing",
-      "checkedAt": "2026-09-14T11:13:45.983Z",
-      "candidates": []
+      "checkedAt": "2026-09-15T10:46:51.319Z",
+      "status": "candidate",
+      "candidates": [
+        {
+          "url": "https://www.miningweekly.com/article/new-longer-term-platinum-metal-applications-needed-sibanye-stillwater-headlines-2026-06-25",
+          "title": "New longer-term platinum metal applications needed, Sibanye-Stillwater headlines",
+          "excerpt": "amer Media Editor Font size: - + JOHANNESBURG (miningweekly.com) – To replace declining demand for the autocatalysis that curbs emissions from vehicle exhausts, new longer-term platinum group metal (PGM) applications are required, Sibanye-Stillwater headlined at its South Africa Capital Markets Day. Flashed on to the screen under the headline were three initiatives in which the Johannesburg Stock Exchange-listed PGM mining and marketing company is invest",
+          "matched": [
+            "Sibanye-Stillwater",
+            "pgm"
+          ]
+        },
+        {
+          "url": "https://www.justetf.com/de/stock-profiles/US82575P1075",
+          "title": "Sibanye Stillwater Ltd. Aktie | US82575P1075 | A2P0BU",
+          "excerpt": "on von Gold. Darüber hinaus produziert und raffiniert es Iridium, Ruthenium, Nickel, Chrom, Kupfer und Kobalt. Das Unternehmen hat sein Anlagenportfolio auf den Abbau und die Verarbeitung von Batteriemetallen ausgedehnt. Sibanye Stillwater wurde am 1. Februar 2013 gegründet und hat seinen Hauptsitz in Weltevreden Park, Südafrika. Mehr anzeigen Weniger anzeigen Grundstoffe und fertige Erzeugnisse Bergbau und mineralische Produkte Metallerzbergbau Südafrik",
+          "matched": [
+            "Sibanye-Stillwater",
+            "ruthenium"
+          ]
+        },
+        {
+          "url": "https://www.wallstreet-online.de/aktien/us82575p1075-sibanye-stillwater-aktie",
+          "title": "Sibanye Stillwater Aktie (SBSW) | Aktienkurs » US82575P1075 | wallstreetONLINE",
+          "excerpt": "poration 16,19 EUR % \" data-push=\"2;ls;quotes;1051148@21@27;tpr\" > -0,58 % +80,14 % Coeur Mining 17,025 EUR % \" data-push=\"2;ls;quotes;6449774@21@27;tpr\" > -1,05 % +29,94 % Wheaton Precious Metals 130,70 EUR % \" data-push=\"2;ls;quotes;271301130@21@27;tpr\" > +0,81 % +42,15 % Mehr entdecken Sibanye Stillwater 2,5800 EUR % \" data-push=\"2;ls;quotes;337189823@21@27;tpr\" > -0,39 % Watchlist Portfolio Viking Therapeutics 27,40 EUR % \" data-push=\"2;ls;quotes;159",
+          "matched": [
+            "Sibanye-Stillwater",
+            "precious metal"
+          ]
+        }
+      ]
     },
     {
       "material": "Ruthenium, sputtering and ALD grade",
       "producer": "Tanaka Kikinzoku",
       "query": "\"Tanaka Kikinzoku\" ruthenium",
-      "status": "nothing",
-      "checkedAt": "2026-09-14T11:14:37.886Z",
-      "candidates": []
+      "checkedAt": "2026-09-15T10:47:10.381Z",
+      "status": "candidate",
+      "candidates": [
+        {
+          "url": "https://www.newsfilecorp.com/release/130663/Neues-Verfahren-von-TANAKA-erzeugt-ultradnne-RutheniumHalbleiterschichten-von-hoher-Qualitt",
+          "title": "Neues Verfahren von TANAKA erzeugt ultradünne Ruthenium-Halbleiterschichten von hoher Qualität",
+          "excerpt": "s Halbleiters abhängt. TANAKA geht diese Herausforderungen an, indem es die Abscheidegeschwindigkeit von flüssigen Ruthenium-Präkursoren verbessert und die Haltbarkeit von Halbleitern verbessert - bei gleichzeitig sinkenden Kosten. ■ Über TANAKA Precious Metals Seit der Gründung im Jahr 1885 hat TANAKA Precious Metals ein breit gefächertes Angebotsspektrum im Edelmetallbereich aufgebaut. In Japan ist das Unternehmen, gemessen am Volumen der gehandelten Edelm",
+          "matched": [
+            "TANAKA Precious Metals",
+            "ruthenium",
+            "precious metal"
+          ]
+        },
+        {
+          "url": "https://www.miningfrontier.com/press-releases/tanaka-develops-first-high-entropy-alloy-powder-comprised-entirely-of-precious-metals/",
+          "title": "TANAKA Develops First High-Entropy Alloy Powder Comprised Entirely of Precious Metals",
+          "excerpt": "rategic alliance aimed... Press Releases Manufacturing Indaba Expands to Cape Town with Major New Manufacturing Summit Following the success of the 13th Manufacturing Indaba in... ✦ Show Quick Read Summary is AI-generated ⌄ TANAKA Kikinzoku Kogyo K.K., a core company of the TANAKA Precious Metals Group, has developed a high-entropy alloy powder composed entirely of precious metals with a fine particle size of 10um or less, high crystallinity and excell",
+          "matched": [
+            "Tanaka Kikinzoku",
+            "precious metal"
+          ]
+        },
+        {
+          "url": "https://www.businessinsider.com/sc/a-new-high-entropy-alloy-is-opening-up-possibilities-in-manufacturing",
+          "title": "A New High-Entropy Alloy Is Opening up Possibilities in Manufacturing - Business Insider",
+          "excerpt": "ixing a small number of additive elements in with a main element. However, increasing research and development is creating advancements in the world of cutting-edge alloys, allowing for more elements to be mixed together. Tanaka Kikinzoku Kogyo KK, a member of the TANAKA Precious Metals Group (hereinafter referred to as TANAKA), has become the first manufacturing company in the world to succeed in developing a high-entropy alloy powder, a fusion of fiv",
+          "matched": [
+            "Tanaka Kikinzoku",
+            "precious metal"
+          ]
+        }
+      ]
     },
     {
       "material": "Ruthenium, sputtering and ALD grade",
@@ -1865,13 +2284,13 @@
       "material": "Silicon carbide substrate, 200 mm semi-insulating",
       "producer": "SK Siltron CSS",
       "query": "\"SK Siltron CSS\" silicon carbide",
+      "checkedAt": "2026-09-15T10:48:27.108Z",
       "status": "candidate",
-      "checkedAt": "2026-09-14T11:17:42.848Z",
       "candidates": [
         {
           "url": "https://www.sksiltroncss.com/",
           "title": "SK Siltron CSS | US/Korea-Made SiC Wafer Manufacturer",
-          "excerpt": "SK Siltron CSS | US/Korea-Made SiC Wafer Manufacturer top of page Powering Sustainable Solutions At SK siltron css, our products help you build environmentally friendly SiC d",
+          "excerpt": "SK Siltron CSS | US/Korea-Made SiC Wafer Manufacturer top of page Powering Sustainable Solutions At SK siltron css, our products help you build environmentally friendly SiC devices for industries like automotive, renewable energy, com",
           "matched": [
             "SK Siltron CSS",
             "sic",
@@ -1879,21 +2298,23 @@
           ]
         },
         {
-          "url": "https://www.thelec.net/news/articleView.html?idxno=12315",
-          "title": "SK Siltron to Liquidate US SiC Wafer Subsidiary This Year < Supply Chain < 기사본문 - The Elec Inc.",
-          "excerpt": "s restructuring plan discussed during sale negotiations with Doosan. According to industry sources on July 17, SK Siltron is proceeding with the liquidation of SK Siltron CSS, its SiC wafer manufacturing subsidiary located in Michigan. The process is expected to be completed by the end of this year. Operations at the company's manuf",
+          "url": "https://www.sksiltron.com/en/wafer/waferC.do",
+          "title": "SK실트론",
+          "excerpt": "oduced includes single-layer or multilayer n-type and p-type epitaxy. ApplicationSchottky Schottky Diode, Pin Diodes and Switches, High Current and Voltage MOSFETs / JFETs / BJTs Prime Grade Portfolio All SiC wafers in SK Siltron CSS’s 100 mm and 150 mm Prime Grade portfolios deliver consistently excellent mechanical characteristics to ensure compatibility with existing and developing device fabrication processes. SiC wafers offer an attractive optio",
           "matched": [
             "SK Siltron CSS",
             "sic"
           ]
         },
         {
-          "url": "https://www.sksiltron.com/en/wafer/waferC.do",
-          "title": "SK실트론",
-          "excerpt": "e epitaxy. ApplicationSchottky Schottky Diode, Pin Diodes and Switches, High Current and Voltage MOSFETs / JFETs / BJTs Prime Grade Portfolio All SiC wafers in SK Siltron CSS’s 100 mm and 150 mm Prime Grade portfolios deliver consistently excellent mechanical characteristics to ensure compatibility with existing and developing devic",
+          "url": "https://www.sksiltroncss.com/products",
+          "title": "Products | SK Siltron CSS",
+          "excerpt": "Products | SK Siltron CSS top of page Products Your First Source for SiC Power Electronics Devices Reliability. Consistency. Quality. Performance. At SK siltron css, we build these qualities into all our products, from silicon carbide ingots and",
           "matched": [
             "SK Siltron CSS",
-            "sic"
+            "silicon carbide",
+            "sic",
+            "power"
           ]
         }
       ]
@@ -1982,13 +2403,31 @@
       "material": "Two-phase dielectric immersion coolant",
       "producer": "3M",
       "query": "\"3M\" immersion cooling",
+      "checkedAt": "2026-09-15T10:48:33.615Z",
       "status": "candidate",
-      "checkedAt": "2026-09-14T11:18:04.506Z",
       "candidates": [
         {
-          "url": "https://en.wikipedia.org/wiki/Fluorinert",
-          "title": "Fluorinert - Wikipedia",
-          "excerpt": "remains a liquid, or for \"two-phase\" applications, where the liquid boils to remove additional heat by evaporative cooling . An example of one of the compounds 3M uses is FC-72 ( perfluorohexane , C 6 F 14 ). Perfluorohexane is used for low-temperature heat-transfer applications due to its 56 °C (133 °F) boiling point. A",
+          "url": "https://www.youtube.com/watch?v=YyKIZPuepl8",
+          "title": "PC Cooling Submerged in 3M LIQUID? - YouTube",
+          "excerpt": "PC Cooling Submerged in 3M LIQUID? - YouTube About Press Copyright Contact us Creators Advertise Developers Terms Privacy Policy & Safety How YouTube works Test new features &copy; 2026 Google L",
+          "matched": [
+            "3M",
+            "cooling"
+          ]
+        },
+        {
+          "url": "https://www.puretecs.de/en/products/coolant/3m-novec-649-en.html",
+          "title": "3M™ Novec™ 649 – Highly effective thermal interface fluid",
+          "excerpt": "ost of ownership. This makes FK-649 particularly suitable for heat transfer, electronics cooling, and thermal management applications where flammability or environmental impacts are a concern. Properties of FK-649 compared to 3M™ Novec™ 649 FK-649 3M™ Novec™ 649 Chemistry Fluorinated ketone(>99,9%) Fluorinated ketone (99,99%) CAS # 756-13-8 756-13-8 Boiling point 49°C 49°C Pour point -108°C -108°C Density @ 25°C 1,6 g/cm³ 1,6 g/cm³ Vapor",
+          "matched": [
+            "3M",
+            "cooling"
+          ]
+        },
+        {
+          "url": "https://www.datacenterknowledge.com/cooling/closer-look-3m-s-boiling-liquid-cooling",
+          "title": "Closer Look: 3M's Boiling Liquid Cooling",
+          "excerpt": "Closer Look: 3M's Boiling Liquid Cooling Newsletter Sign-Up Newsletter Sign-Up Infrastructure Related Topics Hardware Networking Cooling Data Storage Recent in Infrastructure See All Infrastructure Energy & Power Supply Speed Is the Ne",
           "matched": [
             "3M",
             "cooling"
@@ -2000,33 +2439,127 @@
       "material": "Two-phase dielectric immersion coolant",
       "producer": "AGC",
       "query": "\"AGC\" immersion cooling",
-      "status": "nothing",
-      "checkedAt": "2026-09-14T11:18:30.588Z",
-      "candidates": []
+      "checkedAt": "2026-09-15T10:49:37.783Z",
+      "status": "candidate",
+      "candidates": [
+        {
+          "url": "https://www.puretecs.de/en/products/coolant/agc-asahiklin-ac-6000.html",
+          "title": "AGC ASAHIKLIN AC-6000",
+          "excerpt": "heat transfer agent. It is characterized by a low viscosity at low temperatures, as well as very good operational safety and environmental compatibility. The liquid is clear, colorless and has little odor. Manufacturer: AGC Container type: 1kg glass bottle, 20kg steel canister Property: boiling point 115, non-flammable, not electrically conductive, inert, GWP 136, ODP 0 Application: cooling of electronics, direct chip cooling, battery cool",
+          "matched": [
+            "AGC",
+            "cooling"
+          ]
+        },
+        {
+          "url": "https://www.researchandmarkets.com/articles/key-companies-in-hydrofluoroolefin-immersion-cooling-fluid-market",
+          "title": "6 Leading Hydrofluoroolefin Immersion Cooling Fluid Companies Shaping Data Center Sustainability in 2025 and Beyond",
+          "excerpt": "demand greater customization, Solvay’s consultative approach and global supply chain reach mark it as a competitive powerhouse in the emerging immersion cooling fluid sector and a vital driver of industry advancements. 4. AGC Inc. AGC Inc. (Asahi Glass Company) has made significant strides in developing cutting-edge hydrofluoroolefin-based solutions designed for optimal environmental compliance and reliability. A focus on scalable manufact",
+          "matched": [
+            "AGC",
+            "immersion cooling",
+            "immersion",
+            "cooling"
+          ]
+        },
+        {
+          "url": "https://alliancechemical.com/blogs/articles/post-novec-immersion-fluid-alternatives-2026",
+          "title": "Post-Novec Immersion Cooling Fluids: 2026 Alternatives",
+          "excerpt": "ur facility held after January 1, 2026. Operations teams should treat disposal planning as a mandatory component of fluid procurement decisions going forward — not just for fluorinated fluids but for any immersion fluid with limited or specialized disposal pathways. Any contract for fluorinated alternatives from Syensqo or AGC should include explicit documentation of the approved disposal pathway and estimated per-liter disposal cost as li",
+          "matched": [
+            "AGC",
+            "immersion"
+          ]
+        }
+      ]
     },
     {
       "material": "Two-phase dielectric immersion coolant",
       "producer": "Chemours",
       "query": "\"Chemours\" immersion cooling",
-      "status": "nothing",
-      "checkedAt": "2026-09-14T11:18:23.729Z",
-      "candidates": []
+      "checkedAt": "2026-09-15T10:49:12.532Z",
+      "status": "candidate",
+      "candidates": [
+        {
+          "url": "https://www.wral.com/news/local/as-ai-data-centers-expand-new-cooling-chemicals-raise-pfas-concerns-august-2026/",
+          "title": "As AI data centers expand, new cooling chemicals raise PFAS concerns :: WRAL.com",
+          "excerpt": "ps from overheating. Some of those cooling technologies rely on PFAS, a broad class of fluorinated compounds already responsible for widespread drinking water contamination in North Carolina. Other WRAL Top Stories Now, Chemours , the company at the center of the Cape Fear PFAS contamination , is developing a fluorinated fluid called Opteon 2P50 to cool high-powered data center servers. The chemical is still awaiting federal approval and is not",
+          "matched": [
+            "Chemours",
+            "cooling"
+          ]
+        },
+        {
+          "url": "https://www.coolingpost.com/world-news/chemours-signs-2-pic-deal-with-server-manufacturer/",
+          "title": "Chemours signs 2-PIC deal with server manufacturer - Cooling Post",
+          "excerpt": "Chemours signs 2-PIC deal with server manufacturer - Cooling Post Subscribe World News Industry news and insights from Europe and around the World UK News Latest news and developments in the United Kingdom Products Keep up-to-da",
+          "matched": [
+            "Chemours",
+            "cooling"
+          ]
+        }
+      ]
     },
     {
       "material": "Two-phase dielectric immersion coolant",
       "producer": "Engineered Fluids",
       "query": "\"Engineered Fluids\" immersion cooling",
-      "status": "nothing",
-      "checkedAt": "2026-09-14T11:18:35.694Z",
-      "candidates": []
+      "checkedAt": "2026-09-15T10:49:50.580Z",
+      "status": "candidate",
+      "candidates": [
+        {
+          "url": "https://dovetail.aero/engineered-fluids-partners-with-dovetail-electric-aviation-todevelop-immersion-cooled-battery-for-electric-aircraft/",
+          "title": "Engineered fluids partners with Dovetail Electric Aviation todevelop immersion-cooled battery for electric aircraft – Dovetail",
+          "excerpt": "Engineered fluids partners with Dovetail Electric Aviation todevelop immersion-cooled battery for electric aircraft – Dovetail Skip to main content Engineered fluids partners with Dovetail Electric Aviation todevelop immersion-cooled bat",
+          "matched": [
+            "Engineered Fluids",
+            "immersion"
+          ]
+        },
+        {
+          "url": "https://www.linkedin.com/company/engineeredfluids",
+          "title": "Engineered Fluids. Inc. | LinkedIn",
+          "excerpt": "LinkedIn. Learn more in our Cookie Policy . Select Accept to consent or Reject to decline non-essential cookies for this use. You can update your choices at any time in your settings . Accept Reject Skip to main content Engineered Fluids. Inc. Chemical Manufacturing Tyler, Texas 1,305 followers The Single-phase Liquid Immersion Cooling Experts. Biodegradable & Non-toxic Synthetic Dielectric Coolants Follow Discover all 15 employees Report this company A",
+          "matched": [
+            "Engineered Fluids",
+            "immersion cooling",
+            "immersion",
+            "cooling",
+            "dielectric"
+          ]
+        }
+      ]
     },
     {
       "material": "Two-phase dielectric immersion coolant",
       "producer": "Syensqo",
       "query": "\"Syensqo\" immersion cooling",
-      "status": "nothing",
-      "checkedAt": "2026-09-14T11:18:27.237Z",
-      "candidates": []
+      "checkedAt": "2026-09-15T10:49:24.490Z",
+      "status": "candidate",
+      "candidates": [
+        {
+          "url": "https://salesandserviceinc.com/data-center-liquid-cooling/",
+          "title": "Galden® PFPE for Data Center Liquid Cooling",
+          "excerpt": "not all dielectric fluids deliver the same level of high reliability. Galden PFPE is engineered for demanding data center immersion cooling applications where performance, longevity, and system integrity are paramount. Syensqo Galden PFPE fluids stand out as an ideal solution for these applications. With exceptional dielectric properties, superior material compatibility, and robust chemical stability, the Galden PFPE line of fluids supports n",
+          "matched": [
+            "Syensqo",
+            "immersion cooling",
+            "dielectric fluid",
+            "immersion",
+            "cooling",
+            "dielectric"
+          ]
+        },
+        {
+          "url": "https://www.lesker.com/newweb/fluids/heattransfer-galden-ht/",
+          "title": "Kurt J. Lesker Company | Galden&reg; Heat Transfer Fluids | Enabling Technology for a Better World",
+          "excerpt": "ine of Novec&trade; and Fluorinert&trade; fluids. Syensqo's Galden &reg; PFPE fluids emerge as an ideal replacement for 3M's fluoropolymer products. These high-performance, fluorinated fluids are available for immediate use. Syensqo's Galden &reg; PFPE fluids offer exceptional chemical stability, good dielectric properties, and the ability to operate across a wide temperature range, from -70&deg;C to 290&deg;C. Their inert nature and versatili",
+          "matched": [
+            "Syensqo",
+            "dielectric"
+          ]
+        }
+      ]
     }
   ]
 }

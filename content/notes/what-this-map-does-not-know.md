@@ -46,11 +46,17 @@ There is also exactly one instrument where a named organisation is recorded as
 having asked for it, because that is the only one where an organisation said so
 in its own published document. The other eleven say so plainly.
 
-## There is no track record
+## The track record is empty rather than absent
 
-No dated, falsifiable call has been published here yet. A research project is
-eventually worth what its past calls were worth, and this one has none. That is
-the next thing to build.
+The first seven dated calls were published on 15 September 2026, each naming the
+observation that would settle it and the date by which reality has to answer.
+None of them comes due before 2027, so there is nothing to score yet.
+
+That is a real limitation and not a modest one: a research project is eventually
+worth what its past calls were worth, and this one cannot yet point at a single
+resolved prediction. What it can point at is that the calls are public, dated,
+and written to be losable — including one that predicts this map will turn out
+to be uninteresting about silicon carbide.
 
 ## Why publish this list
 

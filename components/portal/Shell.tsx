@@ -14,6 +14,7 @@ import Link from 'next/link';
 
 import { siteChrome } from '@/config/site-content';
 import { NAV_ACTION, navGroups } from '@/config/site-nav';
+import { CALLS } from '@/config/substrata-calls';
 import { EVENTS } from '@/config/substrata-events';
 import { INSTRUMENTS } from '@/config/substrata-policy';
 import { SCIENCE } from '@/config/substrata-science';
@@ -38,6 +39,7 @@ export const GROUP_FOR_PATH: Record<string, string> = {
   about: 'about',
   thesis: 'about',
   research: 'about',
+  calls: 'about',
   join: 'join',
 };
 
@@ -64,6 +66,7 @@ const FOOTER_GROUPS = [
     links: [
       { href: '/about', label: 'What this is' },
       { href: '/thesis', label: 'What we think' },
+      { href: '/calls', label: 'Calls' },
       { href: '/research', label: 'Open questions' },
       { href: '/join', label: 'Join' },
     ],
@@ -93,6 +96,7 @@ export function Shell({
     solutions: SCIENCE.length,
     events: EVENTS.length,
     notes: noteCount(),
+    calls: CALLS.length,
     bindingNow: BOTTLENECKS.filter((b) => b.horizon === 'now').length,
   });
 

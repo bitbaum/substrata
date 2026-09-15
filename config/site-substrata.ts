@@ -23,6 +23,7 @@ import {
   WHO_MAKES_IT,
 } from './substrata-about';
 import { INVESTMENT_THESIS } from './substrata-acting';
+import { callsTesting } from './substrata-calls';
 import { JOIN } from './substrata-join';
 import { coverageProgress } from './substrata-coverage';
 import { EVENTS } from './substrata-events';
@@ -129,12 +130,29 @@ function thesisPage(): SitePage {
             'addressed to anyone in particular, and it takes no account of your circumstances.',
         ],
       },
-      ...INVESTMENT_THESIS.map((claim) => ({
-        kind: 'definitions' as const,
-        heading: claim.claim,
-        blurb: claim.detail,
-        items: [{ term: 'What would show this is wrong', detail: claim.falsifier }],
-      })),
+      ...INVESTMENT_THESIS.map((claim) => {
+        const calls = callsTesting(claim.id);
+        return {
+          kind: 'definitions' as const,
+          heading: claim.claim,
+          blurb: claim.detail,
+          items: [
+            { term: 'What would show this is wrong', detail: claim.falsifier },
+            // A general view cannot be marked. The dated calls that bear on it
+            // can, which is what stops this page being six opinions.
+            ...(calls.length > 0
+              ? [
+                  {
+                    term: `Tested by ${calls.length} dated call${calls.length > 1 ? 's' : ''}`,
+                    detail: calls
+                      .map((call) => `${call.claim} (resolves by ${call.resolveBy})`)
+                      .join(' '),
+                  },
+                ]
+              : []),
+          ],
+        };
+      }),
     ],
   };
 }
