@@ -92,10 +92,6 @@ export const RESEARCH_PROGRAMMES: readonly ResearchProgramme[] = [
         'rewrite its own code in minutes still waits weeks for a board, a quarter for a ' +
         'training run, and years for a qualified material. Where the periods jump is where ' +
         'the chain gates, and the bottlenecks that gate each layer are named against it.',
-      'Whether the world this happens in is itself a computation changes nothing here. ' +
-        'A simulated universe and a base universe present the same lead times, the same ' +
-        'order books and the same fifteen materials to anyone building inside them. The ' +
-        'substrate is the part of the question that can actually be researched.',
     ],
     layers: [
       {

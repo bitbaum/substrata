@@ -38,7 +38,7 @@
 export const COMPANY = {
   name: 'Substrata',
   slug: 'substrata',
-  tagline: 'The chokepoints between here and the singularity, written down in public.',
+  tagline: 'The bottlenecks on the path to transformative technology, written down in public.',
 } as const;
 
 // =====================================================================
@@ -516,7 +516,7 @@ export const LISTING_COPY = {
   subhead: COMPANY.tagline,
   body: [
     'Substrata is an open-source research firm covering the physical ' +
-      'chokepoints between here and a technological singularity. The research ' +
+      'bottlenecks on the path to transformative technology. The research ' +
       'is free and the map is the product. There is no trading desk and no ' +
       'position in anything covered here.',
     'A node enters coverage only if it passes two tests: it moves one of ' +

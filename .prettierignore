@@ -32,3 +32,4 @@ yarn.lock
 
 # Written by the research engine (scripts/research/source-producers.ts), not by hand.
 research/evidence.json
+research/events.json

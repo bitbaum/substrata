@@ -27,6 +27,9 @@ import { INVESTMENT_THESIS, READINESS } from '@/config/substrata-acting';
 import { CHAIN_LAYERS, PARTICIPANTS } from '@/config/substrata-participants';
 import { EVIDENCE, evidenceFor, verificationFor } from '@/config/substrata-evidence';
 import { RESEARCH_PROGRAMMES, programmeProgress } from '@/config/substrata-programmes';
+import { eventsNewestFirst } from '@/config/substrata-events';
+import { STAGES } from '@/config/substrata-stages';
+import { BOTTLENECKS } from '@/lib/bottlenecks';
 import { portalTotals } from '@/lib/bottlenecks';
 import { SITE } from '@/lib/site';
 
@@ -55,6 +58,25 @@ export function buildMap() {
       },
       chokepoints: { total: chokepoints.total, sourced: chokepoints.sourced },
     },
+    stages: STAGES.map((stage) => ({
+      id: stage.id,
+      name: stage.name,
+      reliefTime: stage.reliefTime,
+      bottlenecks: BOTTLENECKS.filter((b) => b.stage === stage.id).map((b) => b.slug),
+    })),
+    bottlenecks: BOTTLENECKS.map((b) => ({
+      slug: b.slug,
+      name: b.name,
+      kind: b.kind,
+      stage: b.stage,
+      binding: b.binding,
+      score: b.score,
+      horizon: b.horizon,
+      judgedOn: b.judgedOn,
+      state: b.state,
+      events: b.events.map((e) => e.id),
+    })),
+    events: eventsNewestFirst(),
     curves: MANDATE_CURVES.map((curve) => ({ id: curve.id, label: curve.label, test: curve.test })),
     materials: COVERAGE.map((entry) => {
       const listing = MATERIALS.find((m) => m.title === entry.material);

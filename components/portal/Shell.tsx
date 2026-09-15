@@ -17,7 +17,9 @@ import { siteChrome } from '@/config/site-content';
 import { SITE, correctionUrl } from '@/lib/site';
 
 export const PORTAL_NAV = [
-  { path: '', label: 'Board' },
+  { path: '', label: 'Today' },
+  { path: 'board', label: 'Board' },
+  { path: 'events', label: 'Events' },
   { path: 'research', label: 'Research' },
   { path: 'thesis', label: 'Thesis' },
   { path: 'mandate', label: 'About' },

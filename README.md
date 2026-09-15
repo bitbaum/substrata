@@ -1,7 +1,7 @@
 # Substrata
 
 Open-source research on the physical chokepoints between here and a
-technological singularity.
+much faster technological progress.
 
 Live at **https://substrata.orangecat.ch** — that is an address, not an
 affiliation. Substrata is its own firm, its own repository and its own

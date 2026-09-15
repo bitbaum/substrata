@@ -1,55 +1,72 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { applyQuery, parseQuery } from 'listkit';
 
 import { COMPANY } from '@/config/substrata';
-import { EVIDENCE } from '@/config/substrata-evidence';
+import { HORIZON_LABEL } from '@/config/substrata-assessment';
+import {
+  EVENTS,
+  candidatesAwaiting,
+  eventsNewestFirst,
+  eventsSince,
+} from '@/config/substrata-events';
 import { RESEARCH_PROGRAMMES, programmeProgress } from '@/config/substrata-programmes';
-import { BOARD_SPEC, BOTTLENECKS, portalTotals } from '@/lib/bottlenecks';
-import { Board } from '@/components/portal/Board';
+import { STAGES } from '@/config/substrata-stages';
+import { BOTTLENECKS, portalTotals } from '@/lib/bottlenecks';
+import { BindingBar } from '@/components/portal/Board';
+import { EventList } from '@/components/portal/EventList';
 import { Heading, Page, Shell } from '@/components/portal/Shell';
+import { Status } from '@/components/portal/Status';
 
 export const metadata: Metadata = {
-  title: { absolute: `${COMPANY.name} — bottlenecks on the path to recursive self-improvement` },
+  title: { absolute: `${COMPANY.name} — bottlenecks on the path to transformative technology` },
   description: COMPANY.tagline,
 };
 
-type SearchParams = Record<string, string | string[] | undefined>;
+const WINDOW_DAYS = 30;
 
 /**
- * The board is the front page. Numbers first, then every bottleneck as a row.
- * A reader who scrolls no further has seen the state of the research.
+ * Today: what moved. The front page is a diff, because a diff is the only
+ * thing worth reading twice. Numbers first, then the events of the last
+ * thirty days, then the nodes binding now, then where the loop is covered.
  */
-export default async function BoardPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
-  const params = await searchParams;
-  const query = parseQuery(params, BOARD_SPEC);
-  const result = applyQuery(BOTTLENECKS, BOARD_SPEC, query);
+export default function TodayPage() {
   const totals = portalTotals();
+  const recent = eventsSince(WINDOW_DAYS);
+  const tightening = new Set(
+    recent.filter((e) => e.effect === 'tightens').flatMap((e) => e.bottlenecks),
+  );
+  const loosening = new Set(
+    recent.filter((e) => e.effect === 'loosens').flatMap((e) => e.bottlenecks),
+  );
+  const bindingNow = BOTTLENECKS.filter((b) => b.horizon === 'now').sort(
+    (a, b) => b.binding - a.binding,
+  );
   const programme = RESEARCH_PROGRAMMES[0];
   const progress = programmeProgress(programme);
-  const checked = EVIDENCE.generatedAt ? EVIDENCE.generatedAt.slice(0, 10) : null;
+  const candidates = candidatesAwaiting();
+  const latest = eventsNewestFirst()[0];
 
   const tiles = [
     {
-      label: 'Bottlenecks tracked',
-      value: totals.bottlenecks,
-      note: 'Materials, machines, processes, people.',
+      label: `Events, last ${WINDOW_DAYS} days`,
+      value: recent.length,
+      note: `${EVENTS.length} accepted in total · ${candidates} candidates awaiting review`,
     },
     {
-      label: 'Producers mapped',
-      value: totals.producers,
-      note: `Across ${totals.jurisdictions} jurisdictions.`,
+      label: 'Tightening',
+      value: tightening.size,
+      note: `${loosening.size} loosening. Bottlenecks touched by an accepted event.`,
+    },
+    {
+      label: 'Binding now',
+      value: totals.bindingNow,
+      note: `of ${totals.bottlenecks} bottlenecks, by the analyst's horizon.`,
     },
     {
       label: 'Rows verified',
       value: totals.sourced,
-      note: `${totals.candidates} with a candidate source.`,
-    },
-    {
-      label: 'Programmes running',
-      value: RESEARCH_PROGRAMMES.filter((p) => p.status === 'active').length,
-      note: `${progress.done} of ${progress.total} deliverables done.`,
+      note: `of ${totals.producers} producer rows · ${totals.candidates} candidates`,
     },
   ];
 
@@ -58,13 +75,14 @@ export default async function BoardPage({ searchParams }: { searchParams: Promis
       <Page>
         <header className="mb-8">
           <p className="font-mono text-xs uppercase tracking-caps text-fg-tertiary">
-            Open research · {checked ? `Evidence checked ${checked}` : 'No engine run yet'}
+            Today · {latest ? `latest event ${latest.date}` : 'no events yet'}
           </p>
           <h1 className="mt-3 max-w-3xl font-heading text-3xl font-semibold leading-tight tracking-display text-fg-primary sm:text-5xl">
-            The bottlenecks on the path to recursive self-improvement.
+            What moved among the constraints on technological progress.
           </h1>
           <p className="mt-3 max-w-2xl text-base text-fg-secondary">
-            Every constraint the loop waits on, who holds it, and whether we can prove it.
+            Every constraint progress waits on, dated, sourced, and marked as tightening or
+            loosening.
           </p>
         </header>
 
@@ -84,63 +102,116 @@ export default async function BoardPage({ searchParams }: { searchParams: Promis
 
         <Heading
           index="01"
-          title="The board"
+          title={`Last ${WINDOW_DAYS} days`}
           aside={
             <Link
-              href="/api/map"
+              href="/events"
               className="underline-offset-4 hover:text-fg-primary hover:underline"
             >
-              As JSON →
+              All events →
             </Link>
           }
         />
-        <Board params={params} query={query} result={result} />
+        <EventList events={recent} />
 
-        <div className="mt-14 grid gap-8 lg:grid-cols-2">
+        <div className="mt-14 grid gap-10 lg:grid-cols-[3fr_2fr]">
           <section>
-            <Heading index="02" title="Running now" />
+            <Heading
+              index="02"
+              title="Binding now"
+              aside={
+                <Link
+                  href="/board?horizon=now"
+                  className="underline-offset-4 hover:text-fg-primary hover:underline"
+                >
+                  On the board →
+                </Link>
+              }
+            />
+            <ol className="divide-y divide-subtle border-y border-subtle">
+              {bindingNow.map((b) => (
+                <li
+                  key={b.slug}
+                  className="flex flex-wrap items-center justify-between gap-x-6 gap-y-1 py-2.5"
+                >
+                  <Link
+                    href={`/bottlenecks/${b.slug}`}
+                    className="min-w-0 flex-1 text-fg-primary underline-offset-4 hover:underline"
+                  >
+                    {b.name}
+                    {tightening.has(b.name) && (
+                      <span className="ml-2 font-mono text-xs uppercase tracking-caps text-status-negative">
+                        tightening
+                      </span>
+                    )}
+                    {loosening.has(b.name) && (
+                      <span className="ml-2 font-mono text-xs uppercase tracking-caps text-status-positive">
+                        loosening
+                      </span>
+                    )}
+                  </Link>
+                  <span className="flex items-center gap-4">
+                    <BindingBar value={b.binding} />
+                    <Status state={b.state} compact />
+                  </span>
+                </li>
+              ))}
+            </ol>
+            <p className="mt-3 font-mono text-xs text-fg-muted">
+              {HORIZON_LABEL.now} · {bindingNow.length} nodes · judged {bindingNow[0]?.judgedOn}
+            </p>
+          </section>
+
+          <section>
+            <Heading
+              index="03"
+              title="The loop"
+              aside={
+                <Link
+                  href="/research"
+                  className="underline-offset-4 hover:text-fg-primary hover:underline"
+                >
+                  Research →
+                </Link>
+              }
+            />
+            <ol className="divide-y divide-subtle border-y border-subtle">
+              {STAGES.map((stage) => {
+                const count = BOTTLENECKS.filter((b) => b.stage === stage.id).length;
+                return (
+                  <li key={stage.id} className="flex items-baseline justify-between gap-4 py-2">
+                    {count > 0 ? (
+                      <Link
+                        href={`/board?stage=${stage.id}`}
+                        className="text-fg-primary underline-offset-4 hover:underline"
+                      >
+                        {stage.name}
+                      </Link>
+                    ) : (
+                      <span className="text-fg-tertiary">{stage.name}</span>
+                    )}
+                    <span className="font-mono text-xs tabular-nums text-fg-muted">
+                      {count > 0 ? `${count} covered` : 'not yet'}
+                    </span>
+                  </li>
+                );
+              })}
+            </ol>
             <Link
               href="/research"
-              className="block rounded-lg border border-subtle bg-surface-raised p-5 transition-colors hover:border-strong"
+              className="mt-4 block rounded-lg border border-subtle bg-surface-raised p-4 transition-colors hover:border-strong"
             >
               <p className="font-mono text-xs uppercase tracking-caps text-fg-tertiary">
                 Programme · since {programme.commissioned}
               </p>
-              <p className="mt-2 font-heading text-xl font-semibold text-fg-primary">
+              <p className="mt-1 font-heading text-lg font-semibold text-fg-primary">
                 {programme.title}
               </p>
-              <p className="mt-2 text-sm text-fg-secondary">{programme.question}</p>
-              <p className="mt-3 font-mono text-xs text-fg-muted">
-                {programme.layers.length} layers · {programme.questions.length} open questions ·{' '}
-                {progress.done}/{progress.total} delivered
+              <p className="mt-1 font-mono text-xs text-fg-muted">
+                {programme.questions.length} open questions · {progress.done}/{progress.total}{' '}
+                delivered
               </p>
             </Link>
-          </section>
-          <section>
-            <Heading index="03" title="How to read a row" />
-            <ul className="divide-y divide-subtle rounded-lg border border-subtle bg-surface-raised text-sm">
-              <li className="flex gap-3 px-5 py-3">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-status-positive" />
-                <span className="text-fg-secondary">
-                  <span className="text-fg-primary">Sourced.</span> An analyst attached a primary
-                  source. The only state that is a finding.
-                </span>
-              </li>
-              <li className="flex gap-3 px-5 py-3">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-status-warning" />
-                <span className="text-fg-secondary">
-                  <span className="text-fg-primary">Candidate.</span> The engine found a page naming
-                  the company with the material. Waiting on a person.
-                </span>
-              </li>
-              <li className="flex gap-3 px-5 py-3">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-fg-muted" />
-                <span className="text-fg-secondary">
-                  <span className="text-fg-primary">Unverified.</span> A lead we believe and have
-                  not confirmed. Not a finding.
-                </span>
-              </li>
-            </ul>
           </section>
         </div>
       </Page>

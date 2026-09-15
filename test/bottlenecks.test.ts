@@ -52,22 +52,39 @@ test('a bottleneck is sourced only when every producer is', () => {
   );
 });
 
-test('the board narrows by curve through the URL and an empty query is the whole board', () => {
+test('the board narrows by stage and horizon through the URL and an empty query is the whole board', () => {
   const all = applyQuery(BOTTLENECKS, BOARD_SPEC, parseQuery({}, BOARD_SPEC));
   assert.equal(all.rows.length, BOTTLENECKS.length);
 
-  const query = parseQuery({ curve: 'actuation' }, BOARD_SPEC);
+  const query = parseQuery({ stage: 'actuation', horizon: 'now' }, BOARD_SPEC);
   const narrowed = applyQuery(BOTTLENECKS, BOARD_SPEC, query);
   assert.ok(narrowed.rows.length > 0);
-  assert.ok(narrowed.rows.every((b) => b.curve === 'actuation'));
+  assert.ok(narrowed.rows.every((b) => b.stage === 'actuation' && b.horizon === 'now'));
 
   const qs = writeQuery({}, query, BOARD_SPEC).toString();
-  assert.equal(qs, 'curve=actuation');
+  assert.equal(qs, 'stage=actuation&horizon=now');
+});
+
+test('every bottleneck carries its stage, score, horizon and events', () => {
+  for (const b of BOTTLENECKS) {
+    assert.ok(b.binding >= 0 && b.binding <= 12, b.name);
+    assert.ok(['now', 'two-years', 'beyond'].includes(b.horizon), b.name);
+    assert.ok(
+      b.events.every((e) => e.bottlenecks.includes(b.name)),
+      b.name,
+    );
+  }
+  // Default order: by stage, then hardest-binding first.
+  for (let i = 1; i < BOTTLENECKS.length; i++) {
+    const a = BOTTLENECKS[i - 1];
+    const b = BOTTLENECKS[i];
+    if (a.stage === b.stage) assert.ok(a.binding >= b.binding, `${a.name} before ${b.name}`);
+  }
 });
 
 test('the portal nav points only at routes that exist', () => {
   const documentPaths = new Set(sitePages().map((p) => p.path));
-  const portalPaths = new Set(['', 'research']);
+  const portalPaths = new Set(['', 'board', 'events', 'research']);
   for (const item of PORTAL_NAV) {
     assert.ok(
       documentPaths.has(item.path) || portalPaths.has(item.path),
