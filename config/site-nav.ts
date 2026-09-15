@@ -56,6 +56,16 @@ export function navGroups(counts: {
       blurb: 'Everything standing between here and faster technology, and who holds it.',
       items: [
         {
+          label: 'Chain atlas',
+          href: '/atlas',
+          blurb: 'See the stages, bottlenecks, companies and evidence together.',
+        },
+        {
+          label: 'Talent',
+          href: '/talent',
+          blurb: 'The expertise chains need, and how to contribute yours.',
+        },
+        {
           label: 'Bottlenecks',
           href: '/bottlenecks',
           blurb: 'What has to exist first, and how hard each one is holding things up.',
@@ -109,10 +119,15 @@ export function navGroups(counts: {
           badge: String(counts.events),
         },
         {
-          label: 'Notes',
+          label: 'Blog & notes',
           href: '/notes',
           blurb: 'Written pieces: what the map implies, and what we got wrong.',
           badge: String(counts.notes),
+        },
+        {
+          label: 'Changelog',
+          href: '/changelog',
+          blurb: 'What has changed in the product, from its development record.',
         },
       ],
     },
@@ -121,6 +136,16 @@ export function navGroups(counts: {
       label: 'About',
       blurb: 'How this is made, and what the words mean.',
       items: [
+        {
+          label: 'Roadmap & vision',
+          href: '/development',
+          blurb: 'Where Substrata is heading, and what is being built.',
+        },
+        {
+          label: 'Data quality',
+          href: '/data',
+          blurb: 'Evidence, uncertainty, dates and reproducible exports.',
+        },
         {
           label: 'Learn',
           href: '/learn',

@@ -38,11 +38,18 @@
   --primitive-ink-900: #121516;
   --primitive-ink-100: #e8e6e1;
   --primitive-ink-400: #8b908f;
-  --primitive-ink-600: #5d6462;
+  --primitive-ink-600: #929b97;
   --primitive-copper-500: #4f8a80;
   --primitive-green-500: #4c9a72;
   --primitive-amber-500: #b98a3c;
   --primitive-red-500: #b5564d;
+  --diagram-page: #faf9f6;
+  --diagram-card: #f1f5f3;
+  --diagram-border: #829b91;
+  --diagram-text: #182c24;
+  --diagram-muted: #40574e;
+  --diagram-source: #287563;
+  --diagram-unverified: #8b948f;
 
   /* Tier 2 — semantics. What components use, always. */
   --color-surface-page: var(--primitive-ink-950);
@@ -67,7 +74,7 @@
     --color-fg-primary: #14181a;
     --color-fg-secondary: #3d4547;
     --color-fg-tertiary: #6b7376;
-    --color-fg-muted: #949b9d;
+    --color-fg-muted: #657072;
     --color-border-subtle: #e4e1da;
     --color-border-strong: #c8c4ba;
     --color-accent: #2f6b62;
@@ -76,6 +83,382 @@
 
 html {
   color-scheme: dark light;
+  scroll-padding-top: 8rem;
+}
+
+/* Research service surfaces: one set of spacing, controls and responsive rules. */
+.portal-utility {
+  padding: 0.6rem 0.45rem;
+  font-size: 0.8rem;
+  color: var(--color-fg-secondary);
+}
+.portal-quicknav {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.7rem max(1rem, calc((100% - 73rem) / 2));
+  overflow-x: auto;
+  border-bottom: 1px solid var(--color-border-subtle);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+.portal-quicknav a {
+  min-height: 1.75rem;
+  display: flex;
+  align-items: center;
+  color: var(--color-fg-secondary);
+}
+.research-search {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  padding: 1rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 0.75rem;
+  background: var(--color-surface-raised);
+}
+.research-search input {
+  flex: 1;
+  min-width: 12rem;
+}
+.research-search input,
+.research-search select,
+.research-form input:not([type='checkbox']),
+.research-form textarea {
+  border: 1px solid var(--color-border-strong);
+  border-radius: 0.4rem;
+  padding: 0.8rem;
+  background: var(--color-surface-page);
+  color: var(--color-fg-primary);
+  font-size: 1rem;
+}
+.research-button,
+.research-search button,
+.research-form button {
+  background: var(--color-accent);
+  color: var(--color-surface-page);
+  border-radius: 0.4rem;
+  padding: 0.8rem 1.2rem;
+  font-weight: 650;
+  min-height: 2.75rem;
+  cursor: pointer;
+}
+.research-form button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.research-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+.research-results > li,
+.research-card-grid > article {
+  padding: 1.5rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 0.75rem;
+  background: var(--color-surface-raised);
+  min-width: 0;
+}
+.research-results h2,
+.research-card-grid h2 {
+  font: 600 1.5rem/1.25 var(--font-heading);
+  margin: 0.6rem 0;
+}
+.research-results p,
+.research-card-grid p {
+  color: var(--color-fg-secondary);
+  line-height: 1.65;
+  margin: 0.75rem 0;
+}
+.research-kicker {
+  font: 0.7rem/1.5 var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-fg-tertiary);
+}
+.research-prose {
+  max-width: 46rem;
+  margin: 2.5rem 0;
+  line-height: 1.8;
+  color: var(--color-fg-secondary);
+}
+.research-prose h2 {
+  font: 600 1.8rem/1.25 var(--font-heading);
+  margin: 2rem 0 0.8rem;
+  color: var(--color-fg-primary);
+}
+.research-prose h3 {
+  font: 600 1.3rem/1.4 var(--font-heading);
+  margin: 1.5rem 0 0.6rem;
+}
+.research-prose p {
+  margin: 0.75rem 0;
+}
+.research-prose a,
+.research-card-grid a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.research-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.research-card-grid a {
+  display: block;
+  margin-top: 0.8rem;
+}
+.atlas-overview {
+  margin: 2rem 0;
+  padding: 2rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 1rem;
+  background: var(--color-surface-raised);
+}
+.atlas-overview strong {
+  font: 600 1.6rem var(--font-heading);
+}
+.atlas-overview figcaption p {
+  max-width: 45rem;
+  margin: 0.75rem 0 1.5rem;
+  color: var(--color-fg-secondary);
+  line-height: 1.6;
+}
+.atlas-bars {
+  display: grid;
+  gap: 0.9rem;
+}
+.atlas-bars > a {
+  display: grid;
+  grid-template-columns: 12rem 1fr 10rem;
+  gap: 1rem;
+  align-items: center;
+  font-size: 0.8rem;
+}
+.atlas-bars meter {
+  width: 100%;
+  height: 1.1rem;
+  accent-color: var(--color-accent);
+}
+.atlas-bars meter::-webkit-meter-optimum-value {
+  background: var(--color-accent);
+}
+.atlas-stages {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  align-items: start;
+}
+.atlas-stages > section {
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 0.75rem;
+  padding: 1.2rem;
+  min-width: 0;
+}
+.atlas-stages header {
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+.atlas-stages h2 {
+  font: 600 1.6rem/1.3 var(--font-heading);
+  margin: 0.5rem 0;
+}
+.atlas-stages p {
+  color: var(--color-fg-secondary);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+.atlas-stages > section > ul > li {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.atlas-node {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-fg-primary);
+}
+.atlas-records > ul > li {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.atlas-node small {
+  font: 0.65rem var(--font-mono);
+  color: var(--color-fg-tertiary);
+}
+.atlas-stages details {
+  margin-top: 0.7rem;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+.atlas-stages summary {
+  cursor: pointer;
+  color: var(--color-accent);
+}
+.atlas-stages details a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.chat-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(14rem, 1fr);
+  gap: 3rem;
+}
+.chat-mode {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.chat-mode button {
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.chat-mode button[aria-pressed='true'] {
+  border-color: var(--color-accent);
+  background: var(--color-surface-raised);
+}
+.research-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin: 1.5rem 0;
+  max-width: 48rem;
+}
+.research-form textarea {
+  width: 100%;
+  resize: vertical;
+  line-height: 1.65;
+}
+.research-form button {
+  align-self: flex-start;
+}
+.research-form label {
+  font-size: 0.9rem;
+}
+.consent-line {
+  display: flex;
+  align-items: start;
+  gap: 0.7rem;
+  padding: 0.65rem 0;
+  line-height: 1.6;
+}
+.consent-line input {
+  margin-top: 0.3rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  flex-shrink: 0;
+}
+.chat-answer {
+  padding: 1.5rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 0.75rem;
+  background: var(--color-surface-raised);
+  margin: 1.5rem 0;
+  line-height: 1.75;
+}
+.chat-answer h2 {
+  font: 600 1.5rem var(--font-heading);
+  margin-bottom: 1rem;
+}
+.chat-answer h3 {
+  margin: 1.5rem 0 0.6rem;
+}
+.chat-answer a {
+  color: var(--color-accent);
+}
+.chat-answer small {
+  display: block;
+  color: var(--color-fg-tertiary);
+}
+.chat-aside h2 {
+  font: 600 1.2rem var(--font-heading);
+  margin: 1rem 0;
+}
+.chat-aside button,
+.chat-aside > a {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+  color: var(--color-fg-secondary);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.receipt {
+  overflow-wrap: anywhere;
+  padding: 1rem;
+  border: 1px solid var(--color-status-positive);
+}
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+@media (max-width: 800px) {
+  .research-card-grid,
+  .atlas-stages {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .chat-layout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .atlas-bars > a {
+    grid-template-columns: 9rem 1fr;
+  }
+  .atlas-bars > a > span:last-child {
+    grid-column: 2;
+    font-size: 0.7rem;
+  }
+}
+@media (max-width: 520px) {
+  .research-results,
+  .research-card-grid,
+  .atlas-stages {
+    grid-template-columns: 1fr;
+  }
+  .research-search input {
+    min-width: 0;
+    width: 100%;
+    flex-basis: 100%;
+  }
+  .research-search select {
+    max-width: 100%;
+    flex: 1;
+  }
+  .atlas-overview {
+    padding: 1.2rem;
+  }
+  .atlas-bars > a {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem;
+  }
+  .portal-utility {
+    padding: 0.7rem 0.15rem;
+    font-size: 0.75rem;
+  }
+  .research-form button {
+    width: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 body {

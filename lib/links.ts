@@ -114,6 +114,15 @@ export const SECTIONS = {
   about: '/about',
   join: '/join',
   api: '/api/map',
+  atlas: '/atlas',
+  search: '/search',
+  talent: '/talent',
+  chat: '/chat',
+  account: '/account',
+  data: '/data',
+  development: '/development',
+  roadmap: '/roadmap',
+  changelog: '/changelog',
 } as const;
 
 /**
@@ -122,6 +131,17 @@ export const SECTIONS = {
  * typo in a path becomes a failing build rather than a 404 nobody clicks.
  */
 export const ROUTES = [
+  '/atlas',
+  '/search',
+  '/talent',
+  '/chat',
+  '/account',
+  '/data',
+  '/development',
+  '/roadmap',
+  '/changelog',
+  '/blog',
+  '/api/research/export',
   '/',
   '/bottlenecks',
   '/bottlenecks/:slug',

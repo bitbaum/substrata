@@ -33,6 +33,15 @@ export const GROUP_FOR_PATH: Record<string, string> = {
   '': 'latest',
   events: 'latest',
   notes: 'latest',
+  atlas: 'map',
+  search: 'map',
+  talent: 'map',
+  data: 'about',
+  development: 'about',
+  roadmap: 'about',
+  changelog: 'latest',
+  chat: 'join',
+  account: 'join',
   bottlenecks: 'map',
   markets: 'map',
   policy: 'map',
@@ -55,6 +64,8 @@ const FOOTER_GROUPS = [
       { href: '/policy', label: 'Policy' },
       { href: '/science', label: 'Science' },
       { href: '/capital', label: 'Capital' },
+      { href: '/atlas', label: 'Chain atlas' },
+      { href: '/talent', label: 'Talent & expertise' },
     ],
   },
   {
@@ -62,7 +73,8 @@ const FOOTER_GROUPS = [
     links: [
       { href: '/', label: 'Today' },
       { href: '/events', label: 'Events' },
-      { href: '/notes', label: 'Notes' },
+      { href: '/notes', label: 'Blog & development notes' },
+      { href: '/changelog', label: 'Changelog' },
     ],
   },
   {
@@ -74,6 +86,8 @@ const FOOTER_GROUPS = [
       { href: '/calls', label: 'Calls' },
       { href: '/research', label: 'Open questions' },
       { href: '/join', label: 'Join' },
+      { href: '/roadmap', label: 'Roadmap' },
+      { href: '/development', label: 'Development & vision' },
     ],
   },
   {
@@ -81,6 +95,9 @@ const FOOTER_GROUPS = [
     links: [
       { href: '/api/map', label: 'The map as JSON' },
       { href: SITE.repo, label: 'Source on GitHub' },
+      { href: '/data', label: 'Data quality & exports' },
+      { href: '/chat', label: 'Ask Substrata' },
+      { href: '/account', label: 'Your research desk' },
     ],
   },
 ] as const;
@@ -120,6 +137,12 @@ export function Shell({
             </span>
           </Link>
           <Megamenu groups={groups} currentGroup={GROUP_FOR_PATH[currentPath]} />
+          <Link href="/search" className="portal-utility" aria-label="Search all research">
+            Search
+          </Link>
+          <Link href="/chat" className="portal-utility">
+            Ask
+          </Link>
           <Link
             href={NAV_ACTION.href}
             className="ml-auto inline-flex min-h-9 items-center rounded-full border border-accent px-3 text-sm font-medium text-accent lg:hidden"
@@ -128,10 +151,17 @@ export function Shell({
           </Link>
         </div>
       </header>
+      <nav className="portal-quicknav" aria-label="Research shortcuts">
+        <Link href="/atlas">Explore the chains</Link>
+        <Link href="/learn">Learn</Link>
+        <Link href="/science">Science</Link>
+        <Link href="/talent">Talent</Link>
+        <Link href="/account">My research</Link>
+      </nav>
       <main className="flex-1">{children}</main>
       <footer className="mt-16 border-t border-subtle">
         <div className="mx-auto max-w-shell px-4 py-10 sm:px-6 lg:px-8">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
             {FOOTER_GROUPS.map((group) => (
               <nav key={group.label} aria-label={group.label}>
                 <h2 className="font-mono text-xs uppercase tracking-caps text-fg-tertiary">

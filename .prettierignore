@@ -1,5 +1,6 @@
 # Build output and vendored trees — formatting these is noise.
 node_modules
+.claude/worktrees
 .next
 dist
 build

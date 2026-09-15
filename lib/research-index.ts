@@ -1,0 +1,117 @@
+/** One searchable projection for discovery, visual exploration and AI retrieval.
+ * All claims remain owned by the research corpus; this module only joins them.
+ */
+import { BOTTLENECKS } from './bottlenecks';
+import { MARKET_PARTICIPANTS } from './participants';
+import { allLearn, allNotes } from './notes';
+import { bottleneckHref, marketHref, learnHref, noteHref, scienceHref, policyHref } from './links';
+import { SCIENCE } from '@/config/substrata-science';
+import { INSTRUMENTS } from '@/config/substrata-policy';
+import { JOIN } from '@/config/substrata-join';
+
+export interface ResearchDocument {
+  id: string;
+  kind: 'bottleneck' | 'company' | 'learn' | 'article' | 'science' | 'policy' | 'talent';
+  title: string;
+  href: string;
+  text: string;
+  sources: string[];
+  evidence: string;
+  topics: string[];
+}
+
+export function researchDocuments(): ResearchDocument[] {
+  return [
+    ...SCIENCE.map((s) => ({
+      id: `science:${s.id}`,
+      kind: 'science' as const,
+      title: s.name,
+      href: scienceHref(s.id),
+      text: `${s.plain} ${s.relieves.map((r) => `${r.bottleneck}: ${r.mechanism}`).join(' ')} Readiness ${s.readiness}/9: ${s.readinessWhy}. Analyst judgement dated ${s.judgedOn}. Next milestone: ${s.nextMilestone ?? 'not specified'}`,
+      sources: s.source ? [s.source] : [],
+      evidence: s.source ? 'source-backed readiness judgement' : 'unsourced judgement',
+      topics: [s.front, ...s.industries],
+    })),
+    ...INSTRUMENTS.map((i) => ({
+      id: `policy:${i.id}`,
+      kind: 'policy' as const,
+      title: i.title,
+      href: policyHref(i.jurisdiction),
+      text: `${i.summary} ${i.body}. Status: ${i.status}; instrument date: ${i.date}; read on ${i.readOn}. ${i.statusNote ?? ''}`,
+      sources: [i.source],
+      evidence: i.primary ? 'primary source' : 'secondary source',
+      topics: [...i.technologies, ...i.industries, i.jurisdiction],
+    })),
+    ...JOIN.roles.map((r, i) => ({
+      id: `talent:${i}`,
+      kind: 'talent' as const,
+      title: r.title,
+      href: '/talent',
+      text: `Research contribution opportunity, not employment. ${r.what} ${r.why}`,
+      sources: [],
+      evidence: 'project research need',
+      topics: ['talent'],
+    })),
+    ...BOTTLENECKS.map((b) => ({
+      id: `bottleneck:${b.slug}`,
+      kind: 'bottleneck' as const,
+      title: b.name,
+      href: bottleneckHref(b.slug),
+      text: `${b.plain} ${b.why} ${b.rationale} Assessment ${b.binding}/12, analyst judgement dated ${b.judgedOn}. ${b.producers.map((p) => p.name).join(', ')}`,
+      sources: [...new Set(b.producers.flatMap((p) => (p.source ? [p.source] : [])))],
+      evidence: b.state,
+      topics: [...b.technologies, b.stage, ...b.industries],
+    })),
+    ...MARKET_PARTICIPANTS.map((p) => ({
+      id: `company:${p.slug}`,
+      kind: 'company' as const,
+      title: p.name,
+      href: marketHref(p.slug),
+      text: `${p.role ?? ''} ${p.why ?? ''} ${p.jurisdictions.join(' ')} ${p.produces.map((x) => x.bottleneck).join(', ')}`,
+      sources: p.existenceVerifiedBy ? [p.existenceVerifiedBy.url] : [],
+      evidence: p.existenceVerifiedBy
+        ? 'partly sourced; replaceability is a judgement'
+        : 'unverified',
+      topics: [...p.technologies, ...p.industries],
+    })),
+    ...allLearn().map((n) => ({
+      id: `learn:${n.slug}`,
+      kind: 'learn' as const,
+      title: n.title,
+      href: learnHref(n.slug),
+      text: n.summary,
+      sources: [],
+      evidence: 'explanation',
+      topics: n.tags,
+    })),
+    ...allNotes().map((n) => ({
+      id: `article:${n.slug}`,
+      kind: 'article' as const,
+      title: n.title,
+      href: noteHref(n.slug),
+      text: n.summary,
+      sources: [],
+      evidence: 'editorial',
+      topics: n.tags,
+    })),
+  ];
+}
+
+export function searchResearch(documents: ResearchDocument[], query: string): ResearchDocument[] {
+  const words = query.toLocaleLowerCase().match(/[\p{L}\p{N}]+/gu) ?? [];
+  if (!words.length) return documents;
+  return documents
+    .map((document) => {
+      const title = document.title.toLocaleLowerCase();
+      const text = `${title} ${document.text} ${document.topics.join(' ')}`.toLocaleLowerCase();
+      return {
+        document,
+        score: words.every((w) => text.includes(w))
+          ? words.reduce((n, w) => n + (title.includes(w) ? 4 : 1), 0)
+          : 0,
+      };
+    })
+    .filter((x) => x.score > 0)
+    .sort((a, b) => b.score - a.score || a.document.title.localeCompare(b.document.title))
+    .map((x) => x.document);
+}
