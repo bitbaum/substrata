@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { WORLD_PATHS } from '../config/world-paths';
 import { EU_MEMBERS, countryFacts } from '../lib/geo';
 import { ROUTES } from '../lib/links';
-import { FOOTER_NAV, PUBLIC_NAV, navPaths } from '../config/site-nav';
+import { FOOTER_NAV, PUBLIC_NAV, RESEARCH_NAV, navPaths } from '../config/site-nav';
 
 test('the world atlas has ISO codes for the jurisdictions we actually record', () => {
   const iso = new Set(WORLD_PATHS.map((p) => p.iso2).filter(Boolean));
@@ -33,10 +33,29 @@ test('country facts count real instruments onto China and the EU members', () =>
   assert.ok(facts.get('cn')?.hasRecord);
 });
 
-test('the map is the public geography destination, changelog lives in the footer', () => {
+test('research destinations stay in both the public bar and the desk list', () => {
   assert.ok((ROUTES as readonly string[]).includes('/atlas'));
   assert.ok((ROUTES as readonly string[]).includes('/world'));
-  assert.ok(PUBLIC_NAV.some((item) => item.href === '/atlas'));
+  for (const href of [
+    '/atlas',
+    '/bottlenecks',
+    '/markets',
+    '/policy',
+    '/science',
+    '/capital',
+    '/learn',
+    '/events',
+    '/talent',
+  ]) {
+    assert.ok(
+      RESEARCH_NAV.some((item) => item.href === href),
+      `missing from RESEARCH_NAV: ${href}`,
+    );
+    assert.ok(
+      PUBLIC_NAV.some((item) => item.href === href),
+      `missing from public nav: ${href}`,
+    );
+  }
   assert.ok(FOOTER_NAV.some((item) => item.href === '/changelog'));
   assert.ok(navPaths().includes('/atlas'));
 });

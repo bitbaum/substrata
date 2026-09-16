@@ -258,6 +258,24 @@ export const CAPITAL_PROVIDERS: readonly CapitalProvider[] = [
       'KfW is one of the world’s leading promotional banks. KfW has been committed to improving economic, social and environmental living conditions across the globe on behalf of the Federal Republic of Germany.',
     readOn: READ,
   },
+  {
+    id: 'jp-jbic',
+    name: 'Japan Bank for International Cooperation',
+    kind: 'export-credit',
+    jurisdiction: 'jp',
+    mandate:
+      'Japan’s policy-based financial institution: lending, investment and guarantees that sit beside private banks rather than instead of them.',
+    canMove: [
+      'Electronic-grade polysilicon',
+      '300 mm prime silicon wafers',
+      'High-voltage cable and switchgear',
+    ],
+    source: 'https://www.jbic.go.jp/en/about/role-function.html',
+    primary: true,
+    quote:
+      'JBIC is a policy-based financial institution of Japan, and conducts lending, investment and guarantee operations while complementing the private sector financial institutions.',
+    readOn: '2026-09-16',
+  },
 ];
 
 // ---------------------------------------------------------------------------

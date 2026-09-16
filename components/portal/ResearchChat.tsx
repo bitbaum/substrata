@@ -7,7 +7,7 @@ type Answer = {
   answer: string;
   sources: { number: number; title: string; href: string; evidence: string; primary: string[] }[];
 };
-export function ResearchChat({ topic }: { topic: string }) {
+export function ResearchChat({ topic, compact = false }: { topic: string; compact?: boolean }) {
   const [message, setMessage] = useState('');
   const [answer, setAnswer] = useState<Answer | null>(null);
   const [history, setHistory] = useState<{ role: 'user' | 'assistant'; content: string }[]>([]);
@@ -57,26 +57,28 @@ export function ResearchChat({ topic }: { topic: string }) {
   return (
     <div className="chat-layout">
       <div className="chat-main">
-        <div className="chat-mode" role="group" aria-label="Message purpose">
-          <button
-            aria-pressed={mode === 'ask'}
-            onClick={() => {
-              setMode('ask');
-              setError('');
-            }}
-          >
-            Ask the assistant
-          </button>
-          <button
-            aria-pressed={mode === 'contribute'}
-            onClick={() => {
-              setMode('contribute');
-              setError('');
-            }}
-          >
-            Send to the research team
-          </button>
-        </div>
+        {!compact && (
+          <div className="chat-mode" role="group" aria-label="Message purpose">
+            <button
+              aria-pressed={mode === 'ask'}
+              onClick={() => {
+                setMode('ask');
+                setError('');
+              }}
+            >
+              Ask the assistant
+            </button>
+            <button
+              aria-pressed={mode === 'contribute'}
+              onClick={() => {
+                setMode('contribute');
+                setError('');
+              }}
+            >
+              Send to the research team
+            </button>
+          </div>
+        )}
         {topic && <p className="my-4 text-sm text-fg-secondary">Topic: {topic}</p>}
         {answer && (
           <article className="chat-answer" aria-label="Substrata answer">
@@ -125,7 +127,7 @@ export function ResearchChat({ topic }: { topic: string }) {
             maxLength={mode === 'ask' ? 4000 : 12000}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            rows={5}
+            rows={compact ? 3 : 5}
             placeholder={
               mode === 'ask'
                 ? 'How do materials constrain AI chips?'
@@ -172,29 +174,31 @@ export function ResearchChat({ topic }: { topic: string }) {
           {error && <p role="alert">{error}</p>}
         </form>
       </div>
-      <aside className="chat-aside">
-        <h2>Start with a question</h2>
-        {[
-          'What are the bottlenecks in compute?',
-          'Explain semiconductor qualification',
-          'Which companies make silicon wafers?',
-          'What expertise does this research need?',
-        ].map((q) => (
-          <button
-            key={q}
-            onClick={() => {
-              setMode('ask');
-              setMessage(q);
-            }}
-          >
-            {q}
-          </button>
-        ))}
-        <h2>Keep exploring</h2>
-        <Link href="/atlas">Chain atlas →</Link>
-        <Link href="/learn">Learn the concepts →</Link>
-        <Link href="/data">How evidence is checked →</Link>
-      </aside>
+      {!compact && (
+        <aside className="chat-aside">
+          <h2>Start with a question</h2>
+          {[
+            'What are the bottlenecks in compute?',
+            'Explain semiconductor qualification',
+            'Which companies make silicon wafers?',
+            'What expertise does this research need?',
+          ].map((q) => (
+            <button
+              key={q}
+              onClick={() => {
+                setMode('ask');
+                setMessage(q);
+              }}
+            >
+              {q}
+            </button>
+          ))}
+          <h2>Keep exploring</h2>
+          <Link href="/atlas">Chain atlas →</Link>
+          <Link href="/learn">Learn the concepts →</Link>
+          <Link href="/data">How evidence is checked →</Link>
+        </aside>
+      )}
     </div>
   );
 }
