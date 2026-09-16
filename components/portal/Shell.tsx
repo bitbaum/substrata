@@ -73,7 +73,10 @@ export async function Shell({
               {chrome.name}
             </span>
           </Link>
-          {!desk && <PublicNav currentPath={currentPath} />}
+          <PublicNav
+            currentPath={currentPath}
+            extra={desk ? [{ label: 'Desk', href: '/account' }] : []}
+          />
           <div className="ml-auto flex items-center gap-1 sm:gap-2">
             <form action="/search" className="site-search hidden md:flex">
               <label className="sr-only" htmlFor="header-search">
