@@ -42,6 +42,15 @@ Atlas and World are one map with two views (`/atlas`, `/atlas?view=world`).
 published). Use it wherever a row is thin or empty. GitHub correction remains
 for sourced errors.
 
+## Packages in this layer
+
+- Chat engine: `@bitbaum/ai-kit` `complete()` + grounding — same as Cat/Loki.
+  The UI is not a shared package (`SHARED.md`). Substrata's companion is a
+  thread that *calls* that engine. Health exposes `ai: configured`.
+- Comments: `threadkit` (permission is participation). Storage is Postgres
+  `research_page_messages`. AI fact-check is an `ai` participant.
+- Map: `react-simple-maps` (Equal Earth), not a hand-projected SVG.
+
 ## Companion (Ask)
 
 Uses `@bitbaum/ai-kit` `complete()` + `ai-kit/grounding`. Retrieval is local

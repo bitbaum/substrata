@@ -23,6 +23,7 @@ type Turn = {
 };
 
 export function ResearchChat({ topic, compact = false }: { topic: string; compact?: boolean }) {
+  const [ai, setAi] = useState<'unknown' | 'up' | 'down'>('unknown');
   const [draft, setDraft] = useState('');
   const [turns, setTurns] = useState<Turn[]>([]);
   const [busy, setBusy] = useState(false);
@@ -35,6 +36,12 @@ export function ResearchChat({ topic, compact = false }: { topic: string; compac
   useEffect(() => {
     scroller.current?.scrollTo({ top: scroller.current.scrollHeight, behavior: 'smooth' });
   }, [turns, busy]);
+  useEffect(() => {
+    void fetch('/api/health')
+      .then((r) => r.json())
+      .then((j) => setAi(String(j.ai ?? '').startsWith('configured') ? 'up' : 'down'))
+      .catch(() => setAi('down'));
+  }, []);
 
   async function ask(question: string) {
     const text = question.trim();
@@ -134,11 +141,18 @@ export function ResearchChat({ topic, compact = false }: { topic: string; compac
       <div className="companion-thread" ref={scroller}>
         {turns.length === 0 && (
           <div className="companion-empty">
-            <p className="companion-kicker">Substrata</p>
+            <p className="companion-kicker">
+              Substrata ·{' '}
+              {ai === 'up'
+                ? 'assistant connected'
+                : ai === 'down'
+                  ? 'assistant unavailable'
+                  : 'checking assistant'}
+            </p>
             <h2>Ask the corpus.</h2>
             <p>
-              Answers come from sourced rows, unverified leads, and judgements — labelled as such.
-              Nothing here is a quote or a trade.
+              Same engine as Cat and Loki: <code>@bitbaum/ai-kit</code>. Answers come from sourced
+              rows, unverified leads, and judgements — labelled as such.
             </p>
             {!compact && (
               <div className="companion-starters">

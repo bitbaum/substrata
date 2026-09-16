@@ -21,6 +21,7 @@ import { correctionUrl } from '@/lib/site';
 import { EventList } from '@/components/portal/EventList';
 import { Empty, Heading, Page, Shell } from '@/components/portal/Shell';
 import { Inquire } from '@/components/portal/Inquire';
+import { PageDiscussion } from '@/components/portal/PageDiscussion';
 import { SeverityBar, Status, rowLabel } from '@/components/portal/Status';
 
 interface RouteParams {
@@ -527,6 +528,7 @@ export default async function BottleneckPage({ params }: RouteParams) {
             </ul>
           </section>
         )}
+        <PageDiscussion path={`/bottlenecks/${b.slug}`} />
       </Page>
     </Shell>
   );

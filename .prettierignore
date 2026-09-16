@@ -43,3 +43,4 @@ research/events.json
 
 # Generated 110m land paths.
 config/world-paths.ts
+public/geo/

@@ -29,11 +29,14 @@
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "react-markdown": "^10.1.0",
+    "react-simple-maps": "^5.0.5",
     "remark-gfm": "^4.0.1",
-    "sitekit": "npm:@bitbaum/sitekit@^0.3.0"
+    "sitekit": "npm:@bitbaum/sitekit@^0.3.0",
+    "threadkit": "^0.1.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/geojson": "^7946.0.16",
     "@types/node": "^26",
     "@types/pg": "^8.23.1",
     "@types/react": "^19",

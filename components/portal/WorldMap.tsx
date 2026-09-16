@@ -1,58 +1,84 @@
-import { WORLD_PATHS } from '@/config/world-paths';
-import { countriesWithResources, countryFacts } from '@/lib/geo';
-import { resourcesFor, resourceLabel, type ResourceId } from '@/config/substrata-resources';
+'use client';
+
+import { useEffect, useMemo, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import {
+  ComposableMap,
+  Geographies,
+  Geography,
+  Sphere,
+  Graticule,
+  ZoomableGroup,
+} from 'react-simple-maps';
+import type { ResourceId } from '@/config/substrata-resources';
+import { resourcesFor } from '@/config/substrata-resources';
+
+const GEO = '/geo/countries-110m.json';
 
 export function WorldMap({ selected, resource }: { selected?: string; resource?: string }) {
-  const facts = countryFacts();
-  const endowed = countriesWithResources();
+  const router = useRouter();
+  const [isoById, setIsoById] = useState<Record<string, string>>({});
+  useEffect(() => {
+    void fetch('/geo/iso-by-id.json')
+      .then((r) => r.json())
+      .then(setIsoById)
+      .catch(() => undefined);
+  }, []);
+
+  const resourceId = resource as ResourceId | undefined;
+  const fillFor = useMemo(() => {
+    return (iso2: string | undefined, name: string) => {
+      const iso = iso2 || isoById[name];
+      if (!iso || iso === 'aq') return '#222';
+      const endowment = resourcesFor(iso);
+      const match = !resourceId || (endowment?.resources.includes(resourceId) ?? false);
+      if (resourceId && !match) return '#1a1a1a';
+      if (endowment?.resources.length) return '#c4a574';
+      return '#3a3a3a';
+    };
+  }, [isoById, resourceId]);
+
   return (
-    <svg
-      viewBox="0 0 1000 420"
-      role="img"
-      aria-label="World map of resources and recorded research"
-      className="world-map"
-    >
-      <rect width="1000" height="420" className="world-map-ocean" />
-      {WORLD_PATHS.filter((c) => c.iso2 !== 'aq').map((country) => {
-        const fact = country.iso2 ? facts.get(country.iso2) : undefined;
-        const match =
-          !resource ||
-          Boolean(
-            country.iso2 && resourcesFor(country.iso2)?.resources.includes(resource as ResourceId),
-          );
-        const hasResource = Boolean(country.iso2 && endowed.has(country.iso2) && match);
-        const hasCorpus = Boolean(fact?.hasRecord);
-        const active = selected && country.iso2 === selected;
-        const endowment = country.iso2 ? resourcesFor(country.iso2) : null;
-        const label = [
-          country.name,
-          endowment?.resources.map(resourceLabel).join(', '),
-          hasCorpus ? 'in the research corpus' : '',
-        ]
-          .filter(Boolean)
-          .join(' — ');
-        const href = country.iso2 ? `/atlas?view=world&country=${country.iso2}` : undefined;
-        const node = (
-          <path
-            d={country.d}
-            data-iso={country.iso2 || undefined}
-            className={[
-              'world-map-country',
-              hasResource ? 'has-resource' : '',
-              hasCorpus && match ? 'has-corpus' : '',
-              active ? 'is-active' : '',
-              resource && !match ? 'is-muted' : '',
-            ].join(' ')}
-          />
-        );
-        return href ? (
-          <a key={country.name + country.iso2} href={href} aria-label={label}>
-            {node}
-          </a>
-        ) : (
-          <g key={country.name}>{node}</g>
-        );
-      })}
-    </svg>
+    <div className="world-map-frame">
+      <ComposableMap
+        projection="geoEqualEarth"
+        projectionConfig={{ scale: 155, center: [10, 8] }}
+        width={800}
+        height={420}
+        className="world-map"
+      >
+        <ZoomableGroup center={[10, 8]} minZoom={1} maxZoom={8}>
+          <Sphere id="sphere" fill="#0b0d0d" stroke="#2a2a2a" strokeWidth={0.4} />
+          <Graticule stroke="#222" strokeWidth={0.3} />
+          <Geographies geography={GEO}>
+            {({ geographies }) =>
+              geographies.map((geo) => {
+                const name = String(geo.properties?.name ?? '');
+                const iso = isoById[String(geo.id)] || isoById[name];
+                if (iso === 'aq') return null;
+                const active = selected && iso === selected;
+                return (
+                  <Geography
+                    key={geo.rsmKey}
+                    geography={geo}
+                    tabIndex={0}
+                    fill={active ? '#e82127' : fillFor(iso, name)}
+                    stroke="#0b0d0d"
+                    strokeWidth={0.45}
+                    className="world-geo"
+                    onClick={() => {
+                      if (!iso) return;
+                      const params = new URLSearchParams({ view: 'world', country: iso });
+                      if (resource) params.set('resource', resource);
+                      router.push(`/atlas?${params.toString()}`);
+                    }}
+                  />
+                );
+              })
+            }
+          </Geographies>
+        </ZoomableGroup>
+      </ComposableMap>
+    </div>
   );
 }
