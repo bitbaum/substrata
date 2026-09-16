@@ -1,6 +1,7 @@
 # Substrata implementation ledger
 
-Started 2026-09-16. Status: in progress. Owner: current coding session.
+Started 2026-09-16. Status: Substrata beta deployed and production journeys verified;
+final evidence-boundary prompt and documentation follow-up in validation.
 
 ## Requested outcome
 
@@ -12,21 +13,21 @@ development records. Deployment is explicitly authorised by the user.
 ## Plan and acceptance checks
 
 - [x] Recover current code, instructions, shared capabilities and production configuration.
-- [ ] Establish evidence and data contracts: provenance, dates, uncertainty,
+- [x] Establish evidence and data contracts: provenance, dates, uncertainty,
   validation, reproducible exports and analysis. No invented measurements.
-- [ ] Build visual chain exploration with accessible explanations, linked evidence,
+- [x] Build visual chain exploration with accessible explanations, linked evidence,
   useful filters and readable mobile layouts.
-- [ ] Improve search, navigation, company detail, Learn and Science; add talent
+- [x] Improve search, navigation, company detail, Learn and Science; add talent
   and concrete contribution paths without inventing vacancies or affiliations.
-- [ ] Integrate reusable AI infrastructure as Substrata chat, with cited context,
+- [x] Integrate reusable AI infrastructure as Substrata chat, with cited context,
   durable content contributions and truthful delivery receipts.
-- [ ] Add accounts and saved interests using existing shared authentication where
+- [x] Add accounts and saved interests using existing shared authentication where
   practical; distinguish device-only preferences from account persistence.
-- [ ] Publish development articles and render canonical roadmap, changelog and
+- [x] Publish development articles and render canonical roadmap, changelog and
   vision; update the OrangeCat and Loki (formerly FleetCrown) profiles.
-- [ ] Run required gates, browser checks on mobile and desktop, deploy through
+- [x] Run required gates, browser checks on mobile and desktop, deploy through
   the supported pipeline and verify the deployed revision and user journeys.
-- [ ] Record completed work, evidence, limitations and exact continuation steps.
+- [x] Record completed work, evidence, limitations and exact continuation steps.
 
 ## Recovered context
 
@@ -75,7 +76,8 @@ these are dated observations, not a replacement for the live register.
 ## Verification and deployment
 
 Substrata PR #43 deployed as `ecca727`; Loki PR #737 deployed as `f1d35e5d`.
-Production verification is ongoing. The public atlas, profiles, export and diagram
+Substrata PR #44 deployed as `a370a704` (successful CI and Deploy run
+`35062856491`). The public atlas, profiles, export and diagram
 work. A missing PostgreSQL HBA allowlist rule initially broke writes; corrected
 with a localhost-only app/database rule and a TCP login probe in provisioning.
 Production AI now answers and contribution receipt storage succeeds. Anonymous
@@ -84,10 +86,55 @@ review access returns 404; foreign-origin writes return 403; missing consent 400
 Follow-up branch `fix/research-production-verification` improves health readiness,
 fixes optional-email rejection during OIDC sign-in, renders assistant Markdown,
 and clarifies inherited ambiguous GlobalWafers wording and retrieval attribution.
-These fixes still require deployment and repeat production verification.
+These fixes are deployed and passed repeat production verification.
 
-Temporary operational fixtures to remove after testing:
+### Production evidence, 2026-09-16
 
-- Contribution receipt `9434cd8e-7f84-473e-8431-8be9f5528ecd` (deployment test).
-- OrangeCat test identity metadata at `/tmp/substrata-auth-fixture.json` on laptop
-  and host. This file contains test credentials; never commit or print it.
+- Actual OrangeCat login using a temporary verified account, OAuth consent,
+  return to Substrata, saved interests and persistence after reload all passed.
+- Signed-in non-reviewer and anonymous requests to the private inbox returned 404.
+- Mobile browser question returned rendered Markdown and working citation anchors;
+  submission through the contribution tab returned a durable receipt.
+- API checks: foreign-origin write 403, missing consent 400, valid submission 201,
+  sourced AI answer 200, SVG figure 200 and matching JSON SHA-256.
+- Eight routes at both 390px and 1440px: no non-200 response, browser error or
+  horizontal document overflow. Local screenshots: `/tmp/substrata-audit`.
+- Snapshot retained in the database:
+  `dc39d7262b8feb018bf49cb2536e68f984a56e5e559bb3501386ad7e07b2baad`.
+  The checked corpus contained 29 bottlenecks and 92 producer records, of which
+  62 were sourced, 20 candidate and 10 unverified. These are coverage counts.
+- Canonical changelog appended and roadmap progress updated in Loki. OrangeCat
+  project description was projected from that profile with development links;
+  the article summary and canonical link were cross-posted successfully using
+  Loki's existing, idempotent publication integration.
+- Removed the temporary OrangeCat identity, saved preferences and all three
+  exact test contributions. Removed local and remote fixture credential files.
+- Loki PR #738 updates the hosting register to name the dedicated database.
+
+### Limits and remaining fleet work
+
+This is a beta. Primary-source coverage is incomplete; sources for production
+do not establish market shares, customer contracts, capacity or employment.
+Assistant output remains fallible: a production answer overgeneralised coverage
+into total world supply. A follow-up system instruction explicitly prohibits that
+inference; continue answer-quality evaluation rather than treating citations as
+proof of correctness. Contributions await human review; the inbox does not
+automatically publish claims or send email. Personalisation currently saves
+technology interests, not an entire persistent conversation history.
+
+Loki public profiles now render development records across the fleet. The full
+identity audit on 2026-09-16 still finds 57 gaps among 17 served projects:
+14 missing roadmaps, four missing changelogs, nine missing OrangeCat profiles,
+12 missing Solon organisations, plus identity fields. Substrata's sole remaining
+identity-audit gap is a Solon organisation. This session did not complete
+fleet-wide remediation and must not be reported as having done so.
+
+Missing roadmaps: aoz-housing, botsmann, causius, datacat, evig, heidi, kivvi,
+petvity, revamp-info, s-ink, solon, surf-your-life, vitareba and wild-spirit.
+Missing changelogs: botsmann, causius, petvity and s-ink.
+
+Next session: rerun the canonical audit; inspect each affected repository's
+current plans and merged changes; populate substantive goals and factual dev-log
+entries in Loki; render those records on each product site; then verify public
+routes. Do not insert placeholder milestones to make the audit green. The
+canonical roadmap retains the ongoing company/source research work.
