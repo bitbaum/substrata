@@ -282,6 +282,30 @@ export const CLASSIFICATION: Record<string, Classification> = {
     technologies: ['ai', 'manufacturing'],
     industries: ['semiconductors'],
   },
+  'Battery-grade lithium chemicals': {
+    plain:
+      'Lithium turned into the hydroxide or carbonate a battery plant will actually accept. A salt lake is not a chemical.',
+    technologies: ['energy', 'robotics'],
+    industries: ['mining-materials', 'gases-chemicals'],
+  },
+  'Uranium conversion and enrichment': {
+    plain:
+      'Turning mined uranium into the fuel a reactor can burn. Few states do this, and they do not do it quickly.',
+    technologies: ['energy'],
+    industries: ['power-grid', 'mining-materials'],
+  },
+  'Laser powder-bed fusion machines': {
+    plain:
+      'Printers that melt metal powder with a laser, layer by layer, into a qualified part. The brochure is not the qualification.',
+    technologies: ['manufacturing', 'space', 'robotics'],
+    industries: ['machinery', 'semiconductors'],
+  },
+  'SMR first-of-a-kind licensing': {
+    plain:
+      'Permission to build the first small nuclear reactor of a new design. The physics is known; the licence is the wait.',
+    technologies: ['energy'],
+    industries: ['power-grid'],
+  },
 };
 
 const TECH_BY_ID = new Map(TECHNOLOGIES.map((t) => [t.id, t]));

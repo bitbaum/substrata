@@ -1,43 +1,46 @@
 import { WORLD_PATHS } from '@/config/world-paths';
-import { countryFacts, type CountryFact } from '@/lib/geo';
-
-function weight(fact: CountryFact | undefined) {
-  if (!fact?.hasRecord) return 0;
-  return fact.instruments * 3 + fact.organisations + fact.events + fact.materials;
-}
+import { countriesWithResources, countryFacts } from '@/lib/geo';
+import { resourcesFor, resourceLabel } from '@/config/substrata-resources';
 
 export function WorldMap({ selected }: { selected?: string }) {
   const facts = countryFacts();
-  const weights = [...facts.values()].map(weight);
-  const max = Math.max(1, ...weights);
+  const endowed = countriesWithResources();
   return (
     <svg
-      viewBox="0 0 1000 500"
+      viewBox="0 0 1000 420"
       role="img"
-      aria-label="World map of recorded policy, organisations, events and materials"
+      aria-label="World map of resources and recorded research"
       className="world-map"
     >
-      <rect width="1000" height="500" className="world-map-ocean" />
-      {WORLD_PATHS.map((country) => {
+      <rect width="1000" height="420" className="world-map-ocean" />
+      {WORLD_PATHS.filter((c) => c.iso2 !== 'aq').map((country) => {
         const fact = country.iso2 ? facts.get(country.iso2) : undefined;
-        const w = weight(fact);
+        const hasResource = country.iso2 ? endowed.has(country.iso2) : false;
+        const hasCorpus = Boolean(fact?.hasRecord);
         const active = selected && country.iso2 === selected;
+        const endowment = country.iso2 ? resourcesFor(country.iso2) : null;
+        const label = [
+          country.name,
+          endowment?.resources.map(resourceLabel).join(', '),
+          hasCorpus ? 'in the research corpus' : '',
+        ]
+          .filter(Boolean)
+          .join(' — ');
         const href = country.iso2 ? `/atlas?view=world&country=${country.iso2}` : undefined;
         const node = (
           <path
             d={country.d}
             data-iso={country.iso2 || undefined}
-            data-weight={w || undefined}
             className={[
               'world-map-country',
-              w > 0 ? 'is-recorded' : '',
+              hasResource ? 'has-resource' : '',
+              hasCorpus ? 'has-corpus' : '',
               active ? 'is-active' : '',
             ].join(' ')}
-            style={w > 0 ? { opacity: 0.35 + (w / max) * 0.65 } : undefined}
           />
         );
         return href ? (
-          <a key={country.name + country.iso2} href={href} aria-label={country.name}>
+          <a key={country.name + country.iso2} href={href} aria-label={label}>
             {node}
           </a>
         ) : (

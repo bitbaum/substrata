@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { WORLD_PATHS } from '../config/world-paths';
-import { EU_MEMBERS, countryFacts } from '../lib/geo';
+import { EU_MEMBERS, countryDossier, countryFacts } from '../lib/geo';
 import { ROUTES } from '../lib/links';
 import { FOOTER_NAV, PUBLIC_NAV, RESEARCH_NAV, navPaths } from '../config/site-nav';
 
@@ -24,6 +24,19 @@ test('the world atlas has ISO codes for the jurisdictions we actually record', (
     assert.ok(iso.has(code), `missing land path for ${code}`);
   }
   assert.ok(WORLD_PATHS.length > 150);
+});
+
+test('Niger and Argentina are dossiers, not blank panels', () => {
+  const niger = countryDossier('ne');
+  const argentina = countryDossier('ar');
+  assert.ok(niger);
+  assert.ok(argentina);
+  assert.ok(niger.resources.some((r) => r.id === 'uranium'));
+  assert.ok(argentina.resources.some((r) => r.id === 'lithium'));
+  assert.match(niger.why, /uranium/i);
+  assert.match(argentina.why, /lithium/i);
+  assert.ok(niger.relatedBottlenecks.length > 0);
+  assert.ok(argentina.relatedBottlenecks.length > 0);
 });
 
 test('country facts count real instruments onto China and the EU members', () => {
