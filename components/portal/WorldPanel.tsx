@@ -1,13 +1,15 @@
 import Link from 'next/link';
 import { WORLD_PATHS } from '@/config/world-paths';
+import { RESOURCE_KINDS } from '@/config/substrata-resources';
 import { WorldMap } from './WorldMap';
 import { Inquire } from './Inquire';
-import { countryDossier } from '@/lib/geo';
+import { countryDossier, worldInsights } from '@/lib/geo';
 import { neighbors } from '@/lib/graph';
 import { EU_MEMBERS } from '@/lib/geo';
 import { policyHref } from '@/lib/links';
+import { countryDiagram } from '@/lib/country-diagram';
 
-export function WorldPanel({ country }: { country?: string }) {
+export function WorldPanel({ country, resource }: { country?: string; resource?: string }) {
   const selected = country?.toLowerCase() ?? '';
   const dossier = selected ? countryDossier(selected) : null;
   const eu = selected && (EU_MEMBERS as readonly string[]).includes(selected);
@@ -15,30 +17,52 @@ export function WorldPanel({ country }: { country?: string }) {
   const options = WORLD_PATHS.filter((p) => p.iso2 && p.iso2 !== 'aq').sort((a, b) =>
     a.name.localeCompare(b.name),
   );
+  const insights = worldInsights();
+  const graphNodes = [
+    ...((dossier?.relatedBottlenecks ?? []).map((b) => ({
+      href: b.href,
+      label: b.label,
+      kind: 'bottleneck',
+    })) ?? []),
+    ...((dossier?.organisations ?? []).map((o) => ({
+      href: o.href,
+      label: o.label,
+      kind: 'company',
+    })) ?? []),
+  ];
 
   return (
     <div className="world-layout">
       <div>
         <form action="/atlas" className="world-find">
           <input type="hidden" name="view" value="world" />
-          <label htmlFor="country-pick">Open a country</label>
+          <label htmlFor="country-pick">Country</label>
           <select id="country-pick" name="country" defaultValue={selected}>
-            <option value="">Choose…</option>
+            <option value="">All countries</option>
             {options.map((p) => (
               <option key={p.iso2} value={p.iso2}>
                 {p.name}
               </option>
             ))}
           </select>
-          <button type="submit">Open</button>
+          <label htmlFor="resource-pick">Resource</label>
+          <select id="resource-pick" name="resource" defaultValue={resource ?? ''}>
+            <option value="">All resources</option>
+            {RESOURCE_KINDS.map((r) => (
+              <option key={r.id} value={r.id}>
+                {r.label}
+              </option>
+            ))}
+          </select>
+          <button type="submit">Show</button>
         </form>
-        <WorldMap selected={selected || undefined} />
+        <WorldMap selected={selected || undefined} resource={resource} />
         <ul className="world-legend">
           <li>
-            <span className="swatch has-resource" /> Resource directory
+            <span className="swatch has-resource" /> Directory mineral
           </li>
           <li>
-            <span className="swatch has-corpus" /> Research corpus
+            <span className="swatch has-corpus" /> In the research corpus
           </li>
           <li>
             <span className="swatch is-active" /> Selected
@@ -48,15 +72,26 @@ export function WorldPanel({ country }: { country?: string }) {
       <aside className="world-panel">
         {dossier ? (
           <>
-            <p className="research-kicker">{dossier.iso2.toUpperCase()}</p>
+            <p className="research-kicker">
+              {dossier.region} · {dossier.iso2.toUpperCase()}
+            </p>
             <h2>{dossier.name}</h2>
+            <p className="world-roles">{dossier.roles.join(' · ')}</p>
             <p className="world-why">{dossier.why}</p>
+            {graphNodes.length > 0 && (
+              <figure
+                className="country-graph"
+                dangerouslySetInnerHTML={{ __html: countryDiagram(dossier.name, graphNodes) }}
+              />
+            )}
             {dossier.resources.length > 0 && (
               <section className="mt-5">
                 <h3>Natural resources</h3>
                 <ul className="resource-chips">
                   {dossier.resources.map((r) => (
-                    <li key={r.id}>{r.label}</li>
+                    <li key={r.id}>
+                      <Link href={`/atlas?view=world&resource=${r.id}`}>{r.label}</Link>
+                    </li>
                   ))}
                 </ul>
                 <p className="mt-2 text-xs text-fg-tertiary">{dossier.directoryNote}</p>
@@ -76,7 +111,7 @@ export function WorldPanel({ country }: { country?: string }) {
             )}
             {dossier.organisations.length > 0 && (
               <section className="mt-5">
-                <h3>Organisations in the corpus</h3>
+                <h3>Organisations</h3>
                 <ul>
                   {dossier.organisations.map((org) => (
                     <li key={org.href}>
@@ -128,20 +163,54 @@ export function WorldPanel({ country }: { country?: string }) {
                 </ul>
               </section>
             )}
+            {dossier.similar.length > 0 && (
+              <section className="mt-5">
+                <h3>Similar geologies</h3>
+                <ul>
+                  {dossier.similar.map((row) => (
+                    <li key={row.href}>
+                      <Link href={row.href}>{row.label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
             {!dossier.hasAnything && (
               <p className="mt-4 text-sm">
-                No directory row and no corpus row yet. That is a research gap.
+                No mineral directory row and no corpus row yet. The gap is the point — send what you
+                know.
               </p>
             )}
+            <p className="mt-4 text-sm">
+              <Link href="/chat">Ask about {dossier.name} →</Link>
+            </p>
             <div className="mt-6">
               <Inquire topic={`country:${dossier.iso2}`} />
             </div>
           </>
         ) : (
-          <p>
-            Pick a country. Mineral fill is the geology directory. Stronger outline is a row we have
-            actually researched. Grey is a gap — click it anyway.
-          </p>
+          <div>
+            <h2>The world, as recorded</h2>
+            <p className="world-why">
+              {insights.onMap} countries on the map. {insights.withDirectory} have a geology
+              directory row. {insights.withCorpus} appear in the research corpus. {insights.gaps}{' '}
+              are still gaps. Paint is coverage, not importance.
+            </p>
+            <h3>Directory minerals</h3>
+            <ul className="resource-chips">
+              {insights.resources.slice(0, 12).map((r) => (
+                <li key={r.id}>
+                  <Link href={`/atlas?view=world&resource=${r.id}`}>
+                    {r.label} {r.count}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4 text-sm text-fg-tertiary">
+              Open any country. Lithium countries link to the lithium-chemicals bottleneck. Uranium
+              countries link to the fuel cycle. Grey still opens a dossier.
+            </p>
+          </div>
         )}
       </aside>
     </div>

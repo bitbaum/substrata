@@ -9,6 +9,8 @@
  * relatedBottlenecks must be exact names in the coverage universe, or empty.
  */
 
+import { EXTRA_ENDOWMENTS } from './substrata-countries';
+
 export type ResourceId =
   | 'uranium'
   | 'lithium'
@@ -474,7 +476,25 @@ const RESOURCE_LABEL = Object.fromEntries(RESOURCE_KINDS.map((r) => [r.id, r.lab
 >;
 
 export function resourcesFor(iso2: string): CountryResource | null {
-  return COUNTRY_RESOURCES.find((row) => row.iso2 === iso2.toLowerCase()) ?? null;
+  const id = iso2.toLowerCase();
+  const main = COUNTRY_RESOURCES.find((row) => row.iso2 === id);
+  // Extra rows are generated with the country index so every landmass can
+  // carry a directory sentence. They must not clobber a hand-written row.
+  const extra = extraEndowment(id);
+  if (!main && !extra) return null;
+  const resources = [
+    ...new Set([...(main?.resources ?? []), ...((extra?.resources ?? []) as ResourceId[])]),
+  ];
+  return {
+    iso2: id,
+    resources,
+    why: main?.why || extra?.why || '',
+    relatedBottlenecks: main?.relatedBottlenecks ?? [],
+  };
+}
+
+function extraEndowment(iso2: string): { resources: readonly string[]; why: string } | undefined {
+  return EXTRA_ENDOWMENTS.find((row) => row.iso2 === iso2);
 }
 
 export function resourceLabel(id: string): string {
@@ -483,3 +503,16 @@ export function resourceLabel(id: string): string {
 
 export const RESOURCE_DIRECTORY_NOTE =
   'Directory of public geology and industrial role, not a finding. A producer row with a source is the only way a mineral here becomes coverage.';
+
+/** How a directory mineral connects to a bottleneck we actually track. */
+export const RESOURCE_TO_BOTTLENECKS: Partial<Record<ResourceId, readonly string[]>> = {
+  lithium: ['Battery-grade lithium chemicals'],
+  uranium: ['Uranium conversion and enrichment'],
+  helium: ['Liquid helium (He-4)'],
+  tin: ['High-purity tin, EUV droplet grade'],
+  'rare-earths': ['Didymium (Nd-Pr) metal, magnet feed', 'Dysprosium metal'],
+  gallium: ['Gallium, refined'],
+  quartz: ['Crucible-grade high-purity quartz sand'],
+  neon: ['Neon, excimer laser grade'],
+  iron: ['Grain-oriented electrical steel (GOES)'],
+};

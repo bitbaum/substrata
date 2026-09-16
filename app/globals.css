@@ -404,6 +404,24 @@ html[data-theme='light'] .world-map-country.has-resource.has-corpus {
   stroke: var(--color-fg-primary);
   stroke-width: 1;
 }
+.world-map-country.is-muted {
+  opacity: 0.2;
+}
+.world-roles {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-fg-tertiary);
+  margin: 0.3rem 0 0.8rem;
+}
+.country-graph {
+  margin: 1rem 0;
+  overflow: auto;
+}
+.country-graph svg {
+  width: 100%;
+  height: auto;
+}
 .world-map a:focus-visible .world-map-country {
   outline: 2px solid var(--color-fg-primary);
 }
