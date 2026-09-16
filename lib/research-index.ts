@@ -8,10 +8,17 @@ import { bottleneckHref, marketHref, learnHref, noteHref, scienceHref, policyHre
 import { SCIENCE } from '@/config/substrata-science';
 import { INSTRUMENTS } from '@/config/substrata-policy';
 import { JOIN } from '@/config/substrata-join';
+import {
+  COUNTRY_RESOURCES,
+  RESOURCE_DIRECTORY_NOTE,
+  resourceLabel,
+} from '@/config/substrata-resources';
+import { WORLD_PATHS } from '@/config/world-paths';
 
 export interface ResearchDocument {
   id: string;
-  kind: 'bottleneck' | 'company' | 'learn' | 'article' | 'science' | 'policy' | 'talent';
+  kind:
+    'bottleneck' | 'company' | 'learn' | 'article' | 'science' | 'policy' | 'talent' | 'country';
   title: string;
   href: string;
   text: string;
@@ -84,6 +91,19 @@ export function researchDocuments(): ResearchDocument[] {
       evidence: 'explanation',
       topics: n.tags,
     })),
+    ...COUNTRY_RESOURCES.map((row) => {
+      const name = WORLD_PATHS.find((p) => p.iso2 === row.iso2)?.name ?? row.iso2.toUpperCase();
+      return {
+        id: `country:${row.iso2}`,
+        kind: 'country' as const,
+        title: name,
+        href: `/atlas?view=world&country=${row.iso2}`,
+        text: `${name} (${row.iso2.toUpperCase()}). ${row.why} Directory resources: ${row.resources.map(resourceLabel).join(', ') || 'none listed'}. Related bottlenecks named in the directory: ${row.relatedBottlenecks.join(', ') || 'none yet'}. ${RESOURCE_DIRECTORY_NOTE}`,
+        sources: [],
+        evidence: 'directory, not a finding',
+        topics: ['country', row.iso2, ...row.resources],
+      };
+    }),
     ...allNotes().map((n) => ({
       id: `article:${n.slug}`,
       kind: 'article' as const,

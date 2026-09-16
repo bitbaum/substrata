@@ -42,6 +42,21 @@ Atlas and World are one map with two views (`/atlas`, `/atlas?view=world`).
 published). Use it wherever a row is thin or empty. GitHub correction remains
 for sourced errors.
 
+## Companion (Ask)
+
+Uses `@bitbaum/ai-kit` `complete()` + `ai-kit/grounding`. Retrieval is local
+corpus + country directory + graph neighbours. UI is a thread (Grok-like),
+not a form. Contribute stays a separate inbox path.
+
+**ai-kit is the right package.** Keep using it. Gaps worth a package PR later,
+not a second client:
+
+- no streaming/`onToken` on `complete()` — Substrata waits for the full
+  answer, then paints the turn. Fake token drip would be dishonest.
+- no RAG helper — retrieval stays app-side (the corpus is ours).
+- no chat UI package — `SHARED.md`: do not centralise markup. OrangeCat's
+  ModernChatPanel is Cat-specific (tools, memory, quota). Do not copy it.
+
 ## Graph, institutions, and what is not faked
 
 The corpus is still **files** (SSOT). `lib/graph.ts` + `GET /api/graph` is the

@@ -35,6 +35,7 @@ test('questions retrieve relevant records across science, companies and talent',
   assert.ok(
     chatContext('What expertise does this research need?').some((d) => d.kind === 'talent'),
   );
+  assert.ok(chatContext('Why does Niger matter?').some((d) => d.kind === 'country'));
   assert.deepEqual(chatContext('xyzzyunmatched'), []);
 });
 test('an authenticated OIDC subject is usable without an optional profile email', () => {
