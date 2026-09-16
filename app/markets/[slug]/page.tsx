@@ -9,7 +9,11 @@ import { MARKET_PARTICIPANTS, SCARCITY_LABEL, participantBySlug } from '@/lib/pa
 import { bottleneckHref } from '@/lib/links';
 import { correctionUrl } from '@/lib/site';
 import { EventList } from '@/components/portal/EventList';
+import { FollowButton } from '@/components/portal/FollowButton';
 import { Empty, Heading, Page, Shell } from '@/components/portal/Shell';
+import { currentSession } from '@/lib/auth';
+import { database } from '@/lib/db';
+import { parseFollows } from '@/lib/follows';
 import { Status } from '@/components/portal/Status';
 import { SCIENCE } from '@/config/substrata-science';
 import { scienceHref } from '@/lib/links';
@@ -39,6 +43,19 @@ export default async function ParticipantPage({ params }: RouteParams) {
   const p = participantBySlug(slug);
   if (!p) notFound();
 
+  const session = await currentSession();
+  let following = false;
+  if (session?.actorId) {
+    try {
+      const row = await database().query<{ topics: unknown }>(
+        'SELECT topics FROM research_preferences WHERE actor_id=$1',
+        [session.actorId],
+      );
+      following = parseFollows(row.rows[0]?.topics).companies.includes(p.slug);
+    } catch {
+      following = false;
+    }
+  }
   const layer = CHAIN_LAYERS.find((l) => l.id === p.layer);
   const relief = SCIENCE.filter((s) =>
     s.relieves.some((r) => p.produces.some((x) => x.bottleneck === r.bottleneck)),
@@ -65,6 +82,11 @@ export default async function ParticipantPage({ params }: RouteParams) {
           <h1 className="mt-3 max-w-3xl font-heading text-3xl font-semibold leading-tight tracking-display text-fg-primary sm:text-4xl">
             {p.name}
           </h1>
+          {session?.actorId && (
+            <p className="mt-3">
+              <FollowButton type="company" id={p.slug} following={following} label={p.name} />
+            </p>
+          )}
           {p.role && <p className="mt-3 text-base text-fg-secondary">{p.role}</p>}
           {p.why && (
             <p className="mt-3 max-w-prose text-base leading-relaxed text-fg-secondary">{p.why}</p>

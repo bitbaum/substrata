@@ -1,8 +1,15 @@
 import Link from 'next/link';
-import { PUBLIC_NAV } from '@/config/site-nav';
+import { PUBLIC_NAV, type NavLink } from '@/config/site-nav';
 
-export function PublicNav({ currentPath }: { currentPath: string }) {
+export function PublicNav({
+  currentPath,
+  extra = [],
+}: {
+  currentPath: string;
+  extra?: readonly NavLink[];
+}) {
   const current = currentPath === '' ? '/' : `/${currentPath}`;
+  const items = [...extra, ...PUBLIC_NAV];
   return (
     <>
       <nav aria-label="Primary" className="public-nav">
@@ -21,10 +28,21 @@ export function PublicNav({ currentPath }: { currentPath: string }) {
         })}
       </nav>
       <details className="public-nav-more">
-        <summary>Explore</summary>
+        <summary>Menu</summary>
         <div className="public-nav-more-panel">
-          {PUBLIC_NAV.map((item) => (
-            <Link key={item.href} href={item.href}>
+          <form action="/search" className="public-nav-search">
+            <label className="sr-only" htmlFor="mobile-search">
+              Search
+            </label>
+            <input id="mobile-search" name="q" type="search" placeholder="Search" maxLength={200} />
+            <button type="submit">Go</button>
+          </form>
+          {items.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              aria-current={current === item.href ? 'page' : undefined}
+            >
               {item.label}
             </Link>
           ))}
