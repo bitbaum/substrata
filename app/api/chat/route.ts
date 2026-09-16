@@ -1,4 +1,4 @@
-import { answerQuestion, type ChatTurn } from '@/lib/chat';
+import { answerQuestion, availableModels, type ChatTurn } from '@/lib/chat';
 import { allowRequest, boundedJson, sameOrigin } from '@/lib/request-guards';
 
 export const dynamic = 'force-dynamic';
@@ -16,6 +16,10 @@ function turns(raw: unknown): ChatTurn[] {
     );
 }
 
+export async function GET() {
+  return Response.json({ models: availableModels() });
+}
+
 export async function POST(request: Request) {
   if (!sameOrigin(request)) return Response.json({ error: 'Origin not allowed' }, { status: 403 });
   let input: unknown;
@@ -26,6 +30,8 @@ export async function POST(request: Request) {
   }
   const question = (input as { question?: unknown })?.question;
   const history = turns((input as { history?: unknown })?.history);
+  const modelRaw = (input as { model?: unknown })?.model;
+  const model = typeof modelRaw === 'string' && modelRaw.length < 120 ? modelRaw : 'auto';
   if (typeof question !== 'string' || question.trim().length < 3 || question.length > 4000)
     return Response.json(
       { error: 'Ask a question between 3 and 4,000 characters.' },
@@ -43,7 +49,7 @@ export async function POST(request: Request) {
         const send = (obj: unknown) =>
           controller.enqueue(encoder.encode(`${JSON.stringify(obj)}\n`));
         try {
-          const data = await answerQuestion(question, request.signal, history);
+          const data = await answerQuestion(question, request.signal, history, model);
           send({ type: 'done', data });
         } catch (error) {
           console.error(

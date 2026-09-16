@@ -5,6 +5,7 @@ import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { CHAT_STARTERS } from '@/config/substrata-chat';
+import { Dictation } from './Dictation';
 
 type Source = {
   number: number;
@@ -24,6 +25,10 @@ type Turn = {
 
 export function ResearchChat({ topic, compact = false }: { topic: string; compact?: boolean }) {
   const [ai, setAi] = useState<'unknown' | 'up' | 'down'>('unknown');
+  const [models, setModels] = useState<{ id: string; label: string }[]>([
+    { id: 'auto', label: 'Auto' },
+  ]);
+  const [model, setModel] = useState('auto');
   const [draft, setDraft] = useState('');
   const [turns, setTurns] = useState<Turn[]>([]);
   const [busy, setBusy] = useState(false);
@@ -41,6 +46,12 @@ export function ResearchChat({ topic, compact = false }: { topic: string; compac
       .then((r) => r.json())
       .then((j) => setAi(String(j.ai ?? '').startsWith('configured') ? 'up' : 'down'))
       .catch(() => setAi('down'));
+    void fetch('/api/chat')
+      .then((r) => r.json())
+      .then((j) => {
+        if (Array.isArray(j.models) && j.models.length) setModels(j.models);
+      })
+      .catch(() => undefined);
   }, []);
 
   async function ask(question: string) {
@@ -61,6 +72,7 @@ export function ResearchChat({ topic, compact = false }: { topic: string; compac
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           question: text,
+          model,
           history: history.slice(0, -1).map((t) => ({ role: t.role, content: t.content })),
         }),
         signal: abort.signal,
@@ -241,6 +253,36 @@ export function ResearchChat({ topic, compact = false }: { topic: string; compac
           maxLength={4000}
         />
         <div className="companion-actions">
+          <label className="companion-model">
+            <span className="sr-only">Model</span>
+            <select value={model} onChange={(e) => setModel(e.target.value)} disabled={busy}>
+              {models.map((m) => (
+                <option key={m.id} value={m.id}>
+                  {m.label}
+                </option>
+              ))}
+            </select>
+          </label>
+          <Dictation
+            disabled={busy}
+            onTranscript={(text) => setDraft((d) => (d ? `${d} ${text}` : text))}
+          />
+          <label className="companion-tool">
+            Attach
+            <input
+              type="file"
+              accept=".txt,.md,.csv,.json"
+              className="sr-only"
+              onChange={(event) => {
+                const file = event.target.files?.[0];
+                event.target.value = '';
+                if (!file) return;
+                void file.text().then((text) => {
+                  setDraft((d) => `${d}\n\nAttached ${file.name}:\n${text.slice(0, 2500)}`.trim());
+                });
+              }}
+            />
+          </label>
           {busy ? (
             <button
               type="button"

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { authEnabled, currentSession, signIn, signOut } from '@/lib/auth';
 import { ThemeToggle } from './ThemeToggle';
+import { DetailsMenu } from './DetailsMenu';
 
 export async function AccountMenu() {
   const session = await currentSession();
@@ -10,7 +11,7 @@ export async function AccountMenu() {
 
   if (!session?.actorId) {
     return (
-      <details className="account-menu">
+      <DetailsMenu className="account-menu">
         <summary className="account-menu-summary" aria-label="Account">
           <span className="account-avatar" aria-hidden>
             ●
@@ -37,12 +38,12 @@ export async function AccountMenu() {
           </Link>
           <ThemeToggle />
         </div>
-      </details>
+      </DetailsMenu>
     );
   }
 
   return (
-    <details className="account-menu">
+    <DetailsMenu className="account-menu">
       <summary className="account-menu-summary" aria-label={`Account menu for ${name}`}>
         {image ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -70,6 +71,6 @@ export async function AccountMenu() {
           </button>
         </form>
       </div>
-    </details>
+    </DetailsMenu>
   );
 }
