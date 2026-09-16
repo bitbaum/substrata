@@ -34,6 +34,11 @@ export default async function AccountPage({
             title="Your research desk"
             lede="Save the technologies you follow and return to them from any device. Your OrangeCat account signs you in to Substrata."
           />
+          <ul className="mb-6 max-w-prose list-disc space-y-2 pl-5 text-fg-secondary">
+            <li>Keep a short list of technologies and open their chains in one click.</li>
+            <li>Ask the assistant with that context still in view.</li>
+            <li>Public research stays free to read without an account.</li>
+          </ul>
           {authEnabled ? (
             <form
               action={async () => {
@@ -46,6 +51,11 @@ export default async function AccountPage({
           ) : (
             <p>Account sign-in is being configured. Public research and chat remain available.</p>
           )}
+          <p className="mt-6 text-sm text-fg-tertiary">
+            <Link href="/chat" className="text-accent underline-offset-4 hover:underline">
+              Ask without signing in →
+            </Link>
+          </p>
         </Page>
       </Shell>
     );

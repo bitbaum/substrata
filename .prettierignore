@@ -37,3 +37,6 @@ research/events.json
 
 # Screenshot and trace output from the Playwright MCP server.
 .playwright-mcp
+
+# Favicon / brand marks. Prettier has no SVG parser in this repo.
+*.svg

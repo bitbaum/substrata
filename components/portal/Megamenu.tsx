@@ -107,17 +107,39 @@ function WideNav({ groups, currentGroup }: { groups: NavGroup[]; currentGroup?: 
   );
 }
 
+const MOBILE_ACTIONS = [
+  { href: '/search', label: 'Search' },
+  { href: '/chat', label: 'Ask' },
+  { href: '/account', label: 'Account' },
+  { href: NAV_ACTION.href, label: NAV_ACTION.label },
+] as const;
+
 /** Narrow screens: one disclosure holding every group. */
 function NarrowNav({ groups }: { groups: NavGroup[] }) {
   return (
-    <details className="lg:hidden [&[open]_.chev]:rotate-180">
-      <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-2 font-mono text-xs uppercase tracking-caps text-fg-tertiary">
+    <details className="site-menu lg:hidden [&[open]_.chev]:rotate-180">
+      <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-2 px-2 font-mono text-xs uppercase tracking-caps text-fg-tertiary">
         Menu
         <span aria-hidden className="chev text-[0.6rem] transition-transform">
           ▾
         </span>
       </summary>
-      <div className="absolute inset-x-0 z-40 mt-2 max-h-[80vh] overflow-y-auto border-y border-strong bg-surface-page px-4 py-3 shadow-lg sm:px-6">
+      <div className="absolute inset-x-0 z-40 mt-2 max-h-[80vh] overflow-y-auto border-y border-strong bg-surface-page px-4 py-4 shadow-lg sm:px-6">
+        <nav aria-label="Quick actions" className="mb-3 grid grid-cols-2 gap-2">
+          {MOBILE_ACTIONS.map((action) => (
+            <Link
+              key={action.href}
+              href={action.href}
+              className={
+                action.href === NAV_ACTION.href
+                  ? 'flex min-h-11 items-center justify-center rounded-md bg-accent text-sm font-medium text-surface-page'
+                  : 'flex min-h-11 items-center justify-center rounded-md border border-strong text-sm font-medium text-fg-primary'
+              }
+            >
+              {action.label}
+            </Link>
+          ))}
+        </nav>
         {groups.map((group) => (
           <section key={group.id} className="border-b border-subtle py-3 last:border-0">
             <h2 className="font-mono text-xs uppercase tracking-caps text-fg-tertiary">
@@ -130,28 +152,15 @@ function NarrowNav({ groups }: { groups: NavGroup[] }) {
             </div>
           </section>
         ))}
-        <Link
-          href={NAV_ACTION.href}
-          className="mt-3 flex min-h-11 items-center justify-center rounded-md bg-accent px-4 font-medium text-surface-page"
-        >
-          {NAV_ACTION.label}
-        </Link>
       </div>
     </details>
   );
 }
 
 export function Megamenu({ groups, currentGroup }: { groups: NavGroup[]; currentGroup?: string }) {
-  return (
-    <>
-      <WideNav groups={groups} currentGroup={currentGroup} />
-      <NarrowNav groups={groups} />
-      <Link
-        href={NAV_ACTION.href}
-        className="ml-auto hidden min-h-9 items-center rounded-full border border-accent px-4 text-sm font-medium text-accent transition-colors hover:bg-accent hover:text-surface-page lg:inline-flex"
-      >
-        {NAV_ACTION.label}
-      </Link>
-    </>
-  );
+  return <WideNav groups={groups} currentGroup={currentGroup} />;
+}
+
+export function MobileMenu({ groups }: { groups: NavGroup[] }) {
+  return <NarrowNav groups={groups} />;
 }

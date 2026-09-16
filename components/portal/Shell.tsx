@@ -23,7 +23,8 @@ import { BOTTLENECKS, portalTotals } from '@/lib/bottlenecks';
 import { learnCount, noteCount } from '@/lib/notes';
 import { MARKET_PARTICIPANTS } from '@/lib/participants';
 import { SITE, correctionUrl } from '@/lib/site';
-import { Megamenu } from './Megamenu';
+import { Mark, SearchIcon } from './Mark';
+import { Megamenu, MobileMenu } from './Megamenu';
 
 /**
  * Which menu group a page belongs to, so the right one reads as current.
@@ -126,41 +127,62 @@ export function Shell({
 
   return (
     <div className="flex min-h-screen flex-col bg-surface-page">
-      <header className="sticky top-0 z-30 border-b border-subtle bg-surface-page/95 backdrop-blur">
-        <div className="relative mx-auto flex max-w-shell items-center gap-4 px-4 py-2 sm:px-6 lg:gap-2 lg:px-8">
+      <header className="site-header sticky top-0 z-30 border-b border-subtle bg-surface-page/95 backdrop-blur">
+        <div className="relative mx-auto flex max-w-shell items-center gap-3 px-4 py-2.5 sm:px-6 lg:gap-4 lg:px-8">
           <Link
             href="/"
-            className="mr-2 inline-flex shrink-0 items-center rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className="inline-flex shrink-0 items-center gap-2 rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
+            <Mark className="h-7 w-7 text-accent" />
             <span className="font-heading text-lg font-semibold tracking-display text-fg-primary">
               {chrome.name}
             </span>
           </Link>
           <Megamenu groups={groups} currentGroup={GROUP_FOR_PATH[currentPath]} />
-          <Link href="/search" className="portal-utility" aria-label="Search all research">
-            Search
-          </Link>
-          <Link href="/chat" className="portal-utility">
-            Ask
-          </Link>
-          <Link
-            href={NAV_ACTION.href}
-            className="ml-auto inline-flex min-h-9 items-center rounded-full border border-accent px-3 text-sm font-medium text-accent lg:hidden"
-          >
-            {NAV_ACTION.label}
-          </Link>
+          <div className="ml-auto flex items-center gap-1 sm:gap-2">
+            <form action="/search" className="site-search hidden lg:flex">
+              <label className="sr-only" htmlFor="header-search">
+                Search the research
+              </label>
+              <input
+                id="header-search"
+                name="q"
+                type="search"
+                placeholder="Try ASML or EUV"
+                maxLength={200}
+              />
+              <button type="submit">Search</button>
+            </form>
+            <Link
+              href="/search"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-md text-fg-secondary hover:text-fg-primary lg:hidden"
+              aria-label="Search the research"
+            >
+              <SearchIcon className="h-5 w-5" />
+            </Link>
+            <Link href="/chat" className="site-action hidden lg:inline-flex">
+              Ask
+            </Link>
+            <Link href="/account" className="site-action hidden lg:inline-flex">
+              Account
+            </Link>
+            <Link href={NAV_ACTION.href} className="site-join hidden lg:inline-flex">
+              {NAV_ACTION.label}
+            </Link>
+            <MobileMenu groups={groups} />
+          </div>
         </div>
       </header>
-      <nav className="portal-quicknav" aria-label="Research shortcuts">
-        <Link href="/atlas">Explore the chains</Link>
-        <Link href="/learn">Learn</Link>
-        <Link href="/science">Science</Link>
-        <Link href="/talent">Talent</Link>
-        <Link href="/account">My research</Link>
-      </nav>
       <main className="flex-1">{children}</main>
       <footer className="mt-16 border-t border-subtle">
         <div className="mx-auto max-w-shell px-4 py-10 sm:px-6 lg:px-8">
+          <div className="mb-10 max-w-xl">
+            <p className="inline-flex items-center gap-2 font-heading text-lg font-semibold tracking-display text-fg-primary">
+              <Mark className="h-6 w-6 text-accent" />
+              {chrome.name}
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-fg-secondary">{chrome.tagline}</p>
+          </div>
           <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
             {FOOTER_GROUPS.map((group) => (
               <nav key={group.label} aria-label={group.label}>
