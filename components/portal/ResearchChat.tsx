@@ -1,6 +1,8 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 type Answer = {
   answer: string;
   sources: { number: number; title: string; href: string; evidence: string; primary: string[] }[];
@@ -79,11 +81,25 @@ export function ResearchChat({ topic }: { topic: string }) {
         {answer && (
           <article className="chat-answer" aria-label="Substrata answer">
             <h2>Substrata</h2>
-            <div className="whitespace-pre-wrap">{answer.answer}</div>
+            <div className="chat-markdown">
+              <ReactMarkdown
+                skipHtml
+                remarkPlugins={[remarkGfm]}
+                disallowedElements={['img', 'iframe', 'script', 'style']}
+                urlTransform={(url) => (url.startsWith('#source-') ? url : '')}
+              >
+                {answer.answer.replace(/【(\d+)】|\[(\d+)\](?!\()/g, (_match, a, b) => {
+                  const n = Number(a ?? b);
+                  return answer.sources.some((s) => s.number === n)
+                    ? `[${n}](#source-${n})`
+                    : `[${n}]`;
+                })}
+              </ReactMarkdown>
+            </div>
             <h3>Research to check</h3>
             <ol>
               {answer.sources.map((s) => (
-                <li key={s.number}>
+                <li key={s.number} id={`source-${s.number}`}>
                   <Link href={s.href}>
                     [{s.number}] {s.title}
                   </Link>

@@ -8,6 +8,7 @@ import { bottlenecksCsv, csvCell, researchExport } from '../lib/research-export'
 import { boundedJson, sameOrigin } from '../lib/request-guards';
 import { chainDiagram } from '../lib/chain-diagram';
 import { chatContext } from '../lib/chat';
+import { hasAuthenticatedSubject } from '../lib/identity';
 
 test('atlas counts partition actual bottlenecks and never turn missing coverage into data', () => {
   const stages = atlasData();
@@ -35,6 +36,11 @@ test('questions retrieve relevant records across science, companies and talent',
     chatContext('What expertise does this research need?').some((d) => d.kind === 'talent'),
   );
   assert.deepEqual(chatContext('xyzzyunmatched'), []);
+});
+test('an authenticated OIDC subject is usable without an optional profile email', () => {
+  assert.equal(hasAuthenticatedSubject({ sub: 'actor-123' }), true);
+  assert.equal(hasAuthenticatedSubject({ sub: '' }), false);
+  assert.equal(hasAuthenticatedSubject(null), false);
 });
 test('exported chain figures explain relationships and refuse arbitrary slugs', () => {
   const bottleneck = BOTTLENECKS.find((b) => b.producers.length > 0)!;

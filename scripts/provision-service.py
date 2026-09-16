@@ -9,6 +9,7 @@ from pathlib import Path
 import secrets
 import subprocess
 import sys
+from urllib.parse import urlsplit
 
 
 def sql(database, statement, docker=False):
@@ -70,4 +71,23 @@ import pwd
 owner = pwd.getpwnam('ubuntu')
 os.chown(env_path, owner.pw_uid, owner.pw_gid)
 sql('substrata', 'SET ROLE substrata;\n' + Path(sys.argv[1]).read_text())
+# The host rejects every database/role pair not explicitly allowlisted.
+# Test through TCP as the app, not through the postgres operator connection.
+hba = Path(sql('postgres', 'SHOW hba_file;'))
+rules = hba.read_text()
+rule = 'host substrata substrata 127.0.0.1/32 scram-sha-256'
+if rule not in rules:
+    hba_backup = hba.with_name('pg_hba.conf.before-substrata')
+    if not hba_backup.exists():
+        hba_backup.write_text(rules)
+        hba_backup.chmod(0o600)
+    hba.write_text('# Substrata app role: localhost, own database only.\n' + rule + '\n' + rules)
+    if sql('postgres', 'SELECT count(*) FROM pg_hba_file_rules WHERE error IS NOT NULL;') != '0':
+        hba.write_text(rules)
+        raise RuntimeError('Invalid HBA configuration; restored previous rules')
+    sql('postgres', 'SELECT pg_reload_conf();')
+probe_env = dict(os.environ, PGPASSWORD=urlsplit(env['DATABASE_URL']).password)
+probe = subprocess.run(['psql', '-h', '127.0.0.1', '-U', 'substrata', '-d', 'substrata', '-Atc', 'SELECT 1'], env=probe_env, capture_output=True, text=True)
+if probe.returncode or probe.stdout.strip() != '1':
+    raise RuntimeError('Runtime database login failed')
 print('Substrata database, schema, identity client, reviewer and AI providers configured; no credentials printed.')
