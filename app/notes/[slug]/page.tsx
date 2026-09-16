@@ -8,6 +8,7 @@ import { allNotes, noteBySlug } from '@/lib/notes';
 import { noteHref } from '@/lib/links';
 import { correctionUrl } from '@/lib/site';
 import { Page, Shell } from '@/components/portal/Shell';
+import { PageDiscussion } from '@/components/portal/PageDiscussion';
 
 interface RouteParams {
   params: Promise<{ slug: string }>;
@@ -67,6 +68,8 @@ export default async function NotePage({ params }: RouteParams) {
             <ArticleBody blocks={note.blocks} />
           </div>
         </article>
+
+        <PageDiscussion path={`/notes/${note.slug}`} />
 
         <footer className="mt-12 border-t border-subtle pt-6">
           <p className="text-sm text-fg-tertiary">
