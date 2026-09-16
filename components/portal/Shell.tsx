@@ -1,11 +1,9 @@
 /**
  * Two shells, from one config.
  *
- * Public pages: wordmark, three links, search, account. Footer is a legal
- * line plus three destinations. No sidebar.
- *
- * Desk (/account, /review): sidebar from DESK_NAV, no public megamenu, no
- * sitemap footer. That is the only place a sidebar belongs.
+ * Public homepage: wordmark, research links, search, account.
+ * Signed-in anywhere except the homepage: desk sidebar stays put so clicking
+ * Map or Markets does not throw the reader into a different shell.
  */
 import React from 'react';
 import Link from 'next/link';
@@ -19,7 +17,7 @@ import { Inquire } from './Inquire';
 import { Mark, SearchIcon } from './Mark';
 import { PublicNav } from './PublicNav';
 
-const DESK_PATHS = new Set(['account', 'review']);
+const PUBLIC_ONLY = new Set(['']);
 
 export function DeskSidebar({
   currentPath,
@@ -57,7 +55,7 @@ export async function Shell({
 }) {
   const chrome = siteChrome();
   const session = await currentSession();
-  const desk = DESK_PATHS.has(currentPath) && Boolean(session?.actorId);
+  const desk = Boolean(session?.actorId) && !PUBLIC_ONLY.has(currentPath);
   const deskItems = DESK_NAV.filter(
     (item) => item.href !== '/review' || isReviewer(session?.actorId),
   );

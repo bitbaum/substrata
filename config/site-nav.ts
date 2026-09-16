@@ -1,13 +1,10 @@
 /**
- * Chrome, as data. Two shells, two lists.
+ * Chrome, as data. One research list, two shells.
  *
- * Public: a SpaceX-thin bar. Four jobs — read the map, see what changed, ask,
- * sign in. Everything else is a page the map or the footer can reach.
- *
- * Desk: the signed-in app. Sidebar only here. Public megamenus do not follow
- * a reader into their dashboard.
- *
- * Created: 2026-09-15. Split into public vs desk 2026-09-16.
+ * Public header and desk sidebar share RESEARCH_NAV so a destination cannot
+ * exist in one and vanish in the other. Homepage stays a public page even
+ * when signed in. Every other signed-in page keeps the desk sidebar, so
+ * clicking a left-panel item does not throw the reader into a different shell.
  */
 
 export interface NavLink {
@@ -15,27 +12,33 @@ export interface NavLink {
   href: string;
 }
 
-/** Header on every public page. Order is the information hierarchy. */
-export const PUBLIC_NAV: readonly NavLink[] = [
+/** The research, in the order a reader should be able to fall into it. */
+export const RESEARCH_NAV: readonly NavLink[] = [
   { label: 'Map', href: '/atlas' },
+  { label: 'Bottlenecks', href: '/bottlenecks' },
+  { label: 'Markets', href: '/markets' },
+  { label: 'Policy', href: '/policy' },
+  { label: 'Science', href: '/science' },
+  { label: 'Capital', href: '/capital' },
+  { label: 'Learn', href: '/learn' },
   { label: 'News', href: '/events' },
-  { label: 'Ask', href: '/chat' },
+  { label: 'Talent', href: '/talent' },
 ];
 
-/** Sidebar on /account and /review only. */
+export const PUBLIC_NAV: readonly NavLink[] = RESEARCH_NAV;
+
 export const DESK_NAV: readonly NavLink[] = [
   { label: 'Desk', href: '/account' },
-  { label: 'Ask', href: '/chat' },
-  { label: 'Map', href: '/atlas' },
-  { label: 'News', href: '/events' },
+  ...RESEARCH_NAV,
   { label: 'Inbox', href: '/review' },
 ];
 
-/** Sparse footer. Not a sitemap. */
 export const FOOTER_NAV: readonly NavLink[] = [
   { label: 'About', href: '/about' },
+  { label: 'Notes', href: '/notes' },
   { label: 'Changelog', href: '/changelog' },
   { label: 'Roadmap', href: '/roadmap' },
+  { label: 'Join', href: '/join' },
 ];
 
 export function navPaths(): string[] {

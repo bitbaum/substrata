@@ -49,11 +49,18 @@ Do not auto-publish unsourced rows.
 
 ## Work log
 
+### 2026-09-16 (restore destinations)
+
+- RESEARCH_NAV is the SSOT: Map, Bottlenecks, Markets, Policy, Science,
+  Capital, Learn, News, Talent. Public bar and desk sidebar share it.
+- Signed-in chrome keeps the sidebar on every page except the homepage, so
+  clicking a left-panel item does not drop the reader into a different shell.
+- Ask is a bottom-right dock on every page except `/chat` (ai-kit).
+- Added JBIC (sourced), two Learn notes, two Science leads marked unsourced.
+
 ### 2026-09-16 (quiet chrome)
 
-- Public nav is three links from `PUBLIC_NAV`. Desk sidebar only on account
-  and review. Footer is four destinations, not a sitemap.
-- Map: Chain | World on `/atlas`. Inquire on thin bottleneck and country pages.
+- Atlas and world remain one map with two views. Inquire stays on thin pages.
 
 ### 2026-09-16 (earlier)
 

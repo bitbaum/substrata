@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import './globals.css';
 import { SITE } from '@/lib/site';
+import { AskDock } from '@/components/portal/AskDock';
 
 export const metadata: Metadata = {
   title: { default: SITE.name, template: `%s · ${SITE.name}` },
@@ -40,6 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         {children}
+        <AskDock />
 
         {/* The Loki feedback widget: point at what is wrong on the page,
             and an agent changes it. Env-gated, so a local run and a fork carry
