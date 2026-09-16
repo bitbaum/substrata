@@ -23,6 +23,9 @@ import { BOTTLENECKS, portalTotals } from '@/lib/bottlenecks';
 import { learnCount, noteCount } from '@/lib/notes';
 import { MARKET_PARTICIPANTS } from '@/lib/participants';
 import { SITE, correctionUrl } from '@/lib/site';
+import { currentSession } from '@/lib/auth';
+import { AccountMenu } from './AccountMenu';
+import { DeskSidebar } from './DeskSidebar';
 import { Mark, SearchIcon } from './Mark';
 import { Megamenu, MobileMenu } from './Megamenu';
 
@@ -35,6 +38,7 @@ export const GROUP_FOR_PATH: Record<string, string> = {
   events: 'latest',
   notes: 'latest',
   atlas: 'map',
+  world: 'map',
   search: 'map',
   talent: 'map',
   data: 'about',
@@ -66,6 +70,7 @@ const FOOTER_GROUPS = [
       { href: '/science', label: 'Science' },
       { href: '/capital', label: 'Capital' },
       { href: '/atlas', label: 'Chain atlas' },
+      { href: '/world', label: 'World map' },
       { href: '/talent', label: 'Talent & expertise' },
     ],
   },
@@ -103,13 +108,15 @@ const FOOTER_GROUPS = [
   },
 ] as const;
 
-export function Shell({
+export async function Shell({
   currentPath,
   children,
 }: {
   currentPath: string;
   children: React.ReactNode;
 }) {
+  const session = await currentSession();
+  const signedIn = Boolean(session?.actorId);
   const chrome = siteChrome();
   const totals = portalTotals();
   const groups = navGroups({
@@ -126,14 +133,14 @@ export function Shell({
   });
 
   return (
-    <div className="flex min-h-screen flex-col bg-surface-page">
+    <div className={signedIn ? 'desk-shell' : 'flex min-h-screen flex-col bg-surface-page'}>
       <header className="site-header sticky top-0 z-30 border-b border-subtle bg-surface-page/95 backdrop-blur">
         <div className="relative mx-auto flex max-w-shell items-center gap-3 px-4 py-2.5 sm:px-6 lg:gap-4 lg:px-8">
           <Link
             href="/"
             className="inline-flex shrink-0 items-center gap-2 rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
-            <Mark className="h-7 w-7 text-accent" />
+            <Mark className="h-7 w-7 text-fg-primary" />
             <span className="font-heading text-lg font-semibold tracking-display text-fg-primary">
               {chrome.name}
             </span>
@@ -160,21 +167,23 @@ export function Shell({
             >
               <SearchIcon className="h-5 w-5" />
             </Link>
+            <Link href="/changelog" className="site-action hidden lg:inline-flex">
+              Log
+            </Link>
             <Link href="/chat" className="site-action hidden lg:inline-flex">
               Ask
-            </Link>
-            <Link href="/account" className="site-action hidden lg:inline-flex">
-              Account
             </Link>
             <Link href={NAV_ACTION.href} className="site-join hidden lg:inline-flex">
               {NAV_ACTION.label}
             </Link>
+            <AccountMenu />
             <MobileMenu groups={groups} />
           </div>
         </div>
       </header>
+      {signedIn && <DeskSidebar currentPath={currentPath} />}
       <main className="flex-1">{children}</main>
-      <footer className="mt-16 border-t border-subtle">
+      <footer className="site-footer mt-16 border-t border-subtle">
         <div className="mx-auto max-w-shell px-4 py-10 sm:px-6 lg:px-8">
           <div className="mb-10 max-w-xl">
             <p className="inline-flex items-center gap-2 font-heading text-lg font-semibold tracking-display text-fg-primary">

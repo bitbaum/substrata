@@ -30,9 +30,14 @@ export const metadata: Metadata = {
  * of this site inherited another product's header, tracking and Organization
  * schema, and told crawlers it was a different company.
  */
+const THEME_BOOT = `(function(){try{var t=localStorage.getItem('substrata-theme')||'auto';var d=t==='dark'||(t==='auto'&&matchMedia('(prefers-color-scheme: dark)').matches);var mode=d?'dark':'light';document.documentElement.dataset.theme=mode;document.documentElement.style.colorScheme=mode;}catch(e){}})();`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOT }} />
+      </head>
       <body>
         {children}
 

@@ -115,6 +115,7 @@ export const SECTIONS = {
   join: '/join',
   api: '/api/map',
   atlas: '/atlas',
+  world: '/world',
   search: '/search',
   talent: '/talent',
   chat: '/chat',
@@ -132,6 +133,7 @@ export const SECTIONS = {
  */
 export const ROUTES = [
   '/atlas',
+  '/world',
   '/search',
   '/talent',
   '/chat',

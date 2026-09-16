@@ -5,6 +5,7 @@ import { hasAuthenticatedSubject } from './identity';
 export const authEnabled = Boolean(
   process.env.ORANGECAT_OAUTH_CLIENT_ID && process.env.ORANGECAT_OAUTH_CLIENT_SECRET,
 );
+const authSecret = process.env.AUTH_SECRET || process.env.NEXTAUTH_SECRET;
 export const { handlers, auth, signIn, signOut } = NextAuth({
   trustHost: true,
   session: { strategy: 'jwt' },
@@ -47,4 +48,13 @@ declare module 'next-auth' {
 }
 export function isReviewer(actorId: string | undefined) {
   return !!actorId && (process.env.SUBSTRATA_REVIEWER_ACTOR_IDS ?? '').split(',').includes(actorId);
+}
+
+export async function currentSession() {
+  if (!authSecret) return null;
+  try {
+    return await auth();
+  } catch {
+    return null;
+  }
 }
