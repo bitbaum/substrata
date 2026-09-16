@@ -15,13 +15,20 @@ export const metadata = {
 export default async function AtlasPage({
   searchParams,
 }: {
-  searchParams: Promise<{ topic?: string; chain?: string; view?: string; country?: string }>;
+  searchParams: Promise<{
+    topic?: string;
+    chain?: string;
+    view?: string;
+    country?: string;
+    resource?: string;
+  }>;
 }) {
   const {
     topic: requested,
     chain: requestedChain,
     view: requestedView,
     country,
+    resource,
   } = await searchParams;
   const view = requestedView === 'world' ? 'world' : 'chain';
   const topic = TECHNOLOGIES.find((t) => t.id === requested)?.id ?? '';
@@ -34,7 +41,7 @@ export default async function AtlasPage({
       <Page>
         <SectionHeader
           title="The map"
-          lede="Two views of the same corpus. Chain is producer to technology. World is the countries those rows sit in. Paint is coverage, not importance."
+          lede="Chain is producer to technology. World is every country on the map: geology directory, related bottlenecks, companies, rules, and the gaps. Paint is coverage, not importance."
           action={
             <Link href="/api/research/export" className="text-accent underline">
               Download the data
@@ -50,7 +57,7 @@ export default async function AtlasPage({
           </Link>
         </nav>
         {view === 'world' ? (
-          <WorldPanel country={country} />
+          <WorldPanel country={country} resource={resource} />
         ) : (
           <>
             <form action="/atlas" className="research-search">

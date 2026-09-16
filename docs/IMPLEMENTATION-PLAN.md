@@ -78,6 +78,14 @@ Do not auto-publish unsourced rows.
 
 ## Work log
 
+### 2026-09-16 (every country)
+
+- 177 landmasses indexed (`config/substrata-countries.ts`, generated).
+- Geology directory + extra endowments so most producing states are not blank.
+- Resource → bottleneck auto-links (lithium → chemicals, uranium → fuel cycle).
+- World view: resource filter, coverage counts, similar geologies, SVG of
+  connected records. Ask is a link, not the only way in.
+
 ### 2026-09-16 (country dossiers)
 
 - Every country on the map is a dossier: geology directory + related

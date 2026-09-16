@@ -16,12 +16,13 @@ import { MARKET_PARTICIPANTS } from '@/lib/participants';
 import { WORLD_PATHS } from '@/config/world-paths';
 import { policyHref, bottleneckHref, marketHref } from '@/lib/links';
 import {
-  COUNTRY_RESOURCES,
   RESOURCE_DIRECTORY_NOTE,
+  RESOURCE_TO_BOTTLENECKS,
   resourceLabel,
   resourcesFor,
   type ResourceId,
 } from '@/config/substrata-resources';
+import { COUNTRIES, countryIndex, type PathRole } from '@/config/substrata-countries';
 import { BOTTLENECKS } from '@/lib/bottlenecks';
 
 /** Current EU member states. Used only to paint EU instruments onto the map. */
@@ -161,12 +162,15 @@ export type CountryLink = { href: string; label: string };
 export type CountryDossier = {
   iso2: string;
   name: string;
+  region: string;
+  roles: PathRole[];
   why: string;
   resources: { id: ResourceId; label: string }[];
   relatedBottlenecks: CountryLink[];
   organisations: CountryLink[];
   events: { date: string; headline: string }[];
   instruments: CountryLink[];
+  similar: CountryLink[];
   corpus: CountryFact;
   directoryNote: string;
   hasAnything: boolean;
@@ -178,12 +182,35 @@ export function countryDossier(iso2: string): CountryDossier | null {
   const path = WORLD_PATHS.find((p) => p.iso2 === id);
   const fact = factFor(id);
   const endowment = resourcesFor(id);
-  const name = path?.name ?? fact?.name ?? nameFor(id);
+  const index = countryIndex(id);
+  const name = path?.name ?? index?.name ?? fact?.name ?? nameFor(id);
   const eu = (EU_MEMBERS as readonly string[]).includes(id);
-  const related = (endowment?.relatedBottlenecks ?? [])
+  const derivedNames = [
+    ...(endowment?.relatedBottlenecks ?? []),
+    ...(endowment?.resources ?? []).flatMap((r) => RESOURCE_TO_BOTTLENECKS[r] ?? []),
+  ];
+  const related = [...new Set(derivedNames)]
     .map((n) => BOTTLENECKS.find((b) => b.name === n))
     .filter((b): b is NonNullable<typeof b> => Boolean(b))
     .map((b) => ({ href: bottleneckHref(b.slug), label: b.name }));
+  const similar = (endowment?.resources ?? [])
+    .flatMap((r) =>
+      COUNTRIES.filter(
+        (row) =>
+          row.iso2 && row.iso2 !== id && (resourcesFor(row.iso2)?.resources.includes(r) ?? false),
+      ).map((row) => row.iso2),
+    )
+    .filter((iso, i, all) => all.indexOf(iso) === i)
+    .slice(0, 8)
+    .map((iso) => ({
+      href: `/atlas?view=world&country=${iso}`,
+      label: WORLD_PATHS.find((p) => p.iso2 === iso)?.name ?? iso.toUpperCase(),
+    }));
+  const roles = new Set<PathRole>(index?.roles ?? []);
+  if (endowment?.resources.length) roles.add('extract');
+  if (fact?.hasRecord) roles.add('research');
+  roles.delete('gap');
+  if (roles.size === 0) roles.add('gap');
   const organisations = MARKET_PARTICIPANTS.filter((p) =>
     p.jurisdictions.some((j) => j.toLowerCase() === id),
   )
@@ -221,18 +248,46 @@ export function countryDossier(iso2: string): CountryDossier | null {
   return {
     iso2: id,
     name,
+    region: index?.region ?? 'Unassigned',
+    roles: [...roles],
     why,
     resources,
     relatedBottlenecks: related,
     organisations,
     events,
     instruments,
+    similar,
     corpus,
     directoryNote: RESOURCE_DIRECTORY_NOTE,
     hasAnything: resources.length + related.length + organisations.length + events.length > 0,
   };
 }
 
+export function worldInsights() {
+  const facts = countryFacts();
+  const onMap = COUNTRIES.filter((c) => c.iso2 && c.iso2 !== 'aq');
+  const withDirectory = onMap.filter((c) => (resourcesFor(c.iso2)?.resources.length ?? 0) > 0);
+  const withCorpus = onMap.filter((c) => facts.get(c.iso2)?.hasRecord);
+  const tallies = new Map<string, number>();
+  for (const c of onMap) {
+    for (const r of resourcesFor(c.iso2)?.resources ?? []) {
+      tallies.set(r, (tallies.get(r) ?? 0) + 1);
+    }
+  }
+  const resources = [...tallies.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .map(([id, count]) => ({ id, label: resourceLabel(id), count }));
+  return {
+    onMap: onMap.length,
+    withDirectory: withDirectory.length,
+    withCorpus: withCorpus.length,
+    gaps: onMap.length - withDirectory.length,
+    resources,
+  };
+}
+
 export function countriesWithResources(): Set<string> {
-  return new Set(COUNTRY_RESOURCES.map((r) => r.iso2));
+  return new Set(
+    COUNTRIES.filter((c) => (resourcesFor(c.iso2)?.resources.length ?? 0) > 0).map((c) => c.iso2),
+  );
 }

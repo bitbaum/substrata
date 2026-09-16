@@ -1,8 +1,8 @@
 import { WORLD_PATHS } from '@/config/world-paths';
 import { countriesWithResources, countryFacts } from '@/lib/geo';
-import { resourcesFor, resourceLabel } from '@/config/substrata-resources';
+import { resourcesFor, resourceLabel, type ResourceId } from '@/config/substrata-resources';
 
-export function WorldMap({ selected }: { selected?: string }) {
+export function WorldMap({ selected, resource }: { selected?: string; resource?: string }) {
   const facts = countryFacts();
   const endowed = countriesWithResources();
   return (
@@ -15,7 +15,12 @@ export function WorldMap({ selected }: { selected?: string }) {
       <rect width="1000" height="420" className="world-map-ocean" />
       {WORLD_PATHS.filter((c) => c.iso2 !== 'aq').map((country) => {
         const fact = country.iso2 ? facts.get(country.iso2) : undefined;
-        const hasResource = country.iso2 ? endowed.has(country.iso2) : false;
+        const match =
+          !resource ||
+          Boolean(
+            country.iso2 && resourcesFor(country.iso2)?.resources.includes(resource as ResourceId),
+          );
+        const hasResource = Boolean(country.iso2 && endowed.has(country.iso2) && match);
         const hasCorpus = Boolean(fact?.hasRecord);
         const active = selected && country.iso2 === selected;
         const endowment = country.iso2 ? resourcesFor(country.iso2) : null;
@@ -34,8 +39,9 @@ export function WorldMap({ selected }: { selected?: string }) {
             className={[
               'world-map-country',
               hasResource ? 'has-resource' : '',
-              hasCorpus ? 'has-corpus' : '',
+              hasCorpus && match ? 'has-corpus' : '',
               active ? 'is-active' : '',
+              resource && !match ? 'is-muted' : '',
             ].join(' ')}
           />
         );

@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { WORLD_PATHS } from '../config/world-paths';
-import { EU_MEMBERS, countryDossier, countryFacts } from '../lib/geo';
+import { EU_MEMBERS, countryDossier, countryFacts, worldInsights } from '../lib/geo';
 import { ROUTES } from '../lib/links';
 import { FOOTER_NAV, PUBLIC_NAV, RESEARCH_NAV, navPaths } from '../config/site-nav';
 
@@ -24,6 +24,23 @@ test('the world atlas has ISO codes for the jurisdictions we actually record', (
     assert.ok(iso.has(code), `missing land path for ${code}`);
   }
   assert.ok(WORLD_PATHS.length > 150);
+});
+
+test('every mapped country with an ISO code has a dossier', () => {
+  const insights = worldInsights();
+  assert.ok(insights.onMap > 150);
+  assert.ok(insights.withDirectory > 80);
+  for (const iso of ['ke', 'co', 'gl', 'cl', 'ar', 'jp', 'ne']) {
+    const d = countryDossier(iso);
+    assert.ok(d, iso);
+    assert.ok(d.why.length > 20, iso);
+    assert.ok(d.region.length > 2, iso);
+  }
+  const chile = countryDossier('cl');
+  const kenya = countryDossier('ke');
+  assert.ok(chile?.resources.some((r) => r.id === 'copper' || r.id === 'lithium'));
+  assert.ok(chile?.relatedBottlenecks.some((b) => /lithium/i.test(b.label)));
+  assert.ok(kenya?.why);
 });
 
 test('Niger and Argentina are dossiers, not blank panels', () => {
