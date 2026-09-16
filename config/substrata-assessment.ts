@@ -96,7 +96,7 @@ export const ASSESSMENTS: readonly Assessment[] = [
     'materials',
     [3, 3, 2, 3],
     'two-years',
-    'Five firms make every 300 mm wafer on earth. Long-term agreements cover the fabs; a demand step from new fabs is the risk.',
+    'The corpus tracks five producers of prime 300 mm wafers. Their product pages establish production, not global coverage, market share or customer contracts. Qualification constraints and demand from new fabs remain analyst hypotheses to investigate.',
   ),
   a(
     'Crucible-grade high-purity quartz sand',

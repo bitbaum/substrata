@@ -1,7 +1,7 @@
 # Substrata implementation ledger
 
-Started 2026-09-16. Status: Substrata beta deployed and production journeys verified;
-final evidence-boundary prompt and documentation follow-up in validation.
+Started 2026-09-16. Status: Substrata beta deployed and production journeys verified.
+Evidence-quality corrections and their deployment checks are recorded below.
 
 ## Requested outcome
 
@@ -110,6 +110,11 @@ These fixes are deployed and passed repeat production verification.
 - Removed the temporary OrangeCat identity, saved preferences and all three
   exact test contributions. Removed local and remote fixture credential files.
 - Loki PR #738 updates the hosting register to name the dedicated database.
+- PR #45 deployed as `79dfa174` (Deploy run `35063547666` succeeded).
+  All 63 tests passed. A real production answer correctly distinguished tracked
+  wafer makers from total world supply and market share. Its explicit quotation
+  exposed inherited overstatements in three corpus descriptions; those are
+  corrected in the next source-data change, not merely hidden by the prompt.
 
 ### Limits and remaining fleet work
 
