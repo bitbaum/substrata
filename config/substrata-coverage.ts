@@ -261,7 +261,7 @@ export const COVERAGE: readonly MaterialCoverage[] = [
   {
     material: '300 mm prime silicon wafers',
     thesis:
-      'Five firms supply essentially all prime 300 mm wafer capacity. Qualification at a leading-edge fab takes years, so the barrier is certification history rather than capital.',
+      'This record tracks five producers of prime 300 mm wafers. Product-page sources support the production claims, not an exhaustive global supplier list or capacity shares. Qualification history is a potential supply constraint requiring separate evidence.',
     producers: [
       sourced('Shin-Etsu Handotai', ['JP'], 'convert', 'https://www.sehe.com/products/'),
       sourced('SUMCO', ['JP'], 'convert', 'https://www.sumcosi.com/english/products/lineup.html'),

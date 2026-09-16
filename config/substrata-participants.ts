@@ -407,7 +407,7 @@ export const PARTICIPANTS: readonly Participant[] = [
     ['JP'],
     '300 mm prime silicon wafers',
     'chokepoint',
-    'Five firms supply essentially all prime 300 mm capacity, and qualification at a leading-edge fab takes years.',
+    'One of the five prime 300 mm wafer producers tracked in this corpus. Global market share and customer qualification timelines are not established by the linked product source.',
   ),
   p(
     'SUMCO',
