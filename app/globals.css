@@ -221,8 +221,8 @@ html[data-theme='light'] {
   cursor: pointer;
 }
 .ask-dock-panel {
-  width: min(26rem, calc(100vw - 2rem));
-  max-height: min(70vh, 36rem);
+  width: min(28rem, calc(100vw - 2rem));
+  max-height: min(78vh, 40rem);
   overflow: auto;
   padding: 1rem;
   border: 1px solid var(--color-border-strong);
@@ -890,6 +890,123 @@ html[data-theme='light'] .world-map-country.has-resource.has-corpus {
 .atlas-stages details a {
   text-decoration: underline;
   text-underline-offset: 0.2em;
+}
+.companion-page {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 8rem);
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 2rem;
+}
+.companion {
+  display: flex;
+  flex-direction: column;
+  min-height: 28rem;
+  flex: 1;
+}
+.companion.is-compact {
+  min-height: 18rem;
+}
+.companion-thread {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 1rem;
+}
+.companion-empty h2 {
+  font: 600 2rem/1.15 var(--font-heading);
+  letter-spacing: var(--tracking-display);
+  margin: 0.4rem 0 0.8rem;
+}
+.companion-kicker {
+  font-size: 0.7rem;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--color-fg-tertiary);
+}
+.companion-starters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+.companion-starters button {
+  min-height: 2.75rem;
+  padding: 0 0.9rem;
+  border: 1px solid var(--color-border-strong);
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.companion-turn {
+  margin: 1.25rem 0;
+}
+.companion-who {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-fg-tertiary);
+  margin-bottom: 0.4rem;
+}
+.companion-user-text {
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+.companion-sources {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+}
+.companion-sources a {
+  color: var(--color-fg-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.companion-sources span {
+  color: var(--color-fg-tertiary);
+  margin-left: 0.4rem;
+}
+.companion-composer {
+  position: sticky;
+  bottom: 0;
+  padding-top: 0.75rem;
+  background: var(--color-surface-page);
+}
+.companion-composer textarea {
+  width: 100%;
+  border: 1px solid var(--color-border-strong);
+  padding: 0.9rem 1rem;
+  background: var(--color-surface-raised);
+  color: var(--color-fg-primary);
+  resize: none;
+  line-height: 1.5;
+}
+.companion-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.6rem;
+}
+.companion-contribute {
+  min-height: 2.75rem;
+  font-size: 0.85rem;
+  color: var(--color-fg-secondary);
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+.companion-status,
+.companion-error {
+  font-size: 0.9rem;
+  color: var(--color-fg-tertiary);
+}
+.companion-error {
+  color: var(--color-status-negative);
+}
+.companion-inbox {
+  margin-top: 0.8rem;
 }
 .chat-layout {
   display: grid;

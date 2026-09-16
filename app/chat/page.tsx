@@ -1,6 +1,8 @@
 import { ResearchChat } from '@/components/portal/ResearchChat';
-import { Page, Shell, SectionHeader } from '@/components/portal/Shell';
+import { Shell } from '@/components/portal/Shell';
+
 export const metadata = { title: 'Ask Substrata' };
+
 export default async function ChatPage({
   searchParams,
 }: {
@@ -10,13 +12,9 @@ export default async function ChatPage({
   const topic = typeof params.topic === 'string' ? params.topic.slice(0, 200) : '';
   return (
     <Shell currentPath="chat">
-      <Page>
-        <SectionHeader
-          title="A research companion, wherever you are"
-          lede="Ask Substrata to explain a chain, find a company, or unpack the evidence. Share corrections and expertise directly with the research team."
-        />
+      <div className="companion-page">
         <ResearchChat topic={topic} />
-      </Page>
+      </div>
     </Shell>
   );
 }
