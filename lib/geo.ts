@@ -14,7 +14,15 @@ import {
 import { COVERAGE } from '@/config/substrata-coverage';
 import { MARKET_PARTICIPANTS } from '@/lib/participants';
 import { WORLD_PATHS } from '@/config/world-paths';
-import { policyHref } from '@/lib/links';
+import { policyHref, bottleneckHref, marketHref } from '@/lib/links';
+import {
+  COUNTRY_RESOURCES,
+  RESOURCE_DIRECTORY_NOTE,
+  resourceLabel,
+  resourcesFor,
+  type ResourceId,
+} from '@/config/substrata-resources';
+import { BOTTLENECKS } from '@/lib/bottlenecks';
 
 /** Current EU member states. Used only to paint EU instruments onto the map. */
 export const EU_MEMBERS = [
@@ -146,4 +154,85 @@ export function countryFacts(): Map<string, CountryFact> {
 
 export function factFor(iso2: string): CountryFact | null {
   return countryFacts().get(norm(iso2)) ?? null;
+}
+
+export type CountryLink = { href: string; label: string };
+
+export type CountryDossier = {
+  iso2: string;
+  name: string;
+  why: string;
+  resources: { id: ResourceId; label: string }[];
+  relatedBottlenecks: CountryLink[];
+  organisations: CountryLink[];
+  events: { date: string; headline: string }[];
+  instruments: CountryLink[];
+  corpus: CountryFact;
+  directoryNote: string;
+  hasAnything: boolean;
+};
+
+export function countryDossier(iso2: string): CountryDossier | null {
+  const id = norm(iso2);
+  if (!id) return null;
+  const path = WORLD_PATHS.find((p) => p.iso2 === id);
+  const fact = factFor(id);
+  const endowment = resourcesFor(id);
+  const name = path?.name ?? fact?.name ?? nameFor(id);
+  const eu = (EU_MEMBERS as readonly string[]).includes(id);
+  const related = (endowment?.relatedBottlenecks ?? [])
+    .map((n) => BOTTLENECKS.find((b) => b.name === n))
+    .filter((b): b is NonNullable<typeof b> => Boolean(b))
+    .map((b) => ({ href: bottleneckHref(b.slug), label: b.name }));
+  const organisations = MARKET_PARTICIPANTS.filter((p) =>
+    p.jurisdictions.some((j) => j.toLowerCase() === id),
+  )
+    .slice(0, 12)
+    .map((p) => ({ href: marketHref(p.slug), label: p.name }));
+  const events = EVENTS.filter((e) =>
+    e.jurisdictions.some((j) => j.toLowerCase() === id || (eu && j.toLowerCase() === 'eu')),
+  )
+    .slice(0, 8)
+    .map((e) => ({ date: e.date, headline: e.headline }));
+  const instruments = INSTRUMENTS.filter(
+    (i) => i.jurisdiction === id || (eu && i.jurisdiction === 'eu'),
+  )
+    .slice(0, 8)
+    .map((i) => ({
+      href: policyHref(i.jurisdiction),
+      label: i.title,
+    }));
+  const why =
+    endowment?.why ??
+    (fact?.hasRecord
+      ? 'This country appears in the research corpus. Open the rows below.'
+      : 'No geology directory row and no corpus row yet. That is a gap, not a judgement that the place is unimportant.');
+  const resources = (endowment?.resources ?? []).map((r) => ({ id: r, label: resourceLabel(r) }));
+  const corpus: CountryFact = fact ?? {
+    iso2: id,
+    name,
+    instruments: instruments.length,
+    organisations: organisations.length,
+    events: events.length,
+    materials: 0,
+    policyHref: hasPolicyPage(id) ? policyHref(id) : null,
+    hasRecord: organisations.length + events.length + instruments.length > 0,
+  };
+  return {
+    iso2: id,
+    name,
+    why,
+    resources,
+    relatedBottlenecks: related,
+    organisations,
+    events,
+    instruments,
+    corpus,
+    directoryNote: RESOURCE_DIRECTORY_NOTE,
+    hasAnything: resources.length + related.length + organisations.length + events.length > 0,
+  };
+}
+
+export function countriesWithResources(): Set<string> {
+  return new Set(COUNTRY_RESOURCES.map((r) => r.iso2));
 }

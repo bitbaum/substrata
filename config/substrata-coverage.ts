@@ -683,6 +683,34 @@ export const CHOKEPOINTS: readonly Chokepoint[] = [
     ['JP', 'DE'],
     'Closing the loop is what separates a manipulator from an arm. Narrow supply, and qualification is per-application.',
   ),
+  node(
+    'Battery-grade lithium chemicals',
+    'material',
+    'joules-delivered',
+    ['AR', 'CL', 'AU', 'CN'],
+    'The energy curve’s storage step is a chemical plant on a brine or a hard-rock mine. Resource in the ground is not the same as qualified hydroxide or carbonate.',
+  ),
+  node(
+    'Uranium conversion and enrichment',
+    'process',
+    'joules-delivered',
+    ['KZ', 'CA', 'AU', 'NE', 'FR', 'US'],
+    'Fission fuel is mined, converted and enriched by a handful of states. A reactor without that chain is a building.',
+  ),
+  node(
+    'Laser powder-bed fusion machines',
+    'machine',
+    'actuation',
+    ['DE', 'US', 'JP'],
+    'Metal additive manufacturing that actually ships qualified parts runs on a small set of machines and powders. Qualification, not the printer brochure, is the constraint.',
+  ),
+  node(
+    'SMR first-of-a-kind licensing',
+    'process',
+    'joules-delivered',
+    ['US', 'GB', 'FR', 'CN', 'KR'],
+    'Small modular reactors are a permission and first-of-a-kind construction problem. The physics is older than the licence.',
+  ),
 ];
 
 export interface ChokepointProgress {

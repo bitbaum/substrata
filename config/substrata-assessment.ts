@@ -274,6 +274,34 @@ export const ASSESSMENTS: readonly Assessment[] = [
     'now',
     'The constraint nobody can buy. Fab ramps move at the speed of people who have done one before.',
   ),
+  a(
+    'Battery-grade lithium chemicals',
+    'materials',
+    [2, 2, 3, 3],
+    'now',
+    'The energy storage build is eating qualified chemicals, not just brine. Conversion plants are the wait.',
+  ),
+  a(
+    'Uranium conversion and enrichment',
+    'energy',
+    [3, 3, 3, 2],
+    'two-years',
+    'Few converters and enrichers. A reactor announcement is not a fuel-cycle announcement.',
+  ),
+  a(
+    'Laser powder-bed fusion machines',
+    'actuation',
+    [2, 2, 2, 3],
+    'two-years',
+    'Several machine makers, but qualification per alloy per part is the real queue.',
+  ),
+  a(
+    'SMR first-of-a-kind licensing',
+    'permission',
+    [2, 3, 3, 2],
+    'beyond',
+    'Relief is a licence and a first plant, not a factory for reactors. Measured in a decade.',
+  ),
 ];
 
 export function bindingScore(score: BindingScore): number {

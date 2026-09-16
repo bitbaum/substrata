@@ -42,12 +42,35 @@ Atlas and World are one map with two views (`/atlas`, `/atlas?view=world`).
 published). Use it wherever a row is thin or empty. GitHub correction remains
 for sourced errors.
 
+## Graph, institutions, and what is not faked
+
+The corpus is still **files** (SSOT). `lib/graph.ts` + `GET /api/graph` is the
+join. A graph database (Postgres recursive edges, or Neo4j later) is the next
+store — do not copy facts into a second database until the query surface is
+stable.
+
+**Not in this pass, on purpose:**
+- Bloomberg prices / analyst consensus — needs a licensed feed. Ticker
+  directory can land; numbers cannot be invented.
+- Job scraping — schema on talent, rows only with a public posting URL.
+- Newsletters — `mail-kit` + Listmonk for bulk. Follow lists are the
+  personalisation substrate (`research_preferences`).
+
 ## Self-updating
 
 Dated events are the newsfeed. Next: a box timer for `pnpm research:sweep`.
 Do not auto-publish unsourced rows.
 
 ## Work log
+
+### 2026-09-16 (country dossiers)
+
+- Every country on the map is a dossier: geology directory + related
+  bottlenecks + corpus rows + graph neighbours. Niger is uranium. Argentina is
+  lithium. Grey is a gap you can still open.
+- New unverified leads: lithium chemicals, uranium fuel cycle, metal AM
+  machines, SMR licensing.
+- Derived graph API: `/api/graph?kind=country&id=ne`.
 
 ### 2026-09-16 (restore destinations)
 

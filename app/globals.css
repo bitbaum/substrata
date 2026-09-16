@@ -374,16 +374,35 @@ html[data-theme='light'] {
   fill: var(--color-surface-raised);
 }
 .world-map-country {
-  fill: var(--color-border-strong);
+  fill: #3a3a3a;
   stroke: var(--color-surface-page);
-  stroke-width: 0.4;
+  stroke-width: 0.45;
 }
-.world-map-country.is-recorded {
+html[data-theme='light'] .world-map-country {
+  fill: #d4d4d4;
+}
+.world-map-country.has-resource {
+  fill: #6b5a3a;
+}
+html[data-theme='light'] .world-map-country.has-resource {
+  fill: #c4a574;
+}
+.world-map-country.has-corpus {
   fill: var(--color-fg-primary);
+}
+html[data-theme='light'] .world-map-country.has-corpus {
+  fill: #111111;
+}
+.world-map-country.has-resource.has-corpus {
+  fill: #8a7344;
+}
+html[data-theme='light'] .world-map-country.has-resource.has-corpus {
+  fill: #3d2e16;
 }
 .world-map-country.is-active {
   fill: var(--color-status-negative);
-  opacity: 1;
+  stroke: var(--color-fg-primary);
+  stroke-width: 1;
 }
 .world-map a:focus-visible .world-map-country {
   outline: 2px solid var(--color-fg-primary);
@@ -434,6 +453,62 @@ html[data-theme='light'] {
 }
 .world-stats dd {
   font: 600 1.4rem var(--font-heading);
+}
+.world-find {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+.world-find select {
+  min-height: 2.75rem;
+  min-width: 12rem;
+  padding: 0 0.6rem;
+  background: var(--color-surface-page);
+  color: var(--color-fg-primary);
+  border: 1px solid var(--color-border-strong);
+}
+.world-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0.8rem 0 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-fg-tertiary);
+}
+.world-legend .swatch {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  margin-right: 0.35rem;
+  vertical-align: middle;
+}
+.world-legend .swatch.has-resource {
+  background: #c4a574;
+}
+.world-legend .swatch.has-corpus {
+  background: var(--color-fg-primary);
+}
+.world-legend .swatch.is-active {
+  background: var(--color-status-negative);
+}
+.world-why {
+  font-size: 1rem;
+  line-height: 1.45;
+  color: var(--color-fg-secondary);
+}
+.resource-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.resource-chips li {
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--color-border-strong);
+  font-size: 0.8rem;
 }
 .desk-grid {
   display: grid;
