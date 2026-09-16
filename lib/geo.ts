@@ -16,7 +16,6 @@ import { MARKET_PARTICIPANTS } from '@/lib/participants';
 import { WORLD_PATHS } from '@/config/world-paths';
 import { policyHref, bottleneckHref, marketHref } from '@/lib/links';
 import {
-  COUNTRY_RESOURCES,
   RESOURCE_DIRECTORY_NOTE,
   RESOURCE_TO_BOTTLENECKS,
   resourceLabel,
