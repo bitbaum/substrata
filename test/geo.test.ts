@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { WORLD_PATHS } from '../config/world-paths';
 import { EU_MEMBERS, countryFacts } from '../lib/geo';
 import { ROUTES } from '../lib/links';
-import { navGroups } from '../config/site-nav';
+import { FOOTER_NAV, PUBLIC_NAV, navPaths } from '../config/site-nav';
 
 test('the world atlas has ISO codes for the jurisdictions we actually record', () => {
   const iso = new Set(WORLD_PATHS.map((p) => p.iso2).filter(Boolean));
@@ -33,20 +33,10 @@ test('country facts count real instruments onto China and the EU members', () =>
   assert.ok(facts.get('cn')?.hasRecord);
 });
 
-test('the world map is a first-class route and a nav destination', () => {
+test('the map is the public geography destination, changelog lives in the footer', () => {
+  assert.ok((ROUTES as readonly string[]).includes('/atlas'));
   assert.ok((ROUTES as readonly string[]).includes('/world'));
-  const groups = navGroups({
-    bottlenecks: 1,
-    organisations: 1,
-    rules: 1,
-    solutions: 1,
-    events: 1,
-    notes: 1,
-    calls: 1,
-    capital: 1,
-    learn: 1,
-    bindingNow: 1,
-  });
-  assert.ok(groups.some((g) => g.items.some((i) => i.href === '/world')));
-  assert.ok(groups.some((g) => g.items.some((i) => i.href === '/changelog')));
+  assert.ok(PUBLIC_NAV.some((item) => item.href === '/atlas'));
+  assert.ok(FOOTER_NAV.some((item) => item.href === '/changelog'));
+  assert.ok(navPaths().includes('/atlas'));
 });

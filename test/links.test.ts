@@ -29,7 +29,7 @@ import {
   hasPolicyPage,
 } from '../config/substrata-policy';
 import { SCIENCE } from '../config/substrata-science';
-import { navGroups, navPaths } from '../config/site-nav';
+import { navPaths } from '../config/site-nav';
 import { sitePages } from '../config/site-content';
 import { BOTTLENECKS } from '../lib/bottlenecks';
 import {
@@ -144,20 +144,8 @@ test('every link the data can generate resolves to a page that exists', () => {
 });
 
 test('every navigation destination resolves, including the new sections', () => {
-  const groups = navGroups({
-    bottlenecks: 1,
-    organisations: 1,
-    rules: 1,
-    solutions: 1,
-    events: 1,
-    notes: 1,
-    calls: 1,
-    capital: 1,
-    learn: 1,
-    bindingNow: 1,
-  });
   const documents = new Set(sitePages().map((p) => `/${p.path}`));
-  for (const href of navPaths(groups)) {
+  for (const href of navPaths()) {
     if (documents.has(href)) continue;
     const problem = resolves(href);
     assert.equal(problem, null, `navigation: ${href} — ${problem}`);

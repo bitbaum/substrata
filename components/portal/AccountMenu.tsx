@@ -58,12 +58,6 @@ export async function AccountMenu() {
         <Link href="/account" className="account-menu-link">
           Desk
         </Link>
-        <Link href="/chat" className="account-menu-link">
-          Ask
-        </Link>
-        <Link href="/changelog" className="account-menu-link">
-          Changelog
-        </Link>
         <ThemeToggle />
         <form
           action={async () => {
