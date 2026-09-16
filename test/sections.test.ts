@@ -21,7 +21,7 @@ import {
 } from '../config/substrata-taxonomy';
 import { BOTTLENECKS } from '../lib/bottlenecks';
 import { MARKET_PARTICIPANTS, marketTotals, participantBySlug } from '../lib/participants';
-import { navGroups, navPaths } from '../config/site-nav';
+import { navPaths } from '../config/site-nav';
 import { sitePages } from '../config/site-content';
 
 const UNIVERSE = new Set<string>([
@@ -160,45 +160,11 @@ test('every science entry relieves a real bottleneck and sits on the scale', () 
 
 test('every navigation entry resolves to a route that exists', () => {
   const documents = new Set(sitePages().map((p) => p.path));
-  const routes = new Set([
-    '',
-    'bottlenecks',
-    'markets',
-    'policy',
-    'science',
-    'research',
-    'events',
-    'notes',
-    'join',
-    'calls',
-    'capital',
-    'learn',
-    'api/map',
-  ]);
-  const groups = navGroups({
-    bottlenecks: 1,
-    organisations: 1,
-    rules: 1,
-    solutions: 1,
-    events: 1,
-    notes: 1,
-    calls: 1,
-    capital: 1,
-    learn: 1,
-    bindingNow: 1,
-  });
-  for (const href of navPaths(groups)) {
+  for (const href of navPaths()) {
     const path = href.replace(/^\//, '');
     assert.ok(
-      documents.has(path) || routes.has(path) || existsSync(`app/${path}/page.tsx`),
+      documents.has(path) || existsSync(`app/${path}/page.tsx`),
       `navigation points at a missing route: ${href}`,
     );
-  }
-  // Every group and item has a blurb: the menu explains itself or it is not a menu.
-  for (const group of groups) {
-    assert.ok(group.blurb.length > 20, `${group.id}: no blurb`);
-    for (const item of group.items) {
-      assert.ok(item.blurb.length > 20, `${group.id}/${item.label}: no blurb`);
-    }
   }
 });

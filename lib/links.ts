@@ -138,6 +138,7 @@ export const ROUTES = [
   '/talent',
   '/chat',
   '/account',
+  '/review',
   '/data',
   '/development',
   '/roadmap',

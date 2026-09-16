@@ -22,7 +22,7 @@ export function WorldMap({ selected }: { selected?: string }) {
         const fact = country.iso2 ? facts.get(country.iso2) : undefined;
         const w = weight(fact);
         const active = selected && country.iso2 === selected;
-        const href = country.iso2 ? `/world?country=${country.iso2}` : undefined;
+        const href = country.iso2 ? `/atlas?view=world&country=${country.iso2}` : undefined;
         const node = (
           <path
             d={country.d}

@@ -1,112 +1,52 @@
 /**
- * The portal's chrome: a masthead with the section navigation, and a footer
- * carrying everything that is not a section.
+ * Two shells, from one config.
  *
- * Six sections, because that is how the material actually divides: what
- * changed (Today), what is constrained (Bottlenecks), who makes it (Markets),
- * what the rules do (Policy), what would remove it (Science), and the
- * open questions (Research). About holds the method, the glossary and the
- * disclosures.
+ * Public pages: wordmark, three links, search, account. Footer is a legal
+ * line plus three destinations. No sidebar.
+ *
+ * Desk (/account, /review): sidebar from DESK_NAV, no public megamenu, no
+ * sitemap footer. That is the only place a sidebar belongs.
  */
-
 import React from 'react';
 import Link from 'next/link';
 
 import { siteChrome } from '@/config/site-content';
-import { NAV_ACTION, navGroups } from '@/config/site-nav';
-import { CALLS } from '@/config/substrata-calls';
-import { CAPITAL_PROVIDERS } from '@/config/substrata-capital';
-import { EVENTS } from '@/config/substrata-events';
-import { INSTRUMENTS } from '@/config/substrata-policy';
-import { SCIENCE } from '@/config/substrata-science';
-import { BOTTLENECKS, portalTotals } from '@/lib/bottlenecks';
-import { learnCount, noteCount } from '@/lib/notes';
-import { MARKET_PARTICIPANTS } from '@/lib/participants';
+import { DESK_NAV, FOOTER_NAV } from '@/config/site-nav';
+import { currentSession, isReviewer } from '@/lib/auth';
 import { SITE, correctionUrl } from '@/lib/site';
-import { currentSession } from '@/lib/auth';
 import { AccountMenu } from './AccountMenu';
-import { DeskSidebar } from './DeskSidebar';
+import { Inquire } from './Inquire';
 import { Mark, SearchIcon } from './Mark';
-import { Megamenu, MobileMenu } from './Megamenu';
+import { PublicNav } from './PublicNav';
 
-/**
- * Which menu group a page belongs to, so the right one reads as current.
- * Pages pass their own id; anything unrecognised simply highlights nothing.
- */
-export const GROUP_FOR_PATH: Record<string, string> = {
-  '': 'latest',
-  events: 'latest',
-  notes: 'latest',
-  atlas: 'map',
-  world: 'map',
-  search: 'map',
-  talent: 'map',
-  data: 'about',
-  development: 'about',
-  roadmap: 'about',
-  changelog: 'latest',
-  chat: 'join',
-  account: 'join',
-  bottlenecks: 'map',
-  markets: 'map',
-  policy: 'map',
-  science: 'map',
-  capital: 'map',
-  about: 'about',
-  thesis: 'about',
-  research: 'about',
-  calls: 'about',
-  learn: 'about',
-  join: 'join',
-};
+const DESK_PATHS = new Set(['account', 'review']);
 
-const FOOTER_GROUPS = [
-  {
-    label: 'The map',
-    links: [
-      { href: '/bottlenecks', label: 'Bottlenecks' },
-      { href: '/markets', label: 'Markets' },
-      { href: '/policy', label: 'Policy' },
-      { href: '/science', label: 'Science' },
-      { href: '/capital', label: 'Capital' },
-      { href: '/atlas', label: 'Chain atlas' },
-      { href: '/world', label: 'World map' },
-      { href: '/talent', label: 'Talent & expertise' },
-    ],
-  },
-  {
-    label: 'Latest',
-    links: [
-      { href: '/', label: 'Today' },
-      { href: '/events', label: 'Events' },
-      { href: '/notes', label: 'Blog & development notes' },
-      { href: '/changelog', label: 'Changelog' },
-    ],
-  },
-  {
-    label: 'About',
-    links: [
-      { href: '/learn', label: 'Learn' },
-      { href: '/about', label: 'What this is' },
-      { href: '/thesis', label: 'What we think' },
-      { href: '/calls', label: 'Calls' },
-      { href: '/research', label: 'Open questions' },
-      { href: '/join', label: 'Join' },
-      { href: '/roadmap', label: 'Roadmap' },
-      { href: '/development', label: 'Development & vision' },
-    ],
-  },
-  {
-    label: 'Open',
-    links: [
-      { href: '/api/map', label: 'The map as JSON' },
-      { href: SITE.repo, label: 'Source on GitHub' },
-      { href: '/data', label: 'Data quality & exports' },
-      { href: '/chat', label: 'Ask Substrata' },
-      { href: '/account', label: 'Your research desk' },
-    ],
-  },
-] as const;
+export function DeskSidebar({
+  currentPath,
+  items,
+}: {
+  currentPath: string;
+  items: typeof DESK_NAV;
+}) {
+  const current = currentPath === '' ? '/' : `/${currentPath}`;
+  return (
+    <nav className="desk-sidebar" aria-label="Desk">
+      <ul>
+        {items.map((item) => (
+          <li key={item.href}>
+            <Link
+              href={item.href}
+              aria-current={current === item.href ? 'page' : undefined}
+              className="desk-sidebar-link"
+            >
+              {item.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
 
 export async function Shell({
   currentPath,
@@ -115,29 +55,19 @@ export async function Shell({
   currentPath: string;
   children: React.ReactNode;
 }) {
-  const session = await currentSession();
-  const signedIn = Boolean(session?.actorId);
   const chrome = siteChrome();
-  const totals = portalTotals();
-  const groups = navGroups({
-    bottlenecks: totals.bottlenecks,
-    organisations: MARKET_PARTICIPANTS.length,
-    rules: INSTRUMENTS.length,
-    solutions: SCIENCE.length,
-    events: EVENTS.length,
-    notes: noteCount(),
-    calls: CALLS.length,
-    capital: CAPITAL_PROVIDERS.length,
-    learn: learnCount(),
-    bindingNow: BOTTLENECKS.filter((b) => b.horizon === 'now').length,
-  });
+  const session = await currentSession();
+  const desk = DESK_PATHS.has(currentPath) && Boolean(session?.actorId);
+  const deskItems = DESK_NAV.filter(
+    (item) => item.href !== '/review' || isReviewer(session?.actorId),
+  );
 
   return (
-    <div className={signedIn ? 'desk-shell' : 'flex min-h-screen flex-col bg-surface-page'}>
+    <div className={desk ? 'desk-shell' : 'flex min-h-screen flex-col bg-surface-page'}>
       <header className="site-header sticky top-0 z-30 border-b border-subtle bg-surface-page/95 backdrop-blur">
-        <div className="relative mx-auto flex max-w-shell items-center gap-3 px-4 py-2.5 sm:px-6 lg:gap-4 lg:px-8">
+        <div className="relative mx-auto flex max-w-shell items-center gap-4 px-4 py-2.5 sm:px-6 lg:px-8">
           <Link
-            href="/"
+            href={desk ? '/account' : '/'}
             className="inline-flex shrink-0 items-center gap-2 rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             <Mark className="h-7 w-7 text-fg-primary" />
@@ -145,9 +75,9 @@ export async function Shell({
               {chrome.name}
             </span>
           </Link>
-          <Megamenu groups={groups} currentGroup={GROUP_FOR_PATH[currentPath]} />
+          {!desk && <PublicNav currentPath={currentPath} />}
           <div className="ml-auto flex items-center gap-1 sm:gap-2">
-            <form action="/search" className="site-search hidden lg:flex">
+            <form action="/search" className="site-search hidden md:flex">
               <label className="sr-only" htmlFor="header-search">
                 Search the research
               </label>
@@ -155,100 +85,59 @@ export async function Shell({
                 id="header-search"
                 name="q"
                 type="search"
-                placeholder="Try ASML or EUV"
+                placeholder="ASML, EUV, quartz"
                 maxLength={200}
               />
               <button type="submit">Search</button>
             </form>
             <Link
               href="/search"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-md text-fg-secondary hover:text-fg-primary lg:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center text-fg-secondary hover:text-fg-primary md:hidden"
               aria-label="Search the research"
             >
               <SearchIcon className="h-5 w-5" />
             </Link>
-            <Link href="/changelog" className="site-action hidden lg:inline-flex">
-              Log
-            </Link>
-            <Link href="/chat" className="site-action hidden lg:inline-flex">
-              Ask
-            </Link>
-            <Link href={NAV_ACTION.href} className="site-join hidden lg:inline-flex">
-              {NAV_ACTION.label}
-            </Link>
             <AccountMenu />
-            <MobileMenu groups={groups} />
           </div>
         </div>
       </header>
-      {signedIn && <DeskSidebar currentPath={currentPath} />}
+      {desk && <DeskSidebar currentPath={currentPath} items={deskItems} />}
       <main className="flex-1">{children}</main>
-      <footer className="site-footer mt-16 border-t border-subtle">
-        <div className="mx-auto max-w-shell px-4 py-10 sm:px-6 lg:px-8">
-          <div className="mb-10 max-w-xl">
-            <p className="inline-flex items-center gap-2 font-heading text-lg font-semibold tracking-display text-fg-primary">
-              <Mark className="h-6 w-6 text-accent" />
-              {chrome.name}
-            </p>
-            <p className="mt-2 text-sm leading-relaxed text-fg-secondary">{chrome.tagline}</p>
-          </div>
-          <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
-            {FOOTER_GROUPS.map((group) => (
-              <nav key={group.label} aria-label={group.label}>
-                <h2 className="font-mono text-xs uppercase tracking-caps text-fg-tertiary">
-                  {group.label}
-                </h2>
-                <ul className="mt-2 space-y-1">
-                  {group.links.map((link) => (
-                    <li key={link.href}>
-                      {link.href.startsWith('/') ? (
-                        <Link
-                          href={link.href}
-                          className="text-sm text-fg-secondary hover:text-fg-primary"
-                        >
-                          {link.label}
-                        </Link>
-                      ) : (
-                        <a
-                          href={link.href}
-                          className="text-sm text-fg-secondary hover:text-fg-primary"
-                        >
-                          {link.label}
-                        </a>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            ))}
-          </div>
-          <div className="mt-10 border-t border-subtle pt-6">
-            <a
-              href={correctionUrl('Substrata')}
-              className="font-mono text-xs uppercase tracking-caps text-fg-tertiary hover:text-fg-primary"
-            >
-              Report an error on GitHub
-            </a>
-            <p className="mt-3 max-w-prose text-xs leading-relaxed text-fg-muted">
-              {chrome.footerNote}
-            </p>
-          </div>
+      <footer className="site-footer mt-auto border-t border-subtle">
+        <div className="mx-auto flex max-w-shell flex-col gap-4 px-4 py-6 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+          <p className="max-w-xl text-xs leading-relaxed text-fg-muted">{chrome.footerNote}</p>
+          {!desk && (
+            <nav aria-label="Footer" className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
+              {FOOTER_NAV.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-fg-secondary hover:text-fg-primary"
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <a href={SITE.repo} className="text-fg-secondary hover:text-fg-primary">
+                Source
+              </a>
+              <a
+                href={correctionUrl('Substrata')}
+                className="text-fg-secondary hover:text-fg-primary"
+              >
+                Correction
+              </a>
+            </nav>
+          )}
         </div>
       </footer>
     </div>
   );
 }
 
-/** Page width and vertical rhythm, shared by every portal page. */
 export function Page({ children }: { children: React.ReactNode }) {
   return <div className="mx-auto max-w-shell px-4 py-10 sm:px-6 sm:py-12 lg:px-8">{children}</div>;
 }
 
-/**
- * The top of a section: what it is in one plain sentence, then the numbers.
- * Every section opens the same way, so a reader who has understood one
- * understands the shape of the rest.
- */
 export function SectionHeader({
   title,
   lede,
@@ -270,7 +159,7 @@ export function SectionHeader({
       </div>
       <p className="mt-3 max-w-2xl text-base leading-relaxed text-fg-secondary">{lede}</p>
       {stats && stats.length > 0 && (
-        <dl className="mt-6 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-subtle bg-border-subtle lg:grid-cols-4">
+        <dl className="mt-6 grid grid-cols-2 gap-px overflow-hidden border border-subtle bg-border-subtle lg:grid-cols-4">
           {stats.map((stat) => (
             <div key={stat.label} className="bg-surface-raised px-4 py-3 sm:px-5">
               <dt className="font-mono text-xs uppercase tracking-caps text-fg-tertiary">
@@ -290,7 +179,6 @@ export function SectionHeader({
   );
 }
 
-/** A section heading inside a page: a mono index and a serif title. */
 export function Heading({
   index,
   title,
@@ -311,10 +199,6 @@ export function Heading({
   );
 }
 
-/**
- * What a column of jargon means, folded away. Open it once and the table
- * stops being a private language; leave it closed and the table is unchanged.
- */
 export function Legend({ items }: { items: { term: string; detail: string }[] }) {
   return (
     <details className="mt-3 text-sm">
@@ -335,12 +219,9 @@ export function Legend({ items }: { items: { term: string; detail: string }[] })
   );
 }
 
-/** A row of filter chips with a label. Used by every section list. */
 export function FilterRow({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
-      {/* The label sits above the chips on a phone: side by side, a wrapping
-          chip row slides under a fixed-width label and collides with it. */}
       <span className="font-mono text-xs uppercase tracking-caps text-fg-tertiary sm:mr-1 sm:w-20 sm:shrink-0">
         {label}
       </span>
@@ -349,12 +230,16 @@ export function FilterRow({ label, children }: { label: string; children: React.
   );
 }
 
-/** An honest empty state: says what is missing and what would fill it. */
-export function Empty({ what, next }: { what: string; next?: string }) {
+export function Empty({ what, next, topic }: { what: string; next?: string; topic?: string }) {
   return (
-    <div className="rounded-lg border border-dashed border-strong px-5 py-8 text-center">
+    <div className="border border-dashed border-strong px-5 py-8 text-center">
       <p className="text-sm text-fg-secondary">{what}</p>
       {next && <p className="mt-1 text-xs text-fg-muted">{next}</p>}
+      {topic && (
+        <div className="mt-4">
+          <Inquire topic={topic} />
+        </div>
+      )}
     </div>
   );
 }

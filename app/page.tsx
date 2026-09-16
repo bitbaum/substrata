@@ -19,7 +19,6 @@ import { EventList } from '@/components/portal/EventList';
 import { Empty, Heading, Page, Shell } from '@/components/portal/Shell';
 import { SeverityBar, Status, rowLabel } from '@/components/portal/Status';
 import { bottleneckHref, policyHref } from '@/lib/links';
-import { developmentProfile } from '@/lib/development';
 
 export const metadata: Metadata = {
   title: { absolute: `${COMPANY.name} — the bottlenecks between here and much faster technology` },
@@ -36,9 +35,7 @@ const WINDOW_DAYS = 30;
  * worst right now, and where do I start — and nothing else. Everything below
  * the fold is a route into a section rather than an essay.
  */
-export default async function TodayPage() {
-  const { profile } = await developmentProfile();
-  const latestChange = profile?.changelog[0];
+export default function TodayPage() {
   const totals = portalTotals();
   const markets = marketTotals();
   const policy = policyTotals();
@@ -103,29 +100,12 @@ export default async function TodayPage() {
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <Link href="/atlas" className="research-button">
-                Explore the atlas
-              </Link>
-              <Link href="/world" className="research-button-ghost">
-                World map
+                Open the map
               </Link>
               <Link href="/chat" className="research-button-ghost">
-                Ask Substrata
-              </Link>
-              <Link
-                href="/changelog"
-                className="text-sm text-fg-secondary underline-offset-4 hover:text-fg-primary hover:underline"
-              >
-                Changelog
+                Ask
               </Link>
             </div>
-            {latestChange && (
-              <p className="mt-5 max-w-xl text-sm text-fg-tertiary">
-                <Link href="/changelog" className="text-fg-secondary hover:text-fg-primary">
-                  {latestChange.date} · {latestChange.done.slice(0, 140)}
-                  {latestChange.done.length > 140 ? '…' : ''}
-                </Link>
-              </p>
-            )}
           </header>
           {featured && (
             <figure className="hero-chain">
