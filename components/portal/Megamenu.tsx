@@ -110,7 +110,9 @@ function WideNav({ groups, currentGroup }: { groups: NavGroup[]; currentGroup?: 
 const MOBILE_ACTIONS = [
   { href: '/search', label: 'Search' },
   { href: '/chat', label: 'Ask' },
-  { href: '/account', label: 'Account' },
+  { href: '/changelog', label: 'Log' },
+  { href: '/world', label: 'World' },
+  { href: '/account', label: 'Desk' },
   { href: NAV_ACTION.href, label: NAV_ACTION.label },
 ] as const;
 

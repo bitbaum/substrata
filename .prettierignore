@@ -40,3 +40,6 @@ research/events.json
 
 # Favicon / brand marks. Prettier has no SVG parser in this repo.
 *.svg
+
+# Generated 110m land paths.
+config/world-paths.ts

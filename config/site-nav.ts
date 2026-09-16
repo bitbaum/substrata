@@ -56,6 +56,11 @@ export function navGroups(counts: {
       blurb: 'Everything standing between here and faster technology, and who holds it.',
       items: [
         {
+          label: 'World map',
+          href: '/world',
+          blurb: 'Every country: recorded policy, organisations, events and gaps.',
+        },
+        {
           label: 'Chain atlas',
           href: '/atlas',
           blurb: 'See the stages, bottlenecks, companies and evidence together.',
@@ -127,7 +132,7 @@ export function navGroups(counts: {
         {
           label: 'Changelog',
           href: '/changelog',
-          blurb: 'What has changed in the product, from its development record.',
+          blurb: 'What shipped, from the canonical development record.',
         },
       ],
     },

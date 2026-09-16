@@ -86,15 +86,17 @@ export async function Development({
               </div>
             )}
             {view === 'changelog' && (
-              <div className="research-prose">
+              <div className="changelog-list">
                 {p.changelog.length === 0 ? (
                   <p>No changes have been recorded yet.</p>
                 ) : (
                   p.changelog.map((entry, i) => (
-                    <section key={`${entry.date}-${i}`}>
-                      <h2>{entry.date}</h2>
-                      <p className="whitespace-pre-wrap">{entry.done}</p>
-                    </section>
+                    <article key={`${entry.date}-${i}`}>
+                      <time dateTime={entry.date}>{entry.date}</time>
+                      <p className="mt-2 max-w-prose whitespace-pre-wrap text-fg-secondary">
+                        {entry.done}
+                      </p>
+                    </article>
                   ))
                 )}
               </div>
