@@ -57,7 +57,7 @@ export function researchDocuments(): ResearchDocument[] {
       kind: 'bottleneck' as const,
       title: b.name,
       href: bottleneckHref(b.slug),
-      text: `${b.plain} ${b.why} ${b.rationale} Assessment ${b.binding}/12, analyst judgement dated ${b.judgedOn}. ${b.producers.map((p) => p.name).join(', ')}`,
+      text: `Explanation and analyst interpretation (not verified by the producer links): ${b.plain} ${b.why} ${b.rationale} Assessment ${b.binding}/12, judgement dated ${b.judgedOn}. Producer claims, each separately labelled: ${b.producers.map((p) => `${p.name}: ${p.verification}${p.source ? ` for making this material (${p.source})` : ''}`).join('; ')}. Producer pages do not establish total market share or the completeness of this list.`,
       sources: [...new Set(b.producers.flatMap((p) => (p.source ? [p.source] : [])))],
       evidence: b.state,
       topics: [...b.technologies, b.stage, ...b.industries],
@@ -67,7 +67,7 @@ export function researchDocuments(): ResearchDocument[] {
       kind: 'company' as const,
       title: p.name,
       href: marketHref(p.slug),
-      text: `${p.role ?? ''} ${p.why ?? ''} ${p.jurisdictions.join(' ')} ${p.produces.map((x) => x.bottleneck).join(', ')}`,
+      text: `Directory interpretation, not independently verified: ${p.role ?? ''} ${p.why ?? ''} Jurisdictions recorded: ${p.jurisdictions.join(' ')}. Mapped products: ${p.produces.map((x) => `${x.bottleneck} (${x.verification})`).join(', ')}. ${p.existenceVerifiedBy ? `The source establishes only that this organisation makes ${p.existenceVerifiedBy.bottleneck}; it does not establish market share, rank, revenue, or replaceability.` : ''}`,
       sources: p.existenceVerifiedBy ? [p.existenceVerifiedBy.url] : [],
       evidence: p.existenceVerifiedBy
         ? 'partly sourced; replaceability is a judgement'

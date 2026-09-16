@@ -74,4 +74,20 @@ these are dated observations, not a replacement for the live register.
 
 ## Verification and deployment
 
-Pending. Nothing from this work has been deployed yet.
+Substrata PR #43 deployed as `ecca727`; Loki PR #737 deployed as `f1d35e5d`.
+Production verification is ongoing. The public atlas, profiles, export and diagram
+work. A missing PostgreSQL HBA allowlist rule initially broke writes; corrected
+with a localhost-only app/database rule and a TCP login probe in provisioning.
+Production AI now answers and contribution receipt storage succeeds. Anonymous
+review access returns 404; foreign-origin writes return 403; missing consent 400.
+
+Follow-up branch `fix/research-production-verification` improves health readiness,
+fixes optional-email rejection during OIDC sign-in, renders assistant Markdown,
+and clarifies inherited ambiguous GlobalWafers wording and retrieval attribution.
+These fixes still require deployment and repeat production verification.
+
+Temporary operational fixtures to remove after testing:
+
+- Contribution receipt `9434cd8e-7f84-473e-8431-8be9f5528ecd` (deployment test).
+- OrangeCat test identity metadata at `/tmp/substrata-auth-fixture.json` on laptop
+  and host. This file contains test credentials; never commit or print it.

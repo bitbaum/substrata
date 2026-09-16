@@ -423,7 +423,7 @@ export const PARTICIPANTS: readonly Participant[] = [
     ['TW'],
     'Silicon wafers',
     'concentrated',
-    'Third of the big five, with a genuine multi-region footprint.',
+    'One of the five producers tracked in the prime 300 mm wafer coverage. Relative market share has not been established here.',
   ),
   p(
     'Siltronic',

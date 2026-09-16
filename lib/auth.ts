@@ -1,4 +1,5 @@
 import NextAuth from 'next-auth';
+import { hasAuthenticatedSubject } from './identity';
 
 /** Same identity-only OIDC contract as Solon; OrangeCat owns credentials. */
 export const authEnabled = Boolean(
@@ -24,7 +25,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     : [],
   callbacks: {
     signIn({ profile }) {
-      return Boolean(profile?.sub && profile?.email && profile.email_verified !== false);
+      // OrangeCat rejects anonymous accounts at its authorization boundary.
+      // The signed OIDC subject owns preferences; optional profile email can
+      // be null even when the underlying account is authenticated.
+      return hasAuthenticatedSubject(profile);
     },
     jwt({ token, profile }) {
       if (profile?.sub) token.actorId = profile.sub;
