@@ -104,10 +104,22 @@ function factsFrom(context: ResearchDocument[]) {
   );
 }
 
+export function availableModels() {
+  const chain = usableChain(freeChain('SUBSTRATA'), process.env);
+  return [
+    { id: 'auto', label: 'Auto' },
+    ...chain.map((link) => ({
+      id: link.model,
+      label: `${link.provider.id} · ${link.model}`,
+    })),
+  ];
+}
+
 export async function answerQuestion(
   question: string,
   signal: AbortSignal,
   history: ChatTurn[] = [],
+  model = 'auto',
 ) {
   const context = chatContext(
     `${history
@@ -121,8 +133,11 @@ export async function answerQuestion(
     facts,
     renderedFacts: renderFacts(facts),
   });
-  const chain = usableChain(freeChain('SUBSTRATA'), process.env).slice(0, 3);
-  if (!chain.length) throw new Error('No AI providers configured');
+  const full = usableChain(freeChain('SUBSTRATA'), process.env);
+  const chain =
+    model && model !== 'auto' ? full.filter((link) => link.model === model) : full.slice(0, 3);
+  const walk = chain.length ? chain : full.slice(0, 3);
+  if (!walk.length) throw new Error('No AI providers configured');
   const system = `You are Substrata, a research companion for the physical bottlenecks on the path to much faster technology. Speak plainly, like a careful analyst, not a chatbot. Answer only from the records below. Distinguish sourced findings, unverified leads, analyst judgements, and the geology directory (which is not a finding). Never invent numbers, dates, supplier relationships or citations. If the records do not support a claim, say so and point at a useful next page. Cite records as [F1], [F2]. A producer list is corpus coverage, never the entire market. Do not give personalised investment advice. You have no tools. The contribution inbox is a separate button.\n\n${grounded}`;
   const messages = [
     { role: 'system' as const, content: system },
@@ -130,7 +145,8 @@ export async function answerQuestion(
     { role: 'user' as const, content: question },
   ];
   let result = await complete({
-    chain,
+    chain: walk,
+    model: model !== 'auto' ? model : undefined,
     timeoutMs: 20000,
     maxTokens: 1800,
     signal,
@@ -145,7 +161,8 @@ export async function answerQuestion(
   });
   if (!checked.ok && checked.violations.length > 0) {
     result = await complete({
-      chain,
+      chain: walk,
+      model: model !== 'auto' ? model : undefined,
       timeoutMs: 20000,
       maxTokens: 1800,
       signal,

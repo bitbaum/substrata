@@ -1065,6 +1065,19 @@ html[data-theme='light'] .world-map-country.has-resource.has-corpus {
   background: none;
   border: 0;
 }
+.companion-model select,
+.companion-tool {
+  min-height: 2.75rem;
+  padding: 0 0.7rem;
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface-raised);
+  color: var(--color-fg-primary);
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.companion-tool[aria-pressed='true'] {
+  border-color: var(--color-status-negative);
+}
 .companion-status,
 .companion-error {
   font-size: 0.9rem;

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { PUBLIC_NAV, type NavLink } from '@/config/site-nav';
+import { DetailsMenu } from './DetailsMenu';
 
 export function PublicNav({
   currentPath,
@@ -27,7 +28,7 @@ export function PublicNav({
           );
         })}
       </nav>
-      <details className="public-nav-more">
+      <DetailsMenu className="public-nav-more">
         <summary>Menu</summary>
         <div className="public-nav-more-panel">
           <form action="/search" className="public-nav-search">
@@ -47,7 +48,7 @@ export function PublicNav({
             </Link>
           ))}
         </div>
-      </details>
+      </DetailsMenu>
     </>
   );
 }
