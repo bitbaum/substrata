@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Page, Shell, SectionHeader } from '@/components/portal/Shell';
 import { researchDocuments, searchResearch } from '@/lib/research-index';
+import { ENTITY_KINDS } from '@/lib/entities/types';
 
 export const metadata = { title: 'Search the research' };
 export default async function SearchPage({
@@ -10,8 +11,10 @@ export default async function SearchPage({
 }) {
   const params = await searchParams;
   const q = typeof params.q === 'string' ? params.q.slice(0, 200) : '';
-  const kinds = ['bottleneck', 'company', 'science', 'policy', 'talent', 'learn', 'article'];
-  const kind = kinds.includes(params.kind ?? '') ? params.kind : '';
+  // The closed set, not a second copy of it: 'country' and 'capital' existed as
+  // entities but were missing from this list, so they could not be filtered for.
+  const kinds = ENTITY_KINDS;
+  const kind = (ENTITY_KINDS as readonly string[]).includes(params.kind ?? '') ? params.kind : '';
   const matches = searchResearch(researchDocuments(), q);
   const rows = matches.filter((d) => !kind || d.kind === kind);
   return (
