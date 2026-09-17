@@ -7,6 +7,7 @@ import { EVENTS } from '@/config/substrata-events';
 import { BOTTLENECKS } from '@/lib/bottlenecks';
 import { MARKET_PARTICIPANTS } from '@/lib/participants';
 import { Page, Shell, SectionHeader } from '@/components/portal/Shell';
+import { FollowButton } from '@/components/portal/FollowButton';
 import { bottleneckHref, marketHref } from '@/lib/links';
 import { parseFollows, type Follows } from '@/lib/follows';
 
@@ -18,8 +19,16 @@ async function save(form: FormData) {
   const session = await auth();
   if (!session?.actorId) throw new Error('Sign in first');
   const technologies = form.getAll('topics').filter((t): t is string => typeof t === 'string');
-  const companies = form.getAll('companies').filter((t): t is string => typeof t === 'string');
   const kind = form.get('kind') === 'organization' ? 'organization' : 'individual';
+  // Companies are followed from their own pages, not from this form, so they are
+  // read back and preserved. Rebuilding the whole record from the form meant a
+  // company followed in another tab after this page loaded was silently dropped
+  // the next time the desk was saved.
+  const existing = await database().query<{ topics: unknown }>(
+    'SELECT topics FROM research_preferences WHERE actor_id=$1',
+    [session.actorId],
+  );
+  const companies = parseFollows(existing.rows[0]?.topics).companies;
   const follows = parseFollows({ technologies, companies, kind });
   await database().query(
     'INSERT INTO research_preferences(actor_id,topics) VALUES($1,$2) ON CONFLICT(actor_id) DO UPDATE SET topics=$2,updated_at=now()',
@@ -55,6 +64,42 @@ export default async function AccountPage({
           ) : (
             <p>Account sign-in is being configured.</p>
           )}
+          {/* Signed out, this page was a headline and a button. Say what an
+              account is actually for — all of it true of what exists today. */}
+          <ul className="mt-10 divide-y divide-subtle border-y border-subtle">
+            {[
+              [
+                'Follow a technology or a company',
+                'Technologies are chosen on the desk; a company is followed from its own page.',
+              ],
+              [
+                'A desk on your rails',
+                'Recent events and what binds today, filtered to what you follow.',
+              ],
+              [
+                'Join the discussion',
+                'Every bottleneck, company and note carries a thread. Reading is open to everyone; writing needs an account.',
+              ],
+            ].map(([title, detail]) => (
+              <li key={title} className="py-4">
+                <p className="font-medium text-fg-primary">{title}</p>
+                <p className="mt-1 max-w-prose text-sm leading-relaxed text-fg-secondary">
+                  {detail}
+                </p>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 max-w-prose text-sm text-fg-secondary">
+            The research itself needs no account.{' '}
+            <Link href="/bottlenecks" className="text-accent underline-offset-4 hover:underline">
+              Read the bottlenecks
+            </Link>{' '}
+            or{' '}
+            <Link href="/chat" className="text-accent underline-offset-4 hover:underline">
+              ask the corpus a question
+            </Link>
+            .
+          </p>
         </Page>
       </Shell>
     );
@@ -119,7 +164,13 @@ export default async function AccountPage({
           <section className="desk-card">
             <h2>Following</h2>
             {followedTech.length + followedCo.length === 0 ? (
-              <p className="text-sm text-fg-secondary">Pick technologies and companies below.</p>
+              <p className="text-sm text-fg-secondary">
+                Pick technologies below, and follow a company from its own page —{' '}
+                <Link href="/markets" className="text-accent underline-offset-4 hover:underline">
+                  browse markets
+                </Link>
+                .
+              </p>
             ) : (
               <ul className="space-y-2 text-sm">
                 {followedTech.map((t) => (
@@ -128,8 +179,14 @@ export default async function AccountPage({
                   </li>
                 ))}
                 {followedCo.map((p) => (
-                  <li key={p.slug}>
+                  <li
+                    key={p.slug}
+                    className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1"
+                  >
                     <Link href={marketHref(p.slug)}>{p.name}</Link>
+                    {/* The only way to stop following used to be a checkbox in a
+                        list of 140; it belongs next to the thing being followed. */}
+                    <FollowButton type="company" id={p.slug} following label={p.name} />
                   </li>
                 ))}
               </ul>
@@ -200,22 +257,6 @@ export default async function AccountPage({
                 {t.name}
               </label>
             ))}
-          </fieldset>
-          <fieldset>
-            <legend>Companies</legend>
-            <div className="company-pick">
-              {MARKET_PARTICIPANTS.map((p) => (
-                <label key={p.slug} className="consent-line">
-                  <input
-                    type="checkbox"
-                    name="companies"
-                    value={p.slug}
-                    defaultChecked={follows.companies.includes(p.slug)}
-                  />
-                  {p.name}
-                </label>
-              ))}
-            </div>
           </fieldset>
           <button type="submit">Save desk</button>
         </form>

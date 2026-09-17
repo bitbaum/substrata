@@ -19,7 +19,6 @@ import { EventList } from '@/components/portal/EventList';
 import { Empty, Heading, Page, Shell } from '@/components/portal/Shell';
 import { SeverityBar, Status, rowLabel } from '@/components/portal/Status';
 import { bottleneckHref, policyHref } from '@/lib/links';
-import { RESEARCH_NAV } from '@/config/site-nav';
 
 export const metadata: Metadata = {
   title: { absolute: `${COMPANY.name} — the bottlenecks between here and much faster technology` },
@@ -107,13 +106,6 @@ export default function TodayPage() {
                 Ask
               </Link>
             </div>
-            <nav className="rabbit-holes" aria-label="Research sections">
-              {RESEARCH_NAV.map((item) => (
-                <Link key={item.href} href={item.href}>
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
           </header>
           {featured && (
             <figure className="hero-chain">
