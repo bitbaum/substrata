@@ -115,6 +115,22 @@ export function availableModels() {
   ];
 }
 
+/**
+ * Whether a model id is one this deployment actually offers.
+ *
+ * The caller supplies this string, and ai-kit treats a model it does not find
+ * in the chain as an instruction rather than a typo: `chainFrom()` PREPENDS it,
+ * so an unrecognised id is the first thing tried, against our key. The free
+ * chain is free only because every id in it is; `anthropic/claude-opus-4` sent
+ * to the same OpenRouter key is a paid call we would be billed for.
+ *
+ * So an id is honoured only when it is already in the chain we built.
+ */
+export function isOfferedModel(model: string): boolean {
+  if (model === 'auto') return true;
+  return usableChain(freeChain('SUBSTRATA'), process.env).some((link) => link.model === model);
+}
+
 export async function answerQuestion(
   question: string,
   signal: AbortSignal,
@@ -134,8 +150,12 @@ export async function answerQuestion(
     renderedFacts: renderFacts(facts),
   });
   const full = usableChain(freeChain('SUBSTRATA'), process.env);
-  const chain =
-    model && model !== 'auto' ? full.filter((link) => link.model === model) : full.slice(0, 3);
+  // An id we do not offer is not a preference, it is an injection: honour only
+  // what `isOfferedModel` recognises, and fall back to Auto rather than passing
+  // the string on. `requested` is what reaches the provider — never `model`.
+  const requested =
+    model !== 'auto' && full.some((link) => link.model === model) ? model : undefined;
+  const chain = requested ? full.filter((link) => link.model === requested) : full.slice(0, 3);
   const walk = chain.length ? chain : full.slice(0, 3);
   if (!walk.length) throw new Error('No AI providers configured');
   const system = `You are Substrata, a research companion for the physical bottlenecks on the path to much faster technology. Speak plainly, like a careful analyst, not a chatbot. Answer only from the records below. Distinguish sourced findings, unverified leads, analyst judgements, and the geology directory (which is not a finding). Never invent numbers, dates, supplier relationships or citations. If the records do not support a claim, say so and point at a useful next page. Cite records as [F1], [F2]. A producer list is corpus coverage, never the entire market. Do not give personalised investment advice. You have no tools. The contribution inbox is a separate button.\n\n${grounded}`;
@@ -146,7 +166,7 @@ export async function answerQuestion(
   ];
   let result = await complete({
     chain: walk,
-    model: model !== 'auto' ? model : undefined,
+    model: requested,
     timeoutMs: 20000,
     maxTokens: 1800,
     signal,
@@ -162,7 +182,7 @@ export async function answerQuestion(
   if (!checked.ok && checked.violations.length > 0) {
     result = await complete({
       chain: walk,
-      model: model !== 'auto' ? model : undefined,
+      model: requested,
       timeoutMs: 20000,
       maxTokens: 1800,
       signal,

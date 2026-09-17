@@ -1,4 +1,4 @@
-import { answerQuestion, availableModels, type ChatTurn } from '@/lib/chat';
+import { answerQuestion, availableModels, isOfferedModel, type ChatTurn } from '@/lib/chat';
 import { allowRequest, boundedJson, sameOrigin } from '@/lib/request-guards';
 
 export const dynamic = 'force-dynamic';
@@ -32,6 +32,9 @@ export async function POST(request: Request) {
   const history = turns((input as { history?: unknown })?.history);
   const modelRaw = (input as { model?: unknown })?.model;
   const model = typeof modelRaw === 'string' && modelRaw.length < 120 ? modelRaw : 'auto';
+  // Refuse rather than silently fall back: a caller naming a model we do not
+  // offer is either out of date or probing, and both deserve a straight answer.
+  if (!isOfferedModel(model)) return Response.json({ error: 'Unknown model.' }, { status: 400 });
   if (typeof question !== 'string' || question.trim().length < 3 || question.length > 4000)
     return Response.json(
       { error: 'Ask a question between 3 and 4,000 characters.' },
