@@ -4,19 +4,14 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { CHAIN_LAYERS, SCARCITY_DETAIL } from '@/config/substrata-participants';
-import { INDUSTRY_LABEL, TECHNOLOGY_LABEL } from '@/config/substrata-taxonomy';
 import { MARKET_PARTICIPANTS, SCARCITY_LABEL, participantBySlug } from '@/lib/participants';
 import { bottleneckHref } from '@/lib/links';
 import { correctionUrl } from '@/lib/site';
-import { EventList } from '@/components/portal/EventList';
 import { FollowButton } from '@/components/portal/FollowButton';
-import { Empty, Heading, Page, Shell } from '@/components/portal/Shell';
+import { Page, Shell } from '@/components/portal/Shell';
 import { currentSession } from '@/lib/auth';
 import { database } from '@/lib/db';
 import { parseFollows } from '@/lib/follows';
-import { Status } from '@/components/portal/Status';
-import { SCIENCE } from '@/config/substrata-science';
-import { scienceHref } from '@/lib/links';
 import { EntityProfile } from '@/components/portal/EntityProfile';
 import { resolveIn } from '@/lib/entities/registry';
 
@@ -40,6 +35,15 @@ export async function generateMetadata({ params }: RouteParams): Promise<Metadat
   };
 }
 
+/**
+ * A company profile is its identity header plus the shared modules.
+ *
+ * What it makes, where it matters, what could relieve it, what the profile does
+ * not answer and the timeline all used to be hand-written here. They are
+ * modules now, so they are ordered and numbered by the registry, they vanish
+ * when they have nothing to say, and offering one of them on another kind is a
+ * change to `appliesTo` rather than a second copy of the markup.
+ */
 export default async function ParticipantPage({ params }: RouteParams) {
   const { slug } = await params;
   const p = participantBySlug(slug);
@@ -59,14 +63,6 @@ export default async function ParticipantPage({ params }: RouteParams) {
     }
   }
   const layer = CHAIN_LAYERS.find((l) => l.id === p.layer);
-  const relief = SCIENCE.filter((s) =>
-    s.relieves.some((r) => p.produces.some((x) => x.bottleneck === r.bottleneck)),
-  );
-  let n = 0;
-  const next = () => String(++n).padStart(2, '0');
-
-  // Shared profile modules (discussion, connections) come from the registry,
-  // so every entity gains them at once rather than page by page.
   const entity = resolveIn('company', p.slug);
 
   return (
@@ -108,6 +104,8 @@ export default async function ParticipantPage({ params }: RouteParams) {
             ) : (
               <span className="text-fg-muted">Not graded in the directory</span>
             )}
+            {/* The grade means nothing without its definition, so it sits with
+                the grade rather than at the foot of the page. */}
             <a
               href={correctionUrl(p.name)}
               className="text-accent underline-offset-4 hover:underline"
@@ -115,6 +113,11 @@ export default async function ParticipantPage({ params }: RouteParams) {
               Report an error on GitHub
             </a>
           </div>
+          {p.scarcity && (
+            <p className="mt-3 max-w-prose text-xs leading-relaxed text-fg-muted">
+              {SCARCITY_DETAIL[p.scarcity]}
+            </p>
+          )}
           {p.existenceVerifiedBy ? (
             <p className="mt-4 max-w-prose rounded border-l-2 border-status-positive bg-surface-raised px-4 py-2 text-xs leading-relaxed text-fg-tertiary">
               That this organisation makes{' '}
@@ -145,168 +148,6 @@ export default async function ParticipantPage({ params }: RouteParams) {
           )}
         </header>
 
-        <section className="mb-12">
-          <Heading
-            index={next()}
-            title="What it makes"
-            aside={p.produces.length > 0 ? `${p.produces.length} mapped` : undefined}
-          />
-          {p.produces.length === 0 ? (
-            <Empty
-              what="No covered material is mapped to this organisation yet."
-              next="It appears here as context for the chain it sits in."
-            />
-          ) : (
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse text-left">
-                <thead>
-                  <tr className="border-b border-strong">
-                    {['Material', 'Step', 'Evidence'].map((c) => (
-                      <th
-                        key={c}
-                        scope="col"
-                        className="py-2.5 pr-4 font-mono text-xs font-medium uppercase tracking-caps text-fg-tertiary"
-                      >
-                        {c}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-subtle">
-                  {p.produces.map((item) => (
-                    <tr key={item.bottleneck} className="align-top">
-                      <td className="py-3 pr-4">
-                        <Link
-                          href={bottleneckHref(item.slug)}
-                          className="text-fg-primary underline-offset-4 hover:underline"
-                        >
-                          {item.bottleneck}
-                        </Link>
-                      </td>
-                      <td className="py-3 pr-4 text-sm text-fg-secondary">{item.step}</td>
-                      <td className="py-3 text-sm">
-                        {item.source ? (
-                          <a
-                            href={item.source}
-                            rel="noreferrer"
-                            className="inline-flex items-center gap-2 text-accent underline-offset-4 hover:underline"
-                          >
-                            <span
-                              aria-hidden
-                              className="inline-block h-1.5 w-1.5 rounded-full bg-status-positive"
-                            />
-                            Verified source ↗
-                          </a>
-                        ) : (
-                          <Status
-                            state={item.verification}
-                            label={
-                              item.candidateCount > 0
-                                ? `${item.candidateCount} source${item.candidateCount > 1 ? 's' : ''} found, unchecked`
-                                : undefined
-                            }
-                          />
-                        )}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
-        </section>
-
-        {(p.technologies.length > 0 || p.industries.length > 0) && (
-          <section className="mb-12">
-            <Heading index={next()} title="Where this matters" />
-            <div className="flex flex-wrap gap-2">
-              {p.technologies.map((t) => (
-                <Link
-                  key={t}
-                  href={`/bottlenecks?tech=${t}`}
-                  className="inline-flex min-h-9 items-center rounded-full border border-strong px-3 text-sm text-fg-secondary hover:border-accent hover:text-fg-primary"
-                >
-                  {TECHNOLOGY_LABEL[t]}
-                </Link>
-              ))}
-              {p.industries.map((i) => (
-                <Link
-                  key={i}
-                  href={`/markets?industry=${i}`}
-                  className="inline-flex min-h-9 items-center rounded-full border border-strong px-3 text-sm text-fg-secondary hover:border-accent hover:text-fg-primary"
-                >
-                  {INDUSTRY_LABEL[i]}
-                </Link>
-              ))}
-            </div>
-          </section>
-        )}
-
-        <section className="mb-12">
-          <Heading index={next()} title="What could change its position" />
-          <p className="mb-4 max-w-prose text-sm text-fg-secondary">
-            These research approaches address materials mapped to this organisation. This does not
-            establish a partnership, investment or adoption by the company.
-          </p>
-          {relief.length === 0 ? (
-            <p className="text-sm text-fg-secondary">No relevant science entries are mapped yet.</p>
-          ) : (
-            <div className="research-card-grid">
-              {relief.map((s) => (
-                <article key={s.id}>
-                  <h2>
-                    <Link href={scienceHref(s.id)}>{s.name}</Link>
-                  </h2>
-                  <p>{s.plain}</p>
-                  <p>
-                    Readiness {s.readiness}/9 · analyst judgement · {s.judgedOn}
-                  </p>
-                  <Link href={scienceHref(s.id)}>Mechanism and evidence →</Link>
-                </article>
-              ))}
-            </div>
-          )}
-          <div className="research-prose">
-            <h3>Questions the profile does not yet answer</h3>
-            <p>
-              Revenue, production capacity, customer contracts, hiring needs and private supplier
-              relationships are not established by this directory. Help document them with dated,
-              public sources.
-            </p>
-            <Link href={`/chat?topic=${encodeURIComponent(p.name)}`}>
-              Ask Substrata about {p.name}, or contribute expertise →
-            </Link>
-          </div>
-        </section>
-
-        <section>
-          <Heading
-            index={next()}
-            title="Timeline"
-            aside={
-              <Link
-                href="/events"
-                className="underline-offset-4 hover:text-fg-primary hover:underline"
-              >
-                All events →
-              </Link>
-            }
-          />
-          {p.events.length === 0 ? (
-            <Empty
-              what="Nothing recorded about this organisation yet."
-              next="Events are added when a source is read and accepted."
-            />
-          ) : (
-            <EventList events={p.events} />
-          )}
-        </section>
-
-        {p.scarcity && (
-          <p className="mt-10 max-w-prose text-xs leading-relaxed text-fg-muted">
-            {SCARCITY_DETAIL[p.scarcity]}
-          </p>
-        )}
         {entity && <EntityProfile entity={entity} />}
       </Page>
     </Shell>
