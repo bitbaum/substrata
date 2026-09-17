@@ -30,6 +30,13 @@ export async function POST(request: Request) {
   }
   const question = (input as { question?: unknown })?.question;
   const history = turns((input as { history?: unknown })?.history);
+  // The page the reader is on. Bounded and required to be a local path: it
+  // reaches retrieval, so it may not be an arbitrary string.
+  const pathRaw = (input as { onPath?: unknown })?.onPath;
+  const onPath =
+    typeof pathRaw === 'string' && pathRaw.startsWith('/') && pathRaw.length <= 300
+      ? pathRaw
+      : undefined;
   const modelRaw = (input as { model?: unknown })?.model;
   const model = typeof modelRaw === 'string' && modelRaw.length < 120 ? modelRaw : 'auto';
   // Refuse rather than silently fall back: a caller naming a model we do not
@@ -52,7 +59,7 @@ export async function POST(request: Request) {
         const send = (obj: unknown) =>
           controller.enqueue(encoder.encode(`${JSON.stringify(obj)}\n`));
         try {
-          const data = await answerQuestion(question, request.signal, history, model);
+          const data = await answerQuestion(question, request.signal, history, model, onPath);
           send({ type: 'done', data });
         } catch (error) {
           console.error(

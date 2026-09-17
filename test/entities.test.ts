@@ -12,6 +12,8 @@ import assert from 'node:assert/strict';
 
 import { allEntities, entitiesOfKind, resolveEntity, resolveIn } from '../lib/entities/registry';
 import { ENTITY_KINDS } from '../lib/entities/types';
+import { ENTITY_SOURCES } from '../lib/entities/sources';
+import { ROUTES } from '../lib/links';
 import { researchDocuments } from '../lib/research-index';
 
 test('every entity id is unique', () => {
@@ -86,4 +88,35 @@ test('an entity resolves by id, by key and by name', () => {
   // row that differ only in capitalisation stay the same organisation.
   assert.equal(resolveIn('company', sample.name.toUpperCase())?.id, sample.id);
   assert.equal(resolveEntity('company:does-not-exist'), undefined);
+});
+
+test('every kind has exactly one source, and every source a declared kind', () => {
+  // The claim this refactor makes is "a kind is one file". It is only true if
+  // the registry is the whole story: a kind with no source builds nothing, and
+  // a source for an undeclared kind is unreachable.
+  const kinds = ENTITY_SOURCES.map((source) => source.kind);
+  assert.equal(new Set(kinds).size, kinds.length, 'two sources claim the same kind');
+  for (const kind of ENTITY_KINDS) {
+    assert.ok(kinds.includes(kind), `kind "${kind}" is declared with no source`);
+  }
+  for (const kind of kinds) {
+    assert.ok(
+      (ENTITY_KINDS as readonly string[]).includes(kind),
+      `source builds undeclared kind "${kind}"`,
+    );
+  }
+});
+
+test('every entity href resolves to a route the app serves', () => {
+  // A new kind whose href points nowhere is the failure this catches: the
+  // entity exists, search finds it, and the link 404s.
+  const patterns = ROUTES.map((route) => route.replace(/:[^/]+/g, '[^/]+'));
+  const matchers = patterns.map((pattern) => new RegExp(`^${pattern}$`));
+  const broken: string[] = [];
+  for (const entity of allEntities()) {
+    const path = entity.href.split('?')[0].split('#')[0];
+    if (!matchers.some((matcher) => matcher.test(path)))
+      broken.push(`${entity.id} → ${entity.href}`);
+  }
+  assert.deepEqual(broken, [], `Entities whose page does not exist:\n  ${broken.join('\n  ')}`);
 });

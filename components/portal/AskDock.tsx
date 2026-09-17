@@ -20,7 +20,7 @@ export function AskDock() {
               Close
             </button>
           </header>
-          <ResearchChat topic="" compact />
+          <ResearchChat topic="" onPath={path} compact />
         </div>
       )}
       <button

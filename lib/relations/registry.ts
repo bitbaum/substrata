@@ -11,6 +11,7 @@ import { SCIENCE } from '@/config/substrata-science';
 import { CAPITAL_PROVIDERS } from '@/config/substrata-capital';
 import { INSTRUMENTS } from '@/config/substrata-policy';
 import { COUNTRY_RESOURCES } from '@/config/substrata-resources';
+import { RESEARCH_PROGRAMMES } from '@/config/substrata-programmes';
 import { entityId, type Entity, type EntityId } from '../entities/types';
 import { resolveEntity } from '../entities/registry';
 import { RELATION_LABEL, type Connection, type Relation } from './types';
@@ -93,6 +94,18 @@ export function allRelations(): Relation[] {
       add('governed-by', bottleneckId(name), to, evidence, [instrument.source]);
     }
     add('in-force-in', to, countryId(instrument.jurisdiction), evidence, [instrument.source]);
+  }
+
+  for (const programme of RESEARCH_PROGRAMMES) {
+    for (const layer of programme.layers) {
+      const to = entityId('loop', layer.id);
+      for (const name of layer.gatedBy) {
+        // The loop is the thing everything else serves, so this is the edge that
+        // makes the web answer "why does this matter" rather than only "what is
+        // next to this". It is the project's model, and says so.
+        add('gates', bottleneckId(name), to, "the project's own model, not a measurement");
+      }
+    }
   }
 
   for (const row of COUNTRY_RESOURCES) {
