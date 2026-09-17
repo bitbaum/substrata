@@ -107,32 +107,60 @@ export function allRelations(): Relation[] {
 }
 
 /**
+ * Connections, indexed by endpoint.
+ *
+ * Reading a profile asks "what touches this", so the question is asked once per
+ * entity per render. Scanning every relation each time is linear in the size of
+ * the whole web to answer a question about one node — the cost grows with the
+ * graph even for entities that touch nothing.
+ *
+ * Both directions are materialised once, which is also what makes the single
+ * declaration safe: the forward and inverse readings are produced together from
+ * the same relation, so they cannot diverge.
+ */
+let byEndpoint: Map<EntityId, Connection[]> | null = null;
+
+function connectionIndex(): Map<EntityId, Connection[]> {
+  if (byEndpoint) return byEndpoint;
+  const index = new Map<EntityId, Connection[]>();
+  const put = (at: EntityId, connection: Connection) => {
+    const list = index.get(at);
+    if (list) list.push(connection);
+    else index.set(at, [connection]);
+  };
+  for (const relation of allRelations()) {
+    put(relation.from, {
+      kind: relation.kind,
+      other: relation.to,
+      label: RELATION_LABEL[relation.kind].forward,
+      evidence: relation.evidence,
+      sources: relation.sources,
+    });
+    put(relation.to, {
+      kind: relation.kind,
+      other: relation.from,
+      label: RELATION_LABEL[relation.kind].inverse,
+      evidence: relation.evidence,
+      sources: relation.sources,
+    });
+  }
+  byEndpoint = index;
+  return index;
+}
+
+/**
  * Everything joined to an entity, read from its end.
  *
  * Both directions come from the single declaration, so a company's "makes" and
  * a bottleneck's "produced by" are guaranteed to be the same fact.
  */
 export function connectionsOf(id: EntityId): Connection[] {
-  const out: Connection[] = [];
-  for (const relation of allRelations()) {
-    if (relation.from === id)
-      out.push({
-        kind: relation.kind,
-        other: relation.to,
-        label: RELATION_LABEL[relation.kind].forward,
-        evidence: relation.evidence,
-        sources: relation.sources,
-      });
-    else if (relation.to === id)
-      out.push({
-        kind: relation.kind,
-        other: relation.from,
-        label: RELATION_LABEL[relation.kind].inverse,
-        evidence: relation.evidence,
-        sources: relation.sources,
-      });
-  }
-  return out;
+  return connectionIndex().get(id) ?? [];
+}
+
+/** What the relation index holds, for a status page and the perf guard. */
+export function relationStats(): { relations: number; endpoints: number } {
+  return { relations: allRelations().length, endpoints: connectionIndex().size };
 }
 
 /** A connection with the other end resolved, for rendering. */

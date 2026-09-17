@@ -9,7 +9,6 @@ import {
 } from '@/config/substrata-policy';
 import { callsAbout } from '@/config/substrata-calls';
 import { CONSTRAINT_LABEL, fundingFor, kindById, providersFor } from '@/config/substrata-capital';
-import { RESEARCH_PROGRAMMES } from '@/config/substrata-programmes';
 import { readinessLabel, scienceFor } from '@/config/substrata-science';
 import { stageById } from '@/config/substrata-stages';
 import { bottleneckBySlug, type Bottleneck } from '../../bottlenecks';
@@ -407,36 +406,4 @@ const funding: ProfileModule<{
   },
 };
 
-const loops: ProfileModule<{ id: string; name: string; period: string }[]> = {
-  id: 'loops',
-  title: t('profile.loops.title'),
-  appliesTo: ['bottleneck'],
-  importance: 84,
-  load: (e) => {
-    const b = bottleneck(e);
-    if (!b) return null;
-    const found = RESEARCH_PROGRAMMES.flatMap((programme) =>
-      programme.layers.filter((layer) => layer.gatedBy.includes(b.name)),
-    );
-    return found.length > 0 ? found : null;
-  },
-  Render({ data }) {
-    return (
-      <ul className="divide-y divide-subtle border-y border-subtle">
-        {data.map((layer) => (
-          <li
-            key={layer.id}
-            className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-3"
-          >
-            <Link href="/research" className="text-fg-primary underline-offset-4 hover:underline">
-              {layer.name}
-            </Link>
-            <span className="font-mono text-xs text-fg-secondary">{layer.period}</span>
-          </li>
-        ))}
-      </ul>
-    );
-  },
-};
-
-export { why, severity, producers, rules, removes, calls, funding, loops };
+export { why, severity, producers, rules, removes, calls, funding };

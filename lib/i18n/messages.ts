@@ -31,7 +31,7 @@ export const EN = {
   'profile.removes.title': 'What would remove it',
   'profile.calls.title': 'What we have predicted',
   'profile.funding.title': 'Who could fund relief',
-  'profile.loops.title': 'Which loops wait on it',
+  'profile.role.title': 'What this holds up',
   'profile.relieves.title': 'What it would relieve',
   'profile.readiness.title': 'How far off it is',
   'profile.milestone.title': 'What to watch for',

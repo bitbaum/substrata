@@ -150,7 +150,9 @@ test('each migrated page kept every section it had', () => {
       'calls',
       'funding',
       'timeline',
-      'loops',
+      // "Which loops wait on it" was bottleneck-only; `role` supersedes it and
+      // answers the same question for every kind.
+      'role',
     ],
     science: ['relieves', 'readiness', 'milestone'],
     capital: ['mandate', 'can-move', 'source-sentence'],
