@@ -1,6 +1,5 @@
 import Link from 'next/link';
 
-import { EventList } from '@/components/portal/EventList';
 import { Empty } from '@/components/portal/Shell';
 import { Status } from '@/components/portal/Status';
 import { INDUSTRY_LABEL, TECHNOLOGY_LABEL } from '@/config/substrata-taxonomy';
@@ -159,20 +158,26 @@ const relief: ProfileModule<typeof SCIENCE> = {
         {data.length === 0 ? (
           <p className="text-sm text-fg-secondary">No relevant science entries are mapped yet.</p>
         ) : (
-          <div className="research-card-grid">
+          <ul className="divide-y divide-subtle border-y border-subtle">
             {data.map((s) => (
-              <article key={s.id}>
-                <h2>
-                  <Link href={scienceHref(s.id)}>{s.name}</Link>
-                </h2>
-                <p>{s.plain}</p>
-                <p>
-                  Readiness {s.readiness}/9 · analyst judgement · {s.judgedOn}
+              <li key={s.id} className="py-4">
+                <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+                  <Link
+                    href={scienceHref(s.id)}
+                    className="font-medium text-fg-primary underline-offset-4 hover:underline"
+                  >
+                    {s.name}
+                  </Link>
+                  <span className="font-mono text-xs text-fg-secondary">
+                    {s.readiness}/9 · judged {s.judgedOn}
+                  </span>
+                </div>
+                <p className="mt-1 max-w-prose text-sm leading-relaxed text-fg-secondary">
+                  {s.plain}
                 </p>
-                <Link href={scienceHref(s.id)}>Mechanism and evidence →</Link>
-              </article>
+              </li>
             ))}
-          </div>
+          </ul>
         )}
       </>
     );
@@ -194,36 +199,23 @@ const gaps: ProfileModule<MarketParticipant> = {
   load: participant,
   Render({ data: p }) {
     return (
-      <div className="research-prose">
-        <p>
+      <>
+        <p className="max-w-prose text-sm leading-relaxed text-fg-secondary">
           Revenue, production capacity, customer contracts, hiring needs and private supplier
           relationships are not established by this directory. Help document them with dated, public
           sources.
         </p>
-        <Link href={`/chat?topic=${encodeURIComponent(p.name)}`}>
-          Ask Substrata about {p.name}, or contribute expertise →
-        </Link>
-      </div>
+        <p className="mt-3 text-sm">
+          <Link
+            href={`/chat?topic=${encodeURIComponent(p.name)}`}
+            className="text-accent underline-offset-4 hover:underline"
+          >
+            Ask Substrata about {p.name}, or contribute expertise →
+          </Link>
+        </p>
+      </>
     );
   },
 };
 
-const timeline: ProfileModule<MarketParticipant> = {
-  id: 'timeline',
-  title: 'Timeline',
-  appliesTo: ['company'],
-  importance: 40,
-  load: participant,
-  Render({ data: p }) {
-    if (p.events.length === 0)
-      return (
-        <Empty
-          what="Nothing recorded about this organisation yet."
-          next="Events are added when a source is read and accepted."
-        />
-      );
-    return <EventList events={p.events} />;
-  },
-};
-
-export { products, topics, relief, gaps, timeline };
+export { products, topics, relief, gaps };
