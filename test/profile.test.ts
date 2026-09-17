@@ -47,6 +47,31 @@ test('a discussion thread is keyed by a stable path, not by a filtered URL', () 
   assert.ok(!country.href.split('?')[0].includes('?'));
 });
 
+test('a company profile still carries every section the hand-written page had', () => {
+  // The migration must not quietly drop a section. These are the four numbered
+  // sections and the gaps block that lived in app/markets/[slug]/page.tsx,
+  // plus the two shared modules.
+  const company = entitiesOfKind('company').find((e) => e.key === 'posco');
+  assert.ok(company, 'POSCO should be in the corpus');
+  const ids = modulesFor(company).map((m) => m.id);
+  for (const expected of ['products', 'topics', 'relief', 'gaps', 'timeline', 'discussion']) {
+    assert.ok(ids.includes(expected), `company profile lost "${expected}"`);
+  }
+  // Order is the reading order the page had.
+  assert.ok(ids.indexOf('products') < ids.indexOf('timeline'), 'products should precede timeline');
+  assert.ok(ids.indexOf('timeline') < ids.indexOf('discussion'), 'discussion goes last');
+});
+
+test('company modules do not leak onto kinds that have no such data', () => {
+  // `products` reads the market directory; asking it about a country must not
+  // throw or invent a row.
+  const country = entitiesOfKind('country')[0];
+  const ids = modulesFor(country).map((m) => m.id);
+  for (const companyOnly of ['products', 'topics', 'relief', 'gaps', 'timeline']) {
+    assert.ok(!ids.includes(companyOnly), `${companyOnly} should not apply to a country`);
+  }
+});
+
 test('a new module appears on every kind it declares, with no page edit', () => {
   // The whole modularity claim, exercised: define a module, and selection alone
   // decides where it shows up.
