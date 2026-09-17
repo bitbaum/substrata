@@ -14,6 +14,8 @@ import { JURISDICTION_LABEL, hasPolicyPage } from '@/config/substrata-policy';
 import { bottleneckHref, policyHref } from '@/lib/links';
 import { correctionUrl } from '@/lib/site';
 import { Heading, Page, Shell } from '@/components/portal/Shell';
+import { EntityProfile } from '@/components/portal/EntityProfile';
+import { resolveIn } from '@/lib/entities/registry';
 
 interface RouteParams {
   params: Promise<{ slug: string }>;
@@ -35,6 +37,10 @@ export default async function ProviderPage({ params }: RouteParams) {
   if (!provider) notFound();
 
   const kind = kindById(provider.kind);
+
+  // Shared profile modules (discussion, connections) come from the registry,
+  // so every entity gains them at once rather than page by page.
+  const entity = resolveIn('capital', provider.id);
 
   return (
     <Shell currentPath="capital">
@@ -156,6 +162,7 @@ export default async function ProviderPage({ params }: RouteParams) {
             ← All providers
           </Link>
         </p>
+        {entity && <EntityProfile entity={entity} />}
       </Page>
     </Shell>
   );

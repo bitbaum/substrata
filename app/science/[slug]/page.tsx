@@ -15,6 +15,8 @@ import { bottleneckHref } from '@/lib/links';
 import { correctionUrl } from '@/lib/site';
 import { Heading, Page, Shell } from '@/components/portal/Shell';
 import { SeverityBar } from '@/components/portal/Status';
+import { EntityProfile } from '@/components/portal/EntityProfile';
+import { resolveIn } from '@/lib/entities/registry';
 
 interface RouteParams {
   params: Promise<{ slug: string }>;
@@ -36,6 +38,10 @@ export default async function SciencePage({ params }: RouteParams) {
   if (!entry) notFound();
 
   const band = readinessBand(entry.readiness);
+
+  // Shared profile modules (discussion, connections) come from the registry,
+  // so every entity gains them at once rather than page by page.
+  const entity = resolveIn('science', entry.id);
 
   return (
     <Shell currentPath="science">
@@ -144,6 +150,7 @@ export default async function SciencePage({ params }: RouteParams) {
             ← All technologies
           </Link>
         </p>
+        {entity && <EntityProfile entity={entity} />}
       </Page>
     </Shell>
   );
