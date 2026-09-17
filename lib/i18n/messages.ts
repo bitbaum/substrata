@@ -32,6 +32,8 @@ export const EN = {
   'profile.calls.title': 'What we have predicted',
   'profile.funding.title': 'Who could fund relief',
   'profile.role.title': 'What this holds up',
+  'profile.production.title': 'How much, and where',
+  'profile.substitutes.title': 'Is there an alternative',
   'profile.peers.title': 'Who else makes it',
   'profile.relatedNews.title': 'News about what it makes',
   'profile.turn.title': 'How fast it turns',

@@ -350,9 +350,18 @@ export const COUNTRY_RESOURCES: readonly CountryResource[] = [
   },
   {
     iso2: 'qa',
-    resources: ['natural-gas'],
-    why: 'LNG. Firm gas that other people’s industry burns.',
-    relatedBottlenecks: [],
+    resources: ['natural-gas', 'helium'],
+    why: 'LNG, and about a third of world helium as a by-product of that gas.',
+    relatedBottlenecks: ['Liquid helium (He-4)'],
+  },
+  {
+    // Added 2026-09-17: Algeria was missing from the directory entirely while
+    // holding 1,800 Mcm of helium reserves and producing 11 Mcm a year — a
+    // tracked bottleneck. The directory covered Timor-Leste's oil and not this.
+    iso2: 'dz',
+    resources: ['natural-gas', 'helium', 'oil'],
+    why: 'Helium from gas at Arzew and Skikda, and the second-largest recorded reserve after the United States.',
+    relatedBottlenecks: ['Liquid helium (He-4)'],
   },
   {
     iso2: 'ae',

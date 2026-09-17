@@ -10,6 +10,7 @@ import { why, severity, producers, rules, removes, calls, funding } from './bott
 import { role } from './role';
 import { turn, gates } from './loop';
 import { peers, relatedNews } from './peers';
+import { production, substitutes } from './quantities';
 
 /**
  * The registry. A new section is one definition plus one entry here.
@@ -32,8 +33,10 @@ export const PROFILE_MODULES: AnyProfileModule[] = [
   why,
   severity,
   producers,
+  production,
   rules,
   removes,
+  substitutes,
   calls,
   funding,
   // Company
