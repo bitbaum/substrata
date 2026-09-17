@@ -15,7 +15,7 @@ import { connectionsOf } from './relations/registry';
 
 export type GraphKind = Extract<
   EntityKind,
-  'country' | 'company' | 'bottleneck' | 'science' | 'capital' | 'policy'
+  'country' | 'company' | 'bottleneck' | 'science' | 'capital' | 'policy' | 'loop'
 >;
 
 export type GraphNode = {
@@ -41,6 +41,7 @@ export const GRAPH_KINDS: GraphKind[] = [
   'science',
   'capital',
   'policy',
+  'loop',
 ];
 
 export function neighbors(kind: GraphKind, id: string): GraphEdge[] {

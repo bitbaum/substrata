@@ -53,6 +53,11 @@ export function scienceHref(id: string): string {
   return `/science/${id}`;
 }
 
+/** A loop — design, build, measure — which is the thing everything else serves. */
+export function loopHref(id: string): string {
+  return `/loops/${id}`;
+}
+
 export function capitalHref(id: string): string {
   return `/capital/${id}`;
 }
@@ -156,6 +161,8 @@ export const ROUTES = [
   '/science/:slug',
   '/capital',
   '/capital/:slug',
+  '/loops',
+  '/loops/:slug',
   '/events',
   '/notes',
   '/notes/:slug',

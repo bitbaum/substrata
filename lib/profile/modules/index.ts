@@ -8,6 +8,7 @@ import { relieves, readiness, milestone } from './science';
 import { mandate, canMove, source } from './capital';
 import { why, severity, producers, rules, removes, calls, funding } from './bottleneck';
 import { role } from './role';
+import { turn, gates } from './loop';
 
 /**
  * The registry. A new section is one definition plus one entry here.
@@ -47,6 +48,9 @@ export const PROFILE_MODULES: AnyProfileModule[] = [
   mandate,
   canMove,
   source,
+  // Loop
+  turn,
+  gates,
   // Every kind that has them
   timeline,
   role,

@@ -15,7 +15,10 @@ import type { ProfileModule } from '../types';
  * for what nothing else on the profile says.
  */
 const ALREADY_A_SECTION: Record<string, string[]> = {
-  bottleneck: ['produced by', 'fundable by'],
+  // A bottleneck's loops are shown by "What this holds up"; a loop's gates by
+  // "What is in the way". Neither should be listed twice.
+  bottleneck: ['produced by', 'fundable by', 'gates'],
+  loop: ['gated by'],
   company: ['makes'],
   capital: ['fundable by'],
 };
@@ -43,7 +46,7 @@ export function connectionsFor(entity: Entity) {
 const related: ProfileModule<ReturnType<typeof neighbors>> = {
   id: 'related',
   title: t('profile.related.title'),
-  appliesTo: ['country', 'company', 'bottleneck', 'science', 'capital'],
+  appliesTo: ['country', 'company', 'bottleneck', 'science', 'capital', 'loop'],
   importance: 88,
   load: (entity: Entity) => {
     const edges = connectionsFor(entity);
