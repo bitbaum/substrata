@@ -32,7 +32,7 @@ import {
   resourceLabel,
 } from '@/config/substrata-resources';
 import { WORLD_PATHS } from '@/config/world-paths';
-import { entityId, type Entity } from './types';
+import { entityId, type Entity, type EntityKind } from './types';
 
 function countryName(iso2: string): string {
   return WORLD_PATHS.find((p) => p.iso2 === iso2)?.name ?? iso2.toUpperCase();
@@ -202,8 +202,30 @@ function articles(): Entity[] {
 }
 
 /** Every entity, in a stable order. Cheap enough to call per request; memoise if that changes. */
-export function allEntities(): Entity[] {
-  return [
+/**
+ * The corpus, built once and indexed.
+ *
+ * This is derived from static config, so it cannot change within a process, and
+ * rebuilding it per call was costing 22ms — on every call, including every one
+ * of the lookups below, which then linear-scanned the result. A single entity
+ * lookup cost 19ms. That is invisible at 268 entities and fatal at ten times
+ * that: the cost is the rebuild multiplied by the scan, so it grows with the
+ * square of the corpus while feeling fine right up until it does not.
+ *
+ * Built eagerly on first use, then served from maps.
+ */
+interface EntityIndex {
+  all: Entity[];
+  byId: Map<string, Entity>;
+  byKind: Map<EntityKind, Entity[]>;
+  /** `kind:lowercased name-or-alias-or-key` → entity, for tolerant resolution. */
+  byLabel: Map<string, Entity>;
+}
+
+let index: EntityIndex | null = null;
+
+function buildIndex(): EntityIndex {
+  const all = [
     ...science(),
     ...policy(),
     ...talent(),
@@ -214,25 +236,50 @@ export function allEntities(): Entity[] {
     ...countries(),
     ...articles(),
   ];
+  const byId = new Map<string, Entity>();
+  const byKind = new Map<EntityKind, Entity[]>();
+  const byLabel = new Map<string, Entity>();
+  for (const entity of all) {
+    byId.set(entity.id, entity);
+    const kind = byKind.get(entity.kind);
+    if (kind) kind.push(entity);
+    else byKind.set(entity.kind, [entity]);
+    // First writer wins, so a later alias collision cannot silently displace a
+    // real key — the entity test holds ids unique, aliases are best effort.
+    for (const label of [entity.key, entity.name, ...entity.aka]) {
+      const at = `${entity.kind}:${label.toLowerCase()}`;
+      if (!byLabel.has(at)) byLabel.set(at, entity);
+    }
+  }
+  return { all, byId, byKind, byLabel };
+}
+
+function entityIndex(): EntityIndex {
+  if (!index) index = buildIndex();
+  return index;
+}
+
+/** Every entity, in a stable order. */
+export function allEntities(): Entity[] {
+  return entityIndex().all;
 }
 
 export function entitiesOfKind(kind: Entity['kind']): Entity[] {
-  return allEntities().filter((e) => e.kind === kind);
+  return entityIndex().byKind.get(kind) ?? [];
 }
 
 /** Resolve by full id (`company:posco`). Returns undefined rather than throwing: callers render a gap. */
 export function resolveEntity(id: string): Entity | undefined {
-  return allEntities().find((e) => e.id === id);
+  return entityIndex().byId.get(id);
 }
 
 /** Resolve within a kind, tolerating the name as well as the key, via `aka`. */
 export function resolveIn(kind: Entity['kind'], keyOrName: string): Entity | undefined {
-  const wanted = keyOrName.toLowerCase();
-  return allEntities().find(
-    (e) =>
-      e.kind === kind &&
-      (e.key.toLowerCase() === wanted ||
-        e.name.toLowerCase() === wanted ||
-        e.aka.some((a) => a.toLowerCase() === wanted)),
-  );
+  return entityIndex().byLabel.get(`${kind}:${keyOrName.toLowerCase()}`);
+}
+
+/** What the index holds, for a status page and for the perf guard. */
+export function indexStats(): { entities: number; kinds: number; labels: number } {
+  const built = entityIndex();
+  return { entities: built.all.length, kinds: built.byKind.size, labels: built.byLabel.size };
 }

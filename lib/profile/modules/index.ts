@@ -6,7 +6,8 @@ import { timeline } from './timeline';
 import { products, topics, relief, gaps } from './company';
 import { relieves, readiness, milestone } from './science';
 import { mandate, canMove, source } from './capital';
-import { why, severity, producers, rules, removes, calls, funding, loops } from './bottleneck';
+import { why, severity, producers, rules, removes, calls, funding } from './bottleneck';
+import { role } from './role';
 
 /**
  * The registry. A new section is one definition plus one entry here.
@@ -33,7 +34,6 @@ export const PROFILE_MODULES: AnyProfileModule[] = [
   removes,
   calls,
   funding,
-  loops,
   // Company
   products,
   topics,
@@ -49,6 +49,7 @@ export const PROFILE_MODULES: AnyProfileModule[] = [
   source,
   // Every kind that has them
   timeline,
+  role,
   related,
   discussion,
 ].map((module) => defineModule(module as ProfileModule<unknown>));
