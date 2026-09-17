@@ -5,7 +5,6 @@ import { neighbors, type GraphKind } from '../../graph';
 import { resolveIn } from '../../entities/registry';
 import { WORLD_PATHS } from '@/config/world-paths';
 import type { Entity } from '../../entities/types';
-import { defineModule, type AnyProfileModule } from '../define';
 import type { ProfileModule } from '../types';
 
 const GRAPH_KINDS = new Set<string>(['country', 'company', 'bottleneck', 'science', 'capital']);
