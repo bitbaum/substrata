@@ -116,6 +116,48 @@ connection with a source, or move behind an explicit "general geology, not part 
 boundary. Coverage is not a virtue when most of it is off-subject — it dilutes the rows that matter
 and makes similarity matching meaningless.
 
+### F. Substitution: existing is not the same as available
+
+The corpus scores "how hard to replace" 0–3 and leaves it there. That flattens the only question a
+reader actually has, because an alternative can exist and still be unavailable — for quite different
+reasons, each with a different remedy and a different time constant:
+
+```ts
+interface Substitute {
+  for: EntityId;                 // the bottleneck
+  candidate: string;             // or an EntityId when it is a science entry we cover
+  status:
+    | 'in use'                   // already substituting at scale
+    | 'qualified, capacity-limited'
+    | 'qualified for some uses'  // works for a subset, not the binding one
+    | 'demonstrated, not qualified'
+    | 'laboratory'
+    | 'none known';
+  /** WHY it is not simply used. More than one usually applies. */
+  blockedBy: ('physics' | 'qualification' | 'capacity' | 'cost' | 'contract' | 'regulation')[];
+  why: string;                   // the nuance, in plain words
+  sources: string[];
+}
+```
+
+The distinction that matters most is `physics` against everything else. Liquid helium has no
+substitute below 4 K — that is a law, and no amount of money or time changes it. Grain-oriented
+electrical steel has alternatives that are *qualified for some uses*, blocked by `qualification` and
+`capacity` — that is a schedule, and money and time do change it. Today both read as a 3.
+
+A profile should say which it is, because "there is no alternative" and "the alternative needs four
+years of qualification and a new mill" lead a reader to opposite conclusions.
+
+### G. More than one source, and say when they are not independent
+
+Most records carry a single `source`. One source is a citation; two independent ones are evidence.
+Fields become `sources: string[]`, and where sources are not independent — a press release and the
+trade-press article that reprints it — that is recorded rather than counted twice.
+
+This also protects against the failure mode this project is most exposed to: a number that is
+everywhere on the internet because everyone copied the same original, which is one source wearing a
+dozen hats.
+
 ## Presentation
 
 - **Progressive disclosure, not omission.** A page opens with the claim and the number; the rows,
@@ -134,8 +176,11 @@ and makes similarity matching meaningless.
 ## Order
 
 1. USGS production and reserves for the materials already in the corpus — the numbers a reader asks
-   for first, on rows that already matter.
+   for first, on rows that already matter. Multi-sourced where a second independent figure exists.
 2. Facilities for the most concentrated materials, so "a few fields" names them.
 3. Derived reads: share, per-capita, concentration, R/P.
 4. Chokepoints and the `transits` relation.
 5. Prune or fence the off-thesis country rows.
+6. Substitution nuance: `physics` versus `qualification`/`capacity`/`cost`, starting with the
+   materials scored 3 for replaceability, since that score is currently carrying all the weight and
+   explaining none of it.
