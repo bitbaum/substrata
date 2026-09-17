@@ -21,6 +21,8 @@ type Turn = {
   role: 'user' | 'assistant';
   content: string;
   sources?: Source[];
+  /** Open-web passages. Never corpus rows; rendered apart. */
+  web?: { title: string; url: string; excerpt: string }[];
 };
 
 export function ResearchChat({
@@ -210,6 +212,31 @@ export function ResearchChat({
               </div>
             ) : (
               <p className="companion-user-text">{turn.content}</p>
+            )}
+            {turn.web && turn.web.length > 0 && (
+              // Deliberately not in the citation list: [F#] means a corpus row
+              // that a person accepted. These are leads from the open web.
+              <div className="mt-3 rounded border border-strong bg-surface-raised px-3 py-2">
+                <p className="font-mono text-xs uppercase tracking-caps text-fg-muted">
+                  From the open web · not checked by Substrata
+                </p>
+                <ul className="mt-2 space-y-2">
+                  {turn.web.map((finding, index) => (
+                    <li key={finding.url} className="text-xs leading-relaxed text-fg-tertiary">
+                      <a
+                        href={finding.url}
+                        rel="noreferrer nofollow"
+                        className="text-accent underline-offset-4 hover:underline"
+                      >
+                        [W{index + 1}] {finding.title} ↗
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-2 text-xs text-fg-muted">
+                  Nobody has verified these. Send one as a contribution if it should become a row.
+                </p>
+              </div>
             )}
             {turn.sources && turn.sources.length > 0 && (
               <ul className="companion-sources">

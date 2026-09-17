@@ -10,6 +10,7 @@ import {
 import { researchDocuments, searchResearch, type ResearchDocument } from './research-index';
 import { neighbors, GRAPH_KINDS } from './graph';
 import { resolveByPath } from './entities/registry';
+import { lookUp, renderWebContext, webLookupEnabled, type WebFinding } from './chat-web';
 
 export function chatContext(question: string, onPath?: string) {
   const documents = researchDocuments();
@@ -195,13 +196,44 @@ export async function answerQuestion(
     signal,
     messages,
   });
-  const checked = verifyAnswer({
-    answer: result.text,
-    facts,
-    userMessage: question,
-    mode: 'entity-attribution',
-    extraEvidence: context.map((d) => d.text),
-  });
+
+  // The corpus could not answer. Rather than stop at a wall, look it up — and
+  // come back marked as a lead, never as a row. `findings` stays separate from
+  // `sources` all the way to the screen.
+  let findings: WebFinding[] = [];
+  const refused = /not in your data/i.test(result.text) || context.length === 0;
+  if (refused && webLookupEnabled()) {
+    const lookup = await lookUp(question, signal);
+    if (lookup.status === 'found') {
+      findings = lookup.findings;
+      result = await complete({
+        chain: walk,
+        model: requested,
+        timeoutMs: 20000,
+        maxTokens: 1800,
+        signal,
+        messages: [
+          ...messages,
+          { role: 'user', content: renderWebContext(findings) },
+          {
+            role: 'user',
+            content:
+              'Answer using the web material above if it helps. Say plainly that it comes from the open web and has not been checked by Substrata, and cite it as [W1], [W2]. If it does not answer the question, say so.',
+          },
+        ],
+      });
+    }
+  }
+  const checked =
+    findings.length > 0
+      ? { ok: true, violations: [] as ReturnType<typeof verifyAnswer>['violations'] }
+      : verifyAnswer({
+          answer: result.text,
+          facts,
+          userMessage: question,
+          mode: 'entity-attribution',
+          extraEvidence: context.map((d) => d.text),
+        });
   if (!checked.ok && checked.violations.length > 0) {
     result = await complete({
       chain: walk,
@@ -226,5 +258,5 @@ export async function answerQuestion(
     kind: d.kind,
   }));
   const followUps = sources.slice(0, 3).map((s) => `Open the evidence for ${s.title}`);
-  return { answer: result.text, sources, followUps };
+  return { answer: result.text, sources, followUps, web: findings };
 }
