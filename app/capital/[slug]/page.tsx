@@ -3,17 +3,11 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import {
-  CAPITAL_PROVIDERS,
-  kindById,
-  providerById,
-  fundingFor,
-  CONSTRAINT_LABEL,
-} from '@/config/substrata-capital';
+import { CAPITAL_PROVIDERS, kindById, providerById } from '@/config/substrata-capital';
 import { JURISDICTION_LABEL, hasPolicyPage } from '@/config/substrata-policy';
-import { bottleneckHref, policyHref } from '@/lib/links';
+import { policyHref } from '@/lib/links';
 import { correctionUrl } from '@/lib/site';
-import { Heading, Page, Shell } from '@/components/portal/Shell';
+import { Page, Shell } from '@/components/portal/Shell';
 import { EntityProfile } from '@/components/portal/EntityProfile';
 import { resolveIn } from '@/lib/entities/registry';
 
@@ -31,15 +25,18 @@ export async function generateMetadata({ params }: RouteParams): Promise<Metadat
   return provider ? { title: provider.name, description: provider.mandate } : {};
 }
 
+/**
+ * One capital provider: its identity and sourcing, then the shared modules.
+ *
+ * What this kind of money does, what it could move and the sentence the entry
+ * rests on are modules now.
+ */
 export default async function ProviderPage({ params }: RouteParams) {
   const { slug } = await params;
   const provider = providerById(slug);
   if (!provider) notFound();
 
   const kind = kindById(provider.kind);
-
-  // Shared profile modules (discussion, connections) come from the registry,
-  // so every entity gains them at once rather than page by page.
   const entity = resolveIn('capital', provider.id);
 
   return (
@@ -90,79 +87,13 @@ export default async function ProviderPage({ params }: RouteParams) {
           </div>
         </header>
 
-        <section className="mb-12">
-          <Heading index="01" title="What this kind of money does" />
-          <dl className="grid gap-px overflow-hidden rounded-lg border border-subtle bg-border-subtle sm:grid-cols-2">
-            {[
-              ['Typical cheque', kind.chequeSize],
-              ['Patience', kind.horizon],
-              ['Will fund', kind.willFund],
-              ['Will not fund', kind.willNotFund],
-            ].map(([label, value]) => (
-              <div key={label} className="bg-surface-raised px-4 py-3">
-                <dt className="font-mono text-xs uppercase tracking-caps text-fg-tertiary">
-                  {label}
-                </dt>
-                <dd className="mt-1 max-w-prose text-sm leading-relaxed text-fg-secondary">
-                  {value}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </section>
+        {entity && <EntityProfile entity={entity} />}
 
-        <section className="mb-12">
-          <Heading
-            index="02"
-            title="What it could move"
-            aside={`${provider.canMove.length} bottlenecks`}
-          />
-          <ul className="divide-y divide-subtle border-y border-subtle">
-            {provider.canMove.map((name) => {
-              const funding = fundingFor(name);
-              return (
-                <li key={name} className="py-3">
-                  <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-                    <Link
-                      href={bottleneckHref(name)}
-                      className="text-fg-primary underline-offset-4 hover:underline"
-                    >
-                      {name}
-                    </Link>
-                    {funding && (
-                      <span className="text-sm text-fg-secondary">
-                        {CONSTRAINT_LABEL[funding.constraint]}
-                      </span>
-                    )}
-                  </div>
-                  {funding && (
-                    <p className="mt-1 max-w-prose text-xs leading-relaxed text-fg-tertiary">
-                      {funding.why}
-                    </p>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
-          <p className="mt-3 max-w-prose text-xs leading-relaxed text-fg-muted">
-            &ldquo;Could move&rdquo; means this provider&rsquo;s mandate covers the kind of asset
-            that would relieve the row. It is not a claim that it has funded one, or that it should.
-          </p>
-        </section>
-
-        <section>
-          <Heading index="03" title="The sentence this is built on" />
-          <blockquote className="max-w-prose border-l-2 border-accent pl-4 text-base leading-relaxed text-fg-secondary">
-            {provider.quote}
-          </blockquote>
-        </section>
-
-        <p className="mt-10 text-sm">
+        <p className="mt-12 text-sm">
           <Link href="/capital" className="text-accent underline-offset-4 hover:underline">
             ← All providers
           </Link>
         </p>
-        {entity && <EntityProfile entity={entity} />}
       </Page>
     </Shell>
   );

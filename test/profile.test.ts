@@ -9,11 +9,13 @@
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { readdirSync, readFileSync } from 'node:fs';
 
 import { allEntities, entitiesOfKind } from '../lib/entities/registry';
-import { ENTITY_KINDS } from '../lib/entities/types';
+import { ENTITY_KINDS, type EntityKind } from '../lib/entities/types';
 import { PROFILE_MODULES, modulesFor } from '../lib/profile/modules';
 import { defineModule } from '../lib/profile/define';
+import { connectionsFor } from '../lib/profile/modules/shared';
 
 test('module ids are unique and ordering is deterministic', () => {
   const ids = PROFILE_MODULES.map((m) => m.id);
@@ -111,4 +113,100 @@ test('a module with nothing to say renders nothing at all', () => {
   for (const entity of allEntities().slice(0, 20)) {
     assert.equal(empty.render(entity), null, `${entity.id} rendered an empty module`);
   }
+});
+
+test('every module is styled from one vocabulary', () => {
+  // Profiles are read one after another, so a module carrying its own CSS family
+  // reads as a different product. `.research-card-grid` set headings at 1.5rem —
+  // LARGER than the section heading above them — and `.research-prose` used its
+  // own margins and line height. Modules use the shared utility classes only.
+  const dir = new URL('../lib/profile/modules/', import.meta.url);
+  const offenders: string[] = [];
+  for (const file of readdirSync(dir)) {
+    if (!file.endsWith('.tsx') && !file.endsWith('.ts')) continue;
+    const source = readFileSync(new URL(file, dir), 'utf8');
+    for (const banned of ['research-card-grid', 'research-prose', 'research-results']) {
+      if (source.includes(banned)) offenders.push(`${file} uses .${banned}`);
+    }
+  }
+  assert.deepEqual(
+    offenders,
+    [],
+    `Modules must share one styling vocabulary:\n  ${offenders.join('\n  ')}`,
+  );
+});
+
+test('each migrated page kept every section it had', () => {
+  // The sections each page hand-wrote before the migration. If a module stops
+  // applying, or an id is renamed, this is where it surfaces — not in a
+  // screenshot somebody happens to look at.
+  const expected: Record<string, string[]> = {
+    bottleneck: [
+      'why',
+      'severity',
+      'producers',
+      'rules',
+      'removes',
+      'calls',
+      'funding',
+      'timeline',
+      'loops',
+    ],
+    science: ['relieves', 'readiness', 'milestone'],
+    capital: ['mandate', 'can-move', 'source-sentence'],
+    company: ['products', 'topics', 'relief', 'gaps', 'timeline'],
+  };
+
+  for (const [kind, ids] of Object.entries(expected)) {
+    // A kind's sections are conditional on data, so check against the union of
+    // what its entities can render rather than one sample that may be thin.
+    const available = new Set(
+      entitiesOfKind(kind as EntityKind).flatMap((entity) =>
+        modulesFor(entity).map((module) => module.id),
+      ),
+    );
+    for (const id of ids) {
+      assert.ok(available.has(id), `${kind} lost its "${id}" section`);
+    }
+  }
+});
+
+test('every kind reads in the same order, so profiles are comparable', () => {
+  // One importance scale across kinds: identity, judgement, who is involved,
+  // what governs it, what has happened, connections, discussion.
+  for (const kind of ENTITY_KINDS) {
+    const entity = entitiesOfKind(kind)[0];
+    const ids = modulesFor(entity).map((m) => m.id);
+    if (ids.includes('timeline') && ids.includes('discussion'))
+      assert.ok(
+        ids.indexOf('timeline') < ids.indexOf('discussion'),
+        `${kind}: timeline after discussion`,
+      );
+    if (ids.includes('related') && ids.includes('discussion'))
+      assert.ok(
+        ids.indexOf('related') < ids.indexOf('discussion'),
+        `${kind}: related after discussion`,
+      );
+    assert.equal(ids.at(-1), 'discussion', `${kind}: discussion should be last`);
+  }
+});
+
+test('connections never repeat a section the profile already has', () => {
+  // A bottleneck lists its makers under "Who makes it" and its funders under
+  // "Who could fund relief". Repeating both as "produced by" and "fundable by"
+  // turned this module into a second copy of two sections directly above it.
+  const bottleneck = entitiesOfKind('bottleneck').find(
+    (e) => e.key === 'grain-oriented-electrical-steel-goes',
+  );
+  assert.ok(bottleneck, 'GOES should be in the corpus');
+  const rels = connectionsFor(bottleneck).map((edge) => edge.rel);
+  assert.ok(!rels.includes('produced by'), 'producers already have a section');
+  assert.ok(!rels.includes('fundable by'), 'funders already have a section');
+
+  const company = entitiesOfKind('company').find((e) => e.key === 'posco');
+  assert.ok(company, 'POSCO should be in the corpus');
+  const companyRels = connectionsFor(company).map((edge) => edge.rel);
+  assert.ok(!companyRels.includes('makes'), 'what it makes already has a section');
+  // And it still says the thing nothing else does.
+  assert.ok(companyRels.includes('located in'), 'jurisdiction is not shown anywhere else');
 });

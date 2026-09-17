@@ -9,6 +9,33 @@ import type { ProfileModule } from '../types';
 
 const GRAPH_KINDS = new Set<string>(['country', 'company', 'bottleneck', 'science', 'capital']);
 
+/**
+ * Relations that already have a section of their own, per kind.
+ *
+ * A bottleneck lists its makers under "Who makes it" and its funders under "Who
+ * could fund relief"; repeating both as "produced by" and "fundable by" made
+ * this module a second copy of two sections directly above it. Connections is
+ * for what nothing else on the profile says.
+ */
+const ALREADY_A_SECTION: Record<string, string[]> = {
+  bottleneck: ['produced by', 'fundable by'],
+  company: ['makes'],
+  capital: ['fundable by'],
+};
+
+/**
+ * The corpus joins for an entity, minus anything its own profile already shows.
+ *
+ * Exported so the rule is testable: "connections must not repeat a section".
+ */
+export function connectionsFor(entity: Entity) {
+  if (!GRAPH_KINDS.has(entity.kind)) return [];
+  const covered = ALREADY_A_SECTION[entity.kind] ?? [];
+  return neighbors(entity.kind as GraphKind, entity.key)
+    .filter((edge) => !covered.includes(edge.rel))
+    .slice(0, 12);
+}
+
 /** The best name we have for a graph node: the registry first, then the map. */
 function label(kind: GraphKind, id: string): string | undefined {
   const entity = resolveIn(kind, id);
@@ -28,11 +55,10 @@ const related: ProfileModule<ReturnType<typeof neighbors>> = {
   id: 'related',
   title: 'What this connects to',
   appliesTo: ['country', 'company', 'bottleneck', 'science', 'capital'],
-  importance: 40,
-  load(entity: Entity) {
-    if (!GRAPH_KINDS.has(entity.kind)) return null;
-    const edges = neighbors(entity.kind as GraphKind, entity.key);
-    return edges.length > 0 ? edges.slice(0, 12) : null;
+  importance: 88,
+  load: (entity: Entity) => {
+    const edges = connectionsFor(entity);
+    return edges.length > 0 ? edges : null;
   },
   evidence() {
     return 'joins drawn from the corpus, not independent findings';
