@@ -7,6 +7,7 @@ import { SCIENCE } from '@/config/substrata-science';
 import { participantBySlug, type MarketParticipant } from '../../participants';
 import { bottleneckHref, scienceHref } from '../../links';
 import type { Entity } from '../../entities/types';
+import { t } from '../../i18n/messages';
 import type { ProfileModule } from '../types';
 
 /**
@@ -22,7 +23,7 @@ function participant(entity: Entity): MarketParticipant | undefined {
 
 const products: ProfileModule<MarketParticipant> = {
   id: 'products',
-  title: 'What it makes',
+  title: t('profile.products.title'),
   appliesTo: ['company'],
   importance: 10,
   load: participant,
@@ -98,7 +99,7 @@ const products: ProfileModule<MarketParticipant> = {
 
 const topics: ProfileModule<MarketParticipant> = {
   id: 'topics',
-  title: 'Where this matters',
+  title: t('profile.topics.title'),
   appliesTo: ['company'],
   importance: 20,
   load(entity) {
@@ -135,7 +136,7 @@ const topics: ProfileModule<MarketParticipant> = {
 /** Science mapped to the materials this organisation makes — not to the organisation. */
 const relief: ProfileModule<typeof SCIENCE> = {
   id: 'relief',
-  title: 'What could change its position',
+  title: t('profile.relief.title'),
   appliesTo: ['company'],
   importance: 30,
   load(entity) {
@@ -193,7 +194,7 @@ const relief: ProfileModule<typeof SCIENCE> = {
  */
 const gaps: ProfileModule<MarketParticipant> = {
   id: 'gaps',
-  title: 'Questions the profile does not yet answer',
+  title: t('profile.gaps.title'),
   appliesTo: ['company'],
   importance: 35,
   load: participant,

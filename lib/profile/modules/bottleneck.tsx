@@ -12,10 +12,10 @@ import { CONSTRAINT_LABEL, fundingFor, kindById, providersFor } from '@/config/s
 import { RESEARCH_PROGRAMMES } from '@/config/substrata-programmes';
 import { readinessLabel, scienceFor } from '@/config/substrata-science';
 import { stageById } from '@/config/substrata-stages';
-import { SEVERITY } from '../../labels';
 import { bottleneckBySlug, type Bottleneck } from '../../bottlenecks';
 import { capitalHref, marketHref, policyHref, scienceHref } from '../../links';
 import type { Entity } from '../../entities/types';
+import { t } from '../../i18n/messages';
 import type { ProfileModule } from '../types';
 
 function bottleneck(e: Entity): Bottleneck | undefined {
@@ -31,7 +31,7 @@ const TESTS = [
 
 const why: ProfileModule<Bottleneck> = {
   id: 'why',
-  title: 'Why it holds things up',
+  title: t('profile.why.title'),
   appliesTo: ['bottleneck'],
   importance: 10,
   load: bottleneck,
@@ -59,7 +59,7 @@ const why: ProfileModule<Bottleneck> = {
 /** The four tests behind the score, so a judgement can be argued with rather than trusted. */
 const severity: ProfileModule<Bottleneck> = {
   id: 'severity',
-  title: `${SEVERITY.label}`,
+  title: t('profile.severity.title'),
   appliesTo: ['bottleneck'],
   importance: 20,
   load: bottleneck,
@@ -92,7 +92,7 @@ const severity: ProfileModule<Bottleneck> = {
 
 const producers: ProfileModule<Bottleneck> = {
   id: 'producers',
-  title: 'Who makes it',
+  title: t('profile.producers.title'),
   appliesTo: ['bottleneck'],
   importance: 30,
   load: (e) => {
@@ -189,7 +189,7 @@ const producers: ProfileModule<Bottleneck> = {
 
 const rules: ProfileModule<ReturnType<typeof instrumentsFor>> = {
   id: 'rules',
-  title: 'Rules that govern it',
+  title: t('profile.rules.title'),
   appliesTo: ['bottleneck'],
   importance: 40,
   load: (e) => {
@@ -249,7 +249,7 @@ const rules: ProfileModule<ReturnType<typeof instrumentsFor>> = {
 
 const removes: ProfileModule<{ b: Bottleneck; fixes: ReturnType<typeof scienceFor> }> = {
   id: 'removes',
-  title: 'What would remove it',
+  title: t('profile.removes.title'),
   appliesTo: ['bottleneck'],
   importance: 50,
   load: (e) => {
@@ -298,7 +298,7 @@ const removes: ProfileModule<{ b: Bottleneck; fixes: ReturnType<typeof scienceFo
 
 const calls: ProfileModule<ReturnType<typeof callsAbout>> = {
   id: 'calls',
-  title: 'What we have predicted',
+  title: t('profile.calls.title'),
   appliesTo: ['bottleneck'],
   importance: 60,
   load: (e) => {
@@ -343,7 +343,7 @@ const funding: ProfileModule<{
   providers: ReturnType<typeof providersFor>;
 }> = {
   id: 'funding',
-  title: 'Who could fund relief',
+  title: t('profile.funding.title'),
   appliesTo: ['bottleneck'],
   importance: 70,
   load: (e) => {
@@ -409,7 +409,7 @@ const funding: ProfileModule<{
 
 const loops: ProfileModule<{ id: string; name: string; period: string }[]> = {
   id: 'loops',
-  title: 'Which loops wait on it',
+  title: t('profile.loops.title'),
   appliesTo: ['bottleneck'],
   importance: 84,
   load: (e) => {

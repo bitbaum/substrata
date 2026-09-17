@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { PageDiscussion } from '@/components/portal/PageDiscussion';
 import { GRAPH_KINDS, neighbors, type GraphKind } from '../../graph';
 import type { Entity } from '../../entities/types';
+import { t } from '../../i18n/messages';
 import type { ProfileModule } from '../types';
 
 /**
@@ -41,7 +42,7 @@ export function connectionsFor(entity: Entity) {
  */
 const related: ProfileModule<ReturnType<typeof neighbors>> = {
   id: 'related',
-  title: 'What this connects to',
+  title: t('profile.related.title'),
   appliesTo: ['country', 'company', 'bottleneck', 'science', 'capital'],
   importance: 88,
   load: (entity: Entity) => {
@@ -88,7 +89,7 @@ const related: ProfileModule<ReturnType<typeof neighbors>> = {
  */
 const discussion: ProfileModule<{ path: string }> = {
   id: 'discussion',
-  title: 'Discussion',
+  title: t('profile.discussion.title'),
   appliesTo: '*',
   importance: 90,
   ownsHeading: true,
