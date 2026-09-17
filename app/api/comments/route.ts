@@ -26,8 +26,14 @@ export async function POST(request: Request) {
   if (!sameOrigin(request)) return Response.json({ error: 'Origin not allowed' }, { status: 403 });
   const session = await currentSession();
   if (!session?.actorId) return Response.json({ error: 'Sign in to comment.' }, { status: 401 });
-  if (!(await allowRequest(request, 'comment', 20)))
-    return Response.json({ error: 'Hourly comment limit reached.' }, { status: 429 });
+  try {
+    // `allowRequest` throws when AUTH_SECRET is unset; answer like the rest of
+    // the file instead of surfacing a Next.js digest.
+    if (!(await allowRequest(request, 'comment', 20)))
+      return Response.json({ error: 'Hourly comment limit reached.' }, { status: 429 });
+  } catch {
+    return Response.json({ error: 'Comments are not available yet.' }, { status: 503 });
+  }
   let input: { path?: string; body?: string };
   try {
     input = (await boundedJson(request)) as { path?: string; body?: string };

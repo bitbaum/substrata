@@ -3,7 +3,7 @@ import { database } from '@/lib/db';
 import { parseFollows } from '@/lib/follows';
 import { MARKET_PARTICIPANTS } from '@/lib/participants';
 import { TECHNOLOGIES } from '@/config/substrata-taxonomy';
-import { boundedJson, sameOrigin } from '@/lib/request-guards';
+import { allowRequest, boundedJson, sameOrigin } from '@/lib/request-guards';
 
 export const dynamic = 'force-dynamic';
 
@@ -11,6 +11,14 @@ export async function POST(request: Request) {
   if (!sameOrigin(request)) return Response.json({ error: 'Origin not allowed' }, { status: 403 });
   const session = await currentSession();
   if (!session?.actorId) return Response.json({ error: 'Sign in to follow.' }, { status: 401 });
+  // Every other authenticated write is throttled; this one was not, and it is a
+  // read-modify-write on a row the caller controls.
+  try {
+    if (!(await allowRequest(request, 'follow', 120)))
+      return Response.json({ error: 'Too many changes. Try again later.' }, { status: 429 });
+  } catch {
+    return Response.json({ error: 'Following is not available yet.' }, { status: 503 });
+  }
   let input: { type?: string; id?: string; on?: boolean };
   try {
     input = (await boundedJson(request)) as { type?: string; id?: string; on?: boolean };

@@ -1,3 +1,4 @@
+import { currentSession } from '@/lib/auth';
 import { answerQuestion } from '@/lib/chat';
 import { addMessage } from '@/lib/page-thread';
 import { allowRequest, boundedJson, sameOrigin } from '@/lib/request-guards';
@@ -5,10 +6,20 @@ import { allLearn, allNotes } from '@/lib/notes';
 
 export const dynamic = 'force-dynamic';
 
+/**
+ * Ask the assistant to check an article, and post the result into its thread.
+ *
+ * This writes to the same public thread a human needs an account to post in,
+ * and every call spends model budget. `page-thread.ts` only enforces `canWrite`
+ * for human authors, so the `ai` author kind is not a second gate — this one is
+ * the gate. Unauthenticated, it let any visitor post machine-written comments
+ * on every article, permanently, and bill us for the privilege.
+ */
 export async function POST(request: Request) {
   if (!sameOrigin(request)) return Response.json({ error: 'Origin not allowed' }, { status: 403 });
-  if (!(await allowRequest(request, 'factcheck', 20)))
-    return Response.json({ error: 'Hourly fact-check limit reached.' }, { status: 429 });
+  const session = await currentSession();
+  if (!session?.actorId)
+    return Response.json({ error: 'Sign in to ask for a fact-check.' }, { status: 401 });
   let input: { path?: string };
   try {
     input = (await boundedJson(request)) as { path?: string };
@@ -24,6 +35,10 @@ export async function POST(request: Request) {
   if (!note) return Response.json({ error: 'No article at that path.' }, { status: 404 });
   const question = `Fact-check this Substrata article against the research corpus. Title: ${note.title}. Summary: ${note.summary}. Flag any claim that is not supported, and distinguish sourced findings from judgements. Do not invent sources.`;
   try {
+    // Inside the try: `allowRequest` throws when AUTH_SECRET is unset, and this
+    // route should answer 503 like the rest of the file rather than a raw 500.
+    if (!(await allowRequest(request, 'factcheck', 20)))
+      return Response.json({ error: 'Hourly fact-check limit reached.' }, { status: 429 });
     const data = await answerQuestion(question, request.signal);
     try {
       await addMessage(path, 'substrata-factcheck', data.answer.slice(0, 8000), 'ai');
