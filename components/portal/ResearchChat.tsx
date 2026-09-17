@@ -23,7 +23,16 @@ type Turn = {
   sources?: Source[];
 };
 
-export function ResearchChat({ topic, compact = false }: { topic: string; compact?: boolean }) {
+export function ResearchChat({
+  topic,
+  onPath,
+  compact = false,
+}: {
+  topic: string;
+  /** The page the reader is on, so the assistant can resolve "it" and "they". */
+  onPath?: string;
+  compact?: boolean;
+}) {
   const [ai, setAi] = useState<'unknown' | 'up' | 'down'>('unknown');
   const [models, setModels] = useState<{ id: string; label: string }[]>([
     { id: 'auto', label: 'Auto' },
@@ -74,6 +83,7 @@ export function ResearchChat({ topic, compact = false }: { topic: string; compac
           question: text,
           model,
           history: history.slice(0, -1).map((t) => ({ role: t.role, content: t.content })),
+          onPath,
         }),
         signal: abort.signal,
       });

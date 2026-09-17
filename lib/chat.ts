@@ -8,10 +8,15 @@ import {
   verifyAnswer,
 } from '@bitbaum/ai-kit/grounding';
 import { researchDocuments, searchResearch, type ResearchDocument } from './research-index';
-import { neighbors } from './graph';
+import { neighbors, GRAPH_KINDS } from './graph';
+import { resolveByPath } from './entities/registry';
 
-export function chatContext(question: string) {
+export function chatContext(question: string, onPath?: string) {
   const documents = researchDocuments();
+  // The page the reader is on is the strongest signal there is about what they
+  // mean. "What are the other fields" is unanswerable from the corpus at large
+  // and obvious next to the profile it was asked on.
+  const here = onPath ? resolveByPath(onPath) : undefined;
   const stop = new Set([
     'what',
     'which',
@@ -73,7 +78,22 @@ export function chatContext(question: string) {
       }
     }
   }
-  return [...ranked, ...extra].slice(0, 10);
+  // The page under the reader goes first, with its neighbours, and is never
+  // crowded out by a keyword match somewhere else in the corpus.
+  const seeded: ResearchDocument[] = [];
+  if (here) {
+    const self = documents.find((d) => d.id === here.id);
+    if (self) seeded.push(self);
+    for (const edge of neighbors(here.kind as Parameters<typeof neighbors>[0], here.key).slice(
+      0,
+      4,
+    )) {
+      const related = documents.find((d) => d.href === edge.to.href);
+      if (related && !seeded.some((s) => s.id === related.id)) seeded.push(related);
+    }
+  }
+  const rest = [...ranked, ...extra].filter((d) => !seeded.some((s) => s.id === d.id));
+  return [...seeded, ...rest].slice(0, 10);
 }
 
 export type ChatTurn = { role: 'user' | 'assistant'; content: string };
@@ -136,13 +156,16 @@ export async function answerQuestion(
   signal: AbortSignal,
   history: ChatTurn[] = [],
   model = 'auto',
+  onPath?: string,
 ) {
+  const here = onPath ? resolveByPath(onPath) : undefined;
   const context = chatContext(
     `${history
       .filter((t) => t.role === 'user')
       .slice(-2)
       .map((t) => t.content)
       .join(' ')} ${question}`,
+    onPath,
   );
   const facts = factsFrom(context);
   const grounded = buildGroundedContext({
@@ -158,7 +181,7 @@ export async function answerQuestion(
   const chain = requested ? full.filter((link) => link.model === requested) : full.slice(0, 3);
   const walk = chain.length ? chain : full.slice(0, 3);
   if (!walk.length) throw new Error('No AI providers configured');
-  const system = `You are Substrata, a research companion for the physical bottlenecks on the path to much faster technology. Speak plainly, like a careful analyst, not a chatbot. Answer only from the records below. Distinguish sourced findings, unverified leads, analyst judgements, and the geology directory (which is not a finding). Never invent numbers, dates, supplier relationships or citations. If the records do not support a claim, say so and point at a useful next page. Cite records as [F1], [F2]. A producer list is corpus coverage, never the entire market. Do not give personalised investment advice. You have no tools. The contribution inbox is a separate button.\n\n${grounded}`;
+  const system = `You are Substrata, a research companion for the physical bottlenecks on the path to much faster technology. Speak plainly, like a careful analyst, not a chatbot. Answer only from the records below. Distinguish sourced findings, unverified leads, analyst judgements, and the geology directory (which is not a finding). Never invent numbers, dates, supplier relationships or citations. If the records do not support a claim, say so and point at a useful next page. Cite records as [F1], [F2]. A producer list is corpus coverage, never the entire market. Do not give personalised investment advice. You have no tools. The contribution inbox is a separate button.${here ? ` The reader is looking at ${here.name}, a ${here.kind} page, so resolve "it", "they" and "the other ones" against that record first.` : ''}\n\n${grounded}`;
   const messages = [
     { role: 'system' as const, content: system },
     ...history,

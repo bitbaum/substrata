@@ -75,6 +75,20 @@ export function resolveIn(kind: Entity['kind'], keyOrName: string): Entity | und
   return entityIndex().byLabel.get(`${kind}:${keyOrName.toLowerCase()}`);
 }
 
+/**
+ * The entity a page is about, from its path.
+ *
+ * This is what lets the assistant know what the reader is looking at. Without
+ * it, asking "what are the other fields" on a company profile searched the
+ * whole corpus and answered "Not in your data", because the question only makes
+ * sense next to the page it was asked on.
+ */
+export function resolveByPath(path: string): Entity | undefined {
+  const wanted = path.split('?')[0].split('#')[0].replace(/\/$/, '');
+  if (!wanted || wanted === '/') return undefined;
+  return entityIndex().all.find((entity) => entity.href.split('?')[0] === wanted);
+}
+
 /** What the index holds, for a status page and for the perf guard. */
 export function indexStats(): { entities: number; kinds: number; labels: number } {
   const built = entityIndex();

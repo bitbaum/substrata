@@ -9,6 +9,7 @@ import { mandate, canMove, source } from './capital';
 import { why, severity, producers, rules, removes, calls, funding } from './bottleneck';
 import { role } from './role';
 import { turn, gates } from './loop';
+import { peers, relatedNews } from './peers';
 
 /**
  * The registry. A new section is one definition plus one entry here.
@@ -37,9 +38,11 @@ export const PROFILE_MODULES: AnyProfileModule[] = [
   funding,
   // Company
   products,
+  peers,
   topics,
   relief,
   gaps,
+  relatedNews,
   // Science
   relieves,
   readiness,
