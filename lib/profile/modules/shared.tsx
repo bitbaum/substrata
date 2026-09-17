@@ -1,12 +1,12 @@
 import Link from 'next/link';
 
 import { PageDiscussion } from '@/components/portal/PageDiscussion';
-import { neighbors, type GraphKind } from '../graph';
-import { resolveIn } from '../entities/registry';
+import { neighbors, type GraphKind } from '../../graph';
+import { resolveIn } from '../../entities/registry';
 import { WORLD_PATHS } from '@/config/world-paths';
-import type { Entity } from '../entities/types';
-import { defineModule, type AnyProfileModule } from './define';
-import type { ProfileModule } from './types';
+import type { Entity } from '../../entities/types';
+import { defineModule, type AnyProfileModule } from '../define';
+import type { ProfileModule } from '../types';
 
 const GRAPH_KINDS = new Set<string>(['country', 'company', 'bottleneck', 'science', 'capital']);
 
@@ -90,20 +90,4 @@ const discussion: ProfileModule<{ path: string }> = {
   },
 };
 
-/** The registry. A new section is one entry here and one definition above. */
-export const PROFILE_MODULES: AnyProfileModule[] = [related, discussion].map((module) =>
-  defineModule(module as ProfileModule<unknown>),
-);
-
-/**
- * The modules that apply to an entity, in render order.
- *
- * Selection lives here rather than in the component so the page and the tests
- * ask the same question, and so a second renderer (a compare view, an export)
- * cannot answer it differently.
- */
-export function modulesFor(entity: Entity, from?: number): AnyProfileModule[] {
-  return PROFILE_MODULES.filter(
-    (module) => module.applies(entity.kind) && (from === undefined || module.importance >= from),
-  ).sort((a, b) => a.importance - b.importance);
-}
+export { related, discussion };

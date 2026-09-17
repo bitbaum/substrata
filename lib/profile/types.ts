@@ -29,11 +29,14 @@ export interface ProfileModule<T = unknown> {
    * rest collapse behind a one-line summary.
    */
   importance: number;
-  /** Return null to render nothing. Never return an empty object to fill space. */
-  load(entity: Entity): T | null;
+  /**
+   * Return null (or undefined) to render nothing. Never return an empty object
+   * to fill space: a module with no data should leave no trace.
+   */
+  load(entity: Entity): T | null | undefined;
   Render(props: { entity: Entity; data: T }): ReactNode;
   /** How this module's data is evidenced, in the corpus's vocabulary. */
-  evidence?(data: T): string;
+  evidence?(data: T): string | undefined;
   /**
    * True when the module renders its own heading. Discussion does, because the
    * same component is mounted directly on article pages, and wrapping it in a
