@@ -9,6 +9,7 @@ import {
 } from '@/config/substrata-capital';
 import { bottleneckHref } from '../../links';
 import type { Entity } from '../../entities/types';
+import { t } from '../../i18n/messages';
 import type { ProfileModule } from '../types';
 
 function provider(e: Entity): CapitalProvider | undefined {
@@ -18,7 +19,7 @@ function provider(e: Entity): CapitalProvider | undefined {
 /** What this kind of money does — the limits are the load-bearing half. */
 const mandate: ProfileModule<CapitalProvider> = {
   id: 'mandate',
-  title: 'What this kind of money does',
+  title: t('profile.mandate.title'),
   appliesTo: ['capital'],
   importance: 10,
   load: provider,
@@ -47,7 +48,7 @@ const mandate: ProfileModule<CapitalProvider> = {
 /** Which bottlenecks its mandate covers, and whether money is the constraint there. */
 const canMove: ProfileModule<CapitalProvider> = {
   id: 'can-move',
-  title: 'What it could move',
+  title: t('profile.canMove.title'),
   appliesTo: ['capital'],
   importance: 20,
   load: (e) => {
@@ -97,7 +98,7 @@ const canMove: ProfileModule<CapitalProvider> = {
 /** The sentence from the provider's own page that the entry rests on. */
 const source: ProfileModule<CapitalProvider> = {
   id: 'source-sentence',
-  title: 'The sentence this is built on',
+  title: t('profile.sourceSentence.title'),
   appliesTo: ['capital'],
   importance: 30,
   load: provider,

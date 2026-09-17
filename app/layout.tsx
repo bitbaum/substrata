@@ -1,3 +1,4 @@
+import { DEFAULT_LOCALE, dirFor } from '@/lib/i18n/locales';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import './globals.css';
@@ -35,7 +36,10 @@ const THEME_BOOT = `(function(){try{var t=localStorage.getItem('substrata-theme'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    // The locale is fixed to the default until translations exist, but it is
+    // read from one place and carries `dir`, so Arabic flips the layout rather
+    // than only the text when it arrives.
+    <html lang={DEFAULT_LOCALE} dir={dirFor(DEFAULT_LOCALE)} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_BOOT }} />
       </head>

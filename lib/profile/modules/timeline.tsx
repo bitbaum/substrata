@@ -6,6 +6,7 @@ import type { CoverageEvent } from '@/config/substrata-events';
 import { participantBySlug } from '../../participants';
 import { bottleneckBySlug } from '../../bottlenecks';
 import type { Entity } from '../../entities/types';
+import { t } from '../../i18n/messages';
 import type { ProfileModule } from '../types';
 
 interface Timeline {
@@ -26,7 +27,7 @@ interface Timeline {
  */
 const timeline: ProfileModule<Timeline> = {
   id: 'timeline',
-  title: 'What has happened',
+  title: t('profile.timeline.title'),
   appliesTo: ['company', 'bottleneck'],
   importance: 80,
   load(entity: Entity) {

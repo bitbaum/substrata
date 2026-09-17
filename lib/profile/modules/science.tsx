@@ -5,6 +5,7 @@ import { SCIENCE, readinessLabel } from '@/config/substrata-science';
 import { bottleneckByName } from '../../bottlenecks';
 import { bottleneckHref } from '../../links';
 import type { Entity } from '../../entities/types';
+import { t } from '../../i18n/messages';
 import type { ProfileModule } from '../types';
 
 type ScienceEntry = (typeof SCIENCE)[number];
@@ -16,7 +17,7 @@ function entry(e: Entity): ScienceEntry | undefined {
 /** What relieving this would unblock, and by what mechanism. */
 const relieves: ProfileModule<ScienceEntry> = {
   id: 'relieves',
-  title: 'What it would relieve',
+  title: t('profile.relieves.title'),
   appliesTo: ['science'],
   importance: 10,
   load: (e) => {
@@ -53,7 +54,7 @@ const relieves: ProfileModule<ScienceEntry> = {
 /** Readiness, with the reasoning and whether anything backs it. */
 const readiness: ProfileModule<ScienceEntry> = {
   id: 'readiness',
-  title: 'How far off it is',
+  title: t('profile.readiness.title'),
   appliesTo: ['science'],
   importance: 20,
   load: entry,
@@ -92,7 +93,7 @@ const readiness: ProfileModule<ScienceEntry> = {
 /** The next observable thing, which is what makes the judgement falsifiable. */
 const milestone: ProfileModule<string> = {
   id: 'milestone',
-  title: 'What to watch for',
+  title: t('profile.milestone.title'),
   appliesTo: ['science'],
   importance: 30,
   load: (e) => entry(e)?.nextMilestone ?? null,
