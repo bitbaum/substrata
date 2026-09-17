@@ -17,6 +17,8 @@ import { parseFollows } from '@/lib/follows';
 import { Status } from '@/components/portal/Status';
 import { SCIENCE } from '@/config/substrata-science';
 import { scienceHref } from '@/lib/links';
+import { EntityProfile } from '@/components/portal/EntityProfile';
+import { resolveIn } from '@/lib/entities/registry';
 
 interface RouteParams {
   params: Promise<{ slug: string }>;
@@ -62,6 +64,10 @@ export default async function ParticipantPage({ params }: RouteParams) {
   );
   let n = 0;
   const next = () => String(++n).padStart(2, '0');
+
+  // Shared profile modules (discussion, connections) come from the registry,
+  // so every entity gains them at once rather than page by page.
+  const entity = resolveIn('company', p.slug);
 
   return (
     <Shell currentPath="markets">
@@ -301,6 +307,7 @@ export default async function ParticipantPage({ params }: RouteParams) {
             {SCARCITY_DETAIL[p.scarcity]}
           </p>
         )}
+        {entity && <EntityProfile entity={entity} />}
       </Page>
     </Shell>
   );
