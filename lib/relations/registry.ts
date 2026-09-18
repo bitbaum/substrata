@@ -12,6 +12,7 @@ import { CAPITAL_PROVIDERS } from '@/config/substrata-capital';
 import { INSTRUMENTS } from '@/config/substrata-policy';
 import { COUNTRY_RESOURCES } from '@/config/substrata-resources';
 import { RESEARCH_PROGRAMMES } from '@/config/substrata-programmes';
+import { FACILITIES } from '@/config/substrata-facilities';
 import { entityId, type Entity, type EntityId } from '../entities/types';
 import { resolveEntity } from '../entities/registry';
 import { RELATION_LABEL, type Connection, type Relation } from './types';
@@ -94,6 +95,22 @@ export function allRelations(): Relation[] {
       add('governed-by', bottleneckId(name), to, evidence, [instrument.source]);
     }
     add('in-force-in', to, countryId(instrument.jurisdiction), evidence, [instrument.source]);
+  }
+
+  for (const facility of FACILITIES) {
+    const from = entityId('facility', facility.id);
+    const evidence = facility.primary ? 'primary source' : 'secondary source';
+    // A named place is the answer to "where", so it joins the country it is in,
+    // the firm that runs it, and the material it supplies.
+    add('located-in', from, countryId(facility.place), evidence, [facility.source]);
+    if (facility.operator) {
+      const operator = MARKET_PARTICIPANTS.find((p) => p.name === facility.operator);
+      if (operator)
+        add('operated-by', from, entityId('company', operator.slug), evidence, [facility.source]);
+    }
+    for (const material of facility.makes) {
+      add('supplies', from, entityId('bottleneck', material), evidence, [facility.source]);
+    }
   }
 
   for (const programme of RESEARCH_PROGRAMMES) {

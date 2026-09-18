@@ -33,6 +33,8 @@ export const EN = {
   'profile.funding.title': 'Who could fund relief',
   'profile.role.title': 'What this holds up',
   'profile.production.title': 'How much, and where',
+  'profile.places.title': 'The actual places',
+  'profile.facilitySupply.title': 'What comes out of here',
   'profile.substitutes.title': 'Is there an alternative',
   'profile.peers.title': 'Who else makes it',
   'profile.relatedNews.title': 'News about what it makes',

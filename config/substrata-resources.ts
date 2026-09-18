@@ -355,6 +355,25 @@ export const COUNTRY_RESOURCES: readonly CountryResource[] = [
     relatedBottlenecks: ['Liquid helium (He-4)'],
   },
   {
+    // Added 2026-09-17 for the same reason as Algeria: the directory covered
+    // neither, while USGS records Burma as the third-largest tin producer and a
+    // significant rare-earth source — both tracked bottlenecks.
+    iso2: 'mm',
+    resources: ['tin', 'rare-earths'],
+    why: 'Third-largest tin producer, and rare-earth feed that mostly crosses into China for separation.',
+    relatedBottlenecks: [
+      'High-purity tin, EUV droplet grade',
+      'Didymium (Nd-Pr) metal, magnet feed',
+      'Dysprosium metal',
+    ],
+  },
+  {
+    iso2: 'zw',
+    resources: ['lithium'],
+    why: 'Fast-growing lithium mining, with conversion to battery-grade chemicals happening elsewhere.',
+    relatedBottlenecks: ['Battery-grade lithium chemicals'],
+  },
+  {
     // Added 2026-09-17: Algeria was missing from the directory entirely while
     // holding 1,800 Mcm of helium reserves and producing 11 Mcm a year — a
     // tracked bottleneck. The directory covered Timor-Leste's oil and not this.
