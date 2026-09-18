@@ -8,7 +8,7 @@ import {
   verifyAnswer,
 } from '@bitbaum/ai-kit/grounding';
 import { researchDocuments, searchResearch, type ResearchDocument } from './research-index';
-import { neighbors, GRAPH_KINDS } from './graph';
+import { neighbors } from './graph';
 import { resolveByPath } from './entities/registry';
 import { lookUp, renderWebContext, webLookupEnabled, type WebFinding } from './chat-web';
 
@@ -182,7 +182,7 @@ export async function answerQuestion(
   const chain = requested ? full.filter((link) => link.model === requested) : full.slice(0, 3);
   const walk = chain.length ? chain : full.slice(0, 3);
   if (!walk.length) throw new Error('No AI providers configured');
-  const system = `You are Substrata, a research companion for the physical bottlenecks on the path to much faster technology. Speak plainly, like a careful analyst, not a chatbot. Answer only from the records below. Distinguish sourced findings, unverified leads, analyst judgements, and the geology directory (which is not a finding). Never invent numbers, dates, supplier relationships or citations. If the records do not support a claim, say so and point at a useful next page. Cite records as [F1], [F2]. A producer list is corpus coverage, never the entire market. Do not give personalised investment advice. You have no tools. The contribution inbox is a separate button.${here ? ` The reader is looking at ${here.name}, a ${here.kind} page, so resolve "it", "they" and "the other ones" against that record first.` : ''}\n\n${grounded}`;
+  const system = `You are Substrata, a research companion for the physical bottlenecks on the path to much faster technology. Speak plainly, like a careful analyst, not a chatbot. Answer only from the records below. Distinguish sourced findings, unverified leads, analyst judgements, and the geology directory (which is not a finding). Never invent numbers, dates, supplier relationships or citations. If the records do not support a claim, say so and point at a useful next page. Cite records as [F1], [F2]. A producer list is corpus coverage, never the entire market. Do not give personalised investment advice. ${webLookupEnabled() ? 'If the records do not cover the question you may be shown UNVERIFIED WEB MATERIAL below; it is not part of the corpus and must be cited as [W1], [W2] and described as unchecked.' : 'You have no tools.'} The contribution inbox is a separate button.${here ? ` The reader is looking at ${here.name}, a ${here.kind} page, so resolve "it", "they" and "the other ones" against that record first.` : ''}\n\n${grounded}`;
   const messages = [
     { role: 'system' as const, content: system },
     ...history,

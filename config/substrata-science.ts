@@ -63,6 +63,56 @@ const ON = '2026-09-15';
 
 export const SCIENCE: readonly ScienceEntry[] = [
   {
+    id: 'nanoimprint-lithography',
+    name: 'Nanoimprint lithography',
+    front: 'manufacturing',
+    industries: ['semiconductors'],
+    plain:
+      'Printing chip patterns by pressing a patterned mask into resist like a stamp, instead of projecting an image through lenses and mirrors.',
+    relieves: [
+      {
+        bottleneck: 'EUV lithography scanners',
+        mechanism:
+          'It patterns at leading-edge dimensions without an EUV scanner at all, so demand that today has exactly one supplier would have somewhere else to go.',
+      },
+      {
+        bottleneck: 'EUV projection optics',
+        mechanism:
+          'Canon states the transfer "does not go through an optical mechanism", so the mirror stack that only one company can polish is not in the path.',
+      },
+    ],
+    readiness: 6,
+    readinessWhy:
+      'Canon commercialised the FPA-1200NZ2C in October 2023 and shipped one to the Texas Institute for Electronics in 2024, at 14 nm minimum linewidth — equivalent to a 5 nm node. That is a real machine doing real patterning, but not volume logic production: throughput, defectivity and the supply of 1:1 imprint masks are the open questions, and a stamp touching the wafer fails differently from light.',
+    source: 'https://global.canon/en/news/2023/20231013.html',
+    nextMilestone:
+      'A logic or memory maker putting NIL into volume production on a product line, rather than a research institute or a pilot.',
+    judgedOn: '2026-09-18',
+  },
+  {
+    id: 'amorphous-transformer-cores',
+    name: 'Amorphous metal transformer cores',
+    front: 'energy',
+    industries: ['power-grid'],
+    plain:
+      'Transformer cores wound from rapidly cooled metal ribbon that has no crystal structure, instead of the grain-oriented silicon steel the industry is short of.',
+    relieves: [
+      {
+        bottleneck: 'Grain-oriented electrical steel (GOES)',
+        mechanism:
+          'Every distribution transformer built on amorphous ribbon is one that does not consume GOES — ABB reports about 70 percent lower no-load losses as well. It does not touch the large power transformers in the way: amorphous has lower saturation, so the core must be physically bigger, which is where the substitution stops.',
+      },
+    ],
+    readiness: 9,
+    readinessWhy:
+      'In production at scale, but only for part of the problem. ABB has sold amorphous metal distribution transformers for two decades; the constraint is applicability rather than maturity, because the lower saturation induction means a larger core cross-section, larger coils and a larger footprint — acceptable on a pole, not on a grid-scale unit.',
+    source:
+      'https://library.e.abb.com/public/f28b7caf32af14e8c1257a25002f2717/40-47%202m221_EN_72dpi.pdf',
+    nextMilestone:
+      'An amorphous core qualified in a large power transformer rather than a distribution unit, which is the class the queue is actually for.',
+    judgedOn: '2026-09-18',
+  },
+  {
     id: 'hts-fusion-magnets',
     name: 'High-temperature superconducting magnets',
     front: 'energy',
