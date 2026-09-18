@@ -53,6 +53,11 @@ export function scienceHref(id: string): string {
   return `/science/${id}`;
 }
 
+/** A named place: a field, a plant, a mine. */
+export function facilityHref(id: string): string {
+  return `/facilities/${id}`;
+}
+
 /** A loop — design, build, measure — which is the thing everything else serves. */
 export function loopHref(id: string): string {
   return `/loops/${id}`;
@@ -163,6 +168,8 @@ export const ROUTES = [
   '/capital/:slug',
   '/loops',
   '/loops/:slug',
+  '/facilities',
+  '/facilities/:slug',
   '/events',
   '/notes',
   '/notes/:slug',

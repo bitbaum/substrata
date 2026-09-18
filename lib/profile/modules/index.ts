@@ -11,6 +11,7 @@ import { role } from './role';
 import { turn, gates } from './loop';
 import { peers, relatedNews } from './peers';
 import { production, substitutes } from './quantities';
+import { places, facilitySupply } from './facility';
 
 /**
  * The registry. A new section is one definition plus one entry here.
@@ -34,6 +35,8 @@ export const PROFILE_MODULES: AnyProfileModule[] = [
   severity,
   producers,
   production,
+  places,
+  facilitySupply,
   rules,
   removes,
   substitutes,

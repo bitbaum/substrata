@@ -22,6 +22,7 @@ export const ENTITY_KINDS = [
   'country',
   'capital',
   'loop',
+  'facility',
   'talent',
   'learn',
   'article',

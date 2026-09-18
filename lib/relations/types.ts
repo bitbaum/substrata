@@ -24,6 +24,8 @@ export const RELATION_KINDS = [
   'in-force-in',
   'endowed-with',
   'gates',
+  'operated-by',
+  'supplies',
 ] as const;
 
 export type RelationKind = (typeof RELATION_KINDS)[number];
@@ -44,6 +46,8 @@ export const RELATION_LABEL: Record<RelationKind, { forward: string; inverse: st
   'in-force-in': { forward: 'in force in', inverse: 'sets' },
   'endowed-with': { forward: 'endowed with', inverse: 'found in' },
   gates: { forward: 'gates', inverse: 'gated by' },
+  'operated-by': { forward: 'operated by', inverse: 'operates' },
+  supplies: { forward: 'supplies', inverse: 'supplied from' },
 };
 
 export interface Relation {

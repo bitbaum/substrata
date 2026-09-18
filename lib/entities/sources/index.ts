@@ -5,6 +5,7 @@ import { source as bottleneck } from './bottleneck';
 import { source as capital } from './capital';
 import { source as company } from './company';
 import { source as country } from './country';
+import { source as facility } from './facility';
 import { source as learn } from './learn';
 import { source as loop } from './loop';
 import { source as policy } from './policy';
@@ -37,6 +38,7 @@ export const ENTITY_SOURCES: EntitySource[] = [
   company,
   capital,
   loop,
+  facility,
   learn,
   country,
   article,
