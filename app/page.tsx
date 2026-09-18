@@ -87,8 +87,15 @@ export default function TodayPage() {
       <Page>
         <div className="hero-split mb-10">
           <header>
+            {/* This date is the newest RECORD in the corpus, not the last time
+                anything was looked at — labelling it "Updated" made a quiet week
+                and a dead research sweep read identically. What was actually
+                looked at, and when, is measured on /data. */}
             <p className="font-mono text-xs uppercase tracking-caps text-fg-tertiary">
-              Updated {latestEvent ? latestEvent.date : latestRule?.date}
+              Newest record {latestEvent ? latestEvent.date : latestRule?.date} ·{' '}
+              <Link href="/data" className="underline underline-offset-2">
+                how fresh is this?
+              </Link>
             </p>
             <h1 className="mt-3 max-w-3xl font-heading text-3xl font-semibold leading-tight tracking-display text-fg-primary sm:text-5xl">
               What is holding technology back, and what is changing.

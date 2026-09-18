@@ -2,10 +2,21 @@ import Link from 'next/link';
 import { Page, Shell, SectionHeader } from '@/components/portal/Shell';
 import { evidenceTotals } from '@/lib/atlas';
 import { EVIDENCE } from '@/config/substrata-evidence';
+import { freshness } from '@/lib/sweep-store';
 
 export const metadata = { title: 'Data quality and provenance' };
-export default function DataPage() {
+
+// One database round trip every five minutes rather than one per visit. The
+// panel below describes a sweep that runs four times a day, so measuring it to
+// within five minutes loses nothing and keeps the page cacheable.
+export const revalidate = 300;
+
+export default async function DataPage() {
   const t = evidenceTotals();
+  // A failure to read the run record must not take down a page about
+  // provenance. Null renders as "we cannot tell you", which is the honest
+  // answer and is never the same as "nothing has happened".
+  const sweep = await freshness().catch(() => null);
   return (
     <Shell currentPath="data">
       <Page>
@@ -20,6 +31,41 @@ export default function DataPage() {
           ]}
         />
         <div className="research-prose">
+          <h2>How fresh is this</h2>
+          {/* Two different questions that a single "updated" date conflates: what
+              is the newest thing we hold, and when did we last go looking. A
+              site that cannot tell them apart reports a quiet week when its
+              search backend has been down for a fortnight. */}
+          {sweep === null ? (
+            <p>
+              The sweep&rsquo;s run record could not be read just now, so this page cannot tell you
+              when the research engine last looked. That is a failure to measure, not a report that
+              nothing has happened.
+            </p>
+          ) : sweep.lastRunAt === null ? (
+            <p>
+              The research sweep has no completed run on record. Everything on this site is a
+              standing record accepted by hand; nothing here has been checked against the web on a
+              schedule yet.
+            </p>
+          ) : (
+            <p>
+              The research sweep last completed a run on{' '}
+              {sweep.lastRunAt.slice(0, 16).replace('T', ' ')} UTC. It has looked at{' '}
+              {sweep.nodesCovered} of {sweep.nodesTotal} bottlenecks at least once
+              {sweep.blind > 0
+                ? `, and could not look at ${sweep.blind} of them the last time it tried`
+                : ''}
+              . {sweep.openCandidates} lead{sweep.openCandidates === 1 ? '' : 's'}{' '}
+              {sweep.openCandidates === 1 ? 'is' : 'are'} waiting to be read by a person.
+            </p>
+          )}
+          <p>
+            A lead found by the sweep is not a published record and never appears on a page. The
+            corpus is files in version control, and a row reaches this site when a person has read
+            the source and committed it. That is slower than a feed, on purpose: it is the
+            difference between something that was checked and something that was merely found.
+          </p>
           <h2>Three different kinds of evidence</h2>
           <p>
             A sourced producer row links to an accepted primary source. A candidate source has been

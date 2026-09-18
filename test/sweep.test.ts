@@ -11,7 +11,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 
-import { isNeverAnEvent, nodes } from '../lib/sweep';
+import { isNeverAnEvent, looksLikeAReference, nodes } from '../lib/sweep';
 import { BOTTLENECKS } from '../lib/bottlenecks';
 
 test('the sweep covers every bottleneck in the corpus', () => {
@@ -35,6 +35,40 @@ test('junk domains are filtered on a host boundary, not a substring', () => {
   assert.equal(isNeverAnEvent('not a url'), true, 'an unparseable URL is not an event');
 });
 
+test('a reference page is rejected by its title, and a real event is not', () => {
+  // Every title here is real: these are what the FIRST scheduled run on the box
+  // actually filed, so the filter is measured against observed noise rather
+  // than an imagined shape. Four of eleven candidates were reference pages.
+  const references = [
+    'Tin Price Trend 2026 | Forecast, History, Chart & Index',
+    'Tin - Price - Chart - Historical Data - News',
+    'Neon Gas in Semiconductors: Complete Guide & Applications',
+    'What is Ruthenium? Properties and Uses',
+    'Gallium Market Size, Share & Industry Analysis 2026',
+  ];
+  for (const title of references) {
+    assert.equal(looksLikeAReference(title), true, `should be rejected: ${title}`);
+  }
+
+  // And the ones that must survive. A shortage analysis names a price and a
+  // market too, so a filter keyed on those words alone would delete the very
+  // rows the sweep exists to find.
+  const events = [
+    'Polysilicon Industry Is Risking New Shortage | Bernreuter',
+    'Cell prices soften, while module prices rise in non-China markets',
+    'Trump Administration Imposes Section 232 Tariffs and Minimum Import Prices',
+    'TSMC to Build Neon Supply Chain After Russia Decimated Global Supply',
+    '2026 Update of the EU Control List of Dual-Use Items',
+  ];
+  for (const title of events) {
+    assert.equal(looksLikeAReference(title), false, `should survive: ${title}`);
+  }
+
+  // A page the reader could not title is not evidence of an SEO page; throwing
+  // it away would hide a real event behind a parsing failure.
+  assert.equal(looksLikeAReference(''), false, 'an empty title is not a reference page');
+});
+
 test('the scheduled sweep writes to a queue, never to the corpus', () => {
   // The corpus is files in git, accepted by a person in a commit. A timer that
   // could publish would make every row on the site unverifiable in principle.
@@ -45,6 +79,34 @@ test('the scheduled sweep writes to a queue, never to the corpus', () => {
   assert.ok(
     store.includes('research_sweep_candidates'),
     'findings should land in the review queue',
+  );
+});
+
+test('freshness is reported in three states, never collapsed into two', () => {
+  // "We did not look" and "we looked and found nothing" are different answers.
+  // A site that cannot tell them apart reports a quiet week while its search
+  // backend has been down — the single worst failure available to a service
+  // whose product is knowing what changed.
+  const page = readFileSync(new URL('../app/data/page.tsx', import.meta.url), 'utf8');
+  assert.ok(
+    page.includes('sweep === null'),
+    'a failure to READ the run record must be its own state, not zero',
+  );
+  assert.ok(
+    page.includes('sweep.lastRunAt === null'),
+    'a sweep that has never completed must be its own state, not a stale date',
+  );
+  assert.ok(page.includes('sweep.blind'), 'nodes the sweep could not look at must be reported');
+});
+
+test('the homepage does not present a corpus date as a freshness signal', () => {
+  // It read "Updated <date>", where the date was the newest RECORD in the
+  // corpus. Both halves were true and the sentence was not: nothing had been
+  // looked at on that date, and a dead sweep looked exactly like a quiet week.
+  const home = readFileSync(new URL('../app/page.tsx', import.meta.url), 'utf8');
+  assert.ok(
+    !/\bUpdated \{/.test(home),
+    'a record date must not be labelled "Updated" — say which date it is',
   );
 });
 

@@ -83,6 +83,54 @@ export function isNeverAnEvent(url: string): boolean {
   }
 }
 
+/**
+ * Pages whose TITLE says they are a reference, not a report.
+ *
+ * The publisher blocklist above cannot catch these: they come from legitimate
+ * trade press and commodity desks, which do report real events. The page is
+ * the problem, not the site — a price chart, a historical-data table or a
+ * "complete guide" is a standing page that is republished forever and describes
+ * no moment in time.
+ *
+ * Measured on the first scheduled run: 4 of 11 candidates were this shape
+ * ("Tin - Price - Chart - Historical Data - News", "Neon Gas in
+ * Semiconductors: Complete Guide & Applications"). Every one of them costs a
+ * reviewer a read to reject.
+ *
+ * Deliberately narrow. "Polysilicon Industry Is Risking New Shortage" is an
+ * analysis of something happening and must survive, so this matches the
+ * vocabulary of reference pages rather than any mention of a price or a market.
+ */
+const REFERENCE_PAGE_TITLE = new RegExp(
+  [
+    // A price series: chart, index, history, trend, forecast, live quote.
+    String.raw`\bprice\s*[-–—|:,]?\s*(trend|chart|history|index|forecast|today)\b`,
+    String.raw`\bhistorical\s+data\b`,
+    String.raw`\b(live|spot|current)\s+price\b`,
+    // Explainers and evergreen SEO pages.
+    String.raw`\b(complete|ultimate|comprehensive|beginner'?s|buyer'?s)\s+guide\b`,
+    String.raw`\bguide\s*(&|and)\s*applications\b`,
+    String.raw`^\s*what\s+is\b`,
+    String.raw`^\s*how\s+to\b`,
+    // Market-research packaging that is not on the publisher blocklist.
+    String.raw`\bmarket\s+(size|share|report|outlook|analysis|research)\b`,
+    String.raw`\b(industry|market)\s+(outlook|forecast)\s+20\d\d\b`,
+  ].join('|'),
+  'i',
+);
+
+/**
+ * True when the title advertises a standing reference page.
+ *
+ * Title-shaped rather than host-shaped, because the same publisher files both
+ * an announcement and a price chart. An empty title is NOT treated as a
+ * reference page: it is more often a reader failure than an SEO page, and
+ * discarding it would hide a real event behind a parsing bug.
+ */
+export function looksLikeAReference(title: string): boolean {
+  return REFERENCE_PAGE_TITLE.test(title.trim());
+}
+
 const TIGHTENS =
   /shortag|delay|cut|halt|suspend|ban|restrict|control|licen[cs]e requir|liquidat|clos(e|ure|ing)|outage|fire|explosion|strike|sanction|tariff|backlog|sold out|wait(ing)? list|years? of lead/i;
 const LOOSENS =
@@ -159,12 +207,16 @@ export async function sweep(node: { name: string; term: string }): Promise<Candi
     if (!page.ok) continue;
     const excerpt = excerptAround(page.text, node.term);
     if (!excerpt) continue;
+    const title = page.title || result.title;
+    // Checked here, not on the search result, because the reader often returns
+    // a truer title than the snippet did.
+    if (looksLikeAReference(title)) continue;
     out.push({
       id: idFor(page.url),
       bottleneck: node.name,
       term: node.term,
       url: page.url,
-      title: page.title || result.title,
+      title,
       published: result.published ?? null,
       excerpt,
       effectGuess: guessEffect(excerpt),
