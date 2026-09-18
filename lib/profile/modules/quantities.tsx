@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { UNIT_LABEL, type Endowment } from '@/config/substrata-quantities';
+import { STAGE_LABEL, UNIT_LABEL, type Endowment } from '@/config/substrata-quantities';
 import { BLOCKER_LABEL, substitutesFor, type Substitute } from '@/config/substrata-substitutes';
 import {
   concentrationOf,
@@ -60,6 +60,15 @@ const production: ProfileModule<Figures> = {
     const { shares, concentration, total, rows } = data;
     return (
       <>
+        {rows[0]?.describes && (
+          <p className="mb-4 max-w-prose rounded border-l-2 border-status-warning bg-surface-raised px-4 py-2 text-xs leading-relaxed text-fg-tertiary">
+            <span className="font-mono uppercase tracking-caps text-fg-muted">
+              What these figures count ·{' '}
+            </span>
+            {rows[0].describes}. Read the stage before the number: this is{' '}
+            {STAGE_LABEL[rows[0].stage]} output.
+          </p>
+        )}
         <ul className="divide-y divide-subtle border-y border-subtle">
           {shares.map((row) => {
             const entry = rows.find((r) => r.place === row.place);
@@ -87,7 +96,7 @@ const production: ProfileModule<Figures> = {
                 )}
                 <p className="mt-1 text-xs text-fg-tertiary">
                   {row.share !== undefined
-                    ? `${(row.share * 100).toFixed(1)}% of world output`
+                    ? `${(row.share * 100).toFixed(1)}% of ${STAGE_LABEL[entry?.stage ?? 'mine']} world output`
                     : ''}
                   {entry?.reserves
                     ? ` · reserves ${formatQuantity(entry.reserves, UNIT_LABEL)}`
