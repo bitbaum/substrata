@@ -30,10 +30,13 @@ export async function runScheduledSweep(limit = NODES_PER_RUN): Promise<SweepOut
   const db = database();
   const all = nodes();
 
-  const seen = await db.query<{ node: string; last_swept: string }>(
+  // Dates, not strings — see freshness() below. The first run survived this
+  // typed as `string` only because the state table was empty; the second would
+  // have called `.localeCompare` on a Date and taken the timer down for good.
+  const seen = await db.query<{ node: string; last_swept: Date }>(
     'SELECT node, last_swept FROM research_sweep_state',
   );
-  const lastSwept = new Map(seen.rows.map((row) => [row.node, row.last_swept]));
+  const lastSwept = new Map(seen.rows.map((row) => [row.node, row.last_swept.toISOString()]));
   const queue = [...all]
     .sort((a, b) => (lastSwept.get(a.name) ?? '').localeCompare(lastSwept.get(b.name) ?? ''))
     .slice(0, limit);
@@ -111,7 +114,11 @@ export interface Freshness {
 export async function freshness(): Promise<Freshness> {
   const db = database();
   const [run, state, open] = await Promise.all([
-    db.query<{ finished_at: string | null }>(
+    // `timestamptz` arrives as a Date, not a string. A query<T> generic is an
+    // unchecked assertion rather than validation, so declaring this `string`
+    // typechecked, built, and then threw `.slice is not a function` in
+    // production — where, unlike any build, a row actually exists.
+    db.query<{ finished_at: Date | null }>(
       'SELECT finished_at FROM research_sweep_runs WHERE finished_at IS NOT NULL ORDER BY finished_at DESC LIMIT 1',
     ),
     db.query<{ covered: string; blind: string }>(
@@ -124,7 +131,7 @@ export async function freshness(): Promise<Freshness> {
     ),
   ]);
   return {
-    lastRunAt: run.rows[0]?.finished_at ?? null,
+    lastRunAt: run.rows[0]?.finished_at?.toISOString() ?? null,
     nodesCovered: Number(state.rows[0]?.covered ?? 0),
     nodesTotal: nodes().length,
     openCandidates: Number(open.rows[0]?.open ?? 0),
