@@ -1,7 +1,6 @@
 import Link from 'next/link';
 
 import { participantBySlug } from '../../participants';
-import { bottleneckBySlug } from '../../bottlenecks';
 import { resolveIn, resolveEntity } from '../../entities/registry';
 import { connectionsOf } from '../../relations/registry';
 import { eventsNewestFirst } from '@/config/substrata-events';
