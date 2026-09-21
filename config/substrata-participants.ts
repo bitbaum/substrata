@@ -164,6 +164,11 @@ export interface Participant {
   source: string | null;
 }
 
+// Unused as of 2026-09-21: a pass sourced every row in the directory below,
+// so nothing currently calls this. Kept rather than deleted — the header
+// above is explicit that a new participant starts as an unverified lead, and
+// this is the helper that makes one. Delete it only if that stops being true.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function p(
   name: string,
   layer: ChainLayer,
@@ -450,157 +455,176 @@ export const PARTICIPANTS: readonly Participant[] = [
   ),
 
   // ---------------- Conversion ----------------
-  p(
+  s(
     'Shin-Etsu Handotai',
     'conversion',
     ['JP'],
     '300 mm prime silicon wafers',
     'chokepoint',
     'One of the five prime 300 mm wafer producers tracked in this corpus. Global market share and customer qualification timelines are not established by the linked product source.',
+    'https://www.shinetsu.co.jp/en/products/semiconductor-silicon-business/',
   ),
-  p(
+  s(
     'SUMCO',
     'conversion',
     ['JP'],
     '300 mm prime silicon wafers',
     'chokepoint',
     'The other half of a duopoly at the top of the wafer market.',
+    'https://www.sumcosi.com/english/products/lineup.html',
   ),
-  p(
+  s(
     'GlobalWafers',
     'conversion',
     ['TW'],
     'Silicon wafers',
     'concentrated',
     'One of the five producers tracked in the prime 300 mm wafer coverage. Relative market share has not been established here.',
+    'https://www.gw-semi.com/products/',
   ),
-  p(
+  s(
     'Siltronic',
     'conversion',
     ['DE'],
     'Silicon wafers',
     'concentrated',
     'European supply of an input with almost no European alternative.',
+    'https://www.siltronic.com/en/products.html',
   ),
-  p(
+  s(
     'SK Siltron',
     'conversion',
     ['KR'],
     'Silicon and SiC wafers',
     'concentrated',
     'Captive-adjacent to Korean memory, and one of few SiC entrants at scale.',
+    'https://www.sksiltron.com/m/en/wafer/waferC.do',
   ),
-  p(
+  s(
     'Momentive Technologies',
     'conversion',
     ['US'],
     'Fused quartz crucibles',
     'chokepoint',
     'Turning rare sand into a crucible that survives a pull is knowledge held in very few places.',
+    'https://www.momentivetech.com/products/crucibles/quartz-glass-crucibles',
   ),
-  p(
+  s(
     'Shin-Etsu Quartz',
     'conversion',
     ['JP'],
     'Fused quartz components',
     'chokepoint',
     'Same step, same shortness of the list.',
+    'https://www.shinetsu.co.jp/en/products/electronics-materials/quartz-glass-products-materials-for-quartz-glass-products/',
   ),
-  p(
+  s(
     'Ferrotec',
     'conversion',
     ['JP', 'CN'],
     'Quartz and fab consumables',
     'concentrated',
     'Broad consumables base spanning both sides of an export-control line.',
+    'https://www.ferrotec.com/products-technologies/fabricated-quartzware/',
   ),
-  p(
+  s(
     'Element Six',
     'conversion',
     ['GB', 'IE'],
     'CVD synthetic diamond',
     'concentrated',
     'Reactor time, not raw material, is the constraint on optical-grade diamond.',
+    'https://www.e6.com/products/next-generation-applications',
   ),
-  p(
+  s(
     'Coherent',
     'conversion',
     ['US'],
     'SiC substrates, diamond, photonics',
     'concentrated',
     'One of the few firms present in several of this chain’s narrow materials at once.',
+    'https://www.coherent.com/materials/wide-bandgap-electronics/sic-substrates-epitaxy',
   ),
-  p(
+  s(
     'Wolfspeed',
     'conversion',
     ['US'],
     'Silicon carbide substrates',
     'concentrated',
     'The 150 to 200 mm transition resets everyone’s yield curve, which is where the scarcity currently lives.',
+    'https://www.wolfspeed.com/products/materials/',
   ),
-  p(
+  s(
     'Resonac',
     'conversion',
     ['JP'],
     'SiC epitaxy and fab materials',
     'concentrated',
     'Deep in the materials nobody outside the industry can name.',
+    'https://www.resonac.com/products/device-solution/82/12896.html',
   ),
-  p(
+  s(
     'Fujikura',
     'conversion',
     ['JP'],
     'REBCO superconducting tape',
     'concentrated',
     'A single high-field magnet consumes tape by the kilometre against a small world output.',
+    'https://www.europe.fujikura.com/markets/industrial/superconductors/',
   ),
-  p(
+  s(
     'Faraday Factory Japan',
     'conversion',
     ['JP'],
     'REBCO superconducting tape',
     'concentrated',
     'One of the very few able to ship fusion-programme quantities at all.',
+    'https://www.faradaygroup.com/en/',
   ),
-  p(
+  s(
     'Neo Performance Materials',
     'conversion',
     ['CA', 'EE'],
     'Rare-earth magnets and materials',
     'concentrated',
     'The main non-Chinese magnet-making capacity outside Japan, and small against demand.',
+    'https://www.neomaterials.com/neo-performance-materials-opens-state-of-the-art-permanent-magnet-facility-in-europe/',
   ),
-  p(
+  s(
     'Less Common Metals',
     'conversion',
     ['GB'],
     'Rare-earth alloys and strip',
     'chokepoint',
     'A tiny specialist standing between Western separated oxide and a finished magnet.',
+    'https://lesscommonmetals.com/our-services/',
   ),
-  p(
+  s(
     'Nippon Steel',
     'conversion',
     ['JP'],
     'Grain-oriented electrical steel',
     'concentrated',
     'Transformer cores are made on a small number of qualified lines worldwide.',
+    'https://www.nipponsteel.com/en/product/sheet/magnetic_sheet.html',
   ),
-  p(
+  s(
     'POSCO',
     'conversion',
     ['KR'],
     'Grain-oriented electrical steel',
     'concentrated',
     'Same short list, and the same multi-year lead times downstream.',
+    'https://www.poscointl.com/eng/steelProduct',
   ),
-  p(
+  s(
     'Indium Corporation',
     'conversion',
     ['US'],
     'High-purity metals and solders',
     'concentrated',
     'Seven-nines upgrading is a specialist step with few qualified providers.',
+    'https://www.indium.com/products/metals/tin/',
   ),
 
   // ---------------- Equipment & consumables ----------------
