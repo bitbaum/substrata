@@ -39,7 +39,12 @@ export async function POST(request: Request) {
     // route should answer 503 like the rest of the file rather than a raw 500.
     if (!(await allowRequest(request, 'factcheck', 20)))
       return Response.json({ error: 'Hourly fact-check limit reached.' }, { status: 429 });
-    const data = await answerQuestion(question, request.signal);
+    // A fact-check is corpus-only by definition: the ladder that lets the
+    // reader's assistant answer from the open web or from background would let
+    // this one defend an article with material the records do not hold.
+    const data = await answerQuestion(question, request.signal, [], 'auto', undefined, {
+      allowOutside: false,
+    });
     try {
       await addMessage(path, 'substrata-factcheck', data.answer.slice(0, 8000), 'ai');
     } catch {

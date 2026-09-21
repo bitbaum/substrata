@@ -15,7 +15,7 @@ import { SITE, correctionUrl } from '@/lib/site';
 import { AccountMenu } from './AccountMenu';
 import { Inquire } from './Inquire';
 import { Mark, SearchIcon } from './Mark';
-import { PublicNav } from './PublicNav';
+import { MobileMenu, PublicNav } from './PublicNav';
 
 const PUBLIC_ONLY = new Set(['']);
 
@@ -59,10 +59,13 @@ export async function Shell({
   const deskItems = DESK_NAV.filter(
     (item) => item.href !== '/review' || isReviewer(session?.actorId),
   );
+  const deskLink = desk
+    ? [{ label: 'Desk', href: '/account', hint: 'Your saved research and follows.' }]
+    : [];
 
   return (
     <div className={desk ? 'desk-shell' : 'flex min-h-screen flex-col bg-surface-page'}>
-      <header className="site-header sticky top-0 z-30 border-b border-subtle bg-surface-page/95 backdrop-blur">
+      <header className="site-header sticky top-0 z-[60] border-b border-subtle bg-surface-page/95 backdrop-blur">
         <div className="relative mx-auto flex max-w-shell items-center gap-4 px-4 py-2.5 sm:px-6 lg:px-8">
           <Link
             href={desk ? '/account' : '/'}
@@ -73,12 +76,15 @@ export async function Shell({
               {chrome.name}
             </span>
           </Link>
-          <PublicNav
-            currentPath={currentPath}
-            extra={desk ? [{ label: 'Desk', href: '/account' }] : []}
-          />
+          <PublicNav currentPath={currentPath} extra={deskLink} />
           <div className="ml-auto flex items-center gap-1 sm:gap-2">
-            <form action="/search" className="site-search hidden md:flex">
+            {/*
+              The inline search appears at lg, not md. Below that it competed
+              with the nav for the same row: at 834px the grouped menus and a
+              280px search box did not both fit, which is how the nav came to
+              be hidden below 1100px in the first place.
+            */}
+            <form action="/search" className="site-search hidden lg:flex">
               <label className="sr-only" htmlFor="header-search">
                 Search the research
               </label>
@@ -93,12 +99,15 @@ export async function Shell({
             </form>
             <Link
               href="/search"
-              className="inline-flex h-11 w-11 items-center justify-center text-fg-secondary hover:text-fg-primary md:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center text-fg-secondary hover:text-fg-primary lg:hidden"
               aria-label="Search the research"
             >
               <SearchIcon className="h-5 w-5" />
             </Link>
             <AccountMenu />
+            {/* Last in the row, where a hand reaches for it. It used to sit
+                against the wordmark, adrift in the middle of the header. */}
+            <MobileMenu currentPath={currentPath} extra={deskLink} />
           </div>
         </div>
       </header>

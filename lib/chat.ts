@@ -11,6 +11,7 @@ import { researchDocuments, searchResearch, type ResearchDocument } from './rese
 import { neighbors } from './graph';
 import { resolveByPath } from './entities/registry';
 import { lookUp, renderWebContext, webLookupEnabled, type WebFinding } from './chat-web';
+import { followUpsFor, lookupQuery, saysNotInCorpus } from './chat-query';
 
 export function chatContext(question: string, onPath?: string) {
   const documents = researchDocuments();
@@ -152,13 +153,42 @@ export function isOfferedModel(model: string): boolean {
   return usableChain(freeChain('SUBSTRATA'), process.env).some((link) => link.model === model);
 }
 
+/**
+ * The third register, written once.
+ *
+ * The corpus is the product, so this is deliberately the weakest thing the
+ * assistant is allowed to say and is fenced accordingly: no citation, no
+ * quantity, no supplier relationship, an explicit opening that marks it, and
+ * permission to say "I do not know" rather than reach. It exists because
+ * "Is this company listed?" is not a research question and answering it with a
+ * wall makes the assistant look unable rather than careful.
+ */
+const BACKGROUND_RULES = [
+  'BACKGROUND rules. Begin any sentence that uses background with "Outside the corpus —".',
+  'Allowed: stable, checkable public facts — what an organisation is, where it is listed, who founded it, what a term means, roughly when it was founded.',
+  'Not allowed, ever, from background: a figure, a market share, a revenue, a capacity, a lead time, a price, or a claim that one named organisation supplies another. Those are corpus claims or they are nothing.',
+  'Never cite [F] or [W] for anything you answer from background.',
+  'If you are not confident, say you are not sure rather than guessing.',
+  'Finish by naming the most useful page in the records for this subject, as a link.',
+].join(' ');
+
 export async function answerQuestion(
   question: string,
   signal: AbortSignal,
   history: ChatTurn[] = [],
   model = 'auto',
   onPath?: string,
+  /**
+   * Whether this caller may leave the corpus.
+   *
+   * The reader's assistant should: a wall is a worse answer than a labelled
+   * lead. A fact-check must not, because its whole job is to say what the
+   * records support — an answer that reaches past them to defend an article is
+   * the one thing it can never do.
+   */
+  options: { allowOutside?: boolean } = {},
 ) {
+  const allowOutside = options.allowOutside ?? true;
   const here = onPath ? resolveByPath(onPath) : undefined;
   const context = chatContext(
     `${history
@@ -182,7 +212,31 @@ export async function answerQuestion(
   const chain = requested ? full.filter((link) => link.model === requested) : full.slice(0, 3);
   const walk = chain.length ? chain : full.slice(0, 3);
   if (!walk.length) throw new Error('No AI providers configured');
-  const system = `You are Substrata, a research companion for the physical bottlenecks on the path to much faster technology. Speak plainly, like a careful analyst, not a chatbot. Answer only from the records below. Distinguish sourced findings, unverified leads, analyst judgements, and the geology directory (which is not a finding). Never invent numbers, dates, supplier relationships or citations. If the records do not support a claim, say so and point at a useful next page. Cite records as [F1], [F2]. A producer list is corpus coverage, never the entire market. Do not give personalised investment advice. ${webLookupEnabled() ? 'If the records do not cover the question you may be shown UNVERIFIED WEB MATERIAL below; it is not part of the corpus and must be cited as [W1], [W2] and described as unchecked.' : 'You have no tools.'} The contribution inbox is a separate button.${here ? ` The reader is looking at ${here.name}, a ${here.kind} page, so resolve "it", "they" and "the other ones" against that record first.` : ''}\n\n${grounded}`;
+  const system = [
+    'You are Substrata, a research companion for the physical bottlenecks on the path to much faster technology. Speak plainly, like a careful analyst, not a chatbot.',
+    // The registers are the product. Two of them existed and were enforced; the
+    // third was missing, which is why "is this company listed?" — a fact no
+    // reader would expect a research corpus to own — came back as a wall.
+    'You answer in three registers and never blur them. RECORDS: the rows below, cited [F1], [F2]. Only these are Substrata findings. WEB: unchecked passages fetched just now, shown only when they exist, cited [W1], [W2], always described as unchecked. BACKGROUND: widely established public knowledge, allowed only when you are told it is, only for stable checkable facts, never cited, and never carrying a figure, a market share, a capacity, a lead time, a price or a supplier relationship.',
+    'Distinguish sourced findings, unverified leads, analyst judgements, and the geology directory (which is not a finding). Never invent numbers, dates, supplier relationships or citations. A producer list is corpus coverage, never the entire market. Do not give personalised investment advice.',
+    // A reader who can see the name on the page is not helped by a periphrasis.
+    // "The sole EUV lithography-scanner maker" was a real answer; the record it
+    // came from says ASML.
+    'Name what you are talking about. Where the records give an organisation, a material or a rule a name, use that name — never "the company" or "the sole maker of it".',
+    // The fleet rule: a gate records, it never blocks. A bare refusal is a dead
+    // end, and this assistant sits on a corpus full of the next step.
+    'Never stop at a refusal. If the records do not carry the answer, say so in one sentence, then say what the records DO hold on that subject and link the page for it.',
+    webLookupEnabled()
+      ? 'If the records do not cover the question you may be shown UNVERIFIED WEB MATERIAL below; it is not part of the corpus and must be cited as [W1], [W2] and described as unchecked.'
+      : 'You have no tools.',
+    'The contribution inbox is a separate button.',
+    here
+      ? `The reader is looking at ${here.name}, a ${here.kind} page, so resolve "it", "they" and "the other ones" against that record first. On a page that is not a company, "this company", "the maker" and "they" mean an organisation the records join to this page, not the page itself.`
+      : '',
+    grounded,
+  ]
+    .filter(Boolean)
+    .join('\n\n');
   const messages = [
     { role: 'system' as const, content: system },
     ...history,
@@ -201,39 +255,55 @@ export async function answerQuestion(
   // come back marked as a lead, never as a row. `findings` stays separate from
   // `sources` all the way to the screen.
   let findings: WebFinding[] = [];
-  const refused = /not in your data/i.test(result.text) || context.length === 0;
-  if (refused && webLookupEnabled()) {
-    const lookup = await lookUp(question, signal);
-    if (lookup.status === 'found') {
-      findings = lookup.findings;
-      result = await complete({
-        chain: walk,
-        model: requested,
-        timeoutMs: 20000,
-        maxTokens: 1800,
-        signal,
-        messages: [
-          ...messages,
-          { role: 'user', content: renderWebContext(findings) },
-          {
-            role: 'user',
-            content:
-              'Answer using the web material above if it helps. Say plainly that it comes from the open web and has not been checked by Substrata, and cite it as [W1], [W2]. If it does not answer the question, say so.',
-          },
-        ],
-      });
+  let outside = false;
+  const refused = saysNotInCorpus(result.text) || context.length === 0;
+  if (refused && allowOutside) {
+    if (webLookupEnabled()) {
+      // Not the question — the question with its subject restored. A reader on
+      // a bottleneck page asking "who owns this company" gives a search engine
+      // nothing to work with; `lookupQuery` puts the producer back in front.
+      const lookup = await lookUp(lookupQuery(question, here, context), signal);
+      if (lookup.status === 'found') findings = lookup.findings;
     }
+    outside = true;
+    // "We did not look" and "we looked and found nothing" are different
+    // answers, and the model is told which one it got — the same distinction
+    // `lookUp` is careful to preserve in its own return type.
+    const situation =
+      findings.length > 0
+        ? 'Answer using the web material above if it helps. Say plainly that it comes from the open web and has not been checked by Substrata, and cite it as [W1], [W2]. If it does not answer the question, say so, and then answer from BACKGROUND under the rules below.'
+        : webLookupEnabled()
+          ? 'The records do not carry this, and a web search just now turned up nothing usable. Say that much, then answer from BACKGROUND under the rules below.'
+          : 'The records do not carry this, and this deployment cannot look things up. Say that much, then answer from BACKGROUND under the rules below.';
+    result = await complete({
+      chain: walk,
+      model: requested,
+      timeoutMs: 20000,
+      maxTokens: 1800,
+      signal,
+      messages: [
+        ...messages,
+        ...(findings.length > 0
+          ? [{ role: 'user' as const, content: renderWebContext(findings) }]
+          : []),
+        { role: 'user' as const, content: `${situation}\n\n${BACKGROUND_RULES}` },
+      ],
+    });
   }
-  const checked =
-    findings.length > 0
-      ? { ok: true, violations: [] as ReturnType<typeof verifyAnswer>['violations'] }
-      : verifyAnswer({
-          answer: result.text,
-          facts,
-          userMessage: question,
-          mode: 'entity-attribution',
-          extraEvidence: context.map((d) => d.text),
-        });
+  // The grounding check asks "is every entity claim here attributable to a
+  // fact?" and repairs to "Not in your data." when it is not. That is right for
+  // an answer claiming to BE the corpus, and wrong for one that has already
+  // said it left it: run it only on the corpus-register answer, or the repair
+  // reinstates exactly the wall this ladder exists to remove.
+  const checked = outside
+    ? { ok: true, violations: [] as ReturnType<typeof verifyAnswer>['violations'] }
+    : verifyAnswer({
+        answer: result.text,
+        facts,
+        userMessage: question,
+        mode: 'entity-attribution',
+        extraEvidence: context.map((d) => d.text),
+      });
   if (!checked.ok && checked.violations.length > 0) {
     result = await complete({
       chain: walk,
@@ -257,6 +327,8 @@ export async function answerQuestion(
     primary: d.sources,
     kind: d.kind,
   }));
-  const followUps = sources.slice(0, 3).map((s) => `Open the evidence for ${s.title}`);
-  return { answer: result.text, sources, followUps, web: findings };
+  // Questions the reader can click, rather than the instruction the old list
+  // held — which was also never sent to the browser, so nothing rendered it.
+  const followUps = followUpsFor(context);
+  return { answer: result.text, sources, followUps, web: findings, outside };
 }

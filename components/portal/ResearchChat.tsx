@@ -17,12 +17,26 @@ type Source = {
   kind: string;
 };
 
+type WebFinding = { title: string; url: string; excerpt: string };
+
+type Answer = {
+  answer: string;
+  sources: Source[];
+  /** Open-web passages. Never corpus rows; rendered apart. */
+  web?: WebFinding[];
+  /** Questions this assistant can answer, built from what retrieval found. */
+  followUps?: string[];
+  /** Whether the answer went past the corpus. Said on screen, not implied. */
+  outside?: boolean;
+};
+
 type Turn = {
   role: 'user' | 'assistant';
   content: string;
   sources?: Source[];
-  /** Open-web passages. Never corpus rows; rendered apart. */
-  web?: { title: string; url: string; excerpt: string }[];
+  web?: WebFinding[];
+  followUps?: string[];
+  outside?: boolean;
 };
 
 export function ResearchChat({
@@ -107,17 +121,25 @@ export function ResearchChat({
           if (!line.trim()) continue;
           const event = JSON.parse(line) as {
             type: string;
-            data?: { answer: string; sources: Source[] };
+            data?: Answer;
             error?: string;
           };
           if (event.type === 'error') throw new Error(event.error || 'Unavailable.');
           if (event.type === 'done' && event.data) {
+            // Every field, not two of them. `web` was dropped here, which is
+            // how an answer reading "the web passage provided does not answer
+            // the question" reached a reader who could see no passage, no
+            // link, and no sign that anything had been fetched at all.
+            const data = event.data;
             setTurns((prev) => [
               ...prev,
               {
                 role: 'assistant',
-                content: event.data!.answer,
-                sources: event.data!.sources,
+                content: data.answer,
+                sources: data.sources,
+                web: data.web,
+                followUps: data.followUps,
+                outside: data.outside,
               },
             ]);
           }
@@ -191,7 +213,17 @@ export function ResearchChat({
         )}
         {turns.map((turn, i) => (
           <article key={i} className={`companion-turn is-${turn.role}`}>
-            <p className="companion-who">{turn.role === 'user' ? 'You' : 'Substrata'}</p>
+            <p className="companion-who">
+              {turn.role === 'user' ? 'You' : 'Substrata'}
+              {turn.outside && (
+                // The register, said out loud. An answer that went past the
+                // corpus must not look like one that did not — and the wording
+                // is what actually happened, since the ladder fires on any
+                // answer the records could not carry, whether or not looking
+                // found anything.
+                <span className="companion-register">looked outside the corpus</span>
+              )}
+            </p>
             {turn.role === 'assistant' ? (
               <div className="chat-markdown">
                 <ReactMarkdown
@@ -216,40 +248,70 @@ export function ResearchChat({
             {turn.web && turn.web.length > 0 && (
               // Deliberately not in the citation list: [F#] means a corpus row
               // that a person accepted. These are leads from the open web.
-              <div className="mt-3 rounded border border-strong bg-surface-raised px-3 py-2">
-                <p className="font-mono text-xs uppercase tracking-caps text-fg-muted">
-                  From the open web · not checked by Substrata
-                </p>
-                <ul className="mt-2 space-y-2">
+              //
+              // This block existed before and never rendered, because the
+              // stream handler dropped `web`. Its classes were never checked
+              // either: `border-strong` resolves to nothing (the token is
+              // `--color-border-strong`), so the only thing that line did was
+              // draw a border in the current text colour. Visual decisions
+              // belong in globals.css in this repo, so it is a class now.
+              <div className="companion-web">
+                <p className="companion-web-label">From the open web · not checked by Substrata</p>
+                <ul>
                   {turn.web.map((finding, index) => (
-                    <li key={finding.url} className="text-xs leading-relaxed text-fg-tertiary">
-                      <a
-                        href={finding.url}
-                        rel="noreferrer nofollow"
-                        className="text-accent underline-offset-4 hover:underline"
-                      >
+                    <li key={finding.url}>
+                      {/* New tab: following a lead in place would drop the
+                          conversation that produced it. */}
+                      <a href={finding.url} target="_blank" rel="noreferrer nofollow">
                         [W{index + 1}] {finding.title} ↗
                       </a>
                     </li>
                   ))}
                 </ul>
-                <p className="mt-2 text-xs text-fg-muted">
+                <p className="companion-web-note">
                   Nobody has verified these. Send one as a contribution if it should become a row.
                 </p>
               </div>
             )}
             {turn.sources && turn.sources.length > 0 && (
-              <ul className="companion-sources">
-                {turn.sources.map((s) => (
-                  <li key={s.id}>
-                    <Link href={s.href}>
-                      {s.id} {s.title}
-                    </Link>
-                    <span>{s.evidence}</span>
-                  </li>
-                ))}
-              </ul>
+              // Headed, because a bare "unverified" under an answer reads as a
+              // verdict on the answer. It is the state of the row.
+              <div className="companion-sources">
+                <p className="companion-next-label">Records read for this answer</p>
+                <ul>
+                  {turn.sources.map((s) => (
+                    <li key={s.id}>
+                      <Link href={s.href}>
+                        {s.id} {s.title}
+                      </Link>
+                      <span>{s.evidence}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             )}
+            {turn.role === 'assistant' &&
+              i === turns.length - 1 &&
+              turn.followUps &&
+              turn.followUps.length > 0 && (
+                // No dead ends: an answer the corpus could not carry still ends
+                // somewhere, and the somewhere is one tap away.
+                <div className="companion-next">
+                  <p className="companion-next-label">Ask next</p>
+                  <div className="companion-next-row">
+                    {turn.followUps.map((question) => (
+                      <button
+                        key={question}
+                        type="button"
+                        disabled={busy}
+                        onClick={() => void ask(question)}
+                      >
+                        {question}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
           </article>
         ))}
         {busy && <p className="companion-status">Reading the corpus…</p>}
@@ -264,6 +326,20 @@ export function ResearchChat({
           </p>
         )}
       </div>
+      {/*
+        One field, not five controls in a row.
+
+        This was a textarea above a `flex-wrap` bag holding a full-width native
+        select, two square bordered boxes, a rounded filled button and a
+        borderless one — four visual weights, wrapping into two ragged lines on
+        a phone, with the model picker the loudest thing in the composer and the
+        contribution form (a different action entirely) sitting inline with Ask.
+        Now: the textarea and the tool bar share one border and read as a single
+        surface; every quiet control is the same height, the same size and the
+        same weight; Ask is the only filled thing and is always last; and
+        sending evidence sits below on its own, because it does not ask
+        anything.
+      */}
       <form
         className="companion-composer"
         onSubmit={(e) => {
@@ -272,67 +348,76 @@ export function ResearchChat({
           void ask(draft);
         }}
       >
-        <label className="sr-only" htmlFor={compact ? 'dock-ask' : 'page-ask'}>
-          Ask Substrata
-        </label>
-        <textarea
-          id={compact ? 'dock-ask' : 'page-ask'}
-          rows={compact ? 2 : 3}
-          value={draft}
-          onChange={(e) => setDraft(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' && !e.shiftKey) {
-              e.preventDefault();
-              void ask(draft);
-            }
-          }}
-          placeholder="Ask about a bottleneck, a company, a country, a rule…"
-          maxLength={4000}
-        />
-        <div className="companion-actions">
-          <label className="companion-model">
-            <span className="sr-only">Model</span>
-            <select value={model} onChange={(e) => setModel(e.target.value)} disabled={busy}>
-              {models.map((m) => (
-                <option key={m.id} value={m.id}>
-                  {m.label}
-                </option>
-              ))}
-            </select>
+        <div className="companion-field">
+          <label className="sr-only" htmlFor={compact ? 'dock-ask' : 'page-ask'}>
+            Ask Substrata
           </label>
-          <Dictation
-            disabled={busy}
-            onTranscript={(text) => setDraft((d) => (d ? `${d} ${text}` : text))}
+          <textarea
+            id={compact ? 'dock-ask' : 'page-ask'}
+            rows={compact ? 2 : 3}
+            value={draft}
+            onChange={(e) => setDraft(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                void ask(draft);
+              }
+            }}
+            placeholder="Ask about a bottleneck, a company, a country, a rule…"
+            maxLength={4000}
           />
-          <label className="companion-tool">
-            Attach
-            <input
-              type="file"
-              accept=".txt,.md,.csv,.json"
-              className="sr-only"
-              onChange={(event) => {
-                const file = event.target.files?.[0];
-                event.target.value = '';
-                if (!file) return;
-                void file.text().then((text) => {
-                  setDraft((d) => `${d}\n\nAttached ${file.name}:\n${text.slice(0, 2500)}`.trim());
-                });
-              }}
-            />
-          </label>
-          {busy ? (
-            <button
-              type="button"
-              onClick={() => abortRef.current?.abort()}
-              className="research-button-ghost"
-            >
-              Stop
-            </button>
-          ) : (
-            <button type="submit" className="research-button" disabled={draft.trim().length < 3}>
-              Ask
-            </button>
-          )}
+          <div className="companion-bar">
+            <div className="companion-tools">
+              <Dictation
+                disabled={busy}
+                onTranscript={(text) => setDraft((d) => (d ? `${d} ${text}` : text))}
+              />
+              <label className="companion-tool">
+                Attach
+                <input
+                  type="file"
+                  accept=".txt,.md,.csv,.json"
+                  className="sr-only"
+                  onChange={(event) => {
+                    const file = event.target.files?.[0];
+                    event.target.value = '';
+                    if (!file) return;
+                    void file.text().then((text) => {
+                      setDraft((d) =>
+                        `${d}\n\nAttached ${file.name}:\n${text.slice(0, 2500)}`.trim(),
+                      );
+                    });
+                  }}
+                />
+              </label>
+              <label className="companion-model">
+                <span className="sr-only">Model</span>
+                <select value={model} onChange={(e) => setModel(e.target.value)} disabled={busy}>
+                  {models.map((m) => (
+                    <option key={m.id} value={m.id}>
+                      {m.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </div>
+            {busy ? (
+              <button
+                type="button"
+                onClick={() => abortRef.current?.abort()}
+                className="companion-send is-stop"
+              >
+                Stop
+              </button>
+            ) : (
+              <button type="submit" className="companion-send" disabled={draft.trim().length < 3}>
+                Ask
+              </button>
+            )}
+          </div>
+        </div>
+        <p className="companion-aside">
+          Have a source we should hold?{' '}
           <button
             type="button"
             className="companion-contribute"
@@ -340,7 +425,7 @@ export function ResearchChat({
           >
             {contribute ? 'Cancel contribution' : 'Send evidence'}
           </button>
-        </div>
+        </p>
       </form>
       {contribute && (
         <form onSubmit={sendContribution} className="inquire-form companion-inbox">
