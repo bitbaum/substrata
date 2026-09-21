@@ -200,223 +200,253 @@ function s(
 
 export const PARTICIPANTS: readonly Participant[] = [
   // ---------------- Extraction ----------------
-  p(
+  s(
     'The Quartz Corp',
     'extraction',
     ['NO', 'US'],
     'High-purity quartz sand',
     'chokepoint',
     'Inner-layer crucible quartz comes in practice from a very small number of deposits, and every Czochralski puller on earth needs it.',
+    'https://www.thequartzcorp.com/high-purity-quartz',
   ),
-  p(
+  s(
     'Sibelco',
     'extraction',
     ['BE', 'US'],
     'High-purity quartz sand',
     'chokepoint',
     'The other holder of the same rare deposit quality. Two names deep is the whole of the upstream for this input.',
+    'https://www.sibelco.com/en/materials/high-purity-quartz',
   ),
-  p(
+  s(
     'Sibanye-Stillwater',
     'extraction',
     ['ZA'],
     'PGM mining incl. ruthenium',
     'concentrated',
     'Ruthenium is a by-product, so its supply is set by platinum economics rather than by demand for it.',
+    'https://www.sec.gov/Archives/edgar/data/1786909/000178690925000028/senstradingupdateh12025.htm',
   ),
-  p(
+  s(
     'Impala Platinum',
     'extraction',
     ['ZA'],
     'PGM mining',
     'concentrated',
     'Same by-product logic, same narrow geography.',
+    'https://www.forbes.com/companies/impala-platinum-holdings/',
   ),
-  p(
+  s(
     'Nornickel',
     'extraction',
     ['RU'],
     'Nickel and PGM mining',
     'concentrated',
     'Material share of world PGM and nickel, with sanctions risk layered on top of geology.',
+    'https://nornickel.com/company/about/',
   ),
-  p(
+  s(
     'MP Materials',
     'extraction',
     ['US'],
     'Rare-earth ore',
     'concentrated',
     'The main non-Chinese light rare-earth mine. Mining diversified before separation did, which is the gap the map cares about.',
+    'https://mpmaterials.com/mountain-pass',
   ),
-  p(
+  s(
     'Lynas Rare Earths',
     'extraction',
     ['AU', 'MY'],
     'Rare-earth mining and separation',
     'concentrated',
     'The most complete non-Chinese rare-earth chain, and still small against the incumbent.',
+    'https://lynasrareearths.com/about-us/about-lynas-rare-earths/',
   ),
-  p(
+  s(
     'Yunnan Tin',
     'extraction',
     ['CN'],
     'Tin mining and smelting',
     'concentrated',
     'Large in tin metal; the EUV-grade constraint sits downstream of it.',
+    'https://en.ytc.cn/',
   ),
-  p(
+  s(
     'Minsur',
     'extraction',
     ['PE'],
     'Tin mining and smelting',
     'competitive',
     'Tin metal has several credible producers. It is purity, not tonnage, that binds here.',
+    'https://www.internationaltin.org/tag/minsur/',
   ),
-  p(
+  s(
     'PT Timah',
     'extraction',
     ['ID'],
     'Tin mining and smelting',
     'competitive',
     'Same: the scarcity in this chain is an upgrading step, not an ore body.',
+    'https://timah.com/blog/about-us/processing-smelting',
   ),
-  p(
+  s(
     'QatarEnergy',
     'extraction',
     ['QA'],
     'Helium from LNG',
     'concentrated',
     'Helium exists commercially only as a by-product of a few gas fields with unusual composition.',
+    'https://www.gulf-times.com/story/358882/New-plant-takes-Qatar-to-top-spot-in-helium-export',
   ),
-  p(
+  s(
     'ExxonMobil',
     'extraction',
     ['US'],
     'Helium from natural gas',
     'concentrated',
     'One of a very small number of fields worldwide rich enough to justify extraction.',
+    'https://corporate.exxonmobil.com/what-we-do/materials-for-modern-living/labarge-helium-extraction-energy-production-wyoming',
   ),
 
   // ---------------- Refining & separation ----------------
-  p(
+  s(
     'Wacker Chemie',
     'refining',
     ['DE', 'US'],
     'Electronic-grade polysilicon',
     'chokepoint',
     'Solar-grade polysilicon has many producers; electronic-grade has very few, and the gap is orders of magnitude of impurity.',
+    'https://www.wacker.com/cms/de-de/products/brands/polysilicon/polysilicon.html',
   ),
-  p(
+  s(
     'Hemlock Semiconductor',
     'refining',
     ['US'],
     'Electronic-grade polysilicon',
     'chokepoint',
     'One of a handful of qualified suppliers of the first material in the entire chain.',
+    'https://www.hscpoly.com/markets-technologies/electronics/',
   ),
-  p(
+  s(
     'Tokuyama',
     'refining',
     ['JP', 'MY'],
     'Electronic-grade polysilicon',
     'chokepoint',
     'Same short list, different geography — which is most of why it matters.',
+    'https://www.tokuyama.co.jp/eng/products/electronic_materials/polysilicon.html',
   ),
-  p(
+  s(
     'OCI',
     'refining',
     ['KR', 'MY'],
     'Polysilicon',
     'concentrated',
     'Credible at scale, with electronic-grade a narrower qualification than volume implies.',
+    'https://www.oci.co.kr/en/products/semiconductor/polysilicon',
   ),
-  p(
+  s(
     'China Northern Rare Earth',
     'refining',
     ['CN'],
     'Rare-earth separation',
     'chokepoint',
     'Separation, not mining, is where the rare-earth chain actually narrows, and it narrows here.',
+    'https://www.metalnomist.com/2024/11/china-launches-worlds-largest-rare.html',
   ),
-  p(
+  s(
     'Shenghe Resources',
     'refining',
     ['CN'],
     'Rare-earth separation and trading',
     'chokepoint',
     'Processes feedstock from mines all over the world, including ones marketed as diversification.',
+    'https://magneticsmag.com/shenghe-to-acquire-neos-separation-assets-in-china-for-30-million-backs-peaks-tanzania-project-for-96-million/',
   ),
-  p(
-    'Chinalco',
+  // Same entity correction as `substrata-coverage.ts`: Chalco (Aluminum
+  // Corporation of China Limited) runs the alumina refineries, not the
+  // unlisted parent group "Chinalco" trade press often shorthands it as.
+  s(
+    'Chalco',
     'refining',
     ['CN'],
     'Gallium from alumina refining',
     'chokepoint',
     'Gallium is an alumina by-product, so supply cannot answer price — and it is export-controlled.',
+    'https://www.mining.com/web/chalco-injects-gallium-assets-into-rare-earths-affiliate/',
   ),
-  p(
+  s(
     'Heraeus',
     'refining',
     ['DE'],
     'Precious-metal refining',
     'concentrated',
     'One of the few refiners able to deliver PGMs at semiconductor purity.',
+    'https://www.heraeus-precious-metals.com/de/products-solutions/metal/ruthenium/',
   ),
-  p(
+  s(
     'Johnson Matthey',
     'refining',
     ['GB'],
     'PGM refining',
     'concentrated',
     'Long-established PGM chemistry; a short list of peers worldwide.',
+    'https://matthey.com/products-and-markets/pgms-and-circularity/pgm-markets/ruthenium',
   ),
-  p(
+  s(
     'Umicore',
     'refining',
     ['BE'],
     'PGM refining and recycling',
     'concentrated',
     'Secondary supply is often the only elastic source in these metals.',
+    'https://www.umicore.com/en/markets-products/metals/ruthenium/about/',
   ),
-  p(
+  s(
     'Linde',
     'refining',
     ['GB', 'US', 'DE'],
     'Industrial and electronic gases',
     'concentrated',
     'Noble gases come from air separation attached to heavy industry, which limits where they can come from at all.',
+    'https://www.gulf-times.com/story/358882/New-plant-takes-Qatar-to-top-spot-in-helium-export',
   ),
-  p(
+  s(
     'Air Liquide',
     'refining',
     ['FR'],
     'Industrial and electronic gases',
     'concentrated',
     'One of three global gas majors; the fab-qualified end is narrower than the industrial one.',
+    'https://uk.airliquide.com/gases-and-products/neon',
   ),
-  p(
+  s(
     'Air Products',
     'refining',
     ['US'],
     'Industrial gases and helium',
     'concentrated',
     'Helium distribution is a small club with long-dated source contracts.',
+    'https://www.airproducts.com/gases/helium',
   ),
-  p(
+  s(
     'Iceblick',
     'refining',
     ['UA'],
     'Neon and rare gases',
     'concentrated',
     'The 2022 squeeze made the point: an industrial-gas map and a war map turned out to be the same map.',
+    'https://spie.org/news/photonics-focus/mayjune-2023/supplying-noble-gases-for-photonics-in-war-time',
   ),
-  p(
+  s(
     '5N Plus',
     'refining',
     ['CA', 'DE'],
     'High-purity specialty metals',
     'concentrated',
     'Upgrading to five nines and beyond is a different business from producing the metal.',
+    'https://www.5nplus.com/en/investors/overview/',
   ),
 
   // ---------------- Conversion ----------------
