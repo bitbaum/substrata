@@ -106,8 +106,9 @@ function sourced(
   jurisdictions: string[],
   role: ProducerRole,
   source: string,
+  aliases?: string[],
 ): Producer {
-  return { name, jurisdictions, role, source };
+  return { name, jurisdictions, role, source, ...(aliases ? { aliases } : {}) };
 }
 
 // =====================================================================
@@ -170,6 +171,12 @@ export const COVERAGE: readonly MaterialCoverage[] = [
         'https://spie.org/news/photonics-focus/mayjune-2023/supplying-noble-gases-for-photonics-in-war-time',
       ),
       sourced('Cryoin Engineering', ['UA'], 'refine', 'https://cryoin.com/en/products/'),
+      // Named in market-report coverage of China's neon self-sufficiency push
+      // alongside Hangzhou Hangyang, but every source found is a syndicated
+      // press-release aggregator or a market-report ad — nothing naming
+      // Baosteel Gases traces to the company itself or a named reporter.
+      // Left unverified rather than sourced from a page that reads like SEO
+      // copy repeating the same sentence.
       lead('Baosteel Gases', ['CN'], 'refine'),
     ],
   },
@@ -178,8 +185,18 @@ export const COVERAGE: readonly MaterialCoverage[] = [
     thesis:
       'Ruthenium is a by-product of PGM mining, so supply is set by platinum and palladium economics rather than by demand for ruthenium. Refining and target fabrication are separately concentrated.',
     producers: [
-      lead('Sibanye-Stillwater', ['ZA'], 'mine'),
-      lead('Impala Platinum', ['ZA'], 'mine'),
+      sourced(
+        'Sibanye-Stillwater',
+        ['ZA'],
+        'mine',
+        'https://www.sec.gov/Archives/edgar/data/1786909/000178690925000028/senstradingupdateh12025.htm',
+      ),
+      sourced(
+        'Impala Platinum',
+        ['ZA'],
+        'mine',
+        'https://www.forbes.com/companies/impala-platinum-holdings/',
+      ),
       sourced(
         'Nornickel',
         ['RU'],
@@ -255,7 +272,15 @@ export const COVERAGE: readonly MaterialCoverage[] = [
         'refine',
         'https://www.mmtc.co.jp/en/products/silicon-h.html',
       ),
-      lead('REC Silicon', ['US', 'NO'], 'refine'),
+      // REC Silicon was an unverified lead here until 2026-09-21, when
+      // checking it turned up the opposite of the claim: Butte, Montana
+      // stopped polysilicon production in Feb 2024, Moses Lake shut down in
+      // Dec 2024 and stayed closed through the Feb 2026 restart decision, and
+      // the company itself now says it has "completely discontinued the
+      // production of polysilicon" — Butte now makes only silane gas.
+      // https://www.spokesman.com/stories/2025/jan/08/rec-silicon-shutting-down-moses-lake-facility/
+      // A row that is no longer true is worse than an absent one, so it is
+      // removed rather than promoted or left as a lead a reader could act on.
     ],
   },
   {
@@ -296,7 +321,12 @@ export const COVERAGE: readonly MaterialCoverage[] = [
         'convert',
         'https://www.shinetsu.co.jp/en/products/electronics-materials/quartz-glass-products-materials-for-quartz-glass-products/',
       ),
-      lead('Ferrotec', ['JP', 'CN'], 'convert'),
+      sourced(
+        'Ferrotec',
+        ['JP', 'CN'],
+        'convert',
+        'https://www.ferrotec.com/products-technologies/fabricated-quartzware/',
+      ),
     ],
   },
   {
@@ -304,17 +334,43 @@ export const COVERAGE: readonly MaterialCoverage[] = [
     thesis:
       'A by-product of alumina refining, so primary supply cannot respond to price. Concentrated in one jurisdiction and under export control since 2023 — the textbook case for why the map matters.',
     producers: [
-      lead('Chinalco', ['CN'], 'refine'),
-      lead('East Hope Group', ['CN'], 'refine'),
-      lead('Zhuhai Fangyuan', ['CN'], 'refine'),
+      // The operating entity is Chalco (Aluminum Corporation of China
+      // Limited), the SEC/HKEX/SSE-listed subsidiary that runs the alumina
+      // refineries gallium comes off as a by-product — "Chinalco" is its
+      // unlisted state-owned PARENT group. Trade press uses both names for
+      // the same gallium business, which is exactly the kind of drift the
+      // `aliases` field exists to survive.
+      sourced(
+        'Chalco',
+        ['CN'],
+        'refine',
+        'https://www.mining.com/web/chalco-injects-gallium-assets-into-rare-earths-affiliate/',
+        ['Chinalco', 'Aluminum Corporation of China', 'Aluminum Corporation of China Limited'],
+      ),
+      sourced(
+        'East Hope Group',
+        ['CN'],
+        'refine',
+        'https://pmc.ncbi.nlm.nih.gov/articles/PMC9995487/',
+      ),
+      sourced(
+        'Zhuhai Fangyuan',
+        ['CN'],
+        'refine',
+        'https://wap.asianmetal.com/interview/2019/interview_jialibingEn.shtml',
+        ['Zhuhai SEZ Fangyuan'],
+      ),
       sourced(
         'Rio Tinto',
         ['CA'],
         'refine',
         'https://www.riotinto.com/en/news/releases/2025/rio-tinto-extracts-first-gallium-from-its-alumina-refining-process-with-partner-indium-corporation',
       ),
+      // Trafigura's own release says Nyrstar is CONSIDERING a gallium
+      // project at Port Pirie, not running one — an aspiration is not a
+      // role, so this stays a lead rather than being promoted on it.
       lead('Nyrstar', ['AU'], 'refine', ['Nyrstar Australia', 'Trafigura']),
-      lead('5N Plus', ['CA'], 'convert'),
+      sourced('5N Plus', ['CA'], 'convert', 'https://www.5nplus.com/en/investors/overview/'),
     ],
   },
 
@@ -374,11 +430,40 @@ export const COVERAGE: readonly MaterialCoverage[] = [
     thesis:
       'A chokepoint created by regulation rather than geology: PFAS restriction is withdrawing the incumbent fluorinated chemistry precisely as immersion cooling starts to scale.',
     producers: [
-      lead('3M', ['US'], 'refine'),
-      lead('Chemours', ['US'], 'refine'),
-      lead('Syensqo', ['BE'], 'refine', ['Solvay Specialty Polymers', 'Solvay']),
-      lead('AGC', ['JP'], 'refine', ['AGC Inc', 'Asahi Glass']),
-      lead('Engineered Fluids', ['US'], 'convert'),
+      // 3M was an unverified lead here until 2026-09-21. It no longer belongs
+      // even as one: 3M announced in December 2022 that it would exit ALL
+      // PFAS manufacturing by the end of 2025, and by that deadline its own
+      // Novec and Fluorinert lines — the fluorinated fluids this material is
+      // — had stopped shipping (last order date 31 March 2025).
+      // https://news.3m.com/2022-12-20-3M-to-Exit-PFAS-Manufacturing-by-the-End-of-2025
+      // The thesis above calls this a regulation-driven chokepoint; 3M's exit
+      // is that thesis playing out, not a producer to list.
+      sourced(
+        'Chemours',
+        ['US'],
+        'refine',
+        'https://www.coolingpost.com/world-news/chemours-signs-2-pic-deal-with-server-manufacturer/',
+      ),
+      sourced(
+        'Syensqo',
+        ['BE'],
+        'refine',
+        'https://www.fuelsandlubes.com/syensqo-unveils-immersion-cooling-fluids-for-ai-data-centres/',
+        ['Solvay Specialty Polymers', 'Solvay'],
+      ),
+      sourced(
+        'AGC',
+        ['JP'],
+        'refine',
+        'https://www.agc-chemicals.com/jp/en/products/detail/index.html?pCode=JP-EN-G011',
+        ['AGC Inc', 'Asahi Glass'],
+      ),
+      sourced(
+        'Engineered Fluids',
+        ['US'],
+        'convert',
+        'https://shop.engineeredfluids.com/products/ec-140',
+      ),
     ],
   },
 
@@ -448,7 +533,13 @@ export const COVERAGE: readonly MaterialCoverage[] = [
         'convert',
         'https://www.shsctec.com/en/products/tape/',
       ),
-      lead('AMSC', ['US'], 'convert', ['American Superconductor', 'Amperium']),
+      sourced(
+        'AMSC',
+        ['US'],
+        'convert',
+        'https://ir.amsc.com/news-releases/news-release-details/american-superconductor-introduces-amperium153-wire',
+        ['American Superconductor', 'Amperium'],
+      ),
     ],
   },
   {
@@ -456,7 +547,12 @@ export const COVERAGE: readonly MaterialCoverage[] = [
     thesis:
       'Helium is produced only as a by-product of a few natural gas fields with unusual composition, so supply is set by unrelated gas economics and by a handful of political jurisdictions.',
     producers: [
-      lead('QatarEnergy', ['QA'], 'mine'),
+      sourced(
+        'QatarEnergy',
+        ['QA'],
+        'mine',
+        'https://www.gulf-times.com/story/358882/New-plant-takes-Qatar-to-top-spot-in-helium-export',
+      ),
       sourced(
         'ExxonMobil',
         ['US'],
@@ -465,7 +561,15 @@ export const COVERAGE: readonly MaterialCoverage[] = [
       ),
       sourced('Gazprom', ['RU'], 'mine', 'http://www.gazprominfo.de/terms/orenburg-helium-plant/'),
       lead('Air Products', ['US'], 'refine'),
-      lead('Linde', ['US', 'GB'], 'refine'),
+      // Off-take from Qatar's Ras Laffan Helium 2 plant — the world's largest
+      // liquefaction train — is split three ways: Air Liquide 50%, Linde
+      // 30%, Iwatani the remainder.
+      sourced(
+        'Linde',
+        ['US', 'GB'],
+        'refine',
+        'https://www.gulf-times.com/story/358882/New-plant-takes-Qatar-to-top-spot-in-helium-export',
+      ),
       sourced('Air Liquide', ['FR'], 'refine', 'https://de.airliquide.com/unsere-gase/helium'),
     ],
   },
@@ -476,8 +580,18 @@ export const COVERAGE: readonly MaterialCoverage[] = [
     thesis:
       'Mining is diversifying; separation and metal-making have not. The chokepoint moved downstream of the mine, which is where most published coverage still is not looking.',
     producers: [
-      lead('China Northern Rare Earth', ['CN'], 'refine'),
-      lead('Shenghe Resources', ['CN'], 'refine'),
+      sourced(
+        'China Northern Rare Earth',
+        ['CN'],
+        'refine',
+        'https://www.metalnomist.com/2024/11/china-launches-worlds-largest-rare.html',
+      ),
+      sourced(
+        'Shenghe Resources',
+        ['CN'],
+        'refine',
+        'https://magneticsmag.com/shenghe-to-acquire-neos-separation-assets-in-china-for-30-million-backs-peaks-tanzania-project-for-96-million/',
+      ),
       lead('Lynas Rare Earths', ['AU', 'MY'], 'refine'),
       lead('MP Materials', ['US'], 'mine'),
       lead('Neo Performance Materials', ['CA', 'EE'], 'convert'),

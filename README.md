@@ -14,7 +14,7 @@ one is bought, and nothing in this repository changes when it does.
 ```
 config/     the research corpus and the site, as data — the SSOT
             substrata.ts               identity, mandate, phases, disclosure
-            substrata-coverage.ts      15 chokepoint materials, 92 producer rows
+            substrata-coverage.ts      15 chokepoint materials, 90 producer rows
             substrata-participants.ts  101 organisations across 10 chain layers
             substrata-acting.ts        thesis, action routes, readiness ledger
             site-substrata.ts          those objects, rendered as pages
@@ -134,6 +134,17 @@ and files a page as a candidate only if it names the company AND a material
 term, with the matching excerpt. Promotion to "sourced" is a deliberate edit
 to the coverage file by someone who read the excerpt. Commit the evidence file
 after a run: git is the timestamp.
+
+The judgement behind this — the query, the domain ranking, the excerpt
+match — lives in `lib/source.ts`, shared with a scheduled counterpart:
+`POST /api/cron/source`, driven by a systemd timer on the box the same way
+the event sweep already was, examining a few least-recently-checked
+unsourced rows per run and filing candidates into Postgres
+(`research_source_candidates`) rather than into git — a running server has
+no working tree to commit a promotion into. `/review` lists what it finds;
+promoting one to `sourced()` is still a person editing the coverage file.
+Needs `scripts/db/004-source-sweep.sql` applied and `CRON_SECRET` set — see
+`docs/INFRASTRUCTURE.md`.
 
 ## Events and the sweep
 

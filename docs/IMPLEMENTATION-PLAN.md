@@ -82,8 +82,33 @@ stable.
 
 ## Self-updating
 
-Dated events are the newsfeed. Next: a box timer for `pnpm research:sweep`.
-Do not auto-publish unsourced rows.
+Dated events are the newsfeed. A systemd timer on the box now drives BOTH
+engines through authenticated cron routes rather than a human running the
+CLI: `POST /api/cron/sweep` (events, `lib/sweep-store.ts`, four times a day)
+and `POST /api/cron/source` (producer sourcing, `lib/source-store.ts`, added
+2026-09-21). Neither auto-publishes: findings land in a Postgres review
+queue (`research_sweep_candidates` / `research_source_candidates`) and
+`/review` is where a person decides, exactly as the CLI scripts already
+required a person to read an excerpt before promoting it. The judgement each
+engine runs on — what counts as an event, what counts as a source match —
+lives once in `lib/sweep.ts` / `lib/source.ts` so the timer and the hand-run
+script cannot quietly disagree about what they are looking for.
+
+Two manual steps land this, same as `003-sweep.sql` before it: apply
+`scripts/db/004-source-sweep.sql` via `scripts/provision-service.py` on the
+box, and add `/api/cron/source` to whatever schedule
+`/opt/_appcron/run.sh` already runs `/api/cron/sweep` on. The generic deploy
+workflow does not do either automatically.
+
+A second, independent leg needs neither of those: `.github/workflows/research-sweep.yml`
+runs both CLI scripts on a weekly GitHub Actions schedule against a Brave or
+Tavily key (repository secret — `BRAVE_SEARCH_API_KEY` / `TAVILY_API_KEY`,
+skips cleanly until one is set) and opens a draft PR with whatever lands in
+`research/evidence.json` / `research/events.json`. No box access, no
+migration, no `_appcron` registration — the CLI scripts already write into
+those git-tracked files when a person runs them, so the workflow only adds
+the timer. A draft PR because the fleet's auto-merge sweep leaves drafts
+alone, and nobody has read these rows yet.
 
 ## Work log
 

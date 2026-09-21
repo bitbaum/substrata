@@ -27,6 +27,14 @@ Migration: `scripts/db/001-research-service.sql`, additive and idempotent. Apply
 it before deploying the routes. SQL runs as the app role so ownership is correct.
 The generic deploy workflow does not apply this migration automatically.
 
+Every later numbered file under `scripts/db/` (`002-page-threads.sql`,
+`003-sweep.sql`, `004-source-sweep.sql`, …) is applied the same way — run
+`scripts/provision-service.py` again with that file as the argument before
+the routes that need its tables reach production. `004-source-sweep.sql`
+backs the scheduled producer-sourcing run (`POST /api/cron/source`,
+`lib/source-store.ts`); it also needs `/api/cron/source` added to whatever
+schedule `/opt/_appcron/run.sh` already drives `/api/cron/sweep` on.
+
 Backups must include the new `substrata` database with the host's PostgreSQL
 backup service. Verify the service's database-discovery rule after provisioning.
 Research corpus changes remain reconstructable from git.

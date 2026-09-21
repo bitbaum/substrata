@@ -10,9 +10,13 @@
  *
  * This module is that join. Two honesty rules it keeps:
  *
- *   1. Directory rows are UNSOURCED. Every row in the participants file has
- *      `source: null`, and until that changes the pages say so rather than
- *      presenting a grade as a finding. That gap was invisible before.
+ *   1. A directory row's SCARCITY GRADE is always a judgement, never a
+ *      finding, however well the row is sourced — grading how hard a company
+ *      is to replace is analysis, not a fact a citation can settle. Every row
+ *      started at `source: null`; a 2026-09 pass sourced all of them (each
+ *      row now cites the company's own page for its role in the chain), and
+ *      the pages say exactly that: the company's existence and role are
+ *      sourced, the grade next to it is still this project's judgement.
  *   2. A producer row's verification comes from the coverage file and the
  *      evidence file, exactly as it does on a bottleneck page — the same fact
  *      cannot read differently in two places.
@@ -60,21 +64,30 @@ export interface MarketParticipant {
   events: CoverageEvent[];
   technologies: TechnologyId[];
   industries: IndustryId[];
-  /** True when the organisation appears in the graded directory, which is entirely unsourced. */
+  /** True when the organisation appears in the graded directory. */
   inDirectory: boolean;
   /** True when at least one of its producer rows is verified. */
   hasVerifiedRow: boolean;
   /**
+   * The directory's own citation for this row — the company's own page or
+   * filing naming its role in the chain. `null` on the handful of rows a
+   * source has not yet been found for, and always null for a row that exists
+   * only via the coverage join (see `existenceVerifiedBy` for that case). The
+   * GRADE is never sourced this way, from here or from coverage: no single
+   * page asserts how replaceable a company is, only that it exists and does
+   * what the row says.
+   */
+  directorySource: string | null;
+  /**
    * A source that this organisation exists and does this in the chain, derived
    * from its verified maker rows rather than copied here.
    *
-   * The directory's own rows carry no sources and its grades are judgements,
-   * which is a real gap the page states. But where the coverage file has
-   * already verified that this company makes a covered material, that same URL
-   * establishes the factual half of the directory row too — so it is surfaced
-   * rather than researched twice, and it appears the moment a maker row is
-   * promoted. The GRADE is never sourced this way: no single page asserts how
-   * replaceable a company is.
+   * Where the coverage file has verified that this company makes a covered
+   * material, that same URL establishes the factual half of the directory row
+   * too — so it is surfaced rather than researched twice, and it appears the
+   * moment a maker row is promoted. Populated even when `directorySource`
+   * already covers the row: two independent citations for the same existence
+   * claim is strictly more than one.
    */
   existenceVerifiedBy: { url: string; bottleneck: string } | null;
 }
@@ -92,6 +105,29 @@ const LAYER_FOR_ROLE: Record<string, ChainLayer> = {
 };
 
 const BOTTLENECK_BY_NAME = new Map<string, Bottleneck>(BOTTLENECKS.map((b) => [b.name, b]));
+
+/**
+ * What a chain layer implies about technology/industry when a participant has
+ * no coverage-joined material to derive it from — the case for every
+ * actuation-layer company (Harmonic Drive Systems, Nabtesco, FANUC, Yaskawa,
+ * Renishaw, KUKA, ABB Robotics): none of them makes one of the fifteen
+ * covered MATERIALS, so `bottlenecks.flatMap(b => b.technologies)` below was
+ * always empty for them, and a company with empty `topics` cannot be found by
+ * any query, however exactly it names what the company does.
+ *
+ * Deliberately only the two layers whose name already names the technology.
+ * The compute-per-joule layers (extraction through systems) are left alone:
+ * COVERAGE already carries their technology tags via the material, and
+ * guessing a layer-wide technology for e.g. "conversion" would be an invented
+ * classification, not a derived one.
+ */
+const LAYER_TECHNOLOGY: Partial<Record<ChainLayer, TechnologyId[]>> = {
+  actuation: ['robotics'],
+  energy: ['energy'],
+};
+const LAYER_INDUSTRY: Partial<Record<ChainLayer, IndustryId[]>> = {
+  actuation: ['machinery'],
+};
 
 function build(): MarketParticipant[] {
   const byName = new Map<string, MarketParticipant>();
@@ -111,6 +147,7 @@ function build(): MarketParticipant[] {
       industries: [],
       inDirectory: true,
       hasVerifiedRow: false,
+      directorySource: person.source,
       existenceVerifiedBy: null,
     });
   }
@@ -133,6 +170,7 @@ function build(): MarketParticipant[] {
           industries: [],
           inDirectory: false,
           hasVerifiedRow: false,
+          directorySource: null,
           existenceVerifiedBy: null,
         };
         byName.set(producer.name, record);
@@ -163,8 +201,18 @@ function build(): MarketParticipant[] {
     const bottlenecks = record.produces
       .map((p) => BOTTLENECK_BY_NAME.get(p.bottleneck))
       .filter((b): b is Bottleneck => Boolean(b));
-    record.technologies = [...new Set(bottlenecks.flatMap((b) => b.technologies))];
-    record.industries = [...new Set(bottlenecks.flatMap((b) => b.industries))];
+    record.technologies = [
+      ...new Set([
+        ...bottlenecks.flatMap((b) => b.technologies),
+        ...(LAYER_TECHNOLOGY[record.layer] ?? []),
+      ]),
+    ];
+    record.industries = [
+      ...new Set([
+        ...bottlenecks.flatMap((b) => b.industries),
+        ...(LAYER_INDUSTRY[record.layer] ?? []),
+      ]),
+    ];
   }
 
   const LAYER_ORDER = new Map(CHAIN_LAYERS.map((layer, index) => [layer.id, index]));

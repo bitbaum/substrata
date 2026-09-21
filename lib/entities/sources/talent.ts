@@ -12,7 +12,7 @@ function talent(): Entity[] {
     evidence: 'project research need',
     sources: [],
     topics: ['talent'],
-    retrievalText: `Research contribution opportunity, not employment. ${r.what} ${r.why}`,
+    retrievalText: `Expertise this research project needs, not employment: ${r.title}. ${r.what} ${r.why}`,
   }));
 }
 

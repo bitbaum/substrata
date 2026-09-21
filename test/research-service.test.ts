@@ -38,6 +38,40 @@ test('questions retrieve relevant records across science, companies and talent',
   assert.ok(chatContext('Why does Niger matter?').some((d) => d.kind === 'country'));
   assert.deepEqual(chatContext('xyzzyunmatched'), []);
 });
+
+test('a broad topic question surfaces the actual chokepoints, not development-bank noise', () => {
+  // The exact question a reader asked in production, verbatim, that came back
+  // citing a thin "ABB Robotics" row plus a development bank, an energy-loan
+  // office and three country directory rows explicitly labelled "directory,
+  // not a finding" — none of which name an actuation or robotics chokepoint.
+  // Word-boundary scoring, document-frequency weighting and a relevance floor
+  // (`lib/research-index.ts`, `lib/chat.ts`) are what should keep this from
+  // recurring; this pins the fix rather than the exact ranking, which is free
+  // to change as the corpus grows.
+  const context = chatContext(
+    "what's the biggest bottleneck for development of Robotics and scaling of Robotics right now",
+  );
+  assert.ok(context.length > 0, 'the question should retrieve something');
+
+  // The specific noise from the reported bug: generic capital providers whose
+  // only connection to the question was a coincidentally shared word
+  // ("biggest", "development") in unrelated boilerplate.
+  const noise = ['European Investment Bank', 'Department of Energy Loan Programs Office', 'KfW'];
+  for (const name of noise) {
+    assert.ok(
+      !context.some((d) => d.title === name),
+      `${name} should not outrank actual robotics chokepoints`,
+    );
+  }
+
+  // At least one document actually about actuation/robotics — a chokepoint
+  // named for it, a company tagged for it, or the magnet-feed materials that
+  // gate it — has to be there, not just an incidental company name-match.
+  const onTopic = context.some(
+    (d) => d.kind === 'bottleneck' || d.topics.includes('robotics') || /robot/i.test(d.title),
+  );
+  assert.ok(onTopic, 'no actuation/robotics chokepoint or tagged record was retrieved');
+});
 test('an authenticated OIDC subject is usable without an optional profile email', () => {
   assert.equal(hasAuthenticatedSubject({ sub: 'actor-123' }), true);
   assert.equal(hasAuthenticatedSubject({ sub: '' }), false);

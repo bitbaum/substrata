@@ -23,12 +23,16 @@ function companies(): Entity[] {
     aka: aliasesOf((p as { aliases?: string[] }).aliases, p.name),
     href: marketHref(p.slug),
     summary: p.why ?? p.role ?? `An organisation recorded in the ${p.layer} layer.`,
-    evidence: p.existenceVerifiedBy
-      ? 'partly sourced; replaceability is a judgement'
-      : 'unverified',
-    sources: p.existenceVerifiedBy ? [p.existenceVerifiedBy.url] : [],
+    evidence:
+      p.directorySource || p.existenceVerifiedBy
+        ? 'partly sourced; replaceability is a judgement'
+        : 'unverified',
+    sources: [
+      ...(p.directorySource ? [p.directorySource] : []),
+      ...(p.existenceVerifiedBy ? [p.existenceVerifiedBy.url] : []),
+    ],
     topics: [...p.technologies, ...p.industries],
-    retrievalText: `Directory interpretation, not independently verified: ${p.role ?? ''} ${p.why ?? ''} Jurisdictions recorded: ${p.jurisdictions.join(' ')}. Mapped products: ${p.produces.map((x) => `${x.bottleneck} (${x.verification})`).join(', ')}. ${p.existenceVerifiedBy ? `The source establishes only that this organisation makes ${p.existenceVerifiedBy.bottleneck}; it does not establish market share, rank, revenue, or replaceability.` : ''}`,
+    retrievalText: `Directory interpretation, not independently verified: ${p.role ?? ''} ${p.why ?? ''} Jurisdictions recorded: ${p.jurisdictions.join(' ')}. Mapped products: ${p.produces.map((x) => `${x.bottleneck} (${x.verification})`).join(', ')}. ${p.directorySource ? `Source for this organisation's role in the chain: ${p.directorySource}.` : ''} ${p.existenceVerifiedBy ? `A separate source establishes that this organisation makes ${p.existenceVerifiedBy.bottleneck}.` : ''} Neither source establishes market share, rank, revenue, or replaceability — the scarcity grade above is this project's judgement, not a cited fact.`,
   }));
 }
 

@@ -844,42 +844,6 @@
     },
     {
       "material": "Electronic-grade polysilicon",
-      "producer": "REC Silicon",
-      "query": "\"REC Silicon\" polysilicon",
-      "checkedAt": "2026-09-15T13:30:32.623Z",
-      "status": "candidate",
-      "candidates": [
-        {
-          "url": "https://cen.acs.org/energy/solar-power/REC-Silicon-stop-polysilicon-production/103/web/2025/01",
-          "title": "REC Silicon to stop polysilicon production",
-          "excerpt": "REC Silicon to stop polysilicon production Advertisement Close Log in or create an account Access thousands of C&EN articles Get personalized recommendations Follow your preferred chemistry topics Save your favorite articles Log In",
-          "matched": [
-            "REC Silicon",
-            "polysilicon"
-          ]
-        },
-        {
-          "url": "https://www.pv-tech.org/rec-silicon-abandons-us-polysilicon-production-at-moses-lake/",
-          "title": "REC Silicon abandons US polysilicon production at Moses Lake- PV Tech",
-          "excerpt": "REC Silicon abandons US polysilicon production at Moses Lake- PV Tech Skip to content News REC Silicon abandons US polysilicon production at Moses Lake By Will Norman January 2, 2025 Manufacturing , Materials Americas Latest REPowe",
-          "matched": [
-            "REC Silicon",
-            "polysilicon"
-          ]
-        },
-        {
-          "url": "https://www.bernreuter.com/newsroom/polysilicon-news/article/how-hanwha-sabotaged-rec-silicon-s-granular-polysilicon-plant/",
-          "title": "How Hanwha sabotaged REC Silicon’s granular-polysilicon plant",
-          "excerpt": "How Hanwha sabotaged REC Silicon’s granular-polysilicon plant EN Newsroom Polysilicon News Article How Hanwha sabotaged REC Silicon’s granular-polysilicon plant September 08, 2025 Has Hanwha intentionally run the operations at REC Silicon’s polysilicon",
-          "matched": [
-            "REC Silicon",
-            "polysilicon"
-          ]
-        }
-      ]
-    },
-    {
-      "material": "Electronic-grade polysilicon",
       "producer": "Tokuyama",
       "query": "\"Tokuyama\" polysilicon",
       "status": "candidate",
@@ -979,8 +943,8 @@
     },
     {
       "material": "Gallium, refined",
-      "producer": "Chinalco",
-      "query": "\"Chinalco\" gallium",
+      "producer": "Chalco",
+      "query": "\"Chalco\" gallium",
       "checkedAt": "2026-09-15T13:30:49.845Z",
       "status": "candidate",
       "candidates": [
@@ -2652,46 +2616,6 @@
             "Wolfspeed",
             "silicon carbide",
             "power"
-          ]
-        }
-      ]
-    },
-    {
-      "material": "Two-phase dielectric immersion coolant",
-      "producer": "3M",
-      "query": "\"3M\" immersion cooling",
-      "checkedAt": "2026-09-15T13:31:30.732Z",
-      "status": "candidate",
-      "candidates": [
-        {
-          "url": "https://en.wikipedia.org/wiki/Fluorinert",
-          "title": "Fluorinert - Wikipedia",
-          "excerpt": "llowing it to be used in \"single-phase\" applications, where it remains a liquid, or for \"two-phase\" applications, where the liquid boils to remove additional heat by evaporative cooling . An example of one of the compounds 3M uses is FC-72 ( perfluorohexane , C 6 F 14 ). Perfluorohexane is used for low-temperature heat-transfer applications due to its 56 °C (133 °F) boiling point. Another example is FC-75 , perfluoro(2-butyl-tetrahydrofur",
-          "matched": [
-            "3M",
-            "cooling"
-          ]
-        },
-        {
-          "url": "https://www.youtube.com/watch?v=BH9_m7o_i-U",
-          "title": "3M Novec immersion-cooling - YouTube",
-          "excerpt": "3M Novec immersion-cooling - YouTube About Press Copyright Contact us Creators Advertise Developers Terms Privacy Policy & Safety How YouTube works Test new features &copy; 2026 Google L",
-          "matched": [
-            "3M",
-            "immersion cooling",
-            "immersion",
-            "cooling"
-          ]
-        },
-        {
-          "url": "https://aiworldjournal.com/ai-chip-cooling-systems-the-hidden-bottleneck-of-the-intelligence-era-3m-dielectric-fluids/",
-          "title": "AI Chip Cooling Systems: The Hidden Bottleneck of the Intelligence Era : 3M Dielectric Fluids - AI World Journal",
-          "excerpt": "AI Chip Cooling Systems: The Hidden Bottleneck of the Intelligence Era : 3M Dielectric Fluids - AI World Journal Skip to content As artificial intelligence models scale in size and capability, a less visible but critical challenge is shaping the future of computation: heat. The performance of m",
-          "matched": [
-            "3M",
-            "dielectric fluid",
-            "cooling",
-            "dielectric"
           ]
         }
       ]

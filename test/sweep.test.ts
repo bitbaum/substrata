@@ -119,3 +119,12 @@ test('the cron route refuses to run unconfigured or unauthenticated', () => {
   assert.ok(route.includes('503'), 'an unconfigured secret must refuse, not allow');
   assert.ok(!/export async function GET/.test(route), 'a sweep is not a GET');
 });
+
+test('the producer-sourcing cron route is guarded the same way', () => {
+  // Same engine class, same box mechanism, same gate — see lib/source-store.ts.
+  const route = readFileSync(new URL('../app/api/cron/source/route.ts', import.meta.url), 'utf8');
+  assert.ok(route.includes('CRON_SECRET'), 'the route must require the shared secret');
+  assert.ok(route.includes('401'), 'a wrong secret must be refused');
+  assert.ok(route.includes('503'), 'an unconfigured secret must refuse, not allow');
+  assert.ok(!/export async function GET/.test(route), 'a sourcing run is not a GET');
+});

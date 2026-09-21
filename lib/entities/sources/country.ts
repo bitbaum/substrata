@@ -34,7 +34,12 @@ function countries(): Entity[] {
       evidence: 'directory, not a finding',
       sources: [],
       topics: ['country', row.iso2, ...row.resources],
-      retrievalText: `${name} (${row.iso2.toUpperCase()}). ${row.why} Directory resources: ${row.resources.map(resourceLabel).join(', ') || 'none listed'}. Related bottlenecks named in the directory: ${row.relatedBottlenecks.join(', ') || 'none yet'}. ${RESOURCE_DIRECTORY_NOTE}`,
+      // "Directory cross-references" rather than "Related bottlenecks named in
+      // the directory": every one of ~180 country rows repeated the word
+      // "bottlenecks", which is exactly the kind of near-ubiquitous connector
+      // that outscored the actual bottleneck entities in search. The names
+      // that follow are the real cross-reference and stay.
+      retrievalText: `${name} (${row.iso2.toUpperCase()}). ${row.why} Directory resources: ${row.resources.map(resourceLabel).join(', ') || 'none listed'}. Directory cross-references: ${row.relatedBottlenecks.join(', ') || 'none yet'}. ${RESOURCE_DIRECTORY_NOTE}`,
     };
   });
 }

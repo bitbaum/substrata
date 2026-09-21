@@ -1,0 +1,116 @@
+# Scheduled research: run both CLI engines against a public search API and
+# open a draft PR with whatever they find.
+#
+# This is the SECOND leg of "done regularly", independent of the box-driven
+# one. `POST /api/cron/source` and `POST /api/cron/sweep` (see
+# `docs/IMPLEMENTATION-PLAN.md` → "Self-updating") need a systemd timer on
+# bitbaum, a migration applied by hand, and a registration in
+# `/opt/_appcron/run.sh` — none of which a GitHub-hosted runner can do or
+# reach. This workflow needs none of that: `research:source` and
+# `research:sweep` write straight into the git-tracked worklists
+# (`research/evidence.json`, `research/events.json`), which is exactly what
+# they already do when a person runs them by hand. All this adds is the
+# timer.
+#
+# ai-kit's `webSearch()` walks SearXNG, then Brave, then Tavily — the fleet's
+# SearXNG is loopback-only on bitbaum and unreachable from Actions, but a
+# Brave or Tavily key works from anywhere. Add one as a repository secret
+# (BRAVE_SEARCH_API_KEY or TAVILY_API_KEY) to turn this on; until then the
+# run skips cleanly rather than failing every night.
+#
+# Never pushes to main directly and never touches config/: a candidate is not
+# a finding, and promoting one to `sourced()` in
+# `config/substrata-coverage.ts` (or an event to `config/substrata-events.ts`)
+# stays a person reading the excerpt and writing the line themselves — this
+# workflow only widens the search. The PR it opens is a DRAFT, so the fleet's
+# auto-merge sweep leaves it alone: "a draft waits forever" is exactly right
+# for something nobody has read yet.
+
+name: Research sweep
+
+on:
+  schedule:
+    # Once a week. A tighter loop would spend a free-tier search quota fast
+    # for very little gain — the queue is a few dozen rows deep, not
+    # thousands — and `workflow_dispatch` covers an ad hoc larger run.
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Rows per engine (blank = a conservative default)'
+        required: false
+        default: '15'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: research-sweep
+  cancel-in-progress: false
+
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
+      - run: pnpm config set store-dir ~/.pnpm-store --global
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: '.nvmrc'
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Check a search backend is configured
+        id: backend
+        run: |
+          if [ -n "${{ secrets.BRAVE_SEARCH_API_KEY }}" ] || [ -n "${{ secrets.TAVILY_API_KEY }}" ]; then
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Neither BRAVE_SEARCH_API_KEY nor TAVILY_API_KEY is set — add one as a repository secret to turn this workflow on. Skipping."
+          fi
+
+      - name: Source producers
+        if: steps.backend.outputs.configured == 'true'
+        env:
+          BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+        run: pnpm research:source --limit "${{ github.event.inputs.limit || '15' }}"
+
+      - name: Sweep events
+        if: steps.backend.outputs.configured == 'true'
+        env:
+          BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+        run: pnpm research:sweep --limit "${{ github.event.inputs.limit || '15' }}"
+
+      - name: Open a draft PR with anything new
+        if: steps.backend.outputs.configured == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- research/evidence.json research/events.json; then
+            echo "Nothing new this run."
+            exit 0
+          fi
+
+          branch="research/scheduled-sweep-$(date -u +%Y-%m-%d)"
+          git checkout -b "$branch"
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add research/evidence.json research/events.json
+          git commit -m 'chore(research): scheduled sweep'
+          git push origin "$branch"
+
+          gh pr create \
+            --draft \
+            --title "Scheduled research sweep — $(date -u +%Y-%m-%d)" \
+            --body "Automated, from the weekly \`research-sweep\` workflow. Nothing here is a finding — every row in this diff is \`candidate\`, \`nothing\` or \`could_not_look\`, exactly what \`pnpm research:source\` and \`pnpm research:sweep\` always produce by hand. It never touches \`config/\`: promoting a candidate to \`sourced()\` (or an event to \`substrata-events.ts\`) is a person reading the excerpt and writing the line themselves. Left as a draft on purpose — the fleet's auto-merge sweep skips drafts, so this waits for someone to actually look." \
+            --base main \
+            --head "$branch"
