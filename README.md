@@ -34,16 +34,30 @@ built by one person with AI agents; the site says so.
 
 ## The portal
 
-Three menu groups and one action, because seven flat items was more than a
+Three menu groups and one action, because nine flat items was more than a
 reader could hold. Every destination carries a one-line description in the
 menu, so a reader chooses from what they will find rather than from a noun.
+The description is the page's own, so there is no second sentence to keep true.
 
 | Group | Routes |
 | --- | --- |
-| The map | `/bottlenecks` · `/markets` · `/policy` · `/science` |
-| Latest | `/` (Today) · `/events` · `/notes` |
-| About | `/about` · `/thesis` · `/research` · `/api/map` |
+| The map | `/atlas` · `/bottlenecks` · `/markets` · `/policy` · `/science` · `/capital` |
+| Latest | `/events` · `/notes` · `/changelog` |
+| About | `/about` · `/learn` · `/talent` · `/roadmap` |
 | Action | `/join` |
+
+Both breakpoints render from `NAV_GROUPS`, and both are `<details>`, so the
+menu opens without JavaScript. Wide: the three groups as dropdowns plus the
+action, on one row. Narrow: one panel, the full width of the shell, groups
+stacked, search at the top.
+
+This table went stale once and cost a redesign. `components/portal/Megamenu.tsx`
+was deleted in 7f59e09 and nothing here noticed: what shipped instead was nine
+flat uppercase links that wrapped onto two rows at 1440px and were hidden
+outright below 1100px, so a tablet got a lone "MENU" in an empty header and a
+phone got a dropdown anchored 22rem off the left edge of the screen. The
+grouping now lives in `config/site-nav.ts` with `test/nav.test.ts` holding it to
+this table, which is the part a README cannot do on its own.
 
 ```
 config/site-nav.ts              the navigation, as data — both menus render from it
@@ -57,7 +71,7 @@ lib/participants.ts             the markets join
 lib/notes.ts                    the listing layer over bip-kit
 lib/contribute.ts               a join page as a model — portable, see below
 lib/labels.ts                   the words the interface uses
-components/portal/Megamenu.tsx  grouped nav, no JavaScript in either breakpoint
+components/portal/PublicNav.tsx  the grouped nav, both breakpoints
 ```
 
 ## Notes
