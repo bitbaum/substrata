@@ -21,9 +21,9 @@ import { readPage, webSearch } from '@bitbaum/ai-kit/web';
  * 3. **Bounded.** One search, at most two pages read, short excerpts, tight
  *    timeouts. A question is not permission to crawl.
  *
- * Disabled unless `SEARXNG_URL` is set, and it degrades to "could not look"
- * rather than to silence, because "we did not look" and "we looked and found
- * nothing" are different answers.
+ * Disabled unless a search backend is configured, and it degrades to "could
+ * not look" rather than to silence, because "we did not look" and "we looked
+ * and found nothing" are different answers.
  */
 
 export interface WebFinding {
@@ -38,9 +38,22 @@ export type WebLookup =
   | { status: 'could_not_look' }
   | { status: 'found'; findings: WebFinding[] };
 
-/** Whether looking things up is configured at all. */
+/**
+ * Whether looking things up is configured at all.
+ *
+ * `webSearch()` itself walks THREE backends — SearXNG, then Brave, then
+ * Tavily — and this used to check only the first. A box running Brave or
+ * Tavily alone (no self-hosted SearXNG) had a fully working `lookUp()` behind
+ * a gate that reported it as off: the system prompt told the model "You have
+ * no tools", the corpus-only wall never opened, and the fix nobody could see
+ * was one environment variable this function forgot to read. Check every
+ * backend `webSearch` will actually try, or this reports "off" for a
+ * deployment that is not.
+ */
 export function webLookupEnabled(env: NodeJS.ProcessEnv = process.env): boolean {
-  return Boolean(env.SEARXNG_URL?.trim());
+  return Boolean(
+    env.SEARXNG_URL?.trim() || env.BRAVE_SEARCH_API_KEY?.trim() || env.TAVILY_API_KEY?.trim(),
+  );
 }
 
 const MAX_PAGES = 2;

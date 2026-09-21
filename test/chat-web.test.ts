@@ -22,6 +22,15 @@ test('looking up is off unless it is configured, and says which', () => {
   assert.equal(webLookupEnabled(env({ SEARXNG_URL: 'http://127.0.0.1:8899' })), true);
 });
 
+test('a Brave or Tavily key alone also counts — webSearch() will actually use it', () => {
+  // Regression: this used to check SEARXNG_URL only, so a box configured with
+  // just a Brave or Tavily key reported looking-up as off while `webSearch()`
+  // (which walks all three backends) would have worked fine.
+  assert.equal(webLookupEnabled(env({ BRAVE_SEARCH_API_KEY: 'x' })), true);
+  assert.equal(webLookupEnabled(env({ TAVILY_API_KEY: 'x' })), true);
+  assert.equal(webLookupEnabled(env({ BRAVE_SEARCH_API_KEY: '  ' })), false);
+});
+
 test('unconfigured reports "off", not "nothing"', async () => {
   // "We did not look" and "we looked and found nothing" are different answers,
   // and a reader is entitled to know which one they got.

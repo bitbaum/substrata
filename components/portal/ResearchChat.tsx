@@ -5,6 +5,14 @@ import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { CHAT_STARTERS } from '@/config/substrata-chat';
+import {
+  BYOK_PROVIDERS,
+  BYOK_PROVIDER_LABEL,
+  byokModelLabel,
+  type ByokConfig,
+  type ByokProvider,
+} from '@/lib/byok-shared';
+import { clearByok, loadByok, saveByok } from '@/lib/byok-store';
 import { Dictation } from './Dictation';
 
 type Source = {
@@ -54,6 +62,18 @@ export function ResearchChat({
     { id: 'auto', label: 'Auto' },
   ]);
   const [model, setModel] = useState('auto');
+  // The reader's own key, if they have set one. Read once on mount — never
+  // sent anywhere except as part of this component's own POST body, and never
+  // written back except through `saveByok`/`clearByok` below.
+  const [byok, setByok] = useState<ByokConfig | null>(() =>
+    typeof window === 'undefined' ? null : loadByok(),
+  );
+  const [byokOpen, setByokOpen] = useState(false);
+  const [byokDraft, setByokDraft] = useState<{
+    provider: ByokProvider;
+    apiKey: string;
+    model: string;
+  }>({ provider: 'openrouter', apiKey: '', model: '' });
   const [draft, setDraft] = useState('');
   const [turns, setTurns] = useState<Turn[]>([]);
   const [busy, setBusy] = useState(false);
@@ -79,6 +99,28 @@ export function ResearchChat({
       .catch(() => undefined);
   }, []);
 
+  function saveByokDraft() {
+    const config: ByokConfig = {
+      provider: byokDraft.provider,
+      apiKey: byokDraft.apiKey.trim(),
+      model: byokDraft.model.trim(),
+    };
+    if (config.apiKey.length < 8 || config.model.length < 1) {
+      setError('Enter a key and a model id.');
+      return;
+    }
+    saveByok(config);
+    setByok(config);
+    setByokDraft({ provider: config.provider, apiKey: '', model: '' });
+    setByokOpen(false);
+    setError('');
+  }
+
+  function removeByok() {
+    clearByok();
+    setByok(null);
+  }
+
   async function ask(question: string) {
     const text = question.trim();
     if (text.length < 3 || busy) return;
@@ -97,9 +139,14 @@ export function ResearchChat({
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           question: text,
+          // Sending 'auto' while byok is set would be ignored server-side
+          // anyway (a BYOK request supplies its own model), but the free
+          // model picker is hidden while byok is active, so this is always
+          // what the reader actually chose.
           model,
           history: history.slice(0, -1).map((t) => ({ role: t.role, content: t.content })),
           onPath,
+          ...(byok ? { byok } : {}),
         }),
         signal: abort.signal,
       });
@@ -189,16 +236,28 @@ export function ResearchChat({
           <div className="companion-empty">
             <p className="companion-kicker">
               Substrata ·{' '}
-              {ai === 'up'
-                ? 'assistant connected'
-                : ai === 'down'
-                  ? 'assistant unavailable'
-                  : 'checking assistant'}
+              {byok
+                ? `answering as ${byokModelLabel(byok)}`
+                : ai === 'up'
+                  ? 'assistant connected'
+                  : ai === 'down'
+                    ? 'assistant unavailable'
+                    : 'checking assistant'}
             </p>
             <h2>Ask the corpus.</h2>
             <p>
-              Same engine as Cat and Loki: <code>@bitbaum/ai-kit</code>. Answers come from sourced
-              rows, unverified leads, and judgements — labelled as such.
+              {byok ? (
+                <>
+                  Running on your own key, not the shared free tier. Same corpus, same citation
+                  rules — a numbered row is still the only thing that counts as a finding.
+                </>
+              ) : (
+                <>
+                  Same engine as Cat and Loki: <code>@bitbaum/ai-kit</code>. Answers come from
+                  sourced rows, unverified leads, and judgements — labelled as such. Have a frontier
+                  model key? Add it below the composer to skip the free tier entirely.
+                </>
+              )}
             </p>
             {!compact && (
               <div className="companion-starters">
@@ -390,16 +449,47 @@ export function ResearchChat({
                   }}
                 />
               </label>
-              <label className="companion-model">
-                <span className="sr-only">Model</span>
-                <select value={model} onChange={(e) => setModel(e.target.value)} disabled={busy}>
-                  {models.map((m) => (
-                    <option key={m.id} value={m.id}>
-                      {m.label}
-                    </option>
-                  ))}
-                </select>
-              </label>
+              {byok ? (
+                // A frontier model connected via the reader's own key replaces
+                // the free-tier picker rather than sitting beside it — the
+                // question the select answers ("which free model?") no longer
+                // applies once a specific paid one is chosen.
+                <button
+                  type="button"
+                  className="companion-byok-active"
+                  onClick={() => setByokOpen((v) => !v)}
+                  aria-expanded={byokOpen}
+                  title="Answering with your own key — click to change or remove it"
+                >
+                  <strong>{BYOK_PROVIDER_LABEL[byok.provider]}</strong>
+                  {` · ${byok.model}`}
+                </button>
+              ) : (
+                <>
+                  <label className="companion-model">
+                    <span className="sr-only">Model</span>
+                    <select
+                      value={model}
+                      onChange={(e) => setModel(e.target.value)}
+                      disabled={busy}
+                    >
+                      {models.map((m) => (
+                        <option key={m.id} value={m.id}>
+                          {m.label}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  <button
+                    type="button"
+                    className="companion-tool"
+                    onClick={() => setByokOpen((v) => !v)}
+                    aria-expanded={byokOpen}
+                  >
+                    Frontier key
+                  </button>
+                </>
+              )}
             </div>
             {busy ? (
               <button
@@ -416,6 +506,85 @@ export function ResearchChat({
             )}
           </div>
         </div>
+        {byokOpen && (
+          // Not a nested <form> — this composer is already one, and a <form>
+          // inside a <form> is invalid HTML that browsers resolve
+          // inconsistently. Every button below is explicitly type="button".
+          <div className="companion-byok" role="group" aria-label="Frontier model key">
+            {byok ? (
+              <>
+                <p>
+                  Answering with your own key: <strong>{byokModelLabel(byok)}</strong>.
+                </p>
+                <div className="companion-byok-actions">
+                  <button
+                    type="button"
+                    className="companion-byok-clear"
+                    onClick={() => {
+                      removeByok();
+                      setByokOpen(false);
+                    }}
+                  >
+                    Remove key and use the free tier
+                  </button>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="companion-byok-row">
+                  <select
+                    value={byokDraft.provider}
+                    onChange={(e) =>
+                      setByokDraft((d) => ({ ...d, provider: e.target.value as ByokProvider }))
+                    }
+                    aria-label="Provider"
+                  >
+                    {BYOK_PROVIDERS.map((p) => (
+                      <option key={p} value={p}>
+                        {BYOK_PROVIDER_LABEL[p]}
+                      </option>
+                    ))}
+                  </select>
+                  <input
+                    type="password"
+                    autoComplete="off"
+                    placeholder="API key"
+                    aria-label="API key"
+                    value={byokDraft.apiKey}
+                    onChange={(e) => setByokDraft((d) => ({ ...d, apiKey: e.target.value }))}
+                  />
+                  <input
+                    type="text"
+                    autoComplete="off"
+                    placeholder="Model id, e.g. gpt-5.1 or claude-opus-5"
+                    aria-label="Model id"
+                    value={byokDraft.model}
+                    onChange={(e) => setByokDraft((d) => ({ ...d, model: e.target.value }))}
+                  />
+                </div>
+                <div className="companion-byok-actions">
+                  <button type="button" onClick={saveByokDraft}>
+                    Use this key
+                  </button>
+                  <button
+                    type="button"
+                    className="companion-byok-clear"
+                    onClick={() => setByokOpen(false)}
+                  >
+                    Cancel
+                  </button>
+                </div>
+                <p className="companion-byok-note">
+                  Stored only in this browser — never on Substrata&apos;s servers — and sent
+                  straight to {BYOK_PROVIDER_LABEL[byokDraft.provider]} with each question. A
+                  frontier model answers with more room and less hedging than the free tier; the
+                  citation rules (a finding is a numbered row, everything else is labelled) are the
+                  same either way.
+                </p>
+              </>
+            )}
+          </div>
+        )}
         <p className="companion-aside">
           Have a source we should hold?{' '}
           <button
