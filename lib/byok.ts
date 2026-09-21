@@ -30,6 +30,7 @@
  * module has no opinion on that and no code path that could persist it even
  * by accident.
  */
+import Anthropic from '@anthropic-ai/sdk';
 import { complete, type ChatMessage, type Env, type Provider } from '@bitbaum/ai-kit';
 import { BYOK_PROVIDER_LABEL, ByokError, type ByokConfig } from './byok-shared';
 
@@ -107,7 +108,21 @@ async function completeOpenAiCompatible(
   }
 }
 
-/** Anthropic's Messages API — a different shape, called directly. */
+/**
+ * Anthropic's Messages API — a different shape from every other vendor in
+ * this file, so it goes through Anthropic's own SDK rather than being forced
+ * through `complete()` or hand-rolled against `fetch`.
+ *
+ * A hand-rolled client was the first version of this function, and it is
+ * exactly the pattern `@bitbaum/ai-kit`'s own `complete.ts` argues against
+ * for the OpenAI-shaped vendors: "the conventions differ because nothing
+ * ever offered to own them." Anthropic publishes the thing that owns this
+ * one — typed errors that already distinguish a bad key from a rate limit
+ * from an unrecognised model, a `timeout` option and a `signal` option that
+ * race correctly against each other, retry classification for transient
+ * failures. Re-deriving that by hand, for a single vendor, in one file, is
+ * the duplication ai-kit exists to avoid — just one level more specific.
+ */
 async function completeAnthropic(
   config: ByokConfig,
   messages: ChatMessage[],
@@ -118,68 +133,53 @@ async function completeAnthropic(
     .map((m) => textOf(m.content))
     .join('\n\n');
   const rest = messages
-    .filter((m) => m.role === 'user' || m.role === 'assistant')
+    .filter(
+      (m): m is ChatMessage & { role: 'user' | 'assistant' } =>
+        m.role === 'user' || m.role === 'assistant',
+    )
     .map((m) => ({ role: m.role, content: textOf(m.content) }));
 
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), opts.timeoutMs);
-  const onAbort = () => controller.abort();
-  opts.signal?.addEventListener('abort', onAbort);
+  // No retries: this is one link, not a chain the caller can fall through,
+  // and a failure should reach the reader as `ByokError` immediately rather
+  // than silently re-trying inside a budget the caller already timed.
+  const client = new Anthropic({ apiKey: config.apiKey, maxRetries: 0 });
 
-  let response: Response;
   try {
-    response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        'x-api-key': config.apiKey,
-        'anthropic-version': '2023-06-01',
-      },
-      body: JSON.stringify({
+    const response = await client.messages.create(
+      {
         model: config.model,
         max_tokens: opts.maxTokens,
         ...(system ? { system } : {}),
         messages: rest,
-      }),
-      signal: controller.signal,
-    });
-  } catch (err) {
-    const timedOut = err instanceof Error && err.name === 'AbortError';
-    throw new ByokError(
-      'anthropic',
-      timedOut
-        ? 'Anthropic did not answer in time.'
-        : `Could not reach Anthropic (${err instanceof Error ? err.message : String(err)}).`,
+      },
+      { timeout: opts.timeoutMs, signal: opts.signal },
     );
-  } finally {
-    clearTimeout(timer);
-    opts.signal?.removeEventListener('abort', onAbort);
+    const text = response.content
+      .filter((part): part is Anthropic.TextBlock => part.type === 'text')
+      .map((part) => part.text)
+      .join('');
+    if (!text) throw new ByokError('anthropic', 'Anthropic returned an empty reply.');
+    return { text };
+  } catch (err) {
+    if (err instanceof ByokError) throw err;
+    throw new ByokError('anthropic', anthropicErrorMessage(err, config.model));
   }
+}
 
-  const body = (await response.json().catch(() => null)) as {
-    content?: { type?: string; text?: string }[];
-    error?: { message?: string; type?: string };
-  } | null;
-
-  if (!response.ok) {
-    const detail = body?.error?.message ?? `HTTP ${response.status}`;
-    const message =
-      response.status === 401
-        ? 'Anthropic rejected that key.'
-        : response.status === 404
-          ? `Anthropic does not recognise the model "${config.model}".`
-          : response.status === 429
-            ? 'Anthropic is rate-limiting that key right now.'
-            : `Anthropic error: ${detail}`;
-    throw new ByokError('anthropic', message);
-  }
-
-  const text = (body?.content ?? [])
-    .filter((part) => part.type === 'text' && typeof part.text === 'string')
-    .map((part) => part.text as string)
-    .join('');
-  if (!text) throw new ByokError('anthropic', 'Anthropic returned an empty reply.');
-  return { text };
+/** One message per error kind the reader can actually act on; everything else is the SDK's own. */
+function anthropicErrorMessage(err: unknown, model: string): string {
+  if (err instanceof Anthropic.AuthenticationError) return 'Anthropic rejected that key.';
+  if (err instanceof Anthropic.NotFoundError)
+    return `Anthropic does not recognise the model "${model}".`;
+  if (err instanceof Anthropic.RateLimitError)
+    return 'Anthropic is rate-limiting that key right now.';
+  if (err instanceof Anthropic.APIConnectionTimeoutError)
+    return 'Anthropic did not answer in time.';
+  if (err instanceof Anthropic.APIUserAbortError) return 'Anthropic did not answer in time.';
+  if (err instanceof Anthropic.APIConnectionError)
+    return `Could not reach Anthropic (${err.message}).`;
+  if (err instanceof Anthropic.APIError) return `Anthropic error: ${err.message}`;
+  return err instanceof Error ? err.message : 'Anthropic call failed.';
 }
 
 /**
