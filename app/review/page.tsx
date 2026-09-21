@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { auth, isReviewer } from '@/lib/auth';
 import { database } from '@/lib/db';
 import { freshness, openCandidates, recordVerdict } from '@/lib/sweep-store';
+import { openSourceCandidates, recordSourceVerdict, sourceFreshness } from '@/lib/source-store';
 import { Page, Shell, SectionHeader, Empty, Heading } from '@/components/portal/Shell';
 
 export const dynamic = 'force-dynamic';
@@ -34,6 +35,19 @@ async function decide(form: FormData) {
   revalidatePath('/review');
 }
 
+/** Same shape as `decide`, for the producer-sourcing queue rather than the event sweep's. */
+async function decideSource(form: FormData) {
+  'use server';
+  const session = await auth();
+  if (!isReviewer(session?.actorId)) throw new Error('Not a reviewer');
+  const id = form.get('id');
+  const verdict = form.get('verdict');
+  if (typeof id !== 'string') throw new Error('No candidate named');
+  if (verdict !== 'accepted' && verdict !== 'rejected') throw new Error('Unknown verdict');
+  await recordSourceVerdict(id, verdict, session!.actorId!);
+  revalidatePath('/review');
+}
+
 /** A lead is only as useful as its source, so the host is shown next to the link. */
 function hostOf(url: string): string {
   try {
@@ -53,9 +67,11 @@ export default async function ReviewPage() {
   // Each half of this page fails on its own. A dead sweep table must not take
   // down the contributions inbox, and vice versa: a review page that 500s is a
   // review page nobody opens.
-  const [leads, fresh, contributions] = await Promise.all([
+  const [leads, fresh, sourceLeads, sourceFresh, contributions] = await Promise.all([
     openCandidates().catch(() => null),
     freshness().catch(() => null),
+    openSourceCandidates().catch(() => null),
+    sourceFreshness().catch(() => null),
     database()
       .query<{
         id: string;
@@ -76,14 +92,18 @@ export default async function ReviewPage() {
       <Page>
         <SectionHeader
           title="Review"
-          lede="Private. Two feeds arrive here: leads the scheduled sweep found, and contributions people sent in. Deciding a lead here does not publish it — the corpus is files in git, and a row reaches a page when a person commits it."
+          lede="Private. Three feeds arrive here: event leads from the scheduled sweep, candidate sources from the scheduled producer-sourcing run, and contributions people sent in. Deciding something here does not publish it — the corpus is files in git, and a row reaches a page when a person commits it."
           stats={[
-            { label: 'Open leads', value: leads?.length ?? 0 },
+            { label: 'Open event leads', value: leads?.length ?? 0 },
             {
               label: 'Nodes swept',
               value: fresh ? `${fresh.nodesCovered}/${fresh.nodesTotal}` : '—',
             },
-            { label: 'Could not look', value: fresh?.blind ?? 0 },
+            { label: 'Open source candidates', value: sourceLeads?.length ?? 0 },
+            {
+              label: 'Producer rows checked',
+              value: sourceFresh ? `${sourceFresh.rowsCovered}/${sourceFresh.rowsTotal}` : '—',
+            },
           ]}
         />
 
@@ -125,6 +145,53 @@ export default async function ReviewPage() {
                   </button>
                   <button className="research-button-ghost" name="verdict" value="rejected">
                     Not an event
+                  </button>
+                </form>
+              </li>
+            ))}
+          </ol>
+        )}
+
+        <Heading title="Candidates from producer sourcing" />
+        {/* Same distinction as the sweep above: a row the engine could not
+            look at is not a row where nothing was found. */}
+        <p className="research-kicker">
+          {sourceFresh?.lastRunAt
+            ? `The sourcing run last finished at ${sourceFresh.lastRunAt.slice(0, 16).replace('T', ' ')} UTC.`
+            : 'The sourcing run has no completed run on record.'}
+        </p>
+
+        {sourceLeads === null ? (
+          <Empty
+            what="The candidate queue could not be read."
+            next="The sourcing database is unreachable."
+          />
+        ) : sourceLeads.length === 0 ? (
+          <Empty
+            what="No candidates waiting."
+            next="The scheduled run checks a handful of unsourced producer rows each time it fires."
+          />
+        ) : (
+          <ol className="research-results">
+            {sourceLeads.map((lead) => (
+              <li key={lead.id}>
+                <p className="research-kicker">
+                  {lead.producer} · {lead.material} · {hostOf(lead.url)}
+                </p>
+                <h2>
+                  <a href={lead.url} target="_blank" rel="noreferrer noopener">
+                    {lead.title || lead.url}
+                  </a>
+                </h2>
+                <p>{lead.excerpt}</p>
+                <p className="research-kicker">Matched: {lead.matched}</p>
+                <form action={decideSource} className="mt-3 flex flex-wrap gap-2">
+                  <input type="hidden" name="id" value={lead.id} />
+                  <button className="research-button" name="verdict" value="accepted">
+                    Worth promoting
+                  </button>
+                  <button className="research-button-ghost" name="verdict" value="rejected">
+                    Not a source
                   </button>
                 </form>
               </li>

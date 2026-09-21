@@ -16,7 +16,14 @@
  * What it does not do: flip a row to "sourced". The coverage file is the
  * project's claim and a person promotes a candidate by reading the excerpt and
  * attaching the URL there. The engine narrows the search; it does not lower the
- * bar.
+ * bar. The judgement itself — the query, the domain-ranking, the excerpt match
+ * — lives in `lib/source.ts`, shared with the scheduled run
+ * (`app/api/cron/source`) for the same reason `lib/sweep.ts` is shared with
+ * the event sweep's: a second copy of "what counts as a match" living in an
+ * API route is how the timer and this CLI would quietly stop agreeing. This
+ * file keeps what is genuinely its own: argument parsing, the evidence FILE
+ * (the timer writes to a database queue instead — see `lib/source-store.ts`
+ * for why), and the blindness-streak guard below.
  *
  * ---------------------------------------------------------------------------
  * THE BUG THIS FILE ALREADY HAD, AND THE GUARD THAT NOW PREVENTS IT
@@ -48,13 +55,10 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { webSearch, readPage, type WebResult } from '@bitbaum/ai-kit/web';
 
-import { COVERAGE } from '../../config/substrata-coverage';
-import { MATERIALS } from '../../config/substrata';
+import { examineRow, unsourcedRows } from '../../lib/source';
 import {
   evidenceKey,
-  type EvidenceCandidate,
   type EvidenceFile,
   type EvidenceRow,
   type EvidenceStatus,
@@ -63,21 +67,6 @@ import {
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const EVIDENCE_PATH = path.resolve(HERE, '../../research/evidence.json');
 
-/**
- * Results considered per row, and how many get read.
- *
- * Every one of the 131 candidates the first run accepted came from the
- * company's OWN website — not one from a news site, an aggregator or an
- * encyclopaedia. For a generic trade term the first few results are news and
- * market-report spam, so reading only three meant never reaching the page that
- * actually answers the question.
- */
-const RESULTS_PER_ROW = 10;
-const PAGES_PER_ROW = 8;
-/** Enough excerpts for a person to judge; more is noise. */
-const MAX_CANDIDATES_PER_ROW = 3;
-/** Excerpt window either side of the company-name match, in characters. */
-const EXCERPT_RADIUS = 220;
 /** Sequential, with a pause: the SearXNG instance is shared and the sites are not ours. */
 const PAUSE_BETWEEN_ROWS_MS = 2500;
 /** Consecutive empty searches before we conclude we are blind rather than alone. */
@@ -101,188 +90,6 @@ function parseArgs(argv: string[]): Args {
   return args;
 }
 
-function listingFor(material: string) {
-  const listing = MATERIALS.find((m) => m.title === material);
-  if (!listing) throw new Error(`"${material}" is not in the catalogue`);
-  return listing;
-}
-
-/**
- * Text as it should be compared: lowercase, no diacritics, and every kind of
- * dash collapsed to a space. Pages write "Sibanye Stillwater",
- * "Sibanye-Stillwater" and "Sibanye‑Stillwater" (non-breaking hyphen) for the
- * same company, and an exact `indexOf` misses two of the three.
- */
-function normalise(text: string): string {
-  return text
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
-    .replace(/[-–—‑_/]+/g, ' ')
-    .replace(/\s+/g, ' ');
-}
-
-/** Terms that count as "the material" on a page. */
-function materialTerms(material: string): string[] {
-  const listing = listingFor(material);
-  const terms = new Set<string>([listing.search, ...(listing.searchAlso ?? []), ...listing.tags]);
-  return [...terms].map(normalise).filter((t) => t.length > 2);
-}
-
-/** Every name a company might be written under: the row's name plus its aliases. */
-function namesFor(producer: { name: string; aliases?: string[] }): string[] {
-  return [producer.name, ...(producer.aliases ?? [])];
-}
-
-/** The query: the company, quoted, plus what the trade calls the material. */
-function queryFor(producerName: string, material: string): string {
-  return `"${producerName}" ${listingFor(material).search}`;
-}
-
-/** The part of a company name that appears in prose ("PT Timah" → "Timah"). */
-function nameStem(producer: string): string {
-  const stripped = producer
-    .replace(
-      /\b(PT|AG|SA|SE|NV|Inc\.?|Corp\.?|Corporation|Ltd\.?|Co\.?|GmbH|Group|Holdings)\b/gi,
-      ' ',
-    )
-    .replace(/\s+/g, ' ')
-    .trim();
-  return stripped.length >= 4 ? stripped : producer;
-}
-
-/** Words in a hostname that say nothing about which company owns it. */
-const GENERIC_NAME_WORDS = new Set([
-  'the',
-  'and',
-  'group',
-  'company',
-  'corporation',
-  'corp',
-  'inc',
-  'ltd',
-  'limited',
-  'holdings',
-  'international',
-  'industries',
-  'materials',
-  'metals',
-  'resources',
-  'technologies',
-  'energy',
-  'steel',
-  'chemical',
-  'chemicals',
-  'precious',
-  'rare',
-]);
-
-/**
- * Does this URL belong to the company itself?
- *
- * Worth asking because 100% of the candidates the first run accepted were on a
- * company-owned domain, which makes search-result order the wrong order to read
- * in. This puts `airliquide.com` ahead of a news article about Air Liquide
- * without needing to know the domain in advance.
- */
-function looksLikeOwnDomain(url: string, names: string[]): boolean {
-  let host: string;
-  try {
-    host = new URL(url).hostname.toLowerCase().replace(/^www\./, '');
-  } catch {
-    return false;
-  }
-  const flat = host.replace(/[^a-z0-9]/g, '');
-  return names.some((name) =>
-    normalise(name)
-      .split(' ')
-      .filter((token) => token.length > 2 && !GENERIC_NAME_WORDS.has(token))
-      .some((token) => flat.includes(token)),
-  );
-}
-
-/** Search results ordered so the company's own pages are read first. */
-function readOrder(results: WebResult[], names: string[]): WebResult[] {
-  const own = results.filter((r) => looksLikeOwnDomain(r.url, names));
-  return [...own, ...results.filter((r) => !own.includes(r))];
-}
-
-/**
- * A page is a candidate only where a company name and a material term sit in
- * the SAME window of text. A name in the header and the material in the footer
- * is a page about both things, not a page that connects them — and the excerpt
- * filed is the passage a person will actually read, so it has to be the one
- * that makes the connection.
- */
-function matchOnPage(text: string, names: string[], material: string): EvidenceCandidate | null {
-  const haystack = normalise(text);
-  const terms = materialTerms(material);
-
-  for (const name of names) {
-    const stem = nameStem(name);
-    const needle = normalise(stem);
-    let at = haystack.indexOf(needle);
-    while (at >= 0) {
-      const start = Math.max(0, at - EXCERPT_RADIUS);
-      const end = Math.min(haystack.length, at + needle.length + EXCERPT_RADIUS);
-      const window = haystack.slice(start, end);
-      const matched = terms.filter((term) => window.includes(term));
-      if (matched.length > 0) {
-        // Slice the ORIGINAL text at the same offsets: normalise preserves
-        // length, so the excerpt a person reads keeps its real punctuation.
-        const excerpt = text.slice(start, end).replace(/\s+/g, ' ').trim();
-        return { url: '', title: '', excerpt, matched: [stem, ...matched] };
-      }
-      at = haystack.indexOf(needle, at + needle.length);
-    }
-  }
-  return null;
-}
-
-interface Examined {
-  row: EvidenceRow;
-  /** True when the search itself came back empty — which may mean blindness. */
-  searchWasEmpty: boolean;
-}
-
-async function examine(
-  producer: { name: string; aliases?: string[] },
-  material: string,
-): Promise<Examined> {
-  const names = namesFor(producer);
-  const query = queryFor(producer.name, material);
-  const checkedAt = new Date().toISOString();
-  const base = { material, producer: producer.name, query, checkedAt };
-
-  const search = await webSearch(query, { limit: RESULTS_PER_ROW, timeoutMs: 15_000 });
-
-  if (search.status === 'could_not_look') {
-    return {
-      row: { ...base, status: 'could_not_look', candidates: [] },
-      searchWasEmpty: false,
-    };
-  }
-  if (search.status === 'nothing') {
-    // Recorded as nothing for now; the caller decides whether a RUN of these
-    // means the backend went dark, in which case the row is rewritten.
-    return { row: { ...base, status: 'nothing', candidates: [] }, searchWasEmpty: true };
-  }
-
-  const candidates: EvidenceCandidate[] = [];
-  for (const result of readOrder(search.results, names).slice(0, PAGES_PER_ROW)) {
-    const page = await readPage(result.url, { timeoutMs: 15_000, maxChars: 60_000 });
-    if (!page.ok) continue;
-    const match = matchOnPage(page.text, names, material);
-    if (match) {
-      candidates.push({ ...match, url: page.url, title: page.title || result.title });
-      if (candidates.length >= MAX_CANDIDATES_PER_ROW) break;
-    }
-  }
-
-  const status: EvidenceStatus = candidates.length > 0 ? 'candidate' : 'nothing';
-  return { row: { ...base, status, candidates }, searchWasEmpty: false };
-}
-
 async function loadEvidence(): Promise<EvidenceFile> {
   const raw = JSON.parse(await readFile(EVIDENCE_PATH, 'utf8')) as EvidenceFile;
   if (raw.version !== 1)
@@ -304,13 +111,12 @@ async function main(): Promise<void> {
   const evidence = await loadEvidence();
   const examined = new Set(evidence.rows.map((row) => evidenceKey(row.material, row.producer)));
 
-  const queue = COVERAGE.flatMap((entry) =>
-    entry.producers
-      .filter((p) => p.source === null)
-      .filter(() => args.material === null || entry.material === args.material)
-      .filter((p) => args.all || !examined.has(evidenceKey(entry.material, p.name)))
-      .map((p) => ({ material: entry.material, producer: p })),
-  ).slice(0, args.limit ?? undefined);
+  const queue = unsourcedRows()
+    .filter(({ material }) => args.material === null || material === args.material)
+    .filter(
+      ({ material, producer }) => args.all || !examined.has(evidenceKey(material, producer.name)),
+    )
+    .slice(0, args.limit ?? undefined);
 
   if (queue.length === 0) {
     console.log('Nothing to examine: every unverified row already has an entry (use --all).');
@@ -355,7 +161,7 @@ async function main(): Promise<void> {
   };
 
   for (const [index, item] of queue.entries()) {
-    const { row, searchWasEmpty } = await examine(item.producer, item.material);
+    const { row, searchWasEmpty } = await examineRow(item.producer, item.material);
 
     if (searchWasEmpty) {
       emptyStreak += 1;
