@@ -175,6 +175,25 @@ function p(
   return { name, layer, jurisdictions, role, scarcity, why, source: null };
 }
 
+/**
+ * A row an analyst has confirmed: the source is the organisation's own page
+ * (or an equally direct filing or trade-press account) stating this role.
+ * Same discipline as `sourced()` in `substrata-coverage.ts` — the scarcity
+ * grade is still a judgement, never claimed as sourced by this; only the
+ * name, layer, jurisdiction and role are.
+ */
+function s(
+  name: string,
+  layer: ChainLayer,
+  jurisdictions: string[],
+  role: string,
+  scarcity: ScarcityGrade,
+  why: string,
+  source: string,
+): Participant {
+  return { name, layer, jurisdictions, role, scarcity, why, source };
+}
+
 // =====================================================================
 // THE DIRECTORY
 // =====================================================================
@@ -555,457 +574,512 @@ export const PARTICIPANTS: readonly Participant[] = [
   ),
 
   // ---------------- Equipment & consumables ----------------
-  p(
+  s(
     'ASML',
     'equipment',
     ['NL'],
     'EUV and DUV lithography systems',
     'chokepoint',
     'One company on earth builds EUV, the queue runs to years, and no second source is in progress.',
+    'https://www.asml.com/en/products',
   ),
-  p(
+  s(
     'Carl Zeiss SMT',
     'equipment',
     ['DE'],
     'EUV projection optics',
     'chokepoint',
     'A chokepoint inside a chokepoint: the mirrors are polished to a tolerance one supplier has ever achieved.',
+    'https://www.zeiss.com/semiconductor-manufacturing-technology/products.html',
   ),
-  p(
+  s(
     'Trumpf',
     'equipment',
     ['DE'],
     'EUV plasma-source lasers',
     'chokepoint',
     'The drive laser is as single-sourced as the scanner it sits inside.',
+    'https://www.trumpf.com/en_US/products/lasers/euv-drive-laser/',
   ),
-  p(
+  s(
     'Applied Materials',
     'equipment',
     ['US'],
     'Deposition, etch and process tools',
     'concentrated',
     'Broadest tool portfolio, with several steps where it is effectively the only qualified option.',
+    'https://ir.appliedmaterials.com/news-releases/news-release-details/applied-materials-ranked-number-one-etch-supplier',
   ),
-  p(
+  s(
     'Lam Research',
     'equipment',
     ['US'],
     'Etch and deposition',
     'concentrated',
     'High-aspect-ratio etch for 3D memory is a narrow specialism.',
+    'https://www.lamresearch.com/products/',
   ),
-  p(
+  s(
     'Tokyo Electron',
     'equipment',
     ['JP'],
     'Coaters, developers, etch',
     'concentrated',
     'Track systems pair with lithography and are qualified alongside it.',
+    'https://www.tel.com/product/',
   ),
-  p(
+  s(
     'KLA',
     'equipment',
     ['US'],
     'Process control and metrology',
     'concentrated',
     'You cannot yield what you cannot measure, and few can measure at this scale.',
+    'https://www.kla.com/products/oem/process-control',
   ),
-  p(
+  s(
     'ASM International',
     'equipment',
     ['NL'],
     'Atomic layer deposition',
     'concentrated',
     'ALD became unavoidable as devices went vertical, on a short supplier list.',
+    'https://www.asm.com/our-technology-products/ald',
   ),
-  p(
+  s(
     'JSR',
     'equipment',
     ['JP'],
     'Photoresists',
     'chokepoint',
     'Resist chemistry is qualified per process per fab; substituting one is a programme, not a purchase.',
+    'https://www.jsr.co.jp/jsr_e/products/em/',
   ),
-  p(
+  s(
     'Tokyo Ohka Kogyo',
     'equipment',
     ['JP'],
     'Photoresists and process chemicals',
     'chokepoint',
     'The same Japanese concentration that made resist an export-control talking point.',
+    'https://www.tok-pr.com/en/products/photoresist.html',
   ),
-  p(
+  s(
     'Shin-Etsu Chemical',
     'equipment',
     ['JP'],
     'Photoresists, masks and silicones',
     'chokepoint',
     'Present at several narrow points of this chain simultaneously.',
+    'https://www.shinetsu.co.jp/en/products/electronics-materials/photomask-blanks/',
   ),
-  p(
+  s(
     'Nikon',
     'equipment',
     ['JP'],
     'Lithography systems',
     'competitive',
     'Credible in mature-node lithography, and not a factor at the leading edge — which is what "competitive" means here.',
+    'https://www.nikon.com/products/semi/',
   ),
-  p(
+  s(
     'Canon',
     'equipment',
     ['JP'],
     'Lithography and nanoimprint',
     'competitive',
     'An alternative path that has not yet displaced anything at volume.',
+    'https://global.canon/en/product/indtech/semicon/',
   ),
 
   // ---------------- Fabrication ----------------
-  p(
+  s(
     'TSMC',
     'fabrication',
     ['TW'],
     'Leading-edge foundry',
     'chokepoint',
     'A handful of fabs can run the newest node at volume, and one of them runs most of it.',
+    'https://www.tsmc.com/english/dedicatedFoundry/technology/logic',
   ),
-  p(
+  s(
     'Samsung Foundry',
     'fabrication',
     ['KR'],
     'Leading-edge foundry and memory',
     'concentrated',
     'The only other merchant foundry credibly at the leading edge.',
+    'https://semiconductor.samsung.com/foundry/process-technology/',
   ),
-  p(
+  s(
     'Intel Foundry',
     'fabrication',
     ['US', 'IE', 'IL'],
     'Leading-edge foundry',
     'concentrated',
     'The main non-Asian leading-edge option, and the reason several policy programmes exist.',
+    'https://www.intel.com/content/www/us/en/foundry/process.html',
   ),
-  p(
+  s(
     'SMIC',
     'fabrication',
     ['CN'],
     'Foundry',
     'concentrated',
     'Domestic Chinese capacity operating under equipment restrictions — the constraint is imported, not technical.',
+    'https://www.smics.com/en/',
   ),
-  p(
+  s(
     'GlobalFoundries',
     'fabrication',
     ['US', 'DE', 'SG'],
     'Mature and specialty nodes',
     'competitive',
     'Mature-node capacity is genuinely contested, which is exactly why it is not where the chain binds.',
+    'https://gf.com/technology-platforms/',
   ),
-  p(
+  s(
     'UMC',
     'fabrication',
     ['TW'],
     'Mature-node foundry',
     'competitive',
     'Same: plenty of credible suppliers at these nodes.',
+    'https://www.umc.com/en/Product/technologies/Index/logic',
   ),
 
   // ---------------- Packaging & memory ----------------
-  p(
+  s(
     'TSMC Advanced Packaging',
     'packaging',
     ['TW'],
     'CoWoS-class packaging',
     'chokepoint',
     'Accelerator output is gated by packaging slots, not wafer starts, and they are allocated years ahead.',
+    'https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/cowos.htm',
   ),
-  p(
+  s(
     'ASE Technology',
     'packaging',
     ['TW'],
     'Assembly and test',
     'concentrated',
     'The largest OSAT, moving up into advanced packaging as demand overflows.',
+    'https://ase.aseglobal.com/test-services/',
   ),
-  p(
+  s(
     'Amkor',
     'packaging',
     ['US', 'KR'],
     'Assembly and test',
     'concentrated',
     'The main non-Taiwanese OSAT of scale, and a policy favourite for that reason.',
+    'https://amkor.com/test-services/',
   ),
-  p(
+  s(
     'SK hynix',
     'packaging',
     ['KR'],
     'High-bandwidth memory',
     'chokepoint',
     'HBM stacking yield is knowledge that does not transfer when a competitor buys the same equipment.',
+    'https://product.skhynix.com/products/dram/hbm/hbm3.go?appTypCd=APX01&treeNo=1109',
   ),
-  p(
+  s(
     'Micron',
     'packaging',
     ['US', 'JP', 'SG'],
     'High-bandwidth memory',
     'concentrated',
     'One of three, and the only one headquartered outside Korea.',
+    'https://www.micron.com/products/memory/hbm',
   ),
-  p(
+  s(
     'Samsung Memory',
     'packaging',
     ['KR'],
     'High-bandwidth memory',
     'concentrated',
     'Enormous capacity, with qualification at the top of the HBM range a separate question from volume.',
+    'https://semiconductor.samsung.com/dram/hbm/',
   ),
 
   // ---------------- Systems & silicon ----------------
-  p(
+  s(
     'NVIDIA',
     'systems',
     ['US'],
     'Accelerators and interconnect',
     'chokepoint',
     'The constraint is not only silicon: the software estate around it is what makes substitution slow even where alternatives exist.',
+    'https://www.nvidia.com/en-us/data-center/products/',
   ),
-  p(
+  s(
     'AMD',
     'systems',
     ['US'],
     'Accelerators and CPUs',
     'concentrated',
     'The credible merchant alternative, gated by the same packaging and memory as everyone else.',
+    'https://www.amd.com/en/products/accelerators/instinct/mi300.html',
   ),
-  p(
+  s(
     'Broadcom',
     'systems',
     ['US'],
     'Custom accelerators and networking silicon',
     'concentrated',
     'Most large in-house accelerator programmes run through a very short list of design partners.',
+    'https://www.broadcom.com/products/custom-silicon/asics',
   ),
-  p(
+  s(
     'Marvell',
     'systems',
     ['US'],
     'Custom silicon, optics and interconnect',
     'concentrated',
     'The other name on that short list.',
+    'https://www.marvell.com/solutions/data-center/optical-dsp.html',
   ),
-  p(
+  s(
     'Vertiv',
     'systems',
     ['US'],
     'Datacentre power and thermal systems',
     'concentrated',
     'Rack-level power and cooling became a constraint the moment density outran air.',
+    'https://www.vertiv.com/en-us/products/thermal-management/cooling/',
   ),
-  p(
+  s(
     'Arista Networks',
     'systems',
     ['US'],
     'Datacentre networking',
     'competitive',
     'Several credible suppliers of high-speed switching, and merchant silicon underneath most of them.',
+    'https://www.arista.com/en/products',
   ),
-  p(
+  s(
     'Supermicro',
     'systems',
     ['US', 'TW'],
     'Server systems integration',
     'competitive',
     'Integration capacity is contested; the parts going into it are not.',
+    'https://www.supermicro.com/en/solutions/ai-deep-learning',
   ),
 
   // ---------------- Energy & grid ----------------
-  p(
+  s(
     'Hitachi Energy',
     'energy',
     ['CH', 'JP'],
     'Transformers, HVDC, grid equipment',
     'chokepoint',
     'Large power transformers run to multi-year lead times, and a datacentre cannot be energised without one.',
+    'https://www.hitachienergy.com/us/en/products-and-solutions/transformers/power-transformers',
   ),
-  p(
+  s(
     'Siemens Energy',
     'energy',
     ['DE'],
     'Grid equipment and turbines',
     'chokepoint',
     'Order books for both halves of the energisation problem are effectively spoken for.',
+    'https://www.siemens-energy.com/global/en/home/products-services/product-offerings/gas-turbines.html',
   ),
-  p(
+  s(
     'GE Vernova',
     'energy',
     ['US'],
     'Gas turbines and grid equipment',
     'chokepoint',
     'The fastest route to firm power at scale, sold out well into the future.',
+    'https://www.gevernova.com/gas-power/products/gas-turbines',
   ),
-  p(
+  s(
     'Prysmian',
     'energy',
     ['IT'],
     'High-voltage cable',
     'concentrated',
     'The unglamorous half of energisation, with the same inability to answer a demand shock quickly.',
+    'https://www.prysmian.com/en',
   ),
-  p(
+  s(
     'NKT',
     'energy',
     ['DK'],
     'High-voltage cable',
     'concentrated',
     'A short list of firms able to make and lay HV cable at all.',
+    'https://www.nkt.us/products-solutions/high-voltage-cable-solutions',
   ),
-  p(
+  s(
     'Schneider Electric',
     'energy',
     ['FR'],
     'Electrical distribution and datacentre power',
     'concentrated',
     'Switchgear and distribution have deepened into a constraint alongside transformers.',
+    'https://www.se.com/us/en/work/products/critical-power-cooling-and-racks/',
   ),
-  p(
+  s(
     'ABB',
     'energy',
     ['CH'],
     'Electrification and drives',
     'concentrated',
     'Present on both the power and the motion side of this chain.',
+    'https://www.abb.com/global/en/areas/motion/drives',
   ),
-  p(
+  s(
     'Mitsubishi Electric',
     'energy',
     ['JP'],
     'Transformers and power electronics',
     'concentrated',
     'One of the few transformer makers with capacity outside Europe and the US.',
+    'https://www.mitsubishielectric.com/eig/energysystems/products/transmission/transformers/',
   ),
 
   // ---------------- Actuation & robotics ----------------
-  p(
+  s(
     'Harmonic Drive Systems',
     'actuation',
     ['JP'],
     'Strain-wave reduction gears',
     'chokepoint',
     'Precision drives set what a robot joint can do, and the tolerances are decades of accumulated practice.',
+    'https://www.harmonicdrive.net/technology/harmonicdrive',
   ),
-  p(
+  s(
     'Nabtesco',
     'actuation',
     ['JP'],
     'Cycloidal reduction gears',
     'chokepoint',
     'The other half of a duopoly that quietly gates humanoid and industrial robotics alike.',
+    'https://precision.nabtesco.com/en/products/',
   ),
-  p(
+  s(
     'FANUC',
     'actuation',
     ['JP'],
     'Industrial robots and CNC',
     'concentrated',
     'Vertically integrated down to its own drives and controls, which is itself the moat.',
+    'https://www.fanucamerica.com/products',
   ),
-  p(
+  s(
     'Yaskawa',
     'actuation',
     ['JP'],
     'Servo motors and robots',
     'concentrated',
     'Servo and drive expertise that new entrants consistently underestimate.',
+    'https://www.yaskawa-global.com/product/robotics',
   ),
-  p(
+  s(
     'ABB Robotics',
     'actuation',
     ['CH', 'SE'],
     'Industrial robots',
     'concentrated',
     'One of a small number of full-line robot makers worldwide.',
+    'https://www.abb.com/global/en/areas/robotics/products/robots',
   ),
-  p(
+  s(
     'Renishaw',
     'actuation',
     ['GB'],
     'Encoders and metrology',
     'concentrated',
     'Closing the control loop precisely is a narrow specialism.',
+    'https://www.renishaw.com/en/encoders-for-position-and-motion-control--6331',
   ),
-  p(
+  s(
     'KUKA',
     'actuation',
     ['DE', 'CN'],
     'Industrial robots',
     'competitive',
     'Robot assembly is contested; the drives inside are where the scarcity sits.',
+    'https://www.kuka.com/en-us/products/robotics-systems/industrial-robots',
   ),
 
   // ---------------- Deployment & demand ----------------
-  p(
+  s(
     'Microsoft',
     'deployment',
     ['US'],
     'Hyperscale compute buyer',
     'concentrated',
     'On the demand side the grade reads the other way: a handful of buyers account for most of the world’s accelerator orders.',
+    'https://azure.microsoft.com/en-us/solutions/high-performance-computing/ai-infrastructure',
   ),
-  p(
+  s(
     'Amazon Web Services',
     'deployment',
     ['US'],
     'Hyperscale compute buyer and custom silicon',
     'concentrated',
     'Buys at a scale that moves supply, and designs around it where it can.',
+    'https://aws.amazon.com/silicon-innovation/',
   ),
-  p(
+  s(
     'Google',
     'deployment',
     ['US'],
     'Hyperscale compute buyer and custom silicon',
     'concentrated',
     'The longest-running in-house accelerator programme, and still bound by the same packaging.',
+    'https://cloud.google.com/tpu',
   ),
-  p(
+  s(
     'Meta',
     'deployment',
     ['US'],
     'Hyperscale compute buyer',
     'concentrated',
     'Among the largest single sources of demand for everything upstream of it.',
+    'https://engineering.fb.com/2024/03/12/data-center-engineering/building-metas-genai-infrastructure/',
   ),
-  p(
+  s(
     'OpenAI',
     'deployment',
     ['US'],
     'Frontier model developer',
     'concentrated',
     'Demand large enough to be a planning input for several layers above it in this list.',
+    'https://openai.com/index/building-the-compute-infrastructure-for-the-intelligence-age/',
   ),
-  p(
+  s(
     'Anthropic',
     'deployment',
     ['US'],
     'Frontier model developer',
     'concentrated',
     'Same: frontier training demand is concentrated in very few organisations.',
+    'https://www.anthropic.com/claude',
   ),
-  p(
+  s(
     'xAI',
     'deployment',
     ['US'],
     'Frontier model developer',
     'concentrated',
     'Notable for building its own power and datacentre capacity to get around the queues.',
+    'https://www.datacenterfrontier.com/machine-learning/article/55244139/the-colossus-ai-supercomputer-elon-musks-drive-toward-data-center-ai-technology-domination',
   ),
-  p(
+  s(
     'CoreWeave',
     'deployment',
     ['US'],
     'Specialist compute provider',
     'competitive',
     'Neocloud capacity is contested and growing — the constraint is what they buy, not what they sell.',
+    'https://www.coreweave.com/why-coreweave',
   ),
 ];
 
