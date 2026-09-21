@@ -7,7 +7,7 @@ import {
   renderFacts,
   verifyAnswer,
 } from '@bitbaum/ai-kit/grounding';
-import { researchDocuments, searchResearch, type ResearchDocument } from './research-index';
+import { researchDocuments, scoreDocuments, type ResearchDocument } from './research-index';
 import { neighbors } from './graph';
 import { resolveByPath } from './entities/registry';
 import { lookUp, renderWebContext, webLookupEnabled, type WebFinding } from './chat-web';
@@ -48,21 +48,57 @@ export function chatContext(question: string, onPath?: string) {
     'how',
     'why',
     'who',
+    // Superlatives, intensifiers and quantifiers: "the biggest bottleneck",
+    // "the most important constraint", "right now" carry the question's
+    // STRUCTURE, not its subject, and a corpus this size has enough
+    // low-frequency documents that one of these words turning up by
+    // coincidence in an unrelated quote (a bank's "one of the biggest
+    // multilateral institutions") can outscore the real answer.
+    'biggest',
+    'best',
+    'worst',
+    'most',
+    'main',
+    'key',
+    'major',
+    'right',
+    'now',
+    'really',
+    'actual',
+    'actually',
+    'development',
+    // Category nouns: this whole corpus is companies, organisations and
+    // materials, so asking "which companies make X" and matching the literal
+    // word "companies" discriminates nothing — every row could claim it.
+    'company',
+    'companies',
+    'organisation',
+    'organisations',
+    'organization',
+    'organizations',
+    'firm',
+    'firms',
   ]);
   const terms = [...new Set(question.toLowerCase().match(/[\p{L}\p{N}]+/gu) ?? [])].filter(
     (w) => w.length > 2 && !stop.has(w),
   );
-  const scores = new Map<string, number>();
-  const bump = (id: string, n: number) => scores.set(id, (scores.get(id) ?? 0) + n);
-  for (const term of terms)
-    for (const document of searchResearch(documents, term))
-      bump(document.id, document.title.toLowerCase().includes(term) ? 4 : 1);
+  const scores = new Map(scoreDocuments(documents, terms).map((s) => [s.document.id, s.score]));
   const phrase = question.toLowerCase().trim();
   for (const document of documents) {
-    if (phrase.length > 8 && document.title.toLowerCase().includes(phrase)) bump(document.id, 12);
+    if (phrase.length > 8 && document.title.toLowerCase().includes(phrase))
+      scores.set(document.id, (scores.get(document.id) ?? 0) + 12);
   }
+  // A document that clears zero only through a single near-ubiquitous word
+  // (see `wordWeight` in research-index.ts) is not a match, it is shared
+  // vocabulary — the corpus's own single rarest-tag matches (a company tagged
+  // with exactly one technology the question asked about) sit at or above
+  // this line; a document that only shares one very common word with the
+  // question sits below it. Below the floor a document is dropped rather than
+  // ranked low, because a low-ranked row still gets rendered on screen as a
+  // citation for the answer.
+  const MIN_RELEVANCE = 0.2;
   const ranked = documents
-    .filter((d) => scores.has(d.id))
+    .filter((d) => (scores.get(d.id) ?? 0) >= MIN_RELEVANCE)
     .sort((a, b) => (scores.get(b.id) ?? 0) - (scores.get(a.id) ?? 0))
     .slice(0, 8);
 

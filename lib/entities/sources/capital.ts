@@ -13,7 +13,13 @@ function capital(): Entity[] {
     evidence: c.primary ? 'primary source' : 'secondary source',
     sources: [c.source],
     topics: ['capital', c.kind, c.jurisdiction],
-    retrievalText: `${c.name} is ${CAPITAL_KIND_LABEL[c.kind]} in ${c.jurisdiction.toUpperCase()}. Mandate: ${c.mandate} Its own words: "${c.quote}" (read ${c.readOn}). Bottlenecks its mandate could fund relief for: ${c.canMove.join(', ')}. A mandate covering an asset is not a claim that it has funded one.`,
+    // "Sectors it could fund relief for" rather than "Bottlenecks its mandate
+    // could fund relief for": the word "bottleneck" repeated across every
+    // capital row (there are over a dozen) drowned out the actual bottleneck
+    // entities in search — a generic connector word outscoring the real
+    // subject matter because it appeared on more rows. The list of named
+    // bottlenecks that follows is the real signal and stays.
+    retrievalText: `${c.name} is ${CAPITAL_KIND_LABEL[c.kind]} in ${c.jurisdiction.toUpperCase()}. Mandate: ${c.mandate} Its own words: "${c.quote}" (read ${c.readOn}). Sectors it could fund relief for: ${c.canMove.join(', ')}. A mandate covering an asset is not a claim that it has funded one.`,
   }));
 }
 
