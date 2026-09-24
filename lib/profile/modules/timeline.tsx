@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { EventList } from '@/components/portal/EventList';
 import { Empty } from '@/components/portal/Shell';
 import type { CoverageEvent } from '@/config/substrata-events';
-import { participantBySlug } from '../../participants';
 import { bottleneckBySlug } from '../../bottlenecks';
 import type { Entity } from '../../entities/types';
 import { t } from '../../i18n/messages';
@@ -28,19 +27,11 @@ interface Timeline {
 const timeline: ProfileModule<Timeline> = {
   id: 'timeline',
   title: t('profile.timeline.title'),
-  appliesTo: ['company', 'bottleneck'],
+  // A company has its own events section, which also reaches events on what
+  // it holds; this one is the bottleneck's.
+  appliesTo: ['bottleneck'],
   importance: 80,
   load(entity: Entity) {
-    if (entity.kind === 'company') {
-      const participant = participantBySlug(entity.key);
-      if (!participant) return null;
-      return {
-        events: participant.events,
-        showBottlenecks: true,
-        name: participant.name,
-        noun: 'this organisation',
-      };
-    }
     const bottleneck = bottleneckBySlug(entity.key);
     if (!bottleneck) return null;
     return {

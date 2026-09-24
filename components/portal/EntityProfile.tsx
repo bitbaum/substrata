@@ -16,10 +16,38 @@ import type { Entity } from '@/lib/entities/types';
  * `from` lets a page keep its bespoke body above the shared modules while the
  * migration proceeds; those sections become modules one at a time.
  */
-export function EntityProfile({ entity, from }: { entity: Entity; from?: number }) {
-  const rendered = modulesFor(entity, from)
-    .map((module) => ({ module, output: module.render(entity) }))
-    .filter((entry) => entry.output !== null);
+/**
+ * A section the page supplies itself, because its data is not in the corpus —
+ * sweep leads come from the database, per request. It takes its place in the
+ * same importance order and numbering as the modules, and a page passes one
+ * only when it has something in it.
+ */
+export interface ExtraSection {
+  id: string;
+  title: string;
+  importance: number;
+  node: React.ReactNode;
+  evidence?: string;
+}
+
+export function EntityProfile({
+  entity,
+  from,
+  extra = [],
+}: {
+  entity: Entity;
+  from?: number;
+  extra?: ExtraSection[];
+}) {
+  const rendered = [
+    ...modulesFor(entity, from)
+      .map((module) => ({ module, output: module.render(entity) }))
+      .filter((entry) => entry.output !== null),
+    ...extra.map((section) => ({
+      module: { ...section, ownsHeading: false },
+      output: { node: section.node, evidence: section.evidence },
+    })),
+  ].sort((a, b) => a.module.importance - b.module.importance);
 
   if (rendered.length === 0) return null;
 

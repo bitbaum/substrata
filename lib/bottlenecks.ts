@@ -25,9 +25,12 @@ import {
 import {
   CHOKEPOINTS,
   COVERAGE,
+  HOLDER_ROLES,
   NODE_TYPE_LABEL,
   PRODUCER_ROLES,
+  type Chokepoint,
 } from '@/config/substrata-coverage';
+import { PARTICIPANTS } from '@/config/substrata-participants';
 import {
   VERIFICATION_LABEL,
   evidenceFor,
@@ -55,6 +58,12 @@ export interface BottleneckProducer {
   name: string;
   jurisdictions: string[];
   role: string;
+  /**
+   * Whether this row is a maker of the thing itself or only a supplier into
+   * it. Second sources are counted among makers: Zeiss supplying the optics
+   * does not make it a second EUV scanner maker.
+   */
+  supplier: boolean;
   verification: Verification;
   source: string | null;
   candidates: EvidenceCandidate[];
@@ -94,8 +103,37 @@ export interface Bottleneck {
 }
 
 const ROLE_LABEL: Record<string, string> = Object.fromEntries(
-  PRODUCER_ROLES.map((role) => [role.id, role.label]),
+  [...PRODUCER_ROLES, ...HOLDER_ROLES].map((role) => [role.id, role.label]),
 );
+
+const DIRECTORY_BY_NAME = new Map(PARTICIPANTS.map((row) => [row.name, row]));
+
+/**
+ * A chokepoint's holders, as producer rows.
+ *
+ * The evidence is the holder's directory row: its source cites the company's
+ * own page for the role that names this chokepoint, so the join inherits that
+ * citation rather than restating it. A holder with no directory row is a
+ * build error, not a silent gap — see the test on holders.
+ */
+function holdersOf(point: Chokepoint): BottleneckProducer[] {
+  return point.holders.map((holder) => {
+    const row = DIRECTORY_BY_NAME.get(holder.name);
+    if (!row)
+      throw new Error(
+        `Chokepoint "${point.name}" names holder "${holder.name}", which is not in the directory`,
+      );
+    return {
+      name: row.name,
+      jurisdictions: [...row.jurisdictions],
+      role: ROLE_LABEL[holder.role] ?? holder.role,
+      supplier: holder.role === 'part',
+      verification: row.source ? 'sourced' : 'unverified',
+      source: row.source,
+      candidates: [],
+    };
+  });
+}
 
 export function slugOf(name: string): string {
   return name
@@ -141,6 +179,7 @@ function materialBottlenecks(): Bottleneck[] {
       name: producer.name,
       jurisdictions: producer.jurisdictions,
       role: ROLE_LABEL[producer.role] ?? producer.role,
+      supplier: false,
       verification: verificationFor(entry.material, producer.name, producer.source),
       source: producer.source,
       candidates: evidenceFor(entry.material, producer.name)?.candidates ?? [],
@@ -169,7 +208,17 @@ function materialBottlenecks(): Bottleneck[] {
 
 function chokepointBottlenecks(): Bottleneck[] {
   return CHOKEPOINTS.map((point) => {
-    const counts = { sourced: point.source ? 1 : 0, candidate: 0, total: 1 };
+    const producers = holdersOf(point);
+    // With holders, the row is judged like a material: by its weakest maker
+    // row. Without any, by the chokepoint's own claim, as before.
+    const counts =
+      producers.length > 0
+        ? {
+            sourced: producers.filter((p) => p.verification === 'sourced').length,
+            candidate: producers.filter((p) => p.verification === 'candidate').length,
+            total: producers.length,
+          }
+        : { sourced: point.source ? 1 : 0, candidate: 0, total: 1 };
     return {
       slug: slugOf(point.name),
       name: point.name,
@@ -179,7 +228,7 @@ function chokepointBottlenecks(): Bottleneck[] {
       jurisdictions: point.jurisdictions,
       why: point.why,
       spec: null,
-      producers: [],
+      producers,
       state: stateOf(counts),
       counts,
       ...assessed(point.name),
