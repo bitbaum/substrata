@@ -9,7 +9,7 @@
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 
 import { isNeverAnEvent, looksLikeAReference, nodes } from '../lib/sweep';
 import { BOTTLENECKS } from '../lib/bottlenecks';
@@ -103,7 +103,14 @@ test('the homepage does not present a corpus date as a freshness signal', () => 
   // It read "Updated <date>", where the date was the newest RECORD in the
   // corpus. Both halves were true and the sentence was not: nothing had been
   // looked at on that date, and a dead sweep looked exactly like a quiet week.
-  const home = readFileSync(new URL('../app/page.tsx', import.meta.url), 'utf8');
+  // The page and the sections it is composed of (app/_home/), read as one.
+  const sections = new URL('../app/_home/', import.meta.url);
+  const home = [
+    readFileSync(new URL('../app/page.tsx', import.meta.url), 'utf8'),
+    ...readdirSync(sections)
+      .filter((f) => f.endsWith('.tsx'))
+      .map((f) => readFileSync(new URL(f, sections), 'utf8')),
+  ].join('\n');
   assert.ok(
     !/\bUpdated \{/.test(home),
     'a record date must not be labelled "Updated" — say which date it is',

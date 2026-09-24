@@ -1,29 +1,23 @@
-import React from 'react';
-import Link from 'next/link';
 import type { Metadata } from 'next';
 
 import { COMPANY } from '@/config/substrata';
-import { EVENTS, eventsNewestFirst, eventsSince } from '@/config/substrata-events';
+import { eventsNewestFirst, eventsSince } from '@/config/substrata-events';
 import { instrumentsNewestFirst, policyTotals } from '@/config/substrata-policy';
-import { SCIENCE } from '@/config/substrata-science';
-import { INDUSTRIES, TECHNOLOGIES } from '@/config/substrata-taxonomy';
 import { BOTTLENECKS, portalTotals } from '@/lib/bottlenecks';
-import { WHEN_LABEL } from '@/lib/labels';
 import { marketTotals } from '@/lib/participants';
-import { EventList } from '@/components/portal/EventList';
-import { Figure } from '@/components/portal/Figure';
-import { Empty, Heading, Page, Shell } from '@/components/portal/Shell';
-import { SeverityBar, Status, rowLabel } from '@/components/portal/Status';
-import { bottleneckHref, policyHref } from '@/lib/links';
-import { methodHref } from '@/lib/methods';
+import { Page, Shell } from '@/components/portal/Shell';
+import { HomeHero } from './_home/HomeHero';
+import { HomeStats } from './_home/HomeStats';
+import { LatestRule } from './_home/LatestRule';
+import { StartHere } from './_home/StartHere';
+import { WINDOW_DAYS, WhatChanged } from './_home/WhatChanged';
+import { WorstNow } from './_home/WorstNow';
 
 export const metadata: Metadata = {
   title: { absolute: `${COMPANY.name} — the bottlenecks between here and much faster technology` },
   description:
     'What is holding back compute, energy, materials and robots: what each constraint is, who makes it, which rules govern it and what would remove it.',
 };
-
-const WINDOW_DAYS = 30;
 
 /**
  * Today: what moved, and the four ways into the rest of the site.
@@ -52,302 +46,27 @@ export default function TodayPage() {
   const featured =
     worst.find((b) => b.producers.length > 0) ?? BOTTLENECKS.find((b) => b.producers.length > 0);
 
-  const bothWays = policy.instruments - policy.tightening - policy.loosening;
-  const tiles: {
-    label: string;
-    value: React.ReactNode;
-    note: React.ReactNode;
-    href: string;
-    more: string;
-  }[] = [
-    {
-      label: 'Bottlenecks mapped',
-      value: <Figure method="bottleneck-count">{totals.bottlenecks}</Figure>,
-      note: (
-        <>
-          <Figure method="binding-now">{totals.bindingNow}</Figure> judged to be binding right now
-        </>
-      ),
-      href: '/bottlenecks',
-      more: 'See them all',
-    },
-    {
-      label: 'Maker rows sourced',
-      value: (
-        <Figure method="sourced-rows">
-          {totals.sourced}/{totals.producers}
-        </Figure>
-      ),
-      note: (
-        <>
-          <Figure method="organisations">{markets.organisations}</Figure> organisations in the
-          directory
-        </>
-      ),
-      href: '/data',
-      more: 'What sourced means',
-    },
-    {
-      label: 'Rules tracked',
-      value: <Figure method="rules-tracked">{policy.instruments}</Figure>,
-      note: (
-        <>
-          <Figure method="rule-direction">{policy.tightening}</Figure> slow building,{' '}
-          <Figure method="rule-direction">{policy.loosening}</Figure> speed it
-          {bothWays > 0 && (
-            <>
-              , <Figure method="rule-direction">{bothWays}</Figure> both ways
-            </>
-          )}
-        </>
-      ),
-      href: '/policy',
-      more: 'Read the rules',
-    },
-    {
-      label: 'Possible fixes',
-      value: <Figure method="possible-fixes">{SCIENCE.length}</Figure>,
-      note: 'technologies argued to relieve a constraint',
-      href: '/science',
-      more: 'See the science',
-    },
-  ];
-
   return (
     <Shell currentPath="">
       <Page>
-        <div className="hero-split mb-10">
-          <header>
-            {/* This date is the newest RECORD in the corpus, not the last time
-                anything was looked at — labelling it "Updated" made a quiet week
-                and a dead research sweep read identically. What was actually
-                looked at, and when, is measured on /data. */}
-            <p className="font-mono text-xs uppercase tracking-caps text-fg-tertiary">
-              Newest record {latestEvent ? latestEvent.date : latestRule?.date} ·{' '}
-              <Link href="/data" className="underline underline-offset-2">
-                how fresh is this?
-              </Link>
-            </p>
-            <h1 className="mt-3 max-w-3xl font-heading text-3xl font-semibold leading-tight tracking-display text-fg-primary sm:text-5xl">
-              What is holding technology back, and what is changing.
-            </h1>
-            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-fg-secondary">
-              Substrata maps the constraints on building more compute, more power, better materials
-              and better machines. Every row says how well it is evidenced, every sourced claim
-              links to the source, and every number opens to show where it came from.
-            </p>
-            <div className="mt-6 flex flex-wrap items-center gap-3">
-              <Link href="/atlas" className="research-button">
-                Open the map
-              </Link>
-              <Link href="/chat" className="research-button-ghost">
-                Ask
-              </Link>
-            </div>
-          </header>
-          {featured && (
-            <figure className="hero-chain">
-              <figcaption className="hero-chain-caption">
-                <span className="research-kicker">Checkable chain</span>
-                <strong>{featured.name}</strong>
-                <span>
-                  <Figure method="sourced-rows">
-                    {featured.counts.sourced} of {featured.producers.length}
-                  </Figure>{' '}
-                  producer rows sourced · severity{' '}
-                  <Figure method="severity">{featured.binding}/12</Figure> (judged)
-                </span>
-              </figcaption>
-              <div
-                className="hero-chain-frame"
-                tabIndex={0}
-                aria-label={`${featured.name} chain diagram, scroll horizontally on a small screen`}
-              >
-                {/* Native SVG from the corpus; same figure as the atlas download. */}
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={`/api/research/diagram?slug=${featured.slug}`}
-                  alt={`Mapped producers and technologies for ${featured.name}. ${featured.counts.sourced} sourced of ${featured.producers.length} producer rows.`}
-                />
-              </div>
-              <p className="hero-chain-links">
-                <Link href={`/atlas?chain=${featured.slug}`}>Open in the atlas →</Link>
-                <Link href={bottleneckHref(featured.slug)}>Full evidence →</Link>
-              </p>
-            </figure>
-          )}
-        </div>
+        <HomeHero newest={latestEvent ? latestEvent.date : latestRule?.date} featured={featured} />
 
-        <dl className="mb-12 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-subtle bg-border-subtle lg:grid-cols-4">
-          {tiles.map((tile) => (
-            <div key={tile.label} className="bg-surface-raised px-4 py-4 sm:px-5">
-              <dt className="font-mono text-xs uppercase tracking-caps text-fg-tertiary">
-                {tile.label}
-              </dt>
-              <dd className="mt-2 font-heading text-3xl font-semibold tabular-nums text-fg-primary sm:text-4xl">
-                {tile.value}
-              </dd>
-              <dd className="mt-1 text-xs leading-snug text-fg-muted">{tile.note}</dd>
-              <dd className="mt-2 text-xs">
-                <Link
-                  href={tile.href}
-                  className="text-fg-secondary underline-offset-4 hover:text-fg-primary hover:underline"
-                >
-                  {tile.more} →
-                </Link>
-              </dd>
-            </div>
-          ))}
-        </dl>
+        <HomeStats totals={totals} markets={markets} policy={policy} />
 
         <div className="grid gap-12 lg:grid-cols-[3fr_2fr]">
           <div>
-            <section className="mb-12">
-              <Heading
-                index="01"
-                title={`What changed, last ${WINDOW_DAYS} days`}
-                aside={
-                  <Link
-                    href="/events"
-                    className="underline-offset-4 hover:text-fg-primary hover:underline"
-                  >
-                    All {EVENTS.length} events →
-                  </Link>
-                }
-              />
-              {recent.length === 0 ? (
-                <Empty
-                  what={`Nothing recorded in the last ${WINDOW_DAYS} days.`}
-                  next="Leads found by the automated sweep wait for a person to read them; /data says how many."
-                />
-              ) : (
-                <EventList events={recent} />
-              )}
-            </section>
-
-            <section>
-              <Heading
-                index="02"
-                title="Worst right now"
-                aside={
-                  <Link
-                    href="/bottlenecks?horizon=now"
-                    className="underline-offset-4 hover:text-fg-primary hover:underline"
-                  >
-                    All {totals.bindingNow} →
-                  </Link>
-                }
-              />
-              <ol className="divide-y divide-subtle border-y border-subtle">
-                {worst.map((b) => (
-                  <li key={b.slug} className="py-3">
-                    <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-                      <Link
-                        href={bottleneckHref(b.slug)}
-                        className="font-medium text-fg-primary underline-offset-4 hover:underline"
-                      >
-                        {b.name}
-                      </Link>
-                      <span className="flex items-center gap-4">
-                        <SeverityBar value={b.binding} />
-                        <Status state={b.state} compact label={rowLabel(b.counts)} />
-                      </span>
-                    </div>
-                    <p className="mt-0.5 max-w-prose text-xs leading-snug text-fg-tertiary">
-                      {b.plain}
-                      {tightening.has(b.name) && (
-                        <span className="ml-2 font-mono uppercase tracking-caps text-status-negative">
-                          got worse
-                        </span>
-                      )}
-                      {loosening.has(b.name) && (
-                        <span className="ml-2 font-mono uppercase tracking-caps text-status-positive">
-                          eased
-                        </span>
-                      )}
-                    </p>
-                  </li>
-                ))}
-              </ol>
-              <p className="mt-3 font-mono text-xs text-fg-muted">
-                {WHEN_LABEL.now} · ranked by{' '}
-                <Link href={methodHref('severity')} className="underline underline-offset-2">
-                  severity
-                </Link>{' '}
-                · judged {worst[0]?.judgedOn}
-              </p>
-            </section>
+            <WhatChanged recent={recent} />
+            <WorstNow
+              worst={worst}
+              bindingNow={totals.bindingNow}
+              tightening={tightening}
+              loosening={loosening}
+            />
           </div>
 
           <div>
-            <section className="mb-12">
-              <Heading index="03" title="Start with a technology" />
-              <ul className="flex flex-wrap gap-2">
-                {TECHNOLOGIES.map((t) => {
-                  const count = BOTTLENECKS.filter((b) => b.technologies.includes(t.id)).length;
-                  return (
-                    <li key={t.id}>
-                      <Link
-                        href={`/bottlenecks?tech=${t.id}`}
-                        className="inline-flex min-h-9 items-center gap-2 rounded-full border border-strong px-3 text-sm text-fg-secondary transition-colors hover:border-accent hover:text-fg-primary"
-                      >
-                        {t.name}
-                        <span className="font-mono text-xs tabular-nums text-fg-muted">
-                          {count}
-                        </span>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-
-              <h3 className="mt-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary">
-                Or an industry
-              </h3>
-              <ul className="mt-2 flex flex-wrap gap-2">
-                {INDUSTRIES.map((i) => {
-                  const count = BOTTLENECKS.filter((b) => b.industries.includes(i.id)).length;
-                  return (
-                    <li key={i.id}>
-                      <Link
-                        href={`/bottlenecks?industry=${i.id}`}
-                        className="inline-flex min-h-9 items-center gap-2 rounded-full border border-strong px-3 text-sm text-fg-secondary transition-colors hover:border-accent hover:text-fg-primary"
-                      >
-                        {i.name}
-                        <span className="font-mono text-xs tabular-nums text-fg-muted">
-                          {count}
-                        </span>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </section>
-
-            <section>
-              <Heading index="04" title="Latest rule" />
-              {latestRule ? (
-                <Link
-                  href={policyHref(latestRule.jurisdiction)}
-                  className="block rounded-lg border border-subtle bg-surface-raised p-5 transition-colors hover:border-strong"
-                >
-                  <p className="font-mono text-xs uppercase tracking-caps text-fg-tertiary">
-                    {latestRule.date} · {latestRule.body}
-                  </p>
-                  <p className="mt-2 font-medium text-fg-primary">{latestRule.title}</p>
-                  <p className="mt-1 text-sm leading-relaxed text-fg-secondary">
-                    {latestRule.summary}
-                  </p>
-                </Link>
-              ) : (
-                <Empty what="No rules tracked yet." />
-              )}
-              <p className="mt-3 text-sm">
-                <Link href="/policy" className="text-accent underline-offset-4 hover:underline">
-                  Which rules slow building, and who asked for them →
-                </Link>
-              </p>
-            </section>
+            <StartHere />
+            <LatestRule latestRule={latestRule} />
           </div>
         </div>
       </Page>

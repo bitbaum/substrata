@@ -1,7 +1,9 @@
-import { availableModels, isOfferedModel, type ChatTurn } from '@/lib/chat';
+import { availableModels, isOfferedModel } from '@/lib/chat/models';
+import type { ChatTurn } from '@/lib/chat/types';
 import { allowRequest, boundedJson, sameOrigin } from '@/lib/request-guards';
 import { isValidByokConfig, type ByokConfig } from '@/lib/byok';
-import { byokTurn, freeLinks, runAgent, streamedTurn, type AgentEvent } from '@/lib/chat-agent';
+import { runAgent, type AgentEvent } from '@/lib/chat-agent/loop';
+import { byokTurn, freeLinks, streamedTurn } from '@/lib/chat-agent/turn';
 import { readerContext } from '@/lib/chat-context';
 import { lookUp, webLookupEnabled } from '@/lib/chat-web';
 import { currentSession } from '@/lib/auth';

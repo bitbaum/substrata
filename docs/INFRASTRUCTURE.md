@@ -34,6 +34,13 @@ the routes that need its tables reach production. `004-source-sweep.sql`
 backs the scheduled producer-sourcing run (`POST /api/cron/source`,
 `lib/source-store.ts`); it also needs `/api/cron/source` added to whatever
 schedule `/opt/_appcron/run.sh` already drives `/api/cron/sweep` on.
+`005-desk.sql` (desk marks and `research_sweep_settings`) is applied.
+
+The sweep's cadence lives in the database, not on the box. The box timer
+`appcron-substrata-sweep.timer` fires hourly at :17, and `/api/cron/sweep`
+decides whether a run is due from `research_sweep_settings.everyHours`
+(`lib/sweep-store.ts`), which a reviewer edits at `/account/settings#sweep`.
+An hourly call that is not due returns `skipped: 'not due'` and does nothing.
 
 Backups must include the new `substrata` database with the host's PostgreSQL
 backup service. Verify the service's database-discovery rule after provisioning.

@@ -1136,38 +1136,3 @@ export const PARTICIPANTS: readonly Participant[] = [
     'https://www.coreweave.com/why-coreweave',
   ),
 ];
-
-// =====================================================================
-// VIEWS
-// =====================================================================
-
-export interface ParticipantProgress {
-  total: number;
-  sourced: number;
-  chokepoints: number;
-  concentrated: number;
-  competitive: number;
-  jurisdictions: number;
-}
-
-export function participantProgress(): ParticipantProgress {
-  const grade = (g: ScarcityGrade) => PARTICIPANTS.filter((item) => item.scarcity === g).length;
-  return {
-    total: PARTICIPANTS.length,
-    sourced: PARTICIPANTS.filter((item) => item.source !== null).length,
-    chokepoints: grade('chokepoint'),
-    concentrated: grade('concentrated'),
-    competitive: grade('competitive'),
-    jurisdictions: new Set(PARTICIPANTS.flatMap((item) => item.jurisdictions)).size,
-  };
-}
-
-/** Participants in one layer, in the order they were written. */
-export function participantsInLayer(layer: ChainLayer): Participant[] {
-  return PARTICIPANTS.filter((item) => item.layer === layer);
-}
-
-/** Every participant graded a hard constraint — the point of the exercise. */
-export function bindingParticipants(): Participant[] {
-  return PARTICIPANTS.filter((item) => item.scarcity === 'chokepoint');
-}

@@ -33,14 +33,19 @@ export const METHODS = {
       'Count of rows in the bottleneck corpus: every material plus every non-material chokepoint.',
     explanation:
       'Materials and chokepoints (machines, processes, queues) are kept in two files because they are verified differently, and joined into one list. A row is on the list because it was written into the corpus, not because a search found it.',
-    code: ['lib/bottlenecks.ts', 'config/substrata.ts', 'config/substrata-coverage.ts'],
+    code: [
+      'lib/bottlenecks.ts',
+      'lib/bottlenecks-build.ts',
+      'config/substrata.ts',
+      'config/substrata-coverage.ts',
+    ],
   },
   'binding-now': {
     title: 'Binding now',
     formula: 'Count of bottlenecks whose assessed horizon is "now".',
     explanation:
       'The horizon is part of the judged assessment (now, within two years, beyond), not a measurement. It is dated and carries a one-line rationale on every bottleneck page.',
-    code: ['lib/bottlenecks.ts', 'config/substrata-assessment.ts'],
+    code: ['lib/bottlenecks.ts', 'lib/bottlenecks-build.ts', 'config/substrata-assessment.ts'],
   },
   severity: {
     title: 'Severity score (0–12)',
@@ -70,7 +75,7 @@ export const METHODS = {
     formula: 'Count of rows in the market-participant directory.',
     explanation:
       'Every company, lab or agency named anywhere in the corpus. Being listed is not an endorsement and, unless the row says so, not a verified fact about the organisation.',
-    code: ['lib/participants.ts', 'config/substrata-participants.ts'],
+    code: ['lib/participants.ts', 'lib/participants-build.ts', 'config/substrata-participants.ts'],
   },
   'bottlenecks-held': {
     title: 'Bottlenecks an organisation holds',
@@ -78,7 +83,7 @@ export const METHODS = {
       'Count of bottlenecks on which this organisation is recorded as a producer, a holder of the capacity, or a supplier of a critical part.',
     explanation:
       'Material rows come from the producer map; machine, process and capacity rows from the holders listed on each chokepoint. A holder row is evidenced by the organisation’s own directory citation. "No other maker recorded" means none in this corpus, which is not the same as none in the world.',
-    code: ['lib/company-profile.ts', 'lib/participants.ts', 'config/substrata-coverage.ts'],
+    code: ['lib/company-profile.ts', 'lib/participants-build.ts', 'config/substrata-coverage.ts'],
   },
   'company-events': {
     title: 'Events on an organisation',
@@ -123,7 +128,7 @@ export const METHODS = {
     formula: 'Count of bottlenecks tagged with that technology, industry or stage.',
     explanation:
       'Tags come from the classification in the corpus. A bottleneck can carry several, so the counts overlap and do not sum to the total.',
-    code: ['config/substrata-taxonomy.ts', 'lib/bottlenecks.ts'],
+    code: ['config/substrata-taxonomy.ts', 'lib/bottlenecks-build.ts', 'lib/bottlenecks-board.ts'],
   },
   jurisdictions: {
     title: 'Countries',

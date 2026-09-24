@@ -31,7 +31,7 @@ Atlas and World are one map with two views (`/atlas`, `/atlas?view=world`).
 | Need | Already exists | Do not |
 | --- | --- | --- |
 | Auth | OrangeCat OIDC (`STACK.md`) | An auth npm package |
-| AI answers + page reader | `@bitbaum/ai-kit` (`lib/chat.ts`, `scripts/research/*`) | A second model client |
+| AI answers + page reader | `@bitbaum/ai-kit` (`lib/chat/`, `scripts/research/*`) | A second model client |
 | Filters | `listkit` | A second URL codec |
 | Notes | `bip-kit` | A second markdown pipeline |
 | Nav lists | `config/site-nav.ts` | Hardcoded links in Shell |

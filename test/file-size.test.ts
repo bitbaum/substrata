@@ -26,27 +26,16 @@ function ceilingFor(path: string): number {
 
 /**
  * Over the ceiling when this test was written (2026-09-24). Shrink them; never
- * add one. Six of these were written the same morning, by the parallel
- * Ask / search / company-profile rebuild — the reason this test exists.
+ * add one. The code files that were here — the Ask, search and company-profile
+ * rebuild, the reason this test exists — were split by job the same day. What
+ * remains is corpus data (one row per company, material or country, with the
+ * logic that read it moved to lib/) and the stylesheet's tokens and chrome.
  */
 const GRANDFATHERED: Record<string, number> = {
-  'app/globals.css': 2379,
-  'config/substrata-participants.ts': 1173,
-  'config/substrata-coverage.ts': 904,
-  'components/portal/ResearchChat.tsx': 711,
-  'lib/search.ts': 672,
-  'lib/chat-tools.ts': 653,
-  'config/substrata-countries.ts': 626,
-  'lib/chat-agent.ts': 617,
-  'lib/profile/modules/bottleneck.tsx': 413,
-  'lib/chat.ts': 382,
-  'lib/profile/modules/company.tsx': 376,
-  'components/portal/SearchBox.tsx': 372,
-  'app/markets/[slug]/page.tsx': 367,
-  'lib/bottlenecks.ts': 352,
-  'lib/participants.ts': 339,
-  'app/policy/page.tsx': 328,
-  'app/page.tsx': 356,
+  'app/globals.css': 664,
+  'config/substrata-participants.ts': 1138,
+  'config/substrata-coverage.ts': 849,
+  'config/substrata-countries.ts': 621,
 };
 
 function walk(dir: string): string[] {

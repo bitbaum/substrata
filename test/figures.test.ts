@@ -51,9 +51,10 @@ const BARE_NUMBER_BASELINE: Record<string, number> = {
   'app/account/page.tsx': 2,
   'app/data/page.tsx': 1,
   'app/science/page.tsx': 4,
-  'components/portal/ResearchChat.tsx': 1,
-  // Two scale definitions ("each 0–3", "the 1–9 scale"), from the company-profile work.
-  'lib/profile/modules/company.tsx': 2,
+  'components/portal/chat/ByokPanel.tsx': 1,
+  // Two scale definitions ("the 1–9 scale", "each 0–3"), from the company-profile work.
+  'lib/profile/modules/company-context.tsx': 1,
+  'lib/profile/modules/company.tsx': 1,
   'lib/profile/modules/loop.tsx': 1,
   'lib/profile/modules/quantities.tsx': 1,
   'lib/profile/modules/role.tsx': 1,

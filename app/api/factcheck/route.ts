@@ -1,5 +1,5 @@
 import { currentSession } from '@/lib/auth';
-import { answerQuestion } from '@/lib/chat';
+import { answerQuestion } from '@/lib/chat/answer';
 import { addMessage } from '@/lib/page-thread';
 import { allowRequest, boundedJson, sameOrigin } from '@/lib/request-guards';
 import { allLearn, allNotes } from '@/lib/notes';

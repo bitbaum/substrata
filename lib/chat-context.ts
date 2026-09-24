@@ -19,7 +19,8 @@ import type { Entity } from './entities/types';
 import { railsOf, type Follows } from './follows';
 import { MARKET_PARTICIPANTS } from './participants';
 import { TECHNOLOGIES } from '@/config/substrata-taxonomy';
-import { emptyLedger, runTool, type Ledger, type ToolEnv } from './chat-tools';
+import { emptyLedger, type Ledger, type ToolEnv } from './chat-tools/ledger';
+import { runTool } from './chat-tools/registry';
 
 export interface ReaderContext {
   path?: string;

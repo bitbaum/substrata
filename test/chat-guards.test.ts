@@ -10,7 +10,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { availableModels, isOfferedModel } from '../lib/chat';
+import { availableModels, isOfferedModel } from '../lib/chat/models';
 
 test('a model the deployment does not offer is refused', () => {
   for (const id of [

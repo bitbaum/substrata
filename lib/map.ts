@@ -17,12 +17,8 @@
  */
 
 import { COMPANY, MANDATE_CURVES, MATERIALS, areaFor } from '@/config/substrata';
-import {
-  CHOKEPOINTS,
-  COVERAGE,
-  coverageProgress,
-  chokepointProgress,
-} from '@/config/substrata-coverage';
+import { CHOKEPOINTS, COVERAGE } from '@/config/substrata-coverage';
+import { chokepointProgress, coverageProgress } from '@/lib/coverage-progress';
 import { INVESTMENT_THESIS } from '@/config/substrata-acting';
 import { CAPITAL_KINDS, CAPITAL_PROVIDERS, FUNDING_ASSESSMENTS } from '@/config/substrata-capital';
 import { CHAIN_LAYERS, PARTICIPANTS } from '@/config/substrata-participants';
