@@ -4,7 +4,7 @@ import { Page, Shell, SectionHeader } from '@/components/portal/Shell';
 import { evidenceTotals } from '@/lib/atlas';
 import { EVIDENCE } from '@/config/substrata-evidence';
 import { freshness } from '@/lib/sweep-queue';
-import { daysSince, reviewQueue } from '@/lib/event-draft-store';
+import { ageLabel, reviewQueue } from '@/lib/event-draft-store';
 import { Figure } from '@/components/portal/Figure';
 import { METHODS, codeHref, methodAnchor, type MethodId } from '@/lib/methods';
 
@@ -81,7 +81,7 @@ export default async function DataPage() {
             <p>
               The oldest waiting lead was found{' '}
               <Figure method="review-queue">
-                {queue.oldestFoundAt ? daysSince(queue.oldestFoundAt) : 0} days
+                {queue.oldestFoundAt ? ageLabel(queue.oldestFoundAt) : 'no time'}
               </Figure>{' '}
               ago. An AI draft is ready for review on{' '}
               <Figure method="review-queue">{queue.draftsReady}</Figure> of them: the date, the line

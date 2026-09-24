@@ -41,6 +41,26 @@ async function incoming(file: string | undefined): Promise<CoverageEvent[]> {
   return rows;
 }
 
+/** Fields in the order the hand-written rows use; jsonb hands them back sorted by length. */
+function canonical(e: CoverageEvent): CoverageEvent {
+  const { id, date, headline, kind, effect, bottlenecks, participants, jurisdictions } = e;
+  const { source, primary, quote, acceptedOn } = e;
+  return {
+    id,
+    date,
+    headline,
+    kind,
+    effect,
+    bottlenecks,
+    participants,
+    jurisdictions,
+    source,
+    primary,
+    quote,
+    acceptedOn,
+  };
+}
+
 async function main() {
   const argv = process.argv.slice(2);
   const dryRun = argv.includes('--dry-run');
@@ -66,7 +86,7 @@ async function main() {
     }
     ids.add(row.id);
     sources.add(row.source);
-    added.push(row);
+    added.push(canonical(row));
     console.log(`add   ${row.id} — ${row.headline}`);
   }
 

@@ -25,7 +25,7 @@ export interface LeadWithDraft {
     event: DraftEvent | null;
     notes: string[];
     /** The page around the quote, so the reviewer reads the claim in its setting. */
-    context: string;
+    context: ReturnType<typeof contextAround>;
     model: string | null;
     attempts: number;
   } | null;
@@ -77,7 +77,8 @@ export async function openLeadsWithDrafts(limit = 100): Promise<LeadWithDraft[]>
           reason: row.reason ?? '',
           event: row.draft,
           notes: row.notes ?? [],
-          context: row.draft && row.page_text ? contextAround(row.draft.quote, row.page_text) : '',
+          context:
+            row.draft && row.page_text ? contextAround(row.draft.quote, row.page_text) : null,
           model: row.model,
           attempts: row.attempts ?? 0,
         }
@@ -217,4 +218,10 @@ export async function reviewQueue(): Promise<ReviewQueue> {
 /** Whole days between a timestamp and now, for "oldest waiting N days". */
 export function daysSince(iso: string, now = new Date()): number {
   return Math.max(0, Math.floor((now.getTime() - new Date(iso).getTime()) / 86_400_000));
+}
+
+/** "less than a day", "1 day", "6 days" — an age a reader can say out loud. */
+export function ageLabel(iso: string, now = new Date()): string {
+  const days = daysSince(iso, now);
+  return days === 0 ? 'less than a day' : `${days} day${days === 1 ? '' : 's'}`;
 }

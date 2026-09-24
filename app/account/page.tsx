@@ -18,7 +18,7 @@ import { buildFeed, type DeskItem, type Lead } from '@/lib/desk';
 import { applyFilter, isRead, itemKey, railActivity, VIEWS, type View } from '@/lib/desk-filter';
 import { sweepStaleNow } from '@/lib/sweep-store';
 import { leadsFor, railFreshness } from '@/lib/sweep-queue';
-import { daysSince, reviewQueue } from '@/lib/event-draft-store';
+import { ageLabel, reviewQueue } from '@/lib/event-draft-store';
 import { filingsFor } from '@/lib/filings-store';
 import { filingItems, registrantsOn } from '@/lib/desk-filings';
 import type { Filing } from '@/lib/filings';
@@ -189,7 +189,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
           queue={
             queue && {
               waiting: queue.waiting,
-              oldestDays: queue.oldestFoundAt ? daysSince(queue.oldestFoundAt, now) : null,
+              oldest: queue.oldestFoundAt ? ageLabel(queue.oldestFoundAt, now) : null,
               draftsReady: queue.draftsReady,
             }
           }

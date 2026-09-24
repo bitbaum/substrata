@@ -60,6 +60,31 @@ Analysis outputs must name that digest and distinguish corpus counts from
 claims about the entire market. Do not mutate a captured snapshot to correct
 research; correct the source corpus, redeploy, and capture a new digest.
 
+## From lead to event
+
+`007-event-drafts.sql` backs the drafter. `POST /api/cron/drafts` (box timer
+`appcron-substrata-drafts`, hourly at :32) takes up to five open sweep leads,
+newest first, reads each page and asks the free model chain for a draft
+CoverageEvent plus an "event / not an event" suggestion (`lib/event-draft.ts`,
+`lib/event-draft-run.ts`). A draft whose quote is not on the fetched page word
+for word is refused after one retry; names are cut to the directory's; a
+per-minute refusal pauses the run once and a daily one ends it. Nothing is
+published by this.
+
+At `/review` each lead shows its draft as an editable form beside the page
+text around the quote. Accept re-checks the edited row with `lib/event-rules.ts`
+(the quote against the stored page text) and parks it in
+`research_event_drafts.accepted_event`; the lead leaves the queue.
+
+The box has no checkout and no GitHub token, so accepted rows reach git by
+hand: download `/review/accepted` (reviewer only), then in a checkout run
+`pnpm run research:accept-events <file>` — or run it with `DATABASE_URL`
+through an ssh tunnel. It appends to `config/substrata-events-accepted.json`,
+which `EVENTS` includes; commit that on a branch and let `pnpm test` check it.
+Once the commit is deployed a row drops off the "awaiting commit" count by
+itself. `/data`, the desk and `/review` show the queue: waiting, oldest, drafts
+ready (`reviewQueue()` in `lib/event-draft-store.ts`).
+
 ## Authentication and contributions
 
 Auth.js uses OrangeCat OIDC with state and PKCE, client-secret-post, and only

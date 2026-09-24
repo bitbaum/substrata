@@ -21,6 +21,8 @@ const RUN_BUDGET_MS = 200_000;
 /** A failed look (page unreadable, quote refused) is retried, but not forever. */
 export const MAX_ATTEMPTS = 3;
 const RETRY_AFTER_HOURS = 6;
+/** Free tiers ration tokens per minute; a run that hits that waits once for the window to roll. */
+const MINUTE_PAUSE_MS = 60_000;
 
 export interface DraftRunOutcome {
   drafted: number;
@@ -86,6 +88,34 @@ function freeAsk(served: { id: string | null }): Ask {
   };
 }
 
+/**
+ * Run one draft, pausing once if every free model is at its per-minute limit.
+ * Returns why the run must stop instead of a draft when the budget is gone:
+ * a daily refusal ends the run, because every later lead would meet it too.
+ */
+async function draftPacing(
+  draft: () => Promise<DraftOutcome>,
+  started: number,
+): Promise<DraftOutcome | string> {
+  for (let pass = 0; ; pass++) {
+    try {
+      return await draft();
+    } catch (error) {
+      if (!(error instanceof ChainExhaustedError)) throw error;
+      const daily = error.failures.every((f) => /daily|per day|TPD/i.test(f.message));
+      const room = Date.now() - started < RUN_BUDGET_MS - MINUTE_PAUSE_MS;
+      if (daily || pass > 0 || !room) {
+        console.error(
+          'drafting stopped:',
+          error.failures.map((f) => f.message.slice(0, 160)).join(' | '),
+        );
+        return daily ? 'model budget (daily)' : 'model budget (per minute)';
+      }
+      await new Promise((resolve) => setTimeout(resolve, MINUTE_PAUSE_MS));
+    }
+  }
+}
+
 export async function runDraftBatch({
   limit = DRAFTS_PER_RUN,
   ask,
@@ -134,17 +164,11 @@ export async function runDraftBatch({
       outcome.couldNotRead += 1;
       continue;
     }
-    let result: DraftOutcome;
-    try {
-      result = await draftLead(lead, page.text, askModel);
-    } catch (error) {
-      if (error instanceof ChainExhaustedError) {
-        // Out of free budget (or every model busy). Nothing is saved for this
-        // lead, so it is first in line when the budget comes back.
-        outcome.stopped = 'model budget';
-        break;
-      }
-      throw error;
+    const result = await draftPacing(() => draftLead(lead, page.text, askModel), started);
+    if (typeof result === 'string') {
+      // Nothing is saved for this lead, so it is first in line next time.
+      outcome.stopped = result;
+      break;
     }
     await save(lead, result, page.text, served.id);
     if (result.status === 'drafted') outcome.drafted += 1;

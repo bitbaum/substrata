@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { auth, isReviewer } from '@/lib/auth';
 import { database } from '@/lib/db';
 import { freshness } from '@/lib/sweep-queue';
-import { daysSince, openLeadsWithDrafts, reviewQueue } from '@/lib/event-draft-store';
+import { ageLabel, openLeadsWithDrafts, reviewQueue } from '@/lib/event-draft-store';
 import { openSourceCandidates, recordSourceVerdict, sourceFreshness } from '@/lib/source-store';
 import { Page, Shell, SectionHeader, Empty, Heading } from '@/components/portal/Shell';
 import { LeadDraft } from '@/components/review/LeadDraft';
@@ -105,9 +105,7 @@ export default async function ReviewPage({
 
         {queue && (
           <p className="research-kicker">
-            {queue.oldestFoundAt
-              ? `Oldest waiting lead: ${daysSince(queue.oldestFoundAt)} days. `
-              : ''}
+            {queue.oldestFoundAt ? `Oldest waiting lead: ${ageLabel(queue.oldestFoundAt)}. ` : ''}
             {queue.lastDraftRunAt
               ? `Drafter last ran ${queue.lastDraftRunAt.slice(0, 16).replace('T', ' ')} UTC; ${queue.undrafted} not drafted yet, ${queue.suggestedNot} suggested not an event.`
               : 'The drafter has no completed run on record.'}
@@ -140,7 +138,7 @@ export default async function ReviewPage({
         ) : leads.length === 0 ? (
           <Empty what="No leads waiting." next="The sweep files new candidates four times a day." />
         ) : (
-          <ol className="research-results">
+          <ol className="research-results review-leads">
             {leads.map((lead) => (
               <LeadDraft
                 key={lead.id}

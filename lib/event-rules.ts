@@ -77,14 +77,24 @@ export function verbatimIn(quote: string, pageText: string): string | null {
   return at < 0 ? null : page.slice(at, at + needle.length);
 }
 
-/** The passage around a quote, for the reviewer to read it in context. */
-export function contextAround(quote: string, pageText: string, radius = 400): string {
+/** The passage around a quote, split so the quote itself can be marked; null when it is not there. */
+export function contextAround(
+  quote: string,
+  pageText: string,
+  radius = 400,
+): { before: string; quote: string; after: string } | null {
   const page = squash(pageText);
-  const at = fold(page).indexOf(fold(squash(quote)));
-  if (at < 0) return '';
+  const needle = fold(squash(quote));
+  const at = needle.length ? fold(page).indexOf(needle) : -1;
+  if (at < 0) return null;
+  const end = at + needle.length;
   const start = Math.max(0, at - radius);
-  const end = Math.min(page.length, at + quote.length + radius);
-  return `${start > 0 ? '… ' : ''}${page.slice(start, end)}${end < page.length ? ' …' : ''}`;
+  const stop = Math.min(page.length, end + radius);
+  return {
+    before: `${start > 0 ? '… ' : ''}${page.slice(start, at)}`,
+    quote: page.slice(at, end),
+    after: `${page.slice(end, stop)}${stop < page.length ? ' …' : ''}`,
+  };
 }
 
 /** `2026-07-17-sk-siltron-liquidates-css` — date plus the headline's first words. */

@@ -138,7 +138,15 @@ export function LeadDraft({ lead, problem }: { lead: LeadWithDraft; problem?: st
           <p className="research-kicker">
             {draft?.context ? 'The page around the quote' : 'What the sweep matched'}
           </p>
-          <p>{draft?.context || lead.excerpt}</p>
+          {draft?.context ? (
+            <p>
+              {draft.context.before}
+              <mark className="review-quote">{draft.context.quote}</mark>
+              {draft.context.after}
+            </p>
+          ) : (
+            <p>{lead.excerpt}</p>
+          )}
         </blockquote>
       </div>
     </li>

@@ -14,7 +14,8 @@ export interface Freshness {
 /** The review queue behind the leads: how much is unread by any person, and for how long. */
 export interface QueueLine {
   waiting: number;
-  oldestDays: number | null;
+  /** How long the oldest has waited, already worded ("6 days"). */
+  oldest: string | null;
   draftsReady: number;
 }
 
@@ -76,7 +77,7 @@ export function DeskHeader({
               {' · '}
               <Link href={methodHref('review-queue')} title="How the review queue is counted">
                 {queue.waiting} web lead{queue.waiting === 1 ? '' : 's'} awaiting review
-                {queue.oldestDays !== null && `, oldest ${queue.oldestDays}d`}
+                {queue.oldest && `, oldest waiting ${queue.oldest}`}
                 {queue.draftsReady > 0 && `, ${queue.draftsReady} drafted`}
               </Link>
             </>
