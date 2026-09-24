@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 import { Figure } from '@/components/portal/Figure';
-import { formatValue, periodLabel, KIND_LABEL, type Series } from '@/lib/series';
+import { formatPoint, periodLabel, KIND_LABEL, type Series } from '@/lib/series';
 import { seriesHref } from '@/lib/links';
 import { ChangeBadge, OriginNote, PointsTable } from './SeriesParts';
 import { SeriesChart, Sparkline } from './SeriesChart';
@@ -37,7 +37,7 @@ export function KeyNumbers({ series, officialOk }: { series: Series[]; officialO
                       sourceLabel={last.publisher}
                       asOf={periodLabel(last.date)}
                     >
-                      {formatValue(last.value)}
+                      {formatPoint(last)}
                     </Figure>{' '}
                     <span className="series-unit">{s.unit}</span>
                     <span className="series-key-date">

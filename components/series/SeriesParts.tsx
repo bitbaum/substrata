@@ -5,6 +5,7 @@ import { Figure } from '@/components/portal/Figure';
 import {
   effectOf,
   formatPct,
+  formatPoint,
   formatValue,
   latestChange,
   periodLabel,
@@ -60,7 +61,7 @@ function PointRow({ point, unit }: { point: SeriesPoint; unit: string }) {
           sourceLabel={point.publisher}
           asOf={point.published ?? periodLabel(point.date)}
         >
-          {formatValue(point.value)}
+          {formatPoint(point)}
         </Figure>{' '}
         <span className="series-unit">{unit}</span>
         {point.preliminary && <span className="series-flag"> preliminary</span>}

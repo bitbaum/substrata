@@ -29,6 +29,7 @@ export type SeriesKind =
   | 'capacity'
   | 'output'
   | 'backlog'
+  | 'orders'
   | 'inventory'
   | 'trade'
   | 'queue'
@@ -42,6 +43,7 @@ export const KIND_LABEL: Record<SeriesKind, string> = {
   capacity: 'Capacity',
   output: 'Output',
   backlog: 'Backlog',
+  orders: 'Orders',
   inventory: 'Inventory',
   trade: 'Trade volume',
   queue: 'Queue',
@@ -56,6 +58,11 @@ export interface SeriesPoint {
   /** The period the value is FOR: YYYY, YYYY-Qn, YYYY-MM or YYYY-MM-DD. */
   date: string;
   value: number;
+  /**
+   * When the source states a range ("80–210 weeks"), its lower end; `value`
+   * is then the upper end, and both are shown. Never averaged into one number.
+   */
+  low?: number;
   /** The page it came from. For official series, the agency's page for the series. */
   source: string;
   publisher: string;
@@ -168,6 +175,13 @@ export function formatPct(pct: number): string {
 /** Values as the source gave them, grouped for reading; never rounded past what was stated. */
 export function formatValue(value: number): string {
   return value.toLocaleString('en', { maximumFractionDigits: 3 });
+}
+
+/** A point's value as stated: "128", or "80–210" where the source gave a range. */
+export function formatPoint(point: Pick<SeriesPoint, 'value' | 'low'>): string {
+  return point.low !== undefined
+    ? `${formatValue(point.low)}–${formatValue(point.value)}`
+    : formatValue(point.value);
 }
 
 /** Whether a move is bad news, good news or neither for the bottleneck. */

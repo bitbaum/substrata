@@ -6,7 +6,7 @@ export const maxDuration = 290;
 /**
  * The daily BLS fetch of official series, called by a systemd timer through
  * `/opt/_appcron/run.sh` with `Authorization: Bearer $CRON_SECRET` — the same
- * gate as /api/cron/sweep. Requires scripts/db/007-series.sql.
+ * gate as /api/cron/sweep. Requires scripts/db/008-series.sql.
  */
 export async function POST(request: Request) {
   const secret = process.env.CRON_SECRET;

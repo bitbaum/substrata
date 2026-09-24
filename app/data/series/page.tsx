@@ -7,7 +7,7 @@ import { Sparkline } from '@/components/series/SeriesChart';
 import { ChangeBadge } from '@/components/series/SeriesParts';
 import { BOTTLENECKS } from '@/lib/bottlenecks';
 import { bottleneckHref, seriesHref } from '@/lib/links';
-import { KIND_LABEL, formatValue, periodLabel, periodTime, type SeriesKind } from '@/lib/series';
+import { KIND_LABEL, formatPoint, periodLabel, periodTime, type SeriesKind } from '@/lib/series';
 import { allSeries } from '@/lib/series-store';
 
 export const metadata = {
@@ -125,7 +125,7 @@ export default async function SeriesIndex({ searchParams }: { searchParams: Prom
                   </div>
                   <div className="series-row-value">
                     <Figure source={last.source} sourceLabel={last.publisher}>
-                      {formatValue(last.value)}
+                      {formatPoint(last)}
                     </Figure>{' '}
                     <span className="series-unit">{s.unit}</span>
                     <span className="series-key-date">{periodLabel(last.date)}</span>

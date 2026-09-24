@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { formatValue, periodLabel, type Series } from '@/lib/series';
+import { formatPoint, formatValue, periodLabel, type Series } from '@/lib/series';
 import { geometry, linePath } from '@/lib/series-chart';
 
 /**
@@ -48,7 +48,7 @@ export function SeriesChart({ series }: { series: Series }) {
           >
             <span className="series-tip" role="tooltip">
               <strong>
-                {formatValue(point.value)} {series.unit}
+                {formatPoint(point)} {series.unit}
               </strong>
               <span>
                 {periodLabel(point.date)}
