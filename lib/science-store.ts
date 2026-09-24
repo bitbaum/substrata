@@ -119,6 +119,10 @@ async function save(bottleneck: string, item: ScienceItem, score: number, matche
                           OR EXCLUDED.url = ANY(research_science_items.also_urls)
                         THEN research_science_items.also_urls
                         ELSE research_science_items.also_urls || EXCLUDED.url END,
+       -- The stage rule can change; the newest reading of it wins.
+       stage = EXCLUDED.stage,
+       stage_why = EXCLUDED.stage_why,
+       score = GREATEST(research_science_items.score, EXCLUDED.score),
        updated_at = now()
      RETURNING (xmax = 0) AS inserted`,
     [

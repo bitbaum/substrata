@@ -127,7 +127,6 @@ const LAB = [
   'experimentally demonstrate',
   'we report a device',
   'test bench',
-  'measured',
 ];
 const PILOT = [
   'pilot line',
@@ -153,7 +152,7 @@ export interface StagePlacement {
  *    research councils) → fundamental;
  *  - a paper or preprint: pilot words ("pilot line", "field trial", "HVM")
  *    AND an author at a company → pilot; laboratory words ("we fabricate",
- *    "prototype", "measured") → applied; otherwise fundamental;
+ *    "prototype", "test bench") → applied; otherwise fundamental;
  *  - a patent → applied.
  * Never early commercial or at scale: a paper cannot show a product is on sale.
  */

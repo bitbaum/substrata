@@ -19,6 +19,9 @@ export const metadata: Metadata = {
     'Universities, national labs, startups and incumbents named on the research and grants behind each bottleneck, and which listed companies are among them.',
 };
 
+/** OpenAlex institution types that are research bodies rather than firms. */
+const ACADEMIC = new Set(['education', 'facility', 'government', 'healthcare', 'archive']);
+
 interface Institution {
   name: string;
   type: string | null;
@@ -87,6 +90,24 @@ export default async function OrganisationsPage({
                   {
                     label: 'Institutions named',
                     value: <Figure method="science-orgs">{institutions.length}</Figure>,
+                  },
+                  {
+                    label: 'Universities and labs',
+                    value: (
+                      <Figure method="science-orgs">
+                        {institutions.filter((i) => ACADEMIC.has(i.type ?? '')).length}
+                      </Figure>
+                    ),
+                    note: 'as OpenAlex types them',
+                  },
+                  {
+                    label: 'Companies',
+                    value: (
+                      <Figure method="science-orgs">
+                        {institutions.filter((i) => i.type === 'company').length}
+                      </Figure>
+                    ),
+                    note: 'any company OpenAlex names',
                   },
                   {
                     label: 'Directory companies',

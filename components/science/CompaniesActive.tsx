@@ -63,7 +63,7 @@ export function CompaniesActive({ orgs }: { orgs: OrgActivity[] }) {
               <Figure method="science-orgs" inLink>
                 {c.items}
               </Figure>{' '}
-              items
+              {c.items === 1 ? 'item' : 'items'}
             </Link>
             {c.latest && <span className="sci-company-latest">latest {c.latest}</span>}
           </li>
