@@ -28,7 +28,7 @@ import { allEntities, resolveIn } from './entities/registry';
 import { ENTITY_KINDS, type Entity, type EntityKind } from './entities/types';
 import { neighbors, GRAPH_KINDS, type GraphKind } from './graph';
 import { slugify } from './links';
-import type { LeadHit } from './sweep-store';
+import type { LeadHit } from './sweep-queue';
 import { chatContext } from './chat';
 import type { WebFinding, WebLookup } from './chat-web';
 

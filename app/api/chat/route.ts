@@ -7,7 +7,7 @@ import { lookUp, webLookupEnabled } from '@/lib/chat-web';
 import { currentSession } from '@/lib/auth';
 import { database } from '@/lib/db';
 import { parseFollows, type Follows } from '@/lib/follows';
-import { searchLeads } from '@/lib/sweep-store';
+import { searchLeads } from '@/lib/sweep-queue';
 
 export const dynamic = 'force-dynamic';
 

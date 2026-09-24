@@ -230,3 +230,76 @@ export async function nodeStatuses(names: readonly string[]): Promise<NodeStatus
     };
   });
 }
+
+/** A sweep lead as the assistant sees it: unread, with the passage that matched. */
+export interface LeadHit {
+  bottleneck: string;
+  url: string;
+  title: string;
+  published: string | null;
+  excerpt: string;
+  effectGuess: string;
+  foundAt: string;
+  /** `null` while nobody has read it; `accepted` means worth writing up, not published. */
+  verdict: string | null;
+}
+
+/**
+ * Leads for the assistant's `recent_leads` tool.
+ *
+ * Optional bottleneck scope and an optional word filter over title and
+ * excerpt. Rejected leads are gone for good, as on the desk. Bounded hard,
+ * because every row returned is prompt the free tier pays for.
+ */
+export async function searchLeads({
+  bottlenecks,
+  query,
+  days = 45,
+  limit = 8,
+}: {
+  bottlenecks?: readonly string[];
+  query?: string;
+  days?: number;
+  limit?: number;
+}): Promise<LeadHit[]> {
+  const words = (query ?? '')
+    .toLowerCase()
+    .match(/[\p{L}\p{N}]{3,}/gu)
+    ?.slice(0, 6)
+    .map((w) => `%${w}%`);
+  const result = await database().query<{
+    bottleneck: string;
+    url: string;
+    title: string;
+    published: string | null;
+    excerpt: string;
+    effect_guess: string;
+    found_at: Date;
+    verdict: string | null;
+  }>(
+    `SELECT bottleneck, url, title, published, excerpt, effect_guess, found_at, verdict
+       FROM research_sweep_candidates
+      WHERE verdict IS DISTINCT FROM 'rejected'
+        AND found_at > now() - ($1::float8 * interval '1 day')
+        AND ($2::text[] IS NULL OR bottleneck = ANY($2::text[]))
+        AND ($3::text[] IS NULL OR lower(title || ' ' || excerpt) LIKE ANY($3::text[]))
+      ORDER BY found_at DESC
+      LIMIT $4`,
+    [
+      Math.min(Math.max(days, 1), 365),
+      bottlenecks && bottlenecks.length ? [...bottlenecks] : null,
+      words && words.length ? words : null,
+      Math.min(Math.max(limit, 1), 20),
+    ],
+  );
+  return result.rows.map((row) => ({
+    bottleneck: row.bottleneck,
+    url: row.url,
+    title: row.title,
+    published: row.published,
+    excerpt: row.excerpt,
+    effectGuess: row.effect_guess,
+    foundAt: row.found_at.toISOString(),
+    verdict: row.verdict,
+  }));
+}
