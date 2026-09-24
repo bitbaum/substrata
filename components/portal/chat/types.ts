@@ -8,7 +8,12 @@ export type Source = {
   kind: string;
 };
 
-export type WebFinding = { title: string; url: string; excerpt: string };
+export type WebFinding = { title: string; url: string; excerpt: string; cited?: boolean };
+
+export type Verdict = 'Supported' | 'Contradicted' | 'Outdated' | 'Unverifiable';
+
+/** A claim to check, as sent to /api/chat. */
+export type VerifyInput = { claim: string; value?: string; source?: string };
 
 /** A page the sweep found that nobody has reviewed. Never a finding. */
 export type Lead = {
@@ -34,6 +39,8 @@ export type Answer = {
   outside?: boolean;
   /** No model answered; this is the honest fallback. */
   degraded?: boolean;
+  /** Verify mode: the verdict the answer opened with. */
+  verdict?: Verdict;
 };
 
 export type Turn = {
@@ -46,6 +53,7 @@ export type Turn = {
   trail?: string[];
   outside?: boolean;
   degraded?: boolean;
+  verdict?: Verdict;
 };
 
 export type StreamEvent =

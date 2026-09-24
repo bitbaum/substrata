@@ -357,9 +357,10 @@ test('a failure that is not a budget is an error, never a made-up answer', async
     env: {},
     emit: (e) => events.push(e),
   });
+  // A status line first (the reader sees it started), then the error.
   assert.deepEqual(
     events.map((e) => e.type),
-    ['error'],
+    ['status', 'error'],
   );
 });
 

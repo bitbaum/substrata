@@ -10,6 +10,7 @@ import { CompanyFacts } from './CompanyFacts';
 import { Lede } from './Lede';
 import { Ticker } from '@/components/exposure/Ticker';
 import { listingFor } from '@/lib/listings';
+import { CheckThis } from '@/components/portal/CheckThis';
 
 /**
  * The header is derived. Every figure in it links to the rows it counts or to
@@ -61,6 +62,7 @@ export function CompanyHeader({
       </p>
       <p className="mt-3 max-w-prose text-lg leading-relaxed text-fg-secondary">
         <Lede profile={profile} />
+        <CheckThis className="is-inline" label="Check this" />
       </p>
 
       <CompanyFacts p={p} profile={profile} />

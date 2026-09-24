@@ -30,6 +30,8 @@ export interface WebFinding {
   title: string;
   url: string;
   excerpt: string;
+  /** The source the claim itself cites, as opposed to a search result. */
+  cited?: boolean;
 }
 
 export type WebLookup =
@@ -59,6 +61,80 @@ export function webLookupEnabled(env: NodeJS.ProcessEnv = process.env): boolean 
 const MAX_PAGES = 2;
 const EXCERPT = 700;
 
+/**
+ * The passage of a page that bears on the question — not its first 700
+ * characters, which on most pages are navigation and a cookie banner.
+ *
+ * Scored by shared words and, heavily, shared numbers: a claim about "1,200
+ * wafers" is decided by the sentence carrying 1,200, wherever it sits. Falls
+ * back to the head of the page when nothing overlaps, so a reader still sees
+ * what was read.
+ */
+export function bestPassage(text: string, query: string, max = EXCERPT): string {
+  const flat = text.replace(/\s+/g, ' ').trim();
+  const words = new Set(
+    (query.toLowerCase().match(/[a-z][a-z0-9-]{3,}/g) ?? []).filter((w) => !STOP.has(w)),
+  );
+  const numbers = new Set((query.match(/\d[\d.,]*/g) ?? []).map(digits).filter(Boolean));
+  const sentences = flat.split(/(?<=[.!?])\s+(?=[A-Z0-9"“(])/);
+  let best = -1;
+  let bestScore = 0;
+  sentences.forEach((sentence, i) => {
+    const lower = sentence.toLowerCase();
+    let score = 0;
+    for (const w of words) if (lower.includes(w)) score += 1;
+    for (const n of sentence.match(/\d[\d.,]*/g) ?? []) if (numbers.has(digits(n))) score += 4;
+    if (score > bestScore) {
+      bestScore = score;
+      best = i;
+    }
+  });
+  if (best < 0) return flat.slice(0, max).trim();
+  // Widen by whole sentences, after then before, while they fit.
+  let passage = sentences[best];
+  let lo = best;
+  let hi = best;
+  for (let grew = true; grew;) {
+    grew = false;
+    const after = sentences[hi + 1];
+    if (after && passage.length + after.length + 1 <= max) {
+      passage = `${passage} ${after}`;
+      hi++;
+      grew = true;
+    }
+    const before = sentences[lo - 1];
+    if (before && passage.length + before.length + 1 <= max) {
+      passage = `${before} ${passage}`;
+      lo--;
+      grew = true;
+    }
+  }
+  return passage.slice(0, max).trim();
+}
+
+function digits(n: string): string {
+  return n.replace(/[^\d]/g, '').replace(/^0+/, '');
+}
+
+const STOP = new Set([
+  'that',
+  'this',
+  'with',
+  'from',
+  'have',
+  'were',
+  'which',
+  'their',
+  'about',
+  'than',
+  'what',
+  'into',
+  'more',
+  'most',
+  'also',
+  'been',
+]);
+
 export async function lookUp(
   question: string,
   signal?: AbortSignal,
@@ -66,22 +142,52 @@ export async function lookUp(
 ): Promise<WebLookup> {
   if (!webLookupEnabled(env)) return { status: 'off' };
 
-  const search = await webSearch(question, { limit: 5, timeoutMs: 8000 });
+  const search = await webSearch(question, { limit: 5, timeoutMs: 6000 });
   if (search.status === 'could_not_look') return { status: 'could_not_look' };
   if (search.status === 'nothing' || search.results.length === 0) return { status: 'nothing' };
 
-  const findings: WebFinding[] = [];
-  for (const result of search.results.slice(0, MAX_PAGES)) {
-    if (signal?.aborted) break;
-    const page = await readPage(result.url, { timeoutMs: 8000, maxChars: 20_000 });
-    if (!page.ok) continue;
-    findings.push({
-      title: page.title || result.title || result.url,
-      url: page.url,
-      excerpt: page.text.replace(/\s+/g, ' ').slice(0, EXCERPT).trim(),
-    });
-  }
+  // In parallel: two pages read one after the other was the slowest step of a
+  // web answer, and neither depends on the other.
+  const pages = await Promise.all(
+    search.results.slice(0, MAX_PAGES).map((result) =>
+      signal?.aborted
+        ? null
+        : readPage(result.url, { timeoutMs: 6000, maxChars: 30_000 }).then((page) =>
+            page.ok
+              ? {
+                  title: page.title || result.title || result.url,
+                  url: page.url,
+                  excerpt: bestPassage(page.text, question),
+                }
+              : null,
+          ),
+    ),
+  );
+  const findings = pages.filter((f): f is WebFinding => f !== null);
   return findings.length > 0 ? { status: 'found', findings } : { status: 'nothing' };
+}
+
+/**
+ * Read one cited source and return the passage that bears on a claim.
+ *
+ * `readPage` re-runs its SSRF check on every redirect hop, which is what makes
+ * it safe to point at a url that arrived in a request. Null when the page
+ * could not be read — said to the model as such, never papered over.
+ */
+export async function readSource(
+  url: string,
+  claim: string,
+  signal?: AbortSignal,
+): Promise<WebFinding | null> {
+  if (!/^https?:\/\//.test(url) || signal?.aborted) return null;
+  const page = await readPage(url, { timeoutMs: 7000, maxChars: 60_000 });
+  if (!page.ok) return null;
+  return {
+    title: page.title || url,
+    url: page.url,
+    excerpt: bestPassage(page.text, claim, 900),
+    cited: true,
+  };
 }
 
 /**

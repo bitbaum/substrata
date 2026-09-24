@@ -408,68 +408,6 @@
  * form tucked under the composer, and the contribution form already proved
  * the layout works there.
  */
-.companion-byok {
-  margin-top: 0.6rem;
-  padding: 0.9rem 1rem;
-  border: 1px solid var(--color-border-strong);
-  border-radius: 0.4rem;
-  background: var(--color-surface-raised);
-}
-.companion-byok-row {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-.companion-byok-row > * {
-  flex: 1 1 10rem;
-  min-width: 0;
-}
-.companion-byok select,
-.companion-byok input {
-  width: 100%;
-  border: 1px solid var(--color-border-strong);
-  padding: 0.6rem 0.7rem;
-  background: var(--color-surface-page);
-  color: var(--color-fg-primary);
-  font: inherit;
-  font-size: 0.85rem;
-}
-.companion-byok-note {
-  margin-top: 0.6rem;
-  font-size: 0.78rem;
-  line-height: 1.5;
-  color: var(--color-fg-tertiary);
-}
-.companion-byok-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-  margin-top: 0.7rem;
-}
-.companion-byok-actions button[type='submit'] {
-  height: 2.4rem;
-  padding: 0 1rem;
-  border-radius: 0.3rem;
-  background: var(--color-accent);
-  color: var(--color-surface-page);
-  font-size: 0.82rem;
-  font-weight: 650;
-}
-.companion-byok-clear {
-  background: none;
-  border: 0;
-  padding: 0;
-  font: inherit;
-  font-size: 0.8rem;
-  color: var(--color-fg-tertiary);
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-  cursor: pointer;
-}
-.companion-byok-clear:hover {
-  color: var(--color-fg-primary);
-}
-/* The active-key pill replaces the free-model select when BYOK is in use. */
 .companion-byok-active {
   display: inline-flex;
   align-items: center;

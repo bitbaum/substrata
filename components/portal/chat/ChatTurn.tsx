@@ -37,6 +37,11 @@ export function ChatTurn({
           ))}
         </ul>
       )}
+      {turn.verdict && (
+        <p className={`companion-verdict is-${turn.verdict.toLowerCase()}`}>
+          Verdict · {turn.verdict}
+        </p>
+      )}
       {turn.role === 'assistant' ? (
         <Markdown text={turn.content} />
       ) : (
@@ -53,15 +58,22 @@ export function ChatTurn({
         // draw a border in the current text colour. Visual decisions
         // belong in globals.css in this repo, so it is a class now.
         <div className="companion-web">
-          <p className="companion-web-label">From the open web · not checked by Substrata</p>
+          <p className="companion-web-label">
+            What it read · the cited source and the open web · not checked by Substrata
+          </p>
           <ul>
             {turn.web.map((finding, index) => (
               <li key={finding.url}>
                 {/* New tab: following a lead in place would drop the
                     conversation that produced it. */}
                 <a href={finding.url} target="_blank" rel="noreferrer nofollow">
-                  [W{index + 1}] {finding.title} ↗
+                  [W{index + 1}] {finding.cited ? 'Cited source: ' : ''}
+                  {finding.title} ↗
                 </a>
+                {/* The passage itself, so the reader can check the checker. */}
+                {finding.excerpt && (
+                  <blockquote className="companion-passage">{finding.excerpt}</blockquote>
+                )}
               </li>
             ))}
           </ul>
@@ -100,6 +112,16 @@ export function ChatTurn({
               <li key={s.id}>
                 <Link href={s.href}>{s.title}</Link>
                 <span>{s.evidence}</span>
+                {s.primary
+                  .filter((url) => /^https?:\/\//.test(url))
+                  .slice(0, 2)
+                  .map((url) => (
+                    <span key={url} className="companion-primary">
+                      <a href={url} target="_blank" rel="noreferrer nofollow">
+                        {hostOf(url)} ↗
+                      </a>
+                    </span>
+                  ))}
               </li>
             ))}
           </ul>
@@ -126,6 +148,14 @@ export function ChatTurn({
       )}
     </article>
   );
+}
+
+function hostOf(url: string): string {
+  try {
+    return new URL(url).hostname.replace(/^www\./, '');
+  } catch {
+    return url;
+  }
 }
 
 /** The answer while it is being written. */

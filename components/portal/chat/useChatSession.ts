@@ -1,8 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import type { ByokConfig } from '@/lib/byok-shared';
-import type { LiveAnswer, StreamEvent, Turn } from './types';
+import type { LiveAnswer, StreamEvent, Turn, VerifyInput } from './types';
 
 /**
  * The conversation: its turns, the answer being streamed, and the two POSTs
@@ -13,12 +12,13 @@ export function useChatSession({
   topic,
   onPath,
   model,
-  byok,
+  keyFields,
 }: {
   topic: string;
   onPath?: string;
   model: string;
-  byok: ByokConfig | null;
+  /** The active AI key's request fields (browser key or `byokStored`), or {}. */
+  keyFields: () => Record<string, unknown>;
 }) {
   const [turns, setTurns] = useState<Turn[]>([]);
   const [draft, setDraft] = useState('');
@@ -31,7 +31,11 @@ export function useChatSession({
   const [contribute, setContribute] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
 
-  async function ask(question: string) {
+  /**
+   * Ask a question — or, with `verify`, check a claim: the server reads the
+   * cited source and searches the web before the model answers with a verdict.
+   */
+  async function ask(question: string, verify?: VerifyInput) {
     const text = question.trim();
     if (text.length < 3 || busy) return;
     abortRef.current?.abort();
@@ -42,7 +46,11 @@ export function useChatSession({
     setReceipt('');
     setTurns((prev) => [...prev, { role: 'user', content: text }]);
     setDraft('');
-    setLive({ steps: [], text: '', status: 'Reading the question…' });
+    setLive({
+      steps: [],
+      text: '',
+      status: verify ? 'Reading the cited source…' : 'Reading the question…',
+    });
     const history = [...turns, { role: 'user' as const, content: text }].slice(-8);
     try {
       const response = await fetch('/api/chat', {
@@ -50,15 +58,13 @@ export function useChatSession({
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           question: text,
-          // Sending 'auto' while byok is set would be ignored server-side
-          // anyway (a BYOK request supplies its own model), but the free
-          // model picker is hidden while byok is active, so this is always
-          // what the reader actually chose.
+          // Ignored server-side when a key is active (it names its own model).
           model,
           history: history.slice(0, -1).map((t) => ({ role: t.role, content: t.content })),
           onPath,
           topic: topic || undefined,
-          ...(byok ? { byok } : {}),
+          ...(verify ? { verify } : {}),
+          ...keyFields(),
         }),
         signal: abort.signal,
       });
@@ -103,6 +109,7 @@ export function useChatSession({
                 trail: data.trail,
                 outside: data.outside,
                 degraded: data.degraded,
+                verdict: data.verdict,
               },
             ]);
             setLive(null);

@@ -7,6 +7,7 @@ import { Page, Shell } from '@/components/portal/Shell';
 import { RailsSettings } from '@/components/desk/settings/RailsSettings';
 import { FeedSettings } from '@/components/desk/settings/FeedSettings';
 import { SweepSettings } from '@/components/desk/settings/SweepSettings';
+import { AiSettings } from '@/components/desk/settings/AiSettings';
 import { railsOf } from '@/lib/follows';
 import { readFollows } from '@/lib/desk-store';
 import { DEFAULT_SWEEP_SETTINGS } from '@/lib/sweep';
@@ -71,6 +72,7 @@ export default async function DeskSettingsPage({
           <a href="#rails">Rails</a>
           <a href="#feed">Feed</a>
           <a href="#sweep">Sweep</a>
+          <a href="#ai">AI</a>
           <a href="#account">Account</a>
         </nav>
 
@@ -94,6 +96,8 @@ export default async function DeskSettingsPage({
         </form>
 
         <SweepSettings sweep={sweep} statuses={statuses} reviewer={reviewer} now={now} />
+
+        <AiSettings />
 
         <section id="account" className="settings-section">
           <div className="settings-head">

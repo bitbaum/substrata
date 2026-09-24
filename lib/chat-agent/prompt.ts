@@ -1,6 +1,6 @@
 /** The system prompt for the tool-using assistant. */
 import { TEXT_TOOL_PROTOCOL_HINT } from '@bitbaum/ai-kit';
-import { byokModelLabel, type ByokConfig } from '../byok';
+import { byokLabel, type ByokConfig } from '../byok';
 import { describeContext, type ReaderContext } from '../chat-context';
 
 // ---------------------------------------------------------------------------
@@ -13,6 +13,8 @@ export function systemPrompt(opts: {
   tools: { function: { name: string; description: string } }[];
   byok?: ByokConfig;
   today?: string;
+  /** Verify mode: the claim, the evidence already gathered, the verdict format. */
+  verify?: string;
 }): string {
   const names = opts.tools.map((t) => t.function.name);
   return [
@@ -23,8 +25,11 @@ export function systemPrompt(opts: {
     opts.preloaded
       ? `## The record on this page (already looked up for you)\n${opts.preloaded}`
       : '',
+    opts.verify ?? '',
     '## How to work',
-    `You have tools over the corpus: ${names.join(', ')}. Look things up instead of guessing — call a tool whenever the question needs a record you have not seen in this conversation. Call several in one reply if you need several. Do not call a tool for something already shown above. When you have enough, answer.`,
+    names.length
+      ? `You have tools over the corpus: ${names.join(', ')}. Look things up instead of guessing — call a tool whenever the question needs a record you have not seen in this conversation. Call ALL the tools you need in ONE reply; every extra round makes the reader wait. Do not call a tool for something already shown above. When you have enough, answer.`
+      : 'Answer from the record on this page, shown above. If it does not hold the answer, say so in one sentence and suggest what to ask instead.',
     '## Honesty rules (the product depends on them)',
     [
       '- Evidence states are part of the answer. Say which claims are "Sourced", which are "Candidate source" or "Unverified lead", and which are analyst judgements (scores, grades, horizons). Never present an unverified row or a judgement as established fact.',
@@ -37,9 +42,9 @@ export function systemPrompt(opts: {
     ].join('\n'),
     '## Citing',
     'Link every record you rely on as a markdown link to its site page — [Name](/path), copying the `page` path the tool returned exactly, e.g. [ASML](/markets/asml) or [EUV lithography scanners](/bottlenecks/euv-lithography-scanners). Link primary sources and leads as [title](url). Describe evidence using the tool\'s `status` words verbatim (Sourced, Candidate source, Unverified lead, analyst judgement, primary/secondary source, unreviewed sweep lead). Use names, not "the company". Keep answers tight: a short direct answer first, then the supporting rows as a compact list when there are several.',
-    TEXT_TOOL_PROTOCOL_HINT,
+    names.length ? TEXT_TOOL_PROTOCOL_HINT : '',
     opts.byok
-      ? `You are running as ${byokModelLabel(opts.byok)} on the reader's own key. Use your full reasoning; the evidence rules above still hold.`
+      ? `You are running as ${byokLabel(opts.byok)} on the reader's own key. Use your full reasoning; the evidence rules above still hold.`
       : '',
   ]
     .filter(Boolean)

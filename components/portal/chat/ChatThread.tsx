@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from 'react';
 import { CHAT_STARTERS } from '@/config/substrata-chat';
-import { byokModelLabel, type ByokConfig } from '@/lib/byok-shared';
 import { ChatTurn, LiveTurn } from './ChatTurn';
 import type { LiveAnswer, Turn } from './types';
 
@@ -13,7 +12,7 @@ export function ChatThread({
   busy,
   error,
   receipt,
-  byok,
+  keyLabel,
   ai,
   compact,
   onAsk,
@@ -23,7 +22,8 @@ export function ChatThread({
   busy: boolean;
   error: string;
   receipt: string;
-  byok: ByokConfig | null;
+  /** The reader's own AI, when a key is active: "Anthropic · claude-opus-5". */
+  keyLabel: string | null;
   ai: 'unknown' | 'up' | 'down';
   compact: boolean;
   onAsk: (question: string) => Promise<void>;
@@ -40,8 +40,8 @@ export function ChatThread({
         <div className="companion-empty">
           <p className="companion-kicker">
             Substrata ·{' '}
-            {byok
-              ? `answering as ${byokModelLabel(byok)}`
+            {keyLabel
+              ? `answering as ${keyLabel}`
               : ai === 'up'
                 ? 'assistant connected'
                 : ai === 'down'
@@ -50,7 +50,7 @@ export function ChatThread({
           </p>
           <h2>Ask the corpus.</h2>
           <p>
-            {byok ? (
+            {keyLabel ? (
               <>
                 Running on your own key, not the shared free tier. Same corpus, same citation rules
                 — a numbered row is still the only thing that counts as a finding.
@@ -60,7 +60,8 @@ export function ChatThread({
                 It knows the page you are on and, signed in, the rails you follow. It looks up
                 bottlenecks, companies, events and the sweep&apos;s newest leads as it answers, and
                 says which claims are sourced, which are unverified, and which are judgement. Have a
-                frontier model key? Add it below to skip the free tier.
+                key for any AI — OpenAI, Anthropic, Gemini, OpenRouter and others? Add it below
+                (Your AI key) to use it instead of the shared free models.
               </>
             )}
           </p>
