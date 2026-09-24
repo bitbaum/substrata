@@ -16,6 +16,9 @@
  */
 
 import eventsWorklist from '../research/events.json';
+// Rows accepted at /review and written by `pnpm run research:accept-events`.
+// Same shape, same tests, same rule: they reach a page through a commit.
+import reviewedEvents from './substrata-events-accepted.json';
 
 export type EventKind =
   'capacity' | 'lead-time' | 'price' | 'policy' | 'outage' | 'filing' | 'milestone';
@@ -478,6 +481,7 @@ export const EVENTS: readonly CoverageEvent[] = [
       'On November 7, 2025, MOFCOM announced the suspension of the entire package of export controls issued just one month prior.',
     acceptedOn: '2026-09-15',
   },
+  ...(reviewedEvents as CoverageEvent[]),
 ];
 
 /** Newest first. */

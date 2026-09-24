@@ -1,0 +1,143 @@
+/* /review: an AI draft beside its source. Tokens only — see app/globals.css. */
+
+.research-results.review-leads {
+  grid-template-columns: minmax(0, 1fr);
+}
+.review-lead {
+  scroll-margin-top: 6rem;
+  container-type: inline-size;
+}
+
+.review-pair {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+@container (min-width: 46rem) {
+  .review-pair {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    align-items: start;
+  }
+}
+
+.review-form {
+  display: grid;
+  gap: 0.85rem;
+  min-width: 0;
+}
+.review-form label {
+  display: grid;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--color-fg-tertiary);
+}
+.review-form input:not([type='checkbox']),
+.review-form select,
+.review-form textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 0.4rem;
+  background: var(--color-surface-page);
+  color: var(--color-fg-primary);
+  font: inherit;
+  font-size: 0.95rem;
+}
+.review-form textarea {
+  resize: vertical;
+}
+.review-row {
+  display: grid;
+  gap: 0.85rem;
+}
+@media (min-width: 40rem) {
+  .review-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.review-form .review-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-fg-secondary);
+}
+
+.review-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.review-source {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  border-left: 2px solid var(--color-border-strong);
+  background: var(--color-surface-raised);
+  color: var(--color-fg-secondary);
+  overflow-wrap: anywhere;
+}
+
+.review-verdict,
+.review-note {
+  margin-top: 0.5rem;
+  color: var(--color-fg-secondary);
+}
+.review-verdict-event {
+  color: var(--color-fg-primary);
+}
+.review-verdict-event::before {
+  content: '';
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  background: var(--color-status-positive);
+}
+
+.review-problem {
+  margin-top: 0.75rem;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--color-status-negative);
+  border-radius: 0.4rem;
+  color: var(--color-fg-primary);
+}
+
+.review-notes {
+  margin: 0;
+  padding-left: 1.1rem;
+  list-style: disc;
+  font-size: 0.85rem;
+  color: var(--color-status-warning);
+}
+
+.review-names summary {
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--color-fg-tertiary);
+}
+.review-names p {
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--color-fg-tertiary);
+}
+
+.review-commit {
+  margin: 1rem 0;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 0.4rem;
+}
+.review-commit code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+}
+.review-quote {
+  background: none;
+  color: var(--color-fg-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--color-status-positive);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}

@@ -4,10 +4,19 @@ import { whenLabel } from '@/lib/desk';
 import { WINDOW_LABEL, type Window } from '@/lib/follows';
 import { DeskRefresh } from '@/components/portal/DeskRefresh';
 import { checkNow, markAllRead } from '@/app/account/actions';
+import { methodHref } from '@/lib/methods';
 
 export interface Freshness {
   lastSwept: string | null;
   sweeping: boolean;
+}
+
+/** The review queue behind the leads: how much is unread by any person, and for how long. */
+export interface QueueLine {
+  waiting: number;
+  /** How long the oldest has waited, already worded ("6 days"). */
+  oldest: string | null;
+  draftsReady: number;
 }
 
 export function DeskHeader({
@@ -19,6 +28,7 @@ export function DeskHeader({
   railCount,
   mutedCount,
   now,
+  queue = null,
 }: {
   firstName?: string;
   /** Unread rows in the current window and sources — the same number as the Unread tab. */
@@ -29,6 +39,7 @@ export function DeskHeader({
   railCount: number;
   mutedCount: number;
   now: Date;
+  queue?: QueueLine | null;
 }) {
   return (
     <header className="desk-hero">
@@ -61,6 +72,16 @@ export function DeskHeader({
           <Link href="/account/settings#rails" title="Choose which bottlenecks are on your desk">
             {railCount} rail{railCount === 1 ? '' : 's'} on your desk
           </Link>
+          {queue && queue.waiting > 0 && (
+            <>
+              {' · '}
+              <Link href={methodHref('review-queue')} title="How the review queue is counted">
+                {queue.waiting} web lead{queue.waiting === 1 ? '' : 's'} awaiting review
+                {queue.oldest && `, oldest waiting ${queue.oldest}`}
+                {queue.draftsReady > 0 && `, ${queue.draftsReady} drafted`}
+              </Link>
+            </>
+          )}
           {mutedCount > 0 && (
             <>
               {' · '}

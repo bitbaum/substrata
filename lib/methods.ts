@@ -123,6 +123,14 @@ export const METHODS = {
       'The automated sweep proposes leads; this counts the ones nobody has read. They are never shown as findings. The committed worklist file in the repository is an older snapshot of the same queue and is not used for this count.',
     code: ['lib/sweep-store.ts'],
   },
+  'review-queue': {
+    title: 'Review queue: waiting, oldest, drafts ready',
+    formula:
+      'Waiting: sweep leads with no reviewer decision. Oldest: whole days since the earliest of them was found. Drafts ready: waiting leads whose AI draft suggests an event and passed the checks.',
+    explanation:
+      'A draft passes only if its quote occurs word for word on the fetched page and it names bottlenecks and participants the site already has. A ready draft is still unreviewed: it reaches a page only after a person accepts it and the row is committed to the corpus file.',
+    code: ['lib/event-draft-store.ts', 'lib/event-draft.ts', 'lib/event-rules.ts'],
+  },
   'facet-count': {
     title: 'Filter counts',
     formula: 'Count of bottlenecks tagged with that technology, industry or stage.',

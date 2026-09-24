@@ -18,6 +18,7 @@ import { buildFeed, type DeskItem, type Lead } from '@/lib/desk';
 import { applyFilter, isRead, itemKey, railActivity, VIEWS, type View } from '@/lib/desk-filter';
 import { sweepStaleNow } from '@/lib/sweep-store';
 import { leadsFor, railFreshness } from '@/lib/sweep-queue';
+import { ageLabel, reviewQueue } from '@/lib/event-draft-store';
 import { filingsFor } from '@/lib/filings-store';
 import { filingItems, registrantsOn } from '@/lib/desk-filings';
 import type { Filing } from '@/lib/filings';
@@ -108,6 +109,8 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
   let leads: Lead[] | null = null;
   let fresh: Awaited<ReturnType<typeof railFreshness>> | null = null;
   let filings: Filing[] = [];
+  // Site-wide, not per rail: a reader should know how far behind the reading is.
+  const queue = await reviewQueue().catch(() => null);
   try {
     [leads, fresh] = await Promise.all([
       leadsFor(railNames, settings.leadMaxAgeDays),
@@ -183,6 +186,13 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
           railCount={rails.length}
           mutedCount={follows.muted.length}
           now={now}
+          queue={
+            queue && {
+              waiting: queue.waiting,
+              oldest: queue.oldestFoundAt ? ageLabel(queue.oldestFoundAt, now) : null,
+              draftsReady: queue.draftsReady,
+            }
+          }
         />
 
         {checked !== null && (

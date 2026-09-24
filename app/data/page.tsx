@@ -4,6 +4,7 @@ import { Page, Shell, SectionHeader } from '@/components/portal/Shell';
 import { evidenceTotals } from '@/lib/atlas';
 import { EVIDENCE } from '@/config/substrata-evidence';
 import { freshness } from '@/lib/sweep-queue';
+import { ageLabel, reviewQueue } from '@/lib/event-draft-store';
 import { Figure } from '@/components/portal/Figure';
 import { METHODS, codeHref, methodAnchor, type MethodId } from '@/lib/methods';
 
@@ -19,7 +20,10 @@ export default async function DataPage() {
   // A failure to read the run record must not take down a page about
   // provenance. Null renders as "we cannot tell you", which is the honest
   // answer and is never the same as "nothing has happened".
-  const sweep = await freshness().catch(() => null);
+  const [sweep, queue] = await Promise.all([
+    freshness().catch(() => null),
+    reviewQueue().catch(() => null),
+  ]);
   return (
     <Shell currentPath="data">
       <Page>
@@ -71,6 +75,18 @@ export default async function DataPage() {
               . <Figure method="sweep-candidates">{sweep.openCandidates}</Figure> lead
               {sweep.openCandidates === 1 ? '' : 's'} {sweep.openCandidates === 1 ? 'is' : 'are'}{' '}
               waiting to be read by a person.
+            </p>
+          )}
+          {queue && queue.waiting > 0 && (
+            <p>
+              The oldest waiting lead was found{' '}
+              <Figure method="review-queue">
+                {queue.oldestFoundAt ? ageLabel(queue.oldestFoundAt) : 'no time'}
+              </Figure>{' '}
+              ago. An AI draft is ready for review on{' '}
+              <Figure method="review-queue">{queue.draftsReady}</Figure> of them: the date, the line
+              and the sentence from the page that carries the claim, checked word for word against
+              the page. A draft is unreviewed until a person accepts it.
             </p>
           )}
           <p>
