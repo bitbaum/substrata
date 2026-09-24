@@ -17,10 +17,12 @@ import { DEFAULT_LOCALE, LOCALES, type Locale } from './locales';
 
 export const EN = {
   // Profile sections. The title a module shows is interface, not research.
-  'profile.products.title': 'What it makes',
-  'profile.topics.title': 'Where this matters',
-  'profile.relief.title': 'What could change its position',
-  'profile.gaps.title': 'Questions the profile does not yet answer',
+  'profile.chokepoints.title': 'Chokepoints it holds',
+  'profile.companyEvents.title': 'What has happened',
+  'profile.leads.title': 'Unread leads',
+  'profile.relief.title': 'What could loosen its grip',
+  'profile.sameLayer.title': 'Others at the same step of the chain',
+  'profile.sources.title': 'Sources',
   'profile.timeline.title': 'What has happened',
   'profile.related.title': 'What this connects to',
   'profile.discussion.title': 'Discussion',
@@ -36,8 +38,6 @@ export const EN = {
   'profile.places.title': 'The actual places',
   'profile.facilitySupply.title': 'What comes out of here',
   'profile.substitutes.title': 'Is there an alternative',
-  'profile.peers.title': 'Who else makes it',
-  'profile.relatedNews.title': 'News about what it makes',
   'profile.turn.title': 'How fast it turns',
   'profile.gates.title': 'What is in the way',
   'profile.relieves.title': 'What it would relieve',

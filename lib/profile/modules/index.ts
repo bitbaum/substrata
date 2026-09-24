@@ -3,13 +3,12 @@ import type { ProfileModule } from '../types';
 import type { Entity } from '../../entities/types';
 import { related, discussion } from './shared';
 import { timeline } from './timeline';
-import { products, topics, relief, gaps } from './company';
+import { chokepoints, companyEvents, relief, sameLayer, sources } from './company';
 import { relieves, readiness, milestone } from './science';
 import { mandate, canMove, source } from './capital';
 import { why, severity, producers, rules, removes, calls, funding } from './bottleneck';
 import { role } from './role';
 import { turn, gates } from './loop';
-import { peers, relatedNews } from './peers';
 import { production, substitutes } from './quantities';
 import { places, facilitySupply } from './facility';
 
@@ -43,12 +42,11 @@ export const PROFILE_MODULES: AnyProfileModule[] = [
   calls,
   funding,
   // Company
-  products,
-  peers,
-  topics,
+  chokepoints,
+  companyEvents,
   relief,
-  gaps,
-  relatedNews,
+  sameLayer,
+  sources,
   // Science
   relieves,
   readiness,

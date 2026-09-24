@@ -46,7 +46,8 @@ test('a bottleneck is sourced only when every producer is', () => {
   const totals = portalTotals();
   assert.equal(
     totals.producers,
-    COVERAGE.reduce((n, e) => n + e.producers.length, 0),
+    COVERAGE.reduce((n, e) => n + e.producers.length, 0) +
+      CHOKEPOINTS.reduce((n, c) => n + c.holders.length, 0),
   );
 });
 

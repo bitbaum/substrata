@@ -49,19 +49,19 @@ test('a discussion thread is keyed by a stable path, not by a filtered URL', () 
   assert.ok(!country.href.split('?')[0].includes('?'));
 });
 
-test('a company profile still carries every section the hand-written page had', () => {
-  // The migration must not quietly drop a section. These are the four numbered
-  // sections and the gaps block that lived in app/markets/[slug]/page.tsx,
-  // plus the two shared modules.
-  const company = entitiesOfKind('company').find((e) => e.key === 'posco');
-  assert.ok(company, 'POSCO should be in the corpus');
+test('a company profile reads chokepoints first and discussion last', () => {
+  // The 2026-09 redesign replaced "What it makes" (materials only), the topic
+  // chips and the boilerplate "questions not answered" block with sections
+  // read from the full join. Order is the reading order: what it holds, what
+  // happened, then connections and discussion.
+  const company = entitiesOfKind('company').find((e) => e.key === 'asml');
+  assert.ok(company, 'ASML should be in the corpus');
   const ids = modulesFor(company).map((m) => m.id);
-  for (const expected of ['products', 'topics', 'relief', 'gaps', 'timeline', 'discussion']) {
+  for (const expected of ['chokepoints', 'events', 'sources', 'discussion']) {
     assert.ok(ids.includes(expected), `company profile lost "${expected}"`);
   }
-  // Order is the reading order the page had.
-  assert.ok(ids.indexOf('products') < ids.indexOf('timeline'), 'products should precede timeline');
-  assert.ok(ids.indexOf('timeline') < ids.indexOf('discussion'), 'discussion goes last');
+  assert.ok(ids.indexOf('chokepoints') < ids.indexOf('events'), 'chokepoints precede events');
+  assert.ok(ids.indexOf('events') < ids.indexOf('discussion'), 'discussion goes last');
 });
 
 test('company modules do not leak onto kinds that have no such data', () => {
@@ -156,7 +156,7 @@ test('each migrated page kept every section it had', () => {
     ],
     science: ['relieves', 'readiness', 'milestone'],
     capital: ['mandate', 'can-move', 'source-sentence'],
-    company: ['products', 'topics', 'relief', 'gaps', 'timeline'],
+    company: ['chokepoints', 'events', 'relief', 'same-layer', 'sources'],
   };
 
   for (const [kind, ids] of Object.entries(expected)) {

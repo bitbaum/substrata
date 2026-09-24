@@ -672,6 +672,47 @@ export interface Chokepoint {
   why: string;
   /** Primary source. `null` = unverified research lead, exactly as above. */
   source: string | null;
+  /**
+   * The directory organisations that hold this chokepoint, by their exact
+   * directory name (`substrata-participants.ts`).
+   *
+   * Before this field existed a chokepoint had no makers at all: ASML's own
+   * row said "EUV and DUV lithography systems" and the EUV scanner row said
+   * "one company on earth builds them", and nothing joined the two, so 55 of
+   * the 101 directory companies — every tool maker, fab, packager, grid and
+   * robotics firm — rendered "No covered material is mapped". The citation is
+   * NOT repeated here: a holder row is evidenced by its directory row's own
+   * source, which already cites the company's page for exactly this role, and
+   * a test holds every holder to a directory row that has one.
+   *
+   * Only rows whose directory role names this chokepoint are listed. Firms the
+   * directory describes more loosely ("grid equipment") are left off rather
+   * than guessed on.
+   */
+  holders: Holder[];
+}
+
+/** How an organisation holds a chokepoint that is a machine, process or capacity. */
+export const HOLDER_ROLES = [
+  { id: 'make', label: 'Makes it', detail: 'Builds the machine or runs the process itself.' },
+  {
+    id: 'part',
+    label: 'Supplies a critical part',
+    detail: 'Makes a component the chokepoint cannot ship without.',
+  },
+  {
+    id: 'operate',
+    label: 'Runs the capacity',
+    detail: 'Operates the fabs, lines or order book the constraint is measured in.',
+  },
+] as const;
+
+export type HolderRole = (typeof HOLDER_ROLES)[number]['id'];
+
+export interface Holder {
+  /** Exact name of a row in the directory. */
+  name: string;
+  role: HolderRole;
 }
 
 function node(
@@ -680,8 +721,13 @@ function node(
   curve: CurveId,
   jurisdictions: string[],
   why: string,
+  holders: Holder[] = [],
 ): Chokepoint {
-  return { name, type, curve, jurisdictions, why, source: null };
+  return { name, type, curve, jurisdictions, why, source: null, holders };
+}
+
+function held(role: HolderRole, ...names: string[]): Holder[] {
+  return names.map((name) => ({ name, role }));
 }
 
 /** Display label per node type, so the site never prints a raw enum. */
@@ -701,6 +747,7 @@ export const CHOKEPOINTS: readonly Chokepoint[] = [
     'compute-per-joule',
     ['NL'],
     'One company on earth builds them, the queue is measured in years, and no second source is in progress. Every leading-edge wafer in the world is downstream of one factory.',
+    [...held('make', 'ASML'), ...held('part', 'Carl Zeiss SMT', 'Trumpf')],
   ),
   node(
     'EUV projection optics',
@@ -708,6 +755,7 @@ export const CHOKEPOINTS: readonly Chokepoint[] = [
     'compute-per-joule',
     ['DE'],
     'The mirror systems inside the scanner are polished to a tolerance one supplier has ever achieved. It is a chokepoint inside a chokepoint, and the constraint is know-how, not capacity.',
+    held('make', 'Carl Zeiss SMT'),
   ),
   node(
     'Advanced packaging capacity',
@@ -715,6 +763,7 @@ export const CHOKEPOINTS: readonly Chokepoint[] = [
     'compute-per-joule',
     ['TW', 'KR', 'US'],
     'Accelerator output is gated by how many dies can be packaged onto an interposer, not by wafer starts. Capacity is allocated years ahead, which makes the allocation itself the scarce good.',
+    held('operate', 'TSMC Advanced Packaging'),
   ),
   node(
     'High-bandwidth memory stacking yield',
@@ -722,6 +771,7 @@ export const CHOKEPOINTS: readonly Chokepoint[] = [
     'compute-per-joule',
     ['KR', 'US'],
     'Three suppliers, and the yield on stacking and bonding is knowledge that does not transfer when someone else buys the same equipment.',
+    held('make', 'SK hynix', 'Samsung Memory', 'Micron'),
   ),
   node(
     'Leading-edge foundry capacity',
@@ -729,6 +779,7 @@ export const CHOKEPOINTS: readonly Chokepoint[] = [
     'compute-per-joule',
     ['TW', 'KR', 'US'],
     'A handful of fabs can run the newest node at volume. New capacity is a multi-year, multi-billion commitment, so the supply curve cannot answer a demand shock.',
+    held('operate', 'TSMC', 'Samsung Foundry', 'Intel Foundry'),
   ),
   node(
     'Photoresist formulation',
@@ -736,6 +787,7 @@ export const CHOKEPOINTS: readonly Chokepoint[] = [
     'compute-per-joule',
     ['JP'],
     'The chemistry is qualified per process per fab and is overwhelmingly Japanese. Substituting a resist is a re-qualification programme, not a purchase.',
+    held('make', 'JSR', 'Tokyo Ohka Kogyo', 'Shin-Etsu Chemical'),
   ),
   node(
     'Semiconductor process engineers',
@@ -752,6 +804,7 @@ export const CHOKEPOINTS: readonly Chokepoint[] = [
     'joules-delivered',
     ['KR', 'DE', 'JP', 'US'],
     'Lead times run to several years, and a datacentre cannot be energised without one. This gates more announced compute today than chip supply does.',
+    held('make', 'Hitachi Energy', 'Mitsubishi Electric'),
   ),
   node(
     'Grid interconnection queues',
@@ -766,6 +819,7 @@ export const CHOKEPOINTS: readonly Chokepoint[] = [
     'joules-delivered',
     ['US', 'DE'],
     'The fastest route to firm power at scale, and the order books are effectively sold out. A slot is worth more than the turbine price implies.',
+    held('make', 'GE Vernova', 'Siemens Energy'),
   ),
   node(
     'High-voltage cable and switchgear',
@@ -773,6 +827,7 @@ export const CHOKEPOINTS: readonly Chokepoint[] = [
     'joules-delivered',
     ['DE', 'IT', 'KR'],
     'The unglamorous half of energisation. Same multi-year lead times as transformers, same inability to respond quickly to a demand shock.',
+    held('make', 'Prysmian', 'NKT'),
   ),
 
   // ---------- Actuation ----------
@@ -789,6 +844,7 @@ export const CHOKEPOINTS: readonly Chokepoint[] = [
     'actuation',
     ['JP'],
     'Harmonic and cycloidal drives set what a robot joint can do. Few qualified suppliers, and the tolerances are decades of accumulated manufacturing practice.',
+    held('make', 'Harmonic Drive Systems', 'Nabtesco'),
   ),
   node(
     'Robot-grade encoders and force sensors',
@@ -796,6 +852,7 @@ export const CHOKEPOINTS: readonly Chokepoint[] = [
     'actuation',
     ['JP', 'DE'],
     'Closing the loop is what separates a manipulator from an arm. Narrow supply, and qualification is per-application.',
+    held('make', 'Renishaw'),
   ),
   node(
     'Battery-grade lithium chemicals',

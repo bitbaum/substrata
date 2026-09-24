@@ -26,8 +26,8 @@
 
 import type { ListSpec } from 'listkit';
 
-import { COVERAGE, PRODUCER_ROLES } from '@/config/substrata-coverage';
-import { evidenceFor, verificationFor, type Verification } from '@/config/substrata-evidence';
+import { PRODUCER_ROLES } from '@/config/substrata-coverage';
+import type { Verification } from '@/config/substrata-evidence';
 import { eventsNewestFirst, type CoverageEvent } from '@/config/substrata-events';
 import {
   CHAIN_LAYERS,
@@ -43,8 +43,10 @@ import { slugify } from '@/lib/links';
 export interface Produces {
   bottleneck: string;
   slug: string;
-  /** Mine, refine, convert, recycle — the step of the chain. */
+  /** Mine, refine, convert, recycle — or makes / supplies a part / runs the capacity. */
   step: string;
+  /** Supplies a part of the chokepoint rather than making it; not a second source. */
+  supplier: boolean;
   verification: Verification;
   source: string | null;
   candidateCount: number;
@@ -96,12 +98,12 @@ const ROLE_LABEL: Record<string, string> = Object.fromEntries(
   PRODUCER_ROLES.map((role) => [role.id, role.label]),
 );
 
-/** Where a producer sits in the chain when the directory does not say. */
+/** Where a producer sits in the chain when the directory does not say, by step label. */
 const LAYER_FOR_ROLE: Record<string, ChainLayer> = {
-  mine: 'extraction',
-  refine: 'refining',
-  convert: 'conversion',
-  recycle: 'refining',
+  [ROLE_LABEL.mine]: 'extraction',
+  [ROLE_LABEL.refine]: 'refining',
+  [ROLE_LABEL.convert]: 'conversion',
+  [ROLE_LABEL.recycle]: 'refining',
 };
 
 const BOTTLENECK_BY_NAME = new Map<string, Bottleneck>(BOTTLENECKS.map((b) => [b.name, b]));
@@ -152,8 +154,13 @@ function build(): MarketParticipant[] {
     });
   }
 
-  for (const entry of COVERAGE) {
-    for (const producer of entry.producers) {
+  // One join for every kind of bottleneck. This used to walk COVERAGE, which
+  // lists only the materials, so a company that holds a machine, process or
+  // capacity chokepoint (ASML, TSMC, SK hynix, Hitachi Energy…) joined to
+  // nothing and its page said "no covered material is mapped". BOTTLENECKS
+  // already carries both kinds with their evidence, so it is the one source.
+  for (const bottleneck of BOTTLENECKS) {
+    for (const producer of bottleneck.producers) {
       let record = byName.get(producer.name);
       if (!record) {
         record = {
@@ -175,16 +182,16 @@ function build(): MarketParticipant[] {
         };
         byName.set(producer.name, record);
       }
-      const verification = verificationFor(entry.material, producer.name, producer.source);
       record.produces.push({
-        bottleneck: entry.material,
-        slug: slugOf(entry.material),
-        step: ROLE_LABEL[producer.role] ?? producer.role,
-        verification,
+        bottleneck: bottleneck.name,
+        slug: bottleneck.slug,
+        step: producer.role,
+        supplier: producer.supplier,
+        verification: producer.verification,
         source: producer.source,
-        candidateCount: evidenceFor(entry.material, producer.name)?.candidates.length ?? 0,
+        candidateCount: producer.candidates.length,
       });
-      if (verification === 'sourced') record.hasVerifiedRow = true;
+      if (producer.verification === 'sourced') record.hasVerifiedRow = true;
       for (const code of producer.jurisdictions) {
         if (!record.jurisdictions.includes(code)) record.jurisdictions.push(code);
       }
