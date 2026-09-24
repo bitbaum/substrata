@@ -150,7 +150,7 @@ export function parseWeight(text: string): number | null {
 
 /** One cell or line holding a security, without its weight. */
 export function parseTicker(text: string): { ticker: string; exchange: string | null } | null {
-  let t = text
+  const t = text
     .trim()
     .toUpperCase()
     .replace(/\s+EQUITY$/, '')

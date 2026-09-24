@@ -43,7 +43,8 @@ export function companyTargets(): Extract<Target, { kind: 'company' }>[] {
 
 export function countryTargets(): Extract<Target, { kind: 'country' }>[] {
   const codes = new Set(BOTTLENECKS.flatMap((b) => [...makerGeography(b).countries.keys()]));
-  for (const b of BOTTLENECKS) for (const p of b.producers) for (const c of p.jurisdictions) codes.add(c);
+  for (const b of BOTTLENECKS)
+    for (const p of b.producers) for (const c of p.jurisdictions) codes.add(c);
   return [...codes]
     .filter((c) => /^[A-Z]{2}$/.test(c))
     .map((code) => ({ kind: 'country' as const, code, name: countryName(code) }))

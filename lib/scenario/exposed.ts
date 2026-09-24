@@ -48,7 +48,12 @@ export function exposedCompanies(
   failedCompany: string | null,
 ): ExposedCompany[] {
   const out = new Map<string, ExposedCompany>();
-  const add = (name: string, kind: Exposure, bottleneck: string, evidence: Dependency | null = null) => {
+  const add = (
+    name: string,
+    kind: Exposure,
+    bottleneck: string,
+    evidence: Dependency | null = null,
+  ) => {
     const row = out.get(name) ?? {
       name,
       slug: SLUG_BY_NAME.get(name) ?? null,
@@ -64,7 +69,8 @@ export function exposedCompanies(
     for (const n of h.lost) add(n, n === failedCompany ? 'failed' : 'lost-maker', h.bottleneck);
     for (const n of h.partial) add(n, 'partly-affected', h.bottleneck);
     for (const n of h.remaining) add(n, 'remaining-maker', h.bottleneck);
-    for (const n of h.partsLost) add(n, n === failedCompany ? 'failed' : 'part-supplier', h.bottleneck);
+    for (const n of h.partsLost)
+      add(n, n === failedCompany ? 'failed' : 'part-supplier', h.bottleneck);
     const b = BOTTLENECKS.find((x) => x.name === h.bottleneck);
     for (const p of b?.producers.filter((x) => x.supplier && !h.partsLost.includes(x.name)) ?? [])
       add(p.name, 'part-supplier', h.bottleneck);

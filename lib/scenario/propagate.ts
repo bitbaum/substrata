@@ -49,7 +49,10 @@ export interface DownstreamHit {
 type Where = 'all' | 'some' | 'none';
 
 /** Sort one bottleneck's producer rows by where they stand against the failure. */
-export function splitProducers(b: Bottleneck, where: (p: { name: string; jurisdictions: string[] }) => Where) {
+export function splitProducers(
+  b: Bottleneck,
+  where: (p: { name: string; jurisdictions: string[] }) => Where,
+) {
   const lost: string[] = [];
   const partial: string[] = [];
   const remaining: string[] = [];
@@ -90,7 +93,15 @@ export function directHits(s: Scenario): DirectHit[] {
     const b = BOTTLENECKS.find((x) => x.slug === at.slug);
     if (!b) return [];
     const split = splitProducers(b, () => 'all');
-    return [{ bottleneck: b.name, slug: b.slug, status: 'target', ...split, locationOnly: makersOf(b).length === 0 }];
+    return [
+      {
+        bottleneck: b.name,
+        slug: b.slug,
+        status: 'target',
+        ...split,
+        locationOnly: makersOf(b).length === 0,
+      },
+    ];
   }
   const company = at.kind === 'company' ? participantBySlug(at.slug)?.name : null;
   const out: DirectHit[] = [];
@@ -107,7 +118,8 @@ export function directHits(s: Scenario): DirectHit[] {
       return p.jurisdictions.every((c) => c === at.code) ? 'all' : 'some';
     });
     const status = statusOf(split);
-    if (status) out.push({ bottleneck: b.name, slug: b.slug, status, ...split, locationOnly: false });
+    if (status)
+      out.push({ bottleneck: b.name, slug: b.slug, status, ...split, locationOnly: false });
   }
   return out;
 }
@@ -119,7 +131,13 @@ export function downstreamHits(hits: readonly DirectHit[]): DownstreamHit[] {
     for (const reach of downstreamOf([hit.bottleneck])) {
       if (direct.has(reach.bottleneck) || out.has(reach.bottleneck)) continue;
       const b = BOTTLENECKS.find((x) => x.name === reach.bottleneck);
-      if (b) out.set(b.name, { bottleneck: b.name, slug: b.slug, from: hit.bottleneck, path: reach.path });
+      if (b)
+        out.set(b.name, {
+          bottleneck: b.name,
+          slug: b.slug,
+          from: hit.bottleneck,
+          path: reach.path,
+        });
     }
   }
   return [...out.values()].sort((a, b) => a.path.length - b.path.length);
