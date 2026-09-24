@@ -61,6 +61,16 @@ export interface CapitalKind {
   willNotFund: string;
 }
 
+/**
+ * The cheque sizes and horizons below are typical orders of magnitude written
+ * by hand, not figures from a dataset, and the page says so through this.
+ */
+export const CAPITAL_KIND_ESTIMATE = {
+  on: '2026-09-15',
+  basis:
+    'Typical orders of magnitude for this kind of money, written by hand from general knowledge of how it is raised and deployed. Not drawn from a dataset; individual deals vary widely.',
+} as const;
+
 export const CAPITAL_KINDS: readonly CapitalKind[] = [
   {
     id: 'venture',
@@ -114,7 +124,7 @@ export const CAPITAL_KINDS: readonly CapitalKind[] = [
     willFund:
       'Capacity for a product the company already sells, when it believes demand is coming.',
     willNotFund:
-      'Capacity for a competitor, or a shared facility that would help the whole industry. This is the single largest source of funding for the chains on this site and the most reluctant to build anything it cannot keep.',
+      'Capacity for a competitor, or a shared facility that would help the whole industry. It will not build anything it cannot keep.',
   },
   {
     id: 'sovereign',

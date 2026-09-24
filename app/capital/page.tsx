@@ -1,9 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
+import { Figure } from '@/components/portal/Figure';
+import { JUDGED_BY } from '@/config/substrata-about';
 import type { Metadata } from 'next';
 
 import {
   CAPITAL_KINDS,
+  CAPITAL_KIND_ESTIMATE,
   CAPITAL_KIND_LABEL,
   CAPITAL_PROVIDERS,
   CONSTRAINT_LABEL,
@@ -35,22 +38,26 @@ export default function CapitalPage() {
       <Page>
         <SectionHeader
           title="Capital"
-          lede="Money is rarely the scarce thing. Money with the right mandate and the right patience is — and for most constraints on this site, funding is not what is missing."
+          lede="Money is rarely the scarce thing. Money with the right mandate and the right patience is — and for most of the bottlenecks assessed here, funding is judged not to be what is missing."
           stats={[
-            { label: 'Kinds of capital', value: totals.kinds, note: 'and what each will not fund' },
+            {
+              label: 'Kinds of capital',
+              value: <Figure method="capital-counts">{totals.kinds}</Figure>,
+              note: 'and what each will not fund',
+            },
             {
               label: 'Providers',
-              value: totals.providers,
+              value: <Figure method="capital-counts">{totals.providers}</Figure>,
               note: 'each citing its own mandate document',
             },
             {
               label: 'Bottlenecks assessed',
-              value: totals.assessed,
+              value: <Figure method="capital-counts">{totals.assessed}</Figure>,
               note: 'is funding actually the constraint?',
             },
             {
               label: 'Where money is not it',
-              value: totals.notMoney,
+              value: <Figure method="capital-counts">{totals.notMoney}</Figure>,
               note: `of ${totals.assessed} assessed`,
             },
           ]}
@@ -105,10 +112,14 @@ export default function CapitalPage() {
                       </p>
                     </td>
                     <td className="hidden py-3 pr-4 text-sm text-fg-secondary lg:table-cell">
-                      {kind.chequeSize}
+                      <Figure estimate={{ by: JUDGED_BY, ...CAPITAL_KIND_ESTIMATE }}>
+                        {kind.chequeSize}
+                      </Figure>
                     </td>
                     <td className="hidden py-3 pr-4 text-sm text-fg-secondary sm:table-cell">
-                      {kind.horizon}
+                      <Figure estimate={{ by: JUDGED_BY, ...CAPITAL_KIND_ESTIMATE }}>
+                        {kind.horizon}
+                      </Figure>
                     </td>
                     <td className="max-w-md py-3 text-sm leading-relaxed text-fg-secondary">
                       {kind.willNotFund}

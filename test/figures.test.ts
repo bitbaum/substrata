@@ -12,6 +12,7 @@ import { join } from 'node:path';
 import assert from 'node:assert/strict';
 
 import { METHODS, methodAnchor, methodHref, type MethodId } from '../lib/methods';
+import { bareNumbersIn, countByFile, scanBareNumbers } from './bare-numbers';
 
 const ROOT = process.cwd();
 
@@ -32,4 +33,61 @@ test('a method link lands on the anchor the method page renders', () => {
     assert.equal(methodHref(id), `/data#${methodAnchor(id)}`);
     assert.match(methodAnchor(id), /^[a-z0-9-]+$/, `${id}: anchor is not URL-safe`);
   }
+});
+
+/**
+ * The ratchet on numbers typed into page copy.
+ *
+ * Every entry below is a known bare number, counted per file on 2026-09-24
+ * after the sweep that introduced <Figure>. Most are the definitions of a
+ * scale ("Levels 1 to 4"), which are fine to state. The count may fall, never
+ * rise: a new number in copy is either computed from the corpus (write it as
+ * an expression), sourced (`<Figure source=…>`), or a labelled estimate
+ * (`<Figure estimate=…>`). If one genuinely is none of those — a definition,
+ * a quoted label — raise its file's count here, in the same PR, so a reviewer
+ * sees the decision. `pnpm tsx test/bare-numbers.ts` lists every hit.
+ */
+const BARE_NUMBER_BASELINE: Record<string, number> = {
+  'app/account/page.tsx': 2,
+  'app/data/page.tsx': 1,
+  'app/science/page.tsx': 4,
+  'components/portal/ResearchChat.tsx': 1,
+  'lib/profile/modules/loop.tsx': 1,
+  'lib/profile/modules/quantities.tsx': 1,
+  'lib/profile/modules/role.tsx': 1,
+};
+
+test('no page gains a number a reader cannot trace', () => {
+  const hits = scanBareNumbers();
+  const counts = countByFile(hits);
+  const failures = Object.entries(counts)
+    .filter(([file, n]) => n > (BARE_NUMBER_BASELINE[file] ?? 0))
+    .map(
+      ([file, n]) =>
+        `${file}: ${n} bare numbers, baseline ${BARE_NUMBER_BASELINE[file] ?? 0}\n` +
+        hits
+          .filter((h) => h.file === file)
+          .map((h) => `      ${h.line}: ${h.text}`)
+          .join('\n'),
+    );
+  assert.deepEqual(
+    failures,
+    [],
+    `Numbers typed into copy — compute them, wrap them in <Figure>, or raise the baseline with a reason:\n  ${failures.join('\n  ')}`,
+  );
+});
+
+test('the scanner sees a typed number and excuses an explained one', () => {
+  const found = bareNumbersIn(
+    'probe.tsx',
+    `export const A = () => (
+      <div>
+        <p>Over 90% of wafers come from Japan.</p>
+        <p><Figure method="share">90%</Figure> of wafers</p>
+        <p className="mt-2 px-4">{count} rows</p>
+      </div>
+    );`,
+  );
+  assert.equal(found.length, 1, JSON.stringify(found));
+  assert.match(found[0].text, /Over 90%/);
 });

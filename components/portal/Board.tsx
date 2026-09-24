@@ -16,12 +16,13 @@ import Link from 'next/link';
 import { writeQuery, type ListQuery, type ListResult, type ParamsLike } from 'listkit';
 
 import type { Horizon } from '@/config/substrata-assessment';
-import { STAGES, type StageId } from '@/config/substrata-stages';
+import { RELIEF_TIME_ESTIMATE, STAGES, type StageId } from '@/config/substrata-stages';
 import { INDUSTRIES, TECHNOLOGIES } from '@/config/substrata-taxonomy';
 import { BOARD_SPEC, type Bottleneck } from '@/lib/bottlenecks';
 import { EVIDENCE, EVIDENCE_LABEL, SEVERITY, WHEN, WHEN_LABEL } from '@/lib/labels';
 import { Chip } from './Chip';
 import { FilterRow, Legend } from './Shell';
+import { Figure } from './Figure';
 import { Progress, SeverityBar, Status, rowLabel } from './Status';
 
 function groupByStage(rows: readonly Bottleneck[]): Array<[StageId, Bottleneck[]]> {
@@ -186,10 +187,16 @@ export function Board({ params, query, result, basePath = '/bottlenecks' }: Prop
                   >
                     {stage?.name}
                     <span className="ml-3 font-mono text-xs font-normal text-fg-muted">
-                      {rows.length}
+                      <Figure method="stage-counts">{rows.length}</Figure>
                     </span>
                     <span className="ml-3 font-sans text-xs font-normal text-fg-tertiary">
-                      takes {stage?.reliefTime.toLowerCase()} to loosen
+                      takes{' '}
+                      {stage && (
+                        <Figure estimate={RELIEF_TIME_ESTIMATE}>
+                          {stage.reliefTime.toLowerCase()}
+                        </Figure>
+                      )}{' '}
+                      to loosen
                     </span>
                   </th>
                 </tr>,
@@ -211,7 +218,7 @@ export function Board({ params, query, result, basePath = '/bottlenecks' }: Prop
                       {row.producers.length > 0 ? (
                         <div className="flex items-center gap-3">
                           <span className="font-mono text-xs tabular-nums text-fg-secondary">
-                            {row.counts.total}
+                            <Figure method="producer-rows">{row.counts.total}</Figure>
                           </span>
                           <Progress
                             sourced={row.counts.sourced}

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import { Figure } from '@/components/portal/Figure';
 import { STAGE_LABEL, UNIT_LABEL, type Endowment } from '@/config/substrata-quantities';
 import { BLOCKER_LABEL, substitutesFor, type Substitute } from '@/config/substrata-substitutes';
 import {
@@ -78,7 +79,18 @@ const production: ProfileModule<Figures> = {
                 <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
                   <span className="font-medium text-fg-primary">{placeName(row.place)}</span>
                   <span className="font-mono text-xs tabular-nums text-fg-secondary">
-                    {formatQuantity(row.production, UNIT_LABEL)} ({row.production.year}
+                    {entry ? (
+                      <Figure
+                        source={entry.source}
+                        sourceLabel={quantitySourceLabel(entry.source)}
+                        asOf={`${row.production.year}${row.production.basis === 'estimated' ? ', estimated by the source' : ''}`}
+                      >
+                        {formatQuantity(row.production, UNIT_LABEL)}
+                      </Figure>
+                    ) : (
+                      formatQuantity(row.production, UNIT_LABEL)
+                    )}{' '}
+                    ({row.production.year}
                     {row.production.basis === 'estimated' ? ', est.' : ''})
                   </span>
                 </div>
@@ -95,13 +107,33 @@ const production: ProfileModule<Figures> = {
                   </div>
                 )}
                 <p className="mt-1 text-xs text-fg-tertiary">
-                  {row.share !== undefined
-                    ? `${(row.share * 100).toFixed(1)}% of ${STAGE_LABEL[entry?.stage ?? 'mine']} world output`
-                    : ''}
-                  {entry?.reserves
-                    ? ` · reserves ${formatQuantity(entry.reserves, UNIT_LABEL)}`
-                    : ''}
-                  {rp ? ` · about ${Math.round(rp.years)} years at this rate` : ''}
+                  {row.share !== undefined && (
+                    <>
+                      <Figure method="share">{(row.share * 100).toFixed(1)}%</Figure> of{' '}
+                      {STAGE_LABEL[entry?.stage ?? 'mine']} world output
+                    </>
+                  )}
+                  {entry?.reserves && (
+                    <>
+                      {' · reserves '}
+                      <Figure
+                        source={entry.source}
+                        sourceLabel={quantitySourceLabel(entry.source)}
+                        asOf={String(entry.reserves.year)}
+                      >
+                        {formatQuantity(entry.reserves, UNIT_LABEL)}
+                      </Figure>
+                    </>
+                  )}
+                  {rp && (
+                    <>
+                      {' · about '}
+                      <Figure method="reserves-to-production">
+                        {Math.round(rp.years)} years
+                      </Figure>{' '}
+                      at this rate
+                    </>
+                  )}
                 </p>
                 {entry?.note && (
                   <p className="mt-1 max-w-prose text-xs leading-relaxed text-fg-muted">
@@ -117,9 +149,10 @@ const production: ProfileModule<Figures> = {
             <span className="font-mono uppercase tracking-caps text-fg-muted">
               Concentration ·{' '}
             </span>
-            {concentration.hhi.toFixed(2)} on the Herfindahl index across {concentration.from}{' '}
-            recorded producers, where 1.00 is a single supplier. This is arithmetic from the figures
-            above, not the analyst judgement shown under severity — the two are worth comparing.
+            <Figure method="hhi">{concentration.hhi.toFixed(2)}</Figure> on the Herfindahl index
+            across {concentration.from} recorded producers, where 1.00 is a single supplier. This is
+            arithmetic from the figures above, not the judgement shown under severity — the two are
+            worth comparing.
           </p>
         )}
         <p className="mt-2 max-w-prose text-xs leading-relaxed text-fg-muted">
@@ -137,6 +170,12 @@ const production: ProfileModule<Figures> = {
     );
   },
 };
+
+/** The corpus's figures come from USGS MCS; anything else is named by its host. */
+function quantitySourceLabel(url: string): string | undefined {
+  const edition = url.match(/usgs\.gov\/periodicals\/mcs(\d{4})/);
+  return edition ? `USGS Mineral Commodity Summaries ${edition[1]}` : undefined;
+}
 
 /**
  * Whether an alternative exists, and whether that helps.

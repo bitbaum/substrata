@@ -7,6 +7,7 @@ import { STAGES } from '@/config/substrata-stages';
 import { BOARD_SPEC, BOTTLENECKS, portalTotals } from '@/lib/bottlenecks';
 import { LOOP_IN_ONE_LINE } from '@/lib/labels';
 import { Board } from '@/components/portal/Board';
+import { Figure } from '@/components/portal/Figure';
 import { Page, SectionHeader, Shell } from '@/components/portal/Shell';
 
 export const metadata: Metadata = {
@@ -37,22 +38,39 @@ export default async function BottlenecksPage({
           stats={[
             {
               label: 'Mapped',
-              value: totals.bottlenecks,
-              note: `across ${covered} of ${STAGES.length} stages`,
+              value: <Figure method="bottleneck-count">{totals.bottlenecks}</Figure>,
+              note: (
+                <>
+                  across{' '}
+                  <Figure method="stage-counts">
+                    {covered} of {STAGES.length}
+                  </Figure>{' '}
+                  stages
+                </>
+              ),
             },
             {
               label: 'Binding now',
-              value: totals.bindingNow,
+              value: <Figure method="binding-now">{totals.bindingNow}</Figure>,
               note: 'judged to be the constraint today',
             },
             {
-              label: 'Makers verified',
-              value: `${totals.sourced}/${totals.producers}`,
-              note: `${totals.candidates} have a source found but unchecked`,
+              label: 'Maker rows sourced',
+              value: (
+                <Figure method="sourced-rows">
+                  {totals.sourced}/{totals.producers}
+                </Figure>
+              ),
+              note: (
+                <>
+                  <Figure method="sourced-rows">{totals.candidates}</Figure> have a source found but
+                  unchecked
+                </>
+              ),
             },
             {
               label: 'Countries',
-              value: totals.jurisdictions,
+              value: <Figure method="jurisdictions">{totals.jurisdictions}</Figure>,
               note: 'where the mapped makers operate',
             },
           ]}

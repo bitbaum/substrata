@@ -11,6 +11,8 @@ import {
 } from '@/config/substrata-science';
 import { TECHNOLOGIES, TECHNOLOGY_LABEL } from '@/config/substrata-taxonomy';
 import { Heading, Legend, Page, SectionHeader, Shell } from '@/components/portal/Shell';
+import { Figure } from '@/components/portal/Figure';
+import { ReadinessFigure } from '@/components/portal/Status';
 import { bottleneckHref, scienceHref } from '@/lib/links';
 
 export const metadata: Metadata = {
@@ -42,22 +44,26 @@ export default function SciencePage() {
           stats={[
             {
               label: 'Technologies tracked',
-              value: SCIENCE.length,
+              value: <Figure method="science-counts">{SCIENCE.length}</Figure>,
               note: `across ${byFront.length} fronts`,
             },
             {
               label: 'Bottlenecks addressed',
-              value: relieved.size,
+              value: <Figure method="science-counts">{relieved.size}</Figure>,
               note: 'at least one candidate relief each',
             },
             {
               label: 'Reaching production',
-              value: reaching,
-              note: 'qualified or shipping at scale',
+              value: <Figure method="readiness">{reaching}</Figure>,
+              note: 'judged 8 or 9 of 9',
             },
             {
               label: 'Sourced',
-              value: SCIENCE.filter((s) => s.source !== null).length,
+              value: (
+                <Figure method="science-counts">
+                  {SCIENCE.filter((s) => s.source !== null).length}
+                </Figure>
+              ),
               note: `of ${SCIENCE.length}, each citing the claim behind its score`,
             },
           ]}
@@ -99,7 +105,9 @@ export default function SciencePage() {
                           className={`inline-block h-1.5 w-1.5 shrink-0 rounded-full ${BAND_DOT[band]}`}
                         />
                         {READINESS_BAND_LABEL[band]}
-                        <span className="font-mono text-xs text-fg-muted">{entry.readiness}/9</span>
+                        <span className="font-mono text-xs text-fg-muted">
+                          <ReadinessFigure entry={entry} />
+                        </span>
                       </span>
                     </div>
                     <p className="mt-1 max-w-prose text-sm leading-relaxed text-fg-secondary">

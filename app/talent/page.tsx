@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { Figure } from '@/components/portal/Figure';
+import { JUDGED_BY } from '@/config/substrata-about';
 import { Page, Shell, SectionHeader } from '@/components/portal/Shell';
 import { JOIN } from '@/config/substrata-join';
 import { BOTTLENECKS } from '@/lib/bottlenecks';
@@ -23,7 +25,8 @@ export default function TalentPage() {
               <p>{b.plain}</p>
               <p>{b.rationale}</p>
               <p>
-                Analyst judgement · {b.judgedOn} ·{' '}
+                Judged by {JUDGED_BY} · {b.judgedOn} · severity{' '}
+                <Figure method="severity">{b.binding}/12</Figure> ·{' '}
                 <Link href={bottleneckHref(b.slug)}>Inspect the evidence</Link>
               </p>
             </article>

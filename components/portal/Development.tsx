@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { developmentProfile } from '@/lib/development';
+import { Figure } from './Figure';
 import { Page, Shell, SectionHeader } from './Shell';
 export async function Development({
   view = 'development',
@@ -71,7 +72,19 @@ export async function Development({
                       <p>
                         {r.status ?? 'Status not recorded'}
                         {r.targetDate && ` · target ${r.targetDate}`}
-                        {r.progress !== null && ` · ${r.progress}% recorded progress`}
+                        {r.progress !== null && (
+                          <>
+                            {' · '}
+                            <Figure
+                              source="https://loki.orangecat.ch/fleet/substrata"
+                              sourceLabel="the Loki development profile"
+                              {...(checkedAt ? { asOf: checkedAt.slice(0, 10) } : {})}
+                            >
+                              {r.progress}%
+                            </Figure>{' '}
+                            recorded progress
+                          </>
+                        )}
                       </p>
                       {r.milestones.length > 0 && (
                         <ul>

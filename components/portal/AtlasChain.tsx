@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Figure } from './Figure';
 import { TECHNOLOGIES } from '@/config/substrata-taxonomy';
 import { STAGE_LABEL } from '@/config/substrata-stages';
 import { atlasData } from '@/lib/atlas';
@@ -61,7 +62,8 @@ export function AtlasChain({ topic, chain }: { topic: string; chain: Bottleneck 
           <p className="chain-name">{chain.name}</p>
           <p>{chain.plain}</p>
           <p className="text-sm text-fg-tertiary">
-            {chain.state} · judgement {chain.binding}/12 · {chain.judgedOn}
+            {chain.state} · severity <Figure method="severity">{chain.binding}/12</Figure>, judged{' '}
+            {chain.judgedOn}
           </p>
           <p className="mt-4">
             <Link href={bottleneckHref(chain.slug)} className="research-button">
@@ -108,7 +110,8 @@ export function AtlasChain({ topic, chain }: { topic: string; chain: Bottleneck 
             <li key={s.id}>
               <span>{s.name}</span>
               <span>
-                {s.total} mapped · {s.sourced} sourced
+                <Figure method="stage-counts">{s.total}</Figure> mapped ·{' '}
+                <Figure method="stage-counts">{s.sourced}</Figure> sourced
               </span>
             </li>
           ))}

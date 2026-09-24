@@ -25,7 +25,7 @@ export default async function DataPage() {
       <Page>
         <SectionHeader
           title="Every claim should be checkable"
-          lede="See what has a source, what is still a lead, and what comes from analyst judgement. These counts are computed from the same records used by the atlas and company pages."
+          lede="See what has a source, what is still a lead, and what is a dated judgement. These counts are computed from the same records used by the atlas and company pages."
           stats={[
             {
               label: 'Producer rows',
@@ -61,12 +61,16 @@ export default async function DataPage() {
             <p>
               The research sweep last completed a run on{' '}
               {sweep.lastRunAt.slice(0, 16).replace('T', ' ')} UTC. It has looked at{' '}
-              {sweep.nodesCovered} of {sweep.nodesTotal} bottlenecks at least once
+              <Figure method="bottleneck-count">
+                {sweep.nodesCovered} of {sweep.nodesTotal}
+              </Figure>{' '}
+              bottlenecks at least once
               {sweep.blind > 0
                 ? `, and could not look at ${sweep.blind} of them the last time it tried`
                 : ''}
-              . {sweep.openCandidates} lead{sweep.openCandidates === 1 ? '' : 's'}{' '}
-              {sweep.openCandidates === 1 ? 'is' : 'are'} waiting to be read by a person.
+              . <Figure method="sweep-candidates">{sweep.openCandidates}</Figure> lead
+              {sweep.openCandidates === 1 ? '' : 's'} {sweep.openCandidates === 1 ? 'is' : 'are'}{' '}
+              waiting to be read by a person.
             </p>
           )}
           <p>
@@ -84,11 +88,11 @@ export default async function DataPage() {
           </p>
           <h2>Judgements are labelled</h2>
           <p>
-            The {t.assessments} binding assessments sum four ordinal judgements, each from zero to
-            three: concentration, substitution, lead time and inelasticity. A total of twelve is not
-            a percentage or a probability. The latest assessment date in the corpus is{' '}
-            {t.latestAssessment}. Stage relief times are illustrative analyst estimates, not
-            measured lead-time datasets.
+            The <Figure method="severity">{t.assessments}</Figure> binding assessments sum four
+            ordinal judgements, each from zero to three: concentration, substitution, lead time and
+            inelasticity. A total of twelve is not a percentage or a probability. The latest
+            assessment date in the corpus is {t.latestAssessment}. Stage relief times are
+            illustrative estimates chosen by hand, not measured lead-time datasets.
           </p>
           <h2>Dates and reproducibility</h2>
           <p>

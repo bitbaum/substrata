@@ -3,12 +3,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 import { COMPANY } from '@/config/substrata';
-import {
-  EVENTS,
-  candidatesAwaiting,
-  eventsNewestFirst,
-  eventsSince,
-} from '@/config/substrata-events';
+import { EVENTS, eventsNewestFirst, eventsSince } from '@/config/substrata-events';
 import { instrumentsNewestFirst, policyTotals } from '@/config/substrata-policy';
 import { SCIENCE } from '@/config/substrata-science';
 import { INDUSTRIES, TECHNOLOGIES } from '@/config/substrata-taxonomy';
@@ -16,9 +11,11 @@ import { BOTTLENECKS, portalTotals } from '@/lib/bottlenecks';
 import { WHEN_LABEL } from '@/lib/labels';
 import { marketTotals } from '@/lib/participants';
 import { EventList } from '@/components/portal/EventList';
+import { Figure } from '@/components/portal/Figure';
 import { Empty, Heading, Page, Shell } from '@/components/portal/Shell';
 import { SeverityBar, Status, rowLabel } from '@/components/portal/Status';
 import { bottleneckHref, policyHref } from '@/lib/links';
+import { methodHref } from '@/lib/methods';
 
 export const metadata: Metadata = {
   title: { absolute: `${COMPANY.name} — the bottlenecks between here and much faster technology` },
@@ -55,30 +52,64 @@ export default function TodayPage() {
   const featured =
     worst.find((b) => b.producers.length > 0) ?? BOTTLENECKS.find((b) => b.producers.length > 0);
 
-  const tiles = [
+  const bothWays = policy.instruments - policy.tightening - policy.loosening;
+  const tiles: {
+    label: string;
+    value: React.ReactNode;
+    note: React.ReactNode;
+    href: string;
+    more: string;
+  }[] = [
     {
       label: 'Bottlenecks mapped',
-      value: String(totals.bottlenecks),
-      note: `${totals.bindingNow} judged to be binding right now`,
+      value: <Figure method="bottleneck-count">{totals.bottlenecks}</Figure>,
+      note: (
+        <>
+          <Figure method="binding-now">{totals.bindingNow}</Figure> judged to be binding right now
+        </>
+      ),
       href: '/bottlenecks',
+      more: 'See them all',
     },
     {
-      label: 'Makers verified',
-      value: `${totals.sourced}/${totals.producers}`,
-      note: `across ${markets.organisations} organisations`,
-      href: '/markets',
+      label: 'Maker rows sourced',
+      value: (
+        <Figure method="sourced-rows">
+          {totals.sourced}/{totals.producers}
+        </Figure>
+      ),
+      note: (
+        <>
+          <Figure method="organisations">{markets.organisations}</Figure> organisations in the
+          directory
+        </>
+      ),
+      href: '/data',
+      more: 'What sourced means',
     },
     {
       label: 'Rules tracked',
-      value: String(policy.instruments),
-      note: `${policy.tightening} slow building, ${policy.loosening} speed it`,
+      value: <Figure method="rules-tracked">{policy.instruments}</Figure>,
+      note: (
+        <>
+          <Figure method="rule-direction">{policy.tightening}</Figure> slow building,{' '}
+          <Figure method="rule-direction">{policy.loosening}</Figure> speed it
+          {bothWays > 0 && (
+            <>
+              , <Figure method="rule-direction">{bothWays}</Figure> both ways
+            </>
+          )}
+        </>
+      ),
       href: '/policy',
+      more: 'Read the rules',
     },
     {
       label: 'Possible fixes',
-      value: String(SCIENCE.length),
-      note: 'technologies that would relieve a constraint',
+      value: <Figure method="possible-fixes">{SCIENCE.length}</Figure>,
+      note: 'technologies argued to relieve a constraint',
       href: '/science',
+      more: 'See the science',
     },
   ];
 
@@ -102,8 +133,8 @@ export default function TodayPage() {
             </h1>
             <p className="mt-4 max-w-2xl text-lg leading-relaxed text-fg-secondary">
               Substrata maps the constraints on building more compute, more power, better materials
-              and better machines. Every row says how well it is evidenced, and every claim links to
-              a source you can open.
+              and better machines. Every row says how well it is evidenced, every sourced claim
+              links to the source, and every number opens to show where it came from.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <Link href="/atlas" className="research-button">
@@ -120,8 +151,11 @@ export default function TodayPage() {
                 <span className="research-kicker">Checkable chain</span>
                 <strong>{featured.name}</strong>
                 <span>
-                  {featured.counts.sourced} of {featured.producers.length} producer rows sourced ·
-                  analyst score {featured.binding}/12
+                  <Figure method="sourced-rows">
+                    {featured.counts.sourced} of {featured.producers.length}
+                  </Figure>{' '}
+                  producer rows sourced · severity{' '}
+                  <Figure method="severity">{featured.binding}/12</Figure> (judged)
                 </span>
               </figcaption>
               <div
@@ -146,19 +180,23 @@ export default function TodayPage() {
 
         <dl className="mb-12 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-subtle bg-border-subtle lg:grid-cols-4">
           {tiles.map((tile) => (
-            <Link
-              key={tile.label}
-              href={tile.href}
-              className="group bg-surface-raised px-4 py-4 transition-colors hover:bg-surface-page sm:px-5"
-            >
+            <div key={tile.label} className="bg-surface-raised px-4 py-4 sm:px-5">
               <dt className="font-mono text-xs uppercase tracking-caps text-fg-tertiary">
                 {tile.label}
               </dt>
-              <dd className="mt-2 font-heading text-3xl font-semibold tabular-nums text-fg-primary group-hover:text-accent sm:text-4xl">
+              <dd className="mt-2 font-heading text-3xl font-semibold tabular-nums text-fg-primary sm:text-4xl">
                 {tile.value}
               </dd>
               <dd className="mt-1 text-xs leading-snug text-fg-muted">{tile.note}</dd>
-            </Link>
+              <dd className="mt-2 text-xs">
+                <Link
+                  href={tile.href}
+                  className="text-fg-secondary underline-offset-4 hover:text-fg-primary hover:underline"
+                >
+                  {tile.more} →
+                </Link>
+              </dd>
+            </div>
           ))}
         </dl>
 
@@ -180,7 +218,7 @@ export default function TodayPage() {
               {recent.length === 0 ? (
                 <Empty
                   what={`Nothing recorded in the last ${WINDOW_DAYS} days.`}
-                  next={`${candidatesAwaiting()} candidates found by the automated sweep are waiting to be read.`}
+                  next="Leads found by the automated sweep wait for a person to read them; /data says how many."
                 />
               ) : (
                 <EventList events={recent} />
@@ -232,7 +270,11 @@ export default function TodayPage() {
                 ))}
               </ol>
               <p className="mt-3 font-mono text-xs text-fg-muted">
-                {WHEN_LABEL.now} · ranked by severity · judged {worst[0]?.judgedOn}
+                {WHEN_LABEL.now} · ranked by{' '}
+                <Link href={methodHref('severity')} className="underline underline-offset-2">
+                  severity
+                </Link>{' '}
+                · judged {worst[0]?.judgedOn}
               </p>
             </section>
           </div>

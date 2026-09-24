@@ -19,6 +19,16 @@
 
 import type { CurveId } from './substrata';
 
+/**
+ * Loop periods are orders of magnitude written by hand as part of the loop
+ * model, not measured turn times; every page that shows one says so.
+ */
+export const LOOP_PERIOD_ESTIMATE = {
+  on: '2026-09-14',
+  basis:
+    'Order of magnitude for one design → build → measure turn at this layer, written by hand as part of the project\u2019s loop model. Not a measured turn time; the lead-time clock that would measure it has not been built.',
+} as const;
+
 export type ProgrammeStatus = 'active' | 'paused' | 'closed';
 export type DeliverableStatus = 'done' | 'in-progress' | 'not-started';
 
@@ -313,8 +323,8 @@ export const RESEARCH_PROGRAMMES: readonly ResearchProgramme[] = [
         status: 'in-progress',
         detail:
           'The research engine searches for a source for each unverified row and files ' +
-          'what it finds as a candidate. A row flips to sourced only when an analyst ' +
-          'attaches the source, so the engine speeds the work without lowering the bar.',
+          'what it finds as a candidate. A row flips to sourced only when a person ' +
+          'reads and attaches the source, so the engine speeds the work without lowering the bar.',
       },
       {
         id: 'lead-time-clock',
