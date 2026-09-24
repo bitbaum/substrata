@@ -10,6 +10,7 @@ import './styles/search.css';
 import './styles/research.css';
 import './styles/atlas.css';
 import './styles/ask.css';
+import './styles/ask-key.css';
 import './styles/discussion.css';
 import './styles/chat.css';
 import './styles/notes.css';

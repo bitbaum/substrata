@@ -69,3 +69,8 @@ a.figure-value:focus-visible {
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
+.figure-pop-check {
+  display: block;
+  padding-top: 0.45rem;
+  border-top: 1px solid var(--color-border-subtle);
+}

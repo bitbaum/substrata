@@ -35,6 +35,8 @@ export interface ToolEnv {
   /** Injected so tests need neither a database nor a network. */
   leads?: (q: { bottlenecks?: string[]; query?: string; days?: number }) => Promise<LeadHit[]>;
   web?: (query: string, signal?: AbortSignal) => Promise<WebLookup>;
+  /** Read one cited source for the passage bearing on a claim (verify mode). */
+  read?: (url: string, claim: string, signal?: AbortSignal) => Promise<WebFinding | null>;
 }
 
 export function remember(ledger: Ledger, ref: RecordRef) {

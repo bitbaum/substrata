@@ -17,6 +17,7 @@ import { FollowButton } from '@/components/portal/FollowButton';
 import { currentSession } from '@/lib/auth';
 import { readFollows } from '@/lib/desk-store';
 import { pipelineSection } from '@/components/science/BottleneckPipeline';
+import { CheckThis } from '@/components/portal/CheckThis';
 
 interface RouteParams {
   params: Promise<{ slug: string }>;
@@ -124,6 +125,12 @@ export default async function BottleneckPage({ params }: RouteParams) {
               </dd>
             </div>
           </dl>
+          <p className="mt-2">
+            <CheckThis
+              label="Check these facts with Ask"
+              claim={`${b.name}: ${b.plain} Assessed ${SEVERITY.label.toLowerCase()} ${b.binding}; ${WHEN.label.toLowerCase()} ${WHEN_LABEL[b.horizon]} (judged ${b.judgedOn}); evidence: ${rowLabel(b.counts) ?? b.state}.`}
+            />
+          </p>
 
           <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
             {b.technologies.map((t) => (

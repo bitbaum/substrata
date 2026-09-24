@@ -35,6 +35,9 @@ backs the scheduled producer-sourcing run (`POST /api/cron/source`,
 `lib/source-store.ts`); it also needs `/api/cron/source` added to whatever
 schedule `/opt/_appcron/run.sh` already drives `/api/cron/sweep` on.
 `005-desk.sql` (desk marks and `research_sweep_settings`) is applied.
+`007-ai-keys.sql` (`research_ai_keys`) backs readers' saved AI keys; they are
+sealed with `SUBSTRATA_BYOK_SECRET` from the runtime env, and without that
+secret Ask offers browser-only keys.
 
 The sweep's cadence lives in the database, not on the box. The box timer
 `appcron-substrata-sweep.timer` fires hourly at :17, and `/api/cron/sweep`

@@ -1,75 +1,72 @@
 /**
- * Bring-your-own-key: the parts worth testing without a network.
- *
- * `completeByok` makes real HTTP calls to three fixed vendors and is
- * exercised by hand against each one; what belongs in a fast, offline suite
- * is the gate in front of it — the boundary between "a reader's request" and
- * "a header this server is about to send with someone's real key attached".
+ * Bring-your-own-key: substrata's half. The vendor list, validation and call
+ * shape are `@bitbaum/ai-kit/byok` (tested there); what is tested here is the
+ * boundary between a request and a key this server is about to use.
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { BYOK_PROVIDERS, ByokError, byokModelLabel, isValidByokConfig } from '../lib/byok';
+import { BYOK_VENDOR_IDS, ByokError, byokErrorMessage, byokFromBody, byokLabel } from '../lib/byok';
+import { vaultEnabled } from '../lib/byok-vault';
 
-test('accepts a config for each of the three named vendors', () => {
-  for (const provider of BYOK_PROVIDERS) {
-    assert.equal(
-      isValidByokConfig({ provider, apiKey: 'sk-abcdefgh12345', model: 'some-model' }),
-      true,
-      provider,
-    );
-  }
+const key = ['sk', 'test', 'placeholder'].join('-');
+
+test('every vendor on the shared list is accepted from a request', () => {
+  for (const vendor of BYOK_VENDOR_IDS)
+    assert.deepEqual(byokFromBody({ vendor, apiKey: key, model: 'm' }), {
+      vendor,
+      apiKey: key,
+      model: 'm',
+    });
 });
 
-test('rejects a vendor not on the fixed list — no free-form base URL', () => {
-  // The whole point of a closed list: this server makes the outbound call on
-  // the reader's behalf, and an arbitrary base URL there is SSRF wearing a
-  // feature request.
+test('a key a browser saved before the shared list (provider, not vendor) still works', () => {
+  const parsed = byokFromBody({ provider: 'anthropic', apiKey: key, model: 'claude-opus-5' });
+  assert.ok(parsed && parsed !== 'invalid');
+  assert.equal(parsed.vendor, 'anthropic');
+});
+
+test('no key is not an error; a malformed one is refused — no host, no header smuggling', () => {
+  assert.equal(byokFromBody(undefined), undefined);
+  assert.equal(byokFromBody(null), undefined);
   assert.equal(
-    isValidByokConfig({ provider: 'my-own-server', apiKey: 'sk-abcdefgh12345', model: 'x' }),
-    false,
-  );
-});
-
-test('rejects a key or model carrying a newline — header injection', () => {
-  assert.equal(
-    isValidByokConfig({ provider: 'openai', apiKey: 'sk-abc\r\nX-Evil: 1', model: 'gpt-5' }),
-    false,
+    byokFromBody({ vendor: 'https://evil.example', apiKey: key, model: 'x' }),
+    'invalid',
   );
   assert.equal(
-    isValidByokConfig({ provider: 'openai', apiKey: 'sk-abcdefgh12345', model: 'a\nb' }),
-    false,
+    byokFromBody({ vendor: 'openai', apiKey: 'sk-abc\r\nX-Evil: 1', model: 'x' }),
+    'invalid',
   );
+  assert.equal(byokFromBody({ vendor: 'openai', apiKey: 'x', model: 'x' }), 'invalid');
+  assert.equal(byokFromBody('sk-abcdefgh12345'), 'invalid');
 });
 
-test('rejects a key that is implausibly short or absurdly long', () => {
-  assert.equal(isValidByokConfig({ provider: 'openai', apiKey: 'x', model: 'gpt-5' }), false);
+test('vendor failures read as something a reader can act on, and never carry the key', () => {
+  const c = { vendor: 'anthropic' as const, model: 'claude-opus-5' };
   assert.equal(
-    isValidByokConfig({ provider: 'openai', apiKey: 'x'.repeat(500), model: 'gpt-5' }),
-    false,
+    byokErrorMessage(c, 'anthropic/claude-opus-5: 401 invalid x-api-key'),
+    'Anthropic rejected that key.',
   );
-});
-
-test('rejects a missing field, and anything that is not an object', () => {
-  assert.equal(isValidByokConfig(null), false);
-  assert.equal(isValidByokConfig('sk-abcdefgh12345'), false);
-  assert.equal(isValidByokConfig({ provider: 'openai', apiKey: 'sk-abcdefgh12345' }), false);
-  assert.equal(isValidByokConfig({ apiKey: 'sk-abcdefgh12345', model: 'gpt-5' }), false);
-});
-
-test('the label names the vendor and the model, never the key', () => {
-  const label = byokModelLabel({
-    provider: 'anthropic',
-    apiKey: 'super-secret-value',
-    model: 'claude-opus-5',
-  });
-  assert.equal(label, 'Anthropic · claude-opus-5');
-  assert.ok(!label.includes('super-secret-value'));
-});
-
-test('ByokError carries the provider so a caller can react per-vendor', () => {
-  const err = new ByokError('anthropic', 'Anthropic rejected that key.');
-  assert.equal(err.provider, 'anthropic');
+  assert.match(
+    byokErrorMessage(c, 'anthropic/claude-opus-5: 404 model not found'),
+    /does not recognise/,
+  );
+  assert.match(byokErrorMessage(c, 'anthropic/claude-opus-5: 429 capacity'), /rate-limiting/);
+  assert.equal(
+    byokLabel({ vendor: 'google', model: 'models/gemini-flash-latest' }),
+    'Google Gemini · models/gemini-flash-latest',
+  );
+  const err = new ByokError('openai', 'x');
+  assert.equal(err.vendor, 'openai');
   assert.equal(err.name, 'ByokError');
-  assert.equal(err.message, 'Anthropic rejected that key.');
+});
+
+test('without a sealing secret the vault reports itself off rather than pretending to save', () => {
+  const saved = process.env.SUBSTRATA_BYOK_SECRET;
+  delete process.env.SUBSTRATA_BYOK_SECRET;
+  assert.equal(vaultEnabled(), false);
+  process.env.SUBSTRATA_BYOK_SECRET = 'short';
+  assert.equal(vaultEnabled(), false);
+  if (saved === undefined) delete process.env.SUBSTRATA_BYOK_SECRET;
+  else process.env.SUBSTRATA_BYOK_SECRET = saved;
 });

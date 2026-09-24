@@ -1,11 +1,13 @@
 import { availableModels, isOfferedModel } from '@/lib/chat/models';
 import type { ChatTurn } from '@/lib/chat/types';
 import { allowRequest, boundedJson, sameOrigin } from '@/lib/request-guards';
-import { isValidByokConfig, type ByokConfig } from '@/lib/byok';
+import { byokFromBody, type ByokConfig } from '@/lib/byok';
+import { openStoredKey } from '@/lib/byok-vault';
 import { runAgent, type AgentEvent } from '@/lib/chat-agent/loop';
-import { byokTurn, freeLinks, streamedTurn } from '@/lib/chat-agent/turn';
+import { byokTurn, freeCooldown, freeLinks, streamedTurn } from '@/lib/chat-agent/turn';
+import { verifyFromBody } from '@/lib/chat-agent/verify';
 import { readerContext } from '@/lib/chat-context';
-import { lookUp, webLookupEnabled } from '@/lib/chat-web';
+import { lookUp, readSource, webLookupEnabled } from '@/lib/chat-web';
 import { currentSession } from '@/lib/auth';
 import { database } from '@/lib/db';
 import { parseFollows, type Follows } from '@/lib/follows';
@@ -65,20 +67,34 @@ export async function POST(request: Request) {
   const modelRaw = (input as { model?: unknown })?.model;
   const model = typeof modelRaw === 'string' && modelRaw.length < 120 ? modelRaw : 'auto';
   // A reader's own key names its own model, from a vendor's own catalogue —
-  // `isOfferedModel` only knows this deployment's free chain, so it has
-  // nothing to say about a BYOK request and must not be asked to.
-  const byokRaw = (input as { byok?: unknown })?.byok;
-  let byok: ByokConfig | undefined;
-  if (byokRaw !== undefined && byokRaw !== null) {
-    if (!isValidByokConfig(byokRaw))
-      return Response.json({ error: 'Invalid key configuration.' }, { status: 400 });
-    byok = byokRaw;
+  // `isOfferedModel` only knows this deployment's free chain. The key arrives
+  // in the body (held in the reader's browser) or, signed in, is opened from
+  // the vault for this one request.
+  const byokParsed = byokFromBody((input as { byok?: unknown })?.byok);
+  if (byokParsed === 'invalid')
+    return Response.json({ error: 'Invalid key configuration.' }, { status: 400 });
+  let byok: ByokConfig | undefined = byokParsed;
+  if (!byok && (input as { byokStored?: unknown })?.byokStored === true) {
+    const session = await currentSession();
+    byok =
+      (session?.actorId && (await openStoredKey(session.actorId).catch(() => null))) || undefined;
+    if (!byok)
+      return Response.json(
+        { error: 'Your saved key could not be opened. Add it again in AI settings.' },
+        { status: 400 },
+      );
   }
+  const verify = verifyFromBody((input as { verify?: unknown })?.verify);
+  if (verify === 'invalid')
+    return Response.json({ error: 'Invalid claim to check.' }, { status: 400 });
   // Refuse rather than silently fall back: a caller naming a model we do not
   // offer is either out of date or probing, and both deserve a straight answer.
   if (!byok && !isOfferedModel(model))
     return Response.json({ error: 'Unknown model.' }, { status: 400 });
-  if (typeof question !== 'string' || question.trim().length < 3 || question.length > 4000)
+  if (
+    !verify &&
+    (typeof question !== 'string' || question.trim().length < 3 || question.length > 4000)
+  )
     return Response.json(
       { error: 'Ask a question between 3 and 4,000 characters.' },
       { status: 400 },
@@ -101,6 +117,7 @@ export async function POST(request: Request) {
       ? byokTurn(byok, limits)
       : streamedTurn({
           chain: freeLinks(model),
+          cooldown: freeCooldown,
           ...limits,
           extraHeaders: {
             'HTTP-Referer': 'https://substrata.orangecat.ch',
@@ -119,8 +136,9 @@ export async function POST(request: Request) {
         };
         try {
           await runAgent({
-            question,
+            question: typeof question === 'string' ? question : '',
             history,
+            verify,
             context,
             turn,
             byok,
@@ -131,6 +149,7 @@ export async function POST(request: Request) {
                 context.reader && !context.reader.everything ? context.reader.rails : undefined,
               leads: process.env.DATABASE_URL ? (q) => searchLeads(q) : undefined,
               web: webLookupEnabled() ? (query, signal) => lookUp(query, signal) : undefined,
+              read: (url, claim, signal) => readSource(url, claim, signal),
             },
           });
         } catch (error) {

@@ -2,20 +2,24 @@
 import {
   StreamInterrupted,
   completeStream,
+  createLinkCooldown,
   freeChain,
   usableChain,
   type ChatMessage,
   type Env,
   type Link,
-  type Provider,
 } from '@bitbaum/ai-kit';
-import { completeByok, ByokError, type ByokConfig } from '../byok';
+import { BYOK_SITE, ByokError, byokChain, byokErrorMessage, type ByokConfig } from '../byok';
 import { readTurn, type ToolRequest } from './parse';
 import { StreamGate } from './stream-gate';
 
-// ---------------------------------------------------------------------------
-// One model turn, whichever vendor serves it.
-// ---------------------------------------------------------------------------
+/**
+ * Links that refused recently, skipped until their refusal resets. One per
+ * process: a spent daily pool otherwise costs a 429 round trip per link on
+ * EVERY turn of every question — measured at several seconds a turn on
+ * 2026-09-24, when the first four links had spent their day.
+ */
+export const freeCooldown = createLinkCooldown();
 
 export interface ModelTurnResult {
   text: string;
@@ -39,12 +43,15 @@ export function streamedTurn(opts: {
   timeoutMs: number;
   signal?: AbortSignal;
   extraHeaders?: Record<string, string>;
+  /** Skip links that refused recently (the free chain); a reader's one link never. */
+  cooldown?: ReturnType<typeof createLinkCooldown>;
 }): ModelTurn {
   return async ({ messages, tools, onText }) => {
     const gate = new StreamGate();
     let end: { text: string; toolCalls: { name: string; args: string }[]; id: string } | undefined;
     for await (const delta of completeStream({
-      chain: opts.chain,
+      chain: opts.cooldown ? opts.cooldown.filter(opts.chain) : opts.chain,
+      onLinkFailure: opts.cooldown?.record,
       model: opts.model,
       env: opts.env,
       messages,
@@ -82,51 +89,20 @@ export function freeLinks(requested: string | undefined, env: Env = process.env)
   return pick ? [pick, ...full.filter((l) => l !== pick)] : full;
 }
 
-const BYOK_BASE: Record<'openai' | 'openrouter', string> = {
-  openai: 'https://api.openai.com/v1',
-  openrouter: 'https://openrouter.ai/api/v1',
-};
-
-/** A reader's own key, as a one-link chain — streamed and tool-capable where the vendor is OpenAI-shaped. */
+/** A reader's own key, as a one-link chain — streamed and tool-capable at every vendor on the shared list. */
 export function byokTurn(
   config: ByokConfig,
   limits: { maxTokens: number; timeoutMs: number; signal?: AbortSignal },
 ): ModelTurn {
-  if (config.provider === 'anthropic') {
-    // Anthropic's Messages API is not OpenAI-shaped; the tools reach it as the
-    // text protocol described in the system prompt, and the reply arrives whole.
-    return async ({ messages, tools, onText }) => {
-      const { text } = await completeByok(config, messages, limits);
-      const read = readTurn(text, [], Boolean(tools?.length));
-      if (!read.calls.length) onText(read.text);
-      return { ...read, model: `anthropic/${config.model}` };
-    };
-  }
-  const keyEnv = 'SUBSTRATA_BYOK_KEY';
-  const provider: Provider = {
-    id: config.provider,
-    baseUrl: BYOK_BASE[config.provider],
-    keyEnv,
-    models: [config.model],
-    dailyTokens: Number.POSITIVE_INFINITY,
-    ...(config.provider === 'openrouter' ? { routed: true } : {}),
-  };
-  const inner = streamedTurn({
-    chain: [{ provider, model: config.model }],
-    // A one-entry env scoped to this call, never process.env.
-    env: { [keyEnv]: config.apiKey },
-    ...limits,
-    extraHeaders:
-      config.provider === 'openrouter'
-        ? { 'HTTP-Referer': 'https://substrata.orangecat.ch', 'X-Title': 'Substrata' }
-        : undefined,
-  });
+  const { chain, env, extraHeaders } = byokChain(config, BYOK_SITE);
+  const inner = streamedTurn({ chain, env, extraHeaders, ...limits });
   return async (input) => {
     try {
       return await inner(input);
     } catch (err) {
       if (err instanceof StreamInterrupted) throw err;
-      throw new ByokError(config.provider, err instanceof Error ? err.message : 'Call failed.');
+      const raw = err instanceof Error ? err.message : 'Call failed.';
+      throw new ByokError(config.vendor, byokErrorMessage(config, raw));
     }
   };
 }

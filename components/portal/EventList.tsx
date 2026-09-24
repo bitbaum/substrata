@@ -14,6 +14,7 @@ import {
   type EventEffect,
 } from '@/config/substrata-events';
 import { bottleneckHref, marketHref } from '@/lib/links';
+import { CheckThis } from './CheckThis';
 
 const EFFECT_DOT: Record<EventEffect, string> = {
   tightens: 'bg-status-negative',
@@ -107,6 +108,11 @@ export function EventList({
               <span className="ml-2 text-fg-muted">
                 {event.primary ? 'official source' : 'secondary source'}
               </span>
+              <CheckThis
+                className="is-inline"
+                claim={`${event.date}: ${event.headline}`}
+                source={event.source}
+              />
             </details>
           </div>
         </li>

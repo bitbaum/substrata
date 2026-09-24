@@ -1,9 +1,9 @@
 'use client';
 
-import { BYOK_PROVIDER_LABEL } from '@/lib/byok-shared';
+import { useState } from 'react';
 import { Dictation } from '../Dictation';
-import { ByokPanel } from './ByokPanel';
-import type { useByok } from './useByok';
+import { AiKeyPanel } from '../ai-key/AiKeyPanel';
+import type { AiKey } from '../ai-key/useAiKey';
 import type { useChatSession } from './useChatSession';
 
 /**
@@ -30,13 +30,13 @@ export function Composer({
 }: {
   compact: boolean;
   chat: ReturnType<typeof useChatSession>;
-  keys: ReturnType<typeof useByok>;
+  keys: AiKey;
   models: { id: string; label: string }[];
   model: string;
   setModel: (model: string) => void;
 }) {
-  const { draft, setDraft, busy, contribute, setContribute, ask, stop, setError } = chat;
-  const { byok, byokOpen, setByokOpen } = keys;
+  const { draft, setDraft, busy, contribute, setContribute, ask, stop } = chat;
+  const [keyOpen, setKeyOpen] = useState(false);
 
   return (
     <form
@@ -89,20 +89,17 @@ export function Composer({
                 }}
               />
             </label>
-            {byok ? (
-              // A frontier model connected via the reader's own key replaces
-              // the free-tier picker rather than sitting beside it — the
-              // question the select answers ("which free model?") no longer
-              // applies once a specific paid one is chosen.
+            {keys.active ? (
+              // The reader's own key replaces the free-model picker: "which
+              // free model?" no longer applies once they chose one.
               <button
                 type="button"
                 className="companion-byok-active"
-                onClick={() => setByokOpen((v) => !v)}
-                aria-expanded={byokOpen}
-                title="Answering with your own key — click to change or remove it"
+                onClick={() => setKeyOpen((v) => !v)}
+                aria-expanded={keyOpen}
+                title="Answering with your own AI key — click to change or remove it"
               >
-                <strong>{BYOK_PROVIDER_LABEL[byok.provider]}</strong>
-                {` · ${byok.model}`}
+                <strong>{keys.active.label}</strong>
               </button>
             ) : (
               <>
@@ -119,10 +116,11 @@ export function Composer({
                 <button
                   type="button"
                   className="companion-tool"
-                  onClick={() => setByokOpen((v) => !v)}
-                  aria-expanded={byokOpen}
+                  onClick={() => setKeyOpen((v) => !v)}
+                  aria-expanded={keyOpen}
+                  title="Use any AI you have a key for: OpenAI, Anthropic, Gemini, OpenRouter, Groq…"
                 >
-                  Frontier key
+                  Your AI key
                 </button>
               </>
             )}
@@ -138,16 +136,7 @@ export function Composer({
           )}
         </div>
       </div>
-      {byokOpen && (
-        <ByokPanel
-          byok={byok}
-          byokDraft={keys.byokDraft}
-          setByokDraft={keys.setByokDraft}
-          onSave={() => setError(keys.saveByokDraft())}
-          onRemove={keys.removeByok}
-          onClose={() => setByokOpen(false)}
-        />
-      )}
+      {keyOpen && <AiKeyPanel keys={keys} onDone={() => setKeyOpen(false)} />}
       <p className="companion-aside">
         Have a source we should hold?{' '}
         <button

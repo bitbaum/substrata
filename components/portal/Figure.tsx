@@ -13,9 +13,11 @@
  *
  * A bare numeric literal in page copy is none of these.
  *
- * Works without client JavaScript: sourced numbers are plain links, and the
- * explanation uses the native HTML popover (a button + `popover` element),
- * which is keyboard- and screen-reader-accessible and light-dismisses.
+ * Every figure opens the same native HTML popover (a button + `popover`
+ * element — keyboard- and screen-reader-accessible, light-dismissing, and
+ * working without client JavaScript): what the number is, where it comes
+ * from, and "Check this", which hands the number, its sentence and its source
+ * to Ask for a verdict. A sourced number's popover leads with its source.
  *
  * Inside another link (a whole-card link, say) a nested interactive element is
  * invalid HTML, so pass `inLink`: the figure renders as text with its
@@ -24,6 +26,8 @@
  */
 import React, { useId } from 'react';
 import Link from 'next/link';
+
+import { CheckThis } from './CheckThis';
 
 import { METHODS, codeHref, methodHref, type MethodId } from '@/lib/methods';
 
@@ -93,21 +97,6 @@ export function Figure(props: FigureProps) {
     );
   }
 
-  if (props.source !== undefined) {
-    const common = { className: valueClass, title: explanation };
-    return isExternal(props.source) ? (
-      <a href={props.source} rel="noopener noreferrer" target="_blank" {...common}>
-        {children}
-        <span className="sr-only"> ({explanation}, opens in a new tab)</span>
-      </a>
-    ) : (
-      <Link href={props.source} {...common}>
-        {children}
-        <span className="sr-only"> ({explanation})</span>
-      </Link>
-    );
-  }
-
   const popId = `figure-${id.replace(/[^a-zA-Z0-9_-]/g, '')}`;
   return (
     <>
@@ -123,14 +112,55 @@ export function Figure(props: FigureProps) {
       <span id={`${popId}-sr`} className="sr-only">
         {explanation}
       </span>
-      <span id={popId} popover="auto" role="note" className="figure-pop">
+      <span id={popId} popover="auto" role="note" className="figure-pop" data-check-anchor>
         <FigureBody {...props} />
+        <span className="figure-pop-check">
+          <CheckThis
+            value={textOf(children)}
+            source={
+              props.source ??
+              props.estimate?.source ??
+              (props.method ? methodHref(props.method) : undefined)
+            }
+            label="Check this number with Ask"
+          />
+        </span>
       </span>
     </>
   );
 }
 
+/** The figure's text, for the check request. */
+function textOf(node: React.ReactNode): string | undefined {
+  if (typeof node === 'string' || typeof node === 'number') return String(node);
+  if (Array.isArray(node)) return node.map(textOf).join('') || undefined;
+  if (React.isValidElement<{ children?: React.ReactNode }>(node))
+    return textOf(node.props.children);
+  return undefined;
+}
+
 function FigureBody(props: Provenance) {
+  if (props.source !== undefined) {
+    const label = props.sourceLabel ?? hostOf(props.source);
+    return (
+      <>
+        <span className="figure-pop-kicker">Sourced</span>
+        <span className="figure-pop-text">
+          {label}
+          {props.asOf ? ` · ${props.asOf}` : ''}
+        </span>
+        <span className="figure-pop-links">
+          {isExternal(props.source) ? (
+            <a href={props.source} rel="noopener noreferrer" target="_blank">
+              Open the source →
+            </a>
+          ) : (
+            <Link href={props.source}>Open the source →</Link>
+          )}
+        </span>
+      </>
+    );
+  }
   if (props.method !== undefined) {
     const method = METHODS[props.method];
     return (
