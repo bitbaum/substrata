@@ -1051,16 +1051,254 @@ html[data-theme='light'] .world-map-country.has-resource.has-corpus {
 .site-search input:focus {
   outline: none;
 }
-.site-search button {
+/* Search: header popover and /search page. Instant results, grouped by type. */
+.search-pop {
+  position: relative;
+}
+.site-search .search-kbd {
+  margin-right: 0.45rem;
+}
+.search-kbd,
+.search-help kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.35rem;
+  height: 1.35rem;
+  padding: 0 0.3rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 0.3rem;
+  font: 0.7rem/1 var(--font-mono);
+  color: var(--color-fg-tertiary);
+}
+.search-mark {
+  background: color-mix(in srgb, var(--color-status-warning) 30%, transparent);
+  color: inherit;
+  border-radius: 0.15rem;
+  padding: 0 0.05em;
+}
+.search-panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.5rem);
+  width: min(30rem, calc(100vw - 2rem));
+  max-height: min(34rem, calc(100vh - 6rem));
+  overflow-y: auto;
+  padding: 0.4rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 0.75rem;
+  background: var(--color-surface-page);
+  box-shadow: 0 1.5rem 3rem -1rem color-mix(in srgb, var(--color-fg-primary) 22%, transparent);
+  z-index: 70;
+}
+.search-panel-head {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 0.6rem 0.25rem;
+  font: 0.68rem/1.4 var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-fg-tertiary);
+}
+.search-panel-note {
+  padding: 0.5rem 0.6rem;
+  font-size: 0.8rem;
+  color: var(--color-fg-secondary);
+}
+.search-option {
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.45rem 0.6rem;
+  border-radius: 0.45rem;
+  text-decoration: none;
+}
+.search-option[aria-selected='true'] {
+  background: var(--color-surface-raised);
+  outline: 1px solid var(--color-border-strong);
+}
+.search-option-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-fg-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.search-option-snippet {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--color-fg-tertiary);
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.search-option-all {
+  position: sticky;
+  bottom: -0.4rem;
+  display: flex;
+  justify-content: space-between;
+  margin: 0.3rem -0.4rem -0.4rem;
+  padding: 0.75rem 1rem;
+  background: var(--color-surface-page);
+  border-top: 1px solid var(--color-border-subtle);
+  border-radius: 0 0 0.45rem 0.45rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-fg-secondary);
+}
+.search-page-form {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 1rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 0.75rem;
+  background: var(--color-surface-raised);
+}
+.search-page-form:focus-within {
+  border-color: var(--color-fg-secondary);
+}
+.search-page-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  color: var(--color-fg-tertiary);
+}
+.search-page-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 1rem 0;
   border: 0;
-  border-radius: 999px;
-  background: var(--color-accent);
-  color: var(--color-surface-page);
+  background: transparent;
+  color: var(--color-fg-primary);
+  font-size: 1.125rem;
+}
+.search-page-form input:focus {
+  outline: none;
+}
+.search-help {
+  display: none;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.6rem;
   font-size: 0.75rem;
-  font-weight: 650;
-  min-height: 2.1rem;
-  padding: 0 0.9rem;
-  cursor: pointer;
+  color: var(--color-fg-muted);
+}
+/* Keyboard hints only where there is a keyboard. */
+.search-page-form .search-kbd {
+  display: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .search-help {
+    display: flex;
+  }
+  .search-page-form .search-kbd {
+    display: inline-flex;
+  }
+}
+.search-filters,
+.search-empty ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+.search-empty {
+  margin-top: 2rem;
+  color: var(--color-fg-secondary);
+}
+.search-empty ul {
+  margin-top: 0.75rem;
+}
+.search-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 2.25rem;
+  padding: 0 0.85rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: var(--color-fg-secondary);
+  background: var(--color-surface-page);
+}
+.search-chip:hover {
+  border-color: var(--color-border-strong);
+  color: var(--color-fg-primary);
+}
+.search-chip span {
+  font: 0.75rem/1 var(--font-mono);
+  color: var(--color-fg-tertiary);
+}
+.search-chip[aria-current='page'] {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-surface-page);
+}
+.search-chip[aria-current='page'] span {
+  color: inherit;
+}
+.search-status {
+  margin: 1.25rem 0 0.5rem;
+  font-size: 0.875rem;
+  color: var(--color-fg-secondary);
+}
+.search-group {
+  margin-top: 2.25rem;
+}
+.search-group > h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border-strong);
+  font: 600 1.05rem/1.3 var(--font-heading);
+  color: var(--color-fg-primary);
+}
+.search-group > h2 span {
+  font: 0.75rem/1 var(--font-mono);
+  color: var(--color-fg-tertiary);
+}
+.search-hits > li + li {
+  border-top: 1px solid var(--color-border-subtle);
+}
+.search-hit {
+  padding: 0.9rem 0;
+  max-width: 52rem;
+}
+.search-hit h3 {
+  margin: 0.2rem 0;
+  font: 600 1.1rem/1.35 var(--font-heading);
+}
+.search-hit h3 a {
+  color: var(--color-fg-primary);
+  text-decoration: none;
+  border-radius: 0.2rem;
+}
+.search-hit h3 a:hover {
+  text-decoration: underline;
+}
+.search-hit h3 a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+.search-hit-snippet {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-fg-secondary);
+  overflow-wrap: anywhere;
+}
+.search-more {
+  display: inline-block;
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-fg-secondary);
+}
+.search-more:hover {
+  color: var(--color-fg-primary);
 }
 .site-action {
   min-height: 2.5rem;

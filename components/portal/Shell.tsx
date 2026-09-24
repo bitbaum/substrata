@@ -16,6 +16,7 @@ import { AccountMenu } from './AccountMenu';
 import { Inquire } from './Inquire';
 import { Mark, SearchIcon } from './Mark';
 import { MobileMenu, PublicNav } from './PublicNav';
+import { SearchBox } from './SearchBox';
 
 const PUBLIC_ONLY = new Set(['']);
 
@@ -84,19 +85,7 @@ export async function Shell({
               280px search box did not both fit, which is how the nav came to
               be hidden below 1100px in the first place.
             */}
-            <form action="/search" className="site-search hidden lg:flex">
-              <label className="sr-only" htmlFor="header-search">
-                Search the research
-              </label>
-              <input
-                id="header-search"
-                name="q"
-                type="search"
-                placeholder="ASML, EUV, quartz"
-                maxLength={200}
-              />
-              <button type="submit">Search</button>
-            </form>
+            <SearchBox />
             <Link
               href="/search"
               className="inline-flex h-11 w-11 items-center justify-center text-fg-secondary hover:text-fg-primary lg:hidden"
