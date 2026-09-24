@@ -46,7 +46,11 @@ export function EventList({
   return (
     <ol className="divide-y divide-subtle border-y border-subtle">
       {events.map((event) => (
-        <li key={event.id} className="grid gap-x-6 gap-y-1 py-3 sm:grid-cols-[7rem_1fr]">
+        <li
+          key={event.id}
+          id={event.id}
+          className="grid scroll-mt-24 gap-x-6 gap-y-1 py-3 sm:grid-cols-[7rem_1fr]"
+        >
           <div className="font-mono text-xs tabular-nums text-fg-tertiary">{event.date}</div>
           <div>
             <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
