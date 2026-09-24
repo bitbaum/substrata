@@ -9,7 +9,7 @@ import { bottleneckHref, marketsBy } from '@/lib/links';
 import { correctionUrl } from '@/lib/site';
 import { bindingSum, companyProfile, type CompanyProfile } from '@/lib/company-profile';
 import { buildFeed, hostOf, whenLabel, type DeskItem } from '@/lib/desk';
-import { leadsFor } from '@/lib/sweep-store';
+import { leadsFor } from '@/lib/sweep-queue';
 import { FollowButton } from '@/components/portal/FollowButton';
 import { Page, Shell } from '@/components/portal/Shell';
 import { currentSession } from '@/lib/auth';

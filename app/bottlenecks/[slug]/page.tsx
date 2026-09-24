@@ -13,6 +13,9 @@ import { Inquire } from '@/components/portal/Inquire';
 import { EntityProfile } from '@/components/portal/EntityProfile';
 import { resolveIn } from '@/lib/entities/registry';
 import { SeverityBar, Status, rowLabel } from '@/components/portal/Status';
+import { FollowButton } from '@/components/portal/FollowButton';
+import { currentSession } from '@/lib/auth';
+import { readFollows } from '@/lib/desk-store';
 
 interface RouteParams {
   params: Promise<{ slug: string }>;
@@ -43,6 +46,8 @@ export default async function BottleneckPage({ params }: RouteParams) {
   if (!b) notFound();
 
   const entity = resolveIn('bottleneck', b.slug);
+  const session = await currentSession();
+  const follows = session?.actorId ? await readFollows(session.actorId) : null;
 
   return (
     <Shell currentPath="bottlenecks">
@@ -67,8 +72,28 @@ export default async function BottleneckPage({ params }: RouteParams) {
             {b.name}
           </h1>
           <p className="mt-4 max-w-prose text-lg leading-relaxed text-fg-secondary">{b.plain}</p>
+          {follows && (
+            // Signed in: put this row on the desk, or keep it off, from where it is read.
+            <div className="mt-5 flex flex-wrap gap-3">
+              <FollowButton
+                type="bottleneck"
+                id={b.slug}
+                following={follows.bottlenecks.includes(b.slug)}
+                label="on my desk"
+              />
+              <FollowButton
+                type="mute"
+                id={b.slug}
+                following={follows.muted.includes(b.slug)}
+                label="on my desk"
+              />
+            </div>
+          )}
 
-          <dl className="mt-6 grid gap-px overflow-hidden rounded-lg border border-subtle bg-border-subtle sm:grid-cols-3">
+          <dl
+            id="assessment"
+            className="mt-6 grid gap-px overflow-hidden rounded-lg border border-subtle bg-border-subtle sm:grid-cols-3"
+          >
             <div className="bg-surface-raised px-4 py-3">
               <dt className="font-mono text-xs uppercase tracking-caps text-fg-tertiary">
                 {SEVERITY.label}

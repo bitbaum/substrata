@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Page, Shell, SectionHeader } from '@/components/portal/Shell';
 import { evidenceTotals } from '@/lib/atlas';
 import { EVIDENCE } from '@/config/substrata-evidence';
-import { freshness } from '@/lib/sweep-store';
+import { freshness } from '@/lib/sweep-queue';
 import { Figure } from '@/components/portal/Figure';
 import { METHODS, codeHref, methodAnchor, type MethodId } from '@/lib/methods';
 

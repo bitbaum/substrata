@@ -6,6 +6,7 @@
  * seam (`ModelTurn`) and the lead/web lookups are injected.
  */
 import { test } from 'node:test';
+import { parseFollows } from '../lib/follows';
 import assert from 'node:assert/strict';
 import { ChainExhaustedError, type Link } from '@bitbaum/ai-kit';
 
@@ -183,11 +184,11 @@ test('a signed-in reader brings their follows and the rails they reach', () => {
   const tech = someBottleneck.technologies[0];
   const context = readerContext({
     path: '/chat',
-    follows: {
+    follows: parseFollows({
       technologies: tech ? [tech] : [],
       companies: [someCompany.slug],
       kind: 'individual',
-    },
+    }),
   });
   assert.ok(context.reader);
   assert.ok(context.reader.rails.length > 0);
@@ -199,7 +200,7 @@ test('a signed-in reader brings their follows and the rails they reach', () => {
 
 test('following nothing yet means every bottleneck, said as such', () => {
   const context = readerContext({
-    follows: { technologies: [], companies: [], kind: 'individual' },
+    follows: parseFollows({}),
   });
   assert.equal(context.reader?.everything, true);
   assert.equal(context.reader?.rails.length, BOTTLENECKS.length);

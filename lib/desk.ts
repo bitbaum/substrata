@@ -1,7 +1,7 @@
 /**
  * The desk's news feed, as pure functions.
  *
- * Two sources, never blended into one claim. An EVENT is a row an analyst
+ * Two sources, never blended into one claim. An EVENT is a row a reviewer
  * read and committed (`config/substrata-events.ts`); a LEAD is a page the sweep
  * found this week and nobody has read yet (`research_sweep_candidates`). The
  * public site shows only events. The desk is a signed-in reader's own working
@@ -19,6 +19,8 @@ import { looksLikeAReference } from '@/lib/sweep';
 export interface Lead {
   id: string;
   bottleneck: string;
+  /** The phrase the sweep searched for. */
+  term?: string;
   url: string;
   title: string;
   published: string | null;
@@ -135,10 +137,55 @@ function leadTime(lead: Lead): { at: string; dated: boolean } {
   return { at: lead.foundAt, dated: false };
 }
 
+/**
+ * Whether a headline names the rail it was filed under.
+ *
+ * The sweep files a page when its BODY mentions the term, so a trucking
+ * logbook that mentions "reduction drive" once lands under precision drives.
+ * The headline is what a reader sees, and one that names none of the rail's
+ * words is usually that kind of accident. It also drops some real stories
+ * ("Rare Earth Trade Report" under a didymium rail), which is why it is a
+ * reader's setting and not the sweep's rule.
+ */
+export function headlineNamesRail(lead: Pick<Lead, 'title' | 'bottleneck' | 'term'>): boolean {
+  const railWords = new Set(
+    words(`${lead.bottleneck} ${lead.term ?? ''}`).filter(
+      (w) => w.length >= 4 && !RAIL_STOPWORDS.has(w),
+    ),
+  );
+  // Whole words, singular: "drives" names "drive", never "driver".
+  return words(lead.title).some((w) => railWords.has(w));
+}
+
+function words(text: string): string[] {
+  return text
+    .toLowerCase()
+    .split(/[^a-z0-9]+/)
+    .filter(Boolean)
+    .map((w) => (w.length > 4 ? w.replace(/ies$/, 'y').replace(/(?<![s])s$/, '') : w));
+}
+
+const RAIL_STOPWORDS = new Set([
+  'grade',
+  'capacity',
+  'slots',
+  'queues',
+  'books',
+  'order',
+  'metal',
+  'feed',
+  'refined',
+  'high',
+  'purity',
+  'yield',
+]);
+
 export function buildFeed(
   events: readonly CoverageEvent[],
   leads: readonly Lead[],
   now: Date = new Date(),
+  leadMaxAgeDays = LEAD_MAX_AGE_DAYS,
+  strictLeads = false,
 ): DeskItem[] {
   const items: DeskItem[] = events.map((event) => ({
     source: 'event',
@@ -152,13 +199,14 @@ export function buildFeed(
     dateOnly: true,
   }));
 
-  // A lead whose page an analyst already turned into an event is that event.
+  // A lead whose page was already filed as an event is that event.
   const known = new Set(events.map((event) => event.source));
-  const cutoff = now.getTime() - LEAD_MAX_AGE_DAYS * 86_400_000;
+  const cutoff = now.getTime() - leadMaxAgeDays * 86_400_000;
   const byStory = new Map<string, Extract<DeskItem, { source: 'lead' }>>();
 
   for (const lead of leads) {
     if (known.has(lead.url) || !isStory(lead.title)) continue;
+    if (strictLeads && !headlineNamesRail(lead)) continue;
     const { at, dated } = leadTime(lead);
     if (Date.parse(at) < cutoff) continue;
     const key = storyKey(lead.title);
