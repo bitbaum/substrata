@@ -16,6 +16,7 @@ import { currentSession } from '@/lib/auth';
 import { database } from '@/lib/db';
 import { parseFollows } from '@/lib/follows';
 import { EntityProfile, type ExtraSection } from '@/components/portal/EntityProfile';
+import { Figure } from '@/components/portal/Figure';
 import { resolveIn } from '@/lib/entities/registry';
 import { t } from '@/lib/i18n/messages';
 
@@ -140,16 +141,40 @@ function Fact({
 }
 
 /** What it is and why it matters to the chain, from the joins, not from prose. */
-function lede(profile: CompanyProfile): string {
+function Lede({ profile }: { profile: CompanyProfile }) {
   const { participant: p, held, soleRecorded, trackedBottlenecks } = profile;
   const what = p.role ?? held.map((h) => h.step).join(', ');
+  const tracked = <Figure method="bottleneck-count">{trackedBottlenecks}</Figure>;
   if (held.length === 0)
-    return `${what}. Holds none of the ${trackedBottlenecks} bottlenecks tracked here; listed as context for its step of the chain.`;
-  const holds = `holds ${held.length} of the ${trackedBottlenecks} bottlenecks tracked here`;
-  const sole = soleRecorded.length
-    ? `, and is the only maker recorded for ${soleRecorded.map((h) => h.bottleneck.name).join(' and ')}`
-    : '';
-  return `${what} — ${holds}${sole}.`;
+    return (
+      <>
+        {what}. Holds none of the {tracked} bottlenecks tracked here; listed as context for its step
+        of the chain.
+      </>
+    );
+  return (
+    <>
+      {what} — holds <Figure method="bottlenecks-held">{held.length}</Figure> of the {tracked}{' '}
+      bottlenecks tracked here
+      {soleRecorded.length > 0 && (
+        <>
+          , and is the only maker recorded for{' '}
+          {soleRecorded.map((h, i) => (
+            <React.Fragment key={h.bottleneck.slug}>
+              {i > 0 && ' and '}
+              <Link
+                href={bottleneckHref(h.bottleneck.slug)}
+                className="text-fg-primary hover:underline"
+              >
+                {h.bottleneck.name}
+              </Link>
+            </React.Fragment>
+          ))}
+        </>
+      )}
+      .
+    </>
+  );
 }
 
 /**
@@ -238,7 +263,7 @@ export default async function ParticipantPage({ params }: RouteParams) {
             )}
           </div>
           <p className="mt-3 max-w-prose text-lg leading-relaxed text-fg-secondary">
-            {lede(profile)}
+            <Lede profile={profile} />
           </p>
 
           <div className="mt-6 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-subtle bg-border-subtle lg:grid-flow-col lg:auto-cols-fr lg:grid-cols-none [&>*:last-child:nth-child(odd)]:col-span-2 lg:[&>*:last-child:nth-child(odd)]:col-span-1">
@@ -246,7 +271,9 @@ export default async function ParticipantPage({ params }: RouteParams) {
               label="Bottlenecks held"
               value={
                 <>
-                  {held.length}
+                  <Figure method="bottlenecks-held" inLink>
+                    {held.length}
+                  </Figure>
                   <span className="text-sm font-normal text-fg-muted">
                     {' '}
                     of {profile.trackedBottlenecks}
@@ -267,7 +294,16 @@ export default async function ParticipantPage({ params }: RouteParams) {
                 label="Hardest binding"
                 value={
                   <>
-                    {hardest.bottleneck.binding}
+                    <Figure
+                      inLink
+                      estimate={{
+                        by: 'Substrata',
+                        on: hardest.bottleneck.judgedOn,
+                        basis: bindingSum(hardest.bottleneck),
+                      }}
+                    >
+                      {hardest.bottleneck.binding}
+                    </Figure>
                     <span className="text-sm font-normal text-fg-muted">/12</span>
                   </>
                 }
@@ -288,7 +324,11 @@ export default async function ParticipantPage({ params }: RouteParams) {
             {(profile.events.length > 0 || related > 0) && (
               <Fact
                 label="Events"
-                value={profile.events.length}
+                value={
+                  <Figure method="company-events" inLink>
+                    {profile.events.length}
+                  </Figure>
+                }
                 note={related > 0 ? `name it · ${related} more on what it holds` : 'name it'}
                 href="#events"
               />

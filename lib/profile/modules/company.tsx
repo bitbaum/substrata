@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import { EventList } from '@/components/portal/EventList';
+import { Figure } from '@/components/portal/Figure';
 import { Status } from '@/components/portal/Status';
 import { HORIZON_LABEL } from '@/config/substrata-assessment';
 import { SCARCITY_LABEL } from '@/config/substrata-participants';
@@ -35,24 +36,32 @@ const LINK = 'text-accent underline-offset-4 hover:underline';
 const NAME = 'font-medium text-fg-primary underline-offset-4 hover:underline';
 const CAPS = 'font-mono text-xs uppercase tracking-caps text-fg-tertiary';
 
-/** A binding score that links to the assessment it is the sum of. */
+/**
+ * A binding score is a judgement, so it renders as an estimate: whose, when,
+ * the four-part sum and the rationale, with the assessment one click away.
+ */
 export function BindingLink({ held }: { held: CompanyProfile['held'][number] }) {
   const b = held.bottleneck;
   const s = b.score;
   return (
-    <Link
-      href={`${bottleneckHref(b.slug)}#severity`}
-      title={`${bindingSum(b)}. Judged ${b.judgedOn}.`}
-      className="group inline-flex flex-col items-end text-right"
-    >
-      <span className="font-heading text-2xl font-semibold tabular-nums text-fg-primary group-hover:text-accent">
-        {b.binding}
+    <span className="inline-flex flex-col items-end text-right">
+      <span className="font-heading text-2xl font-semibold tabular-nums text-fg-primary">
+        <Figure
+          estimate={{
+            by: 'Substrata',
+            on: b.judgedOn,
+            basis: `${bindingSum(b)}. ${b.rationale}`,
+            source: `${bottleneckHref(b.slug)}#severity`,
+          }}
+        >
+          {b.binding}
+        </Figure>
         <span className="text-sm font-normal text-fg-muted">/12</span>
       </span>
-      <span className="font-mono text-xs tabular-nums text-fg-tertiary group-hover:underline">
+      <span className="font-mono text-xs tabular-nums text-fg-tertiary">
         {s.concentration}+{s.substitution}+{s.leadTime}+{s.inelasticity}
       </span>
-    </Link>
+    </span>
   );
 }
 
@@ -152,8 +161,9 @@ const chokepoints: ProfileModule<CompanyProfile> = {
         </ul>
         <p className="mt-3 max-w-prose text-xs leading-relaxed text-fg-muted">
           Score = concentration + substitution + lead time + inelasticity, each 0–3, an analyst
-          judgement dated {judged}; click one for its assessment. Makers are those the corpus
-          records, not the whole market. No market-share figure is sourced, so none is shown.
+          judgement dated {judged}; open a score for its rationale and assessment. Makers are those
+          the corpus records, not the whole market. No market-share figure is sourced, so none is
+          shown.
         </p>
       </>
     );
@@ -247,18 +257,23 @@ const relief: ProfileModule<CompanyProfile> = {
                   Science · for {bottlenecks.map((b) => b.name).join(', ')}
                 </p>
               </div>
-              <Link
-                href={`${scienceHref(entry.id)}#readiness`}
-                title={`Readiness ${entry.readiness} of 9 (${readinessLabel(entry.readiness)}), judged ${entry.judgedOn}. ${entry.source ? 'Sourced.' : 'Unsourced judgement.'}`}
-                className="text-right font-mono text-xs tabular-nums text-fg-secondary underline-offset-4 hover:underline"
-              >
+              <span className="text-right font-mono text-xs tabular-nums text-fg-secondary">
                 readiness
                 <br />
                 <span className="font-heading text-lg font-semibold text-fg-primary">
-                  {entry.readiness}
+                  <Figure
+                    estimate={{
+                      by: 'Substrata',
+                      on: entry.judgedOn,
+                      basis: `${readinessLabel(entry.readiness)}. ${entry.readinessWhy}`,
+                      source: entry.source ?? `${scienceHref(entry.id)}#readiness`,
+                    }}
+                  >
+                    {entry.readiness}
+                  </Figure>
                 </span>
                 /9
-              </Link>
+              </span>
             </li>
           ))}
           {p.substitutes.map(({ row, bottleneck }) => (
@@ -287,8 +302,8 @@ const relief: ProfileModule<CompanyProfile> = {
         </ul>
         {p.relief.length > 0 && (
           <p className="mt-3 max-w-prose text-xs leading-relaxed text-fg-muted">
-            Readiness is the 1–9 technology-readiness scale, a dated judgement; click it for the
-            reasoning and its source.
+            Readiness is the 1–9 technology-readiness scale, a dated judgement; open a figure for
+            the reasoning and its source.
           </p>
         )}
       </>

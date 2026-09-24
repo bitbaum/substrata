@@ -72,6 +72,22 @@ export const METHODS = {
       'Every company, lab or agency named anywhere in the corpus. Being listed is not an endorsement and, unless the row says so, not a verified fact about the organisation.',
     code: ['lib/participants.ts', 'config/substrata-participants.ts'],
   },
+  'bottlenecks-held': {
+    title: 'Bottlenecks an organisation holds',
+    formula:
+      'Count of bottlenecks on which this organisation is recorded as a producer, a holder of the capacity, or a supplier of a critical part.',
+    explanation:
+      'Material rows come from the producer map; machine, process and capacity rows from the holders listed on each chokepoint. A holder row is evidenced by the organisation’s own directory citation. "No other maker recorded" means none in this corpus, which is not the same as none in the world.',
+    code: ['lib/company-profile.ts', 'lib/participants.ts', 'config/substrata-coverage.ts'],
+  },
+  'company-events': {
+    title: 'Events on an organisation',
+    formula:
+      'Accepted events that name this organisation, plus (counted separately) accepted events on a bottleneck it holds that do not name it.',
+    explanation:
+      'Both are read and accepted by a person with a source. The second group is news about what the organisation holds, not about the organisation, and is labelled so on the page.',
+    code: ['lib/company-profile.ts', 'config/substrata-events.ts'],
+  },
   'rules-tracked': {
     title: 'Rules tracked',
     formula: 'Count of policy instruments in the corpus; each one links its official text.',
