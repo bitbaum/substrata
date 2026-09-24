@@ -92,7 +92,7 @@ export function FeedSettings({ follows }: { follows: Follows }) {
             <span>Group by</span>
             <select name="grouping" defaultValue={desk.grouping}>
               <option value="day">Day</option>
-              <option value="bottleneck">Rail</option>
+              <option value="bottleneck">Bottleneck</option>
             </select>
           </label>
           <label className="settings-field">
@@ -133,7 +133,7 @@ export function FeedSettings({ follows }: { follows: Follows }) {
       <section className="settings-section">
         <div className="settings-head">
           <h2>Freshness</h2>
-          <p>How eagerly your desk checks the web for your rails.</p>
+          <p>How eagerly your desk checks the web for your bottlenecks.</p>
         </div>
         <div className="settings-grid">
           <label className="settings-check">
@@ -146,7 +146,7 @@ export function FeedSettings({ follows }: { follows: Follows }) {
             </span>
           </label>
           <label className="settings-field">
-            <span>A rail is stale after (hours)</span>
+            <span>A bottleneck is stale after (hours)</span>
             <input
               type="number"
               name="staleAfterHours"

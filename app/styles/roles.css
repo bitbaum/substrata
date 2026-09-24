@@ -1,0 +1,228 @@
+/* ── Role views (/for/*) and the homepage's "who are you" chooser ── */
+.role-tabs {
+  display: flex;
+  gap: 0.4rem;
+  margin: -0.5rem 0 2rem;
+  padding-bottom: 0.25rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.role-tab {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.5rem;
+  padding: 0 0.9rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: var(--color-fg-secondary);
+  white-space: nowrap;
+}
+.role-tab:hover {
+  border-color: var(--color-accent);
+  color: var(--color-fg-primary);
+}
+.role-tab[aria-current='page'] {
+  border-color: var(--color-fg-primary);
+  background: var(--color-fg-primary);
+  color: var(--color-surface-page);
+}
+
+.role-grid {
+  display: grid;
+  gap: 3rem 3rem;
+}
+@media (min-width: 1024px) {
+  .role-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .role-section.is-wide {
+    grid-column: 1 / -1;
+  }
+}
+.role-section {
+  min-width: 0;
+  container-type: inline-size;
+}
+.role-section-head {
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-border-strong);
+}
+.role-section-head h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  font: 600 1.35rem/1.25 var(--font-heading);
+  letter-spacing: var(--tracking-display);
+  color: var(--color-fg-primary);
+}
+.role-section-index {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--color-fg-muted);
+}
+.role-section-why {
+  margin-top: 0.35rem;
+  max-width: 40rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--color-fg-tertiary);
+}
+.role-section-status {
+  margin-top: 0.4rem;
+}
+.role-feed {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  color: var(--color-fg-muted);
+}
+.role-feed:hover {
+  color: var(--color-fg-primary);
+}
+.role-section-more {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+}
+.role-section-more a {
+  color: var(--color-accent);
+  text-underline-offset: 0.2em;
+}
+.role-section-more a:hover {
+  text-decoration: underline;
+}
+.role-empty {
+  padding: 1.5rem 1rem;
+  border: 1px dashed var(--color-border-strong);
+  font-size: 0.875rem;
+  color: var(--color-fg-secondary);
+  text-align: center;
+}
+.role-note {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--color-fg-muted);
+}
+.role-note a {
+  text-decoration: underline;
+}
+.role-rows {
+  border-top: 1px solid var(--color-border-subtle);
+}
+.role-rows li {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.role-row-title {
+  font-weight: 500;
+  color: var(--color-fg-primary);
+  text-underline-offset: 0.2em;
+}
+.role-row-title:hover {
+  text-decoration: underline;
+}
+.role-row-meta {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--color-fg-tertiary);
+}
+.role-series li {
+  display: grid;
+  gap: 0.4rem 1.5rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+@container (min-width: 44rem) {
+  .role-series li {
+    grid-template-columns: minmax(0, 1fr) minmax(14rem, auto);
+    align-items: center;
+  }
+}
+.role-series-main {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+}
+.role-series-value {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.5rem;
+  font-variant-numeric: tabular-nums;
+}
+.role-series-trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+}
+
+/* The homepage chooser: five doors, one line each on what is behind them. */
+.role-choose {
+  margin-bottom: 3.5rem;
+}
+.role-choose-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+@media (min-width: 640px) {
+  .role-choose-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1100px) {
+  .role-choose-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+.role-door {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 100%;
+  padding: 1rem 1.1rem 1.1rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 0.5rem;
+  background: var(--color-surface-raised);
+  transition: border-color 0.15s;
+}
+.role-door:hover,
+.role-door:focus-visible {
+  border-color: var(--color-accent);
+}
+.role-door-who {
+  font: 600 1.05rem/1.3 var(--font-heading);
+  color: var(--color-fg-primary);
+}
+.role-door-gets {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--color-fg-tertiary);
+}
+.role-door-go {
+  margin-top: auto;
+  font-size: 0.8rem;
+  color: var(--color-accent);
+}
+.role-holder {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.6rem;
+}
+.role-row-meta a {
+  text-decoration: underline;
+  text-decoration-color: var(--color-border-strong);
+  text-underline-offset: 0.2em;
+}
+/* The careers bars carry their own heading on /careers; inside a role section it would repeat the section's. */
+.role-section-body > .careers-hiring > .careers-section-head {
+  display: none;
+}

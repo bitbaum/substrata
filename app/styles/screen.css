@@ -75,3 +75,41 @@
   margin-top: 2rem;
   color: var(--color-fg-secondary);
 }
+
+/* ── The shared page header (components/portal/PageHeader.tsx) ── */
+.page-head {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.page-head-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+}
+.page-head-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  font-size: 0.85rem;
+}
+.page-head-actions a {
+  color: var(--color-accent);
+  text-underline-offset: 0.2em;
+}
+.page-head-actions a:hover {
+  text-decoration: underline;
+}
+.page-head-note {
+  margin-top: 0.6rem;
+  max-width: 44rem;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--color-fg-muted);
+}
+.page-head-note a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}

@@ -8,6 +8,7 @@ import { methodHref } from '@/lib/methods';
 import { Page, Shell } from '@/components/portal/Shell';
 import { Figure } from '@/components/portal/Figure';
 import { XrayClient } from '@/components/xray/XrayClient';
+import { XRAY_FORMS as FORMS, XRAY_SAMPLE as SAMPLE } from '@/lib/xray/examples';
 import './xray.css';
 
 export const dynamic = 'force-dynamic';
@@ -16,12 +17,6 @@ export const metadata: Metadata = {
   description:
     'Paste holdings and see which bottlenecks each one holds and rests on, the sole makers and private suppliers behind them, and the countries they sit in. Nothing you paste is stored.',
 };
-
-/** Forms the parser reads, shown as examples. */
-const FORMS = ['ASML NA', '8035 JP', 'NVDA US', '8035.T', 'NASDAQ:AMD', 'MU 12.5%'];
-
-/** A real mix across the chain: designer, foundry, tools, memory, power. */
-const SAMPLE = ['NVDA US', 'TSM US', 'ASML NA', '8035 JP', 'AMAT US', 'MU US', 'GEV US'].join('\n');
 
 export default async function XrayPage() {
   const session = await currentSession();

@@ -69,7 +69,7 @@ export default async function DeskSettingsPage({
         )}
 
         <nav aria-label="Settings sections" className="desk-views mb-8">
-          <a href="#rails">Rails</a>
+          <a href="#rails">Bottlenecks</a>
           <a href="#feed">Feed</a>
           <a href="#sweep">Sweep</a>
           <a href="#ai">AI</a>

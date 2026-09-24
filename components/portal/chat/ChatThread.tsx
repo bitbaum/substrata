@@ -57,7 +57,7 @@ export function ChatThread({
               </>
             ) : (
               <>
-                It knows the page you are on and, signed in, the rails you follow. It looks up
+                It knows the page you are on and, signed in, the bottlenecks you follow. It looks up
                 bottlenecks, companies, events and the sweep&apos;s newest leads as it answers, and
                 says which claims are sourced, which are unverified, and which are judgement. Have a
                 key for any AI — OpenAI, Anthropic, Gemini, OpenRouter and others? Add it below

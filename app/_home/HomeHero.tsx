@@ -21,7 +21,7 @@ export function HomeHero({
             looked at, and when, is measured on /data. */}
         <p className="font-mono text-xs uppercase tracking-caps text-fg-tertiary">
           Newest record {newest} ·{' '}
-          <Link href="/data" className="underline underline-offset-2">
+          <Link href="/data/freshness" className="underline underline-offset-2">
             how fresh is this?
           </Link>
         </p>

@@ -17,7 +17,7 @@ export function DeskAside({
   reviewer: boolean;
 }) {
   const facts: [string, string, string][] = [
-    ['Rails', String(railCount), '/account/settings#rails'],
+    ['Bottlenecks', String(railCount), '/account/settings#rails'],
     ['Muted sites', String(settings.mutedHosts.length), '/account/settings#feed'],
     ['Muted words', String(settings.mutedWords.length), '/account/settings#feed'],
     ['Stale after', `${settings.staleAfterHours}h`, '/account/settings#sweep'],
@@ -26,7 +26,7 @@ export function DeskAside({
     <aside className="desk-aside">
       <section className="desk-panel">
         <div className="desk-panel-head">
-          <h2>Binding now on your rails</h2>
+          <h2>Binding now on your bottlenecks</h2>
           <Link href="/bottlenecks">All →</Link>
         </div>
         {binding.length === 0 ? (
@@ -63,7 +63,7 @@ export function DeskAside({
           ))}
         </dl>
         <p className="mt-3 text-sm">
-          <Link href="/exposure?mine=1&listed=1">Tickers on your rails →</Link>
+          <Link href="/exposure?mine=1&listed=1">Tickers on your bottlenecks →</Link>
         </p>
         {reviewer && (
           <p className="mt-3 text-sm">

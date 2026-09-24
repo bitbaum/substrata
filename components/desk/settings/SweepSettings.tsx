@@ -49,7 +49,7 @@ export function SweepSettings({
           />
         </label>
         <label className="settings-field">
-          <span>Rails per run</span>
+          <span>Bottlenecks per run</span>
           <input
             type="number"
             name="nodesPerRun"
@@ -60,7 +60,7 @@ export function SweepSettings({
           />
         </label>
         <label className="settings-field">
-          <span>Pages read per rail</span>
+          <span>Pages read per bottleneck</span>
           <input
             type="number"
             name="pagesPerNode"
@@ -121,7 +121,7 @@ export function SweepSettings({
             <table className="settings-table">
               <thead>
                 <tr>
-                  <th>Rail</th>
+                  <th>Bottleneck</th>
                   <th>Last checked</th>
                   <th>Result</th>
                   <th

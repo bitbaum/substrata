@@ -28,7 +28,7 @@ export function RailsSettings({
   return (
     <section id="rails" className="settings-section">
       <div className="settings-head">
-        <h2>Rails</h2>
+        <h2>Bottlenecks on your desk</h2>
         <p>
           A rail is a bottleneck on your desk. Technologies bring in every bottleneck they touch;
           you can then follow or mute any single one. Now:{' '}

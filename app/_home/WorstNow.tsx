@@ -16,26 +16,31 @@ export function WorstNow({
   bindingNow,
   tightening,
   loosening,
+  bare = false,
 }: {
   worst: Bottleneck[];
   bindingNow: number;
   tightening: Set<string>;
   loosening: Set<string>;
+  /** Without its own heading, inside a page section that already has one. */
+  bare?: boolean;
 }) {
   return (
     <section>
-      <Heading
-        index="02"
-        title="Worst right now"
-        aside={
-          <Link
-            href="/bottlenecks?horizon=now"
-            className="underline-offset-4 hover:text-fg-primary hover:underline"
-          >
-            All {bindingNow} →
-          </Link>
-        }
-      />
+      {!bare && (
+        <Heading
+          index="02"
+          title="Worst right now"
+          aside={
+            <Link
+              href="/bottlenecks?horizon=now"
+              className="underline-offset-4 hover:text-fg-primary hover:underline"
+            >
+              All {bindingNow} →
+            </Link>
+          }
+        />
+      )}
       <ol className="divide-y divide-subtle border-y border-subtle">
         {worst.map((b) => (
           <li key={b.slug} className="py-3">

@@ -26,6 +26,8 @@
  * second description is a second thing to keep true.
  */
 
+import { AUDIENCES, audienceHref } from './audiences';
+
 export interface NavLink {
   label: string;
   href: string;
@@ -125,6 +127,11 @@ const LINK = {
     href: '/roadmap',
     hint: 'Plans from the development profile, with what is done and what is not.',
   },
+  freshness: {
+    label: 'Freshness',
+    href: '/data/freshness',
+    hint: 'Every feed and dataset: when it last ran, how often it should, and whether it is late.',
+  },
   join: {
     label: 'Join',
     href: '/join',
@@ -132,14 +139,29 @@ const LINK = {
   },
 } satisfies Record<string, NavLink>;
 
+/**
+ * The reader's own door: one view per audience (config/audiences.ts), each
+ * composed from the screens below. Careers and Talent are reached from
+ * the job-seeker view and the desk rather than taking menu rows; freshness is
+ * the footer badge on every page.
+ */
+const FOR_YOU: readonly NavLink[] = AUDIENCES.map((a) => ({
+  label: a.label,
+  href: audienceHref(a.id),
+  hint: a.hint,
+}));
+
 /** The header, grouped. Three groups is the whole menu; nothing hides below them. */
 export const NAV_GROUPS: readonly NavGroup[] = [
+  { label: 'For you', items: FOR_YOU },
   {
     label: 'The map',
     items: [LINK.map, LINK.bottlenecks, LINK.markets, LINK.policy, LINK.science, LINK.capital],
   },
-  { label: 'Latest', items: [LINK.news, LINK.notes, LINK.changelog] },
-  { label: 'About', items: [LINK.about, LINK.learn, LINK.talent, LINK.careers, LINK.roadmap] },
+  {
+    label: 'News & about',
+    items: [LINK.news, LINK.notes, LINK.learn, LINK.changelog, LINK.roadmap, LINK.about],
+  },
 ];
 
 /**
@@ -160,8 +182,6 @@ export const RESEARCH_NAV: readonly NavLink[] = [
   LINK.capital,
   LINK.learn,
   LINK.news,
-  LINK.talent,
-  LINK.careers,
 ];
 
 export const PUBLIC_NAV: readonly NavLink[] = RESEARCH_NAV;
@@ -174,6 +194,9 @@ export const DESK_NAV: readonly NavLink[] = [
   LINK.xray,
   LINK.scenarios,
   ...RESEARCH_NAV,
+  LINK.careers,
+  LINK.talent,
+  LINK.freshness,
   { label: 'Inbox', href: '/review', hint: 'Contributions waiting on a reviewer.' },
 ];
 

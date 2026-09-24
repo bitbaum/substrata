@@ -45,7 +45,7 @@ export function FeedControls({
             type="search"
             name="q"
             defaultValue={query.q}
-            placeholder="Filter headlines, sites, rails"
+            placeholder="Filter headlines, sites, bottlenecks"
             maxLength={120}
           />
         </label>
@@ -78,7 +78,7 @@ export function FeedControls({
           </select>
         </label>
         <label className="desk-filter">
-          <span className="sr-only">Rail</span>
+          <span className="sr-only">Bottleneck</span>
           <select name="rail" defaultValue={query.rail?.slug ?? ''}>
             <option value="">All {rails.length} rails</option>
             {[...rails]
@@ -94,7 +94,7 @@ export function FeedControls({
           <span className="sr-only">Group by</span>
           <select name="g" defaultValue={query.grouping}>
             <option value="day">Group by day</option>
-            <option value="bottleneck">Group by rail</option>
+            <option value="bottleneck">Group by bottleneck</option>
           </select>
         </label>
         <noscript>
