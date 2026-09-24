@@ -107,7 +107,7 @@ export const CHOKEPOINT_TEST = [
   {
     id: 'lead-time',
     question: 'How long from order to delivery, and from decision to new capacity?',
-    detail: 'Large power transformers gate more datacentres today than chip supply does.',
+    detail: 'A large power transformer now takes more than two years from order to delivery.',
   },
   {
     id: 'demand-inelasticity',

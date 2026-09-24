@@ -110,6 +110,18 @@ export function FeedItem({
             >
               SEC {item.form}
             </span>
+          ) : item.source === 'series' ? (
+            <span
+              className="desk-badge desk-badge-filing"
+              title={
+                item.official
+                  ? 'A new value from an official statistical API, shown as the agency published it.'
+                  : 'A dated number read from its source, with the sentence that carries it.'
+              }
+            >
+              {item.official ? 'Official data' : 'Data point'}
+              {item.moved ? ` · moved, ${item.effect}` : ''}
+            </span>
           ) : (
             <span
               className="desk-badge"

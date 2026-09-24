@@ -34,6 +34,8 @@ export interface DeskSettings {
   showFilings: boolean;
   /** Show new papers, preprints and grants on the reader's rails, from the science feeds. */
   showScience: boolean;
+  /** Show new points and threshold moves on data series on the reader's rails. */
+  showSeries: boolean;
   /** The time window the feed opens on. */
   window: Window;
   grouping: Grouping;
@@ -70,6 +72,7 @@ export const DEFAULT_DESK: DeskSettings = {
   showLeads: true,
   showFilings: true,
   showScience: true,
+  showSeries: true,
   window: '30',
   grouping: 'day',
   strictLeads: true,
@@ -126,6 +129,7 @@ export function parseDesk(raw: unknown): DeskSettings {
     showLeads: bool('showLeads'),
     showFilings: bool('showFilings'),
     showScience: bool('showScience'),
+    showSeries: bool('showSeries'),
     window: WINDOWS.includes(o.window as Window) ? (o.window as Window) : DEFAULT_DESK.window,
     grouping: GROUPINGS.includes(o.grouping as Grouping)
       ? (o.grouping as Grouping)

@@ -111,6 +111,7 @@ export async function saveSettings(form: FormData) {
       showLeads: form.get('showLeads') === 'on',
       showFilings: form.get('showFilings') === 'on',
       showScience: form.get('showScience') === 'on',
+      showSeries: form.get('showSeries') === 'on',
       strictLeads: form.get('strictLeads') === 'on',
       window: form.get('window'),
       grouping: form.get('grouping'),

@@ -710,7 +710,7 @@ export const CHOKEPOINTS: readonly Chokepoint[] = [
     'machine',
     'compute-per-joule',
     ['NL'],
-    'One company on earth builds them, the queue is measured in years, and no second source is in progress. Every leading-edge wafer in the world is downstream of one factory.',
+    'One company on earth builds them, its order backlog is measured in tens of billions of euros, and no second source is in progress. Every leading-edge wafer in the world is downstream of one factory.',
     [...held('make', 'ASML'), ...held('part', 'Carl Zeiss SMT', 'Trumpf')],
   ),
   node(
@@ -726,7 +726,7 @@ export const CHOKEPOINTS: readonly Chokepoint[] = [
     'process',
     'compute-per-joule',
     ['TW', 'KR', 'US'],
-    'Accelerator output is gated by how many dies can be packaged onto an interposer, not by wafer starts. Capacity is allocated years ahead, which makes the allocation itself the scarce good.',
+    'Accelerator output is gated by how many dies can be packaged onto an interposer, not by wafer starts. Capacity is allocated ahead and demand has still run past it, which makes the allocation itself the scarce good.',
     held('operate', 'TSMC Advanced Packaging'),
   ),
   node(
@@ -742,7 +742,7 @@ export const CHOKEPOINTS: readonly Chokepoint[] = [
     'company',
     'compute-per-joule',
     ['TW', 'KR', 'US'],
-    'A handful of fabs can run the newest node at volume. New capacity is a multi-year, multi-billion commitment, so the supply curve cannot answer a demand shock.',
+    'A handful of fabs can run the newest node at volume. New capacity is a commitment of tens of billions of dollars a year, so the supply curve cannot answer a demand shock quickly.',
     held('operate', 'TSMC', 'Samsung Foundry', 'Intel Foundry'),
   ),
   node(
@@ -767,7 +767,7 @@ export const CHOKEPOINTS: readonly Chokepoint[] = [
     'machine',
     'joules-delivered',
     ['KR', 'DE', 'JP', 'US'],
-    'Lead times run to several years, and a datacentre cannot be energised without one. This gates more announced compute today than chip supply does.',
+    'Lead times run past two years, and a datacentre cannot be energised without one. It is one of the gates on announced compute, alongside chips.',
     held('make', 'Hitachi Energy', 'Mitsubishi Electric'),
   ),
   node(
@@ -782,7 +782,7 @@ export const CHOKEPOINTS: readonly Chokepoint[] = [
     'machine',
     'joules-delivered',
     ['US', 'DE'],
-    'The fastest route to firm power at scale, and the order books are effectively sold out. A slot is worth more than the turbine price implies.',
+    'The fastest route to firm power at scale, and the largest maker’s order book runs years ahead of what it can build. A slot is worth more than the turbine price implies.',
     held('make', 'GE Vernova', 'Siemens Energy'),
   ),
   node(
@@ -790,7 +790,7 @@ export const CHOKEPOINTS: readonly Chokepoint[] = [
     'machine',
     'joules-delivered',
     ['DE', 'IT', 'KR'],
-    'The unglamorous half of energisation. Same multi-year lead times as transformers, same inability to respond quickly to a demand shock.',
+    'The unglamorous half of energisation. Cable makers’ order backlogs run far ahead of output, and switchgear waits are long if shorter than for transformers; neither responds quickly to a demand shock.',
     held('make', 'Prysmian', 'NKT'),
   ),
 

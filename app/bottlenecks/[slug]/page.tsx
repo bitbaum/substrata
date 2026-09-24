@@ -10,7 +10,11 @@ import { EVIDENCE, SEVERITY, WHEN, WHEN_LABEL } from '@/lib/labels';
 import { correctionUrl } from '@/lib/site';
 import { Page, Shell } from '@/components/portal/Shell';
 import { Inquire } from '@/components/portal/Inquire';
-import { EntityProfile } from '@/components/portal/EntityProfile';
+import { EntityProfile, type ExtraSection } from '@/components/portal/EntityProfile';
+import { KeyNumbers } from '@/components/series/KeyNumbers';
+import { allSeries } from '@/lib/series-store';
+import { seriesFor } from '@/lib/series';
+import { claimsFor } from '@/lib/claims';
 import { resolveIn } from '@/lib/entities/registry';
 import { SeverityBar, Status, rowLabel } from '@/components/portal/Status';
 import { FollowButton } from '@/components/portal/FollowButton';
@@ -51,6 +55,29 @@ export default async function BottleneckPage({ params }: RouteParams) {
   const session = await currentSession();
   const follows = session?.actorId ? await readFollows(session.actorId) : null;
   const science = await pipelineSection(b);
+  // Dated numbers first: the corpus from git, official statistics from the
+  // database when it answers. Importance 5 puts them above the judgement.
+  const numbers = await allSeries();
+  const series = seriesFor(numbers.series, b.slug);
+  const extra: ExtraSection[] =
+    series.length > 0
+      ? [
+          {
+            id: 'key-numbers',
+            title: 'Key numbers',
+            importance: 5,
+            node: (
+              <KeyNumbers
+                series={series}
+                officialOk={numbers.officialOk}
+                claims={claimsFor(b.slug)}
+                all={numbers.series}
+              />
+            ),
+            evidence: 'dated, each linked to its source',
+          },
+        ]
+      : [];
 
   return (
     <Shell currentPath="bottlenecks">
@@ -163,7 +190,7 @@ export default async function BottleneckPage({ params }: RouteParams) {
           </div>
         </header>
 
-        {entity && <EntityProfile entity={entity} extra={science ? [science] : []} />}
+        {entity && <EntityProfile entity={entity} extra={[...extra, ...(science ? [science] : [])]} />}
       </Page>
     </Shell>
   );

@@ -224,7 +224,7 @@ export const CLASSIFICATION: Record<string, Classification> = {
   },
   'Leading-edge foundry capacity': {
     plain:
-      'Factories that can make chips at the newest generation. A handful exist and a new one takes years and billions.',
+      'Factories that can make chips at the newest generation. A handful exist, and the leader spends tens of billions of dollars a year adding more.',
     technologies: ['ai', 'manufacturing'],
     industries: ['semiconductors'],
   },
@@ -236,7 +236,7 @@ export const CLASSIFICATION: Record<string, Classification> = {
   },
   'Large power transformer slots': {
     plain:
-      'The big transformers a data centre needs to take grid power. Ordering one now means waiting years.',
+      'The big transformers a data centre needs to take grid power. Ordering one now means waiting more than two years.',
     technologies: ['energy', 'ai'],
     industries: ['power-grid', 'data-centres'],
   },
@@ -248,13 +248,13 @@ export const CLASSIFICATION: Record<string, Classification> = {
   },
   'Heavy-duty gas turbine order books': {
     plain:
-      'The fastest way to add firm power at scale. The three makers are sold out into the next decade.',
+      'The fastest way to add firm power at scale. The largest maker’s order book runs years ahead of what it can build.',
     technologies: ['energy'],
     industries: ['power-grid', 'machinery'],
   },
   'High-voltage cable and switchgear': {
     plain:
-      'The cables and switches that move power at high voltage. Same multi-year queues as transformers.',
+      'The cables and switches that move power at high voltage. Cable order books run far ahead of output, and switchgear waits are long.',
     technologies: ['energy'],
     industries: ['power-grid', 'machinery'],
   },
