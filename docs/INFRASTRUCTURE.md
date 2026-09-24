@@ -62,7 +62,7 @@ research; correct the source corpus, redeploy, and capture a new digest.
 
 ## From lead to event
 
-`007-event-drafts.sql` backs the drafter. `POST /api/cron/drafts` (box timer
+`010-event-drafts.sql` backs the drafter. `POST /api/cron/drafts` (box timer
 `appcron-substrata-drafts`, hourly at :32) takes up to five open sweep leads,
 newest first, reads each page and asks the free model chain for a draft
 CoverageEvent plus an "event / not an event" suggestion (`lib/event-draft.ts`,
