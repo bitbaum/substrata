@@ -17,7 +17,7 @@ import { normaliseHost, railsOf, parseDesk, type Follows } from '@/lib/follows';
 import { type MarkState } from '@/lib/desk-filter';
 import { parseSweepSettings } from '@/lib/sweep';
 import { CHECK_NOW_COOLDOWN_HOURS, saveSweepSettings, sweepStaleNow } from '@/lib/sweep-store';
-import { recordVerdict } from '@/lib/sweep-queue';
+import { recordVerdict } from '@/lib/sweep-review';
 import { BOTTLENECKS } from '@/lib/bottlenecks';
 import { TECHNOLOGIES } from '@/config/substrata-taxonomy';
 

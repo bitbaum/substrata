@@ -10,7 +10,14 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 
 import type { CoverageEvent } from '../config/substrata-events';
-import { buildFeed, cleanTitle, isStory, whenLabel, type Lead } from '../lib/desk';
+import {
+  buildFeed,
+  cleanTitle,
+  headlineNamesRail,
+  isStory,
+  whenLabel,
+  type Lead,
+} from '../lib/desk';
 
 const NOW = new Date('2026-09-24T09:00:00.000Z');
 
@@ -246,4 +253,25 @@ test('sweep settings from the database are clamped, and the query year is not a 
   );
   const source = readFileSync(new URL('../lib/sweep.ts', import.meta.url), 'utf8');
   assert.ok(!/\) 20\d\d`/.test(source), 'the search year must come from the clock');
+});
+
+test('a headline must name its rail as a whole word, not a fragment', () => {
+  const rail = { bottleneck: 'Precision reduction drives', term: 'precision reduction drive' };
+  assert.equal(
+    headlineNamesRail({ ...rail, title: 'CDL Electronic Logs: Commercial Driver Electronic Logs' }),
+    false,
+    '"driver" is not "drive"',
+  );
+  assert.equal(
+    headlineNamesRail({ ...rail, title: 'Nabtesco to build new reducer and drive plant' }),
+    true,
+  );
+  assert.equal(
+    headlineNamesRail({
+      bottleneck: 'Large power transformer slots',
+      term: 'large power transformer',
+      title: 'Transformer Lead Times Hit 128 Weeks',
+    }),
+    true,
+  );
 });

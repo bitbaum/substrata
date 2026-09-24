@@ -148,13 +148,21 @@ function leadTime(lead: Lead): { at: string; dated: boolean } {
  * reader's setting and not the sweep's rule.
  */
 export function headlineNamesRail(lead: Pick<Lead, 'title' | 'bottleneck' | 'term'>): boolean {
-  const words = `${lead.bottleneck} ${lead.term ?? ''}`
+  const railWords = new Set(
+    words(`${lead.bottleneck} ${lead.term ?? ''}`).filter(
+      (w) => w.length >= 4 && !RAIL_STOPWORDS.has(w),
+    ),
+  );
+  // Whole words, singular: "drives" names "drive", never "driver".
+  return words(lead.title).some((w) => railWords.has(w));
+}
+
+function words(text: string): string[] {
+  return text
     .toLowerCase()
     .split(/[^a-z0-9]+/)
-    .filter((w) => w.length >= 4 && !RAIL_STOPWORDS.has(w))
-    .map((w) => w.replace(/(ies|es|s)$/, ''));
-  const title = lead.title.toLowerCase();
-  return words.some((w) => title.includes(w));
+    .filter(Boolean)
+    .map((w) => (w.length > 4 ? w.replace(/ies$/, 'y').replace(/(?<![s])s$/, '') : w));
 }
 
 const RAIL_STOPWORDS = new Set([
