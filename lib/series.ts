@@ -223,9 +223,7 @@ export function lastActual(series: Pick<Series, 'points'>): SeriesPoint | undefi
 export const ALERT_PCT = 0.1;
 
 export function seriesFor(all: readonly Series[], bottleneck: string): Series[] {
-  return all
-    .filter((s) => s.bottleneck === bottleneck && s.points.length > 0)
-    .sort(byRelevance);
+  return all.filter((s) => s.bottleneck === bottleneck && s.points.length > 0).sort(byRelevance);
 }
 
 /**

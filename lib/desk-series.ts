@@ -7,6 +7,7 @@
  * buried under the next quiet month). A backfill of an official series brings
  * years of months in at once; only the newest and the moves reach the desk.
  */
+import type { EventEffect } from '@/config/substrata-events';
 import type { DeskItem } from '@/lib/desk';
 import {
   ALERT_PCT,
@@ -19,6 +20,25 @@ import {
   type Series,
   type SeriesPoint,
 } from '@/lib/series';
+
+/** A new dated number on a series on the rail, as a desk row. */
+export type SeriesDeskItem = {
+  /** A new dated number on a series on the rail (lib/desk-series.ts). */
+  source: 'series';
+  /** `<series id>:<period>`. */
+  id: string;
+  at: string;
+  title: string;
+  url: string;
+  host: string;
+  bottlenecks: string[];
+  effect: EventEffect;
+  /** The move against the prior point passed the alert threshold. */
+  moved: boolean;
+  /** From an official statistical API rather than read from a page. */
+  official: boolean;
+  dateOnly: boolean;
+};
 
 /** When a point reached the reader: first fetched, else published, else its own period. */
 export function pointTime(point: SeriesPoint): string {

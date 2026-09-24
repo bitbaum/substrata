@@ -15,6 +15,7 @@
 
 import type { CoverageEvent, EventEffect } from '@/config/substrata-events';
 import { looksLikeAReference } from '@/lib/sweep';
+import type { SeriesDeskItem } from '@/lib/desk-series';
 
 export interface Lead {
   id: string;
@@ -85,23 +86,7 @@ export type DeskItem =
       kind: string;
       dateOnly: true;
     }
-  | {
-      /** A new dated number on a series on the rail (lib/desk-series.ts). */
-      source: 'series';
-      /** `<series id>:<period>`. */
-      id: string;
-      at: string;
-      title: string;
-      url: string;
-      host: string;
-      bottlenecks: string[];
-      effect: EventEffect;
-      /** The move against the prior point passed the alert threshold. */
-      moved: boolean;
-      /** From an official statistical API rather than read from a page. */
-      official: boolean;
-      dateOnly: boolean;
-    };
+  | SeriesDeskItem;
 
 /** Leads older than this are not news any more, whenever the sweep found them. */
 export const LEAD_MAX_AGE_DAYS = 45;

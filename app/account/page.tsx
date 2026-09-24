@@ -135,8 +135,6 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
   } catch {
     science = [];
   }
-  // Corpus series always; official ones when the database answers.
-  const { series } = await allSeries();
   const willSweep = Boolean(settings.sweepOnOpen && fresh && fresh.stale > 0);
   if (willSweep) {
     // After the response, never before it: the first paint must not wait on the web.
@@ -156,7 +154,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
     ...buildFeed(events, leads ?? [], now, settings.leadMaxAgeDays, settings.strictLeads),
     ...filingItems(filings, registrants),
     ...scienceItems(science),
-    ...seriesItems(series, new Map(rails.map((b) => [b.slug, b.name]))),
+    ...seriesItems((await allSeries()).series, new Map(rails.map((b) => [b.slug, b.name]))),
   ].sort((a, b) => b.at.localeCompare(a.at));
 
   const query = parseDeskQuery(params, settings, rails);

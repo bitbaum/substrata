@@ -190,7 +190,9 @@ export default async function BottleneckPage({ params }: RouteParams) {
           </div>
         </header>
 
-        {entity && <EntityProfile entity={entity} extra={[...extra, ...(science ? [science] : [])]} />}
+        {entity && (
+          <EntityProfile entity={entity} extra={[...extra, ...(science ? [science] : [])]} />
+        )}
       </Page>
     </Shell>
   );

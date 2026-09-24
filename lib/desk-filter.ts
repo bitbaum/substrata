@@ -25,7 +25,7 @@ export interface FeedFilter {
   showFilings: boolean;
   /** Papers, preprints and grants from the science feeds. Absent means shown. */
   showScience?: boolean;
-  showSeries: boolean;
+  showSeries?: boolean;
   effect: EventEffect | null;
   /** Bottleneck names; empty means every rail. */
   bottlenecks: string[];
@@ -88,7 +88,7 @@ export function applyFilter(
             ? filter.showScience !== false
             : item.source === 'filing'
               ? filter.showFilings
-              : filter.showSeries;
+              : filter.showSeries !== false;
     if (!shown) return false;
     if (since !== null && Date.parse(item.at) < since) return false;
     if (filter.effect && !(item.source === 'event' && item.effect === filter.effect)) return false;
