@@ -9,7 +9,7 @@ export const CAREER_METHODS = {
   'careers-open': {
     title: 'Open roles',
     formula:
-      'Count of postings currently listed on the public job boards Substrata reads, after the page’s filters.',
+      'Count of postings currently listed on the public job boards Substrata reads, after the page’s filters. By default software and business roles that name no bottleneck are left out; "Every role" puts them back.',
     explanation:
       'Boards are read once a day from the Greenhouse, Lever and Ashby public job-board APIs, for directory companies whose careers page was checked to use one. A posting that disappears from its board is closed. Companies on Workday, SuccessFactors or their own site are linked, not counted — so this is a count of what Substrata can read, never of how many people an industry is hiring.',
     code: ['lib/careers-store.ts', 'lib/careers-query.ts', 'research/job-boards.json'],
@@ -17,7 +17,7 @@ export const CAREER_METHODS = {
   'careers-classify': {
     title: 'Postings per bottleneck and role family',
     formula:
-      'A posting is filed under a bottleneck when its title names one of that bottleneck’s terms, or its description names them at least twice; its role family is the first family whose title terms its title names.',
+      'A posting is filed under a bottleneck when its title names one of that bottleneck’s terms, or its description names them at least twice (title only for software and business roles); its role family is the first family whose title terms its title names.',
     explanation:
       'The terms are published in config/careers-terms.ts and config/careers-roles.ts and matched as whole words. Nobody reads the postings: a rule can file a posting wrongly, and one posting can sit under several bottlenecks, so the per-bottleneck counts add up to more than the total. Postings naming no bottleneck (most software and business roles) are counted in the total only.',
     code: ['lib/careers.ts', 'config/careers-terms.ts', 'config/careers-roles.ts'],

@@ -35,6 +35,11 @@ export interface JobFilter {
   seniority?: Seniority;
   remote?: boolean;
   q?: string;
+  /**
+   * Include software and business roles that name no bottleneck. Off by
+   * default: the AI labs' boards would otherwise bury every chain role.
+   */
+  all?: boolean;
 }
 
 type Params = Record<string, string | string[] | undefined>;
@@ -53,6 +58,7 @@ export function parseJobFilter(params: Params): JobFilter {
     seniority: SENIORITIES.includes(seniority as Seniority) ? (seniority as Seniority) : undefined,
     remote: one(params.remote) === '1' || undefined,
     q: one(params.q)?.trim().slice(0, 80) || undefined,
+    all: one(params.scope) === 'all' || undefined,
   };
 }
 
@@ -69,6 +75,10 @@ function where(f: JobFilter): { sql: string; args: unknown[] } {
   if (f.family) add('family = ?', f.family);
   if (f.seniority) add('seniority = ?', f.seniority);
   if (f.remote) clauses.push('remote');
+  // A family or company picked explicitly is shown whole.
+  if (!f.all && !f.family && !f.company) {
+    clauses.push(`(family NOT IN ('business', 'software-ai') OR cardinality(bottlenecks) > 0)`);
+  }
   if (f.q)
     add(
       "title ILIKE '%' || ? || '%'",

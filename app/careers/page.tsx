@@ -92,105 +92,122 @@ export default async function CareersPage({ searchParams }: { searchParams: Prom
           </p>
         </header>
 
-        {data && data.byBottleneck.size > 0 && (
-          <HiringByBottleneck counts={data.byBottleneck} filter={filter} />
-        )}
-
-        <AutoSubmitForm action="/careers" className="desk-filters">
-          <label className="desk-filter desk-filter-q">
-            <span className="sr-only">Search titles</span>
-            <input
-              type="search"
-              name="q"
-              defaultValue={filter.q}
-              placeholder="Title: technician, etch, lineworker…"
-              maxLength={80}
-            />
-          </label>
-          <label className="desk-filter">
-            <span className="sr-only">Role family</span>
-            <select name="family" defaultValue={filter.family ?? ''}>
-              <option value="">All role families</option>
-              {ROLE_FAMILIES.map((f) => (
-                <option key={f.id} value={f.id}>
-                  {f.label}
-                  {data?.byFamily.get(f.id) ? ` (${data.byFamily.get(f.id)})` : ''}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label className="desk-filter">
-            <span className="sr-only">Company</span>
-            <select name="company" defaultValue={filter.company ?? ''}>
-              <option value="">All companies</option>
-              {boards.map((b) => (
-                <option key={b.slug} value={b.slug}>
-                  {b.company}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label className="desk-filter">
-            <span className="sr-only">Country</span>
-            <select name="country" defaultValue={filter.country ?? ''}>
-              <option value="">All countries</option>
-              {[...(data?.byCountry ?? new Map<string, number>())].map(([code, n]) => (
-                <option key={code} value={code}>
-                  {countryName(code)} ({n})
-                </option>
-              ))}
-            </select>
-          </label>
-          <label className="desk-filter">
-            <span className="sr-only">Seniority</span>
-            <select name="level" defaultValue={filter.seniority ?? ''}>
-              <option value="">Any seniority</option>
-              {SENIORITIES.map((s) => (
-                <option key={s} value={s}>
-                  {SENIORITY_LABEL[s]}
-                </option>
-              ))}
-            </select>
-          </label>
-          {filter.bottleneck && <input type="hidden" name="bottleneck" value={filter.bottleneck} />}
-          <label className="exposure-check careers-check">
-            <input type="checkbox" name="remote" value="1" defaultChecked={filter.remote} />
-            Remote
-          </label>
-        </AutoSubmitForm>
-
-        {follows && (filter.company || filter.family) && (
-          <FollowJobs follows={follows.jobs} company={company} family={filter.family} />
-        )}
-
-        {data &&
-          (data.jobs.length === 0 ? (
-            <p className="desk-empty">
-              No open roles match. <Link href="/careers">Clear the filters</Link>, or see{' '}
-              <Link href="/careers/companies">companies whose roles live on their own site</Link>.
-            </p>
-          ) : (
-            <>
-              <p className="desk-showing">
-                Showing {data.jobs.length} of{' '}
-                <Figure method="careers-open">{String(data.total)}</Figure>, newest first
-                {company && (
-                  <>
-                    {' · '}
-                    <Link href={`/markets/${company.slug}`}>{company.name}: what it holds</Link>
-                  </>
-                )}
-              </p>
-              <JobList jobs={data.jobs} showCompany={!filter.company} />
-              {data.total > data.jobs.length && (
-                <p className="careers-more">
-                  <Link href={`/careers?${more}`} scroll={false}>
-                    Show more
-                  </Link>
-                </p>
+        <div className="careers-layout">
+          <aside className="careers-aside">
+            {data && data.byBottleneck.size > 0 && (
+              <HiringByBottleneck counts={data.byBottleneck} filter={filter} />
+            )}
+          </aside>
+          <div className="careers-main">
+            <AutoSubmitForm action="/careers" className="desk-filters">
+              <label className="desk-filter desk-filter-q">
+                <span className="sr-only">Search titles</span>
+                <input
+                  type="search"
+                  name="q"
+                  defaultValue={filter.q}
+                  placeholder="Title: technician, etch, lineworker…"
+                  maxLength={80}
+                />
+              </label>
+              <label className="desk-filter">
+                <span className="sr-only">Role family</span>
+                <select name="family" defaultValue={filter.family ?? ''}>
+                  <option value="">All role families</option>
+                  {ROLE_FAMILIES.map((f) => (
+                    <option key={f.id} value={f.id}>
+                      {f.label}
+                      {data?.byFamily.get(f.id) ? ` (${data.byFamily.get(f.id)})` : ''}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label className="desk-filter">
+                <span className="sr-only">Company</span>
+                <select name="company" defaultValue={filter.company ?? ''}>
+                  <option value="">All companies</option>
+                  {boards.map((b) => (
+                    <option key={b.slug} value={b.slug}>
+                      {b.company}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label className="desk-filter">
+                <span className="sr-only">Country</span>
+                <select name="country" defaultValue={filter.country ?? ''}>
+                  <option value="">All countries</option>
+                  {[...(data?.byCountry ?? new Map<string, number>())].map(([code, n]) => (
+                    <option key={code} value={code}>
+                      {countryName(code)} ({n})
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label className="desk-filter">
+                <span className="sr-only">Seniority</span>
+                <select name="level" defaultValue={filter.seniority ?? ''}>
+                  <option value="">Any seniority</option>
+                  {SENIORITIES.map((s) => (
+                    <option key={s} value={s}>
+                      {SENIORITY_LABEL[s]}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              {filter.bottleneck && (
+                <input type="hidden" name="bottleneck" value={filter.bottleneck} />
               )}
-            </>
-          ))}
+              <label className="desk-filter">
+                <span className="sr-only">Scope</span>
+                <select name="scope" defaultValue={filter.all ? 'all' : ''}>
+                  <option value="">Roles in the chain</option>
+                  <option value="all">Every role, incl. software and business</option>
+                </select>
+              </label>
+              <label className="careers-check">
+                <input type="checkbox" name="remote" value="1" defaultChecked={filter.remote} />
+                Remote
+              </label>
+            </AutoSubmitForm>
+
+            {follows && (filter.company || filter.family) && (
+              <FollowJobs follows={follows.jobs} company={company} family={filter.family} />
+            )}
+
+            {data &&
+              (data.jobs.length === 0 ? (
+                <p className="desk-empty">
+                  No open roles match. <Link href="/careers">Clear the filters</Link>, or see{' '}
+                  <Link href="/careers/companies">
+                    companies whose roles live on their own site
+                  </Link>
+                  .
+                </p>
+              ) : (
+                <>
+                  <p className="desk-showing">
+                    Showing {data.jobs.length} of{' '}
+                    <Figure method="careers-open">{String(data.total)}</Figure>, newest first
+                    {company && (
+                      <>
+                        {' · '}
+                        <Link href={`/markets/${company.slug}`}>{company.name}: what it holds</Link>
+                      </>
+                    )}
+                  </p>
+                  <JobList jobs={data.jobs} showCompany={!filter.company} />
+                  {data.total > data.jobs.length && (
+                    <p className="careers-more">
+                      <Link href={`/careers?${more}`} scroll={false}>
+                        Show more
+                      </Link>
+                    </p>
+                  )}
+                </>
+              ))}
+          </div>
+        </div>
       </Page>
     </Shell>
   );

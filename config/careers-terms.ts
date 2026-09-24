@@ -5,7 +5,8 @@
  * Both lists are Substrata's rules, not anybody's taxonomy. A posting is
  * filed under a bottleneck when its title names one of that bottleneck's
  * terms, or its description names them at least twice (one mention in a
- * company's boilerplate is not a job about it). The rule is on
+ * company's boilerplate is not a job about it). Software and business
+ * postings are filed by title alone (lib/careers.ts, TITLE_ONLY). The rule is on
  * /data#method-careers-classify and the code is lib/careers.ts; a wrong
  * filing is fixed by editing a term here, never by editing a posting.
  *
@@ -37,10 +38,8 @@ export const BOTTLENECK_TERMS: Record<string, readonly string[]> = {
     'foundry',
     'wafer fab',
     'fab',
-    'front-end',
     'finfet',
     'gate-all-around',
-    'cleanroom',
     'process integration',
   ],
   'high-bandwidth-memory-stacking-yield': [

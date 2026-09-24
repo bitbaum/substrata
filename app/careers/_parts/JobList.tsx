@@ -6,6 +6,7 @@ import type { JobRow } from '@/lib/careers-query';
 import { countryName } from '@/lib/careers-geo';
 import { whenLabel } from '@/lib/desk';
 import { BOTTLENECKS } from '@/lib/bottlenecks';
+import '../careers.css';
 
 const NAME = new Map(BOTTLENECKS.map((b) => [b.slug, b.name]));
 

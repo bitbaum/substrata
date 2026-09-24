@@ -50,6 +50,27 @@ test('a bottleneck needs its title, or two mentions — one line of boilerplate 
   );
 });
 
+test('a software or business posting is filed by its title alone', () => {
+  const raw = {
+    id: 'greenhouse:x:1',
+    company: 'X',
+    location: '',
+    countries: [],
+    remote: false,
+    department: '',
+    postedAt: null,
+    url: 'u',
+    text: 'Our foundry partners and our foundry roadmap.',
+  };
+  assert.deepEqual(classify({ ...raw, title: 'Recruiter' }).bottlenecks, []);
+  assert.deepEqual(classify({ ...raw, title: 'Software Engineer' }).bottlenecks, []);
+  assert.ok(
+    classify({ ...raw, title: 'Equipment Engineer' }).bottlenecks.includes(
+      'leading-edge-foundry-capacity',
+    ),
+  );
+});
+
 test('whole words only: "tin" and "sic" never match inside other words', () => {
   assert.deepEqual(bottlenecksOf('Testing lead for music systems', ''), []);
   assert.ok(!bottlenecksOf('Maintaining transformer models', 'transformer transformer').length);

@@ -94,16 +94,16 @@ export default async function PathsPage() {
                   ))}
                 </ul>
               )}
-              <h3 className="careers-kicker careers-sub">The official record</h3>
-              <Occupations family={f.id} />
+              <h3 className="careers-kicker careers-sub">Where to train</h3>
+              <Paths paths={pathsFor([f.id])} />
               {skills && total > 0 && (
                 <>
                   <h3 className="careers-kicker careers-sub">Named in open postings</h3>
                   <SkillCounts counts={skills} total={total} />
                 </>
               )}
-              <h3 className="careers-kicker careers-sub">Where to train</h3>
-              <Paths paths={pathsFor([f.id])} />
+              <h3 className="careers-kicker careers-sub">The official record</h3>
+              <Occupations family={f.id} />
             </section>
           );
         })}

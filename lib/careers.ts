@@ -110,12 +110,21 @@ export function seniorityOf(title: string): Seniority {
 /**
  * The bottlenecks a posting is about: named in its title, or at least twice
  * in its description. One mention is usually the company describing itself.
+ * Pass an empty description to file by title alone.
  */
 export function bottlenecksOf(title: string, text: string): string[] {
   return BOTTLENECK_RULES.filter(
     (rule) => hits(rule.re, title) > 0 || hits(rule.re, text) >= 2,
   ).map((rule) => rule.slug);
 }
+
+/**
+ * Families whose descriptions are not read for bottlenecks. A recruiter's or
+ * a web developer's posting at a chip or AI company repeats the company's own
+ * story ("our foundry partners", "grid interconnection") without being a job
+ * on it; for these only the title counts.
+ */
+const TITLE_ONLY: ReadonlySet<RoleFamilyId> = new Set(['business', 'software-ai']);
 
 export function skillsOf(text: string): string[] {
   return SKILL_RULES.filter((rule) => hits(rule.re, text) > 0).map((rule) => rule.label);
@@ -124,11 +133,12 @@ export function skillsOf(text: string): string[] {
 export function classify(raw: RawPosting): Posting {
   const { text, ...rest } = raw;
   const body = `${raw.department}\n${text}`;
+  const family = familyOf(raw.title);
   return {
     ...rest,
-    family: familyOf(raw.title),
+    family,
     seniority: seniorityOf(raw.title),
-    bottlenecks: bottlenecksOf(raw.title, body),
+    bottlenecks: bottlenecksOf(raw.title, TITLE_ONLY.has(family) ? '' : body),
     skills: skillsOf(`${raw.title}\n${body}`),
   };
 }
