@@ -92,7 +92,7 @@ export const JOIN: ContributeModel = {
       what:
         'Check the lithography, packaging, memory and resist entries, and say where the severity ' +
         'scores are wrong and why.',
-      why: 'These rows drive most of the map, and every score on them is currently one person’s judgement.',
+      why: 'These rows drive most of the map, and every score on them is still a single judgement, not yet checked by anyone who works in the field.',
       commitment: 'occasional',
       example: '/bottlenecks?stage=compute',
     },

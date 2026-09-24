@@ -23,7 +23,13 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import assert from 'node:assert/strict';
 
-import { METHOD, WHAT_EXISTS_NOT, WHAT_IT_IS, WHO_MAKES_IT } from '../config/substrata-about';
+import {
+  METHOD,
+  WHAT_EXISTS_NOT,
+  WHAT_IT_IS,
+  WHO_MAKES_IT,
+  JUDGED_BY,
+} from '../config/substrata-about';
 import { GLOSSARY } from '../config/substrata-glossary';
 import { JOIN } from '../config/substrata-join';
 import { CALLS } from '../config/substrata-calls';
@@ -62,7 +68,13 @@ const BANNED: { pattern: RegExp; why: string }[] = [
   { pattern: /\bhas been commissioned\b/i, why: 'claimed paid client work' },
   { pattern: /\bthis firm\b/i, why: 'claimed a legal entity' },
   { pattern: /\bthe firm's\b/i, why: 'claimed a legal entity' },
-  { pattern: /\ban analyst\b/i, why: 'claimed staff: judgements here are one person with agents' },
+  { pattern: /\ban analyst\b/i, why: 'claimed staff: name who judged with JUDGED_BY' },
+  {
+    // George, 2026-09-15: solo framing reads as isolation and advertises the
+    // opposite of the goal, which is more people building here. True without it.
+    pattern: /\b(one|single)[ -]person\b|\bone person[’']s\b|\bsolo (builder|founder|project)\b/i,
+    why: 'solo framing: say what is open to others instead',
+  },
   {
     pattern: /\banalyst (score|judgements?|estimates?)\b/i,
     why: 'claimed staff: say "judged", and name who with JUDGED_BY',
@@ -115,6 +127,9 @@ const RENDERED = [
   ...stringsIn(CAPITAL_KINDS, 'capitalKinds'),
   ...stringsIn(CAPITAL_PROVIDERS, 'capitalProviders'),
   ...stringsIn(FUNDING_ASSESSMENTS, 'funding'),
+  // Rendered beside every judged score and estimate, but a bare constant, so
+  // none of the collections above carries it.
+  { path: 'JUDGED_BY', text: JUDGED_BY },
 ];
 
 /**
