@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "id": "2026-07-29-suss-plans-a-45-million-advanced",
+    "date": "2026-07-29",
+    "headline": "SUSS plans a €45 million Advanced Packaging application and development center in Karlsruhe.",
+    "kind": "milestone",
+    "effect": "neutral",
+    "bottlenecks": ["Advanced packaging capacity"],
+    "participants": [],
+    "jurisdictions": ["DE"],
+    "source": "https://www.suss.com/en/news/corporate-news/2026/suss-invests-in-advanced-packaging-innovation-center-to-support-further-growth",
+    "primary": true,
+    "quote": "SUSS, a leading manufacturer of equipment and process solutions for the semiconductor industry, plans to invest approximately €45 million in a new application and development center in Karlsruhe (Baden-Württemberg, Germany), significantly expanding its innovation capacities in Advanced Packaging.",
+    "acceptedOn": "2026-09-24"
+  }
+]
