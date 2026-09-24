@@ -120,9 +120,17 @@ export default async function MarketsPage({
             },
           ]}
           action={
-            <Link href="/exposure" className="research-button-ghost">
-              By bottleneck, with tickers →
-            </Link>
+            <span className="flex flex-wrap gap-2">
+              <Link href="/exposure" className="research-button-ghost">
+                By bottleneck, with tickers →
+              </Link>
+              <Link href="/xray" className="research-button-ghost">
+                X-ray a portfolio →
+              </Link>
+              <Link href="/scenarios" className="research-button-ghost">
+                What if it fails →
+              </Link>
+            </span>
           }
         />
 

@@ -161,6 +161,8 @@ export const ROUTES = [
   '/account/settings',
   '/exposure',
   '/exposure.csv',
+  '/xray',
+  '/scenarios',
   '/review',
   '/data',
   '/development',

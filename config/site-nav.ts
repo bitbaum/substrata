@@ -60,6 +60,16 @@ const LINK = {
     href: '/exposure',
     hint: 'Every bottleneck, who holds it, and where their shares trade — with a CSV download.',
   },
+  xray: {
+    label: 'X-ray',
+    href: '/xray',
+    hint: 'Paste holdings and see which bottlenecks each one holds and rests on. Nothing you paste is stored.',
+  },
+  scenarios: {
+    label: 'Scenarios',
+    href: '/scenarios',
+    hint: 'What if a company, a bottleneck or a country fails? Traced one recorded step at a time.',
+  },
   policy: {
     label: 'Policy',
     href: '/policy',
@@ -155,6 +165,8 @@ export const DESK_NAV: readonly NavLink[] = [
   // A working screen rather than a place to browse, so it lives with the desk;
   // the public reaches it from Markets.
   LINK.exposure,
+  LINK.xray,
+  LINK.scenarios,
   ...RESEARCH_NAV,
   { label: 'Inbox', href: '/review', hint: 'Contributions waiting on a reviewer.' },
 ];
