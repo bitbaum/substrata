@@ -1,0 +1,1739 @@
+{
+  "version": 1,
+  "generatedOn": "2026-09-24",
+  "sources": {
+    "onet": {
+      "name": "O*NET 31.0 Database",
+      "url": "https://www.onetcenter.org/database.html",
+      "license": "O*NET 31.0 Database by the U.S. Department of Labor, Employment and Training Administration (USDOL/ETA), used under the CC BY 4.0 license."
+    },
+    "esco": {
+      "name": "ESCO API, European Commission",
+      "url": "https://esco.ec.europa.eu/en/use-esco/use-esco-services-api"
+    }
+  },
+  "onet": {
+    "17-2072.00": {
+      "code": "17-2072.00",
+      "title": "Electronics Engineers, Except Computer",
+      "description": "Research, design, develop, or test electronic components and systems for commercial, industrial, military, or scientific use employing knowledge of electronic theory and materials properties. Design electronic circuits and components for use in fields such as telecommunications, aerospace guidance and propulsion control, acoustics, or instruments and controls.\r",
+      "jobZone": {
+        "zone": 4,
+        "name": "Job Zone Four: Considerable Preparation Needed",
+        "education": "Most of these occupations require a four-year bachelor's degree, but some do not.",
+        "training": "Employees in these occupations usually need several years of work-related experience, on-the-job training, and/or vocational training."
+      },
+      "tasks": [
+        "Design electronic components, software, products, or systems for commercial, industrial, medical, military, or scientific applications.",
+        "Operate computer-assisted engineering or design software or equipment to perform electronics engineering tasks.",
+        "Evaluate project work to ensure effectiveness, technical adequacy, or compatibility in the resolution of complex electronics engineering problems.",
+        "Direct or coordinate activities concerned with manufacture, construction, installation, maintenance, operation, or modification of electronic equipment, products, or systems."
+      ],
+      "skills": [
+        "Reading Comprehension",
+        "Critical Thinking",
+        "Complex Problem Solving",
+        "Speaking",
+        "Active Listening",
+        "Judgment and Decision Making",
+        "Systems Analysis",
+        "Writing"
+      ],
+      "knowledge": [
+        "Engineering and Technology",
+        "Computers and Electronics",
+        "Design",
+        "Mathematics",
+        "English Language"
+      ],
+      "hotTechnology": [
+        "Apache Subversion SVN",
+        "Autodesk AutoCAD",
+        "C",
+        "C++",
+        "Dassault Systemes SolidWorks",
+        "ESRI ArcGIS software",
+        "Extensible markup language XML",
+        "Linux"
+      ],
+      "url": "https://www.onetonline.org/link/summary/17-2072.00"
+    },
+    "17-2199.06": {
+      "code": "17-2199.06",
+      "title": "Microsystems Engineers",
+      "description": "Research, design, develop, or test microelectromechanical systems (MEMS) devices.\r",
+      "jobZone": {
+        "zone": 5,
+        "name": "Job Zone Five: Extensive Preparation Needed",
+        "education": "Most of these occupations require graduate school. For example, they may require a master's degree, and some require a Ph.D., M.D., or J.D. (law degree).",
+        "training": "Employees may need some on-the-job training, but most of these occupations assume that the person will already have the required skills, knowledge, work-related experience, and/or training."
+      },
+      "tasks": [
+        "Create schematics and physical layouts of integrated microelectromechanical systems (MEMS) components or packaged assemblies consistent with process, functional, or package constraints.",
+        "Investigate characteristics such as cost, performance, or process capability of potential microelectromechanical systems (MEMS) device designs, using simulation or modeling software.",
+        "Create or maintain formal engineering documents, such as schematics, bills of materials, components or materials specifications, or packaging requirements.",
+        "Conduct analyses addressing issues such as failure, reliability, or yield improvement."
+      ],
+      "skills": [
+        "Reading Comprehension",
+        "Active Listening",
+        "Critical Thinking",
+        "Complex Problem Solving",
+        "Writing",
+        "Systems Analysis",
+        "Speaking",
+        "Science"
+      ],
+      "knowledge": [
+        "Computers and Electronics",
+        "Engineering and Technology",
+        "Mathematics",
+        "Physics",
+        "Design"
+      ],
+      "hotTechnology": [
+        "Adobe Photoshop",
+        "Apple macOS",
+        "Autodesk AutoCAD",
+        "Bash",
+        "C",
+        "C#",
+        "C++",
+        "Dassault Systemes SolidWorks"
+      ],
+      "url": "https://www.onetonline.org/link/summary/17-2199.06"
+    },
+    "17-2041.00": {
+      "code": "17-2041.00",
+      "title": "Chemical Engineers",
+      "description": "Design chemical plant equipment and devise processes for manufacturing chemicals and products, such as gasoline, synthetic rubber, plastics, detergents, cement, paper, and pulp, by applying principles and technology of chemistry, physics, and engineering.\r",
+      "jobZone": {
+        "zone": 4,
+        "name": "Job Zone Four: Considerable Preparation Needed",
+        "education": "Most of these occupations require a four-year bachelor's degree, but some do not.",
+        "training": "Employees in these occupations usually need several years of work-related experience, on-the-job training, and/or vocational training."
+      },
+      "tasks": [
+        "Develop safety procedures to be employed by workers operating equipment or working in close proximity to ongoing chemical reactions.",
+        "Troubleshoot problems with chemical manufacturing processes.",
+        "Monitor and analyze data from processes and experiments.",
+        "Evaluate chemical equipment and processes to identify ways to optimize performance or to ensure compliance with safety and environmental regulations."
+      ],
+      "skills": [
+        "Science",
+        "Critical Thinking",
+        "Reading Comprehension",
+        "Complex Problem Solving",
+        "Active Learning",
+        "Judgment and Decision Making",
+        "Systems Analysis",
+        "Systems Evaluation"
+      ],
+      "knowledge": ["Engineering and Technology", "Chemistry", "Mathematics", "Design", "Physics"],
+      "hotTechnology": [
+        "Autodesk AutoCAD",
+        "C",
+        "C++",
+        "Dassault Systemes SolidWorks",
+        "Microsoft Access",
+        "Microsoft Excel",
+        "Microsoft Office software",
+        "Microsoft PowerPoint"
+      ],
+      "url": "https://www.onetonline.org/link/summary/17-2041.00"
+    },
+    "49-2094.00": {
+      "code": "49-2094.00",
+      "title": "Electrical and Electronics Repairers, Commercial and Industrial Equipment",
+      "description": "Repair, test, adjust, or install electronic equipment, such as industrial controls, transmitters, and antennas.\r",
+      "jobZone": {
+        "zone": 3,
+        "name": "Job Zone Three: Medium Preparation Needed",
+        "education": "Most occupations in this zone require training in vocational schools, related on-the-job experience, or an associate's degree.",
+        "training": "Employees in these occupations usually need one or two years of training involving both on-the-job experience and informal training with experienced workers. A recognized apprenticeship program may be associated with these occupations."
+      },
+      "tasks": [
+        "Test faulty equipment to diagnose malfunctions, using test equipment or software, and applying knowledge of the functional operation of electronic units and systems.",
+        "Maintain equipment logs that record performance problems, repairs, calibrations, or tests.",
+        "Set up and test industrial equipment to ensure that it functions properly.",
+        "Inspect components of industrial equipment for accurate assembly and installation or for defects, such as loose connections or frayed wires."
+      ],
+      "skills": [
+        "Operations Monitoring",
+        "Repairing",
+        "Critical Thinking",
+        "Equipment Maintenance",
+        "Troubleshooting",
+        "Quality Control Analysis",
+        "Complex Problem Solving",
+        "Judgment and Decision Making"
+      ],
+      "knowledge": [
+        "Computers and Electronics",
+        "Mechanical",
+        "Production and Processing",
+        "Customer and Personal Service",
+        "Mathematics"
+      ],
+      "hotTechnology": [
+        "Autodesk AutoCAD",
+        "Microsoft Excel",
+        "Microsoft Office software",
+        "Microsoft Windows",
+        "Microsoft Word"
+      ],
+      "url": "https://www.onetonline.org/link/summary/49-2094.00"
+    },
+    "49-9041.00": {
+      "code": "49-9041.00",
+      "title": "Industrial Machinery Mechanics",
+      "description": "Repair, install, adjust, or maintain industrial production and processing machinery or refinery and pipeline distribution systems. May also install, dismantle, or move machinery and heavy equipment according to plans.\r",
+      "jobZone": {
+        "zone": 3,
+        "name": "Job Zone Three: Medium Preparation Needed",
+        "education": "Most occupations in this zone require training in vocational schools, related on-the-job experience, or an associate's degree.",
+        "training": "Employees in these occupations usually need one or two years of training involving both on-the-job experience and informal training with experienced workers. A recognized apprenticeship program may be associated with these occupations."
+      },
+      "tasks": [
+        "Repair or maintain the operating condition of industrial production or processing machinery or equipment.",
+        "Repair or replace broken or malfunctioning components of machinery or equipment.",
+        "Clean, lubricate, or adjust parts, equipment, or machinery.",
+        "Disassemble machinery or equipment to remove parts and make repairs."
+      ],
+      "skills": [
+        "Operations Monitoring",
+        "Operation and Control",
+        "Equipment Maintenance",
+        "Troubleshooting",
+        "Repairing",
+        "Quality Control Analysis",
+        "Critical Thinking",
+        "Active Listening"
+      ],
+      "knowledge": [
+        "Mechanical",
+        "English Language",
+        "Production and Processing",
+        "Engineering and Technology",
+        "Design"
+      ],
+      "hotTechnology": [
+        "Microsoft Excel",
+        "Microsoft Office software",
+        "Microsoft Outlook",
+        "Microsoft PowerPoint",
+        "Microsoft Word",
+        "SAP software"
+      ],
+      "url": "https://www.onetonline.org/link/summary/49-9041.00"
+    },
+    "51-9141.00": {
+      "code": "51-9141.00",
+      "title": "Semiconductor Processing Technicians",
+      "description": "Perform any or all of the following functions in the manufacture of electronic semiconductors: load semiconductor material into furnace; saw formed ingots into segments; load individual segment into crystal growing chamber and monitor controls; locate crystal axis in ingot using x-ray equipment and saw ingots into wafers; and clean, polish, and load wafers into series of special purpose furnaces, chemical baths, and equipment used to form circuitry and change conductive properties.\r",
+      "jobZone": {
+        "zone": 2,
+        "name": "Job Zone 1-2: Very Little to Some Preparation Needed",
+        "education": "Usually requires a high school diploma or GED, though some occupations may not.",
+        "training": "Ranges from a few days to one year of on-the-job training."
+      },
+      "tasks": [
+        "Inspect materials, components, or products for surface defects and measure circuitry, using electronic test equipment, precision measuring instruments, microscope, and standard procedures.",
+        "Study work orders, instructions, formulas, and processing charts to determine specifications and sequence of operations.",
+        "Clean semiconductor wafers using cleaning equipment, such as chemical baths, automatic wafer cleaners, or blow-off wands.",
+        "Maintain processing, production, and inspection information and reports."
+      ],
+      "skills": [
+        "Operations Monitoring",
+        "Reading Comprehension",
+        "Critical Thinking",
+        "Active Listening",
+        "Monitoring",
+        "Quality Control Analysis",
+        "Speaking",
+        "Social Perceptiveness"
+      ],
+      "knowledge": [
+        "Production and Processing",
+        "English Language",
+        "Public Safety and Security",
+        "Computers and Electronics",
+        "Education and Training"
+      ],
+      "hotTechnology": [
+        "Microsoft Excel",
+        "Microsoft Office software",
+        "Microsoft PowerPoint",
+        "Microsoft Word",
+        "Python",
+        "SAP software"
+      ],
+      "url": "https://www.onetonline.org/link/summary/51-9141.00"
+    },
+    "17-3023.00": {
+      "code": "17-3023.00",
+      "title": "Electrical and Electronic Engineering Technologists and Technicians",
+      "description": "Apply electrical and electronic theory and related knowledge, usually under the direction of engineering staff, to design, build, repair, adjust, and modify electrical components, circuitry, controls, and machinery for subsequent evaluation and use by engineering staff in making engineering design decisions.\r",
+      "jobZone": {
+        "zone": 3,
+        "name": "Job Zone Three: Medium Preparation Needed",
+        "education": "Most occupations in this zone require training in vocational schools, related on-the-job experience, or an associate's degree.",
+        "training": "Employees in these occupations usually need one or two years of training involving both on-the-job experience and informal training with experienced workers. A recognized apprenticeship program may be associated with these occupations."
+      },
+      "tasks": [
+        "Review electrical engineering plans to ensure adherence to design specifications and compliance with applicable electrical codes and standards.",
+        "Read blueprints, wiring diagrams, schematic drawings, or engineering instructions for assembling electronics units, applying knowledge of electronic theory and components.",
+        "Assemble, test, or maintain circuitry or electronic components, according to engineering instructions, technical manuals, or knowledge of electronics, using hand or power tools.",
+        "Maintain system logs or manuals to document testing or operation of equipment."
+      ],
+      "skills": [
+        "Reading Comprehension",
+        "Critical Thinking",
+        "Troubleshooting",
+        "Repairing",
+        "Active Listening",
+        "Speaking",
+        "Systems Evaluation",
+        "Writing"
+      ],
+      "knowledge": [
+        "Engineering and Technology",
+        "Computers and Electronics",
+        "Design",
+        "English Language",
+        "Mechanical"
+      ],
+      "hotTechnology": [
+        "Adobe Acrobat",
+        "Autodesk AutoCAD",
+        "Autodesk Revit",
+        "Bentley MicroStation",
+        "C",
+        "C++",
+        "Dassault Systemes SolidWorks",
+        "Eclipse IDE"
+      ],
+      "url": "https://www.onetonline.org/link/summary/17-3023.00"
+    },
+    "17-2199.07": {
+      "code": "17-2199.07",
+      "title": "Photonics Engineers",
+      "description": "Design technologies specializing in light information or light energy, such as laser or fiber optics technology.\r",
+      "jobZone": {
+        "zone": 4,
+        "name": "Job Zone Four: Considerable Preparation Needed",
+        "education": "Most of these occupations require a four-year bachelor's degree, but some do not.",
+        "training": "Employees in these occupations usually need several years of work-related experience, on-the-job training, and/or vocational training."
+      },
+      "tasks": [
+        "Analyze system performance or operational requirements.",
+        "Develop optical or imaging systems, such as optical imaging products, optical components, image processes, signal process technologies, or optical systems.",
+        "Develop or test photonic prototypes or models.",
+        "Design, integrate, or test photonics systems or components."
+      ],
+      "skills": [
+        "Critical Thinking",
+        "Reading Comprehension",
+        "Writing",
+        "Active Listening",
+        "Speaking",
+        "Mathematics",
+        "Active Learning",
+        "Science"
+      ],
+      "knowledge": [
+        "Engineering and Technology",
+        "Mathematics",
+        "Physics",
+        "Computers and Electronics",
+        "Design"
+      ],
+      "hotTechnology": [
+        "Autodesk AutoCAD",
+        "C",
+        "C#",
+        "C++",
+        "Dassault Systemes SolidWorks",
+        "ESRI ArcGIS software",
+        "Facebook",
+        "Go"
+      ],
+      "url": "https://www.onetonline.org/link/summary/17-2199.07"
+    },
+    "17-3029.08": {
+      "code": "17-3029.08",
+      "title": "Photonics Technicians",
+      "description": "Build, install, test, or maintain optical or fiber optic equipment, such as lasers, lenses, or mirrors, using spectrometers, interferometers, or related equipment.\r",
+      "jobZone": {
+        "zone": 3,
+        "name": "Job Zone Three: Medium Preparation Needed",
+        "education": "Most occupations in this zone require training in vocational schools, related on-the-job experience, or an associate's degree.",
+        "training": "Employees in these occupations usually need one or two years of training involving both on-the-job experience and informal training with experienced workers. A recognized apprenticeship program may be associated with these occupations."
+      },
+      "tasks": [
+        "Compute or record photonic test data.",
+        "Maintain clean working environments, according to clean room standards.",
+        "Adjust or maintain equipment, such as lasers, laser systems, microscopes, oscilloscopes, pulse generators, power meters, beam analyzers, or energy measurement devices.",
+        "Document procedures, such as calibration of optical or fiber optic equipment."
+      ],
+      "skills": [
+        "Reading Comprehension",
+        "Active Listening",
+        "Critical Thinking",
+        "Operations Monitoring",
+        "Quality Control Analysis",
+        "Active Learning",
+        "Monitoring",
+        "Equipment Maintenance"
+      ],
+      "knowledge": [
+        "Engineering and Technology",
+        "Computers and Electronics",
+        "Mathematics",
+        "Mechanical",
+        "Production and Processing"
+      ],
+      "hotTechnology": [
+        "Autodesk AutoCAD",
+        "Dassault Systemes SolidWorks",
+        "Facebook",
+        "Microsoft Access",
+        "Microsoft Excel",
+        "Microsoft Office software",
+        "Microsoft PowerPoint",
+        "Microsoft Word"
+      ],
+      "url": "https://www.onetonline.org/link/summary/17-3029.08"
+    },
+    "19-2032.00": {
+      "code": "19-2032.00",
+      "title": "Materials Scientists",
+      "description": "Research and study the structures and chemical properties of various natural and synthetic or composite materials, including metals, alloys, rubber, ceramics, semiconductors, polymers, and glass. Determine ways to strengthen or combine materials or develop new materials with new or specific properties for use in a variety of products and applications. Includes glass scientists, ceramic scientists, metallurgical scientists, and polymer scientists.\r",
+      "jobZone": {
+        "zone": 4,
+        "name": "Job Zone Four: Considerable Preparation Needed",
+        "education": "Most of these occupations require a four-year bachelor's degree, but some do not.",
+        "training": "Employees in these occupations usually need several years of work-related experience, on-the-job training, and/or vocational training."
+      },
+      "tasks": [
+        "Conduct research on the structures and properties of materials, such as metals, alloys, polymers, and ceramics, to obtain information that could be used to develop new products or enhance existing ones.",
+        "Test metals to determine conformance to specifications of mechanical strength, strength-weight ratio, ductility, magnetic and electrical properties, and resistance to abrasion, corrosion, heat, and cold.",
+        "Test material samples for tolerance under tension, compression, and shear to determine the cause of metal failures.",
+        "Determine ways to strengthen or combine materials or develop new materials with new or specific properties for use in a variety of products and applications."
+      ],
+      "skills": [
+        "Reading Comprehension",
+        "Active Listening",
+        "Science",
+        "Critical Thinking",
+        "Complex Problem Solving",
+        "Writing",
+        "Speaking",
+        "Active Learning"
+      ],
+      "knowledge": [
+        "Engineering and Technology",
+        "Chemistry",
+        "Physics",
+        "Mathematics",
+        "Computers and Electronics"
+      ],
+      "hotTechnology": [
+        "Hypertext markup language HTML",
+        "IBM SPSS Statistics",
+        "Microsoft Excel",
+        "Microsoft Office software",
+        "Microsoft PowerPoint",
+        "Microsoft Word",
+        "Python",
+        "R"
+      ],
+      "url": "https://www.onetonline.org/link/summary/19-2032.00"
+    },
+    "17-2131.00": {
+      "code": "17-2131.00",
+      "title": "Materials Engineers",
+      "description": "Evaluate materials and develop machinery and processes to manufacture materials for use in products that must meet specialized design and performance specifications. Develop new uses for known materials. Includes those engineers working with composite materials or specializing in one type of material, such as graphite, metal and metal alloys, ceramics and glass, plastics and polymers, and naturally occurring materials. Includes metallurgists and metallurgical engineers, ceramic engineers, and welding engineers.\r",
+      "jobZone": {
+        "zone": 4,
+        "name": "Job Zone Four: Considerable Preparation Needed",
+        "education": "Most of these occupations require a four-year bachelor's degree, but some do not.",
+        "training": "Employees in these occupations usually need several years of work-related experience, on-the-job training, and/or vocational training."
+      },
+      "tasks": [
+        "Conduct or supervise tests on raw materials or finished products to ensure their quality.",
+        "Review new product plans, and make recommendations for material selection, based on design objectives such as strength, weight, heat resistance, electrical conductivity, and cost.",
+        "Evaluate technical specifications and economic factors relating to process or product design objectives.",
+        "Solve problems in a number of engineering fields, such as mechanical, chemical, electrical, civil, nuclear, and aerospace."
+      ],
+      "skills": [
+        "Reading Comprehension",
+        "Active Listening",
+        "Writing",
+        "Speaking",
+        "Mathematics",
+        "Science",
+        "Critical Thinking",
+        "Complex Problem Solving"
+      ],
+      "knowledge": [
+        "Engineering and Technology",
+        "Mathematics",
+        "Production and Processing",
+        "Physics",
+        "English Language"
+      ],
+      "hotTechnology": [
+        "Autodesk AutoCAD",
+        "C++",
+        "Dassault Systemes SolidWorks",
+        "Microsoft Access",
+        "Microsoft Excel",
+        "Microsoft Office software",
+        "Microsoft Outlook",
+        "Microsoft PowerPoint"
+      ],
+      "url": "https://www.onetonline.org/link/summary/17-2131.00"
+    },
+    "19-2031.00": {
+      "code": "19-2031.00",
+      "title": "Chemists",
+      "description": "Conduct qualitative and quantitative chemical analyses or experiments in laboratories for quality or process control or to develop new products or knowledge.\r",
+      "jobZone": {
+        "zone": 4,
+        "name": "Job Zone Four: Considerable Preparation Needed",
+        "education": "Most of these occupations require a four-year bachelor's degree, but some do not.",
+        "training": "Employees in these occupations usually need several years of work-related experience, on-the-job training, and/or vocational training."
+      },
+      "tasks": [
+        "Develop, improve, or customize products, equipment, formulas, processes, or analytical methods.",
+        "Analyze organic or inorganic compounds to determine chemical or physical properties, composition, structure, relationships, or reactions, using chromatography, spectroscopy, or spectrophotometry techniques.",
+        "Induce changes in composition of substances by introducing heat, light, energy, or chemical catalysts for quantitative or qualitative analysis.",
+        "Conduct quality control tests."
+      ],
+      "skills": [
+        "Science",
+        "Reading Comprehension",
+        "Critical Thinking",
+        "Speaking",
+        "Active Listening",
+        "Writing",
+        "Mathematics",
+        "Active Learning"
+      ],
+      "knowledge": [
+        "Chemistry",
+        "English Language",
+        "Mathematics",
+        "Production and Processing",
+        "Administration and Management"
+      ],
+      "hotTechnology": [
+        "C",
+        "C++",
+        "Extensible markup language XML",
+        "Hypertext markup language HTML",
+        "Microsoft Access",
+        "Microsoft Excel",
+        "Microsoft Office software",
+        "Microsoft PowerPoint"
+      ],
+      "url": "https://www.onetonline.org/link/summary/19-2031.00"
+    },
+    "47-2111.00": {
+      "code": "47-2111.00",
+      "title": "Electricians",
+      "description": "Install, maintain, and repair electrical wiring, equipment, and fixtures. Ensure that work is in accordance with relevant codes. May install or service street lights, intercom systems, or electrical control systems.\r",
+      "jobZone": {
+        "zone": 3,
+        "name": "Job Zone Three: Medium Preparation Needed",
+        "education": "Most occupations in this zone require training in vocational schools, related on-the-job experience, or an associate's degree.",
+        "training": "Employees in these occupations usually need one or two years of training involving both on-the-job experience and informal training with experienced workers. A recognized apprenticeship program may be associated with these occupations."
+      },
+      "tasks": [
+        "Prepare sketches or follow blueprints to determine the location of wiring or equipment and to ensure conformance to building and safety codes.",
+        "Place conduit, pipes, or tubing, inside designated partitions, walls, or other concealed areas, and pull insulated wires or cables through the conduit to complete circuits between boxes.",
+        "Work from ladders, scaffolds, or roofs to install, maintain, or repair electrical wiring, equipment, or fixtures.",
+        "Use a variety of tools or equipment, such as power construction equipment, measuring devices, power tools, and testing equipment, such as oscilloscopes, ammeters, or test lamps."
+      ],
+      "skills": [
+        "Troubleshooting",
+        "Repairing",
+        "Active Listening",
+        "Speaking",
+        "Critical Thinking",
+        "Active Learning",
+        "Installation",
+        "Quality Control Analysis"
+      ],
+      "knowledge": [
+        "Building and Construction",
+        "Administration and Management",
+        "Mechanical",
+        "Mathematics",
+        "Design"
+      ],
+      "hotTechnology": [
+        "Adobe Acrobat",
+        "Autodesk AutoCAD",
+        "Microsoft Excel",
+        "Microsoft Office software",
+        "Microsoft Outlook",
+        "Microsoft Windows",
+        "Microsoft Word",
+        "SAP software"
+      ],
+      "url": "https://www.onetonline.org/link/summary/47-2111.00"
+    },
+    "49-9051.00": {
+      "code": "49-9051.00",
+      "title": "Electrical Power-Line Installers and Repairers",
+      "description": "Install or repair cables or wires used in electrical power or distribution systems. May erect poles and light or heavy duty transmission towers.\r",
+      "jobZone": {
+        "zone": 2,
+        "name": "Job Zone 1-2: Very Little to Some Preparation Needed",
+        "education": "Usually requires a high school diploma or GED, though some occupations may not.",
+        "training": "Ranges from a few days to one year of on-the-job training."
+      },
+      "tasks": [
+        "Adhere to safety practices and procedures, such as checking equipment regularly and erecting barriers around work areas.",
+        "Drive vehicles equipped with tools and materials to job sites.",
+        "Open switches or attach grounding devices to remove electrical hazards from disturbed or fallen lines or to facilitate repairs.",
+        "Climb poles or use truck-mounted buckets to access equipment."
+      ],
+      "skills": [
+        "Active Listening",
+        "Troubleshooting",
+        "Monitoring",
+        "Operations Monitoring",
+        "Operation and Control",
+        "Critical Thinking",
+        "Coordination",
+        "Complex Problem Solving"
+      ],
+      "knowledge": [
+        "Building and Construction",
+        "English Language",
+        "Education and Training",
+        "Public Safety and Security",
+        "Transportation"
+      ],
+      "hotTechnology": [
+        "Bentley MicroStation",
+        "Microsoft Excel",
+        "Microsoft Office software",
+        "Microsoft Outlook",
+        "Microsoft Word",
+        "Zoom"
+      ],
+      "url": "https://www.onetonline.org/link/summary/49-9051.00"
+    },
+    "49-2095.00": {
+      "code": "49-2095.00",
+      "title": "Electrical and Electronics Repairers, Powerhouse, Substation, and Relay",
+      "description": "Inspect, test, repair, or maintain electrical equipment in generating stations, substations, and in-service relays.\r",
+      "jobZone": {
+        "zone": 3,
+        "name": "Job Zone Three: Medium Preparation Needed",
+        "education": "Most occupations in this zone require training in vocational schools, related on-the-job experience, or an associate's degree.",
+        "training": "Employees in these occupations usually need one or two years of training involving both on-the-job experience and informal training with experienced workers. A recognized apprenticeship program may be associated with these occupations."
+      },
+      "tasks": [
+        "Inspect and test equipment and circuits to identify malfunctions or defects, using wiring diagrams and testing devices such as ohmmeters, voltmeters, or ammeters.",
+        "Prepare and maintain records detailing tests, repairs, and maintenance.",
+        "Consult manuals, schematics, wiring diagrams, and engineering personnel to troubleshoot and solve equipment problems and to determine optimum equipment functioning.",
+        "Analyze test data to diagnose malfunctions, to determine performance characteristics of systems, or to evaluate effects of system modifications."
+      ],
+      "skills": [
+        "Critical Thinking",
+        "Equipment Maintenance",
+        "Repairing",
+        "Troubleshooting",
+        "Reading Comprehension",
+        "Operations Monitoring",
+        "Quality Control Analysis",
+        "Active Listening"
+      ],
+      "knowledge": [
+        "Mechanical",
+        "Mathematics",
+        "Engineering and Technology",
+        "Public Safety and Security",
+        "English Language"
+      ],
+      "hotTechnology": [
+        "Autodesk AutoCAD",
+        "Microsoft Excel",
+        "Microsoft Office software",
+        "Microsoft Outlook",
+        "Microsoft Windows",
+        "Microsoft Word"
+      ],
+      "url": "https://www.onetonline.org/link/summary/49-2095.00"
+    },
+    "17-2071.00": {
+      "code": "17-2071.00",
+      "title": "Electrical Engineers",
+      "description": "Research, design, develop, test, or supervise the manufacturing and installation of electrical equipment, components, or systems for commercial, industrial, military, or scientific use.\r",
+      "jobZone": {
+        "zone": 4,
+        "name": "Job Zone Four: Considerable Preparation Needed",
+        "education": "Most of these occupations require a four-year bachelor's degree, but some do not.",
+        "training": "Employees in these occupations usually need several years of work-related experience, on-the-job training, and/or vocational training."
+      },
+      "tasks": [
+        "Design, implement, maintain, or improve electrical instruments, equipment, facilities, components, products, or systems for commercial, industrial, or domestic purposes.",
+        "Oversee project production efforts to assure projects are completed on time and within budget.",
+        "Direct or coordinate manufacturing, construction, installation, maintenance, support, documentation, or testing activities to ensure compliance with specifications, codes, or customer requirements.",
+        "Perform detailed calculations to compute and establish manufacturing, construction, or installation standards or specifications."
+      ],
+      "skills": [
+        "Writing",
+        "Reading Comprehension",
+        "Critical Thinking",
+        "Active Listening",
+        "Speaking",
+        "Active Learning",
+        "Complex Problem Solving",
+        "Monitoring"
+      ],
+      "knowledge": [
+        "Engineering and Technology",
+        "Computers and Electronics",
+        "Design",
+        "English Language",
+        "Mathematics"
+      ],
+      "hotTechnology": [
+        "Apache Subversion SVN",
+        "Autodesk AutoCAD",
+        "Autodesk AutoCAD Civil 3D",
+        "Autodesk Revit",
+        "Bash",
+        "Bentley MicroStation",
+        "C",
+        "C#"
+      ],
+      "url": "https://www.onetonline.org/link/summary/17-2071.00"
+    },
+    "51-8012.00": {
+      "code": "51-8012.00",
+      "title": "Power Distributors and Dispatchers",
+      "description": "Coordinate, regulate, or distribute electricity or steam.\r",
+      "jobZone": {
+        "zone": 3,
+        "name": "Job Zone Three: Medium Preparation Needed",
+        "education": "Most occupations in this zone require training in vocational schools, related on-the-job experience, or an associate's degree.",
+        "training": "Employees in these occupations usually need one or two years of training involving both on-the-job experience and informal training with experienced workers. A recognized apprenticeship program may be associated with these occupations."
+      },
+      "tasks": [
+        "Coordinate with engineers, planners, field personnel, or other utility workers to provide information such as clearances, switching orders, or distribution process changes.",
+        "Respond to emergencies, such as transformer or transmission line failures, and route current around affected areas.",
+        "Control, monitor, or operate equipment that regulates or distributes electricity or steam, using data obtained from instruments or computers.",
+        "Direct personnel engaged in controlling or operating distribution equipment or machinery, such as instructing control room operators to start boilers or generators."
+      ],
+      "skills": [
+        "Reading Comprehension",
+        "Active Listening",
+        "Critical Thinking",
+        "Monitoring",
+        "Speaking",
+        "Complex Problem Solving",
+        "Operations Monitoring",
+        "Judgment and Decision Making"
+      ],
+      "knowledge": [
+        "English Language",
+        "Public Safety and Security",
+        "Mathematics",
+        "Computers and Electronics",
+        "Telecommunications"
+      ],
+      "hotTechnology": [
+        "Microsoft Access",
+        "Microsoft Excel",
+        "Microsoft Office software",
+        "Microsoft Outlook",
+        "Microsoft PowerPoint",
+        "Microsoft Word",
+        "SAP software"
+      ],
+      "url": "https://www.onetonline.org/link/summary/51-8012.00"
+    },
+    "17-2161.00": {
+      "code": "17-2161.00",
+      "title": "Nuclear Engineers",
+      "description": "Conduct research on nuclear engineering projects or apply principles and theory of nuclear science to problems concerned with release, control, and use of nuclear energy and nuclear waste disposal.\r",
+      "jobZone": {
+        "zone": 4,
+        "name": "Job Zone Four: Considerable Preparation Needed",
+        "education": "Most of these occupations require a four-year bachelor's degree, but some do not.",
+        "training": "Employees in these occupations usually need several years of work-related experience, on-the-job training, and/or vocational training."
+      },
+      "tasks": [
+        "Design or develop nuclear equipment, such as reactor cores, radiation shielding, or associated instrumentation or control mechanisms.",
+        "Monitor nuclear facility operations to identify any design, construction, or operation practices that violate safety regulations and laws or could jeopardize safe operations.",
+        "Initiate corrective actions or order plant shutdowns in emergency situations.",
+        "Examine accidents to obtain data for use in design of preventive measures."
+      ],
+      "skills": [
+        "Science",
+        "Critical Thinking",
+        "Reading Comprehension",
+        "Active Listening",
+        "Writing",
+        "Mathematics",
+        "Monitoring",
+        "Complex Problem Solving"
+      ],
+      "knowledge": [
+        "Engineering and Technology",
+        "Physics",
+        "Mathematics",
+        "English Language",
+        "Public Safety and Security"
+      ],
+      "hotTechnology": [
+        "C++",
+        "Linux",
+        "Microsoft Access",
+        "Microsoft Excel",
+        "Microsoft Office software",
+        "Microsoft PowerPoint",
+        "Microsoft Word",
+        "Oracle Java"
+      ],
+      "url": "https://www.onetonline.org/link/summary/17-2161.00"
+    },
+    "19-4051.00": {
+      "code": "19-4051.00",
+      "title": "Nuclear Technicians",
+      "description": "Assist nuclear physicists, nuclear engineers, or other scientists in laboratory, power generation, or electricity production activities. May operate, maintain, or provide quality control for nuclear testing and research equipment. May monitor radiation.\r",
+      "jobZone": {
+        "zone": 3,
+        "name": "Job Zone Three: Medium Preparation Needed",
+        "education": "Most occupations in this zone require training in vocational schools, related on-the-job experience, or an associate's degree.",
+        "training": "Employees in these occupations usually need one or two years of training involving both on-the-job experience and informal training with experienced workers. A recognized apprenticeship program may be associated with these occupations."
+      },
+      "tasks": [
+        "Follow nuclear equipment operational policies and procedures that ensure environmental safety.",
+        "Conduct surveillance testing to determine safety of nuclear equipment.",
+        "Monitor nuclear reactor equipment performance to identify operational inefficiencies, hazards, or needs for maintenance or repair.",
+        "Test plant equipment to ensure it is operating properly."
+      ],
+      "skills": [
+        "Operations Monitoring",
+        "Monitoring",
+        "Reading Comprehension",
+        "Active Listening",
+        "Critical Thinking",
+        "Quality Control Analysis",
+        "Active Learning",
+        "Writing"
+      ],
+      "knowledge": [
+        "Public Safety and Security",
+        "Mechanical",
+        "Physics",
+        "Engineering and Technology",
+        "Education and Training"
+      ],
+      "hotTechnology": [
+        "Linux",
+        "Microsoft Access",
+        "Microsoft Excel",
+        "Microsoft Office software",
+        "Microsoft PowerPoint",
+        "Microsoft Windows",
+        "Microsoft Word",
+        "Structured query language SQL"
+      ],
+      "url": "https://www.onetonline.org/link/summary/19-4051.00"
+    },
+    "51-8092.00": {
+      "code": "51-8092.00",
+      "title": "Gas Plant Operators",
+      "description": "Distribute or process gas for utility companies and others by controlling compressors to maintain specified pressures on main pipelines.\r",
+      "jobZone": {
+        "zone": 2,
+        "name": "Job Zone 1-2: Very Little to Some Preparation Needed",
+        "education": "Usually requires a high school diploma or GED, though some occupations may not.",
+        "training": "Ranges from a few days to one year of on-the-job training."
+      },
+      "tasks": [
+        "Monitor equipment functioning, observe temperature, level, and flow gauges, and perform regular unit checks to ensure that all equipment is operating as it should.",
+        "Distribute or process gas for utility companies or industrial plants, using panel boards, control boards, and semi-automatic equipment.",
+        "Control operation of compressors, scrubbers, evaporators, and refrigeration equipment to liquefy, compress, or regasify natural gas.",
+        "Control equipment to regulate flow and pressure of gas to feedlines of boilers, furnaces, and related steam-generating or heating equipment."
+      ],
+      "skills": [
+        "Operations Monitoring",
+        "Operation and Control",
+        "Monitoring",
+        "Critical Thinking",
+        "Quality Control Analysis",
+        "Judgment and Decision Making",
+        "Reading Comprehension",
+        "Active Listening"
+      ],
+      "knowledge": [
+        "Public Safety and Security",
+        "Mechanical",
+        "English Language",
+        "Computers and Electronics",
+        "Mathematics"
+      ],
+      "hotTechnology": [
+        "Google Android",
+        "Microsoft Excel",
+        "Microsoft Office software",
+        "Microsoft Outlook",
+        "Microsoft PowerPoint",
+        "Microsoft Word",
+        "SAP software"
+      ],
+      "url": "https://www.onetonline.org/link/summary/51-8092.00"
+    },
+    "17-2199.08": {
+      "code": "17-2199.08",
+      "title": "Robotics Engineers",
+      "description": "Research, design, develop, or test robotic applications.\r",
+      "jobZone": {
+        "zone": 4,
+        "name": "Job Zone Four: Considerable Preparation Needed",
+        "education": "Most of these occupations require a four-year bachelor's degree, but some do not.",
+        "training": "Employees in these occupations usually need several years of work-related experience, on-the-job training, and/or vocational training."
+      },
+      "tasks": [
+        "Review or approve designs, calculations, or cost estimates.",
+        "Process or interpret signals or sensor data.",
+        "Debug robotics programs.",
+        "Build, configure, or test robots or robotic applications."
+      ],
+      "skills": [
+        "Critical Thinking",
+        "Reading Comprehension",
+        "Active Listening",
+        "Monitoring",
+        "Complex Problem Solving",
+        "Judgment and Decision Making",
+        "Systems Analysis",
+        "Writing"
+      ],
+      "knowledge": [
+        "Engineering and Technology",
+        "Design",
+        "Computers and Electronics",
+        "Mechanical",
+        "Mathematics"
+      ],
+      "hotTechnology": [
+        "Amazon Web Services AWS software",
+        "Atlassian JIRA",
+        "Autodesk AutoCAD",
+        "Bentley MicroStation",
+        "C",
+        "C#",
+        "C++",
+        "Dassault Systemes SolidWorks"
+      ],
+      "url": "https://www.onetonline.org/link/summary/17-2199.08"
+    },
+    "17-3024.01": {
+      "code": "17-3024.01",
+      "title": "Robotics Technicians",
+      "description": "Build, install, test, or maintain robotic equipment or related automated production systems.\r",
+      "jobZone": {
+        "zone": 3,
+        "name": "Job Zone Three: Medium Preparation Needed",
+        "education": "Most occupations in this zone require training in vocational schools, related on-the-job experience, or an associate's degree.",
+        "training": "Employees in these occupations usually need one or two years of training involving both on-the-job experience and informal training with experienced workers. A recognized apprenticeship program may be associated with these occupations."
+      },
+      "tasks": [
+        "Make repairs to robots or peripheral equipment, such as replacement of defective circuit boards, sensors, controllers, encoders, or servomotors.",
+        "Troubleshoot robotic systems, using knowledge of microprocessors, programmable controllers, electronics, circuit analysis, mechanics, sensor or feedback systems, hydraulics, or pneumatics.",
+        "Install, program, or repair programmable controllers, robot controllers, end-of-arm tools, or conveyors.",
+        "Maintain service records of robotic equipment or automated production systems."
+      ],
+      "skills": [
+        "Troubleshooting",
+        "Repairing",
+        "Reading Comprehension",
+        "Critical Thinking",
+        "Equipment Maintenance",
+        "Active Listening",
+        "Complex Problem Solving",
+        "Operations Monitoring"
+      ],
+      "knowledge": [
+        "Computers and Electronics",
+        "Engineering and Technology",
+        "Mechanical",
+        "Design",
+        "Mathematics"
+      ],
+      "hotTechnology": [
+        "Autodesk AutoCAD",
+        "Bentley MicroStation",
+        "C",
+        "C#",
+        "C++",
+        "Dassault Systemes SolidWorks",
+        "Git",
+        "JavaScript"
+      ],
+      "url": "https://www.onetonline.org/link/summary/17-3024.01"
+    },
+    "51-4041.00": {
+      "code": "51-4041.00",
+      "title": "Machinists",
+      "description": "Set up and operate a variety of machine tools to produce precision parts and instruments out of metal. Includes precision instrument makers who fabricate, modify, or repair mechanical instruments. May also fabricate and modify parts to make or repair machine tools or maintain industrial machines, applying knowledge of mechanics, mathematics, metal properties, layout, and machining procedures.\r",
+      "jobZone": {
+        "zone": 3,
+        "name": "Job Zone Three: Medium Preparation Needed",
+        "education": "Most occupations in this zone require training in vocational schools, related on-the-job experience, or an associate's degree.",
+        "training": "Employees in these occupations usually need one or two years of training involving both on-the-job experience and informal training with experienced workers. A recognized apprenticeship program may be associated with these occupations."
+      },
+      "tasks": [
+        "Calculate dimensions or tolerances, using instruments, such as micrometers or vernier calipers.",
+        "Machine parts to specifications, using machine tools, such as lathes, milling machines, shapers, or grinders.",
+        "Measure, examine, or test completed units to check for defects and ensure conformance to specifications, using precision instruments, such as micrometers.",
+        "Set up, adjust, or operate basic or specialized machine tools used to perform precision machining operations."
+      ],
+      "skills": [
+        "Operation and Control",
+        "Critical Thinking",
+        "Monitoring",
+        "Operations Monitoring",
+        "Active Listening",
+        "Speaking",
+        "Coordination",
+        "Complex Problem Solving"
+      ],
+      "knowledge": [
+        "Mathematics",
+        "Mechanical",
+        "Production and Processing",
+        "Design",
+        "Engineering and Technology"
+      ],
+      "hotTechnology": [
+        "Autodesk AutoCAD",
+        "Dassault Systemes SolidWorks",
+        "Microsoft Excel",
+        "Microsoft Office software",
+        "Microsoft Outlook",
+        "Microsoft PowerPoint",
+        "Microsoft Word",
+        "SAP software"
+      ],
+      "url": "https://www.onetonline.org/link/summary/51-4041.00"
+    },
+    "49-9021.00": {
+      "code": "49-9021.00",
+      "title": "Heating, Air Conditioning, and Refrigeration Mechanics and Installers",
+      "description": "Install or repair heating, central air conditioning, HVAC, or refrigeration systems, including oil burners, hot-air furnaces, and heating stoves.\r",
+      "jobZone": {
+        "zone": 3,
+        "name": "Job Zone Three: Medium Preparation Needed",
+        "education": "Most occupations in this zone require training in vocational schools, related on-the-job experience, or an associate's degree.",
+        "training": "Employees in these occupations usually need one or two years of training involving both on-the-job experience and informal training with experienced workers. A recognized apprenticeship program may be associated with these occupations."
+      },
+      "tasks": [
+        "Discuss heating or cooling system malfunctions with users to isolate problems or to verify that repairs corrected malfunctions.",
+        "Test electrical circuits or components for continuity, using electrical test equipment.",
+        "Repair or replace defective equipment, components, or wiring.",
+        "Lay out and connect electrical wiring between controls and equipment, according to wiring diagrams, using electrician's hand tools."
+      ],
+      "skills": [
+        "Operations Monitoring",
+        "Troubleshooting",
+        "Critical Thinking",
+        "Repairing",
+        "Reading Comprehension",
+        "Installation",
+        "Equipment Maintenance",
+        "Complex Problem Solving"
+      ],
+      "knowledge": [
+        "Building and Construction",
+        "Customer and Personal Service",
+        "Mechanical",
+        "Administration and Management",
+        "Education and Training"
+      ],
+      "hotTechnology": [
+        "Adobe Acrobat",
+        "Autodesk AutoCAD",
+        "Microsoft Excel",
+        "Microsoft Office software",
+        "Microsoft Outlook",
+        "Microsoft PowerPoint",
+        "Microsoft Word",
+        "SAP software"
+      ],
+      "url": "https://www.onetonline.org/link/summary/49-9021.00"
+    },
+    "15-1231.00": {
+      "code": "15-1231.00",
+      "title": "Computer Network Support Specialists",
+      "description": "Analyze, test, troubleshoot, and evaluate existing network systems, such as local area networks (LAN), wide area networks (WAN), cloud networks, servers, and other data communications networks. Perform network maintenance to ensure networks operate correctly with minimal interruption.\r",
+      "jobZone": {
+        "zone": 4,
+        "name": "Job Zone Four: Considerable Preparation Needed",
+        "education": "Most of these occupations require a four-year bachelor's degree, but some do not.",
+        "training": "Employees in these occupations usually need several years of work-related experience, on-the-job training, and/or vocational training."
+      },
+      "tasks": [
+        "Back up network data.",
+        "Configure security settings or access permissions for groups or individuals.",
+        "Analyze and report computer network security breaches or attempted breaches.",
+        "Identify the causes of networking problems, using diagnostic testing software and equipment."
+      ],
+      "skills": [
+        "Critical Thinking",
+        "Active Listening",
+        "Reading Comprehension",
+        "Judgment and Decision Making",
+        "Speaking",
+        "Active Learning",
+        "Monitoring",
+        "Complex Problem Solving"
+      ],
+      "knowledge": [
+        "Computers and Electronics",
+        "Telecommunications",
+        "Customer and Personal Service",
+        "Engineering and Technology",
+        "English Language"
+      ],
+      "hotTechnology": [
+        "Adobe Acrobat",
+        "Apache Tomcat",
+        "Apple macOS",
+        "Bash",
+        "Border Gateway Protocol BGP",
+        "Linux",
+        "Microsoft Access",
+        "Microsoft Active Directory"
+      ],
+      "url": "https://www.onetonline.org/link/summary/15-1231.00"
+    },
+    "15-1252.00": {
+      "code": "15-1252.00",
+      "title": "Software Developers",
+      "description": "Research, design, and develop computer and network software or specialized utility programs. Analyze user needs and develop software solutions, applying principles and techniques of computer science, engineering, and mathematical analysis. Update software or enhance existing software capabilities. May work with computer hardware engineers to integrate hardware and software systems, and develop specifications and performance requirements. May maintain databases within an application area, working individually or coordinating database development as part of a team.\r",
+      "jobZone": {
+        "zone": 4,
+        "name": "Job Zone Four: Considerable Preparation Needed",
+        "education": "Most of these occupations require a four-year bachelor's degree, but some do not.",
+        "training": "Employees in these occupations usually need several years of work-related experience, on-the-job training, and/or vocational training."
+      },
+      "tasks": [
+        "Analyze user needs and software requirements to determine feasibility of design within time and cost constraints.",
+        "Develop or direct software system testing or validation procedures, programming, or documentation.",
+        "Confer with systems analysts, engineers, programmers and others to design systems and to obtain information on project limitations and capabilities, performance requirements and interfaces.",
+        "Modify existing software to correct errors, adapt it to new hardware, or upgrade interfaces and improve performance."
+      ],
+      "skills": [
+        "Programming",
+        "Critical Thinking",
+        "Judgment and Decision Making",
+        "Reading Comprehension",
+        "Active Learning",
+        "Systems Analysis",
+        "Active Listening",
+        "Complex Problem Solving"
+      ],
+      "knowledge": [
+        "Computers and Electronics",
+        "Mathematics",
+        "Customer and Personal Service",
+        "English Language",
+        "Education and Training"
+      ],
+      "hotTechnology": [
+        "Adobe Acrobat",
+        "Adobe After Effects",
+        "Adobe Creative Cloud software",
+        "Adobe Illustrator",
+        "Adobe InDesign",
+        "Adobe Photoshop",
+        "AJAX",
+        "Alteryx software"
+      ],
+      "url": "https://www.onetonline.org/link/summary/15-1252.00"
+    },
+    "15-2051.00": {
+      "code": "15-2051.00",
+      "title": "Data Scientists",
+      "description": "Develop and implement a set of techniques or analytics applications to transform raw data into meaningful information using data-oriented programming languages and visualization software. Apply data mining, data modeling, natural language processing, and machine learning to extract and analyze information from large structured and unstructured datasets. Visualize, interpret, and report data findings. May create dynamic data reports.\r",
+      "jobZone": {
+        "zone": 4,
+        "name": "Job Zone Four: Considerable Preparation Needed",
+        "education": "Most of these occupations require a four-year bachelor's degree, but some do not.",
+        "training": "Employees in these occupations usually need several years of work-related experience, on-the-job training, and/or vocational training."
+      },
+      "tasks": [
+        "Analyze, manipulate, or process large sets of data using statistical software.",
+        "Create graphs, charts, or other visualizations to convey the results of data analysis using specialized software.",
+        "Test, validate, and reformulate models to ensure accurate prediction of outcomes of interest.",
+        "Deliver oral or written presentations of the results of mathematical modeling and data analysis to management or other end users."
+      ],
+      "skills": [
+        "Mathematics",
+        "Critical Thinking",
+        "Reading Comprehension",
+        "Complex Problem Solving",
+        "Programming",
+        "Speaking",
+        "Active Learning",
+        "Active Listening"
+      ],
+      "knowledge": [
+        "Mathematics",
+        "Computers and Electronics",
+        "English Language",
+        "Engineering and Technology",
+        "Education and Training"
+      ],
+      "hotTechnology": [
+        "Alteryx software",
+        "Amazon Elastic Compute Cloud EC2",
+        "Amazon Redshift",
+        "Amazon Web Services AWS software",
+        "Apache Airflow",
+        "Apache Cassandra",
+        "Apache Hadoop",
+        "Apache Hive"
+      ],
+      "url": "https://www.onetonline.org/link/summary/15-2051.00"
+    }
+  },
+  "esco": {
+    "http://data.europa.eu/esco/occupation/8c0f59c9-9a47-42e7-8287-aab19df4e6ab": {
+      "uri": "http://data.europa.eu/esco/occupation/8c0f59c9-9a47-42e7-8287-aab19df4e6ab",
+      "title": "microelectronics engineer",
+      "iscoCode": "2152.1.6",
+      "description": "Microelectronics engineers design, develop, and supervise the production of small electronic devices and components such as micro-processors and integrated circuits.",
+      "essentialSkills": [
+        "environmental legislation",
+        "mathematics",
+        "process customer requests based on the REACh Regulation 1907 2006",
+        "design microelectronics",
+        "report analysis results",
+        "test microelectronics",
+        "electronic equipment standards",
+        "use technical drawing software",
+        "develop electronic test procedures",
+        "design drawings",
+        "electronic test procedures",
+        "microelectronics",
+        "conduct quality control analysis",
+        "prepare production prototypes"
+      ],
+      "url": "https://esco.ec.europa.eu/en/classification/occupation?uri=http%3A%2F%2Fdata.europa.eu%2Fesco%2Foccupation%2F8c0f59c9-9a47-42e7-8287-aab19df4e6ab"
+    },
+    "http://data.europa.eu/esco/occupation/ec21ce88-ce14-49b6-be0a-cc53cf5a3a67": {
+      "uri": "http://data.europa.eu/esco/occupation/ec21ce88-ce14-49b6-be0a-cc53cf5a3a67",
+      "title": "chemical engineer",
+      "iscoCode": "2145.1",
+      "description": "Chemical engineers design and develop large-scale chemical and physical production processes and are involved in the entire industrial process required for transforming raw materials into products.",
+      "essentialSkills": [
+        "perform chemical experiments",
+        "work with chemicals",
+        "assess environmental impact",
+        "approve engineering design",
+        "adjust engineering designs",
+        "test chemical samples",
+        "engineering processes",
+        "engineering principles",
+        "analytical chemistry",
+        "apply health and safety standards",
+        "perform scientific research",
+        "chemistry",
+        "forecast organisational risks"
+      ],
+      "url": "https://esco.ec.europa.eu/en/classification/occupation?uri=http%3A%2F%2Fdata.europa.eu%2Fesco%2Foccupation%2Fec21ce88-ce14-49b6-be0a-cc53cf5a3a67"
+    },
+    "http://data.europa.eu/esco/occupation/98e58946-3227-4f6c-a5d1-5892fe76883d": {
+      "uri": "http://data.europa.eu/esco/occupation/98e58946-3227-4f6c-a5d1-5892fe76883d",
+      "title": "after-sales service technician",
+      "iscoCode": "2433.1",
+      "description": "After-sales service technicians provide after-sales service support to customers, such as the installation, maintenance and repair of the sold products. They take corrective actions to ensure customers’ satisfaction, resolve technical product-related issues and write customer summary reports.",
+      "essentialSkills": [
+        "execute after sales activities",
+        "maintenance and repair",
+        "characteristics of services",
+        "advise on merchandise features",
+        "create solutions to problems",
+        "customer service",
+        "product comprehension",
+        "contact customers",
+        "characteristics of products",
+        "customer relationship management",
+        "implement sales strategies",
+        "implement customer follow-up",
+        "communicate with customers",
+        "provide customer follow-up services"
+      ],
+      "url": "https://esco.ec.europa.eu/en/classification/occupation?uri=http%3A%2F%2Fdata.europa.eu%2Fesco%2Foccupation%2F98e58946-3227-4f6c-a5d1-5892fe76883d"
+    },
+    "http://data.europa.eu/esco/occupation/269c47e7-9017-4aa6-bce8-49e89a696a64": {
+      "uri": "http://data.europa.eu/esco/occupation/269c47e7-9017-4aa6-bce8-49e89a696a64",
+      "title": "industrial machinery mechanic",
+      "iscoCode": "7233.7",
+      "description": "Industrial machinery mechanics work on new machinery and equipment in operation. They set up for the specific application and build accessories if necessary, perform maintenance and repair, and run diagnostics to find faults in systems or parts that need replacing.",
+      "essentialSkills": [
+        "use testing equipment",
+        "resolve equipment malfunctions",
+        "inspect industrial equipment",
+        "perform test run",
+        "perform maintenance on installed equipment",
+        "troubleshoot",
+        "secure working area",
+        "pneumatics",
+        "mechanics",
+        "electricity",
+        "hydraulics",
+        "electrical wiring plans",
+        "conduct routine machinery checks",
+        "write records for repairs"
+      ],
+      "url": "https://esco.ec.europa.eu/en/classification/occupation?uri=http%3A%2F%2Fdata.europa.eu%2Fesco%2Foccupation%2F269c47e7-9017-4aa6-bce8-49e89a696a64"
+    },
+    "http://data.europa.eu/esco/occupation/140613c4-8c3c-43c5-8525-2f63231c95b0": {
+      "uri": "http://data.europa.eu/esco/occupation/140613c4-8c3c-43c5-8525-2f63231c95b0",
+      "title": "semiconductor processor",
+      "iscoCode": "8212.3.6",
+      "description": "Semiconductor processors manufacture electronic semiconductors as well as semiconductor devices, such as microchips or integrated circuits (IC's). They may also repair, test, and review the products. Semiconductor processors work in cleanrooms and therefore need to wear a special lightweight outfit that fits over their clothing to prevent particles from contaminating their worksite.",
+      "essentialSkills": [
+        "read assembly drawings",
+        "clean wafers",
+        "electronics",
+        "produce semiconductor crystals",
+        "monitor manufacturing quality standards",
+        "inspect semiconductor components",
+        "microelectronics",
+        "integrated circuits",
+        "ensure conformity to specifications",
+        "slice crystals into wafers",
+        "remove defective products",
+        "semiconductors",
+        "load electronic circuits onto wafers",
+        "wear cleanroom suit"
+      ],
+      "url": "https://esco.ec.europa.eu/en/classification/occupation?uri=http%3A%2F%2Fdata.europa.eu%2Fesco%2Foccupation%2F140613c4-8c3c-43c5-8525-2f63231c95b0"
+    },
+    "http://data.europa.eu/esco/occupation/0ea36a48-a27d-4515-b61f-3cab395cf60f": {
+      "uri": "http://data.europa.eu/esco/occupation/0ea36a48-a27d-4515-b61f-3cab395cf60f",
+      "title": "microelectronics engineering technician",
+      "iscoCode": "3114.1.6",
+      "description": "Microelectronics engineering technicians collaborate with microelectronics engineers in the development of small electronic devices and components such as micro-processors, memory chips, and integrated circuits for machine and motor controls. Microelectronics engineering technicians are responsible for building, testing, and maintaining the microelectronic systems and devices.",
+      "essentialSkills": [
+        "test microelectronics",
+        "solder electronics",
+        "meet deadlines",
+        "prepare production prototypes",
+        "read engineering drawings",
+        "adjust engineering designs",
+        "liaise with engineers",
+        "microprocessors",
+        "design drawings",
+        "microsensors",
+        "inspect quality of products",
+        "record test data",
+        "align components",
+        "electronics"
+      ],
+      "url": "https://esco.ec.europa.eu/en/classification/occupation?uri=http%3A%2F%2Fdata.europa.eu%2Fesco%2Foccupation%2F0ea36a48-a27d-4515-b61f-3cab395cf60f"
+    },
+    "http://data.europa.eu/esco/occupation/778c1d37-69f2-4184-ac98-03b7dbfba332": {
+      "uri": "http://data.europa.eu/esco/occupation/778c1d37-69f2-4184-ac98-03b7dbfba332",
+      "title": "photonics engineer",
+      "iscoCode": "2149.10.1",
+      "description": "Photonics engineers are concerned with the generation, transmission, transformation, and detection of light. They conduct research, design, assemble, test and deploy photonic components or systems in multiple application fields, from optical communications to medical instrumentation, material processing or sensing technology.",
+      "essentialSkills": [
+        "optical engineering",
+        "prepare production prototypes",
+        "physics",
+        "test optical components",
+        "conduct quality control analysis",
+        "report analysis results",
+        "model optical systems",
+        "engineering principles",
+        "operate scientific measuring equipment",
+        "mathematics",
+        "photonics",
+        "perform scientific research",
+        "record test data",
+        "optical glass characteristics"
+      ],
+      "url": "https://esco.ec.europa.eu/en/classification/occupation?uri=http%3A%2F%2Fdata.europa.eu%2Fesco%2Foccupation%2F778c1d37-69f2-4184-ac98-03b7dbfba332"
+    },
+    "http://data.europa.eu/esco/occupation/250d6493-68ab-4d69-ba67-c10293a20f49": {
+      "uri": "http://data.europa.eu/esco/occupation/250d6493-68ab-4d69-ba67-c10293a20f49",
+      "title": "photonics engineering technician",
+      "iscoCode": "3119.11",
+      "description": "Photonics engineering technicians collaborate with engineers in the development of photonic systems or components, usually in the form of optical equipment, such as lasers, lenses, and fibre optic equipment. Photonics engineering technicians build, test, install and calibrate optical equipment. They read blueprint and other technical drawings to develop testing and calibrating procedures.",
+      "essentialSkills": [
+        "operate optical assembly equipment",
+        "optical components",
+        "photonics",
+        "types of optical instruments",
+        "perform test run",
+        "align components",
+        "assist scientific research",
+        "optical manufacturing process",
+        "optical equipment standards",
+        "prepare production prototypes",
+        "adjust engineering designs",
+        "optics",
+        "apply optical coating",
+        "fasten components"
+      ],
+      "url": "https://esco.ec.europa.eu/en/classification/occupation?uri=http%3A%2F%2Fdata.europa.eu%2Fesco%2Foccupation%2F250d6493-68ab-4d69-ba67-c10293a20f49"
+    },
+    "http://data.europa.eu/esco/occupation/4a375b68-88a0-4e5f-99ce-9b01341dfb81": {
+      "uri": "http://data.europa.eu/esco/occupation/4a375b68-88a0-4e5f-99ce-9b01341dfb81",
+      "title": "materials engineer",
+      "iscoCode": "2149.9",
+      "description": "Materials engineers research and design new or improved materials for a diverse number of applications. They analyse the composition of materials, conduct experiments, and develop new materials for industry-specific use that can range from rubber, to textiles, glass, metals, and chemicals. They advise companies in damage assessments, quality assurance of materials, and recycling of materials.",
+      "essentialSkills": [
+        "approve engineering design",
+        "test chemical samples",
+        "create solutions to problems",
+        "adjust engineering designs",
+        "thermoplastic materials",
+        "apply health and safety standards",
+        "assess environmental impact",
+        "develop material testing procedures",
+        "forecast organisational risks",
+        "composite materials",
+        "material mechanics",
+        "manufacturing processes",
+        "perform scientific research",
+        "analyse production processes for improvement"
+      ],
+      "url": "https://esco.ec.europa.eu/en/classification/occupation?uri=http%3A%2F%2Fdata.europa.eu%2Fesco%2Foccupation%2F4a375b68-88a0-4e5f-99ce-9b01341dfb81"
+    },
+    "http://data.europa.eu/esco/occupation/bcf8f332-c7e1-4a08-8651-28d668290eaf": {
+      "uri": "http://data.europa.eu/esco/occupation/bcf8f332-c7e1-4a08-8651-28d668290eaf",
+      "title": "metallurgist",
+      "iscoCode": "2146.5",
+      "description": "Metallurgists specialise in the extraction and processing of metals such as iron, steel, zinc, copper and aluminium. They work to mold or combine both pure and mixed metals (alloys) into new shapes and properties. Metallurgists handle the extraction of metal ores and develop their use in metal processing techniques. They may work in both manufacturing or do scientific research about the performance of metals.",
+      "essentialSkills": [
+        "types of metal manufacturing processes",
+        "metal forming technologies",
+        "precious metal processing",
+        "non-ferrous metal processing",
+        "assess suitability of metal types for specific application",
+        "ferrous metal processing",
+        "prepare technical reports",
+        "precious metals",
+        "work in metal manufacture teams",
+        "types of metal",
+        "metal and metal ore products",
+        "manipulate metal",
+        "join metals",
+        "alloys of precious metals"
+      ],
+      "url": "https://esco.ec.europa.eu/en/classification/occupation?uri=http%3A%2F%2Fdata.europa.eu%2Fesco%2Foccupation%2Fbcf8f332-c7e1-4a08-8651-28d668290eaf"
+    },
+    "http://data.europa.eu/esco/occupation/0d93706d-32fd-4de3-aa08-be1003e325da": {
+      "uri": "http://data.europa.eu/esco/occupation/0d93706d-32fd-4de3-aa08-be1003e325da",
+      "title": "chemist",
+      "iscoCode": "2113.1",
+      "description": "Chemists perform laboratory research by testing and analysing the chemical structure of substances.They translate the research results into industrial production processes which are further used in the development or improvement of products. Chemists are also testing the quality of the manufactured products and their environmental impact.",
+      "essentialSkills": [
+        "write technical reports",
+        "physics",
+        "think analytically",
+        "use chemical analysis equipment",
+        "apply liquid chromatography",
+        "analytical chemistry",
+        "analyse chemical substances",
+        "document analysis results",
+        "apply scientific methods",
+        "apply safety procedures in laboratory",
+        "test chemical samples",
+        "use chromatography software",
+        "develop chemical products",
+        "prepare chemical samples"
+      ],
+      "url": "https://esco.ec.europa.eu/en/classification/occupation?uri=http%3A%2F%2Fdata.europa.eu%2Fesco%2Foccupation%2F0d93706d-32fd-4de3-aa08-be1003e325da"
+    },
+    "http://data.europa.eu/esco/occupation/5df63943-f1bc-4438-90f1-92768a7a23c8": {
+      "uri": "http://data.europa.eu/esco/occupation/5df63943-f1bc-4438-90f1-92768a7a23c8",
+      "title": "industrial electrician",
+      "iscoCode": "7411.1.1.2",
+      "description": "Industrial electricians install and maintain electricity cables and other electrical infrastructure in large industrial and commercial buildings. They perform inspections and repair defective parts of electrical systems to ensure efficiency.",
+      "essentialSkills": [
+        "install electricity sockets",
+        "use measurement instruments",
+        "splice cable",
+        "react to events in time-critical environments",
+        "use safety equipment in construction",
+        "inspect construction supplies",
+        "resolve equipment malfunctions",
+        "install electric switches",
+        "electricity",
+        "inspect electrical supplies",
+        "install electrical and electronic equipment",
+        "follow health and safety procedures in construction",
+        "work ergonomically",
+        "use precision tools"
+      ],
+      "url": "https://esco.ec.europa.eu/en/classification/occupation?uri=http%3A%2F%2Fdata.europa.eu%2Fesco%2Foccupation%2F5df63943-f1bc-4438-90f1-92768a7a23c8"
+    },
+    "http://data.europa.eu/esco/occupation/7052fd94-f563-46a9-8e2d-cba6c20f3e71": {
+      "uri": "http://data.europa.eu/esco/occupation/7052fd94-f563-46a9-8e2d-cba6c20f3e71",
+      "title": "overhead line worker",
+      "iscoCode": "7413.1.2",
+      "description": "Overhead line workers construct and maintain power supply and control cables in overhead power lines. They also make and repair electrical cables connecting customers to the electricity network.",
+      "essentialSkills": [
+        "inspect underground power cables",
+        "electricity",
+        "follow safety procedures when working at heights",
+        "work ergonomically",
+        "electric current",
+        "electrical discharge",
+        "inspect overhead power lines",
+        "repair overhead power lines",
+        "install power lines",
+        "repair underground power cables",
+        "transmission towers",
+        "electrical power safety regulations",
+        "wear appropriate protective gear"
+      ],
+      "url": "https://esco.ec.europa.eu/en/classification/occupation?uri=http%3A%2F%2Fdata.europa.eu%2Fesco%2Foccupation%2F7052fd94-f563-46a9-8e2d-cba6c20f3e71"
+    },
+    "http://data.europa.eu/esco/occupation/ac37627c-a999-4779-997e-9795cc4f9a3d": {
+      "uri": "http://data.europa.eu/esco/occupation/ac37627c-a999-4779-997e-9795cc4f9a3d",
+      "title": "power distribution engineer",
+      "iscoCode": "2151.1.5",
+      "description": "Power distribution engineers design and operate facilities which distribute power from the distribution facility to the consumers. They research methods for the optimisation of power distribution, and ensure the consumers' needs are met. They also ensure compliance to safety regulations by monitoring the automated processes in plants and directing workflow.",
+      "essentialSkills": [
+        "ensure compliance with safety legislation",
+        "assess financial viability",
+        "engineering principles",
+        "identify customer's needs",
+        "ensure compliance with environmental legislation",
+        "power engineering",
+        "change power distribution systems",
+        "engineering processes",
+        "electrical engineering",
+        "ensure safety in electrical power operations",
+        "manage electricity transmission system",
+        "electrical power safety regulations",
+        "inspect overhead power lines",
+        "supervise electricity distribution operations"
+      ],
+      "url": "https://esco.ec.europa.eu/en/classification/occupation?uri=http%3A%2F%2Fdata.europa.eu%2Fesco%2Foccupation%2Fac37627c-a999-4779-997e-9795cc4f9a3d"
+    },
+    "http://data.europa.eu/esco/occupation/f1b89616-5dfe-40d4-8b02-58a6982b1a01": {
+      "uri": "http://data.europa.eu/esco/occupation/f1b89616-5dfe-40d4-8b02-58a6982b1a01",
+      "title": "substation engineer",
+      "iscoCode": "2151.1.6",
+      "description": "Substation engineers design medium and high voltage substations used for the transmission, distribution, and generation of electrical energy. They develop methods for the efficient operation of the energy process, and ensure compliance to safety and environmental standards.",
+      "essentialSkills": [
+        "make electrical calculations",
+        "create AutoCAD drawings",
+        "use technical drawing software",
+        "mechanical engineering",
+        "manage engineering project",
+        "engineering principles",
+        "inspect facility sites",
+        "electrical engineering",
+        "electrical discharge",
+        "electric current",
+        "electricity consumption",
+        "mechanics",
+        "perform project management",
+        "ensure compliance with environmental legislation"
+      ],
+      "url": "https://esco.ec.europa.eu/en/classification/occupation?uri=http%3A%2F%2Fdata.europa.eu%2Fesco%2Foccupation%2Ff1b89616-5dfe-40d4-8b02-58a6982b1a01"
+    },
+    "http://data.europa.eu/esco/occupation/f14194e2-8e7f-4fc9-9c8c-78d9ae2e7284": {
+      "uri": "http://data.europa.eu/esco/occupation/f14194e2-8e7f-4fc9-9c8c-78d9ae2e7284",
+      "title": "nuclear engineer",
+      "iscoCode": "2149.7.2",
+      "description": "Nuclear engineers plan and design engineering equipment and processes in nuclear plants and sites. They engage in engineering activities pertaining to nuclear power plants, and develop risk solutions.",
+      "essentialSkills": [
+        "perform scientific research",
+        "civil engineering",
+        "metrology",
+        "follow nuclear plant safety precautions",
+        "adjust engineering designs",
+        "nuclear energy",
+        "develop radiation protection strategies",
+        "approve engineering design",
+        "engineering processes",
+        "technical drawings",
+        "electric generators",
+        "radiation protection",
+        "nuclear physics",
+        "mining, construction and civil engineering machinery products"
+      ],
+      "url": "https://esco.ec.europa.eu/en/classification/occupation?uri=http%3A%2F%2Fdata.europa.eu%2Fesco%2Foccupation%2Ff14194e2-8e7f-4fc9-9c8c-78d9ae2e7284"
+    },
+    "http://data.europa.eu/esco/occupation/774ad663-2124-4ac2-a287-5fb2e478906e": {
+      "uri": "http://data.europa.eu/esco/occupation/774ad663-2124-4ac2-a287-5fb2e478906e",
+      "title": "nuclear technician",
+      "iscoCode": "3111.10",
+      "description": "Nuclear technicians function as aids to physicists and engineers in nuclear laboratories and power plants. They monitor the procedures to ensure safety and quality control, and maintain equipment. They also handle and control radioactive equipment and measure radiation levels to ensure safety.",
+      "essentialSkills": [
+        "use hand tools",
+        "nuclear energy",
+        "use measurement instruments",
+        "avoid contamination",
+        "maintain electromechanical equipment",
+        "metrology",
+        "technical drawings",
+        "fire prevention procedures",
+        "maintain hydraulic systems",
+        "investigate contamination",
+        "radiation protection",
+        "maintain records of maintenance interventions",
+        "calibrate precision instrument",
+        "follow nuclear plant safety precautions"
+      ],
+      "url": "https://esco.ec.europa.eu/en/classification/occupation?uri=http%3A%2F%2Fdata.europa.eu%2Fesco%2Foccupation%2F774ad663-2124-4ac2-a287-5fb2e478906e"
+    },
+    "http://data.europa.eu/esco/occupation/551a6797-3ca9-41fc-9dca-9a982a8fd8a6": {
+      "uri": "http://data.europa.eu/esco/occupation/551a6797-3ca9-41fc-9dca-9a982a8fd8a6",
+      "title": "robotics engineer",
+      "iscoCode": "2149.13",
+      "description": "Robotics engineers design and develop robotic devices and applications in combination with mechanical engineering principles. They use pre-established designs and current developments for improving or inventing systems, machinery and equipment. They combine several knowledge fields such as computing, engineering, and electronics in the development of new engineering applications.",
+      "essentialSkills": [
+        "perform scientific research",
+        "mechanical engineering",
+        "design automation components",
+        "use technical drawing software",
+        "approve engineering design",
+        "assess financial viability",
+        "robotics",
+        "robotic components",
+        "adjust engineering designs",
+        "mechanics",
+        "execute feasibility study",
+        "technical drawings",
+        "engineering principles",
+        "engineering processes"
+      ],
+      "url": "https://esco.ec.europa.eu/en/classification/occupation?uri=http%3A%2F%2Fdata.europa.eu%2Fesco%2Foccupation%2F551a6797-3ca9-41fc-9dca-9a982a8fd8a6"
+    },
+    "http://data.europa.eu/esco/occupation/7833d5cd-873d-4fdd-b2f8-9762d68494a7": {
+      "uri": "http://data.europa.eu/esco/occupation/7833d5cd-873d-4fdd-b2f8-9762d68494a7",
+      "title": "robotics engineering technician",
+      "iscoCode": "3119.2.1",
+      "description": "Robotics engineering technicians collaborate with engineers in the development of robotic devices and applications through a combination of mechanical engineering, electronic engineering, and computer engineering. Robotics engineering technicians build, test, install and calibrate robotic equipment.",
+      "essentialSkills": [
+        "read assembly drawings",
+        "assemble robots",
+        "set up machine controls",
+        "test mechatronic units",
+        "electronics",
+        "assist scientific research",
+        "mechatronics",
+        "follow safety standards in industrial contexts",
+        "inspect quality of products",
+        "adjust engineering designs",
+        "design drawings",
+        "fasten components",
+        "record test data",
+        "monitor machine operations"
+      ],
+      "url": "https://esco.ec.europa.eu/en/classification/occupation?uri=http%3A%2F%2Fdata.europa.eu%2Fesco%2Foccupation%2F7833d5cd-873d-4fdd-b2f8-9762d68494a7"
+    },
+    "http://data.europa.eu/esco/occupation/02d4f153-8e43-444d-8bd4-8171d49eab12": {
+      "uri": "http://data.europa.eu/esco/occupation/02d4f153-8e43-444d-8bd4-8171d49eab12",
+      "title": "gear machinist",
+      "iscoCode": "7223.8",
+      "description": "Gear machinists make precision parts for gears and other driving elements. They use a variety of machine tools.",
+      "essentialSkills": [
+        "consult technical resources",
+        "mechanics",
+        "troubleshoot",
+        "types of metal",
+        "remove processed workpiece",
+        "secure working area",
+        "supply machine with appropriate tools",
+        "monitor automated machines",
+        "set up the controller of a machine",
+        "perform test run",
+        "supply machine"
+      ],
+      "url": "https://esco.ec.europa.eu/en/classification/occupation?uri=http%3A%2F%2Fdata.europa.eu%2Fesco%2Foccupation%2F02d4f153-8e43-444d-8bd4-8171d49eab12"
+    },
+    "http://data.europa.eu/esco/occupation/9729c0f3-c9bc-482e-ac59-a82ec3b67ba3": {
+      "uri": "http://data.europa.eu/esco/occupation/9729c0f3-c9bc-482e-ac59-a82ec3b67ba3",
+      "title": "data centre operator",
+      "iscoCode": "3511.1",
+      "description": "Data centre operators maintain computer operations within the data centre. They manage daily activities within the centre to solve problems, maintain the system availability, and evaluate the system's performance.",
+      "essentialSkills": [
+        "develop contingency plans for emergencies",
+        "database management systems",
+        "maintain ICT server",
+        "maintain database security",
+        "monitor system performance",
+        "keep up with the latest information systems solutions",
+        "analyse ICT system",
+        "migrate existing data",
+        "administer ICT system",
+        "resource description framework query language",
+        "balance database resources",
+        "query languages",
+        "maintain database performance",
+        "manage database"
+      ],
+      "url": "https://esco.ec.europa.eu/en/classification/occupation?uri=http%3A%2F%2Fdata.europa.eu%2Fesco%2Foccupation%2F9729c0f3-c9bc-482e-ac59-a82ec3b67ba3"
+    },
+    "http://data.europa.eu/esco/occupation/f2b15a0e-e65a-438a-affb-29b9d50b77d1": {
+      "uri": "http://data.europa.eu/esco/occupation/f2b15a0e-e65a-438a-affb-29b9d50b77d1",
+      "title": "software developer",
+      "iscoCode": "2512.3",
+      "description": "Software developers implement or program all kinds of software systems based on specifications and designs by using programming languages, tools, and platforms.",
+      "essentialSkills": [
+        "analyse software specifications",
+        "project management",
+        "computer programming",
+        "debug software",
+        "develop software prototype",
+        "ICT debugging tools",
+        "use software design patterns",
+        "manage engineering project",
+        "utilise computer-aided software engineering tools",
+        "identify customer requirements",
+        "use software libraries",
+        "use technical drawing software",
+        "engineering processes",
+        "integrated development environment software"
+      ],
+      "url": "https://esco.ec.europa.eu/en/classification/occupation?uri=http%3A%2F%2Fdata.europa.eu%2Fesco%2Foccupation%2Ff2b15a0e-e65a-438a-affb-29b9d50b77d1"
+    },
+    "http://data.europa.eu/esco/occupation/258e46f9-0075-4a2e-adae-1ff0477e0f30": {
+      "uri": "http://data.europa.eu/esco/occupation/258e46f9-0075-4a2e-adae-1ff0477e0f30",
+      "title": "data scientist",
+      "iscoCode": "2511.3",
+      "description": "Data scientists find and interpret rich data sources, manage large amounts of data, merge data sources, ensure consistency of data-sets, and create visualisations to aid in understanding data. They build mathematical models using data, present and communicate data insights and findings to specialists and scientists in their team and if required, to a non-expert audience, and recommend ways to apply the data.",
+      "essentialSkills": [
+        "online analytical processing",
+        "resource description framework query language",
+        "manage data collection systems",
+        "information extraction",
+        "perform data cleansing",
+        "handle data samples",
+        "query languages",
+        "information categorisation",
+        "build recommender systems",
+        "normalise data",
+        "design database scheme",
+        "collect ICT data",
+        "report analysis results",
+        "visual presentation techniques"
+      ],
+      "url": "https://esco.ec.europa.eu/en/classification/occupation?uri=http%3A%2F%2Fdata.europa.eu%2Fesco%2Foccupation%2F258e46f9-0075-4a2e-adae-1ff0477e0f30"
+    }
+  }
+}

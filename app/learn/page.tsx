@@ -89,6 +89,25 @@ export default function LearnPage() {
           </ul>
         </section>
 
+        <section className="mb-14">
+          <Link
+            href="/careers/paths"
+            className="block rounded-lg border border-subtle p-5 transition-colors hover:border-accent"
+          >
+            <p className="font-mono text-xs uppercase tracking-caps text-fg-tertiary">
+              Want to work in these chains?
+            </p>
+            <p className="mt-2 font-heading text-lg font-semibold text-fg-primary">
+              Skills and training: what each kind of work needs, and public programmes to learn it
+            </p>
+            <p className="mt-1 max-w-prose text-sm leading-relaxed text-fg-secondary">
+              Occupational records from O*NET and ESCO, the skills open postings name, and
+              apprenticeships, colleges and academies, each on its official page. Open roles are on{' '}
+              Careers.
+            </p>
+          </Link>
+        </section>
+
         <section>
           <Heading index="03" title="Every term, defined" aside={`${terms.length}, alphabetical`} />
           <dl className="divide-y divide-subtle border-y border-subtle">

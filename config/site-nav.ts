@@ -115,6 +115,11 @@ const LINK = {
     href: '/talent',
     hint: 'The expertise needed to ramp a factory or connect a grid, made visible.',
   },
+  careers: {
+    label: 'Careers',
+    href: '/careers',
+    hint: 'Open roles at the companies that hold the bottlenecks, and how to train into them.',
+  },
   roadmap: {
     label: 'Roadmap',
     href: '/roadmap',
@@ -134,7 +139,7 @@ export const NAV_GROUPS: readonly NavGroup[] = [
     items: [LINK.map, LINK.bottlenecks, LINK.markets, LINK.policy, LINK.science, LINK.capital],
   },
   { label: 'Latest', items: [LINK.news, LINK.notes, LINK.changelog] },
-  { label: 'About', items: [LINK.about, LINK.learn, LINK.talent, LINK.roadmap] },
+  { label: 'About', items: [LINK.about, LINK.learn, LINK.talent, LINK.careers, LINK.roadmap] },
 ];
 
 /**
@@ -156,6 +161,7 @@ export const RESEARCH_NAV: readonly NavLink[] = [
   LINK.learn,
   LINK.news,
   LINK.talent,
+  LINK.careers,
 ];
 
 export const PUBLIC_NAV: readonly NavLink[] = RESEARCH_NAV;

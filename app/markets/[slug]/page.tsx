@@ -16,6 +16,7 @@ import { t } from '@/lib/i18n/messages';
 import { CompanyHeader } from './_sections/CompanyHeader';
 import { LeadList, leadsOn } from './_sections/leads';
 import { FilingList, filingsOf } from './_sections/filings';
+import { HiringSection, hiringOf } from './_sections/hiring';
 
 interface RouteParams {
   params: Promise<{ slug: string }>;
@@ -64,8 +65,23 @@ export default async function ParticipantPage({ params }: RouteParams) {
   }
   const layer = CHAIN_LAYERS.find((l) => l.id === p.layer);
   const entity = resolveIn('company', p.slug);
-  const [leads, filings] = await Promise.all([leadsOn(profile), filingsOf(p.slug)]);
+  const [leads, filings, hiring] = await Promise.all([
+    leadsOn(profile),
+    filingsOf(p.slug),
+    hiringOf(p.slug),
+  ]);
   const extra: ExtraSection[] = [
+    ...(hiring
+      ? [
+          {
+            id: 'hiring',
+            title: 'Hiring',
+            importance: 80,
+            evidence: hiring.live ? 'from its public job board' : 'official careers page',
+            node: <HiringSection hiring={hiring} slug={p.slug} />,
+          },
+        ]
+      : []),
     ...(filings.length > 0
       ? [
           {

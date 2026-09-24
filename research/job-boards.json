@@ -1,0 +1,972 @@
+{
+  "version": 1,
+  "checkedOn": "2026-09-24",
+  "companies": {
+    "sibelco": {
+      "careersUrl": "https://www.sibelco.com/en/careers/career-opportunities",
+      "ats": "workday",
+      "board": null,
+      "evidence": "Careers page links 'search jobs' to sibelco.wd502.myworkdayjobs.com/Sibelco-Careers",
+      "checkedOn": "2026-09-24"
+    },
+    "the-quartz-corp": {
+      "careersUrl": "https://www.thequartzcorp.com/careers",
+      "ats": "other:webcruiter",
+      "board": null,
+      "evidence": "Careers page job table fed by Webcruiter RSS feed (Webcruiter.no ... RSSFeed?company_id=5572)",
+      "checkedOn": "2026-09-24"
+    },
+    "lynas-rare-earths": {
+      "careersUrl": "https://careers.lynasrareearths.com/",
+      "ats": "other:martianlogic",
+      "board": null,
+      "evidence": "careers.lynasrareearths.com is a MartianLogic/MyRecruitment+ board (web.martianlogic.com assets, form.myrecruitmentplus.com apply links); lynasrareearths.com returned 403 to curl",
+      "checkedOn": "2026-09-24"
+    },
+    "exxonmobil": {
+      "careersUrl": "https://jobs.exxonmobil.com/",
+      "ats": "successfactors",
+      "board": null,
+      "evidence": "corporate.exxonmobil.com/careers links jobs.exxonmobil.com, an SAP SuccessFactors RMK site (career4.successfactors.com company=exxonmobilP)",
+      "checkedOn": "2026-09-24"
+    },
+    "impala-platinum": {
+      "careersUrl": "https://www.implats.co.za/careers.php",
+      "ats": "other:pnet",
+      "board": null,
+      "evidence": "implats.co.za careers page links job search to implats.pnet.co.za (Pnet/StepStone-hosted careers portal)",
+      "checkedOn": "2026-09-24"
+    },
+    "mp-materials": {
+      "careersUrl": "https://mpmaterials.com/careers/",
+      "ats": "other:adp-workforce-now",
+      "board": null,
+      "evidence": "Careers page links workforcenow.adp.com recruitment.html?cid=2025028d-...",
+      "checkedOn": "2026-09-24"
+    },
+    "nornickel": {
+      "careersUrl": "https://career.nornickel.ru/vacancies/",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "nornickel.ru/careers redirects to career.nornickel.ru, own vacancy site (/vacancies/<site>/), no third-party ATS seen",
+      "checkedOn": "2026-09-24"
+    },
+    "qatarenergy": {
+      "careersUrl": "https://careerportal.qatarenergy.qa/",
+      "ats": "icims",
+      "board": null,
+      "evidence": "careerportal.qatarenergy.qa (linked from qatarenergy.qa) embeds experienced-professionals-recruitment-qatarenergy.icims.com",
+      "checkedOn": "2026-09-24"
+    },
+    "sibanye-stillwater": {
+      "careersUrl": "https://sibanyestillwater.applicantpro.com/jobs/",
+      "ats": "other:applicantpro",
+      "board": null,
+      "evidence": "sibanyestillwater.com/careers is behind an Incapsula challenge (could not read it); ApplicantPro board titled 'Job Listings - Sibanye Stillwater Jobs' returned 200 (likely US/Stillwater ops; SA regional portal not verified)",
+      "checkedOn": "2026-09-24"
+    },
+    "yunnan-tin": {
+      "careersUrl": "https://ytc2024.iguopin.com/notice",
+      "ats": "other:iguopin",
+      "board": null,
+      "evidence": "No careers link on en.ytc.cn/www.ytc.cn; group recruitment runs on iguopin (国聘) 'ytc2024.iguopin.com' titled 招聘官网 (found via search, campus 2024); not linked from ytc.cn as observed",
+      "checkedOn": "2026-09-24"
+    },
+    "minsur": {
+      "careersUrl": "https://oportunidades-laborales.com/minsur/go/Minsur-Recursos-Humanos/4569401/",
+      "ats": "successfactors",
+      "board": null,
+      "evidence": "minsur.com returned 403; Breca-group job site oportunidades-laborales.com/minsur is a SuccessFactors RMK site (career19.sapsf.com) listing /minsur/job/ postings",
+      "checkedOn": "2026-09-24"
+    },
+    "pt-timah": {
+      "careersUrl": "https://timah.com/career.html",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "timah.com/career.html is an announcement page: 'PT TIMAH (Persero) Tbk is not opening any job vacancies' + scam warning; no ATS. Greenhouse 'pt' board is unrelated",
+      "checkedOn": "2026-09-24"
+    },
+    "gazprom": {
+      "careersUrl": "https://www.gazpromvacancy.ru/vacancies/",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "gazprom.com/.ru timed out from here; gazpromvacancy.ru ('Вакансии ПАО «Газпром»', links gazprom.ru) is an own TYPO3 vacancy site, apply by e-mail/anketa",
+      "checkedOn": "2026-09-24"
+    },
+    "russian-quartz": {
+      "careersUrl": "https://russianquartz.com/kontaktnaya-informatsiya/job.php",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "rquartz.ru does not resolve; official site russianquartz.com has a 'Вакансии' page, no ATS (hh.ru employer 1860070 also exists)",
+      "checkedOn": "2026-09-24"
+    },
+    "shenghe-resources": {
+      "careersUrl": "https://www.shengheholding.com/resouce.aspx?t=35",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "shengheholding.com 人才招聘 section lists postings inline with e-mail contact (600392@shengheholding.com); no ATS",
+      "checkedOn": "2026-09-24"
+    },
+    "chalco": {
+      "careersUrl": "https://www.chalco.com.cn/rlzy/rczp/",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "chalco.com.cn/rlzy/rczp/ (人才招聘 announcements) returns 200 but behind an Aliyun WAF JS challenge so content not readable; search shows announcements with e-mail application; group (Chinalco) also uses chinalco.iguopin.com",
+      "checkedOn": "2026-09-24"
+    },
+    "china-northern-rare-earth": {
+      "careersUrl": "https://www.reht.com/index/Lxwm.do?TYPE_CODE=020901&LB=1",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "reht.com 联系我们 > 人才招聘 page on own site (content loaded dynamically), no third-party ATS link",
+      "checkedOn": "2026-09-24"
+    },
+    "hemlock-semiconductor": {
+      "careersUrl": "https://careers.hscpoly.com/",
+      "ats": "successfactors",
+      "board": null,
+      "evidence": "hscpoly.com/careers/ redirects to careers.hscpoly.com, SuccessFactors RMK (career41.sapsf.com company=hemlocksem)",
+      "checkedOn": "2026-09-24"
+    },
+    "tokuyama": {
+      "careersUrl": "https://www.tokuyama.co.jp/recruit/",
+      "ats": "other:hrmos",
+      "board": null,
+      "evidence": "Recruit page links mid-career jobs to hrmos.co/pages/tokuyama (new-grad via i-webs)",
+      "checkedOn": "2026-09-24"
+    },
+    "wacker-chemie": {
+      "careersUrl": "https://jobs.wacker.com/?locale=en_US",
+      "ats": "successfactors",
+      "board": null,
+      "evidence": "wacker.com careers overview links jobs.wacker.com, SuccessFactors RMK (career5.successfactors.eu, rmkcdn)",
+      "checkedOn": "2026-09-24"
+    },
+    "5n-plus": {
+      "careersUrl": "https://www.5nplus.com/en/career/jobs-list/",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "5nplus.com/en/career/jobs-list/ lists postings as own site pages (/en/career/jobs-list/<slug>/); no third-party ATS domain seen",
+      "checkedOn": "2026-09-24"
+    },
+    "air-liquide": {
+      "careersUrl": "https://www.airliquide.com/join-us/careers-air-liquide",
+      "ats": "workday",
+      "board": null,
+      "evidence": "Careers page links airliquidehr.wd3.myworkdayjobs.com/AirLiquideExternalCareer. Greenhouse 'air' board is an unrelated German company",
+      "checkedOn": "2026-09-24"
+    },
+    "linde": {
+      "careersUrl": "https://www.lindecareers.com/en/search-jobs",
+      "ats": "other:cornerstone",
+      "board": null,
+      "evidence": "linde.com links lindecareers.com; its search-jobs page links linde.csod.com/ux/ats/careersite/20 (Cornerstone OnDemand)",
+      "checkedOn": "2026-09-24"
+    },
+    "air-products": {
+      "careersUrl": "https://www.airproducts.com/careers",
+      "ats": "workday",
+      "board": null,
+      "evidence": "Careers page links airproducts.wd5.myworkdayjobs.com/en-US/AP0001 (homepage 403 to plain curl, careers 200 with browser UA)",
+      "checkedOn": "2026-09-24"
+    },
+    "heraeus": {
+      "careersUrl": "https://jobs.heraeus.com/en",
+      "ats": "successfactors",
+      "board": null,
+      "evidence": "heraeus.com links jobs.heraeus.com (Radancy-built site) with SuccessFactors apply (career5.successfactors.eu career_company=C0000159900P)",
+      "checkedOn": "2026-09-24"
+    },
+    "iceblick": {
+      "careersUrl": "https://iceblick.com/",
+      "ats": "unknown",
+      "board": null,
+      "evidence": "iceblick.com serves only a parking redirect to /lander; no careers page found anywhere official",
+      "checkedOn": "2026-09-24"
+    },
+    "johnson-matthey": {
+      "careersUrl": "https://matthey.com/careers",
+      "ats": "workday",
+      "board": null,
+      "evidence": "Careers page links matthey.wd3.myworkdayjobs.com/Ext_Career_Site",
+      "checkedOn": "2026-09-24"
+    },
+    "oci": {
+      "careersUrl": "https://www.oci.co.kr/recruit/our-values",
+      "ats": "other:greetinghr",
+      "board": null,
+      "evidence": "oci.co.kr/recruit links oci.career.greetinghr.com (200). Lever 'oci' board is Object Computing Inc, unrelated",
+      "checkedOn": "2026-09-24"
+    },
+    "umicore": {
+      "careersUrl": "https://www.umicore.com/en/careers/job-finder/",
+      "ats": "successfactors",
+      "board": null,
+      "evidence": "umicore.com job-finder lists jobs on own site with apply links to career012.successfactors.eu company=UmicorePROD",
+      "checkedOn": "2026-09-24"
+    },
+    "agc": {
+      "careersUrl": "https://www.agc.com/recruiting/",
+      "ats": "other:sonar-ats",
+      "board": null,
+      "evidence": "agc.com/careers -> agc.com/recruiting/ links careersaiyo-agc.snar.jp (Sonar ATS) and career-user.blm.co.jp registration",
+      "checkedOn": "2026-09-24"
+    },
+    "aurubis": {
+      "careersUrl": "https://jobs.aurubis.com/",
+      "ats": "other:job-shop",
+      "board": null,
+      "evidence": "aurubis.com/en/career links jobs.aurubis.com, built on api.my-job-shop.com (JobShop); some sites (Deutsche Giessdraht, Retorte) use d.vinci",
+      "checkedOn": "2026-09-24"
+    },
+    "baosteel-gases": {
+      "careersUrl": "https://baowugroup-zhaopin.51job.com/index04.html",
+      "ats": "unknown",
+      "board": null,
+      "evidence": "baosteelgases.com unreachable; no own careers page found. Parent China Baowu recruits via 51job-hosted platform (title 中国宝武钢铁集团有限公司招聘平台) - parent page, ATS for Baosteel Gases itself not confirmed",
+      "checkedOn": "2026-09-24"
+    },
+    "chemours": {
+      "careersUrl": "https://chemours.wd103.myworkdayjobs.com/en-US/Chemours",
+      "ats": "workday",
+      "board": null,
+      "evidence": "chemours.com returned 403 to curl; search shows chemours.com/careers directs to Workday tenant chemours (wd103 job URLs); tenant page returned 200",
+      "checkedOn": "2026-09-24"
+    },
+    "china-rare-earth-group": {
+      "careersUrl": "https://www.regcc.cn/zgxtjt/zpdt/list.shtml",
+      "ats": "other:iguopin",
+      "board": null,
+      "evidence": "Official site regcc.cn (note: crecg.com is China Railway Engineering) has 招聘动态 section; social recruitment platform regccsz.iguopin.com titled 招聘官网 (found via search)",
+      "checkedOn": "2026-09-24"
+    },
+    "cryoin-engineering": {
+      "careersUrl": "https://cryoin.com/en/",
+      "ats": "unknown",
+      "board": null,
+      "evidence": "cryoin.com shows 'Account Suspended'; no careers page",
+      "checkedOn": "2026-09-24"
+    },
+    "east-hope-group": {
+      "careersUrl": "https://www.easthope.cn/",
+      "ats": "other:wechat",
+      "board": null,
+      "evidence": "Official site easthope.cn (easthope.com.cn suspended) offers only a '集团招聘' WeChat QR code; no web ATS",
+      "checkedOn": "2026-09-24"
+    },
+    "jiangsu-pacific-quartz": {
+      "careersUrl": "http://www.quartzpacific.com/recruiting.html",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "Official site quartzpacific.com has 招贤纳士 page (/recruiting.html) on own site; no third-party ATS",
+      "checkedOn": "2026-09-24"
+    },
+    "malaysia-smelting-corporation": {
+      "careersUrl": "https://www.msmelt.com/career.php",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "msmelt.com/career.php: 'send your resume ... to msc_hrjobs@msmelt.com'; no ATS",
+      "checkedOn": "2026-09-24"
+    },
+    "messer": {
+      "careersUrl": "https://jobs.messer-careers.com/",
+      "ats": "other:teamtailor",
+      "board": null,
+      "evidence": "messergroup.com links jobs.messer-careers.com, a Teamtailor career site (teamtailor-cdn assets, /jobs/<id>-<slug>)",
+      "checkedOn": "2026-09-24"
+    },
+    "mitsubishi-materials": {
+      "careersUrl": "https://www.mmc.co.jp/recruit/information/career.html",
+      "ats": "other:hrmos",
+      "board": null,
+      "evidence": "MMC mid-career page links hrmos.co/pages/mitsubishi-materials",
+      "checkedOn": "2026-09-24"
+    },
+    "nyrstar": {
+      "careersUrl": "https://jobs.nyrstar.com/",
+      "ats": "successfactors",
+      "board": null,
+      "evidence": "nyrstar.com/careers links jobs.nyrstar.com, SuccessFactors RMK (career2.successfactors.eu company=nyrstarsal)",
+      "checkedOn": "2026-09-24"
+    },
+    "rio-tinto": {
+      "careersUrl": "https://www.riotinto.com/en/careers/available-jobs",
+      "ats": "workday",
+      "board": null,
+      "evidence": "Available-jobs page links jobs.riotinto.com and wd3.myworkdaysite.com/recruiting/riotinto/RioTinto_Careers",
+      "checkedOn": "2026-09-24"
+    },
+    "solvay": {
+      "careersUrl": "https://careers.solvay.com/",
+      "ats": "successfactors",
+      "board": null,
+      "evidence": "solvay.com/en/career -> careers.solvay.com, SuccessFactors RMK (career2.successfactors.eu)",
+      "checkedOn": "2026-09-24"
+    },
+    "syensqo": {
+      "careersUrl": "https://careers.syensqo.com/",
+      "ats": "successfactors",
+      "board": null,
+      "evidence": "careers.syensqo.com is a SuccessFactors RMK site (career55.sapsf.eu); syensqo.com returned 406 to curl",
+      "checkedOn": "2026-09-24"
+    },
+    "zhuhai-fangyuan": {
+      "careersUrl": "https://www.fangyuan.com.cn/",
+      "ats": "unknown",
+      "board": null,
+      "evidence": "Could not identify/reach an official site (fangyuan.com.cn no response) or careers page; not guessed",
+      "checkedOn": "2026-09-24"
+    },
+    "less-common-metals": {
+      "careersUrl": "https://lesscommonmetals.com/about-us/careers/",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "Careers page lists own /job-post/ pages, apply via mailto:general@lesscommonmetals.com",
+      "checkedOn": "2026-09-24"
+    },
+    "momentive-technologies": {
+      "careersUrl": "https://www.momentivetech.com/careers",
+      "ats": "workday",
+      "board": null,
+      "evidence": "Careers page links mqt.wd1.myworkdayjobs.com/en-US/MOMT",
+      "checkedOn": "2026-09-24"
+    },
+    "shin-etsu-handotai": {
+      "careersUrl": "https://www.sehrecruitment.com/",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "SEH Europe careers (sehe.com/careers) links sehrecruitment.com, own Squarespace recruitment site; Japan hiring runs via parent Shin-Etsu Chemical recruit page on axol.jp (other:axol)",
+      "checkedOn": "2026-09-24"
+    },
+    "shin-etsu-quartz": {
+      "careersUrl": "https://www.sqp.co.jp/recruit/",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "Shin-Etsu Quartz Products (sqp.co.jp, 信越石英株式会社) recruit site with contact-form application; no ATS",
+      "checkedOn": "2026-09-24"
+    },
+    "sumco": {
+      "careersUrl": "https://www.sumcosi.com/recruit/career/",
+      "ats": "other:i-web",
+      "board": null,
+      "evidence": "SUMCO recruit pages link mypage.3010.i-webs.jp/sumco2027 (i-web) entry; mid-career postings are own pages",
+      "checkedOn": "2026-09-24"
+    },
+    "coherent": {
+      "careersUrl": "https://www.coherent.com/peopleandculture/job-search",
+      "ats": "other:oracle-cloud-hcm",
+      "board": null,
+      "evidence": "Job-search page links hcwp.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/... sites (Oracle Recruiting Cloud)",
+      "checkedOn": "2026-09-24"
+    },
+    "neo-performance-materials": {
+      "careersUrl": "https://www.neomaterials.com/careers/",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "Careers page on own WordPress using 'wp-job-openings' plugin + PDF job descriptions; no external ATS",
+      "checkedOn": "2026-09-24"
+    },
+    "element-six": {
+      "careersUrl": "https://www.e6.com/en/about/careers",
+      "ats": "smartrecruiters",
+      "board": null,
+      "evidence": "e6.com careers links De Beers Group vacancies (businessunit=element six); De Beers page uses jobs.smartrecruiters.com/.../AngloAmericanDeBeersGroup (parent's careers site)",
+      "checkedOn": "2026-09-24"
+    },
+    "faraday-factory-japan": {
+      "careersUrl": "https://www.faradaygroup.com/careers/",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "採用情報 page states 現在正社員の募集は行っておりません (not currently hiring full-time); no ATS",
+      "checkedOn": "2026-09-24"
+    },
+    "ferrotec": {
+      "careersUrl": "https://www.ferrotec.com/company/careers/",
+      "ats": "other:ukg-ready",
+      "board": null,
+      "evidence": "Careers page links secure4.saashr.com/ta/6164782.careers (UKG Ready)",
+      "checkedOn": "2026-09-24"
+    },
+    "fujikura": {
+      "careersUrl": "https://www.fujikura.co.jp/recruit/",
+      "ats": "other:jobcan",
+      "board": null,
+      "evidence": "fujikura.co.jp/recruit -> recruit.fujikura.co.jp/career which links recruit.jobcan.jp/fujikura",
+      "checkedOn": "2026-09-24"
+    },
+    "globalwafers": {
+      "careersUrl": "https://www.gw-semi.com/careers/",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "gw-semi.com careers: own employment-application form, links gw-gwa.com/careers (PDF postings) and Indeed; no ATS",
+      "checkedOn": "2026-09-24"
+    },
+    "indium-corporation": {
+      "careersUrl": "https://www.indium.com/corporate/careers/united-states-careers/",
+      "ats": "other:adp-workforce-now",
+      "board": null,
+      "evidence": "US careers page job links go to workforcenow.adp.com ... client=indiumcorp",
+      "checkedOn": "2026-09-24"
+    },
+    "nippon-steel": {
+      "careersUrl": "https://www.nipponsteel.com/recruit/",
+      "ats": "other:axol",
+      "board": null,
+      "evidence": "nipponsteel.com/recruit pages link job.axol.jp/.../nipponsteel entries (axol)",
+      "checkedOn": "2026-09-24"
+    },
+    "posco": {
+      "careersUrl": "https://recruit.posco.com/h22a01-front/",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "recruit.posco.com (POSCO group recruiting) is an in-house app; no third-party ATS seen",
+      "checkedOn": "2026-09-24"
+    },
+    "resonac": {
+      "careersUrl": "https://www.resonac.com/recruit/jp/",
+      "ats": "other:sonar-ats",
+      "board": null,
+      "evidence": "resonac.com/recruit/jp links resonac.snar.jp (Sonar ATS); also jposting.net for one program",
+      "checkedOn": "2026-09-24"
+    },
+    "siltronic": {
+      "careersUrl": "https://www.siltronic.com/en/career.html",
+      "ats": "other:softgarden",
+      "board": null,
+      "evidence": "Career page links siltronic.career.softgarden.de (EU) and recruiting.ultipro.com/SIL1005SILT (US, UKG)",
+      "checkedOn": "2026-09-24"
+    },
+    "sk-siltron": {
+      "careersUrl": "https://www.sksiltron.com/en/recruit/recruit.do",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "Recruit page links careers.sksiltron.co.kr (own recruiting system) and SK group portal skcareers.com",
+      "checkedOn": "2026-09-24"
+    },
+    "wolfspeed": {
+      "careersUrl": "https://www.wolfspeed.com/careers/",
+      "ats": "workday",
+      "board": null,
+      "evidence": "Careers page links cree.wd108.myworkdayjobs.com/EXT",
+      "checkedOn": "2026-09-24"
+    },
+    "amsc": {
+      "careersUrl": "https://www.amsc.com/careers/",
+      "ats": "other:adp-workforce-now",
+      "board": null,
+      "evidence": "Careers lists /vacancy/ pages whose apply goes to workforcenow.adp.com (cid=2eb2f7fe-...)",
+      "checkedOn": "2026-09-24"
+    },
+    "applied-diamond": {
+      "careersUrl": "https://usapplieddiamond.com/",
+      "ats": "unknown",
+      "board": null,
+      "evidence": "usapplieddiamond.com has no careers/jobs link; Ashby 'applied' board is unrelated",
+      "checkedOn": "2026-09-24"
+    },
+    "baosteel": {
+      "careersUrl": "https://baowugroup-zhaopin.51job.com/index04.html",
+      "ats": "other:51job",
+      "board": null,
+      "evidence": "baosteel.com is a JS app with no readable careers link; parent China Baowu's recruitment platform on 51job (title 中国宝武钢铁集团有限公司招聘平台) - parent site",
+      "checkedOn": "2026-09-24"
+    },
+    "cleveland-cliffs": {
+      "careersUrl": "https://careers.clevelandcliffs.com/",
+      "ats": "workday",
+      "board": null,
+      "evidence": "careers.clevelandcliffs.com (Symphony Talent front) config ATS_HOST_NAME workday; apply on aksteel.wd1.myworkdayjobs.com/careers (tenant from search)",
+      "checkedOn": "2026-09-24"
+    },
+    "diamond-materials": {
+      "careersUrl": "https://diamond-materials.com/en/",
+      "ats": "unknown",
+      "board": null,
+      "evidence": "diamond-materials.com has no careers/jobs section in nav or footer",
+      "checkedOn": "2026-09-24"
+    },
+    "engineered-fluids": {
+      "careersUrl": "https://www.engineeredfluids.com/",
+      "ats": "unknown",
+      "board": null,
+      "evidence": "/careers redirects to the homepage; no careers/jobs link on the site and none found via search",
+      "checkedOn": "2026-09-24"
+    },
+    "furuya-metal": {
+      "careersUrl": "https://recruit.furuyametals.co.jp/",
+      "ats": "other:mynavi",
+      "board": null,
+      "evidence": "Recruit site (linked from furuyametals.co.jp) sends applicants to job.mynavi.jp corp75873 (new-grad job board); no ATS for experienced hires seen",
+      "checkedOn": "2026-09-24"
+    },
+    "jfe-steel": {
+      "careersUrl": "https://www.jfe-steel.co.jp/saiyou/career_recruit/",
+      "ats": "other:hrmos",
+      "board": null,
+      "evidence": "Mid-career recruiting page links hrmos.co/pages/jfesteel/jobs (HRMOS by BizReach)",
+      "checkedOn": "2026-09-24"
+    },
+    "metox": {
+      "careersUrl": "https://www.metoxtech.com/careers",
+      "ats": "greenhouse",
+      "board": "metoxinternationalinc",
+      "evidence": "Careers page embeds greenhouse.io/embed/job_board/js?for=metoxinternationalinc; board name 'MetOx International, Inc.'",
+      "checkedOn": "2026-09-24"
+    },
+    "shanghai-superconductor": {
+      "careersUrl": "https://www.shsctec.com/en/recruit/",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "Job descriptions posted directly on shsctec.com/recruit; no third-party ATS referenced",
+      "checkedOn": "2026-09-24"
+    },
+    "sicc": {
+      "careersUrl": "https://www.sicc.cc/shjob.html",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "Postings on sicc.cc social-recruiting page with an on-site form and zhaopin@sicc.cc; no ATS",
+      "checkedOn": "2026-09-24"
+    },
+    "sk-siltron-css": {
+      "careersUrl": "https://www.sksiltroncss.com/careers",
+      "ats": "other:paycor",
+      "board": null,
+      "evidence": "Careers page links recruitingbypaycor.com/career/CareerHome.action?clientId=8a7883d0...",
+      "checkedOn": "2026-09-24"
+    },
+    "stalprodukt": {
+      "careersUrl": "https://www.stalprodukt.com.pl/oferti-pracy/praca-w-stalprodukt-s-a/",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "Job offers posted on own site with an application form and rekrutacja@stalprodukt.pl; no ATS",
+      "checkedOn": "2026-09-24"
+    },
+    "sumitomo-electric": {
+      "careersUrl": "https://sumitomoelectric.com/careers/job-opportunities",
+      "ats": "other:jobvite",
+      "board": null,
+      "evidence": "sumitomoelectric.com/open-positions/search embeds a Jobvite careersite (data-careersite='sumitomo-electric', jobvite_url jobs.jobvite.com)",
+      "checkedOn": "2026-09-24"
+    },
+    "superpower": {
+      "careersUrl": "https://www.superpower-inc.com/",
+      "ats": "unknown",
+      "board": null,
+      "evidence": "superpower-inc.com (Furukawa Electric subsidiary) has no careers link. Ashby board 'superpower' is a different company (Superpower health startup, telehealth roles), NOT this one",
+      "checkedOn": "2026-09-24"
+    },
+    "tanaka-kikinzoku": {
+      "careersUrl": "https://www.tanaka.co.jp/recruit/",
+      "ats": "other:axol",
+      "board": null,
+      "evidence": "Tanaka recruit page links job.axol.jp (e-Axol) for entries; tanaka-preciousmetals.com did not respond",
+      "checkedOn": "2026-09-24"
+    },
+    "tankeblue": {
+      "careersUrl": "https://www.tankeblue.com/join/",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "'Join us' page on tankeblue.com with social/campus recruiting sections; no third-party ATS referenced",
+      "checkedOn": "2026-09-24"
+    },
+    "theva": {
+      "careersUrl": "https://www.theva.com/careers/",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "Openings published as PDFs on theva.de with applications to hr@theva.com; no ATS",
+      "checkedOn": "2026-09-24"
+    },
+    "thyssenkrupp-electrical-steel": {
+      "careersUrl": "https://jobs.thyssenkrupp.com/en",
+      "ats": "workday",
+      "board": null,
+      "evidence": "Parent thyssenkrupp job portal; Steel Europe (Electrical Steel's parent unit) postings link steeleurope.wd3.myworkdayjobs.com/Job_Board",
+      "checkedOn": "2026-09-24"
+    },
+    "carl-zeiss-smt": {
+      "careersUrl": "https://www.zeiss.com/semiconductor-manufacturing-technology/career.html",
+      "ats": "workday",
+      "board": null,
+      "evidence": "SMT career page links ZEISS group job search (jd=SMT filter); ZEISS group Workday tenant zeissgroup.wd3.myworkdayjobs.com/External serves ZEISS-branded jobs (job search page is JS-rendered, link to tenant not seen directly)",
+      "checkedOn": "2026-09-24"
+    },
+    "asml": {
+      "careersUrl": "https://www.asml.com/en/careers/find-your-job",
+      "ats": "workday",
+      "board": null,
+      "evidence": "Job pages on asml.com have applyUrl https://asml.wd3.myworkdayjobs.com/ASMLEXT1/...",
+      "checkedOn": "2026-09-24"
+    },
+    "jsr": {
+      "careersUrl": "https://www.jsr.co.jp/rc/career/",
+      "ats": "other:jposting",
+      "board": null,
+      "evidence": "JSR career recruiting site links job postings on progres12.jposting.net (JPOSTING)",
+      "checkedOn": "2026-09-24"
+    },
+    "shin-etsu-chemical": {
+      "careersUrl": "https://www.shinetsu.co.jp/jp/recruit/recruitment/",
+      "ats": "other:axol",
+      "board": null,
+      "evidence": "Recruitment page links axol.jp (e-Axol) entry pages; contact jinji@shinetsu.jp",
+      "checkedOn": "2026-09-24"
+    },
+    "tokyo-ohka-kogyo": {
+      "careersUrl": "https://www.job.tok.co.jp/",
+      "ats": "other:sonar",
+      "board": null,
+      "evidence": "TOK recruit site links tok-recruit.snar.jp/entry.aspx (Sonar ATS by Thinkings)",
+      "checkedOn": "2026-09-24"
+    },
+    "trumpf": {
+      "careersUrl": "https://www.trumpf.com/en_INT/careers/vacancies/",
+      "ats": "workday",
+      "board": null,
+      "evidence": "Vacancies page links trumpf.wd3.myworkdayjobs.com/en-US/TRUMPF_Graduates_and_Professionals (+ Students, Apprenticeships)",
+      "checkedOn": "2026-09-24"
+    },
+    "applied-materials": {
+      "careersUrl": "https://careers.appliedmaterials.com/careers",
+      "ats": "other:eightfold",
+      "board": null,
+      "evidence": "careers.appliedmaterials.com is an Eightfold site (eightfold.ai/careers?domain=appliedmaterials.com) with Radancy/TalentBrew tracking. Ashby 'applied' is NOT Applied Materials",
+      "checkedOn": "2026-09-24"
+    },
+    "asm-international": {
+      "careersUrl": "https://www.asm.com/open-vacancies",
+      "ats": "greenhouse",
+      "board": "asm",
+      "evidence": "asm.com/open-vacancies lists jobs with ?gh_jid=; API absolute_url on asm.com/open-vacancies; board name 'ASM'",
+      "checkedOn": "2026-09-24"
+    },
+    "kla": {
+      "careersUrl": "https://www.kla.com/careers",
+      "ats": "workday",
+      "board": null,
+      "evidence": "Careers page search links kla.wd1.myworkdayjobs.com/Search",
+      "checkedOn": "2026-09-24"
+    },
+    "lam-research": {
+      "careersUrl": "https://careers.lamresearch.com/careers",
+      "ats": "other:eightfold",
+      "board": null,
+      "evidence": "careers.lamresearch.com is Eightfold (eightfold.ai/careers?domain=lamresearch.com); employee link goes to SuccessFactors (bplte_company=LAM)",
+      "checkedOn": "2026-09-24"
+    },
+    "tokyo-electron": {
+      "careersUrl": "https://www.tel.com/careers/",
+      "ats": "workday",
+      "board": null,
+      "evidence": "Careers page links tel.wd3.myworkdayjobs.com per-subsidiary sites (TEE_Careers, TSI_Career, TMY_Career, ...)",
+      "checkedOn": "2026-09-24"
+    },
+    "canon": {
+      "careersUrl": "https://global.canon/ja/employ/career/",
+      "ats": "other:hrmos",
+      "board": null,
+      "evidence": "Canon Inc. mid-career page links hrmos.co/pages/canon (HRMOS); global.canon/en/employment 404",
+      "checkedOn": "2026-09-24"
+    },
+    "nikon": {
+      "careersUrl": "https://www.jp.nikon.com/company/recruitment/career/",
+      "ats": "other:axol",
+      "board": null,
+      "evidence": "Nikon career recruiting site links job.axol.jp (e-Axol) entries",
+      "checkedOn": "2026-09-24"
+    },
+    "tsmc": {
+      "careersUrl": "https://careers.tsmc.com/en_US/careers",
+      "ats": "other:avature",
+      "board": null,
+      "evidence": "careers.tsmc.com page contains avature.portal.* config and /careers/JobDetail?jobId= Avature URLs",
+      "checkedOn": "2026-09-24"
+    },
+    "intel-foundry": {
+      "careersUrl": "https://jobs.intel.com/en/search-jobs",
+      "ats": "workday",
+      "board": null,
+      "evidence": "Parent Intel: jobs.intel.com redirects to intel.wd1.myworkdayjobs.com/External",
+      "checkedOn": "2026-09-24"
+    },
+    "samsung-foundry": {
+      "careersUrl": "https://semiconductor.samsung.com/about-us/careers/jobs/?region=us",
+      "ats": "workday",
+      "board": null,
+      "evidence": "Parent Samsung Semiconductor careers; its job search index returns links to sec.wd3.myworkdayjobs.com/Samsung_Careers (US)",
+      "checkedOn": "2026-09-24"
+    },
+    "smic": {
+      "careersUrl": "https://www.smics.com/en/",
+      "ats": "other:hotjob",
+      "board": null,
+      "evidence": "smics.com links social recruiting at hotjob.cn/wt/smichr (Wintalent HotJob) and campus.51job.com/smic",
+      "checkedOn": "2026-09-24"
+    },
+    "globalfoundries": {
+      "careersUrl": "https://careers.gf.com/careers",
+      "ats": "other:eightfold",
+      "board": null,
+      "evidence": "gf.com/careers links careers.gf.com, an Eightfold (app.eightfold.ai) career site",
+      "checkedOn": "2026-09-24"
+    },
+    "umc": {
+      "careersUrl": "https://careers.umc.com/jobsearch.php",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "careers.umc.com is UMC's own PHP job site (jobsearch.php/jobin.php); no ATS vendor referenced",
+      "checkedOn": "2026-09-24"
+    },
+    "sk-hynix": {
+      "careersUrl": "https://talent.skhynix.com/hub/en/home",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "HQ recruiting via SK hynix Talent Hub (talent.skhynix.com, links skcareers.com). Separately, subsidiary SK hynix America uses greenhouse 'skhynixamerica' (board name 'SK hynix America', 52 jobs) - not linked from the HQ page",
+      "checkedOn": "2026-09-24"
+    },
+    "tsmc-advanced-packaging": {
+      "careersUrl": "https://careers.tsmc.com/en_US/careers",
+      "ats": "other:avature",
+      "board": null,
+      "evidence": "Business unit of TSMC; uses parent careers.tsmc.com (Avature portal)",
+      "checkedOn": "2026-09-24"
+    },
+    "micron": {
+      "careersUrl": "https://www.micron.com/about/careers",
+      "ats": "other:eightfold",
+      "board": null,
+      "evidence": "Careers page links micron.eightfold.ai/careers/join?domain=micron.com",
+      "checkedOn": "2026-09-24"
+    },
+    "samsung-memory": {
+      "careersUrl": "https://semiconductor.samsung.com/about-us/careers/jobs/?region=us",
+      "ats": "workday",
+      "board": null,
+      "evidence": "Parent Samsung Semiconductor careers; job search index links sec.wd3.myworkdayjobs.com/Samsung_Careers",
+      "checkedOn": "2026-09-24"
+    },
+    "amkor": {
+      "careersUrl": "https://amkor.com/careers/united-states/",
+      "ats": "successfactors",
+      "board": null,
+      "evidence": "Amkor US careers page links successfactors.com/career?company=amkor",
+      "checkedOn": "2026-09-24"
+    },
+    "ase-technology": {
+      "careersUrl": "https://ase.aseglobal.com/about-ase/careers/",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "Careers pages (careers-us/-eu/-singapore) list positions on own site; apply by email (e.g. jobNNN@aseus.com); no ATS",
+      "checkedOn": "2026-09-24"
+    },
+    "nvidia": {
+      "careersUrl": "https://jobs.nvidia.com/careers",
+      "ats": "workday",
+      "board": null,
+      "evidence": "nvidia.com careers links jobs.nvidia.com (Eightfold front end) whose login/apply goes to nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite",
+      "checkedOn": "2026-09-24"
+    },
+    "amd": {
+      "careersUrl": "https://careers.amd.com/careers-home/jobs",
+      "ats": "icims",
+      "board": null,
+      "evidence": "careers.amd.com is an iCIMS Jibe site; its jobs API apply_url = careers-amd.icims.com/jobs/<id>/login",
+      "checkedOn": "2026-09-24"
+    },
+    "broadcom": {
+      "careersUrl": "https://www.broadcom.com/company/careers",
+      "ats": "workday",
+      "board": null,
+      "evidence": "Careers page is JS-rendered (no static link seen); Broadcom Workday tenant broadcom.wd1.myworkdayjobs.com/External_Career returns 200 Broadcom-branded (found via search)",
+      "checkedOn": "2026-09-24"
+    },
+    "marvell": {
+      "careersUrl": "https://www.marvell.com/company/careers.html",
+      "ats": "workday",
+      "board": null,
+      "evidence": "Careers page links marvell.wd1.myworkdayjobs.com/MarvellCareers",
+      "checkedOn": "2026-09-24"
+    },
+    "vertiv": {
+      "careersUrl": "https://www.vertiv.com/en-us/about/career-center/",
+      "ats": "other:oracle-hcm",
+      "board": null,
+      "evidence": "Career center links egup.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/.../sites/CX/requisition (Oracle Recruiting Cloud)",
+      "checkedOn": "2026-09-24"
+    },
+    "arista-networks": {
+      "careersUrl": "https://www.arista.com/en/careers",
+      "ats": "smartrecruiters",
+      "board": null,
+      "evidence": "arista.com careers (406 to curl, read via WebFetch) says apply through the site; jobs served by careers.smartrecruiters.com/AristaNetworks (Arista-branded, 50+ jobs); direct link not observed in static HTML",
+      "checkedOn": "2026-09-24"
+    },
+    "supermicro": {
+      "careersUrl": "https://www.supermicro.com/en/jobs",
+      "ats": "successfactors",
+      "board": null,
+      "evidence": "supermicro.com/en/jobs links jobs.supermicro.com, a SuccessFactors RMK site (successfactors.com/career?company=supermicro)",
+      "checkedOn": "2026-09-24"
+    },
+    "ge-vernova": {
+      "careersUrl": "https://careers.gevernova.com/",
+      "ats": "workday",
+      "board": null,
+      "evidence": "careers.gevernova.com job links go to gevernova.wd5.myworkdayjobs.com/Vernova_ExternalSite",
+      "checkedOn": "2026-09-24"
+    },
+    "hitachi-energy": {
+      "careersUrl": "https://www.hitachienergy.com/careers",
+      "ats": "workday",
+      "board": null,
+      "evidence": "Open-jobs filters are 'workday-jobs' tags; page references hitachi.wd1.myworkdayjobs.com/en-US/hitachi",
+      "checkedOn": "2026-09-24"
+    },
+    "siemens-energy": {
+      "careersUrl": "https://jobs.siemens-energy.com/en_US/jobs",
+      "ats": "other:avature",
+      "board": null,
+      "evidence": "jobs.siemens-energy.com contains avature.portal.* config (Avature portal)",
+      "checkedOn": "2026-09-24"
+    },
+    "mitsubishi-electric": {
+      "careersUrl": "https://www.mitsubishielectric.co.jp/saiyo/career/index.html",
+      "ats": "other:jposting",
+      "board": null,
+      "evidence": "HQ mid-career page links progres02.jposting.net (JPOSTING); global careers page is a directory of country sites",
+      "checkedOn": "2026-09-24"
+    },
+    "nkt": {
+      "careersUrl": "https://jobs.nkt.com/",
+      "ats": "successfactors",
+      "board": null,
+      "evidence": "jobs.nkt.com is SuccessFactors RMK (successfactors.eu/career?company=nktcablesg)",
+      "checkedOn": "2026-09-24"
+    },
+    "prysmian": {
+      "careersUrl": "https://www.prysmian.com/en/people-and-careers",
+      "ats": "workday",
+      "board": null,
+      "evidence": "Careers page links prysmiangroup.wd3.myworkdayjobs.com/Careers",
+      "checkedOn": "2026-09-24"
+    },
+    "abb": {
+      "careersUrl": "https://careers.abb/global/en/search-results",
+      "ats": "workday",
+      "board": null,
+      "evidence": "careers.abb is a Phenom site; job applyUrl = abb.wd3.myworkdayjobs.com/External_Career_Page/...",
+      "checkedOn": "2026-09-24"
+    },
+    "schneider-electric": {
+      "careersUrl": "https://careers.se.com/jobs",
+      "ats": "taleo",
+      "board": null,
+      "evidence": "careers.se.com is an iCIMS Jibe front end whose sign-in/job search points to schneiderele.taleo.net/careersection/2/jobsearch.ftl; also references careers-se.icims.com, so the ATS may be split",
+      "checkedOn": "2026-09-24"
+    },
+    "harmonic-drive-systems": {
+      "careersUrl": "https://www.harmonicdrive.net/careers",
+      "ats": "other:paylocity",
+      "board": null,
+      "evidence": "harmonicdrive.net (Harmonic Drive LLC, US arm) careers links recruiting.paylocity.com/recruiting/jobs/All/d9daa69d-...; Japan parent hds.co.jp uses mynavi. Ashby 'harmonic' is Harmonic AI, NOT this company",
+      "checkedOn": "2026-09-24"
+    },
+    "nabtesco": {
+      "careersUrl": "https://www.nabtesco.com/recruit/recruitinginformation/career.html",
+      "ats": "other:jposting",
+      "board": null,
+      "evidence": "Mid-career page 'view openings' links js01.jposting.net/nts/u/nabtesco_cae/job.phtml (JPOSTING)",
+      "checkedOn": "2026-09-24"
+    },
+    "renishaw": {
+      "careersUrl": "https://www.renishaw.com/en/careers--6417",
+      "ats": "workday",
+      "board": null,
+      "evidence": "Careers page links renishaw.wd3.myworkdayjobs.com/Renishaw",
+      "checkedOn": "2026-09-24"
+    },
+    "abb-robotics": {
+      "careersUrl": "https://careers.abb/global/en/search-results",
+      "ats": "workday",
+      "board": null,
+      "evidence": "Division of ABB; uses parent careers.abb (Phenom) with applyUrl on abb.wd3.myworkdayjobs.com/External_Career_Page",
+      "checkedOn": "2026-09-24"
+    },
+    "fanuc": {
+      "careersUrl": "https://www.fanucamerica.com/careers",
+      "ats": "other:adp",
+      "board": null,
+      "evidence": "FANUC America careers links jobs.adp.com/fanuc/cx (ADP Workforce Now recruiting); Japan parent not checked",
+      "checkedOn": "2026-09-24"
+    },
+    "yaskawa": {
+      "careersUrl": "https://www.yaskawa.co.jp/recruit/",
+      "ats": "other:axol",
+      "board": null,
+      "evidence": "Global /jobs page is a directory of regional sites; Japan HQ recruit page links job.axol.jp (e-Axol)",
+      "checkedOn": "2026-09-24"
+    },
+    "kuka": {
+      "careersUrl": "https://www.kuka.com/de-ch/unternehmen/karriere/stellenangebote",
+      "ats": "successfactors",
+      "board": null,
+      "evidence": "kuka.com vacancy 'Apply now' goes to jobs.kuka.com/job-invite/<id>, a SuccessFactors RMK site (successfactors.com assets)",
+      "checkedOn": "2026-09-24"
+    },
+    "amazon-web-services": {
+      "careersUrl": "https://www.amazon.jobs/en/",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "Parent Amazon: AWS roles are listed on amazon.jobs (Amazon's own system)",
+      "checkedOn": "2026-09-24"
+    },
+    "anthropic": {
+      "careersUrl": "https://www.anthropic.com/careers/jobs",
+      "ats": "greenhouse",
+      "board": "anthropic",
+      "evidence": "anthropic.com/careers/jobs links greenhouse.io/anthropic/jobs/<id>; board name 'Anthropic'",
+      "checkedOn": "2026-09-24"
+    },
+    "google": {
+      "careersUrl": "https://www.google.com/about/careers/applications/",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "Google Careers is Google's own system (google.com/about/careers/applications)",
+      "checkedOn": "2026-09-24"
+    },
+    "meta": {
+      "careersUrl": "https://www.metacareers.com/jobsearch/",
+      "ats": "in-house",
+      "board": null,
+      "evidence": "metacareers.com is Meta's own careers platform; no ATS vendor referenced",
+      "checkedOn": "2026-09-24"
+    },
+    "microsoft": {
+      "careersUrl": "https://careers.microsoft.com/v2/global/en/home.html",
+      "ats": "other:eightfold",
+      "board": null,
+      "evidence": "Job search moved to apply.careers.microsoft.com, an Eightfold (app.eightfold.ai) site",
+      "checkedOn": "2026-09-24"
+    },
+    "openai": {
+      "careersUrl": "https://openai.com/careers/search/",
+      "ats": "ashby",
+      "board": "openai",
+      "evidence": "openai.com/careers/search links jobs.ashbyhq.com/openai/<id>/application",
+      "checkedOn": "2026-09-24"
+    },
+    "xai": {
+      "careersUrl": "https://x.ai/careers",
+      "ats": "greenhouse",
+      "board": "xai",
+      "evidence": "x.ai/careers links greenhouse.io/xai/jobs/<id>; board name shows 'SpaceXAI'",
+      "checkedOn": "2026-09-24"
+    },
+    "coreweave": {
+      "careersUrl": "https://www.coreweave.com/careers",
+      "ats": "greenhouse",
+      "board": "coreweave",
+      "evidence": "coreweave.com/careers fetches boards-api.greenhouse.io/v1/boards/<board>/jobs; absolute_url on coreweave.com/careers/job?...&board=coreweave; board name 'CoreWeave'",
+      "checkedOn": "2026-09-24"
+    }
+  }
+}

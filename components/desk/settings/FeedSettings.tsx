@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import type { Follows } from '@/lib/follows';
 import { WINDOWS, WINDOW_LABEL } from '@/lib/follows';
 import { ON_DEMAND_NODES } from '@/lib/sweep-store';
@@ -37,6 +38,16 @@ export function FeedSettings({ follows }: { follows: Follows }) {
               <small>
                 New from OpenAlex, arXiv, NSF, OpenAIRE and DOE on your rails; matched by keyword,
                 not yet reviewed.
+              </small>
+            </span>
+          </label>
+          <label className="settings-check">
+            <input type="checkbox" name="showJobs" defaultChecked={desk.showJobs} />
+            <span>
+              New job postings
+              <small>
+                Roles at the companies and in the role families you follow on{' '}
+                <Link href="/careers">Careers</Link>.
               </small>
             </span>
           </label>

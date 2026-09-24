@@ -84,6 +84,20 @@ export type DeskItem =
       /** "Paper", "Preprint", "Grant". */
       kind: string;
       dateOnly: true;
+    }
+  | {
+      /** A new job posting at a company or in a role family the reader follows for jobs. */
+      source: 'job';
+      /** `<ats>:<board>:<id>`, as in research_jobs. */
+      id: string;
+      at: string;
+      title: string;
+      url: string;
+      host: string;
+      bottlenecks: string[];
+      effect: EventEffect;
+      location: string;
+      dateOnly: false;
     };
 
 /** Leads older than this are not news any more, whenever the sweep found them. */
