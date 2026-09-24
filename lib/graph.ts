@@ -32,6 +32,9 @@ export type GraphEdge = {
   /** How well this join is stood up — not how well either end is. */
   evidence: string;
   sources: string[];
+  /** The sentence in `sources[0]` that carries the join, verbatim, when it has one. */
+  quote?: string;
+  scope?: string;
 };
 
 export const GRAPH_KINDS: GraphKind[] = [
@@ -66,6 +69,8 @@ export function neighbors(kind: GraphKind, id: string): GraphEdge[] {
         rel: connection.label,
         evidence: connection.evidence,
         sources: connection.sources,
+        ...(connection.quote ? { quote: connection.quote } : {}),
+        ...(connection.scope ? { scope: connection.scope } : {}),
       },
     ];
   });

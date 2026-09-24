@@ -13,6 +13,7 @@ import { INSTRUMENTS } from '@/config/substrata-policy';
 import { COUNTRY_RESOURCES } from '@/config/substrata-resources';
 import { RESEARCH_PROGRAMMES } from '@/config/substrata-programmes';
 import { FACILITIES } from '@/config/substrata-facilities';
+import { DEPENDENCIES } from '@/config/substrata-dependencies';
 import { entityId, type Entity, type EntityId } from '../entities/types';
 import { resolveEntity } from '../entities/registry';
 import { RELATION_LABEL, type Connection, type Relation } from './types';
@@ -42,8 +43,9 @@ export function allRelations(): Relation[] {
     to: EntityId | null,
     evidence: string,
     sources: string[] = [],
+    said: Pick<Relation, 'quote' | 'scope'> = {},
   ) => {
-    if (from && to) relations.push({ kind, from, to, evidence, sources });
+    if (from && to) relations.push({ kind, from, to, evidence, sources, ...said });
   };
 
   for (const company of MARKET_PARTICIPANTS) {
@@ -125,6 +127,22 @@ export function allRelations(): Relation[] {
     }
   }
 
+  for (const row of DEPENDENCIES) {
+    // The dependency layer, as edges: each row keeps the sentence that carries
+    // it, so a profile or the assistant can show WHY two things are joined.
+    const company =
+      row.fromKind === 'company' ? MARKET_PARTICIPANTS.find((p) => p.name === row.from) : null;
+    const from = company ? entityId('company', company.slug) : bottleneckId(row.from);
+    add(
+      row.kind === 'needs' ? 'depends-on' : 'sells-into',
+      from,
+      bottleneckId(row.on),
+      row.primary ? 'primary source' : 'secondary source',
+      [row.source],
+      { quote: row.quote, ...(row.scope ? { scope: row.scope } : {}) },
+    );
+  }
+
   for (const row of COUNTRY_RESOURCES) {
     const from = entityId('country', row.iso2);
     for (const name of row.relatedBottlenecks) {
@@ -159,19 +177,19 @@ function connectionIndex(): Map<EntityId, Connection[]> {
     else index.set(at, [connection]);
   };
   for (const relation of allRelations()) {
+    const { kind, evidence, sources, quote, scope } = relation;
+    const said = { evidence, sources, ...(quote ? { quote } : {}), ...(scope ? { scope } : {}) };
     put(relation.from, {
-      kind: relation.kind,
+      kind,
       other: relation.to,
-      label: RELATION_LABEL[relation.kind].forward,
-      evidence: relation.evidence,
-      sources: relation.sources,
+      label: RELATION_LABEL[kind].forward,
+      ...said,
     });
     put(relation.to, {
-      kind: relation.kind,
+      kind,
       other: relation.from,
-      label: RELATION_LABEL[relation.kind].inverse,
-      evidence: relation.evidence,
-      sources: relation.sources,
+      label: RELATION_LABEL[kind].inverse,
+      ...said,
     });
   }
   byEndpoint = index;

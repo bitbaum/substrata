@@ -7,6 +7,13 @@ import { SCARCITY_LABEL } from '@/config/substrata-participants';
 import type { Entity } from '../entities/types';
 import { neighbors, GRAPH_KINDS, type GraphKind } from '../graph';
 import { slugify } from '../links';
+import {
+  companiesOn,
+  companyEdges,
+  dependentsOf,
+  inputsOf,
+  type Dependency,
+} from '../dependencies';
 import { remember, type Ledger } from './ledger';
 
 // ---------------------------------------------------------------------------
@@ -29,6 +36,16 @@ export function eventRow(event: CoverageEvent) {
     source_kind: event.primary ? 'primary source' : 'secondary source',
     quote: clip(event.quote, 220),
     status: 'Accepted event (read and committed by an analyst)',
+  };
+}
+
+/** A dependency row, compact: the other end, which way, and the sentence behind it. */
+function edgeRow(d: Dependency, other: string) {
+  return {
+    name: other,
+    relation: d.kind === 'needs' ? 'depends on' : 'sells into',
+    source: d.source,
+    quote: clip(d.quote, 180),
   };
 }
 
@@ -94,6 +111,9 @@ export function bottleneckDetail(b: Bottleneck, ledger: Ledger) {
     producer_note:
       'A producer list is corpus coverage, never the whole market. Only "Sourced" rows are findings.',
     recent_events: b.events.slice(0, 5).map(eventRow),
+    depends_on: inputsOf(b.name).map((d) => edgeRow(d, d.on)),
+    depended_on_by: dependentsOf(b.name).map((d) => edgeRow(d, d.from)),
+    companies_on_it: companiesOn(b.name).map((d) => edgeRow(d, d.from)),
   };
 }
 
@@ -126,6 +146,7 @@ export function companyDetail(p: MarketParticipant, ledger: Ledger) {
       source: x.source,
     })),
     recent_events: p.events.slice(0, 5).map(eventRow),
+    rests_on: companyEdges(p.name).map((d) => edgeRow(d, d.on)),
     note: 'Nothing here establishes market share, revenue or rank.',
   };
 }
