@@ -29,6 +29,12 @@ export function claimAround(el: Element | null, max = 600): string {
   // "Check this" buttons sit inside it and are not part of the claim.
   const copy = block.cloneNode(true) as Element;
   copy.querySelectorAll('[popover], .sr-only, .check-this').forEach((n) => n.remove());
-  const text = copy.textContent?.replace(/\s+/g, ' ').trim() ?? '';
+  let text = copy.textContent?.replace(/\s+/g, ' ').trim() ?? '';
+  // A value in a definition list means nothing without its term.
+  if (block.tagName === 'DD') {
+    let term = block.previousElementSibling;
+    while (term && term.tagName !== 'DT') term = term.previousElementSibling;
+    if (term?.textContent) text = `${term.textContent.trim()}: ${text}`;
+  }
   return text.length > max ? `${text.slice(0, max - 1)}…` : text;
 }

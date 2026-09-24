@@ -117,7 +117,11 @@ export function Figure(props: FigureProps) {
         <span className="figure-pop-check">
           <CheckThis
             value={textOf(children)}
-            source={props.source ?? props.estimate?.source}
+            source={
+              props.source ??
+              props.estimate?.source ??
+              (props.method ? methodHref(props.method) : undefined)
+            }
             label="Check this number with Ask"
           />
         </span>

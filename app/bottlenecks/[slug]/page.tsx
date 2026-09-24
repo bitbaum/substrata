@@ -128,7 +128,7 @@ export default async function BottleneckPage({ params }: RouteParams) {
           <p className="mt-2">
             <CheckThis
               label="Check these facts with Ask"
-              claim={`${b.name}: ${b.plain} Assessed ${SEVERITY.label.toLowerCase()} ${b.binding}; ${WHEN.label.toLowerCase()} ${WHEN_LABEL[b.horizon]} (judged ${b.judgedOn}); evidence: ${rowLabel(b.counts)}.`}
+              claim={`${b.name}: ${b.plain} Assessed ${SEVERITY.label.toLowerCase()} ${b.binding}; ${WHEN.label.toLowerCase()} ${WHEN_LABEL[b.horizon]} (judged ${b.judgedOn}); evidence: ${rowLabel(b.counts) ?? b.state}.`}
             />
           </p>
 

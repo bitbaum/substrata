@@ -69,11 +69,14 @@ export async function gatherEvidence(
   },
 ): Promise<string> {
   const external = v.source && /^https?:\/\//.test(v.source) ? v.source : undefined;
+  // A bare figure ("11") is not a web query; searching it costs seconds and
+  // returns noise. The page record and the method answer those.
+  const searchable = v.claim.length >= 25;
   const [cited, search] = await Promise.all([
     external && env.read
       ? env.read(external, `${v.claim} ${v.value ?? ''}`, env.signal).catch(() => null)
       : Promise.resolve(null),
-    env.web
+    env.web && searchable
       ? env.web(searchQuery(v), env.signal).catch(() => ({ status: 'could_not_look' as const }))
       : Promise.resolve({ status: 'off' as const }),
   ]);
@@ -83,14 +86,18 @@ export async function gatherEvidence(
     found.push(...search.findings.filter((f) => f.url !== cited?.url).slice(0, 3));
   addToLedger(env.ledger, found);
   env.ledger.trail.push(
-    external ? 'Read the cited source and searched the web' : 'Searched the web for the claim',
+    [external && 'Read the cited source', searchable && env.web && 'searched the web']
+      .filter(Boolean)
+      .join(' and ') || 'Checked the claim against the page',
   );
 
   const lines = [
     '## The claim to verify',
     `Claim: "${v.claim}"${v.value ? `\nThe figure in question: ${v.value}` : ''}`,
     v.source
-      ? `Cited source: ${v.source}${external && !cited ? ' — COULD NOT BE READ just now.' : ''}`
+      ? external
+        ? `Cited source: ${v.source}${cited ? '' : ' — COULD NOT BE READ just now.'}`
+        : `Backed on this site by: ${v.source} (a Substrata page or method — a computed figure is checked by re-deriving it from the records, so look them up).`
       : 'No source is cited for it on the page.',
     search.status === 'could_not_look'
       ? 'Web search could not be reached just now (that is not "nothing found").'

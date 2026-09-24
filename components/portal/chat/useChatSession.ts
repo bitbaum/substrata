@@ -49,7 +49,11 @@ export function useChatSession({
     setLive({
       steps: [],
       text: '',
-      status: verify ? 'Reading the cited source…' : 'Reading the question…',
+      status: verify
+        ? verify.source
+          ? 'Reading the cited source…'
+          : 'Checking the claim…'
+        : 'Reading the question…',
     });
     const history = [...turns, { role: 'user' as const, content: text }].slice(-8);
     try {
