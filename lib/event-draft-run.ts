@@ -129,9 +129,17 @@ export async function runDraftBatch({
     duplicate: 0,
     stopped: null,
   };
+  // One run at a time: two would draft the same newest leads and pay twice.
+  // The run row is the lock — inserted only when no unfinished run started
+  // within the last few minutes (an older unfinished one died with its process).
   const run = await db.query<{ id: string }>(
-    'INSERT INTO research_event_draft_runs DEFAULT VALUES RETURNING id',
+    `INSERT INTO research_event_draft_runs (started_at)
+     SELECT now()
+      WHERE NOT EXISTS (SELECT 1 FROM research_event_draft_runs
+                         WHERE finished_at IS NULL AND started_at > now() - interval '6 minutes')
+     RETURNING id`,
   );
+  if (!run.rows[0]) return { ...outcome, stopped: 'another run in progress' };
   const served = { id: null as string | null };
   const askModel = ask ?? freeAsk(served);
   const known = new Map(EVENTS.map((e) => [e.source, e.id]));

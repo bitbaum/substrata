@@ -167,3 +167,36 @@ export function participantsMentioned(pageText: string): string[] {
   const lower = pageText.toLowerCase();
   return PARTICIPANT_NAMES.filter((name) => name.length > 2 && lower.includes(name.toLowerCase()));
 }
+
+function words(text: string): Set<string> {
+  return new Set(
+    text
+      .toLowerCase()
+      .split(/[^a-z0-9-]+/)
+      .filter((w) => w.length > 3),
+  );
+}
+
+/**
+ * An accepted event that looks like the same thing, or undefined.
+ *
+ * The same announcement is routinely published at several URLs (a wire's
+ * regional copies, a trade-press rewrite), so matching on the source alone
+ * lets a duplicate through. Same bottleneck, dates within a week and most
+ * headline words shared is a strong enough hint to put in front of a
+ * reviewer — a hint, not a refusal, because a follow-up can look similar.
+ */
+export function similarEvent(
+  draft: { date: string; headline: string; bottlenecks: string[] },
+  events: readonly CoverageEvent[],
+): CoverageEvent | undefined {
+  const mine = words(draft.headline);
+  const day = Date.parse(draft.date);
+  return events.find((event) => {
+    if (!event.bottlenecks.some((b) => draft.bottlenecks.includes(b))) return false;
+    if (draft.date && Math.abs(Date.parse(event.date) - day) > 7 * 86_400_000) return false;
+    const theirs = words(event.headline);
+    const shared = [...mine].filter((w) => theirs.has(w)).length;
+    return shared / new Set([...mine, ...theirs]).size >= 0.4;
+  });
+}
