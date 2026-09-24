@@ -1,0 +1,402 @@
+/* Portfolio X-ray and Scenarios: working screens. Tokens only. */
+.xray-head {
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.xray-head .desk-status {
+  max-width: 72ch;
+  line-height: 1.6;
+}
+.xray-head code,
+.xray-unresolved code,
+.xray-report code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  padding: 0.05rem 0.3rem;
+  border-radius: 0.25rem;
+  background: var(--color-surface-raised);
+  overflow-wrap: anywhere;
+}
+.xray-privacy {
+  margin-top: 1rem;
+  max-width: 72ch;
+  padding: 0.8rem 1rem;
+  border-left: 3px solid var(--color-status-positive);
+  background: var(--color-surface-raised);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--color-fg-secondary);
+}
+.xray-privacy strong {
+  color: var(--color-fg-primary);
+}
+
+/* ---- Form ---- */
+.xray-form,
+.scenario-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.scenario-form {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+.scenario-form .desk-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1 1 16rem;
+  min-width: 0;
+}
+.scenario-form .desk-filter select {
+  width: 100%;
+  max-width: none;
+}
+.xray-label,
+.scenario-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-fg-secondary);
+}
+.xray-input {
+  width: 100%;
+  min-height: 11rem;
+  padding: 0.8rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 0.5rem;
+  background: var(--color-surface-page);
+  color: var(--color-fg-primary);
+  font: 0.9rem / 1.5 var(--font-mono);
+  resize: vertical;
+}
+.xray-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+.xray-actions button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.xray-file {
+  position: relative;
+  cursor: pointer;
+}
+.xray-file input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.xray-error {
+  margin-top: 0.8rem;
+  color: var(--color-status-negative);
+}
+
+/* ---- Presets ---- */
+.scenario-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+.scenario-preset {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.25rem;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  color: var(--color-fg-secondary);
+}
+.scenario-preset:hover,
+.scenario-preset.is-active {
+  border-color: var(--color-accent);
+  color: var(--color-fg-primary);
+}
+
+/* ---- Report ---- */
+.xray-report {
+  margin-top: 2rem;
+}
+.scenario-title {
+  font: 600 clamp(1.4rem, 3vw, 2rem) / 1.15 var(--font-heading);
+  letter-spacing: var(--tracking-display);
+  color: var(--color-fg-primary);
+}
+.xray-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+  color: var(--color-fg-secondary);
+}
+.xray-block {
+  margin-top: 2rem;
+  min-width: 0;
+}
+.xray-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 2rem;
+}
+.xray-h2 {
+  margin-bottom: 0.6rem;
+  font: 600 1.05rem / 1.3 var(--font-heading);
+  color: var(--color-fg-primary);
+}
+.xray-note {
+  max-width: 72ch;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--color-fg-muted);
+}
+.xray-note a,
+.xray-list a,
+.xray-holding a,
+.xray-report .xray-sub a {
+  text-decoration: underline;
+  text-decoration-color: var(--color-border-strong);
+  text-underline-offset: 0.2em;
+}
+.xray-sub {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.75rem;
+  color: var(--color-fg-muted);
+}
+.xray-strong {
+  font-weight: 600;
+  color: var(--color-fg-primary);
+}
+.xray-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  color: var(--color-fg-secondary);
+}
+.xray-unresolved {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--color-fg-secondary);
+}
+
+/* ---- Tables ---- */
+.xray-wrap {
+  /* Positioned, so screen-reader-only text inside a cell is clipped here
+     instead of widening the page from the nearest positioned ancestor. */
+  position: relative;
+  overflow-x: auto;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 0.6rem;
+}
+.xray-table {
+  width: 100%;
+  min-width: 48rem;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+.xray-table th {
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-fg-tertiary);
+  background: var(--color-surface-raised);
+  border-bottom: 1px solid var(--color-border-subtle);
+  white-space: nowrap;
+}
+.xray-table td {
+  padding: 0.55rem 0.75rem;
+  vertical-align: top;
+  color: var(--color-fg-secondary);
+  border-top: 1px solid var(--color-border-subtle);
+}
+.xray-table td a:hover {
+  color: var(--color-fg-primary);
+}
+.xray-score {
+  font-weight: 650;
+  color: var(--color-fg-primary);
+  white-space: nowrap;
+}
+.xray-score span,
+.xray-score small {
+  font-weight: 400;
+  color: var(--color-fg-muted);
+}
+.xray-score small {
+  display: block;
+  font-size: 0.7rem;
+}
+.xray-pressure {
+  font-family: var(--font-mono);
+}
+.xray-how {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+.xray-chip {
+  display: inline-block;
+  padding: 0.1rem 0.45rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 0.3rem;
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+.xray-chip.is-holds,
+.xray-chip.is-failed,
+.xray-chip.is-lost-maker {
+  border-color: var(--color-fg-secondary);
+  color: var(--color-fg-primary);
+}
+.xray-chip.is-needs,
+.xray-chip.is-downstream-holder {
+  border-color: var(--color-status-warning);
+}
+
+/* ---- Risks, events, statuses ---- */
+.xray-risk,
+.xray-effect,
+.scenario-status {
+  display: inline-block;
+  padding: 0 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: var(--color-surface-raised);
+  color: var(--color-fg-secondary);
+}
+.xray-risk.is-sole-maker,
+.xray-risk.is-no-maker,
+.xray-effect.is-tightens,
+.scenario-status.is-no-maker-left,
+.scenario-status.is-target {
+  color: var(--color-status-negative);
+}
+.xray-risk.is-private-maker,
+.xray-risk.is-private-part,
+.scenario-status.is-part-lost,
+.scenario-status.is-makers-left {
+  color: var(--color-status-warning);
+}
+.xray-effect.is-loosens {
+  color: var(--color-status-positive);
+}
+.scenario-share {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.75rem;
+}
+.scenario-none {
+  color: var(--color-fg-muted);
+}
+
+/* ---- Holdings ---- */
+.xray-holding {
+  padding: 1rem 0;
+  border-top: 1px solid var(--color-border-subtle);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--color-fg-secondary);
+}
+.xray-holding p + p {
+  margin-top: 0.35rem;
+}
+.xray-holding-head h3 {
+  font: 600 1rem / 1.3 var(--font-heading);
+  color: var(--color-fg-primary);
+}
+.xray-ticker {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+.xray-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--color-fg-tertiary);
+}
+.xray-rail + .xray-rail::before {
+  content: ' · ';
+  color: var(--color-fg-muted);
+}
+.xray-details {
+  margin-top: 0.6rem;
+}
+.xray-details summary {
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: var(--color-fg-secondary);
+}
+.xray-route {
+  margin-top: 0.7rem;
+}
+.xray-route-head {
+  font-weight: 600;
+  color: var(--color-fg-primary);
+}
+.xray-edge {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-top: 0.45rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--color-border-subtle);
+}
+.xray-edge-head {
+  font-size: 0.78rem;
+  color: var(--color-fg-tertiary);
+}
+.xray-edge q {
+  font-style: italic;
+  color: var(--color-fg-secondary);
+}
+.scenario-down,
+.scenario-recovery {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 0.85rem;
+}
+.scenario-recovery dl {
+  display: grid;
+  grid-template-columns: minmax(10rem, max-content) 1fr;
+  gap: 0.25rem 1rem;
+  margin-top: 0.4rem;
+  color: var(--color-fg-secondary);
+}
+.scenario-recovery dt {
+  color: var(--color-fg-tertiary);
+}
+.xray-limits {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+@media (max-width: 767px) {
+  .xray-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .scenario-recovery dl {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .xray-chip {
+    white-space: normal;
+  }
+}

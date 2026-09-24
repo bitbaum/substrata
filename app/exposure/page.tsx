@@ -129,6 +129,10 @@ export default async function ExposurePage({ searchParams }: { searchParams: Pro
           </a>
           {' · '}
           <Link href="/data#method-holders-listed">How listings are found</Link>
+          {' · '}
+          <Link href="/xray">X-ray your own holdings</Link>
+          {' · '}
+          <Link href="/scenarios">What if a holder fails</Link>
         </p>
 
         {rows.length === 0 ? (
