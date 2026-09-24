@@ -84,7 +84,8 @@ export function parseScenario(params: Params): Scenario | null {
 export function scenarioHref(s: { at: Target; only?: readonly string[] }): string {
   const q = new URLSearchParams({ at: targetId(s.at) });
   if (s.only && s.only.length > 0) q.set('only', s.only.join(','));
-  return `/scenarios?${q.toString()}`;
+  // A colon is legal in a query value; left unescaped, the link reads as the scenario it is.
+  return `/scenarios?${q.toString().replace(/%3A/g, ':').replace(/%2C/g, ',')}`;
 }
 
 export function scenarioTitle(s: Scenario): string {

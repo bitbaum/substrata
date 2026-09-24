@@ -30,7 +30,20 @@ function Names({ names }: { names: string[] }) {
   );
 }
 
-export function DirectHits({ hits }: { hits: DirectHit[] }) {
+export interface HitShare {
+  share: number;
+  source: string;
+  year: number;
+}
+
+export function DirectHits({
+  hits,
+  shares,
+}: {
+  hits: DirectHit[];
+  /** Recorded share of world output inside the failed country, by bottleneck slug. */
+  shares: Record<string, HitShare>;
+}) {
   return (
     <div className="xray-wrap">
       <table className="xray-table">
@@ -60,6 +73,14 @@ export function DirectHits({ hits }: { hits: DirectHit[] }) {
                       : 'One of its recorded locations; no maker rows'
                     : STATUS_LABEL[h.status]}
                 </span>
+                {shares[h.slug] && (
+                  <span className="scenario-share">
+                    <Figure source={shares[h.slug].source} asOf={String(shares[h.slug].year)}>
+                      {`${Math.round(shares[h.slug].share * 100)}%`}
+                    </Figure>{' '}
+                    of recorded world output is in the failed country
+                  </span>
+                )}
               </td>
               <td>
                 <Names names={h.lost} />

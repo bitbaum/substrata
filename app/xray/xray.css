@@ -194,6 +194,9 @@
 
 /* ---- Tables ---- */
 .xray-wrap {
+  /* Positioned, so screen-reader-only text inside a cell is clipped here
+     instead of widening the page from the nearest positioned ancestor. */
+  position: relative;
   overflow-x: auto;
   border: 1px solid var(--color-border-subtle);
   border-radius: 0.6rem;
@@ -286,12 +289,17 @@
 }
 .xray-risk.is-private-maker,
 .xray-risk.is-private-part,
-.scenario-status.is-part-lost {
+.scenario-status.is-part-lost,
+.scenario-status.is-makers-left {
   color: var(--color-status-warning);
 }
-.xray-effect.is-loosens,
-.scenario-status.is-makers-left {
+.xray-effect.is-loosens {
   color: var(--color-status-positive);
+}
+.scenario-share {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.75rem;
 }
 .scenario-none {
   color: var(--color-fg-muted);

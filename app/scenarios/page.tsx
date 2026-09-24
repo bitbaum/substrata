@@ -45,6 +45,18 @@ export default async function ScenariosPage({ searchParams }: { searchParams: Pr
         (p) => p.at === targetId(scenario.at) && p.only.join(',') === scenario.only.join(','),
       )
     : undefined;
+  const shares = Object.fromEntries(
+    recovery.flatMap((r) =>
+      r.output
+        ? [
+            [
+              r.slug,
+              { share: r.output.share, source: r.output.source, year: r.output.production.year },
+            ],
+          ]
+        : [],
+    ),
+  );
   const listed = companies.filter(
     (c) => c.listing?.status === 'listed' || c.listing?.status === 'parent',
   );
@@ -67,7 +79,7 @@ export default async function ScenariosPage({ searchParams }: { searchParams: Pr
 
         {scenario && (
           <section className="xray-report" aria-label="Scenario result">
-            <h2 className="scenario-title">{scenarioTitle(scenario)}</h2>
+            <h2 className="scenario-title">{preset?.title ?? scenarioTitle(scenario)}</h2>
             {preset && (
               <p className="xray-note">
                 Why this is a live question: <a href={preset.basis.href}>{preset.basis.label}</a>
@@ -88,7 +100,7 @@ export default async function ScenariosPage({ searchParams }: { searchParams: Pr
                   The corpus records nothing this node makes, supplies or hosts in this scope.
                 </p>
               ) : (
-                <DirectHits hits={hits} />
+                <DirectHits hits={hits} shares={shares} />
               )}
             </div>
 
