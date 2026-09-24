@@ -1,6 +1,13 @@
-import { answerQuestion, availableModels, isOfferedModel, type ChatTurn } from '@/lib/chat';
+import { availableModels, isOfferedModel, type ChatTurn } from '@/lib/chat';
 import { allowRequest, boundedJson, sameOrigin } from '@/lib/request-guards';
-import { ByokError, isValidByokConfig, type ByokConfig } from '@/lib/byok';
+import { isValidByokConfig, type ByokConfig } from '@/lib/byok';
+import { byokTurn, freeLinks, runAgent, streamedTurn, type AgentEvent } from '@/lib/chat-agent';
+import { readerContext } from '@/lib/chat-context';
+import { lookUp, webLookupEnabled } from '@/lib/chat-web';
+import { currentSession } from '@/lib/auth';
+import { database } from '@/lib/db';
+import { parseFollows, type Follows } from '@/lib/follows';
+import { searchLeads } from '@/lib/sweep-store';
 
 export const dynamic = 'force-dynamic';
 
@@ -15,6 +22,21 @@ function turns(raw: unknown): ChatTurn[] {
         typeof t.content === 'string' &&
         t.content.length <= 4000,
     );
+}
+
+/** The signed-in reader's follows, or null. A failure here costs context, never the answer. */
+async function followsOf(): Promise<Follows | null> {
+  const session = await currentSession();
+  if (!session?.actorId || !process.env.DATABASE_URL) return null;
+  try {
+    const row = await database().query<{ topics: unknown }>(
+      'SELECT topics FROM research_preferences WHERE actor_id=$1',
+      [session.actorId],
+    );
+    return parseFollows(row.rows[0]?.topics);
+  } catch {
+    return parseFollows(undefined);
+  }
 }
 
 export async function GET() {
@@ -65,35 +87,66 @@ export async function POST(request: Request) {
         { error: 'Hourly question limit reached. Please try again later.' },
         { status: 429, headers: { 'Retry-After': '3600' } },
       );
+    const topicRaw = (input as { topic?: unknown })?.topic;
+    const topic = typeof topicRaw === 'string' ? topicRaw.slice(0, 200) : undefined;
+    const context = readerContext({ path: onPath, topic, follows: await followsOf() });
+    // The free tier's budgets are small and shared; a reader's own frontier
+    // key is metered by nobody but them, so it gets room to think.
+    const limits = byok
+      ? { maxTokens: 4096, timeoutMs: 60_000, signal: request.signal }
+      : { maxTokens: 1800, timeoutMs: 25_000, signal: request.signal };
+    const turn = byok
+      ? byokTurn(byok, limits)
+      : streamedTurn({
+          chain: freeLinks(model),
+          ...limits,
+          extraHeaders: {
+            'HTTP-Referer': 'https://substrata.orangecat.ch',
+            'X-Title': 'Substrata',
+          },
+        });
     const encoder = new TextEncoder();
     const stream = new ReadableStream({
       async start(controller) {
-        const send = (obj: unknown) =>
-          controller.enqueue(encoder.encode(`${JSON.stringify(obj)}\n`));
+        const send = (event: AgentEvent) => {
+          try {
+            controller.enqueue(encoder.encode(`${JSON.stringify(event)}\n`));
+          } catch {
+            // The reader went away; the loop notices through the signal.
+          }
+        };
         try {
-          const data = await answerQuestion(question, request.signal, history, model, onPath, {
+          await runAgent({
+            question,
+            history,
+            context,
+            turn,
             byok,
+            emit: send,
+            env: {
+              signal: request.signal,
+              rails:
+                context.reader && !context.reader.everything ? context.reader.rails : undefined,
+              leads: process.env.DATABASE_URL ? (q) => searchLeads(q) : undefined,
+              web: webLookupEnabled() ? (query, signal) => lookUp(query, signal) : undefined,
+            },
           });
-          send({ type: 'done', data });
         } catch (error) {
           console.error(
             'Substrata chat unavailable',
             error instanceof Error ? error.name : 'unknown',
           );
-          // A BYOK failure is the vendor talking to the reader, not this
-          // deployment breaking — "your key was rejected" is information the
-          // reader can act on, and burying it behind "temporarily
-          // unavailable" would send them to check OUR status page for a
-          // problem that is on their own account.
           send({
             type: 'error',
             error:
-              error instanceof ByokError
-                ? error.message
-                : 'The assistant is temporarily unavailable. You can still search the research or send a contribution.',
+              'The assistant is temporarily unavailable. You can still search the research or send a contribution.',
           });
         } finally {
-          controller.close();
+          try {
+            controller.close();
+          } catch {
+            // already closed
+          }
         }
       },
     });

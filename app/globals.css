@@ -1498,6 +1498,22 @@ html[data-theme='light'] .world-map-country.has-resource.has-corpus {
      already has a label on it, and 0.18em pushes it onto its own row. */
   letter-spacing: 0.08em;
 }
+/* What the assistant looked up, above its answer: quiet, one line each. */
+.companion-trail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-bottom: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-fg-tertiary);
+}
+.companion-trail li::before {
+  content: '↳ ';
+}
+.companion-web li span {
+  color: var(--color-fg-muted);
+}
 .companion-sources {
   margin-top: 1rem;
   font-size: 0.8rem;
