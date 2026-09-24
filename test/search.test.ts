@@ -46,6 +46,8 @@ const PAIRS: { q: string; top: string; type: SearchType; within?: number }[] = [
   },
   { q: 'nanoimprint', top: 'Nanoimprint lithography', type: 'science' },
   { q: 'Wolfspeed', top: 'Wolfspeed', type: 'company' },
+  // Half-typed: the common completion ("china"), not the rare one ("Chalco").
+  { q: 'gallium ch', top: 'Gallium, refined', type: 'bottleneck' },
 ];
 
 for (const { q, top, type, within = 1 } of PAIRS) {
@@ -130,10 +132,22 @@ test('a name outranks an alias, which outranks the body', () => {
   );
 });
 
-test('matched words are marked in the title and the snippet', () => {
-  const hit = search('quartz').hits[0];
-  assert.ok(hit.title.some((s) => s.hit && /quartz/i.test(s.text)));
-  assert.ok(hit.snippet.some((s) => s.hit));
+test('every hit shows why it matched: a marked title, or else a marked passage', () => {
+  const { hits } = search('quartz', { limit: 50 });
+  assert.ok(hits[0].title.some((s) => s.hit && /quartz/i.test(s.text)));
+  const bodyOnly = hits.filter((h) => !h.title.some((s) => s.hit));
+  assert.ok(bodyOnly.length > 0, 'the query should reach some documents only through their text');
+  for (const h of bodyOnly)
+    assert.ok(
+      h.snippet.some((s) => s.hit),
+      `${plain(h.title)} has no marked passage`,
+    );
+});
+
+test('snippets never quote a source URL', () => {
+  for (const q of ['ASML', 'quartz', 'gallium'])
+    for (const h of search(q, { limit: 50 }).hits)
+      assert.ok(!/https?:\/\//.test(plain(h.snippet)), `${plain(h.title)}: ${plain(h.snippet)}`);
 });
 
 test('counts per type add up to the total, and a type filter narrows hits only', () => {

@@ -154,7 +154,7 @@ function PageSearch({ initialQuery, type }: { initialQuery: string; type: string
         value={q}
         onChange={(e) => setQ(e.target.value)}
         onKeyDown={onKeyDown}
-        placeholder="Companies, materials, countries, events, terms…"
+        placeholder="ASML, quartz, gallium, Japan…"
         maxLength={200}
         autoComplete="off"
         spellCheck={false}

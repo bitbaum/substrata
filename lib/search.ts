@@ -137,6 +137,15 @@ function noteBodies(): Map<string, string> {
   return bodies;
 }
 
+/**
+ * Source URLs are in the retrieval text for the assistant's benefit; to a
+ * search they are noise ("asml" matched inside "www.asml.com", and every
+ * document gained the words "https" and "com").
+ */
+function withoutUrls(text: string): string {
+  return text.replace(/\bhttps?:\/\/\S+/g, '').replace(/\s+\(\s*\)/g, '');
+}
+
 export function searchDocuments(): SearchDoc[] {
   const bodies = noteBodies();
   const entities: SearchDoc[] = allEntities().map((e) => ({
@@ -146,7 +155,7 @@ export function searchDocuments(): SearchDoc[] {
     // A country's ISO code is an alias, and "cn" or "us" are real searches.
     aka: e.aka,
     summary: e.summary,
-    body: `${e.retrievalText} ${e.topics.join(' ')} ${bodies.get(e.id) ?? ''}`,
+    body: withoutUrls(`${e.retrievalText} ${e.topics.join(' ')} ${bodies.get(e.id) ?? ''}`),
     href: e.href,
     meta: e.evidence,
   }));
@@ -187,7 +196,7 @@ export function searchDocuments(): SearchDoc[] {
     title: g.term,
     aka: [],
     summary: g.detail,
-    body: (g.seeAlso ?? []).join(' '),
+    body: g.seeAlso?.length ? `See also: ${g.seeAlso.join(', ')}.` : '',
     href: glossaryHref(g.term),
     meta: 'definition',
   }));
@@ -258,6 +267,8 @@ function defaultIndex(): SearchIndex {
 // Query expansion
 // ---------------------------------------------------------------------------
 
+const PREFIX = 0.7;
+
 interface Expansion {
   word: string;
   /** 1 exact, less for a prefix or a correction. */
@@ -310,7 +321,7 @@ function expand(index: SearchIndex, token: string, last: boolean): Expansion[] {
       .filter((w) => w !== token)
       .sort((a, b) => (index.df.get(b) ?? 0) - (index.df.get(a) ?? 0))
       .slice(0, 60);
-    for (const word of more) out.push({ word, quality: 0.7 });
+    for (const word of more) out.push({ word, quality: PREFIX });
   }
   // Corrections only for a word the corpus does not contain at all, so a real
   // word is never "corrected" into a neighbour.
@@ -433,7 +444,7 @@ function scoreDoc(
   }
   // Every word in the name, and a name that is mostly those words, reads as "this is it".
   if (inName === tokens.length) score += 8;
-  score += (inName / d.nameLength) * 6;
+  score += (inName / d.nameLength) * 3;
   // A partial match is ranked by how much of the query it covers first.
   if (!requireAll) score *= hitCount / tokens.length;
   score *= TYPE_WEIGHT[d.doc.type] ?? 1;
@@ -489,12 +500,16 @@ function segments(text: string, re: RegExp | null, source = probeOf(text)): Segm
 const SNIPPET = 190;
 
 /** A window of the summary or body around the first marked word. */
-function snippet(d: Indexed, re: RegExp | null): Segment[] {
+function snippet(d: Indexed, re: RegExp | null, titleMatched: boolean): Segment[] {
   const { doc } = d;
-  const candidates: [string, string][] = [
-    [doc.summary, d.probeSummary],
-    [doc.body, d.probeBody],
-  ];
+  // When the name already shows why this matched, the plain description is
+  // worth more than a passage of body text that happens to repeat the name.
+  const candidates: [string, string][] = titleMatched
+    ? [[doc.summary, d.probeSummary]]
+    : [
+        [doc.summary, d.probeSummary],
+        [doc.body, d.probeBody],
+      ];
   for (const [text, probe] of candidates) {
     if (!re || !text) continue;
     re.lastIndex = 0;
@@ -559,12 +574,19 @@ export function search(rawQuery: string, options: SearchOptions = {}): SearchRes
   // The last word keeps its prefix power only when the query does not end in
   // a space, which is how a reader says "that word is finished".
   const typing = !/\s$/.test(rawQuery);
-  const expansions = tokens.map((t, i) =>
-    expand(index, t, typing && i === tokens.length - 1).map((e) => ({
+  const expansions = tokens.map((t, i) => {
+    const found = expand(index, t, typing && i === tokens.length - 1);
+    // A half-typed word is weighted as its COMMONEST completion, not each
+    // completion by its own rarity: otherwise "gallium ch" ranks the rare
+    // "Chalco" above the obvious "China" just because fewer documents say it.
+    const prefixIdf = Math.min(
+      ...found.filter((e) => e.quality === PREFIX).map((e) => idf(index, e.word)),
+    );
+    return found.map((e) => ({
       ...e,
-      weight: e.quality * idf(index, e.word),
-    })),
-  );
+      weight: e.quality * (e.quality === PREFIX ? prefixIdf : idf(index, e.word)),
+    }));
+  });
   const corrections = new Map<string, string>();
   tokens.forEach((t, i) => {
     const e = expansions[i];
@@ -601,11 +623,16 @@ export function search(rawQuery: string, options: SearchOptions = {}): SearchRes
 
   const toHit = ({ d, m }: { d: Indexed; m: Match }): SearchHit => {
     const re = markPattern(m.words);
+    const title = segments(d.doc.title, re);
     return {
       id: d.doc.id,
       type: d.doc.type,
-      title: segments(d.doc.title, re),
-      snippet: snippet(d, re),
+      title,
+      snippet: snippet(
+        d,
+        re,
+        title.some((s) => s.hit),
+      ),
       href: d.doc.href,
       meta: d.doc.meta,
       score: Math.round(m.score * 100) / 100,
