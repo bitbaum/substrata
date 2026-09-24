@@ -17,6 +17,7 @@ import './styles/follow.css';
 import './styles/figure.css';
 import './styles/ticker.css';
 import './styles/screen.css';
+import './styles/science-pipeline.css';
 import { SITE } from '@/lib/site';
 import { AskDock } from '@/components/portal/AskDock';
 

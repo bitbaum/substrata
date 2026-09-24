@@ -70,6 +70,20 @@ export type DeskItem =
       effect: EventEffect;
       form: string;
       dateOnly: false;
+    }
+  | {
+      /** A paper, preprint or grant the science feeds collected: primary, machine-matched, unreviewed. */
+      source: 'science';
+      id: string;
+      at: string;
+      title: string;
+      url: string;
+      host: string;
+      bottlenecks: string[];
+      effect: EventEffect;
+      /** "Paper", "Preprint", "Grant". */
+      kind: string;
+      dateOnly: true;
     };
 
 /** Leads older than this are not news any more, whenever the sweep found them. */

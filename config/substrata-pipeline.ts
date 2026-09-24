@@ -114,7 +114,7 @@ export const SCIENCE_QUERIES: Record<string, ScienceQuery> = {
   'High-bandwidth memory stacking yield': {
     phrases: ['high bandwidth memory', 'hybrid bonding', 'through-silicon via', 'DRAM stacking'],
     context: ['hbm', 'dram', 'stack', 'bonding'],
-    exclude: ['welding', 'weld', 'rivet', 'kv cache', 'llm'],
+    exclude: ['welding', 'weld', 'rivet'],
   },
   'Grain-oriented electrical steel (GOES)': {
     phrases: ['grain-oriented electrical steel', 'grain oriented silicon steel', 'amorphous core'],

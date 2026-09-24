@@ -125,19 +125,25 @@ export async function itemsFor(
   return result.rows.map(toItem);
 }
 
-/** New this week, on the given bottlenecks or all of them. */
+/**
+ * New this week, on the given bottlenecks or all of them. The desk passes
+ * `foundDays: null`: there a paper stays until it is older than the reader's
+ * window, however long ago it was collected.
+ */
 export async function newItems(
   bottlenecks: readonly string[] | null = null,
   limit = 100,
   publishedDays = NEW_PUBLISHED_DAYS,
+  foundDays: number | null = NEW_FOUND_DAYS,
 ): Promise<StoredItem[]> {
   const result = await database().query<Row>(
     `SELECT ${COLUMNS} FROM research_science_items
       WHERE published_on > current_date - $3::int
-        AND first_seen > now() - interval '${NEW_FOUND_DAYS} days'
+        AND published_on <= current_date
+        AND ($4::int IS NULL OR first_seen > now() - ($4::int * interval '1 day'))
         AND ($1::text[] IS NULL OR bottleneck = ANY($1))
       ORDER BY published_on DESC, score DESC LIMIT $2`,
-    [bottlenecks, limit, publishedDays],
+    [bottlenecks, limit, publishedDays, foundDays],
   );
   return result.rows.map(toItem);
 }
@@ -152,12 +158,14 @@ export interface OrgActivity {
 }
 
 /** Every institution named on an item, with how many items per bottleneck. */
-export async function orgActivity(): Promise<OrgActivity[]> {
+export async function orgActivity(bottleneck: string | null = null): Promise<OrgActivity[]> {
   const result = await database().query<OrgActivity>(
     `SELECT inst->>'name' AS name, max(inst->>'type') AS type, max(inst->>'country') AS country,
             bottleneck, count(*)::int AS items, max(published_on)::text AS latest
        FROM research_science_items, jsonb_array_elements(institutions) AS inst
+      WHERE $1::text IS NULL OR bottleneck = $1
       GROUP BY inst->>'name', bottleneck`,
+    [bottleneck],
   );
   return result.rows;
 }

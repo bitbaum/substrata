@@ -96,6 +96,13 @@ export function FeedItem({
             >
               Verified · {EVENT_EFFECT_LABEL[item.effect].toLowerCase()}
             </span>
+          ) : item.source === 'science' ? (
+            <span
+              className="desk-badge desk-badge-science"
+              title="Collected by the science feeds because it names this rail's research terms. Nobody has reviewed it; its bearing on the bottleneck is not judged."
+            >
+              {item.kind} · not yet reviewed
+            </span>
           ) : item.source === 'filing' ? (
             <span
               className="desk-badge desk-badge-filing"

@@ -32,6 +32,8 @@ export interface DeskSettings {
   showLeads: boolean;
   /** Show SEC filings by listed holders of the reader's rails. */
   showFilings: boolean;
+  /** Show new papers, preprints and grants on the reader's rails, from the science feeds. */
+  showScience: boolean;
   /** The time window the feed opens on. */
   window: Window;
   grouping: Grouping;
@@ -67,6 +69,7 @@ export const DEFAULT_DESK: DeskSettings = {
   showVerified: true,
   showLeads: true,
   showFilings: true,
+  showScience: true,
   window: '30',
   grouping: 'day',
   strictLeads: true,
@@ -122,6 +125,7 @@ export function parseDesk(raw: unknown): DeskSettings {
     showVerified: bool('showVerified'),
     showLeads: bool('showLeads'),
     showFilings: bool('showFilings'),
+    showScience: bool('showScience'),
     window: WINDOWS.includes(o.window as Window) ? (o.window as Window) : DEFAULT_DESK.window,
     grouping: GROUPINGS.includes(o.grouping as Grouping)
       ? (o.grouping as Grouping)

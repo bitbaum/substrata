@@ -33,7 +33,7 @@ export async function toggleMark(form: FormData) {
   const actorId = await actor();
   const key = String(form.get('key') ?? '');
   const state = String(form.get('state') ?? '') as MarkState;
-  if (!/^(event|lead|filing):[\w.-]{1,120}$/.test(key) || !STATES.includes(state)) return;
+  if (!/^(event|lead|filing|science):[\w.-]{1,120}$/.test(key) || !STATES.includes(state)) return;
   await setMark(actorId, key, state, form.get('on') === '1');
   revalidatePath('/account');
 }
@@ -110,6 +110,7 @@ export async function saveSettings(form: FormData) {
       showVerified: form.get('showVerified') === 'on',
       showLeads: form.get('showLeads') === 'on',
       showFilings: form.get('showFilings') === 'on',
+      showScience: form.get('showScience') === 'on',
       strictLeads: form.get('strictLeads') === 'on',
       window: form.get('window'),
       grouping: form.get('grouping'),

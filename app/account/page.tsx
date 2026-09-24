@@ -22,6 +22,8 @@ import { ageLabel, reviewQueue } from '@/lib/event-draft-store';
 import { filingsFor } from '@/lib/filings-store';
 import { filingItems, registrantsOn } from '@/lib/desk-filings';
 import type { Filing } from '@/lib/filings';
+import { newItems, type StoredItem } from '@/lib/science-read';
+import { scienceItems } from '@/lib/desk-science';
 
 export const dynamic = 'force-dynamic';
 export const metadata = { title: 'Desk' };
@@ -125,6 +127,12 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
     // Table not provisioned yet, or the database is down: no filings, said below.
     filings = [];
   }
+  let science: StoredItem[] = [];
+  try {
+    science = await newItems(railNames, 200, settings.leadMaxAgeDays, null);
+  } catch {
+    science = [];
+  }
   const willSweep = Boolean(settings.sweepOnOpen && fresh && fresh.stale > 0);
   if (willSweep) {
     // After the response, never before it: the first paint must not wait on the web.
@@ -143,6 +151,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
   const feed = [
     ...buildFeed(events, leads ?? [], now, settings.leadMaxAgeDays, settings.strictLeads),
     ...filingItems(filings, registrants),
+    ...scienceItems(science),
   ].sort((a, b) => b.at.localeCompare(a.at));
 
   const query = parseDeskQuery(params, settings, rails);

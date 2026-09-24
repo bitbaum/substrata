@@ -5,7 +5,7 @@
  */
 import type { ScienceQuery } from '@/config/substrata-pipeline';
 import type { ScienceItem } from './science';
-import { arr, daysBefore, isoDay, num, obj, quoted, str } from './science-sources';
+import { arr, daysBefore, isoDay, num, obj, str } from './science-sources';
 
 // ---------------------------------------------------------------- NSF
 

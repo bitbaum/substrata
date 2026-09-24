@@ -13,7 +13,7 @@ import { TECHNOLOGIES, TECHNOLOGY_LABEL } from '@/config/substrata-taxonomy';
 import { Heading, Legend, Page, SectionHeader, Shell } from '@/components/portal/Shell';
 import { Figure } from '@/components/portal/Figure';
 import { ReadinessFigure } from '@/components/portal/Status';
-import { bottleneckHref, scienceHref } from '@/lib/links';
+import { bottleneckHref, pipelineHref, scienceHref } from '@/lib/links';
 
 export const metadata: Metadata = {
   title: 'Science',
@@ -41,6 +41,11 @@ export default function SciencePage() {
         <SectionHeader
           title="Science"
           lede="A map of constraints is half the picture. This is the other half: what could remove each one, how it would work, and how close it is to being usable at scale."
+          action={
+            <Link href={pipelineHref()} className="text-accent underline-offset-4 hover:underline">
+              The pipeline: new papers, grants and who is doing them →
+            </Link>
+          }
           stats={[
             {
               label: 'Technologies tracked',

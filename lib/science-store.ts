@@ -25,14 +25,21 @@ export const BOTTLENECKS_PER_RUN = 2;
 export const REFRESH_HOURS = 20;
 const ARXIV_GAP_MS = 3_100;
 
-async function get(url: string, init: RequestInit = {}): Promise<Response> {
-  const response = await fetch(url, {
-    ...init,
-    headers: { 'User-Agent': USER_AGENT, Accept: 'application/json', ...init.headers },
-    signal: AbortSignal.timeout(25_000),
-  });
-  if (!response.ok) throw new Error(`${new URL(url).hostname} ${response.status}`);
-  return response;
+/** One retry: the grant APIs drop a request now and then under no load at all. */
+async function get(url: string, init: RequestInit = {}, tries = 2): Promise<Response> {
+  try {
+    const response = await fetch(url, {
+      ...init,
+      headers: { 'User-Agent': USER_AGENT, Accept: 'application/json', ...init.headers },
+      signal: AbortSignal.timeout(30_000),
+    });
+    if (!response.ok) throw new Error(`${new URL(url).hostname} ${response.status}`);
+    return response;
+  } catch (error) {
+    if (tries <= 1) throw error;
+    await new Promise((r) => setTimeout(r, 2_000));
+    return get(url, init, tries - 1);
+  }
 }
 
 /** Every source for one bottleneck. A source that fails is named, and the others still count. */
@@ -44,8 +51,8 @@ export async function collect(
   const attempt = async (name: string, run: () => Promise<ScienceItem[]>) => {
     try {
       return await run();
-    } catch {
-      failed.push(name);
+    } catch (error) {
+      failed.push(`${name} (${error instanceof Error ? error.message.slice(0, 60) : 'error'})`);
       return [];
     }
   };
