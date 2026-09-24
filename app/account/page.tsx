@@ -18,6 +18,9 @@ import { buildFeed, type DeskItem, type Lead } from '@/lib/desk';
 import { applyFilter, isRead, itemKey, railActivity, VIEWS, type View } from '@/lib/desk-filter';
 import { sweepStaleNow } from '@/lib/sweep-store';
 import { leadsFor, railFreshness } from '@/lib/sweep-queue';
+import { filingsFor } from '@/lib/filings-store';
+import { filingItems, registrantsOn } from '@/lib/desk-filings';
+import type { Filing } from '@/lib/filings';
 
 export const dynamic = 'force-dynamic';
 export const metadata = { title: 'Desk' };
@@ -101,8 +104,10 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
 
   // The database holds the live half of the desk. If it cannot be read the
   // desk still shows verified events, and says the rest is missing.
+  const registrants = registrantsOn(new Set(railNames));
   let leads: Lead[] | null = null;
   let fresh: Awaited<ReturnType<typeof railFreshness>> | null = null;
+  let filings: Filing[] = [];
   try {
     [leads, fresh] = await Promise.all([
       leadsFor(railNames, settings.leadMaxAgeDays),
@@ -110,6 +115,12 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
     ]);
   } catch {
     leads = null;
+  }
+  try {
+    filings = await filingsFor([...registrants.keys()], settings.leadMaxAgeDays);
+  } catch {
+    // Table not provisioned yet, or the database is down: no filings, said below.
+    filings = [];
   }
   const willSweep = Boolean(settings.sweepOnOpen && fresh && fresh.stale > 0);
   if (willSweep) {
@@ -126,7 +137,10 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
   const events = EVENTS.filter(
     (e) => e.bottlenecks.some((b) => railSet.has(b)) || e.participants.some((p) => coNames.has(p)),
   );
-  const feed = buildFeed(events, leads ?? [], now, settings.leadMaxAgeDays, settings.strictLeads);
+  const feed = [
+    ...buildFeed(events, leads ?? [], now, settings.leadMaxAgeDays, settings.strictLeads),
+    ...filingItems(filings, registrants),
+  ].sort((a, b) => b.at.localeCompare(a.at));
 
   const query = parseDeskQuery(params, settings, rails);
   const counts = Object.fromEntries(

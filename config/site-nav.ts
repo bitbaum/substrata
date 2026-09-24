@@ -55,6 +55,11 @@ const LINK = {
     href: '/markets',
     hint: 'Who makes the constrained things, graded by how hard each would be to replace.',
   },
+  exposure: {
+    label: 'Exposure',
+    href: '/exposure',
+    hint: 'Every bottleneck, who holds it, and where their shares trade — with a CSV download.',
+  },
   policy: {
     label: 'Policy',
     href: '/policy',
@@ -147,6 +152,9 @@ export const PUBLIC_NAV: readonly NavLink[] = RESEARCH_NAV;
 
 export const DESK_NAV: readonly NavLink[] = [
   { label: 'Desk', href: '/account', hint: 'Your saved research and follows.' },
+  // A working screen rather than a place to browse, so it lives with the desk;
+  // the public reaches it from Markets.
+  LINK.exposure,
   ...RESEARCH_NAV,
   { label: 'Inbox', href: '/review', hint: 'Contributions waiting on a reviewer.' },
 ];

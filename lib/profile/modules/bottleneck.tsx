@@ -9,6 +9,8 @@ import { marketHref } from '../../links';
 import type { Entity } from '../../entities/types';
 import { t } from '../../i18n/messages';
 import type { ProfileModule } from '../types';
+import { Ticker } from '@/components/exposure/Ticker';
+import { listingForName } from '@/lib/listings';
 
 // What a bottleneck is, how it is judged and who makes it. What governs it and
 // what would change it live in `bottleneck-levers.tsx`.
@@ -127,6 +129,9 @@ const producers: ProfileModule<Bottleneck> = {
                   >
                     {p.name}
                   </Link>
+                  <span className="mt-1 block text-xs">
+                    <Ticker listing={listingForName(p.name)} compact />
+                  </span>
                 </td>
                 <td className="hidden py-3 pr-4 font-mono text-xs tabular-nums text-fg-secondary sm:table-cell">
                   {p.jurisdictions.join(' ')}

@@ -30,6 +30,8 @@ export interface DeskSettings {
   showVerified: boolean;
   /** Show leads the sweep found on the open web and nobody has read yet. */
   showLeads: boolean;
+  /** Show SEC filings by listed holders of the reader's rails. */
+  showFilings: boolean;
   /** The time window the feed opens on. */
   window: Window;
   grouping: Grouping;
@@ -64,6 +66,7 @@ export type Follows = {
 export const DEFAULT_DESK: DeskSettings = {
   showVerified: true,
   showLeads: true,
+  showFilings: true,
   window: '30',
   grouping: 'day',
   strictLeads: true,
@@ -118,6 +121,7 @@ export function parseDesk(raw: unknown): DeskSettings {
   return {
     showVerified: bool('showVerified'),
     showLeads: bool('showLeads'),
+    showFilings: bool('showFilings'),
     window: WINDOWS.includes(o.window as Window) ? (o.window as Window) : DEFAULT_DESK.window,
     grouping: GROUPINGS.includes(o.grouping as Grouping)
       ? (o.grouping as Grouping)

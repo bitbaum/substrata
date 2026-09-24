@@ -1,6 +1,7 @@
 import type { Follows } from '@/lib/follows';
 import { WINDOWS, WINDOW_LABEL } from '@/lib/follows';
 import { ON_DEMAND_NODES } from '@/lib/sweep-store';
+import { FORMS } from '@/lib/filings';
 
 /** Feed defaults, freshness and profile: the rest of the reader's own settings form. */
 export function FeedSettings({ follows }: { follows: Follows }) {
@@ -18,6 +19,15 @@ export function FeedSettings({ follows }: { follows: Follows }) {
             <span>
               Verified events
               <small>Reviewed and filed by Substrata, with source and quote.</small>
+            </span>
+          </label>
+          <label className="settings-check">
+            <input type="checkbox" name="showFilings" defaultChecked={desk.showFilings} />
+            <span>
+              SEC filings
+              <small>
+                {FORMS.join(', ')} filed by listed holders of your rails, from SEC EDGAR.
+              </small>
             </span>
           </label>
           <label className="settings-check">

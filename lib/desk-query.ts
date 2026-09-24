@@ -10,11 +10,12 @@ import { WINDOWS, type DeskSettings, type Grouping, type Window } from '@/lib/fo
 
 export type Params = Record<string, string | undefined>;
 
-export const SOURCES = ['all', 'verified', 'leads'] as const;
+export const SOURCES = ['all', 'verified', 'filings', 'leads'] as const;
 export type Sources = (typeof SOURCES)[number];
 export const SOURCE_LABEL: Record<Sources, string> = {
-  all: 'Verified events + web leads',
+  all: 'All sources you show',
   verified: 'Verified events only',
+  filings: 'SEC filings only',
   leads: 'Web leads only',
 };
 
@@ -51,15 +52,13 @@ export function parseDeskQuery(
   const window: Window = WINDOWS.includes(params.w as Window)
     ? (params.w as Window)
     : settings.window;
-  const fallback: Sources =
-    settings.showVerified && !settings.showLeads
-      ? 'verified'
-      : !settings.showVerified && settings.showLeads
-        ? 'leads'
-        : 'all';
+  // "All" means every source the reader switched on in settings; a single
+  // source picked here overrides that for this view.
   const sources: Sources = SOURCES.includes(params.src as Sources)
     ? (params.src as Sources)
-    : fallback;
+    : 'all';
+  const on = (source: Exclude<Sources, 'all'>, enabled: boolean) =>
+    sources === source || (sources === 'all' && enabled);
   const effect: EventEffect | null =
     params.fx === 'tightens' || params.fx === 'loosens' ? params.fx : null;
   const rail = rails.find((b) => b.slug === params.rail);
@@ -86,8 +85,9 @@ export function parseDeskQuery(
     filtered: Boolean(params.w || params.src || params.fx || params.rail || params.q),
     base: {
       days: window === 'all' ? null : Number(window),
-      showVerified: sources !== 'leads',
-      showLeads: sources !== 'verified',
+      showVerified: on('verified', settings.showVerified),
+      showLeads: on('leads', settings.showLeads),
+      showFilings: on('filings', settings.showFilings),
       effect,
       bottlenecks: rail ? [rail.name] : [],
       q,

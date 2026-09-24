@@ -1,0 +1,1712 @@
+{
+  "version": 1,
+  "checkedOn": "2026-09-24",
+  "listings": {
+    "asml": {
+      "status": "listed",
+      "primary": {
+        "ticker": "ASML",
+        "exchange": "NA",
+        "name": "ASML HOLDING NV",
+        "figi": "BBG000C1HT47",
+        "source": "https://www.openfigi.com/id/BBG000C1HT47"
+      },
+      "us": {
+        "ticker": "ASML",
+        "exchange": "Nasdaq",
+        "name": "ASML HOLDING NV",
+        "cik": 937966,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=937966"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "tokyo-electron": {
+      "status": "listed",
+      "primary": {
+        "ticker": "8035",
+        "exchange": "JP",
+        "name": "TOKYO ELECTRON LTD",
+        "figi": "BBG000BB59S7",
+        "source": "https://www.openfigi.com/id/BBG000BB59S7"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "hitachi-energy": {
+      "status": "parent",
+      "parent": "Hitachi",
+      "note": "Hitachi Energy is a wholly owned subsidiary of Hitachi.",
+      "primary": {
+        "ticker": "6501",
+        "exchange": "JP",
+        "name": "HITACHI LTD",
+        "figi": "BBG000C2QRN8",
+        "source": "https://www.openfigi.com/id/BBG000C2QRN8"
+      },
+      "us": {
+        "ticker": "HTHIY",
+        "exchange": "OTC",
+        "name": "HITACHI LTD",
+        "cik": 47710,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=47710"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "linde": {
+      "status": "listed",
+      "primary": {
+        "ticker": "LIN",
+        "exchange": "Nasdaq",
+        "name": "LINDE PLC",
+        "cik": 1707925,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1707925"
+      },
+      "us": {
+        "ticker": "LIN",
+        "exchange": "Nasdaq",
+        "name": "LINDE PLC",
+        "cik": 1707925,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1707925"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "sibelco": {
+      "status": "none-found",
+      "query": "Sibelco",
+      "checkedOn": "2026-09-24"
+    },
+    "the-quartz-corp": {
+      "status": "none-found",
+      "query": "The Quartz Corp",
+      "checkedOn": "2026-09-24"
+    },
+    "lynas-rare-earths": {
+      "status": "listed",
+      "primary": {
+        "ticker": "LYC",
+        "exchange": "AU",
+        "name": "LYNAS RARE EARTHS LTD",
+        "figi": "BBG000BSCDH5",
+        "source": "https://www.openfigi.com/id/BBG000BSCDH5"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "exxonmobil": {
+      "status": "listed",
+      "primary": {
+        "ticker": "XOM",
+        "exchange": "NYSE",
+        "name": "ExxonMobil Holdings Corp",
+        "cik": 2115436,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2115436"
+      },
+      "us": {
+        "ticker": "XOM",
+        "exchange": "NYSE",
+        "name": "ExxonMobil Holdings Corp",
+        "cik": 2115436,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2115436"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "impala-platinum": {
+      "status": "listed",
+      "primary": {
+        "ticker": "IMP",
+        "exchange": "SJ",
+        "name": "IMPALA PLATINUM HOLDINGS LTD",
+        "figi": "BBG000BTZK82",
+        "source": "https://www.openfigi.com/id/BBG000BTZK82"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "mp-materials": {
+      "status": "listed",
+      "primary": {
+        "ticker": "MP",
+        "exchange": "NYSE",
+        "name": "MP Materials Corp. / DE",
+        "cik": 1801368,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1801368"
+      },
+      "us": {
+        "ticker": "MP",
+        "exchange": "NYSE",
+        "name": "MP Materials Corp. / DE",
+        "cik": 1801368,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1801368"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "nornickel": {
+      "status": "listed",
+      "primary": {
+        "ticker": "GMKN",
+        "exchange": "RU",
+        "name": "MMC NORILSK NICKEL PJSC",
+        "figi": "BBG000J40474",
+        "source": "https://www.openfigi.com/id/BBG000J40474"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "qatarenergy": {
+      "status": "none-found",
+      "query": "QatarEnergy",
+      "checkedOn": "2026-09-24"
+    },
+    "sibanye-stillwater": {
+      "status": "listed",
+      "primary": {
+        "ticker": "SSW",
+        "exchange": "SJ",
+        "name": "SIBANYE STILLWATER LTD",
+        "figi": "BBG00R3JTQ15",
+        "source": "https://www.openfigi.com/id/BBG00R3JTQ15"
+      },
+      "us": {
+        "ticker": "SBSW",
+        "exchange": "NYSE",
+        "name": "Sibanye Stillwater Ltd",
+        "cik": 1786909,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1786909"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "yunnan-tin": {
+      "status": "listed",
+      "primary": {
+        "ticker": "000960",
+        "exchange": "CH",
+        "name": "YUNNAN TIN CO LTD-A",
+        "figi": "BBG000GC3M76",
+        "source": "https://www.openfigi.com/id/BBG000GC3M76"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "minsur": {
+      "status": "listed",
+      "primary": {
+        "ticker": "MINSURI1",
+        "exchange": "PE",
+        "name": "MINSUR SA-INVERSIONES",
+        "figi": "BBG000DNP4H0",
+        "source": "https://www.openfigi.com/id/BBG000DNP4H0"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "pt-timah": {
+      "status": "listed",
+      "primary": {
+        "ticker": "TINS",
+        "exchange": "IJ",
+        "name": "PT TIMAH (PERSERO) TBK",
+        "figi": "BBG000BCYPV3",
+        "source": "https://www.openfigi.com/id/BBG000BCYPV3"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "gazprom": {
+      "status": "listed",
+      "primary": {
+        "ticker": "GAZP",
+        "exchange": "RU",
+        "name": "GAZPROM PJSC",
+        "figi": "BBG000BV8964",
+        "source": "https://www.openfigi.com/id/BBG000BV8964"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "russian-quartz": {
+      "status": "none-found",
+      "query": "Russian Quartz",
+      "checkedOn": "2026-09-24"
+    },
+    "shenghe-resources": {
+      "status": "listed",
+      "primary": {
+        "ticker": "600392",
+        "exchange": "CH",
+        "name": "SHENGHE RESOURCES HOLDINGS-A",
+        "figi": "BBG000PQJZQ8",
+        "source": "https://www.openfigi.com/id/BBG000PQJZQ8"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "chalco": {
+      "status": "listed",
+      "primary": {
+        "ticker": "601600",
+        "exchange": "CH",
+        "name": "ALUMINUM CORP OF CHINA LTD-A",
+        "figi": "BBG000HDDFH6",
+        "source": "https://www.openfigi.com/id/BBG000HDDFH6"
+      },
+      "us": {
+        "ticker": "ALMMF",
+        "exchange": "OTC",
+        "name": "ALUMINUM CORP OF CHINA LTD",
+        "cik": 1161611,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1161611"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "china-northern-rare-earth": {
+      "status": "listed",
+      "primary": {
+        "ticker": "600111",
+        "exchange": "CH",
+        "name": "CHINA NORTHERN RARE EARTH -A",
+        "figi": "BBG000BTZ0V0",
+        "source": "https://www.openfigi.com/id/BBG000BTZ0V0"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "hemlock-semiconductor": {
+      "status": "none-found",
+      "query": "Hemlock Semiconductor",
+      "checkedOn": "2026-09-24"
+    },
+    "tokuyama": {
+      "status": "listed",
+      "primary": {
+        "ticker": "4043",
+        "exchange": "JP",
+        "name": "TOKUYAMA CORP",
+        "figi": "BBG000BK6372",
+        "source": "https://www.openfigi.com/id/BBG000BK6372"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "wacker-chemie": {
+      "status": "listed",
+      "primary": {
+        "ticker": "WCH",
+        "exchange": "GR",
+        "name": "WACKER CHEMIE AG",
+        "figi": "BBG000BLCJ23",
+        "source": "https://www.openfigi.com/id/BBG000BLCJ23"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "5n-plus": {
+      "status": "listed",
+      "primary": {
+        "ticker": "VNP",
+        "exchange": "CN",
+        "name": "5N PLUS INC",
+        "figi": "BBG000TXWLZ5",
+        "source": "https://www.openfigi.com/id/BBG000TXWLZ5"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "air-liquide": {
+      "status": "listed",
+      "primary": {
+        "ticker": "AI",
+        "exchange": "FP",
+        "name": "AIR LIQUIDE SA",
+        "figi": "BBG000BLGLW1",
+        "source": "https://www.openfigi.com/id/BBG000BLGLW1"
+      },
+      "us": {
+        "ticker": "AIQUF",
+        "exchange": "OTC",
+        "name": "L AIR LIQUIDE SA /FI",
+        "cik": 1161167,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1161167"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "air-products": {
+      "status": "listed",
+      "primary": {
+        "ticker": "APD",
+        "exchange": "NYSE",
+        "name": "Air Products & Chemicals, Inc.",
+        "cik": 2969,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2969"
+      },
+      "us": {
+        "ticker": "APD",
+        "exchange": "NYSE",
+        "name": "Air Products & Chemicals, Inc.",
+        "cik": 2969,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2969"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "heraeus": {
+      "status": "private",
+      "note": "Family-owned.",
+      "checkedOn": "2026-09-24"
+    },
+    "iceblick": {
+      "status": "none-found",
+      "query": "Iceblick",
+      "checkedOn": "2026-09-24"
+    },
+    "johnson-matthey": {
+      "status": "listed",
+      "primary": {
+        "ticker": "JMAT",
+        "exchange": "LN",
+        "name": "JOHNSON MATTHEY PLC",
+        "figi": "BBG000BDNS10",
+        "source": "https://www.openfigi.com/id/BBG000BDNS10"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "oci": {
+      "status": "listed",
+      "primary": {
+        "ticker": "456040",
+        "exchange": "KS",
+        "name": "OCI CO LTD",
+        "figi": "BBG01BPC7CD2",
+        "source": "https://www.openfigi.com/id/BBG01BPC7CD2"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "umicore": {
+      "status": "listed",
+      "primary": {
+        "ticker": "UMI",
+        "exchange": "BB",
+        "name": "UMICORE",
+        "figi": "BBG000BN6FD2",
+        "source": "https://www.openfigi.com/id/BBG000BN6FD2"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "agc": {
+      "status": "listed",
+      "primary": {
+        "ticker": "5201",
+        "exchange": "JP",
+        "name": "AGC INC",
+        "figi": "BBG000BG8RD9",
+        "source": "https://www.openfigi.com/id/BBG000BG8RD9"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "aurubis": {
+      "status": "listed",
+      "primary": {
+        "ticker": "NDA",
+        "exchange": "GR",
+        "name": "AURUBIS AG",
+        "figi": "BBG000BGKM37",
+        "source": "https://www.openfigi.com/id/BBG000BGKM37"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "baosteel-gases": {
+      "status": "none-found",
+      "query": "Baosteel Gases",
+      "checkedOn": "2026-09-24"
+    },
+    "chemours": {
+      "status": "listed",
+      "primary": {
+        "ticker": "CC",
+        "exchange": "NYSE",
+        "name": "Chemours Co",
+        "cik": 1627223,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1627223"
+      },
+      "us": {
+        "ticker": "CC",
+        "exchange": "NYSE",
+        "name": "Chemours Co",
+        "cik": 1627223,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1627223"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "china-rare-earth-group": {
+      "status": "none-found",
+      "query": "China Rare Earth Group",
+      "checkedOn": "2026-09-24"
+    },
+    "cryoin-engineering": {
+      "status": "none-found",
+      "query": "Cryoin Engineering",
+      "checkedOn": "2026-09-24"
+    },
+    "east-hope-group": {
+      "status": "none-found",
+      "query": "East Hope Group",
+      "checkedOn": "2026-09-24"
+    },
+    "jiangsu-pacific-quartz": {
+      "status": "listed",
+      "primary": {
+        "ticker": "603688",
+        "exchange": "CH",
+        "name": "JIANGSU PACIFIC QUARTZ CO -A",
+        "figi": "BBG002WFY9G2",
+        "source": "https://www.openfigi.com/id/BBG002WFY9G2"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "malaysia-smelting-corporation": {
+      "status": "none-found",
+      "query": "Malaysia Smelting Corporation",
+      "checkedOn": "2026-09-24"
+    },
+    "messer": {
+      "status": "private",
+      "note": "Family-owned.",
+      "checkedOn": "2026-09-24"
+    },
+    "mitsubishi-materials": {
+      "status": "listed",
+      "primary": {
+        "ticker": "5711",
+        "exchange": "JP",
+        "name": "MITSUBISHI MATERIALS CORP",
+        "figi": "BBG000BGFBD6",
+        "source": "https://www.openfigi.com/id/BBG000BGFBD6"
+      },
+      "us": {
+        "ticker": "MIMTF",
+        "exchange": "OTC",
+        "name": "Mitsubishi Materials Corp / ADR",
+        "cik": 1460447,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1460447"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "nyrstar": {
+      "status": "none-found",
+      "query": "Nyrstar",
+      "checkedOn": "2026-09-24"
+    },
+    "rio-tinto": {
+      "status": "listed",
+      "primary": {
+        "ticker": "RIO",
+        "exchange": "NYSE",
+        "name": "RIO TINTO PLC",
+        "cik": 863064,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=863064"
+      },
+      "us": {
+        "ticker": "RIO",
+        "exchange": "NYSE",
+        "name": "RIO TINTO PLC",
+        "cik": 863064,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=863064"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "solvay": {
+      "status": "listed",
+      "primary": {
+        "ticker": "SOLB",
+        "exchange": "FP",
+        "name": "SOLVAY SA",
+        "figi": "BBG00FRSNLW8",
+        "source": "https://www.openfigi.com/id/BBG00FRSNLW8"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "syensqo": {
+      "status": "listed",
+      "primary": {
+        "ticker": "SYENS",
+        "exchange": "BB",
+        "name": "SYENSQO SA",
+        "figi": "BBG01KBN5R42",
+        "source": "https://www.openfigi.com/id/BBG01KBN5R42"
+      },
+      "us": {
+        "ticker": "SYNSY",
+        "exchange": "OTC",
+        "name": "Syensqo SA/ADR",
+        "cik": 2004340,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2004340"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "zhuhai-fangyuan": {
+      "status": "none-found",
+      "query": "Zhuhai Fangyuan",
+      "checkedOn": "2026-09-24"
+    },
+    "less-common-metals": {
+      "status": "none-found",
+      "query": "Less Common Metals",
+      "checkedOn": "2026-09-24"
+    },
+    "momentive-technologies": {
+      "status": "none-found",
+      "query": "Momentive Technologies",
+      "checkedOn": "2026-09-24"
+    },
+    "shin-etsu-handotai": {
+      "status": "none-found",
+      "query": "Shin-Etsu Handotai",
+      "checkedOn": "2026-09-24"
+    },
+    "shin-etsu-quartz": {
+      "status": "none-found",
+      "query": "Shin-Etsu Quartz",
+      "checkedOn": "2026-09-24"
+    },
+    "sumco": {
+      "status": "listed",
+      "primary": {
+        "ticker": "3436",
+        "exchange": "JP",
+        "name": "SUMCO CORP",
+        "figi": "BBG000JSLPJ8",
+        "source": "https://www.openfigi.com/id/BBG000JSLPJ8"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "coherent": {
+      "status": "listed",
+      "primary": {
+        "ticker": "COHR",
+        "exchange": "NYSE",
+        "name": "COHERENT CORP.",
+        "cik": 820318,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=820318"
+      },
+      "us": {
+        "ticker": "COHR",
+        "exchange": "NYSE",
+        "name": "COHERENT CORP.",
+        "cik": 820318,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=820318"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "neo-performance-materials": {
+      "status": "listed",
+      "primary": {
+        "ticker": "NEO",
+        "exchange": "CN",
+        "name": "NEO PERFORMANCE MATERIALS IN",
+        "figi": "BBG00HZRFTV0",
+        "source": "https://www.openfigi.com/id/BBG00HZRFTV0"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "element-six": {
+      "status": "parent",
+      "parent": "Anglo American",
+      "note": "Element Six is part of the De Beers Group, owned by Anglo American.",
+      "primary": {
+        "ticker": "AAL",
+        "exchange": "LN",
+        "name": "ANGLO AMERICAN PLC",
+        "figi": "BBG000BWF7M0",
+        "source": "https://www.openfigi.com/id/BBG000BWF7M0"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "faraday-factory-japan": {
+      "status": "none-found",
+      "query": "Faraday Factory Japan",
+      "checkedOn": "2026-09-24"
+    },
+    "ferrotec": {
+      "status": "listed",
+      "primary": {
+        "ticker": "6890",
+        "exchange": "JP",
+        "name": "FERROTEC CORP",
+        "figi": "BBG000HDXTG5",
+        "source": "https://www.openfigi.com/id/BBG000HDXTG5"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "fujikura": {
+      "status": "listed",
+      "primary": {
+        "ticker": "5803",
+        "exchange": "JP",
+        "name": "FUJIKURA LTD",
+        "figi": "BBG000BB8TW5",
+        "source": "https://www.openfigi.com/id/BBG000BB8TW5"
+      },
+      "us": {
+        "ticker": "FKURF",
+        "exchange": "OTC",
+        "name": "Fujikura Ltd/ADR",
+        "cik": 2043424,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2043424"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "globalwafers": {
+      "status": "none-found",
+      "query": "GlobalWafers",
+      "checkedOn": "2026-09-24"
+    },
+    "indium-corporation": {
+      "status": "none-found",
+      "query": "Indium Corporation",
+      "checkedOn": "2026-09-24"
+    },
+    "nippon-steel": {
+      "status": "listed",
+      "primary": {
+        "ticker": "5401",
+        "exchange": "JP",
+        "name": "NIPPON STEEL CORP",
+        "figi": "BBG000BG9X54",
+        "source": "https://www.openfigi.com/id/BBG000BG9X54"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "posco": {
+      "status": "listed",
+      "primary": {
+        "ticker": "005490",
+        "exchange": "KS",
+        "name": "POSCO HOLDINGS INC",
+        "figi": "BBG000BDVH79",
+        "source": "https://www.openfigi.com/id/BBG000BDVH79"
+      },
+      "us": {
+        "ticker": "PKX",
+        "exchange": "NYSE",
+        "name": "POSCO HOLDINGS INC.",
+        "cik": 889132,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=889132"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "resonac": {
+      "status": "listed",
+      "primary": {
+        "ticker": "4004",
+        "exchange": "JP",
+        "name": "RESONAC HOLDINGS CORP",
+        "figi": "BBG000BG05J9",
+        "source": "https://www.openfigi.com/id/BBG000BG05J9"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "siltronic": {
+      "status": "listed",
+      "primary": {
+        "ticker": "WAF",
+        "exchange": "GR",
+        "name": "SILTRONIC AG",
+        "figi": "BBG000BPX086",
+        "source": "https://www.openfigi.com/id/BBG000BPX086"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "sk-siltron": {
+      "status": "parent",
+      "parent": "SK Inc.",
+      "note": "SK Siltron is a subsidiary of SK Inc.",
+      "primary": {
+        "ticker": "034730",
+        "exchange": "KS",
+        "name": "SK INC",
+        "figi": "BBG000C2JFR8",
+        "source": "https://www.openfigi.com/id/BBG000C2JFR8"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "wolfspeed": {
+      "status": "listed",
+      "primary": {
+        "ticker": "WOLF",
+        "exchange": "NYSE",
+        "name": "WOLFSPEED, INC.",
+        "cik": 895419,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=895419"
+      },
+      "us": {
+        "ticker": "WOLF",
+        "exchange": "NYSE",
+        "name": "WOLFSPEED, INC.",
+        "cik": 895419,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=895419"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "amsc": {
+      "status": "listed",
+      "primary": {
+        "ticker": "AMSC",
+        "exchange": "Nasdaq",
+        "name": "AMERICAN SUPERCONDUCTOR CORP /DE/",
+        "cik": 880807,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=880807"
+      },
+      "us": {
+        "ticker": "AMSC",
+        "exchange": "Nasdaq",
+        "name": "AMERICAN SUPERCONDUCTOR CORP /DE/",
+        "cik": 880807,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=880807"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "applied-diamond": {
+      "status": "none-found",
+      "query": "Applied Diamond",
+      "checkedOn": "2026-09-24"
+    },
+    "baosteel": {
+      "status": "none-found",
+      "query": "Baosteel",
+      "checkedOn": "2026-09-24"
+    },
+    "cleveland-cliffs": {
+      "status": "listed",
+      "primary": {
+        "ticker": "CLF",
+        "exchange": "NYSE",
+        "name": "CLEVELAND-CLIFFS INC.",
+        "cik": 764065,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=764065"
+      },
+      "us": {
+        "ticker": "CLF",
+        "exchange": "NYSE",
+        "name": "CLEVELAND-CLIFFS INC.",
+        "cik": 764065,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=764065"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "diamond-materials": {
+      "status": "none-found",
+      "query": "Diamond Materials",
+      "checkedOn": "2026-09-24"
+    },
+    "engineered-fluids": {
+      "status": "none-found",
+      "query": "Engineered Fluids",
+      "checkedOn": "2026-09-24"
+    },
+    "furuya-metal": {
+      "status": "listed",
+      "primary": {
+        "ticker": "7826",
+        "exchange": "JP",
+        "name": "FURUYA METAL CO LTD",
+        "figi": "BBG000C2TQ11",
+        "source": "https://www.openfigi.com/id/BBG000C2TQ11"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "jfe-steel": {
+      "status": "none-found",
+      "query": "JFE Steel",
+      "checkedOn": "2026-09-24"
+    },
+    "metox": {
+      "status": "none-found",
+      "query": "MetOx",
+      "checkedOn": "2026-09-24"
+    },
+    "shanghai-superconductor": {
+      "status": "none-found",
+      "query": "Shanghai Superconductor",
+      "checkedOn": "2026-09-24"
+    },
+    "sicc": {
+      "status": "listed",
+      "primary": {
+        "ticker": "688234",
+        "exchange": "CH",
+        "name": "SICC CO LTD-A",
+        "figi": "BBG0118X29Z5",
+        "source": "https://www.openfigi.com/id/BBG0118X29Z5"
+      },
+      "us": {
+        "ticker": "SICCY",
+        "exchange": "OTC",
+        "name": "SICC Co., Ltd./ADR",
+        "cik": 2098860,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2098860"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "sk-siltron-css": {
+      "status": "parent",
+      "parent": "SK Inc.",
+      "note": "A US subsidiary of SK Siltron, itself a subsidiary of SK Inc.",
+      "primary": {
+        "ticker": "034730",
+        "exchange": "KS",
+        "name": "SK INC",
+        "figi": "BBG000C2JFR8",
+        "source": "https://www.openfigi.com/id/BBG000C2JFR8"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "stalprodukt": {
+      "status": "listed",
+      "primary": {
+        "ticker": "STP",
+        "exchange": "PW",
+        "name": "STALPRODUKT SA",
+        "figi": "BBG000CJ7P92",
+        "source": "https://www.openfigi.com/id/BBG000CJ7P92"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "sumitomo-electric": {
+      "status": "listed",
+      "primary": {
+        "ticker": "5802",
+        "exchange": "JP",
+        "name": "SUMITOMO ELECTRIC INDUSTRIES",
+        "figi": "BBG000BLBD45",
+        "source": "https://www.openfigi.com/id/BBG000BLBD45"
+      },
+      "us": {
+        "ticker": "SMTOY",
+        "exchange": "OTC",
+        "name": "SUMITOMO ELECTRIC INDUSTRIES LTD/ADR/",
+        "cik": 95227,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=95227"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "superpower": {
+      "status": "none-found",
+      "query": "SuperPower",
+      "checkedOn": "2026-09-24"
+    },
+    "tanaka-kikinzoku": {
+      "status": "none-found",
+      "query": "Tanaka Kikinzoku",
+      "checkedOn": "2026-09-24"
+    },
+    "tankeblue": {
+      "status": "none-found",
+      "query": "TankeBlue",
+      "checkedOn": "2026-09-24"
+    },
+    "theva": {
+      "status": "none-found",
+      "query": "THEVA",
+      "checkedOn": "2026-09-24"
+    },
+    "thyssenkrupp-electrical-steel": {
+      "status": "parent",
+      "parent": "thyssenkrupp",
+      "note": "A business of thyssenkrupp.",
+      "primary": {
+        "ticker": "TKA",
+        "exchange": "GR",
+        "name": "THYSSENKRUPP AG",
+        "figi": "BBG000BHPST9",
+        "source": "https://www.openfigi.com/id/BBG000BHPST9"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "carl-zeiss-smt": {
+      "status": "private",
+      "note": "Part of Carl Zeiss AG, owned by the Carl Zeiss Foundation.",
+      "checkedOn": "2026-09-24"
+    },
+    "jsr": {
+      "status": "none-found",
+      "query": "JSR",
+      "checkedOn": "2026-09-24"
+    },
+    "shin-etsu-chemical": {
+      "status": "listed",
+      "primary": {
+        "ticker": "4063",
+        "exchange": "JP",
+        "name": "SHIN-ETSU CHEMICAL CO LTD",
+        "figi": "BBG000BG24K8",
+        "source": "https://www.openfigi.com/id/BBG000BG24K8"
+      },
+      "us": {
+        "ticker": "SHECF",
+        "exchange": "OTC",
+        "name": "Shin-Etsu Chemical Co., Ltd.",
+        "cik": 1442651,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1442651"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "tokyo-ohka-kogyo": {
+      "status": "listed",
+      "primary": {
+        "ticker": "4186",
+        "exchange": "JP",
+        "name": "TOKYO OHKA KOGYO CO LTD",
+        "figi": "BBG0014R87X3",
+        "source": "https://www.openfigi.com/id/BBG0014R87X3"
+      },
+      "us": {
+        "ticker": "TKCYY",
+        "exchange": "OTC",
+        "name": "Tokyo Ohka Kogyo Co., Ltd./ADR",
+        "cik": 2066601,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2066601"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "trumpf": {
+      "status": "private",
+      "note": "Family-owned.",
+      "checkedOn": "2026-09-24"
+    },
+    "applied-materials": {
+      "status": "listed",
+      "primary": {
+        "ticker": "AMAT",
+        "exchange": "Nasdaq",
+        "name": "APPLIED MATERIALS INC /DE",
+        "cik": 6951,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=6951"
+      },
+      "us": {
+        "ticker": "AMAT",
+        "exchange": "Nasdaq",
+        "name": "APPLIED MATERIALS INC /DE",
+        "cik": 6951,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=6951"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "asm-international": {
+      "status": "listed",
+      "primary": {
+        "ticker": "ASM",
+        "exchange": "NA",
+        "name": "ASM INTERNATIONAL NV",
+        "figi": "BBG000F5L454",
+        "source": "https://www.openfigi.com/id/BBG000F5L454"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "kla": {
+      "status": "listed",
+      "primary": {
+        "ticker": "KLAC",
+        "exchange": "Nasdaq",
+        "name": "KLA CORP",
+        "cik": 319201,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=319201"
+      },
+      "us": {
+        "ticker": "KLAC",
+        "exchange": "Nasdaq",
+        "name": "KLA CORP",
+        "cik": 319201,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=319201"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "lam-research": {
+      "status": "listed",
+      "primary": {
+        "ticker": "LRCX",
+        "exchange": "Nasdaq",
+        "name": "LAM RESEARCH CORP",
+        "cik": 707549,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=707549"
+      },
+      "us": {
+        "ticker": "LRCX",
+        "exchange": "Nasdaq",
+        "name": "LAM RESEARCH CORP",
+        "cik": 707549,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=707549"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "canon": {
+      "status": "listed",
+      "primary": {
+        "ticker": "7751",
+        "exchange": "JP",
+        "name": "CANON INC",
+        "figi": "BBG000BBZM32",
+        "source": "https://www.openfigi.com/id/BBG000BBZM32"
+      },
+      "us": {
+        "ticker": "CAJPY",
+        "exchange": "OTC",
+        "name": "CANON INC",
+        "cik": 16988,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=16988"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "nikon": {
+      "status": "listed",
+      "primary": {
+        "ticker": "7731",
+        "exchange": "JP",
+        "name": "NIKON CORP",
+        "figi": "BBG000BGS2B4",
+        "source": "https://www.openfigi.com/id/BBG000BGS2B4"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "tsmc": {
+      "status": "listed",
+      "primary": {
+        "ticker": "TSM",
+        "exchange": "NYSE",
+        "name": "TAIWAN SEMICONDUCTOR MANUFACTURING CO LTD",
+        "cik": 1046179,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1046179"
+      },
+      "us": {
+        "ticker": "TSM",
+        "exchange": "NYSE",
+        "name": "TAIWAN SEMICONDUCTOR MANUFACTURING CO LTD",
+        "cik": 1046179,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1046179"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "intel-foundry": {
+      "status": "parent",
+      "parent": "Intel",
+      "note": "A business of Intel.",
+      "primary": {
+        "ticker": "INTC",
+        "exchange": "Nasdaq",
+        "name": "INTEL CORP",
+        "cik": 50863,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=50863"
+      },
+      "us": {
+        "ticker": "INTC",
+        "exchange": "Nasdaq",
+        "name": "INTEL CORP",
+        "cik": 50863,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=50863"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "samsung-foundry": {
+      "status": "parent",
+      "parent": "Samsung Electronics",
+      "note": "A business of Samsung Electronics.",
+      "primary": {
+        "ticker": "005930",
+        "exchange": "KS",
+        "name": "SAMSUNG ELECTRONICS CO LTD",
+        "figi": "BBG000BCY2S8",
+        "source": "https://www.openfigi.com/id/BBG000BCY2S8"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "smic": {
+      "status": "none-found",
+      "query": "SEMICONDUCTOR MANUFACTURING INTERNATIONAL",
+      "checkedOn": "2026-09-24"
+    },
+    "globalfoundries": {
+      "status": "listed",
+      "primary": {
+        "ticker": "GFS",
+        "exchange": "Nasdaq",
+        "name": "GLOBALFOUNDRIES Inc.",
+        "cik": 1709048,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1709048"
+      },
+      "us": {
+        "ticker": "GFS",
+        "exchange": "Nasdaq",
+        "name": "GLOBALFOUNDRIES Inc.",
+        "cik": 1709048,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1709048"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "umc": {
+      "status": "listed",
+      "primary": {
+        "ticker": "UMC",
+        "exchange": "NYSE",
+        "name": "UNITED MICROELECTRONICS CORP",
+        "cik": 1033767,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1033767"
+      },
+      "us": {
+        "ticker": "UMC",
+        "exchange": "NYSE",
+        "name": "UNITED MICROELECTRONICS CORP",
+        "cik": 1033767,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1033767"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "sk-hynix": {
+      "status": "listed",
+      "primary": {
+        "ticker": "000660",
+        "exchange": "KS",
+        "name": "SK HYNIX INC",
+        "figi": "BBG000GQVT51",
+        "source": "https://www.openfigi.com/id/BBG000GQVT51"
+      },
+      "us": {
+        "ticker": "SKHY",
+        "exchange": "Nasdaq",
+        "name": "SK hynix Inc.",
+        "cik": 2120882,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2120882"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "tsmc-advanced-packaging": {
+      "status": "parent",
+      "parent": "TSMC",
+      "note": "A business of TSMC.",
+      "primary": {
+        "ticker": "TSM",
+        "exchange": "NYSE",
+        "name": "TAIWAN SEMICONDUCTOR MANUFACTURING CO LTD",
+        "cik": 1046179,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1046179"
+      },
+      "us": {
+        "ticker": "TSM",
+        "exchange": "NYSE",
+        "name": "TAIWAN SEMICONDUCTOR MANUFACTURING CO LTD",
+        "cik": 1046179,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1046179"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "micron": {
+      "status": "listed",
+      "primary": {
+        "ticker": "MU",
+        "exchange": "Nasdaq",
+        "name": "MICRON TECHNOLOGY INC",
+        "cik": 723125,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=723125"
+      },
+      "us": {
+        "ticker": "MU",
+        "exchange": "Nasdaq",
+        "name": "MICRON TECHNOLOGY INC",
+        "cik": 723125,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=723125"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "samsung-memory": {
+      "status": "parent",
+      "parent": "Samsung Electronics",
+      "note": "A business of Samsung Electronics.",
+      "primary": {
+        "ticker": "005930",
+        "exchange": "KS",
+        "name": "SAMSUNG ELECTRONICS CO LTD",
+        "figi": "BBG000BCY2S8",
+        "source": "https://www.openfigi.com/id/BBG000BCY2S8"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "amkor": {
+      "status": "listed",
+      "primary": {
+        "ticker": "AMKR",
+        "exchange": "Nasdaq",
+        "name": "AMKOR TECHNOLOGY, INC.",
+        "cik": 1047127,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1047127"
+      },
+      "us": {
+        "ticker": "AMKR",
+        "exchange": "Nasdaq",
+        "name": "AMKOR TECHNOLOGY, INC.",
+        "cik": 1047127,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1047127"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "ase-technology": {
+      "status": "listed",
+      "primary": {
+        "ticker": "ASX",
+        "exchange": "NYSE",
+        "name": "ASE Technology Holding Co., Ltd.",
+        "cik": 1122411,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1122411"
+      },
+      "us": {
+        "ticker": "ASX",
+        "exchange": "NYSE",
+        "name": "ASE Technology Holding Co., Ltd.",
+        "cik": 1122411,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1122411"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "nvidia": {
+      "status": "listed",
+      "primary": {
+        "ticker": "NVDA",
+        "exchange": "Nasdaq",
+        "name": "NVIDIA CORP",
+        "cik": 1045810,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1045810"
+      },
+      "us": {
+        "ticker": "NVDA",
+        "exchange": "Nasdaq",
+        "name": "NVIDIA CORP",
+        "cik": 1045810,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1045810"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "amd": {
+      "status": "listed",
+      "primary": {
+        "ticker": "AMD",
+        "exchange": "Nasdaq",
+        "name": "ADVANCED MICRO DEVICES INC",
+        "cik": 2488,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2488"
+      },
+      "us": {
+        "ticker": "AMD",
+        "exchange": "Nasdaq",
+        "name": "ADVANCED MICRO DEVICES INC",
+        "cik": 2488,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2488"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "broadcom": {
+      "status": "listed",
+      "primary": {
+        "ticker": "AVGO",
+        "exchange": "Nasdaq",
+        "name": "Broadcom Inc.",
+        "cik": 1730168,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1730168"
+      },
+      "us": {
+        "ticker": "AVGO",
+        "exchange": "Nasdaq",
+        "name": "Broadcom Inc.",
+        "cik": 1730168,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1730168"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "marvell": {
+      "status": "listed",
+      "primary": {
+        "ticker": "MRVL",
+        "exchange": "Nasdaq",
+        "name": "Marvell Technology, Inc.",
+        "cik": 1835632,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1835632"
+      },
+      "us": {
+        "ticker": "MRVL",
+        "exchange": "Nasdaq",
+        "name": "Marvell Technology, Inc.",
+        "cik": 1835632,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1835632"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "vertiv": {
+      "status": "listed",
+      "primary": {
+        "ticker": "VRT",
+        "exchange": "NYSE",
+        "name": "Vertiv Holdings Co",
+        "cik": 1674101,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1674101"
+      },
+      "us": {
+        "ticker": "VRT",
+        "exchange": "NYSE",
+        "name": "Vertiv Holdings Co",
+        "cik": 1674101,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1674101"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "arista-networks": {
+      "status": "listed",
+      "primary": {
+        "ticker": "ANET",
+        "exchange": "NYSE",
+        "name": "Arista Networks, Inc.",
+        "cik": 1596532,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1596532"
+      },
+      "us": {
+        "ticker": "ANET",
+        "exchange": "NYSE",
+        "name": "Arista Networks, Inc.",
+        "cik": 1596532,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1596532"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "supermicro": {
+      "status": "listed",
+      "primary": {
+        "ticker": "SMCI",
+        "exchange": "Nasdaq",
+        "name": "Super Micro Computer, Inc.",
+        "cik": 1375365,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1375365"
+      },
+      "us": {
+        "ticker": "SMCI",
+        "exchange": "Nasdaq",
+        "name": "Super Micro Computer, Inc.",
+        "cik": 1375365,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1375365"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "ge-vernova": {
+      "status": "listed",
+      "primary": {
+        "ticker": "GEV",
+        "exchange": "NYSE",
+        "name": "GE Vernova Inc.",
+        "cik": 1996810,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1996810"
+      },
+      "us": {
+        "ticker": "GEV",
+        "exchange": "NYSE",
+        "name": "GE Vernova Inc.",
+        "cik": 1996810,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1996810"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "siemens-energy": {
+      "status": "listed",
+      "primary": {
+        "ticker": "ENR",
+        "exchange": "GR",
+        "name": "SIEMENS ENERGY AG",
+        "figi": "BBG00XLWSW57",
+        "source": "https://www.openfigi.com/id/BBG00XLWSW57"
+      },
+      "us": {
+        "ticker": "SMERY",
+        "exchange": "OTC",
+        "name": "Siemens Energy AG/ADR",
+        "cik": 1830056,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1830056"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "mitsubishi-electric": {
+      "status": "listed",
+      "primary": {
+        "ticker": "6503",
+        "exchange": "JP",
+        "name": "MITSUBISHI ELECTRIC CORP",
+        "figi": "BBG000BGHX91",
+        "source": "https://www.openfigi.com/id/BBG000BGHX91"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "nkt": {
+      "status": "none-found",
+      "query": "NKT",
+      "checkedOn": "2026-09-24"
+    },
+    "prysmian": {
+      "status": "listed",
+      "primary": {
+        "ticker": "PRY",
+        "exchange": "IM",
+        "name": "PRYSMIAN SPA",
+        "figi": "BBG000R58W81",
+        "source": "https://www.openfigi.com/id/BBG000R58W81"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "abb": {
+      "status": "listed",
+      "primary": {
+        "ticker": "ABBN",
+        "exchange": "SW",
+        "name": "ABB LTD-REG",
+        "figi": "BBG000DM2M32",
+        "source": "https://www.openfigi.com/id/BBG000DM2M32"
+      },
+      "us": {
+        "ticker": "ABBNY",
+        "exchange": "OTC",
+        "name": "ABB LTD",
+        "cik": 1091587,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1091587"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "schneider-electric": {
+      "status": "listed",
+      "primary": {
+        "ticker": "SU",
+        "exchange": "FP",
+        "name": "SCHNEIDER ELECTRIC SE",
+        "figi": "BBG000BBWCH2",
+        "source": "https://www.openfigi.com/id/BBG000BBWCH2"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "harmonic-drive-systems": {
+      "status": "listed",
+      "primary": {
+        "ticker": "6324",
+        "exchange": "JP",
+        "name": "HARMONIC DRIVE SYSTEMS INC",
+        "figi": "BBG000BCZPZ8",
+        "source": "https://www.openfigi.com/id/BBG000BCZPZ8"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "nabtesco": {
+      "status": "listed",
+      "primary": {
+        "ticker": "6268",
+        "exchange": "JP",
+        "name": "NABTESCO CORP",
+        "figi": "BBG000Q04VG0",
+        "source": "https://www.openfigi.com/id/BBG000Q04VG0"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "renishaw": {
+      "status": "listed",
+      "primary": {
+        "ticker": "RSW",
+        "exchange": "LN",
+        "name": "RENISHAW PLC",
+        "figi": "BBG000BDZV65",
+        "source": "https://www.openfigi.com/id/BBG000BDZV65"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "abb-robotics": {
+      "status": "parent",
+      "parent": "ABB",
+      "note": "A business of ABB.",
+      "primary": {
+        "ticker": "ABBN",
+        "exchange": "SW",
+        "name": "ABB LTD-REG",
+        "figi": "BBG000DM2M32",
+        "source": "https://www.openfigi.com/id/BBG000DM2M32"
+      },
+      "us": {
+        "ticker": "ABBNY",
+        "exchange": "OTC",
+        "name": "ABB LTD",
+        "cik": 1091587,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1091587"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "fanuc": {
+      "status": "listed",
+      "primary": {
+        "ticker": "6954",
+        "exchange": "JP",
+        "name": "FANUC CORP",
+        "figi": "BBG000BM3TW6",
+        "source": "https://www.openfigi.com/id/BBG000BM3TW6"
+      },
+      "us": null,
+      "checkedOn": "2026-09-24"
+    },
+    "yaskawa": {
+      "status": "none-found",
+      "query": "Yaskawa",
+      "checkedOn": "2026-09-24"
+    },
+    "kuka": {
+      "status": "parent",
+      "parent": "Midea Group",
+      "note": "Midea took KUKA private in 2022.",
+      "primary": {
+        "ticker": "000333",
+        "exchange": "CH",
+        "name": "MIDEA GROUP CO LTD-A",
+        "figi": "BBG000QLWGC0",
+        "source": "https://www.openfigi.com/id/BBG000QLWGC0"
+      },
+      "us": {
+        "ticker": "MGCLY",
+        "exchange": "OTC",
+        "name": "Midea Group Co., Ltd./ADR",
+        "cik": 2039784,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2039784"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "amazon-web-services": {
+      "status": "parent",
+      "parent": "Amazon",
+      "note": "A business of Amazon.",
+      "primary": {
+        "ticker": "AMZN",
+        "exchange": "Nasdaq",
+        "name": "AMAZON COM INC",
+        "cik": 1018724,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1018724"
+      },
+      "us": {
+        "ticker": "AMZN",
+        "exchange": "Nasdaq",
+        "name": "AMAZON COM INC",
+        "cik": 1018724,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1018724"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "anthropic": {
+      "status": "private",
+      "note": "Privately held.",
+      "checkedOn": "2026-09-24"
+    },
+    "google": {
+      "status": "parent",
+      "parent": "Alphabet",
+      "note": "Google is a subsidiary of Alphabet.",
+      "primary": {
+        "ticker": "GOOGL",
+        "exchange": "Nasdaq",
+        "name": "Alphabet Inc.",
+        "cik": 1652044,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1652044"
+      },
+      "us": {
+        "ticker": "GOOGL",
+        "exchange": "Nasdaq",
+        "name": "Alphabet Inc.",
+        "cik": 1652044,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1652044"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "meta": {
+      "status": "listed",
+      "primary": {
+        "ticker": "META",
+        "exchange": "Nasdaq",
+        "name": "Meta Platforms, Inc.",
+        "cik": 1326801,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1326801"
+      },
+      "us": {
+        "ticker": "META",
+        "exchange": "Nasdaq",
+        "name": "Meta Platforms, Inc.",
+        "cik": 1326801,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1326801"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "microsoft": {
+      "status": "listed",
+      "primary": {
+        "ticker": "MSFT",
+        "exchange": "Nasdaq",
+        "name": "MICROSOFT CORP",
+        "cik": 789019,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=789019"
+      },
+      "us": {
+        "ticker": "MSFT",
+        "exchange": "Nasdaq",
+        "name": "MICROSOFT CORP",
+        "cik": 789019,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=789019"
+      },
+      "checkedOn": "2026-09-24"
+    },
+    "openai": {
+      "status": "private",
+      "note": "Privately held.",
+      "checkedOn": "2026-09-24"
+    },
+    "xai": {
+      "status": "private",
+      "note": "Privately held.",
+      "checkedOn": "2026-09-24"
+    },
+    "coreweave": {
+      "status": "listed",
+      "primary": {
+        "ticker": "CRWV",
+        "exchange": "Nasdaq",
+        "name": "CoreWeave, Inc.",
+        "cik": 1769628,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1769628"
+      },
+      "us": {
+        "ticker": "CRWV",
+        "exchange": "Nasdaq",
+        "name": "CoreWeave, Inc.",
+        "cik": 1769628,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1769628"
+      },
+      "checkedOn": "2026-09-24"
+    }
+  }
+}

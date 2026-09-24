@@ -169,6 +169,7 @@ const BASE: FeedFilter = {
   days: null,
   showVerified: true,
   showLeads: true,
+  showFilings: true,
   effect: null,
   bottlenecks: [],
   q: '',

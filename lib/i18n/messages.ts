@@ -20,6 +20,7 @@ export const EN = {
   'profile.chokepoints.title': 'Chokepoints it holds',
   'profile.companyEvents.title': 'What has happened',
   'profile.leads.title': 'Unread leads',
+  'profile.filings.title': 'SEC filings',
   'profile.relief.title': 'What could loosen its grip',
   'profile.sameLayer.title': 'Others at the same step of the chain',
   'profile.sources.title': 'Sources',

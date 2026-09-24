@@ -1,0 +1,77 @@
+/* Shared by working screens (the desk, /exposure): kicker, big title, status line, filter bar. */
+.desk-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--color-fg-tertiary);
+}
+.desk-title {
+  margin-top: 0.75rem;
+  font: 600 clamp(2rem, 4.5vw, 3.4rem) / 1.02 var(--font-heading);
+  letter-spacing: var(--tracking-display);
+  color: var(--color-fg-primary);
+  max-width: 22ch;
+}
+.desk-title-sub {
+  font-weight: 400;
+  color: var(--color-fg-tertiary);
+}
+.desk-title a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.15em;
+}
+.desk-status {
+  margin-top: 0.9rem;
+  font-size: 0.9rem;
+  color: var(--color-fg-secondary);
+}
+.desk-status a {
+  color: var(--color-fg-secondary);
+  text-decoration: underline;
+  text-decoration-color: var(--color-border-strong);
+  text-underline-offset: 0.2em;
+}
+.desk-status a:hover {
+  color: var(--color-fg-primary);
+}
+.desk-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.9rem 0 0.4rem;
+}
+.desk-filter select,
+.desk-filter input {
+  min-height: 2.5rem;
+  max-width: 100%;
+  padding: 0 0.75rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 0.5rem;
+  background: var(--color-surface-page);
+  color: var(--color-fg-primary);
+  font-size: 0.85rem;
+}
+.desk-filter select {
+  max-width: 16rem;
+}
+.desk-filter-q {
+  flex: 1 1 14rem;
+}
+.desk-filter-q input {
+  width: 100%;
+}
+.desk-showing {
+  font-size: 0.8rem;
+  color: var(--color-fg-muted);
+}
+.desk-showing a {
+  color: var(--color-fg-secondary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.desk-empty {
+  margin-top: 2rem;
+  color: var(--color-fg-secondary);
+}
