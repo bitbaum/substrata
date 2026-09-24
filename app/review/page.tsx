@@ -4,9 +4,11 @@ import { notFound } from 'next/navigation';
 import { auth, isReviewer } from '@/lib/auth';
 import { database } from '@/lib/db';
 import { freshness } from '@/lib/sweep-queue';
-import { openCandidates, recordVerdict } from '@/lib/sweep-review';
+import { daysSince, openLeadsWithDrafts, reviewQueue } from '@/lib/event-draft-store';
 import { openSourceCandidates, recordSourceVerdict, sourceFreshness } from '@/lib/source-store';
 import { Page, Shell, SectionHeader, Empty, Heading } from '@/components/portal/Shell';
+import { LeadDraft } from '@/components/review/LeadDraft';
+import './review.css';
 
 export const dynamic = 'force-dynamic';
 export const metadata = { title: 'Review' };
@@ -16,27 +18,7 @@ async function reviewer() {
   return isReviewer(session?.actorId);
 }
 
-/**
- * Decide a lead.
- *
- * Accepting marks a lead as worth writing up; it does not publish anything.
- * The corpus is files in git and a row reaches a page only when a person
- * commits it, which is the site's whole claim — so the strongest thing this
- * button can do is shorten the list of things worth that work.
- */
-async function decide(form: FormData) {
-  'use server';
-  const session = await auth();
-  if (!isReviewer(session?.actorId)) throw new Error('Not a reviewer');
-  const id = form.get('id');
-  const verdict = form.get('verdict');
-  if (typeof id !== 'string') throw new Error('No lead named');
-  if (verdict !== 'accepted' && verdict !== 'rejected') throw new Error('Unknown verdict');
-  await recordVerdict(id, verdict, session!.actorId!);
-  revalidatePath('/review');
-}
-
-/** Same shape as `decide`, for the producer-sourcing queue rather than the event sweep's. */
+/** A verdict on the producer-sourcing queue; event leads are decided in `./actions.ts`. */
 async function decideSource(form: FormData) {
   'use server';
   const session = await auth();
@@ -58,18 +40,20 @@ function hostOf(url: string): string {
   }
 }
 
-function when(iso: string | null): string {
-  return iso ? iso.slice(0, 10) : 'no date given';
-}
-
-export default async function ReviewPage() {
+export default async function ReviewPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ lead?: string; problem?: string; accepted?: string }>;
+}) {
   if (!(await reviewer())) notFound();
+  const params = await searchParams;
 
   // Each half of this page fails on its own. A dead sweep table must not take
   // down the contributions inbox, and vice versa: a review page that 500s is a
   // review page nobody opens.
-  const [leads, fresh, sourceLeads, sourceFresh, contributions] = await Promise.all([
-    openCandidates().catch(() => null),
+  const [leads, queue, fresh, sourceLeads, sourceFresh, contributions] = await Promise.all([
+    openLeadsWithDrafts().catch(() => null),
+    reviewQueue().catch(() => null),
     freshness().catch(() => null),
     openSourceCandidates().catch(() => null),
     sourceFreshness().catch(() => null),
@@ -93,9 +77,10 @@ export default async function ReviewPage() {
       <Page>
         <SectionHeader
           title="Review"
-          lede="Private. Three feeds arrive here: event leads from the scheduled sweep, candidate sources from the scheduled producer-sourcing run, and contributions people sent in. Deciding something here does not publish it — the corpus is files in git, and a row reaches a page when a person commits it."
+          lede="Private. Three feeds arrive here: event leads from the scheduled sweep, each with an AI draft to check against its source, candidate sources from the scheduled producer-sourcing run, and contributions people sent in. Deciding something here does not publish it — the corpus is files in git, and a row reaches a page when a person commits it."
           stats={[
-            { label: 'Open event leads', value: leads?.length ?? 0 },
+            { label: 'Open event leads', value: queue?.waiting ?? '—' },
+            { label: 'Drafts ready', value: queue?.draftsReady ?? '—' },
             {
               label: 'Nodes swept',
               value: fresh ? `${fresh.nodesCovered}/${fresh.nodesTotal}` : '—',
@@ -118,6 +103,35 @@ export default async function ReviewPage() {
             : 'The sweep has no completed run on record.'}
         </p>
 
+        {queue && (
+          <p className="research-kicker">
+            {queue.oldestFoundAt
+              ? `Oldest waiting lead: ${daysSince(queue.oldestFoundAt)} days. `
+              : ''}
+            {queue.lastDraftRunAt
+              ? `Drafter last ran ${queue.lastDraftRunAt.slice(0, 16).replace('T', ' ')} UTC; ${queue.undrafted} not drafted yet, ${queue.suggestedNot} suggested not an event.`
+              : 'The drafter has no completed run on record.'}
+          </p>
+        )}
+        {params.accepted && (
+          <p role="status" className="review-note">
+            Accepted. It reaches the site when the accepted rows are committed — see below.
+          </p>
+        )}
+        {queue && queue.awaitingCommit > 0 && (
+          <div className="review-commit">
+            <p>
+              {queue.awaitingCommit} accepted event{queue.awaitingCommit === 1 ? '' : 's'} not in
+              the corpus yet. In a checkout, run{' '}
+              <code>pnpm run research:accept-events file.json</code> with{' '}
+              <a href="/review/accepted" download>
+                the accepted rows (JSON)
+              </a>
+              , then commit the file it changes.
+            </p>
+          </div>
+        )}
+
         {leads === null ? (
           <Empty
             what="The lead queue could not be read."
@@ -128,27 +142,11 @@ export default async function ReviewPage() {
         ) : (
           <ol className="research-results">
             {leads.map((lead) => (
-              <li key={lead.id}>
-                <p className="research-kicker">
-                  {lead.bottleneck} · {hostOf(lead.url)} · published {when(lead.published)} · reads
-                  as {lead.effectGuess}
-                </p>
-                <h2>
-                  <a href={lead.url} target="_blank" rel="noreferrer noopener">
-                    {lead.title || lead.url}
-                  </a>
-                </h2>
-                <p>{lead.excerpt}</p>
-                <form action={decide} className="mt-3 flex flex-wrap gap-2">
-                  <input type="hidden" name="id" value={lead.id} />
-                  <button className="research-button" name="verdict" value="accepted">
-                    Worth writing up
-                  </button>
-                  <button className="research-button-ghost" name="verdict" value="rejected">
-                    Not an event
-                  </button>
-                </form>
-              </li>
+              <LeadDraft
+                key={lead.id}
+                lead={lead}
+                problem={params.lead === lead.id ? params.problem : undefined}
+              />
             ))}
           </ol>
         )}
