@@ -236,11 +236,6 @@ export const COUNTRIES: readonly CountryIndex[] = [
   { iso2: 'ss', name: 'S. Sudan', region: 'East Africa', roles: ['extract'] },
 ];
 
-export function countryIndex(iso2: string): CountryIndex | null {
-  const id = iso2.toLowerCase();
-  return COUNTRIES.find((c) => c.iso2 === id) ?? null;
-}
-
 /** Extra directory rows generated with the country index. */
 export const EXTRA_ENDOWMENTS: readonly {
   iso2: string;

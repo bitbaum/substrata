@@ -22,8 +22,13 @@ import {
   resourcesFor,
   type ResourceId,
 } from '@/config/substrata-resources';
-import { COUNTRIES, countryIndex, type PathRole } from '@/config/substrata-countries';
+import { COUNTRIES, type CountryIndex, type PathRole } from '@/config/substrata-countries';
 import { BOTTLENECKS } from '@/lib/bottlenecks';
+
+function countryIndex(iso2: string): CountryIndex | null {
+  const id = iso2.toLowerCase();
+  return COUNTRIES.find((c) => c.iso2 === id) ?? null;
+}
 
 /** Current EU member states. Used only to paint EU instruments onto the map. */
 export const EU_MEMBERS = [

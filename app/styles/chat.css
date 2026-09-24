@@ -1,0 +1,141 @@
+/*
+ * The /chat page layout and the blocks an answer renders: markdown, the
+ * consent line and the submission receipt.
+ */
+.chat-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(14rem, 1fr);
+  gap: 3rem;
+}
+.chat-mode {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.chat-mode button {
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.chat-mode button[aria-pressed='true'] {
+  border-color: var(--color-accent);
+  background: var(--color-surface-raised);
+}
+.research-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin: 1.5rem 0;
+  max-width: 48rem;
+}
+.research-form textarea {
+  width: 100%;
+  resize: vertical;
+  line-height: 1.65;
+}
+.research-form button {
+  align-self: flex-start;
+}
+.research-form label {
+  font-size: 0.9rem;
+}
+.consent-line {
+  display: flex;
+  align-items: start;
+  gap: 0.7rem;
+  padding: 0.65rem 0;
+  line-height: 1.6;
+}
+.consent-line input {
+  margin-top: 0.3rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  flex-shrink: 0;
+}
+.chat-answer {
+  padding: 1.5rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 0.75rem;
+  background: var(--color-surface-raised);
+  margin: 1.5rem 0;
+  line-height: 1.75;
+}
+.chat-answer h2 {
+  font: 600 1.5rem var(--font-heading);
+  margin-bottom: 1rem;
+}
+.chat-answer h3 {
+  margin: 1.5rem 0 0.6rem;
+}
+.chat-answer a {
+  color: var(--color-accent);
+}
+.chat-answer small {
+  display: block;
+  color: var(--color-fg-tertiary);
+}
+.chat-markdown p,
+.chat-markdown ul,
+.chat-markdown ol {
+  margin: 0.8rem 0;
+}
+.chat-markdown ul {
+  list-style: disc;
+  padding-left: 1.3rem;
+}
+.chat-markdown ol {
+  list-style: decimal;
+  padding-left: 1.3rem;
+}
+.chat-markdown table {
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  max-width: 100%;
+  font-size: 0.85rem;
+}
+.chat-markdown td,
+.chat-markdown th {
+  padding: 0.6rem;
+  border: 1px solid var(--color-border-strong);
+  text-align: left;
+  vertical-align: top;
+  min-width: 8rem;
+}
+.chat-main {
+  min-width: 0;
+}
+.chat-aside h2 {
+  font: 600 1.2rem var(--font-heading);
+  margin: 1rem 0;
+}
+.chat-aside button,
+.chat-aside > a {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+  color: var(--color-fg-secondary);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.receipt {
+  overflow-wrap: anywhere;
+  padding: 1rem;
+  border: 1px solid var(--color-status-positive);
+}
+@media (max-width: 800px) {
+  .chat-layout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+@media (max-width: 520px) {
+  .research-form button {
+    width: 100%;
+  }
+}

@@ -21,7 +21,7 @@
  * — a research lead, not a finding. A person clears a row by attaching the
  * primary source that confirms the company's role in that material. Coverage
  * progress is measured by how many rows have a source, not by how many rows
- * exist, and `coverageProgress()` below is what reports it.
+ * exist, and `coverageProgress()` in lib/coverage-progress.ts reports it.
  *
  * This is the mandate's own rule turned on the firm: an unsourced claim is
  * marked unverified rather than stated, however confident the analyst is.
@@ -29,7 +29,7 @@
  * Created: 2026-08-26
  */
 
-import { MATERIALS, type CurveId, type NodeType } from './substrata';
+import type { CurveId, NodeType } from './substrata';
 
 // =====================================================================
 // SHAPE
@@ -613,42 +613,6 @@ export const COVERAGE: readonly MaterialCoverage[] = [
 ];
 
 // =====================================================================
-// PROGRESS
-// =====================================================================
-
-export interface CoverageProgress {
-  /** Research leads in the universe. */
-  total: number;
-  /** Rows with a primary source attached — the only ones that count as covered. */
-  sourced: number;
-  /** Materials on the desk with no coverage entry at all. */
-  uncoveredMaterials: string[];
-}
-
-/**
- * What Phase 1 completion actually means. Rows without a source are leads, so
- * a universe of 90 unsourced entries is 0% covered, not 100% mapped.
- */
-export function coverageProgress(): CoverageProgress {
-  const rows = COVERAGE.flatMap((entry) => entry.producers);
-  const covered = new Set(COVERAGE.map((entry) => entry.material));
-  return {
-    total: rows.length,
-    sourced: rows.filter((producer) => producer.source !== null).length,
-    uncoveredMaterials: MATERIALS.map((material) => material.title).filter(
-      (title) => !covered.has(title),
-    ),
-  };
-}
-
-/** @returns every material a company appears on — the overlaps are the point. */
-export function materialsFor(companyName: string): string[] {
-  return COVERAGE.filter((entry) =>
-    entry.producers.some((producer) => producer.name === companyName),
-  ).map((entry) => entry.material);
-}
-
-// =====================================================================
 // CHOKEPOINTS THAT ARE NOT MATERIALS
 //
 // A material is only one kind of chokepoint, and for the compute and power
@@ -883,22 +847,3 @@ export const CHOKEPOINTS: readonly Chokepoint[] = [
     'Small modular reactors are a permission and first-of-a-kind construction problem. The physics is older than the licence.',
   ),
 ];
-
-export interface ChokepointProgress {
-  total: number;
-  sourced: number;
-  byCurve: Record<string, number>;
-}
-
-/** Same honesty as the producer map: a row counts only once it has a source. */
-export function chokepointProgress(): ChokepointProgress {
-  const byCurve: Record<string, number> = {};
-  for (const point of CHOKEPOINTS) {
-    byCurve[point.curve] = (byCurve[point.curve] ?? 0) + 1;
-  }
-  return {
-    total: CHOKEPOINTS.length,
-    sourced: CHOKEPOINTS.filter((point) => point.source !== null).length,
-    byCurve,
-  };
-}

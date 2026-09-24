@@ -42,7 +42,7 @@ export function FeedSettings({ follows }: { follows: Follows }) {
             <select name="window" defaultValue={desk.window}>
               {WINDOWS.map((w) => (
                 <option key={w} value={w}>
-                  Last {WINDOW_LABEL[w].toLowerCase()}
+                  {w === 'all' ? WINDOW_LABEL[w] : `Last ${WINDOW_LABEL[w]}`}
                 </option>
               ))}
             </select>

@@ -7,7 +7,8 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
 import { buildMap } from '../lib/map';
-import { COVERAGE, coverageProgress } from '../config/substrata-coverage';
+import { COVERAGE } from '../config/substrata-coverage';
+import { coverageProgress } from '../lib/coverage-progress';
 import { RESEARCH_PROGRAMMES } from '../config/substrata-programmes';
 import { correctionUrl } from '../lib/site';
 

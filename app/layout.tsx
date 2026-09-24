@@ -2,6 +2,19 @@ import { DEFAULT_LOCALE, dirFor } from '@/lib/i18n/locales';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import './globals.css';
+// Feature stylesheets, split out of globals.css (which keeps tokens, base and
+// site chrome). The order is the order they had inside globals.css, so the
+// cascade is unchanged; keep it when adding one.
+import './styles/world.css';
+import './styles/search.css';
+import './styles/research.css';
+import './styles/atlas.css';
+import './styles/ask.css';
+import './styles/discussion.css';
+import './styles/chat.css';
+import './styles/notes.css';
+import './styles/follow.css';
+import './styles/figure.css';
 import { SITE } from '@/lib/site';
 import { AskDock } from '@/components/portal/AskDock';
 

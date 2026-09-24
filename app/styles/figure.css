@@ -1,0 +1,71 @@
+/* ── Figure: a number a reader can check (components/portal/Figure.tsx) ── */
+.figure-value {
+  font-variant-numeric: tabular-nums;
+  text-decoration: underline dotted;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: var(--color-fg-muted);
+}
+a.figure-value:hover,
+.figure-trigger:hover {
+  text-decoration-style: solid;
+  text-decoration-color: currentColor;
+}
+.figure-trigger {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: help;
+}
+.figure-trigger:focus-visible,
+a.figure-value:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+.figure-pop {
+  /* Top-layer popover, centred: legible at any width. Preflight zeroes the
+     UA's auto margin, so it is restored here. */
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  height: fit-content;
+  max-width: min(26rem, calc(100vw - 2rem));
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface-raised);
+  color: var(--color-fg-secondary);
+  font: 400 0.875rem/1.55 var(--font-sans);
+  letter-spacing: normal;
+  text-transform: none;
+  text-align: left;
+}
+.figure-pop::backdrop {
+  background: color-mix(in srgb, var(--color-surface-page) 40%, transparent);
+}
+.figure-pop:popover-open {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+.figure-pop-kicker {
+  font: 0.7rem/1.5 var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-fg-tertiary);
+}
+.figure-pop-text {
+  display: block;
+}
+.figure-pop-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.figure-pop-links a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}

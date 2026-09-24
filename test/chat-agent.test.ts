@@ -10,30 +10,15 @@ import { parseFollows } from '../lib/follows';
 import assert from 'node:assert/strict';
 import { ChainExhaustedError, type Link } from '@bitbaum/ai-kit';
 
-import {
-  CHAT_TOOLS,
-  emptyLedger,
-  findBottleneck,
-  findCompany,
-  fitResult,
-  runTool,
-  toolDefinitions,
-  type ToolEnv,
-} from '../lib/chat-tools';
+import { CHAT_TOOLS, fitResult, runTool, toolDefinitions } from '../lib/chat-tools/registry';
+import { emptyLedger, type ToolEnv } from '../lib/chat-tools/ledger';
+import { findBottleneck, findCompany } from '../lib/chat-tools/resolve';
 import { describeContext, preloadPage, readerContext, sectionOf } from '../lib/chat-context';
-import {
-  StreamGate,
-  budgetMessage,
-  couldBeProtocol,
-  isPageRecord,
-  readTurn,
-  runAgent,
-  stripThinking,
-  systemPrompt,
-  tidyAnswer,
-  type AgentEvent,
-  type ModelTurn,
-} from '../lib/chat-agent';
+import { StreamGate, couldBeProtocol } from '../lib/chat-agent/stream-gate';
+import { readTurn, stripThinking, tidyAnswer } from '../lib/chat-agent/parse';
+import type { ModelTurn } from '../lib/chat-agent/turn';
+import { systemPrompt } from '../lib/chat-agent/prompt';
+import { budgetMessage, isPageRecord, runAgent, type AgentEvent } from '../lib/chat-agent/loop';
 import { BOTTLENECKS } from '../lib/bottlenecks';
 import { MARKET_PARTICIPANTS } from '../lib/participants';
 

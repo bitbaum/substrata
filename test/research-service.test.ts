@@ -7,7 +7,7 @@ import { researchDocuments, searchResearch } from '../lib/research-index';
 import { bottlenecksCsv, csvCell, researchExport } from '../lib/research-export';
 import { boundedJson, sameOrigin } from '../lib/request-guards';
 import { chainDiagram } from '../lib/chain-diagram';
-import { chatContext } from '../lib/chat';
+import { chatContext } from '../lib/chat/retrieve';
 import { hasAuthenticatedSubject } from '../lib/identity';
 
 test('atlas counts partition actual bottlenecks and never turn missing coverage into data', () => {
@@ -45,7 +45,7 @@ test('a broad topic question surfaces the actual chokepoints, not development-ba
   // office and three country directory rows explicitly labelled "directory,
   // not a finding" — none of which name an actuation or robotics chokepoint.
   // Word-boundary scoring, document-frequency weighting and a relevance floor
-  // (`lib/research-index.ts`, `lib/chat.ts`) are what should keep this from
+  // (`lib/research-index.ts`, `lib/chat/retrieve.ts`) are what should keep this from
   // recurring; this pins the fix rather than the exact ranking, which is free
   // to change as the corpus grows.
   const context = chatContext(
