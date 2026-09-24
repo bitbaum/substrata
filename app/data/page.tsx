@@ -1,8 +1,11 @@
+import React from 'react';
 import Link from 'next/link';
 import { Page, Shell, SectionHeader } from '@/components/portal/Shell';
 import { evidenceTotals } from '@/lib/atlas';
 import { EVIDENCE } from '@/config/substrata-evidence';
 import { freshness } from '@/lib/sweep-store';
+import { Figure } from '@/components/portal/Figure';
+import { METHODS, codeHref, methodAnchor, type MethodId } from '@/lib/methods';
 
 export const metadata = { title: 'Data quality and provenance' };
 
@@ -24,10 +27,16 @@ export default async function DataPage() {
           title="Every claim should be checkable"
           lede="See what has a source, what is still a lead, and what comes from analyst judgement. These counts are computed from the same records used by the atlas and company pages."
           stats={[
-            { label: 'Producer rows', value: t.producerRows },
-            { label: 'Sourced', value: t.sourced },
-            { label: 'Candidate sources', value: t.candidate },
-            { label: 'Unverified', value: t.unverified },
+            {
+              label: 'Producer rows',
+              value: <Figure method="producer-rows">{t.producerRows}</Figure>,
+            },
+            { label: 'Sourced', value: <Figure method="sourced-rows">{t.sourced}</Figure> },
+            {
+              label: 'Candidate sources',
+              value: <Figure method="sourced-rows">{t.candidate}</Figure>,
+            },
+            { label: 'Unverified', value: <Figure method="sourced-rows">{t.unverified}</Figure> },
           ]}
         />
         <div className="research-prose">
@@ -88,6 +97,39 @@ export default async function DataPage() {
             export includes a SHA-256 content digest so you can identify an exact dataset and
             reproduce counts.
           </p>
+          <h2 id="methods">How each number is computed</h2>
+          <p>
+            Every count, share and score on this site is a function of the corpus. A dotted
+            underline on a number means you can open it: sourced figures link their source, computed
+            ones open the rule below, and estimates say whose they are and when.
+          </p>
+          <div>
+            {(Object.keys(METHODS) as MethodId[]).map((id) => {
+              const method = METHODS[id];
+              return (
+                <div key={id} id={methodAnchor(id)} className="scroll-mt-24">
+                  <h3>{method.title}</h3>
+                  <div>
+                    <p>
+                      <strong>Rule:</strong> {method.formula}
+                    </p>
+                    <p>{method.explanation}</p>
+                    <p>
+                      Code:{' '}
+                      {method.code.map((path, i) => (
+                        <React.Fragment key={path}>
+                          {i > 0 && ', '}
+                          <a href={codeHref(path)} rel="noopener noreferrer">
+                            {path}
+                          </a>
+                        </React.Fragment>
+                      ))}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
           <h2>Correct the record</h2>
           <p>
             Send the claim, a public source, its date, and the proposed correction to{' '}

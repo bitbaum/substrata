@@ -156,7 +156,7 @@ export function SectionHeader({
 }: {
   title: string;
   lede: string;
-  stats?: { label: string; value: string | number; note?: string }[];
+  stats?: { label: string; value: React.ReactNode; note?: React.ReactNode }[];
   action?: React.ReactNode;
 }) {
   return (
