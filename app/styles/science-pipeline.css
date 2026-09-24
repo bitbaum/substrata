@@ -1,0 +1,287 @@
+/* Science pipeline: the stage bar, the funnel rows and the item lists (/science/pipeline). */
+.pipe-bar {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 2px;
+  min-width: 0;
+}
+.pipe-cell {
+  min-width: 0;
+  background: var(--color-surface-raised);
+  border-top: 3px solid var(--color-border-subtle);
+}
+.pipe-established {
+  border-top-color: var(--color-status-positive);
+}
+.pipe-claimed {
+  border-top-color: var(--color-status-warning);
+}
+.pipe-cell-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.4rem 0.5rem 0.45rem;
+  color: var(--color-fg-primary);
+}
+.pipe-cell-link:hover {
+  background: var(--color-surface-page);
+}
+.pipe-cell-label {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-fg-tertiary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pipe-cell-count {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.pipe-empty .pipe-cell-count {
+  color: var(--color-fg-muted);
+}
+.pipe-cell-judged {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.2rem;
+  min-height: 0.9rem;
+  font-size: 0.68rem;
+  color: var(--color-fg-secondary);
+}
+.pipe-dot {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: var(--color-status-positive);
+}
+.pipe-dot-claimed {
+  background: transparent;
+  border: 1.5px solid var(--color-status-warning);
+}
+.pipe-fresh {
+  color: var(--color-accent);
+  white-space: nowrap;
+}
+.pipe-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.2rem;
+  margin: 0.6rem 0 1rem;
+  font-size: 0.75rem;
+  color: var(--color-fg-muted);
+}
+.pipe-legend > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.pipe-rows {
+  border-top: 1px solid var(--color-border-subtle);
+}
+.pipe-row {
+  display: grid;
+  grid-template-columns: minmax(0, 16rem) minmax(0, 1fr);
+  gap: 0.5rem 1.25rem;
+  align-items: center;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.pipe-row-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-fg-primary);
+}
+.pipe-row-name:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.pipe-row-note {
+  font-size: 0.8rem;
+  color: var(--color-fg-muted);
+}
+@media (max-width: 640px) {
+  .pipe-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .pipe-cell-link {
+    padding: 0.35rem 0.3rem;
+  }
+}
+.pipe-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+}
+.pipe-filter a {
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 999px;
+  color: var(--color-fg-secondary);
+}
+.pipe-filter a.is-on {
+  border-color: var(--color-fg-primary);
+  color: var(--color-fg-primary);
+}
+.pipe-filter-sep {
+  width: 1px;
+  margin: 0 0.3rem;
+  background: var(--color-border-subtle);
+}
+
+.sci-list {
+  border-top: 1px solid var(--color-border-subtle);
+}
+.sci-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+  min-width: 0;
+}
+.sci-meta,
+.sci-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.9rem;
+  font-size: 0.75rem;
+  color: var(--color-fg-tertiary);
+}
+.sci-foot {
+  margin-top: 0.45rem;
+}
+.sci-foot a,
+.sci-rail {
+  color: var(--color-accent);
+}
+.sci-kind {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-fg-secondary);
+}
+.sci-venue {
+  font-style: italic;
+}
+.sci-title {
+  display: block;
+  margin-top: 0.3rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--color-fg-primary);
+  overflow-wrap: anywhere;
+}
+a.sci-title:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.sci-abstract {
+  margin-top: 0.35rem;
+  max-width: 70ch;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--color-fg-secondary);
+}
+.sci-orgs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.9rem;
+  margin-top: 0.4rem;
+  font-size: 0.78rem;
+}
+.sci-org {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+.sci-org-name {
+  color: var(--color-fg-secondary);
+}
+.sci-org-name:hover,
+.sci-org-directory:hover {
+  text-decoration: underline;
+}
+.sci-org-directory {
+  color: var(--color-accent);
+}
+.sci-org-more,
+.sci-unreviewed,
+.sci-claimed {
+  color: var(--color-fg-muted);
+}
+.sci-claimed {
+  color: var(--color-status-warning);
+}
+.sci-judged {
+  color: var(--color-status-positive);
+}
+.sci-companies {
+  border-top: 1px solid var(--color-border-subtle);
+}
+.sci-companies li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.9rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+  font-size: 0.875rem;
+}
+.sci-company-name {
+  font-weight: 500;
+  color: var(--color-fg-primary);
+}
+.sci-company-count,
+.sci-company-latest {
+  font-size: 0.78rem;
+  color: var(--color-fg-tertiary);
+}
+.sci-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+.sci-table th {
+  padding: 0.4rem 0.6rem 0.4rem 0;
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-fg-tertiary);
+  border-bottom: 1px solid var(--color-border-strong);
+}
+.sci-table td {
+  padding: 0.5rem 0.6rem 0.5rem 0;
+  vertical-align: top;
+  border-bottom: 1px solid var(--color-border-subtle);
+  color: var(--color-fg-primary);
+}
+.sci-table td a:hover {
+  text-decoration: underline;
+}
+.sci-table-muted {
+  color: var(--color-fg-muted);
+}
+.sci-table-rails {
+  font-size: 0.75rem;
+}
+.sci-table-rails a {
+  display: inline-block;
+  margin-right: 0.6rem;
+  color: var(--color-accent);
+}
+@media (max-width: 640px) {
+  .sci-table th:nth-child(2),
+  .sci-table td:nth-child(2) {
+    display: none;
+  }
+}

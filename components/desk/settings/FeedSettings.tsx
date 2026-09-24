@@ -31,6 +31,16 @@ export function FeedSettings({ follows }: { follows: Follows }) {
             </span>
           </label>
           <label className="settings-check">
+            <input type="checkbox" name="showScience" defaultChecked={desk.showScience} />
+            <span>
+              Papers and grants
+              <small>
+                New from OpenAlex, arXiv, NSF, OpenAIRE and DOE on your rails; matched by keyword,
+                not yet reviewed.
+              </small>
+            </span>
+          </label>
+          <label className="settings-check">
             <input type="checkbox" name="showLeads" defaultChecked={desk.showLeads} />
             <span>
               Web leads

@@ -16,6 +16,7 @@ import { SeverityBar, Status, rowLabel } from '@/components/portal/Status';
 import { FollowButton } from '@/components/portal/FollowButton';
 import { currentSession } from '@/lib/auth';
 import { readFollows } from '@/lib/desk-store';
+import { pipelineSection } from '@/components/science/BottleneckPipeline';
 
 interface RouteParams {
   params: Promise<{ slug: string }>;
@@ -48,6 +49,7 @@ export default async function BottleneckPage({ params }: RouteParams) {
   const entity = resolveIn('bottleneck', b.slug);
   const session = await currentSession();
   const follows = session?.actorId ? await readFollows(session.actorId) : null;
+  const science = await pipelineSection(b);
 
   return (
     <Shell currentPath="bottlenecks">
@@ -154,7 +156,7 @@ export default async function BottleneckPage({ params }: RouteParams) {
           </div>
         </header>
 
-        {entity && <EntityProfile entity={entity} />}
+        {entity && <EntityProfile entity={entity} extra={science ? [science] : []} />}
       </Page>
     </Shell>
   );

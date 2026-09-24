@@ -54,6 +54,16 @@ export function scienceHref(id: string): string {
 }
 
 /** A named place: a field, a plant, a mine. */
+/** The science pipeline, for every bottleneck or for one, optionally one stage. */
+export function pipelineHref(bottleneck?: string, stage?: string): string {
+  if (!bottleneck) return '/science/pipeline';
+  return `/science/pipeline/${slugOrName(bottleneck)}${stage ? `?stage=${stage}` : ''}`;
+}
+
+export function pipelineOrgHref(name?: string): string {
+  return `/science/pipeline/organisations${name ? `?org=${encodeURIComponent(name)}` : ''}`;
+}
+
 export function facilityHref(id: string): string {
   return `/facilities/${id}`;
 }
@@ -167,6 +177,9 @@ export const ROUTES = [
   '/policy/:jurisdiction',
   '/science',
   '/science/:slug',
+  '/science/pipeline',
+  '/science/pipeline/organisations',
+  '/science/pipeline/:slug',
   '/capital',
   '/capital/:slug',
   '/loops',
