@@ -56,6 +56,20 @@ export type DeskItem =
       /** True when `at` is the publisher's own date rather than when we found it. */
       dated: boolean;
       dateOnly: false;
+    }
+  | {
+      /** A filing to the SEC by a listed holder of the bottleneck: primary, timestamped. */
+      source: 'filing';
+      /** The EDGAR accession number. */
+      id: string;
+      at: string;
+      title: string;
+      url: string;
+      host: string;
+      bottlenecks: string[];
+      effect: EventEffect;
+      form: string;
+      dateOnly: false;
     };
 
 /** Leads older than this are not news any more, whenever the sweep found them. */

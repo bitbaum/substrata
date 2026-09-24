@@ -22,6 +22,7 @@ export interface FeedFilter {
   days: number | null;
   showVerified: boolean;
   showLeads: boolean;
+  showFilings: boolean;
   effect: EventEffect | null;
   /** Bottleneck names; empty means every rail. */
   bottlenecks: string[];
@@ -75,7 +76,13 @@ export function applyFilter(
     if (marks.hidden.has(key)) return false;
     if (filter.view === 'saved') return marks.saved.has(key);
     if (filter.view === 'unread' && isRead(item, marks, filter.readUntil)) return false;
-    if (item.source === 'event' ? !filter.showVerified : !filter.showLeads) return false;
+    const shown =
+      item.source === 'event'
+        ? filter.showVerified
+        : item.source === 'lead'
+          ? filter.showLeads
+          : filter.showFilings;
+    if (!shown) return false;
     if (since !== null && Date.parse(item.at) < since) return false;
     if (filter.effect && !(item.source === 'event' && item.effect === filter.effect)) return false;
     if (

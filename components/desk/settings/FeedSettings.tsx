@@ -21,6 +21,16 @@ export function FeedSettings({ follows }: { follows: Follows }) {
             </span>
           </label>
           <label className="settings-check">
+            <input type="checkbox" name="showFilings" defaultChecked={desk.showFilings} />
+            <span>
+              SEC filings
+              <small>
+                8-K, 6-K, 10-Q, annual reports and activist stakes by listed holders of your rails,
+                from EDGAR.
+              </small>
+            </span>
+          </label>
+          <label className="settings-check">
             <input type="checkbox" name="showLeads" defaultChecked={desk.showLeads} />
             <span>
               Web leads

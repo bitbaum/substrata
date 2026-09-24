@@ -119,6 +119,11 @@ export default async function MarketsPage({
               note: 'extraction through deployment',
             },
           ]}
+          action={
+            <Link href="/exposure" className="research-button-ghost">
+              By bottleneck, with tickers →
+            </Link>
+          }
         />
 
         <div className="mb-6 rounded-lg border border-strong bg-surface-raised px-5 py-4">

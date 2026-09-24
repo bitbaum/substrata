@@ -103,23 +103,3 @@
   font-size: 0.7rem;
   color: var(--color-status-warning);
 }
-.ticker-group {
-  display: inline-flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.3rem;
-}
-.ticker {
-  padding: 0.05rem 0.4rem;
-  border: 1px solid var(--color-border-strong);
-  border-radius: 0.25rem;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--color-fg-primary);
-  white-space: nowrap;
-}
-.ticker-parent,
-.ticker-none {
-  font-size: 0.72rem;
-  color: var(--color-fg-muted);
-}

@@ -6,6 +6,7 @@
  * is a row someone can diff, with the source it came from beside it.
  */
 import listingsFile from '../research/listings.json';
+import { MARKET_PARTICIPANTS } from './participants';
 
 export interface SecurityRef {
   ticker: string;
@@ -85,6 +86,14 @@ export const LISTINGS = listingsFile as ListingsFile;
 
 export function listingFor(slug: string): Listing | undefined {
   return LISTINGS.listings[slug];
+}
+
+const SLUG_BY_NAME = new Map(MARKET_PARTICIPANTS.map((p) => [p.name, p.slug]));
+
+/** By the directory name a producer row uses. Null when the holder has no directory page. */
+export function listingForName(name: string): Listing | null {
+  const slug = SLUG_BY_NAME.get(name);
+  return slug ? (LISTINGS.listings[slug] ?? null) : null;
 }
 
 /** "8035 JP" / "ASML US" — the form a terminal takes. */

@@ -62,6 +62,9 @@ export function DeskAside({
             </div>
           ))}
         </dl>
+        <p className="mt-3 text-sm">
+          <Link href="/exposure?mine=1&listed=1">Tickers on your rails →</Link>
+        </p>
         {reviewer && (
           <p className="mt-3 text-sm">
             <Link href="/review">Review inbox →</Link>

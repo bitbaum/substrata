@@ -20,55 +20,13 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 
 import { MARKET_PARTICIPANTS } from '@/lib/participants';
+import { choosePrimary, sameCompany } from '@/lib/listing-match';
 import { LISTING_OVERRIDES } from '@/config/substrata-listing-overrides';
 import { HOME_COMPOSITE, type Listing, type ListingsFile, type SecurityRef } from '@/lib/listings';
 
 const OUT = new URL('../../research/listings.json', import.meta.url);
 const USER_AGENT = 'Substrata research cato@orangecat.ch';
 const SEARCH_GAP_MS = 12_500;
-
-function words(name: string): string[] {
-  const stop = new Set([
-    'the',
-    'and',
-    'of',
-    'co',
-    'corp',
-    'corporation',
-    'inc',
-    'ltd',
-    'limited',
-    'plc',
-    'nv',
-    'sa',
-    'ag',
-    'se',
-    'group',
-    'holding',
-    'holdings',
-    'company',
-    'kk',
-    'spa',
-    'asa',
-    'ab',
-    'oyj',
-    'adr',
-  ]);
-  return name
-    .toLowerCase()
-    .replace(/&/g, ' and ')
-    .replace(/\/[a-z]+\/?/g, ' ')
-    .replace(/[^a-z0-9 ]/g, ' ')
-    .split(' ')
-    .filter((w) => w && !stop.has(w));
-}
-
-/** Every word of the wanted name is a word of the candidate's name. */
-function sameCompany(wanted: string, candidate: string): boolean {
-  const have = new Set(words(candidate));
-  const want = words(wanted);
-  return want.length > 0 && want.every((w) => have.has(w));
-}
 
 type SecRow = [number, string, string, string];
 
@@ -81,9 +39,7 @@ async function secTable(): Promise<SecRow[]> {
 }
 
 function secMatch(table: SecRow[], query: string): SecurityRef | null {
-  const hits = table.filter(
-    ([, name]) => sameCompany(query, name) && words(name).length <= words(query).length + 2,
-  );
+  const hits = table.filter(([, name]) => sameCompany(query, name));
   // A primary exchange over OTC, and the plainest share class over the rest.
   const best = hits.find((h) => h[3] !== 'OTC') ?? hits[0];
   if (!best) return null;
@@ -134,33 +90,59 @@ async function figiSearch(query: string, exchCode: string): Promise<FigiRow[]> {
 }
 
 /**
- * The primary listing: the composite line on a home exchange, searched one
- * home exchange at a time. Never another country's line: ASML's first page of
- * results had its Swiss line and not its Amsterdam one, and "ASML SW" is not
- * where ASML trades.
+ * The line on each home exchange, searched one exchange at a time. Never
+ * another country's line: ASML's first page of unfiltered results had its
+ * Swiss line and not its Amsterdam one, and "ASML SW" is not where it trades.
  */
-async function figiPrimary(query: string, jurisdictions: string[]): Promise<SecurityRef | null> {
+async function figiHomeLines(query: string, jurisdictions: string[]): Promise<SecurityRef[]> {
   const homes = [...new Set(jurisdictions.map((j) => HOME_COMPOSITE[j]).filter(Boolean))];
+  const found: SecurityRef[] = [];
   for (const exchCode of homes) {
+    if (exchCode === 'US') continue; // the SEC file is the source for US lines
     const rows = await figiSearch(query, exchCode);
     const lines = rows.filter((r) => r.exchCode === exchCode && sameCompany(query, r.name));
     // The composite where the exchange has one; Euronext Amsterdam's ASML line
     // is not flagged composite and is still the line that trades.
     const best = lines.find((r) => r.figi === r.compositeFIGI) ?? lines[0];
     if (best)
-      return {
+      found.push({
         ticker: best.ticker,
         exchange: best.exchCode,
         name: best.name,
         figi: best.figi,
         source: `https://www.openfigi.com/id/${best.figi}`,
-      };
+      });
   }
-  return null;
+  return found;
+}
+
+/**
+ * Re-apply the matching rule to what is already stored, without searching
+ * again: a rule change must be able to retract a ticker it would no longer
+ * accept.
+ */
+function revalidate(
+  listing: Listing,
+  query: string,
+  jurisdictions: string[],
+  sec: SecRow[],
+): Listing {
+  if (listing.status !== 'listed' && listing.status !== 'parent') return listing;
+  const homes =
+    listing.primary?.figi && sameCompany(query, listing.primary.name) ? [listing.primary] : [];
+  const us = secMatch(sec, query);
+  const primary = choosePrimary(homes, us, jurisdictions);
+  if (!primary && !us) return { status: 'none-found', query, checkedOn: listing.checkedOn };
+  return { ...listing, primary, us };
 }
 
 async function main() {
   const only = process.argv.slice(2).filter((a) => !a.startsWith('-'));
+  const mode = process.argv.includes('--revalidate')
+    ? 'revalidate'
+    : process.argv.includes('--missing')
+      ? 'missing'
+      : 'all';
   const previous: ListingsFile = (() => {
     try {
       return JSON.parse(readFileSync(OUT, 'utf8')) as ListingsFile;
@@ -175,21 +157,26 @@ async function main() {
 
   for (const [i, p] of todo.entries()) {
     const override = LISTING_OVERRIDES[p.slug];
-    if (override && 'private' in override) {
+    if (override && 'private' in override && mode !== 'revalidate') {
       listings[p.slug] = { status: 'private', note: override.private, checkedOn: today };
       console.log(`${p.slug}: private`);
       continue;
     }
     const query = override && 'query' in override ? override.query : p.name;
+    if (mode === 'revalidate') {
+      if (listings[p.slug])
+        listings[p.slug] = revalidate(listings[p.slug], query, p.jurisdictions, sec);
+      continue;
+    }
+    if (mode === 'missing' && listings[p.slug]) continue;
     const us = secMatch(sec, query);
-    let primary: SecurityRef | null = null;
+    let homeLines: SecurityRef[] = [];
     try {
-      primary = await figiPrimary(query, p.jurisdictions);
+      homeLines = await figiHomeLines(query, p.jurisdictions);
     } catch (error) {
       console.error(`${p.slug}: OpenFIGI failed (${(error as Error).message}); keeping SEC only`);
     }
-    // A US-only company has its SEC listing as its primary.
-    if (!primary && us && us.exchange !== 'OTC') primary = { ...us };
+    const primary = choosePrimary(homeLines, us, p.jurisdictions);
     const parent = override && 'parent' in override ? override : null;
     listings[p.slug] =
       primary || us

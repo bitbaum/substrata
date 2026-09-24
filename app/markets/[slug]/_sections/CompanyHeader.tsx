@@ -8,6 +8,8 @@ import { hostOf } from '@/lib/desk';
 import { FollowButton } from '@/components/portal/FollowButton';
 import { CompanyFacts } from './CompanyFacts';
 import { Lede } from './Lede';
+import { Ticker } from '@/components/exposure/Ticker';
+import { listingFor } from '@/lib/listings';
 
 /**
  * The header is derived. Every figure in it links to the rows it counts or to
@@ -54,6 +56,9 @@ export function CompanyHeader({
           <FollowButton type="company" id={p.slug} following={following} label={p.name} />
         )}
       </div>
+      <p className="mt-2 text-sm">
+        <Ticker listing={listingFor(p.slug) ?? null} />
+      </p>
       <p className="mt-3 max-w-prose text-lg leading-relaxed text-fg-secondary">
         <Lede profile={profile} />
       </p>

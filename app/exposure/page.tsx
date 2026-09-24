@@ -54,8 +54,10 @@ export default async function ExposurePage({ searchParams }: { searchParams: Pro
           <p className="desk-kicker">Exposure</p>
           <h1 className="desk-title">Who holds each bottleneck, and where it trades.</h1>
           <p className="desk-status">
-            <Figure method="exposure-rows">{String(bottlenecks)}</Figure> bottlenecks ·{' '}
-            <Figure method="exposure-rows">{String(rows.length)}</Figure> holder rows ·{' '}
+            <Figure method="exposure-rows">{String(bottlenecks)}</Figure> bottleneck
+            {bottlenecks === 1 ? '' : 's'} ·{' '}
+            <Figure method="exposure-rows">{String(rows.length)}</Figure> holder row
+            {rows.length === 1 ? '' : 's'} ·{' '}
             <Figure method="holders-listed">{String(listed)}</Figure> with a listing (their own or a
             parent&rsquo;s) · listings checked {LISTINGS.checkedOn || 'not yet'}
           </p>
@@ -123,7 +125,7 @@ export default async function ExposurePage({ searchParams }: { searchParams: Pro
         </AutoSubmitForm>
         <p className="desk-showing">
           <a href={`/exposure.csv${qs}`} download>
-            Download these {rows.length} rows as CSV
+            Download {rows.length === 1 ? 'this row' : `these ${rows.length} rows`} as CSV
           </a>
           {' · '}
           <Link href="/data#method-holders-listed">How listings are found</Link>

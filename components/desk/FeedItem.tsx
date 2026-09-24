@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import { EVENT_EFFECT_LABEL } from '@/config/substrata-events';
+import { FORM_LABEL } from '@/lib/filings';
 import { whenLabel, type DeskItem } from '@/lib/desk';
 import { itemKey } from '@/lib/desk-filter';
 import { muteHost, toggleMark, verdict } from '@/app/account/actions';
@@ -94,6 +95,13 @@ export function FeedItem({
               title="Reviewed and filed by Substrata, with a source and a quote."
             >
               Verified · {EVENT_EFFECT_LABEL[item.effect].toLowerCase()}
+            </span>
+          ) : item.source === 'filing' ? (
+            <span
+              className="desk-badge desk-badge-filing"
+              title={`${FORM_LABEL[item.form] ?? item.form}, filed with the SEC. The company's own statement to its regulator; Substrata has not judged its effect on the bottleneck.`}
+            >
+              SEC {item.form}
             </span>
           ) : (
             <span
