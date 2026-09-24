@@ -3,6 +3,7 @@ import {
   StreamInterrupted,
   completeStream,
   createLinkCooldown,
+  estimateTokens,
   freeChain,
   usableChain,
   type ChatMessage,
@@ -43,6 +44,8 @@ export function streamedTurn(opts: {
   timeoutMs: number;
   signal?: AbortSignal;
   extraHeaders?: Record<string, string>;
+  /** Called with an estimate of each turn's tokens (the free chain's interactive ledger). */
+  onSpend?: (tokens: number) => void;
   /** Skip links that refused recently (the free chain); a reader's one link never. */
   cooldown?: ReturnType<typeof createLinkCooldown>;
 }): ModelTurn {
@@ -71,6 +74,9 @@ export function streamedTurn(opts: {
     const tail = gate.flush();
     if (tail) onText(tail);
     if (!end) throw new Error('The stream ended without a turn.');
+    opts.onSpend?.(
+      estimateTokens(JSON.stringify(messages), tools ? JSON.stringify(tools) : '', end.text),
+    );
     const read = readTurn(end.text, end.toolCalls, Boolean(tools?.length));
     return { ...read, model: end.id };
   };

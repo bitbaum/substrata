@@ -11,5 +11,5 @@ allowBuilds:
 # supply-chain window. Redundant once the release ages past the window.
 minimumReleaseAgeExclude:
   - '@bitbaum/sitekit'
-  - '@bitbaum/ai-kit@1.7.0 || 1.11.0 || 1.12.0'
+  - '@bitbaum/ai-kit@1.7.0 || 1.11.0 || 1.12.0 || 1.13.0'
   - bip-kit@0.2.8 || 0.3.1

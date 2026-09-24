@@ -1,4 +1,5 @@
 import { currentSession } from '@/lib/auth';
+import { record } from '@/lib/ai-budget';
 import { runAgentToAnswer } from '@/lib/chat-agent/loop';
 import { freeCooldown, freeLinks, streamedTurn } from '@/lib/chat-agent/turn';
 import { readerContext } from '@/lib/chat-context';
@@ -52,6 +53,7 @@ export async function POST(request: Request) {
       turn: streamedTurn({
         chain: freeLinks('auto'),
         cooldown: freeCooldown,
+        onSpend: (tokens) => void record('interactive', tokens),
         maxTokens: 1800,
         timeoutMs: 25_000,
         signal: request.signal,

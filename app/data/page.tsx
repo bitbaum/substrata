@@ -6,6 +6,8 @@ import { EVIDENCE } from '@/config/substrata-evidence';
 import { freshness } from '@/lib/sweep-queue';
 import { ageLabel, reviewQueue } from '@/lib/event-draft-store';
 import { Figure } from '@/components/portal/Figure';
+import { AiSpend } from '@/components/data/AiSpend';
+import { spendReport } from '@/lib/ai-budget';
 import { METHODS, codeHref, methodAnchor, type MethodId } from '@/lib/methods';
 
 export const metadata = { title: 'Data quality and provenance' };
@@ -20,9 +22,10 @@ export default async function DataPage() {
   // A failure to read the run record must not take down a page about
   // provenance. Null renders as "we cannot tell you", which is the honest
   // answer and is never the same as "nothing has happened".
-  const [sweep, queue] = await Promise.all([
+  const [sweep, queue, spend] = await Promise.all([
     freshness().catch(() => null),
     reviewQueue().catch(() => null),
+    spendReport().catch(() => null),
   ]);
   return (
     <Shell currentPath="data">
@@ -95,6 +98,8 @@ export default async function DataPage() {
             the source and committed it. That is slower than a feed, on purpose: it is the
             difference between something that was checked and something that was merely found.
           </p>
+          <h2 id="ai-budget">Who spent the AI budget</h2>
+          <AiSpend report={spend} />
           <h2>Three different kinds of evidence</h2>
           <p>
             A sourced producer row links to an accepted primary source. A candidate source has been

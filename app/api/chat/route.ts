@@ -9,6 +9,7 @@ import { verifyFromBody } from '@/lib/chat-agent/verify';
 import { readerContext } from '@/lib/chat-context';
 import { lookUp, readSource, webLookupEnabled } from '@/lib/chat-web';
 import { currentSession } from '@/lib/auth';
+import { record } from '@/lib/ai-budget';
 import { database } from '@/lib/db';
 import { parseFollows, type Follows } from '@/lib/follows';
 import { searchLeads } from '@/lib/sweep-queue';
@@ -118,6 +119,9 @@ export async function POST(request: Request) {
       : streamedTurn({
           chain: freeLinks(model),
           cooldown: freeCooldown,
+          // A reader's question is the priority class; recorded so /data can
+          // show it beside background spend. Their own key is not our budget.
+          onSpend: (tokens) => void record('interactive', tokens),
           ...limits,
           extraHeaders: {
             'HTTP-Referer': 'https://substrata.orangecat.ch',

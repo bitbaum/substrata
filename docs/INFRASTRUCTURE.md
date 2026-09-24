@@ -38,6 +38,9 @@ schedule `/opt/_appcron/run.sh` already drives `/api/cron/sweep` on.
 `007-ai-keys.sql` (`research_ai_keys`) backs readers' saved AI keys; they are
 sealed with `SUBSTRATA_BYOK_SECRET` from the runtime env, and without that
 secret Ask offers browser-only keys.
+`008-ai-spend.sql` (`research_ai_spend`) is the readers-first ledger: background
+jobs spend at most `SUBSTRATA_BACKGROUND_SHARE` (default 0.25) of the day and
+stop at a `SUBSTRATA_READER_FLOOR` (default 0.5) left for Ask.
 
 The sweep's cadence lives in the database, not on the box. The box timer
 `appcron-substrata-sweep.timer` fires hourly at :17, and `/api/cron/sweep`

@@ -17,6 +17,7 @@ import { SITE } from './site';
 import { SCIENCE_PIPELINE_METHODS } from './methods-science';
 import { GRAPH_METHODS } from './methods-graph';
 import { CAREER_METHODS } from './methods-careers';
+import { AI_METHODS } from './methods-ai';
 
 export interface Method {
   /** Short name, as a heading on /data. */
@@ -31,6 +32,7 @@ export interface Method {
 
 export const METHODS = {
   ...GRAPH_METHODS,
+  ...AI_METHODS,
   'bottleneck-count': {
     title: 'Bottlenecks mapped',
     formula:
