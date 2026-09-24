@@ -14,6 +14,7 @@ import { EntityProfile, type ExtraSection } from '@/components/portal/EntityProf
 import { KeyNumbers } from '@/components/series/KeyNumbers';
 import { allSeries } from '@/lib/series-store';
 import { seriesFor } from '@/lib/series';
+import { claimsFor } from '@/lib/claims';
 import { resolveIn } from '@/lib/entities/registry';
 import { SeverityBar, Status, rowLabel } from '@/components/portal/Status';
 import { FollowButton } from '@/components/portal/FollowButton';
@@ -62,7 +63,14 @@ export default async function BottleneckPage({ params }: RouteParams) {
             id: 'key-numbers',
             title: 'Key numbers',
             importance: 5,
-            node: <KeyNumbers series={series} officialOk={numbers.officialOk} />,
+            node: (
+              <KeyNumbers
+                series={series}
+                officialOk={numbers.officialOk}
+                claims={claimsFor(b.slug)}
+                all={numbers.series}
+              />
+            ),
             evidence: 'dated, each linked to its source',
           },
         ]

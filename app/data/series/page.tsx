@@ -7,7 +7,14 @@ import { Sparkline } from '@/components/series/SeriesChart';
 import { ChangeBadge } from '@/components/series/SeriesParts';
 import { BOTTLENECKS } from '@/lib/bottlenecks';
 import { bottleneckHref, seriesHref } from '@/lib/links';
-import { KIND_LABEL, formatPoint, periodLabel, periodTime, type SeriesKind } from '@/lib/series';
+import {
+  KIND_LABEL,
+  byRelevance,
+  formatPoint,
+  isPlanned,
+  periodLabel,
+  type SeriesKind,
+} from '@/lib/series';
 import { allSeries } from '@/lib/series-store';
 
 export const metadata = {
@@ -34,11 +41,7 @@ export default async function SeriesIndex({ searchParams }: { searchParams: Prom
         (!origin || s.origin === origin) &&
         (!q || `${s.metric} ${s.geography} ${s.unit}`.toLowerCase().includes(q)),
     )
-    .sort(
-      (a, b) =>
-        periodTime(b.points[b.points.length - 1].date) -
-        periodTime(a.points[a.points.length - 1].date),
-    );
+    .sort(byRelevance);
   const names = new Map(BOTTLENECKS.map((b) => [b.slug, b.name]));
   const withSeries = BOTTLENECKS.filter((b) => all.some((s) => s.bottleneck === b.slug));
   const points = shown.reduce((n, s) => n + s.points.length, 0);
@@ -128,7 +131,10 @@ export default async function SeriesIndex({ searchParams }: { searchParams: Prom
                       {formatPoint(last)}
                     </Figure>{' '}
                     <span className="series-unit">{s.unit}</span>
-                    <span className="series-key-date">{periodLabel(last.date)}</span>
+                    <span className="series-key-date">
+                      {periodLabel(last.date)}
+                      {isPlanned(last) ? ' · target or forecast' : ''}
+                    </span>
                   </div>
                   <div className="series-key-trend">
                     <Sparkline series={s} />

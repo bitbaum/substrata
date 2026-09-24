@@ -175,3 +175,16 @@ test('the desk hears the newest point and every big move, only on the reader’s
   assert.match(moved.title, /\+50% vs 2022/);
   assert.deepEqual(seriesItems([s], new Map()), []);
 });
+
+test('every claim quotes its file verbatim and cites series that exist', async () => {
+  const { readFileSync } = await import('node:fs');
+  const { allClaims } = await import('../lib/claims');
+  const ids = new Set(corpusSeries().map((s) => s.id));
+  for (const claim of allClaims()) {
+    assert.ok(SLUGS.has(claim.bottleneck), claim.bottleneck);
+    const text = readFileSync(claim.file, 'utf8').replace(/\\'/g, "'");
+    assert.ok(text.includes(claim.text), `${claim.file} no longer says: ${claim.text}`);
+    for (const id of claim.series) assert.ok(ids.has(id), `${claim.text}: unknown series ${id}`);
+    assert.ok(claim.verdict === 'softened' || claim.series.length > 0, `${claim.text}: no number`);
+  }
+});

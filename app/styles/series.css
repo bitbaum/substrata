@@ -414,3 +414,86 @@
     grid-column: auto;
   }
 }
+
+/* More series, collapsed under the first few. */
+.series-rest > summary {
+  padding: 0.75rem 0;
+  font-size: 0.85rem;
+  color: var(--color-fg-secondary);
+  cursor: pointer;
+}
+
+/* Phones: each point is a block — period and value on one line, source below. */
+@media (max-width: 639px) {
+  .series-table thead {
+    display: none;
+  }
+  .series-table tr {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.2rem 0.75rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+  .series-table th,
+  .series-table td {
+    padding: 0;
+    border: 0;
+  }
+  .series-td-source {
+    grid-column: 1 / -1;
+    min-width: 0;
+  }
+  .series-chart {
+    padding-left: 2.75rem;
+  }
+}
+
+/* Claims: a sentence from the page, its verdict, and the numbers behind it. */
+.series-claims {
+  margin: 0 0 1.5rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-surface-raised);
+}
+.series-claims > ul > li + li {
+  margin-top: 0.9rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--color-border-subtle);
+}
+.series-claim-text {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--color-fg-primary);
+}
+.series-claim-verdict {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  padding-left: 0.4rem;
+  border-left: 2px solid var(--color-status-positive);
+  color: var(--color-fg-tertiary);
+}
+.series-claim-softened {
+  border-left-color: var(--color-status-warning);
+}
+.series-claim-how {
+  margin-top: 0.3rem;
+  max-width: 70ch;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--color-fg-tertiary);
+}
+.series-claim-numbers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--color-fg-secondary);
+}
+.series-claim-numbers a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

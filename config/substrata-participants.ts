@@ -634,7 +634,7 @@ export const PARTICIPANTS: readonly Participant[] = [
     ['NL'],
     'EUV and DUV lithography systems',
     'chokepoint',
-    'One company on earth builds EUV, the queue runs to years, and no second source is in progress.',
+    'One company on earth builds EUV, its order backlog is measured in tens of billions of euros, and no second source is in progress.',
     'https://www.asml.com/en/products',
   ),
   s(
@@ -809,7 +809,7 @@ export const PARTICIPANTS: readonly Participant[] = [
     ['TW'],
     'CoWoS-class packaging',
     'chokepoint',
-    'Accelerator output is gated by packaging slots, not wafer starts, and they are allocated years ahead.',
+    'Accelerator output is gated by packaging slots, not wafer starts, and they are allocated ahead and still short of demand.',
     'https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/cowos.htm',
   ),
   s(
@@ -948,7 +948,7 @@ export const PARTICIPANTS: readonly Participant[] = [
     ['US'],
     'Gas turbines and grid equipment',
     'chokepoint',
-    'The fastest route to firm power at scale, sold out well into the future.',
+    'The fastest route to firm power at scale, with an order book years ahead of what it can build.',
     'https://www.gevernova.com/gas-power/products/gas-turbines',
   ),
   s(

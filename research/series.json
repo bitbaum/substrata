@@ -9,6 +9,7 @@
       "geography": "company: GE Vernova",
       "kind": "backlog",
       "direction": "up-tightens",
+      "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
       "checkedOn": "2026-09-24",
       "points": [
@@ -725,6 +726,7 @@
       "geography": "US",
       "kind": "lead-time",
       "direction": "up-tightens",
+      "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
       "checkedOn": "2026-09-24",
       "points": [
@@ -941,6 +943,7 @@
       "geography": "US",
       "kind": "lead-time",
       "direction": "up-tightens",
+      "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
       "checkedOn": "2026-09-24",
       "points": [
@@ -1246,6 +1249,7 @@
       "geography": "US",
       "kind": "capacity",
       "direction": "up-loosens",
+      "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
       "checkedOn": "2026-09-24",
       "points": [
@@ -1347,6 +1351,7 @@
       "geography": "company: Prysmian",
       "kind": "backlog",
       "direction": "up-tightens",
+      "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
       "checkedOn": "2026-09-24",
       "points": [
@@ -1994,6 +1999,7 @@
       "geography": "China FOB",
       "kind": "price",
       "direction": "up-tightens",
+      "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
       "checkedOn": "2026-09-24",
       "points": [
@@ -2183,6 +2189,7 @@
       "geography": "China FOB",
       "kind": "price",
       "direction": "up-tightens",
+      "headline": true,
       "describes": "Oxide, not metal: USGS publishes no dysprosium metal price.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
       "checkedOn": "2026-09-24",
@@ -2331,6 +2338,7 @@
       "geography": "US",
       "kind": "output",
       "direction": "up-loosens",
+      "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
       "checkedOn": "2026-09-24",
       "points": [
@@ -3122,6 +3130,7 @@
       "geography": "North America",
       "kind": "price",
       "direction": "up-tightens",
+      "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
       "checkedOn": "2026-09-24",
       "points": [
@@ -3445,6 +3454,7 @@
       "geography": "World",
       "kind": "price",
       "direction": "up-tightens",
+      "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
       "checkedOn": "2026-09-24",
       "points": [
@@ -3744,6 +3754,7 @@
       "geography": "China",
       "kind": "trade",
       "direction": "up-loosens",
+      "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
       "checkedOn": "2026-09-24",
       "points": [
@@ -4016,6 +4027,7 @@
       "geography": "China",
       "kind": "trade",
       "direction": "up-loosens",
+      "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
       "checkedOn": "2026-09-24",
       "points": [
@@ -4106,6 +4118,7 @@
       "geography": "company: ASML",
       "kind": "output",
       "direction": "up-loosens",
+      "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
       "checkedOn": "2026-09-24",
       "points": [
@@ -5126,6 +5139,7 @@
       "geography": "company: TSMC",
       "kind": "other",
       "direction": "neutral",
+      "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
       "checkedOn": "2026-09-24",
       "points": [
@@ -5343,6 +5357,7 @@
       "geography": "company: TSMC",
       "kind": "capacity",
       "direction": "up-loosens",
+      "headline": true,
       "describes": "TSMC does not publish CoWoS capacity; these are press estimates, labelled by when they were made.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
       "checkedOn": "2026-09-24",
@@ -5477,6 +5492,7 @@
       "geography": "World",
       "kind": "other",
       "direction": "neutral",
+      "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
       "checkedOn": "2026-09-24",
       "points": [
@@ -5850,6 +5866,7 @@
       "geography": "company: Daqo New Energy (China)",
       "kind": "price",
       "direction": "up-tightens",
+      "headline": true,
       "describes": "Daqo sells mostly solar-grade polysilicon. Its price is a proxy for the polysilicon market, not an electronic-grade (11N) price.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
       "checkedOn": "2026-09-24",
@@ -6519,6 +6536,7 @@
       "geography": "World",
       "kind": "output",
       "direction": "up-loosens",
+      "headline": true,
       "describes": "SEMI figures for silicon wafers of every diameter, not only 300 mm prime wafers.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
       "checkedOn": "2026-09-24",
@@ -6751,6 +6769,7 @@
       "geography": "United States",
       "kind": "workforce",
       "direction": "up-tightens",
+      "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
       "checkedOn": "2026-09-24",
       "points": [

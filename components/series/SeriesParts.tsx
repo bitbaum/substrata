@@ -7,6 +7,7 @@ import {
   formatPct,
   formatPoint,
   formatValue,
+  isPlanned,
   latestChange,
   periodLabel,
   type Series,
@@ -65,6 +66,7 @@ function PointRow({ point, unit }: { point: SeriesPoint; unit: string }) {
         </Figure>{' '}
         <span className="series-unit">{unit}</span>
         {point.preliminary && <span className="series-flag"> preliminary</span>}
+        {isPlanned(point) && <span className="series-flag"> target or forecast</span>}
       </td>
       <td className="series-td-source">
         <a href={point.source} target="_blank" rel="noopener noreferrer">

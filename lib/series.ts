@@ -91,6 +91,8 @@ export interface Series {
   /** What the series literally counts, where that is narrower or broader than the bottleneck. */
   describes?: string;
   origin: 'corpus' | 'official';
+  /** Shown first on its bottleneck: the series that best answers "how bad is it now". */
+  headline?: boolean;
   /** How the points were checked: who read them, and on what date. */
   check: string;
   checkedOn: string;
@@ -190,8 +192,31 @@ export function effectOf(
   change: Change | undefined,
 ): 'tightens' | 'loosens' | 'neutral' {
   if (!change || change.delta === 0 || series.direction === 'neutral') return 'neutral';
+  // A plan or forecast has not happened; it moves nothing yet.
+  if (isPlanned(change.to)) return 'neutral';
   const up = change.delta > 0;
   return up === (series.direction === 'up-tightens') ? 'tightens' : 'loosens';
+}
+
+/**
+ * A value for a period that has not started: a target, plan or forecast the
+ * source stated. Shown, and labelled, never read as a measurement.
+ */
+export function isPlanned(point: Pick<SeriesPoint, 'date'>, now = Date.now()): boolean {
+  const q = point.date.match(/^(\d{4})-Q([1-4])$/);
+  const start = q
+    ? Date.UTC(Number(q[1]), (Number(q[2]) - 1) * 3, 1)
+    : Date.UTC(
+        Number(point.date.slice(0, 4)),
+        point.date.length > 4 ? Number(point.date.slice(5, 7)) - 1 : 0,
+        point.date.length > 7 ? Number(point.date.slice(8, 10)) : 1,
+      );
+  return start > now;
+}
+
+/** The newest point that is not a plan: what "latest" means when ordering. */
+export function lastActual(series: Pick<Series, 'points'>): SeriesPoint | undefined {
+  return [...series.points].reverse().find((p) => !isPlanned(p));
 }
 
 /** A move at least this large, either way, is flagged on the desk. */
@@ -200,12 +225,24 @@ export const ALERT_PCT = 0.1;
 export function seriesFor(all: readonly Series[], bottleneck: string): Series[] {
   return all
     .filter((s) => s.bottleneck === bottleneck && s.points.length > 0)
-    .sort(
-      (a, b) =>
-        b.points.length - a.points.length ||
-        periodTime(b.points[b.points.length - 1].date) -
-          periodTime(a.points[a.points.length - 1].date),
-    );
+    .sort(byRelevance);
+}
+
+/**
+ * Headline series first, then those with a recent actual value and a history,
+ * then everything else; plans and one-off figures sink.
+ */
+export function byRelevance(a: Series, b: Series): number {
+  const recency = (s: Series) => {
+    const p = lastActual(s);
+    return p ? periodTime(p.date) : 0;
+  };
+  const year = 365 * 86_400_000;
+  const score = (s: Series) =>
+    (s.headline ? 4 : 0) +
+    (s.points.length > 1 ? 2 : 0) +
+    (recency(s) > Date.now() - 2 * year ? 1 : 0);
+  return score(b) - score(a) || recency(b) - recency(a) || b.points.length - a.points.length;
 }
 
 export function seriesById(all: readonly Series[], id: string): Series | undefined {
