@@ -23,6 +23,7 @@ export interface FeedFilter {
   showVerified: boolean;
   showLeads: boolean;
   showFilings: boolean;
+  showSeries: boolean;
   effect: EventEffect | null;
   /** Bottleneck names; empty means every rail. */
   bottlenecks: string[];
@@ -81,7 +82,9 @@ export function applyFilter(
         ? filter.showVerified
         : item.source === 'lead'
           ? filter.showLeads
-          : filter.showFilings;
+          : item.source === 'filing'
+            ? filter.showFilings
+            : filter.showSeries;
     if (!shown) return false;
     if (since !== null && Date.parse(item.at) < since) return false;
     if (filter.effect && !(item.source === 'event' && item.effect === filter.effect)) return false;

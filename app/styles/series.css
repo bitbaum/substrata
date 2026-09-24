@@ -1,0 +1,416 @@
+/* ── Data series: key numbers, charts, the index (components/series/) ── */
+.series-keys {
+  border-top: 1px solid var(--color-border-subtle);
+}
+.series-keys > li {
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.series-key > summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.35rem 1.5rem;
+  padding: 0.9rem 0;
+  cursor: pointer;
+  list-style: none;
+}
+.series-key > summary::-webkit-details-marker {
+  display: none;
+}
+.series-key > summary:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+@media (min-width: 768px) {
+  .series-key > summary {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1fr);
+    align-items: baseline;
+  }
+}
+.series-key-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  color: var(--color-fg-primary);
+  font-weight: 500;
+  line-height: 1.35;
+}
+.series-key-kind {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--color-fg-tertiary);
+  font-weight: 400;
+}
+.series-key-kind a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.series-key-value {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--color-fg-primary);
+  line-height: 1.2;
+}
+.series-unit {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--color-fg-tertiary);
+}
+.series-key-date {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--color-fg-muted);
+  margin-top: 0.15rem;
+}
+.series-key-trend {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+.series-key-body {
+  padding: 0 0 1.25rem;
+}
+.series-describes {
+  max-width: 65ch;
+  margin: 0 0 0.75rem;
+  padding: 0.4rem 0.9rem;
+  border-left: 2px solid var(--color-status-warning);
+  background: var(--color-surface-raised);
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--color-fg-tertiary);
+}
+
+/* Change badge: ink carries the value; a hairline rule carries the direction. */
+.series-change {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-fg-secondary);
+  white-space: nowrap;
+  padding-left: 0.5rem;
+  border-left: 2px solid var(--color-border-strong);
+}
+.series-change-tightens {
+  border-left-color: var(--color-status-negative);
+}
+.series-change-loosens {
+  border-left-color: var(--color-status-positive);
+}
+.series-change-effect {
+  color: var(--color-fg-tertiary);
+}
+
+/* Sparkline: the shape, no axis. */
+.series-spark {
+  flex: none;
+  width: 5.5rem;
+  height: 1.75rem;
+  overflow: visible;
+}
+.series-spark path,
+.series-line path {
+  fill: none;
+  stroke: var(--color-fg-primary);
+  stroke-width: 1.5px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.series-spark circle {
+  fill: none;
+  stroke: var(--color-fg-primary);
+  stroke-width: 5px;
+  stroke-linecap: round;
+}
+
+/* Full chart: a plot whose line stretches and whose points are links. */
+.series-chart {
+  margin: 1rem 0 1.25rem;
+  padding: 0 0 0 3.25rem;
+}
+.series-plot {
+  position: relative;
+  height: 13rem;
+  margin: 0.75rem 0.5rem 0 0;
+}
+.series-grid {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 1px solid var(--color-border-subtle);
+}
+.series-tick {
+  position: absolute;
+  right: calc(100% + 0.5rem);
+  top: -0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  line-height: 1;
+  color: var(--color-fg-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.series-line {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.series-line path {
+  stroke-width: 2px;
+}
+.series-dot {
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: -0.75rem 0 0 -0.75rem;
+  border-radius: 50%;
+  z-index: 1;
+}
+.series-dot::before {
+  content: '';
+  position: absolute;
+  inset: 0.45rem;
+  border-radius: 50%;
+  background: var(--color-fg-primary);
+  box-shadow: 0 0 0 2px var(--color-surface-page);
+}
+.series-dot-dense::before {
+  inset: 0.55rem;
+}
+.series-dot:hover::before,
+.series-dot:focus-visible::before {
+  inset: 0.3rem;
+}
+.series-dot:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 0;
+}
+.series-tip {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 0.25rem);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 11rem;
+  max-width: 16rem;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface-raised);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--color-fg-secondary);
+  z-index: 2;
+  pointer-events: none;
+}
+.series-dot-end .series-tip {
+  left: auto;
+  right: 0;
+  transform: none;
+}
+.series-dot:hover .series-tip,
+.series-dot:focus-visible .series-tip {
+  display: flex;
+  flex-direction: column;
+}
+.series-tip strong {
+  color: var(--color-fg-primary);
+  font-size: 0.85rem;
+}
+.series-axis {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--color-fg-muted);
+}
+
+/* Points table: the chart's table view and its provenance. */
+.series-table-wrap {
+  overflow-x: auto;
+}
+.series-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+.series-table th,
+.series-table td {
+  padding: 0.5rem 0.75rem 0.5rem 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+  text-align: left;
+  vertical-align: top;
+}
+.series-table thead th {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--color-fg-tertiary);
+}
+.series-td-date {
+  white-space: nowrap;
+  font-weight: 400;
+  color: var(--color-fg-secondary);
+}
+.series-td-value {
+  white-space: nowrap;
+  color: var(--color-fg-primary);
+  font-variant-numeric: tabular-nums;
+}
+.series-td-source {
+  min-width: 14rem;
+  color: var(--color-fg-tertiary);
+}
+.series-td-source a {
+  color: var(--color-fg-secondary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.series-flag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--color-fg-muted);
+}
+.series-quote {
+  display: block;
+  margin-top: 0.25rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--color-fg-tertiary);
+}
+.series-note {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.72rem;
+  color: var(--color-fg-muted);
+}
+.series-more,
+.series-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+}
+.series-more a,
+.series-links a,
+.series-origin a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.series-origin {
+  max-width: 65ch;
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  line-height: 1.55;
+  color: var(--color-fg-muted);
+}
+.series-origin-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--color-fg-secondary);
+  margin-right: 0.35rem;
+}
+
+/* Series page header */
+.series-head {
+  margin-bottom: 1rem;
+}
+.series-head h1 {
+  margin: 0.5rem 0 0.75rem;
+  font-family: var(--font-heading);
+  font-size: 1.9rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-display);
+  line-height: 1.15;
+  color: var(--color-fg-primary);
+}
+
+/* Index: filters in one row above, then one line per series. */
+.series-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+}
+.series-filters label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--color-fg-tertiary);
+}
+.series-filters select,
+.series-filters input {
+  min-width: 10rem;
+  max-width: 100%;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface-page);
+  color: var(--color-fg-primary);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  letter-spacing: normal;
+  text-transform: none;
+}
+.series-filter-q {
+  flex: 1 1 12rem;
+}
+.series-index {
+  border-top: 1px solid var(--color-border-subtle);
+}
+.series-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.4rem 1.25rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+  align-items: baseline;
+}
+.series-row-main {
+  grid-column: 1 / -1;
+}
+.series-row-title {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--color-fg-primary);
+  font-weight: 500;
+}
+.series-row-title:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.series-row-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-fg-primary);
+}
+.series-row-csv {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-fg-tertiary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@media (min-width: 900px) {
+  .series-row {
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.9fr) minmax(0, 1.1fr) auto;
+  }
+  .series-row-main {
+    grid-column: auto;
+  }
+}

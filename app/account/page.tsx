@@ -21,6 +21,8 @@ import { leadsFor, railFreshness } from '@/lib/sweep-queue';
 import { filingsFor } from '@/lib/filings-store';
 import { filingItems, registrantsOn } from '@/lib/desk-filings';
 import type { Filing } from '@/lib/filings';
+import { allSeries } from '@/lib/series-store';
+import { seriesItems } from '@/lib/desk-series';
 
 export const dynamic = 'force-dynamic';
 export const metadata = { title: 'Desk' };
@@ -122,6 +124,8 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
     // Table not provisioned yet, or the database is down: no filings, said below.
     filings = [];
   }
+  // Corpus series always; official ones when the database answers.
+  const { series } = await allSeries();
   const willSweep = Boolean(settings.sweepOnOpen && fresh && fresh.stale > 0);
   if (willSweep) {
     // After the response, never before it: the first paint must not wait on the web.
@@ -140,6 +144,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
   const feed = [
     ...buildFeed(events, leads ?? [], now, settings.leadMaxAgeDays, settings.strictLeads),
     ...filingItems(filings, registrants),
+    ...seriesItems(series, new Map(rails.map((b) => [b.slug, b.name]))),
   ].sort((a, b) => b.at.localeCompare(a.at));
 
   const query = parseDeskQuery(params, settings, rails);

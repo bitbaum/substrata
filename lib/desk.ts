@@ -70,6 +70,23 @@ export type DeskItem =
       effect: EventEffect;
       form: string;
       dateOnly: false;
+    }
+  | {
+      /** A new dated number on a series on the rail (lib/desk-series.ts). */
+      source: 'series';
+      /** `<series id>:<period>`. */
+      id: string;
+      at: string;
+      title: string;
+      url: string;
+      host: string;
+      bottlenecks: string[];
+      effect: EventEffect;
+      /** The move against the prior point passed the alert threshold. */
+      moved: boolean;
+      /** From an official statistical API rather than read from a page. */
+      official: boolean;
+      dateOnly: boolean;
     };
 
 /** Leads older than this are not news any more, whenever the sweep found them. */

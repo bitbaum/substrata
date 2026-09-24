@@ -41,6 +41,11 @@ export function bottleneckHref(nameOrSlug: string): string {
   return `/bottlenecks/${slugOrName(nameOrSlug)}`;
 }
 
+/** A dated series of numbers, with its chart, its points and a CSV. */
+export function seriesHref(id: string): string {
+  return `/data/series/${id}`;
+}
+
 export function marketHref(nameOrSlug: string): string {
   return `/markets/${slugOrName(nameOrSlug)}`;
 }
@@ -153,6 +158,9 @@ export const ROUTES = [
   '/exposure.csv',
   '/review',
   '/data',
+  '/data/series',
+  '/data/series/:id',
+  '/data/series/:id/csv',
   '/development',
   '/roadmap',
   '/changelog',

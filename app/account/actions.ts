@@ -110,6 +110,7 @@ export async function saveSettings(form: FormData) {
       showVerified: form.get('showVerified') === 'on',
       showLeads: form.get('showLeads') === 'on',
       showFilings: form.get('showFilings') === 'on',
+      showSeries: form.get('showSeries') === 'on',
       strictLeads: form.get('strictLeads') === 'on',
       window: form.get('window'),
       grouping: form.get('grouping'),
