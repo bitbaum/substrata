@@ -27,15 +27,30 @@ type Source = {
 
 type WebFinding = { title: string; url: string; excerpt: string };
 
+/** A page the sweep found that nobody has reviewed. Never a finding. */
+type Lead = {
+  title: string;
+  url: string;
+  bottleneck: string;
+  foundAt: string;
+  verdict: string | null;
+};
+
 type Answer = {
   answer: string;
   sources: Source[];
   /** Open-web passages. Never corpus rows; rendered apart. */
   web?: WebFinding[];
-  /** Questions this assistant can answer, built from what retrieval found. */
+  /** Unreviewed sweep leads the answer read. Rendered apart, labelled. */
+  leads?: Lead[];
+  /** Questions this assistant can answer, built from what it looked up. */
   followUps?: string[];
+  /** What it looked up, in order. */
+  trail?: string[];
   /** Whether the answer went past the corpus. Said on screen, not implied. */
   outside?: boolean;
+  /** No model answered; this is the honest fallback. */
+  degraded?: boolean;
 };
 
 type Turn = {
@@ -43,9 +58,49 @@ type Turn = {
   content: string;
   sources?: Source[];
   web?: WebFinding[];
+  leads?: Lead[];
   followUps?: string[];
+  trail?: string[];
   outside?: boolean;
+  degraded?: boolean;
 };
+
+type StreamEvent =
+  | { type: 'status'; text: string }
+  | { type: 'tool'; label: string }
+  | { type: 'delta'; text: string }
+  | { type: 'reset' }
+  | { type: 'done'; data: Answer }
+  | { type: 'error'; error: string };
+
+/** Site links stay in the app; outside links open apart and carry no referrer. */
+const MARKDOWN_COMPONENTS = {
+  a: ({ href, children }: { href?: string; children?: React.ReactNode }) =>
+    href?.startsWith('/') || href?.startsWith('#') ? (
+      <Link href={href}>{children}</Link>
+    ) : href && /^https?:\/\//.test(href) ? (
+      <a href={href} target="_blank" rel="noreferrer nofollow">
+        {children}
+      </a>
+    ) : (
+      <span>{children}</span>
+    ),
+};
+
+function Markdown({ text }: { text: string }) {
+  return (
+    <div className="chat-markdown">
+      <ReactMarkdown
+        skipHtml
+        remarkPlugins={[remarkGfm]}
+        disallowedElements={['img', 'iframe', 'script', 'style']}
+        components={MARKDOWN_COMPONENTS}
+      >
+        {text}
+      </ReactMarkdown>
+    </div>
+  );
+}
 
 export function ResearchChat({
   topic,
@@ -77,6 +132,9 @@ export function ResearchChat({
   const [draft, setDraft] = useState('');
   const [turns, setTurns] = useState<Turn[]>([]);
   const [busy, setBusy] = useState(false);
+  // The answer while it is being written: what it has looked up so far, and
+  // the text as it arrives.
+  const [live, setLive] = useState<{ steps: string[]; text: string; status: string } | null>(null);
   const [error, setError] = useState('');
   const [receipt, setReceipt] = useState('');
   const [contribute, setContribute] = useState(false);
@@ -85,7 +143,7 @@ export function ResearchChat({
 
   useEffect(() => {
     scroller.current?.scrollTo({ top: scroller.current.scrollHeight, behavior: 'smooth' });
-  }, [turns, busy]);
+  }, [turns, busy, live]);
   useEffect(() => {
     void fetch('/api/health')
       .then((r) => r.json())
@@ -132,6 +190,7 @@ export function ResearchChat({
     setReceipt('');
     setTurns((prev) => [...prev, { role: 'user', content: text }]);
     setDraft('');
+    setLive({ steps: [], text: '', status: 'Reading the question…' });
     const history = [...turns, { role: 'user' as const, content: text }].slice(-8);
     try {
       const response = await fetch('/api/chat', {
@@ -146,6 +205,7 @@ export function ResearchChat({
           model,
           history: history.slice(0, -1).map((t) => ({ role: t.role, content: t.content })),
           onPath,
+          topic: topic || undefined,
           ...(byok ? { byok } : {}),
         }),
         signal: abort.signal,
@@ -166,17 +226,18 @@ export function ResearchChat({
         buffer = lines.pop() ?? '';
         for (const line of lines) {
           if (!line.trim()) continue;
-          const event = JSON.parse(line) as {
-            type: string;
-            data?: Answer;
-            error?: string;
-          };
+          const event = JSON.parse(line) as StreamEvent;
           if (event.type === 'error') throw new Error(event.error || 'Unavailable.');
-          if (event.type === 'done' && event.data) {
-            // Every field, not two of them. `web` was dropped here, which is
-            // how an answer reading "the web passage provided does not answer
-            // the question" reached a reader who could see no passage, no
-            // link, and no sign that anything had been fetched at all.
+          if (event.type === 'status') setLive((l) => l && { ...l, status: event.text });
+          if (event.type === 'tool')
+            setLive((l) => l && { ...l, steps: [...l.steps, event.label], status: event.label });
+          if (event.type === 'delta') setLive((l) => l && { ...l, text: l.text + event.text });
+          // The model decided to look something up after all: what it had
+          // started writing is withdrawn rather than left as an answer.
+          if (event.type === 'reset') setLive((l) => l && { ...l, text: '' });
+          if (event.type === 'done') {
+            // Every field, not two of them — `web` was once dropped here, and
+            // an answer citing a passage the reader could not see went out.
             const data = event.data;
             setTurns((prev) => [
               ...prev,
@@ -185,10 +246,14 @@ export function ResearchChat({
                 content: data.answer,
                 sources: data.sources,
                 web: data.web,
+                leads: data.leads,
                 followUps: data.followUps,
+                trail: data.trail,
                 outside: data.outside,
+                degraded: data.degraded,
               },
             ]);
+            setLive(null);
           }
         }
       }
@@ -197,6 +262,7 @@ export function ResearchChat({
       setError(e instanceof Error ? e.message : 'Connection lost. Please retry.');
     } finally {
       setBusy(false);
+      setLive(null);
     }
   }
 
@@ -253,9 +319,10 @@ export function ResearchChat({
                 </>
               ) : (
                 <>
-                  Same engine as Cat and Loki: <code>@bitbaum/ai-kit</code>. Answers come from
-                  sourced rows, unverified leads, and judgements — labelled as such. Have a frontier
-                  model key? Add it below the composer to skip the free tier entirely.
+                  It knows the page you are on and, signed in, the rails you follow. It looks up
+                  bottlenecks, companies, events and the sweep&apos;s newest leads as it answers,
+                  and says which claims are sourced, which are unverified, and which are judgement.
+                  Have a frontier model key? Add it below to skip the free tier.
                 </>
               )}
             </p>
@@ -282,25 +349,17 @@ export function ResearchChat({
                 // found anything.
                 <span className="companion-register">looked outside the corpus</span>
               )}
+              {turn.degraded && <span className="companion-register">no AI answer</span>}
             </p>
+            {turn.role === 'assistant' && turn.trail && turn.trail.length > 0 && (
+              <ul className="companion-trail" aria-label="What it looked up">
+                {turn.trail.map((step, k) => (
+                  <li key={k}>{step}</li>
+                ))}
+              </ul>
+            )}
             {turn.role === 'assistant' ? (
-              <div className="chat-markdown">
-                <ReactMarkdown
-                  skipHtml
-                  remarkPlugins={[remarkGfm]}
-                  disallowedElements={['img', 'iframe', 'script', 'style']}
-                  components={{
-                    a: ({ href, children }) =>
-                      href?.startsWith('/') || href?.startsWith('#') ? (
-                        <Link href={href}>{children}</Link>
-                      ) : (
-                        <span>{children}</span>
-                      ),
-                  }}
-                >
-                  {turn.content}
-                </ReactMarkdown>
-              </div>
+              <Markdown text={turn.content} />
             ) : (
               <p className="companion-user-text">{turn.content}</p>
             )}
@@ -332,6 +391,26 @@ export function ResearchChat({
                 </p>
               </div>
             )}
+            {turn.leads && turn.leads.length > 0 && (
+              // The sweep's finds are news, not research: nobody has read them.
+              <div className="companion-web">
+                <p className="companion-web-label">
+                  New leads from the sweep · not reviewed by anyone yet
+                </p>
+                <ul>
+                  {turn.leads.map((lead) => (
+                    <li key={lead.url}>
+                      <a href={lead.url} target="_blank" rel="noreferrer nofollow">
+                        {lead.title} ↗
+                      </a>{' '}
+                      <span>
+                        {lead.bottleneck} · found {lead.foundAt.slice(0, 10)}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
             {turn.sources && turn.sources.length > 0 && (
               // Headed, because a bare "unverified" under an answer reads as a
               // verdict on the answer. It is the state of the row.
@@ -340,9 +419,7 @@ export function ResearchChat({
                 <ul>
                   {turn.sources.map((s) => (
                     <li key={s.id}>
-                      <Link href={s.href}>
-                        {s.id} {s.title}
-                      </Link>
+                      <Link href={s.href}>{s.title}</Link>
                       <span>{s.evidence}</span>
                     </li>
                   ))}
@@ -373,7 +450,23 @@ export function ResearchChat({
               )}
           </article>
         ))}
-        {busy && <p className="companion-status">Reading the corpus…</p>}
+        {live && (
+          <article className="companion-turn is-assistant" aria-live="polite">
+            <p className="companion-who">Substrata</p>
+            {live.steps.length > 0 && (
+              <ul className="companion-trail" aria-label="What it is looking up">
+                {live.steps.map((step, k) => (
+                  <li key={k}>{step}</li>
+                ))}
+              </ul>
+            )}
+            {live.text ? (
+              <Markdown text={live.text} />
+            ) : (
+              <p className="companion-status">{live.status}</p>
+            )}
+          </article>
+        )}
         {error && (
           <p role="alert" className="companion-error">
             {error}
