@@ -1,5 +1,6 @@
 import type { Follows } from '@/lib/follows';
 import { WINDOWS, WINDOW_LABEL } from '@/lib/follows';
+import { ON_DEMAND_NODES } from '@/lib/sweep-store';
 
 /** Feed defaults, freshness and profile: the rest of the reader's own settings form. */
 export function FeedSettings({ follows }: { follows: Follows }) {
@@ -16,7 +17,7 @@ export function FeedSettings({ follows }: { follows: Follows }) {
             <input type="checkbox" name="showVerified" defaultChecked={desk.showVerified} />
             <span>
               Verified events
-              <small>Read and filed by an analyst, with source and quote.</small>
+              <small>Reviewed and filed by Substrata, with source and quote.</small>
             </span>
           </label>
           <label className="settings-check">
@@ -98,7 +99,9 @@ export function FeedSettings({ follows }: { follows: Follows }) {
             <input type="checkbox" name="sweepOnOpen" defaultChecked={desk.sweepOnOpen} />
             <span>
               Check stale rails when I open the desk
-              <small>Up to 3 rails at a time, in the background, after the page loads.</small>
+              <small>
+                Up to {ON_DEMAND_NODES} rails at a time, in the background, after the page loads.
+              </small>
             </span>
           </label>
           <label className="settings-field">

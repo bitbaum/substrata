@@ -53,7 +53,7 @@ export function FeedItem({
   const { read, saved, hidden } = state;
   return (
     <li className={read ? 'desk-item is-read' : 'desk-item'}>
-      {/* Coloured only where an analyst judged the effect; on a lead it is a guess. */}
+      {/* Coloured only where the effect was judged on review; on a lead it is a guess. */}
       <span
         className={`desk-effect ${item.source === 'event' ? `desk-effect-${item.effect}` : ''}`}
         aria-hidden
@@ -91,7 +91,7 @@ export function FeedItem({
           {item.source === 'event' ? (
             <span
               className="desk-badge desk-badge-verified"
-              title="Read and filed by an analyst, with a source and a quote."
+              title="Reviewed and filed by Substrata, with a source and a quote."
             >
               Verified · {EVENT_EFFECT_LABEL[item.effect].toLowerCase()}
             </span>
@@ -100,7 +100,7 @@ export function FeedItem({
               className="desk-badge"
               title="Found by the sweep on the open web. Nobody has read it yet; it is not a finding."
             >
-              Web lead · unread by analysts
+              Web lead · not yet reviewed
             </span>
           )}
         </p>

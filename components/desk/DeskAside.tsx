@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import type { Bottleneck } from '@/lib/bottlenecks';
 import type { DeskSettings } from '@/lib/follows';
-import { BindingScore } from './BindingScore';
+import { BINDING_MAX, BindingScore } from './BindingScore';
 import { bottleneckHref } from '@/lib/links';
 
 export function DeskAside({
@@ -42,8 +42,9 @@ export function DeskAside({
           </ol>
         )}
         <p className="desk-panel-note">
-          Score = four analyst tests, 0–3 each: supplier concentration, substitutability, lead time,
-          demand inelasticity. Hover a score for its parts; click it for the assessment.
+          Score = the sum of four judged tests — supplier concentration, substitutability, lead
+          time, demand inelasticity — out of {BINDING_MAX}. Hover a score for its parts; click it
+          for the assessment.
         </p>
       </section>
       <section className="desk-panel">

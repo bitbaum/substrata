@@ -7,6 +7,7 @@ import type { Follows } from '@/lib/follows';
 import type { MarketParticipant } from '@/lib/participants';
 import { FollowButton } from '@/components/portal/FollowButton';
 import { bottleneckHref, marketHref } from '@/lib/links';
+import { BINDING_MAX, scoreParts } from '@/components/desk/BindingScore';
 
 /** Which bottlenecks are on the desk: technologies, then each row auto / follow / mute. */
 export function RailsSettings({
@@ -78,11 +79,8 @@ export function RailsSettings({
                     <Link href={bottleneckHref(b.slug)} className="settings-rail-name">
                       {b.name}
                     </Link>
-                    <span
-                      className="settings-rail-score"
-                      title={`Binding ${b.binding}/12 = concentration ${b.score.concentration} + substitution ${b.score.substitution} + lead time ${b.score.leadTime} + inelasticity ${b.score.inelasticity}`}
-                    >
-                      {b.binding}/12
+                    <span className="settings-rail-score" title={scoreParts(b)}>
+                      {b.binding}/{BINDING_MAX}
                     </span>
                     <span className="settings-tri" role="radiogroup" aria-label={b.name}>
                       {(['auto', 'follow', 'mute'] as const).map((value) => (

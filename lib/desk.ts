@@ -1,7 +1,7 @@
 /**
  * The desk's news feed, as pure functions.
  *
- * Two sources, never blended into one claim. An EVENT is a row an analyst
+ * Two sources, never blended into one claim. An EVENT is a row a reviewer
  * read and committed (`config/substrata-events.ts`); a LEAD is a page the sweep
  * found this week and nobody has read yet (`research_sweep_candidates`). The
  * public site shows only events. The desk is a signed-in reader's own working
@@ -199,7 +199,7 @@ export function buildFeed(
     dateOnly: true,
   }));
 
-  // A lead whose page an analyst already turned into an event is that event.
+  // A lead whose page was already filed as an event is that event.
   const known = new Set(events.map((event) => event.source));
   const cutoff = now.getTime() - leadMaxAgeDays * 86_400_000;
   const byStory = new Map<string, Extract<DeskItem, { source: 'lead' }>>();

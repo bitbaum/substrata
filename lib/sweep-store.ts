@@ -136,7 +136,7 @@ export async function runScheduledSweep(): Promise<SweepOutcome & { skipped?: st
 export const ON_DEMAND_COOLDOWN_HOURS = 6;
 export const CHECK_NOW_COOLDOWN_HOURS = 1;
 /** Nodes one request may sweep. Run side by side, so this bounds the wait too. */
-const ON_DEMAND_NODES = 3;
+export const ON_DEMAND_NODES = 3;
 
 /**
  * Sweep the stalest of these nodes now, for a reader who wants today's news.

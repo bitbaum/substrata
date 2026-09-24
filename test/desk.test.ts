@@ -151,7 +151,7 @@ test('the desk labels every lead as unread and sweeps only after responding', ()
   // it never does.
   const page = readFileSync(new URL('../app/account/page.tsx', import.meta.url), 'utf8');
   const row = readFileSync(new URL('../components/desk/FeedItem.tsx', import.meta.url), 'utf8');
-  assert.ok(row.includes('unread by analysts'), 'every lead must say nobody has read it');
+  assert.ok(row.includes('not yet reviewed'), 'every lead must say nobody has read it');
   assert.ok(page.includes('after('), 'a desk visit must not wait on the web to paint');
   const store = readFileSync(new URL('../lib/sweep-store.ts', import.meta.url), 'utf8');
   assert.ok(

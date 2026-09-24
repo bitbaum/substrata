@@ -4,7 +4,7 @@ import { BOTTLENECKS } from '@/lib/bottlenecks';
 import { bottleneckHref } from '@/lib/links';
 import { whenLabel } from '@/lib/desk';
 import type { SweepSettings as Settings } from '@/lib/sweep';
-import type { NodeStatus } from '@/lib/sweep-queue';
+import { STATUS_WINDOW_DAYS, type NodeStatus } from '@/lib/sweep-queue';
 import { saveSweep, sweepOne } from '@/app/account/actions';
 
 const STATUS_LABEL: Record<string, string> = {
@@ -124,8 +124,10 @@ export function SweepSettings({
                   <th>Rail</th>
                   <th>Last checked</th>
                   <th>Result</th>
-                  <th title="Leads filed in the last 30 days, rejected ones excluded">
-                    Leads · 30d
+                  <th
+                    title={`Leads filed in the last ${STATUS_WINDOW_DAYS} days, rejected ones excluded`}
+                  >
+                    Leads · {STATUS_WINDOW_DAYS}d
                   </th>
                   <th>
                     <span className="sr-only">Action</span>
@@ -148,7 +150,9 @@ export function SweepSettings({
                         </td>
                         <td>
                           {slug && s.leads30d > 0 ? (
-                            <Link href={`/account?view=all&w=30&src=leads&rail=${slug}`}>
+                            <Link
+                              href={`/account?view=all&w=${STATUS_WINDOW_DAYS}&src=leads&rail=${slug}`}
+                            >
                               {s.leads30d}
                             </Link>
                           ) : (

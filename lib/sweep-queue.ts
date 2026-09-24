@@ -121,11 +121,14 @@ export async function leadsFor(names: readonly string[], days = 45): Promise<Lea
   }));
 }
 
+/** The window the settings table counts leads over. */
+export const STATUS_WINDOW_DAYS = 30;
+
 export interface NodeStatus {
   name: string;
   lastSwept: string | null;
   status: string | null;
-  /** Leads filed for this node in the last 30 days, rejected ones excluded. */
+  /** Leads filed for this node within STATUS_WINDOW_DAYS, rejected ones excluded. */
   leads30d: number;
 }
 
@@ -141,9 +144,9 @@ export async function nodeStatuses(names: readonly string[]): Promise<NodeStatus
       `SELECT bottleneck, count(*) AS n FROM research_sweep_candidates
         WHERE bottleneck = ANY($1::text[])
           AND verdict IS DISTINCT FROM 'rejected'
-          AND found_at > now() - interval '30 days'
+          AND found_at > now() - ($2::float8 * interval '1 day')
         GROUP BY bottleneck`,
-      [names],
+      [names, STATUS_WINDOW_DAYS],
     ),
   ]);
   const byNode = new Map(state.rows.map((row) => [row.node, row]));

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import type { Bottleneck } from '@/lib/bottlenecks';
 import type { RailActivity } from '@/lib/desk-filter';
 import { WINDOW_LABEL, type Window } from '@/lib/follows';
-import { scoreParts } from './BindingScore';
+import { BINDING_MAX, scoreParts } from './BindingScore';
 
 /** The rails with the most items in the window: where to look first. */
 export function MovedStrip({
@@ -41,7 +41,7 @@ export function MovedStrip({
                 <span className="desk-moved-latest">Latest: {m.latest.title}</span>
                 {b && (
                   <span className="desk-moved-score" title={scoreParts(b)}>
-                    binding {b.binding}/12
+                    binding {b.binding}/{BINDING_MAX}
                   </span>
                 )}
               </Link>
