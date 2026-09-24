@@ -8,7 +8,13 @@ import assert from 'node:assert/strict';
 import { EVENTS, type CoverageEvent } from '../config/substrata-events';
 import reviewed from '../config/substrata-events-accepted.json';
 import { draftLead, firstJsonObject, pageWindow, readDraft, type Ask } from '../lib/event-draft';
-import { BOTTLENECK_NAMES, eventIdFor, eventProblems, verbatimIn } from '../lib/event-rules';
+import {
+  BOTTLENECK_NAMES,
+  eventIdFor,
+  eventProblems,
+  similarEvent,
+  verbatimIn,
+} from '../lib/event-rules';
 
 const PAGE =
   'Home › News. July 17, 2026 — SK Siltron is proceeding with the liquidation of SK Siltron CSS, its SiC wafer manufacturing subsidiary located in Michigan. The process is expected to be completed by the end of this year. Readers’ comments follow.';
@@ -158,4 +164,24 @@ test('rows accepted through review pass the same rules as the hand-written corpu
       `${event.id} not in EVENTS`,
     );
   }
+});
+
+test('the same announcement at another URL is flagged as a likely duplicate', () => {
+  const twin = similarEvent(
+    {
+      date: '2026-09-14',
+      headline:
+        'Shanghai Electric secures first overseas heavy-duty gas turbine order for 500 MW Malaysian project',
+      bottlenecks: ['Heavy-duty gas turbine order books'],
+    },
+    EVENTS,
+  );
+  assert.equal(twin?.id, '2026-09-13-shanghai-electric-first-overseas-turbine-order');
+  assert.equal(
+    similarEvent(
+      { date: '2026-09-14', headline: 'A different thing entirely', bottlenecks: [] },
+      EVENTS,
+    ),
+    undefined,
+  );
 });

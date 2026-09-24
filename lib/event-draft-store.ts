@@ -6,7 +6,7 @@
 import { EVENTS, type CoverageEvent } from '@/config/substrata-events';
 import { database } from './db';
 import type { DraftEvent } from './event-draft';
-import { contextAround, eventProblems, verbatimIn } from './event-rules';
+import { contextAround, eventProblems, similarEvent, verbatimIn } from './event-rules';
 
 type DraftStatus = 'drafted' | 'unusable' | 'could_not_read' | 'duplicate';
 
@@ -29,6 +29,12 @@ export interface LeadWithDraft {
     model: string | null;
     attempts: number;
   } | null;
+}
+
+/** Computed when shown, not when drafted, so it also catches events accepted since. */
+function duplicateNote(draft: DraftEvent | null): string[] {
+  const twin = draft && similarEvent(draft, EVENTS);
+  return twin ? [`Looks like ${twin.id}, already in the corpus — probably not a new event.`] : [];
 }
 
 /**
@@ -76,7 +82,7 @@ export async function openLeadsWithDrafts(limit = 100): Promise<LeadWithDraft[]>
           suggestion: row.suggestion,
           reason: row.reason ?? '',
           event: row.draft,
-          notes: row.notes ?? [],
+          notes: [...duplicateNote(row.draft), ...(row.notes ?? [])],
           context:
             row.draft && row.page_text ? contextAround(row.draft.quote, row.page_text) : null,
           model: row.model,
