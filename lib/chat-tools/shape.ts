@@ -111,9 +111,19 @@ export function bottleneckDetail(b: Bottleneck, ledger: Ledger) {
     producer_note:
       'A producer list is corpus coverage, never the whole market. Only "Sourced" rows are findings.',
     recent_events: b.events.slice(0, 5).map(eventRow),
-    depends_on: inputsOf(b.name).map((d) => edgeRow(d, d.on)),
-    depended_on_by: dependentsOf(b.name).map((d) => edgeRow(d, d.from)),
-    companies_on_it: companiesOn(b.name).map((d) => edgeRow(d, d.from)),
+    // Names only: a bottleneck can carry twenty rows, and their sentences would
+    // push the producers out of the tool budget. trace_dependencies quotes them.
+    dependencies: {
+      depends_on: inputsOf(b.name).map((d) => d.on),
+      depended_on_by: dependentsOf(b.name).map((d) => d.from),
+      companies_depending_on_it: companiesOn(b.name)
+        .filter((d) => d.kind === 'needs')
+        .map((d) => d.from),
+      companies_selling_into_it: companiesOn(b.name)
+        .filter((d) => d.kind === 'sells-into')
+        .map((d) => d.from),
+      note: 'Each is a sourced row; trace_dependencies returns the sentence behind it.',
+    },
   };
 }
 

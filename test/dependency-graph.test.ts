@@ -93,3 +93,13 @@ test('an unknown name is a usable miss', async () => {
   );
   assert.match(JSON.parse(result).error, /No company or bottleneck/);
 });
+
+test('the busiest bottleneck record still fits the tool budget with its dependencies', async () => {
+  const { result } = await runTool(
+    'get_bottleneck',
+    { name: 'Leading-edge foundry capacity' },
+    { ledger: emptyLedger() },
+  );
+  assert.ok(!/truncated/.test(result), 'dependency rows pushed producers out of the answer');
+  assert.ok(JSON.parse(result).dependencies.companies_selling_into_it.includes('KLA'));
+});
