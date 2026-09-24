@@ -28,8 +28,8 @@ export interface Filing {
 const RELATION_LABEL: Record<RailRelation, string> = {
   holds: 'holds',
   part: 'supplies a part',
-  needs: 'needs (filing)',
-  'sells-into': 'sells into (filing)',
+  needs: 'needs (sourced)',
+  'sells-into': 'sells into (sourced)',
   upstream: 'upstream',
 };
 

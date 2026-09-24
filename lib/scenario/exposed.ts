@@ -29,8 +29,8 @@ export const EXPOSURE_LABEL: Record<Exposure, string> = {
   'remaining-maker': 'Remaining maker',
   'part-supplier': 'Part supplier to a hit bottleneck',
   'downstream-holder': 'Holds a downstream bottleneck',
-  needs: 'Needs it (filing)',
-  'sells-into': 'Sells into it (filing)',
+  needs: 'Needs it (sourced)',
+  'sells-into': 'Sells into it (sourced)',
 };
 
 export interface ExposedCompany {
