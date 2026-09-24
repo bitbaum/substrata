@@ -151,6 +151,12 @@ export default async function BottleneckPage({ params }: RouteParams) {
                 {INDUSTRY_LABEL[i]}
               </Link>
             ))}
+            <Link
+              href={`/careers/${b.slug}`}
+              className="text-fg-secondary underline-offset-4 hover:text-fg-primary hover:underline"
+            >
+              Work on it: roles and training
+            </Link>
             <a
               href={correctionUrl(b.name)}
               className="text-accent underline-offset-4 hover:underline"

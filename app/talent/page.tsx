@@ -16,6 +16,14 @@ export default function TalentPage() {
           lede="The expertise needed to qualify a process, ramp a factory or connect a grid is part of the system. Help us make that knowledge visible."
         />
         <section className="research-prose">
+          <h2>Looking for work in these chains?</h2>
+          <p>
+            This page is about expertise as a constraint. If you want a job in it, or to retrain
+            into it, go to <Link href="/careers">Careers</Link>: open roles at the companies that
+            hold the bottlenecks, which bottlenecks are hiring most, and{' '}
+            <Link href="/careers/paths">skills and public training programmes</Link> for each kind
+            of work.
+          </p>
           <h2>Talent constraints in the research</h2>
           {bottlenecks.map((b) => (
             <article key={b.slug}>
@@ -27,7 +35,8 @@ export default function TalentPage() {
               <p>
                 Judged by {JUDGED_BY} · {b.judgedOn} · severity{' '}
                 <Figure method="severity">{b.binding}/12</Figure> ·{' '}
-                <Link href={bottleneckHref(b.slug)}>Inspect the evidence</Link>
+                <Link href={bottleneckHref(b.slug)}>Inspect the evidence</Link> ·{' '}
+                <Link href={`/careers/${b.slug}`}>Roles, skills and training</Link>
               </p>
             </article>
           ))}

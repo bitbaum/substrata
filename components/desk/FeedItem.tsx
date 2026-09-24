@@ -103,6 +103,13 @@ export function FeedItem({
             >
               {item.kind} · not yet reviewed
             </span>
+          ) : item.source === 'job' ? (
+            <span
+              className="desk-badge"
+              title={`An open role on the company's own job board${item.location ? `, ${item.location}` : ''}. Apply there.`}
+            >
+              Job posting
+            </span>
           ) : item.source === 'filing' ? (
             <span
               className="desk-badge desk-badge-filing"
