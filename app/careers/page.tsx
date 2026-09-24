@@ -18,6 +18,7 @@ import { readFollows } from '@/lib/desk-store';
 import { whenLabel } from '@/lib/desk';
 import { Page, Shell } from '@/components/portal/Shell';
 import { Figure } from '@/components/portal/Figure';
+import { PageHeader } from '@/components/portal/PageHeader';
 import { AutoSubmitForm } from '@/components/portal/AutoSubmitForm';
 import { JobList } from './_parts/JobList';
 import { HiringByBottleneck } from './_parts/HiringByBottleneck';
@@ -67,11 +68,11 @@ export default async function CareersPage({ searchParams }: { searchParams: Prom
   return (
     <Shell currentPath="careers">
       <Page>
-        <header className="careers-head">
-          <p className="desk-kicker">Careers</p>
-          <h1 className="desk-title">Work on the bottlenecks.</h1>
-          <p className="desk-status">
-            {data ? (
+        <PageHeader
+          kicker="Careers"
+          title="Work on the bottlenecks."
+          status={
+            data ? (
               <>
                 <Figure method="careers-open">{String(data.total)}</Figure> open role
                 {data.total === 1 ? '' : 's'} on the public boards of{' '}
@@ -82,15 +83,18 @@ export default async function CareersPage({ searchParams }: { searchParams: Prom
               </>
             ) : (
               'The job board could not be read just now. The companies’ careers pages and the training paths still are.'
-            )}
-          </p>
-          <p className="careers-disclaimer">
-            Each role links to the posting on the company&rsquo;s own board; apply there. Substrata
-            is not an employer or a recruiter. Roles are filed under bottlenecks and role families
-            by <Link href="/data#method-careers-classify">published word rules</Link>, not by a
-            reader, so a filing can be wrong. Pay is not shown.
-          </p>
-        </header>
+            )
+          }
+          note={
+            <>
+              Each role links to the posting on the company&rsquo;s own board; apply there.
+              Substrata is not an employer or a recruiter. Roles are filed under bottlenecks and
+              role families by{' '}
+              <Link href="/data#method-careers-classify">published word rules</Link>, not by a
+              reader, so a filing can be wrong. Pay is not shown.
+            </>
+          }
+        />
 
         <div className="careers-layout">
           <aside className="careers-aside">

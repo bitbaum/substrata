@@ -19,6 +19,8 @@ import './styles/figure.css';
 import './styles/series.css';
 import './styles/ticker.css';
 import './styles/screen.css';
+import './styles/freshness.css';
+import './styles/roles.css';
 import './styles/science-pipeline.css';
 import { SITE } from '@/lib/site';
 import { AskDock } from '@/components/portal/AskDock';

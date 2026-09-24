@@ -75,7 +75,8 @@ test('research destinations stay in both the public bar and the desk list', () =
     '/capital',
     '/learn',
     '/events',
-    '/talent',
+    // Talent left the header on 2026-09-25 when the job-seeker view (/for/jobs)
+    // took its place as the way in; it stays in the desk list and that view.
   ]) {
     assert.ok(
       RESEARCH_NAV.some((item) => item.href === href),

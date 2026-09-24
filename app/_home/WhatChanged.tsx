@@ -4,7 +4,9 @@ import { EVENTS, type CoverageEvent } from '@/config/substrata-events';
 import { EventList } from '@/components/portal/EventList';
 import { Empty, Heading } from '@/components/portal/Shell';
 
-export const WINDOW_DAYS = 30;
+import { WINDOW_DAYS } from '@/lib/worst-now';
+
+export { WINDOW_DAYS };
 
 /** Section 01: the events recorded inside the window, newest first. */
 export function WhatChanged({ recent }: { recent: CoverageEvent[] }) {

@@ -154,3 +154,14 @@
   color: var(--color-fg-tertiary);
   text-decoration: underline;
 }
+
+/*
+ * Inside the dock the key panel sits in the sticky composer, and at full
+ * height it pushed the whole conversation out of the panel on a phone. Capped
+ * and scrolled on its own, the thread above stays in view while a key is set.
+ */
+.companion.is-compact .aikey {
+  max-height: min(16rem, 38dvh);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}

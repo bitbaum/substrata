@@ -31,7 +31,7 @@ export function MovedStrip({
               <Link
                 href={railHref(m.name)}
                 className="desk-moved-card"
-                title={`Show the ${m.count} item${m.count === 1 ? '' : 's'} on this rail`}
+                title={`Show the ${m.count} item${m.count === 1 ? '' : 's'} on this bottleneck`}
               >
                 <span className="desk-moved-count">
                   {m.count}

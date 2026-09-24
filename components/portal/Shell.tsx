@@ -13,6 +13,7 @@ import { DESK_NAV, FOOTER_NAV } from '@/config/site-nav';
 import { currentSession, isReviewer } from '@/lib/auth';
 import { SITE, correctionUrl } from '@/lib/site';
 import { AccountMenu } from './AccountMenu';
+import { FreshnessBadge } from './FreshnessBadge';
 import { Inquire } from './Inquire';
 import { Mark, SearchIcon } from './Mark';
 import { MobileMenu, PublicNav } from './PublicNav';
@@ -104,7 +105,10 @@ export async function Shell({
       <main className="flex-1">{children}</main>
       <footer className="site-footer mt-auto border-t border-subtle">
         <div className="mx-auto flex max-w-shell flex-col gap-4 px-4 py-6 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          <p className="max-w-xl text-xs leading-relaxed text-fg-muted">{chrome.footerNote}</p>
+          <div className="max-w-xl">
+            <p className="text-xs leading-relaxed text-fg-muted">{chrome.footerNote}</p>
+            <FreshnessBadge />
+          </div>
           {!desk && (
             <nav aria-label="Footer" className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
               {FOOTER_NAV.map((item) => (

@@ -34,6 +34,23 @@
   background: var(--color-surface-page);
   box-shadow: 0 12px 40px color-mix(in srgb, #000 25%, transparent);
 }
+/* On a phone the panel takes the screen above the toggle, so the thread has room. */
+@media (max-width: 640px) {
+  .ask-dock {
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    /* The strip beside the toggle is empty; clicks there reach the page. */
+    pointer-events: none;
+  }
+  .ask-dock > * {
+    pointer-events: auto;
+  }
+  .ask-dock-panel {
+    width: 100%;
+    max-height: calc(100dvh - 9rem);
+  }
+}
 .ask-dock-head {
   display: flex;
   align-items: center;

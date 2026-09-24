@@ -5,12 +5,14 @@ import { eventsNewestFirst, eventsSince } from '@/config/substrata-events';
 import { instrumentsNewestFirst, policyTotals } from '@/config/substrata-policy';
 import { BOTTLENECKS, portalTotals } from '@/lib/bottlenecks';
 import { marketTotals } from '@/lib/participants';
+import { WINDOW_DAYS, worstNow } from '@/lib/worst-now';
 import { Page, Shell } from '@/components/portal/Shell';
+import { ChooseRole } from './_home/ChooseRole';
 import { HomeHero } from './_home/HomeHero';
 import { HomeStats } from './_home/HomeStats';
 import { LatestRule } from './_home/LatestRule';
 import { StartHere } from './_home/StartHere';
-import { WINDOW_DAYS, WhatChanged } from './_home/WhatChanged';
+import { WhatChanged } from './_home/WhatChanged';
 import { WorstNow } from './_home/WorstNow';
 
 export const metadata: Metadata = {
@@ -20,55 +22,44 @@ export const metadata: Metadata = {
 };
 
 /**
- * Today: what moved, and the four ways into the rest of the site.
- *
- * The front page answers three questions in order — what changed, what is
- * worst right now, and where do I start — and nothing else. Everything below
- * the fold is a route into a section rather than an essay.
+ * The front page answers, in order: what is this, which part of it is for
+ * me, what changed, and what is worst right now. The reader's own door comes
+ * straight after the hero because every audience — traders, industry teams,
+ * job seekers, learners — needs a different slice, and making them find it
+ * in a menu was the hierarchy fault. The corpus counts come last: they are
+ * evidence for a reader already interested, not a way in.
  */
 export default function TodayPage() {
   const totals = portalTotals();
-  const markets = marketTotals();
-  const policy = policyTotals();
-  const recent = eventsSince(WINDOW_DAYS);
-  const tightening = new Set(
-    recent.filter((e) => e.effect === 'tightens').flatMap((e) => e.bottlenecks),
-  );
-  const loosening = new Set(
-    recent.filter((e) => e.effect === 'loosens').flatMap((e) => e.bottlenecks),
-  );
-  const worst = [...BOTTLENECKS]
-    .filter((b) => b.horizon === 'now')
-    .sort((a, b) => b.binding - a.binding)
-    .slice(0, 8);
+  const board = worstNow(8);
   const latestEvent = eventsNewestFirst()[0];
   const latestRule = instrumentsNewestFirst()[0];
   const featured =
-    worst.find((b) => b.producers.length > 0) ?? BOTTLENECKS.find((b) => b.producers.length > 0);
+    board.worst.find((b) => b.producers.length > 0) ??
+    BOTTLENECKS.find((b) => b.producers.length > 0);
 
   return (
     <Shell currentPath="">
       <Page>
         <HomeHero newest={latestEvent ? latestEvent.date : latestRule?.date} featured={featured} />
 
-        <HomeStats totals={totals} markets={markets} policy={policy} />
+        <ChooseRole />
 
-        <div className="grid gap-12 lg:grid-cols-[3fr_2fr]">
+        <div className="mb-14 grid gap-12 lg:grid-cols-[3fr_2fr]">
           <div>
-            <WhatChanged recent={recent} />
-            <WorstNow
-              worst={worst}
-              bindingNow={totals.bindingNow}
-              tightening={tightening}
-              loosening={loosening}
-            />
+            <WhatChanged recent={eventsSince(WINDOW_DAYS)} />
           </div>
-
           <div>
-            <StartHere />
-            <LatestRule latestRule={latestRule} />
+            <WorstNow {...board} bindingNow={totals.bindingNow} />
           </div>
         </div>
+
+        <div className="mb-14 grid gap-12 lg:grid-cols-[3fr_2fr]">
+          <StartHere />
+          <LatestRule latestRule={latestRule} />
+        </div>
+
+        <HomeStats totals={totals} markets={marketTotals()} policy={policyTotals()} />
       </Page>
     </Shell>
   );

@@ -84,7 +84,7 @@ export function FeedItem({
               key={name}
               href={railHref(name)}
               className="desk-rail-link"
-              title="Show only this rail"
+              title="Show only this bottleneck"
             >
               {name}
             </Link>
@@ -99,7 +99,7 @@ export function FeedItem({
           ) : item.source === 'science' ? (
             <span
               className="desk-badge desk-badge-science"
-              title="Collected by the science feeds because it names this rail's research terms. Nobody has reviewed it; its bearing on the bottleneck is not judged."
+              title="Collected by the science feeds because it names this bottleneck's research terms. Nobody has reviewed it; its bearing on the bottleneck is not judged."
             >
               {item.kind} · not yet reviewed
             </span>

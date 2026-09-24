@@ -41,10 +41,24 @@ The description is the page's own, so there is no second sentence to keep true.
 
 | Group | Routes |
 | --- | --- |
+| For you | `/for/equities` · `/for/commodities` · `/for/industry` · `/for/jobs` · `/for/learning` |
 | The map | `/atlas` · `/bottlenecks` · `/markets` · `/policy` · `/science` · `/capital` |
-| Latest | `/events` · `/notes` · `/changelog` |
-| About | `/about` · `/learn` · `/talent` · `/careers` · `/roadmap` |
+| News & about | `/events` · `/notes` · `/learn` · `/changelog` · `/roadmap` · `/about` |
 | Action | `/join` |
+
+**For you** is one view per reader (`config/audiences.ts`, `app/for/*`):
+equity investors, commodity traders, industry teams, job seekers and learners.
+Each view only chooses and orders sections of existing screens — X-ray,
+exposure, filings, series, events, scenarios, science, careers, learning — and
+links each to the full screen; none computes anything of its own. The homepage
+opens the same five doors straight under the hero.
+
+**Freshness** (`/data/freshness`, `/api/health/freshness`, footer badge): every
+scheduled feed (run tables `research_*_runs`) and committed dataset (its own
+`checkedOn`/`generatedAt` date) against the cadence or maximum age declared in
+`config/substrata-freshness.ts`. `test/freshness.test.ts` fails the build when a
+committed dataset is past its maximum age, so stale data cannot be deployed as
+current; the endpoint returns 503 when anything is stale or failing.
 
 Both breakpoints render from `NAV_GROUPS`, and both are `<details>`, so the
 menu opens without JavaScript. Wide: the three groups as dropdowns plus the

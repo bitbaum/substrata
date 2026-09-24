@@ -19,6 +19,7 @@ import { SERIES_METHODS } from './methods-series';
 import { GRAPH_METHODS } from './methods-graph';
 import { CAREER_METHODS } from './methods-careers';
 import { AI_METHODS } from './methods-ai';
+import { FRESHNESS_METHODS } from './methods-freshness';
 
 export interface Method {
   /** Short name, as a heading on /data. */
@@ -270,6 +271,7 @@ export const METHODS = {
   ...SCIENCE_PIPELINE_METHODS,
   ...SERIES_METHODS,
   ...CAREER_METHODS,
+  ...FRESHNESS_METHODS,
 } as const satisfies Record<string, Method>;
 
 export type MethodId = keyof typeof METHODS;

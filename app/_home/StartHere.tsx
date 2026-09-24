@@ -5,10 +5,10 @@ import { BOTTLENECKS } from '@/lib/bottlenecks';
 import { Heading } from '@/components/portal/Shell';
 
 /** Section 03: every technology and industry as a filtered way into the rows. */
-export function StartHere() {
+export function StartHere({ bare = false }: { bare?: boolean }) {
   return (
-    <section className="mb-12">
-      <Heading index="03" title="Start with a technology" />
+    <section className={bare ? undefined : 'mb-12'}>
+      {!bare && <Heading index="03" title="Start with a technology" />}
       <ul className="flex flex-wrap gap-2">
         {TECHNOLOGIES.map((t) => {
           const count = BOTTLENECKS.filter((b) => b.technologies.includes(t.id)).length;

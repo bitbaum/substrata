@@ -175,6 +175,12 @@ export const ROUTES = [
   '/review',
   '/data',
   '/data/series',
+  '/data/freshness',
+  '/for/equities',
+  '/for/commodities',
+  '/for/industry',
+  '/for/jobs',
+  '/for/learning',
   '/data/series/:id',
   '/data/series/:id/csv',
   '/development',
@@ -213,6 +219,7 @@ export const ROUTES = [
   '/api/map',
   '/api/events',
   '/api/health',
+  '/api/health/freshness',
 ] as const;
 
 /** Strip the query and fragment, leaving the path a route has to match. */

@@ -16,6 +16,7 @@ import {
 } from '@/lib/exposure-query';
 import { Page, Shell } from '@/components/portal/Shell';
 import { Figure } from '@/components/portal/Figure';
+import { PageHeader } from '@/components/portal/PageHeader';
 import { AutoSubmitForm } from '@/components/portal/AutoSubmitForm';
 import { ExposureTable } from '@/components/exposure/ExposureTable';
 import './exposure.css';
@@ -50,23 +51,28 @@ export default async function ExposurePage({ searchParams }: { searchParams: Pro
   return (
     <Shell currentPath="exposure">
       <Page>
-        <header className="exposure-head">
-          <p className="desk-kicker">Exposure</p>
-          <h1 className="desk-title">Who holds each bottleneck, and where it trades.</h1>
-          <p className="desk-status">
-            <Figure method="exposure-rows">{String(bottlenecks)}</Figure> bottleneck
-            {bottlenecks === 1 ? '' : 's'} ·{' '}
-            <Figure method="exposure-rows">{String(rows.length)}</Figure> holder row
-            {rows.length === 1 ? '' : 's'} ·{' '}
-            <Figure method="holders-listed">{String(listed)}</Figure> with a listing (their own or a
-            parent&rsquo;s) · listings checked {LISTINGS.checkedOn || 'not yet'}
-          </p>
-          <p className="exposure-disclaimer">
-            Public information only. No position, share of supply or revenue exposure is implied:
-            the corpus records who holds a bottleneck, not how much of a company&rsquo;s value rests
-            on it.
-          </p>
-        </header>
+        <PageHeader
+          kicker="Exposure"
+          title="Who holds each bottleneck, and where it trades."
+          status={
+            <>
+              <Figure method="exposure-rows">{String(bottlenecks)}</Figure> bottleneck
+              {bottlenecks === 1 ? '' : 's'} ·{' '}
+              <Figure method="exposure-rows">{String(rows.length)}</Figure> holder row
+              {rows.length === 1 ? '' : 's'} ·{' '}
+              <Figure method="holders-listed">{String(listed)}</Figure> with a listing (their own or
+              a parent&rsquo;s) · listings checked {LISTINGS.checkedOn || 'not yet'}
+            </>
+          }
+          note={
+            <>
+              Public information only. No position, share of supply or revenue exposure is implied:
+              the corpus records who holds a bottleneck, not how much of a company&rsquo;s value
+              rests on it.
+            </>
+          }
+          actions={<Link href="/for/equities">X-ray, filings and scenarios →</Link>}
+        />
 
         <AutoSubmitForm action="/exposure" className="desk-filters">
           <label className="desk-filter desk-filter-q">

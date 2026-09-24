@@ -201,8 +201,8 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
         {checked !== null && (
           <p role="status" className="desk-notice">
             {checked === 0
-              ? 'Every rail on your desk was checked within the last hour — nothing to re-check yet.'
-              : `Checked ${checked} rail${checked === 1 ? '' : 's'}: ${Number(params.found) || 0} new lead${Number(params.found) === 1 ? '' : 's'}${Number(params.blind) > 0 ? `, ${params.blind} could not be reached` : ''}.`}
+              ? 'Every bottleneck on your desk was checked within the last hour — nothing to re-check yet.'
+              : `Checked ${checked} bottleneck${checked === 1 ? '' : 's'}: ${Number(params.found) || 0} new lead${Number(params.found) === 1 ? '' : 's'}${Number(params.blind) > 0 ? `, ${params.blind} could not be reached` : ''}.`}
           </p>
         )}
 
@@ -211,7 +211,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
         <div className="desk-layout">
           <section aria-labelledby="feed-heading" className="min-w-0">
             <h2 id="feed-heading" className="sr-only">
-              News on your rails
+              News on your bottlenecks
             </h2>
             <FeedControls
               query={query}

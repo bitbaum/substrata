@@ -61,11 +61,11 @@ export function DeskHeader({
           {fresh === null ? (
             <>Web leads are unavailable right now — showing verified events only.</>
           ) : fresh.lastSwept === null ? (
-            <>The sweep has not looked at your rails yet.</>
+            <>The sweep has not looked at your bottlenecks yet.</>
           ) : (
-            <Link href="/account/settings#sweep" title="Per-rail sweep status and settings">
+            <Link href="/account/settings#sweep" title="Per-bottleneck sweep status and settings">
               Web last checked {whenLabel(fresh.lastSwept, now)}
-              {fresh.sweeping && ' · checking stale rails now'}
+              {fresh.sweeping && ' · checking stale bottlenecks now'}
             </Link>
           )}
           {' · '}

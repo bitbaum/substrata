@@ -78,7 +78,7 @@ function UseMyRails({ slugs }: { slugs: string[] }) {
   return (
     <>
       <button type="button" className="research-button-ghost" onClick={add}>
-        Use these {slugs.length} rails on my desk
+        Put these {slugs.length} bottlenecks on my desk
       </button>
       {state && <span className="xray-note">{state}</span>}
     </>
@@ -173,9 +173,9 @@ export function XrayReport({
 
       <div className="xray-grid">
         <div className="xray-block">
-          <h2 className="xray-h2">Single-country rails</h2>
+          <h2 className="xray-h2">Single-country bottlenecks</h2>
           <p className="xray-note">
-            Share of weight on a rail whose every recorded maker sits in one country.{' '}
+            Share of weight on a bottleneck whose every recorded maker sits in one country.{' '}
             <Link href={methodHref('xray-country')}>Rule</Link>
           </p>
           {single.length === 0 ? (
@@ -192,7 +192,7 @@ export function XrayReport({
             </ul>
           )}
           <details className="xray-details">
-            <summary>Every country with a recorded maker on these rails</summary>
+            <summary>Every country with a recorded maker on these bottlenecks</summary>
             <ul className="xray-list">
               {countries.map((c) => (
                 <li key={c.country}>
@@ -231,7 +231,9 @@ export function XrayReport({
 
       <div className="xray-grid">
         <div className="xray-block">
-          <h2 className="xray-h2">Reviewed events on these rails · {data.pressureWindowDays}d</h2>
+          <h2 className="xray-h2">
+            Reviewed events on these bottlenecks · {data.pressureWindowDays}d
+          </h2>
           {events.length === 0 ? (
             <p className="xray-note">No reviewed event in the window.</p>
           ) : (
@@ -251,7 +253,9 @@ export function XrayReport({
           )}
         </div>
         <div className="xray-block">
-          <h2 className="xray-h2">SEC filings by holders of these rails · {data.filingDays}d</h2>
+          <h2 className="xray-h2">
+            SEC filings by holders of these bottlenecks · {data.filingDays}d
+          </h2>
           {data.filings === null ? (
             <p className="xray-note">Filings are not available right now.</p>
           ) : data.filings.length === 0 ? (
