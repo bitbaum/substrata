@@ -1,6 +1,7 @@
 import type { Follows } from '@/lib/follows';
 import { WINDOWS, WINDOW_LABEL } from '@/lib/follows';
 import { ON_DEMAND_NODES } from '@/lib/sweep-store';
+import { FORMS } from '@/lib/filings';
 
 /** Feed defaults, freshness and profile: the rest of the reader's own settings form. */
 export function FeedSettings({ follows }: { follows: Follows }) {
@@ -25,8 +26,7 @@ export function FeedSettings({ follows }: { follows: Follows }) {
             <span>
               SEC filings
               <small>
-                8-K, 6-K, 10-Q, annual reports and activist stakes by listed holders of your rails,
-                from EDGAR.
+                {FORMS.join(', ')} filed by listed holders of your rails, from SEC EDGAR.
               </small>
             </span>
           </label>

@@ -66,14 +66,17 @@ const GENERIC = new Set([
 const TAIL = /\s*-\s*(a|b|h|auc|inversiones|reg|pfd)\s*$/i;
 
 export function distinguishingWords(name: string): string[] {
-  return name
-    .replace(TAIL, '')
-    .toLowerCase()
-    .replace(/&/g, ' and ')
-    .replace(/\/[a-z]+\/?/g, ' ')
-    .replace(/[^a-z0-9 ]/g, ' ')
-    .split(' ')
-    .filter((w) => w && !LEGAL.has(w));
+  return (
+    name
+      .replace(TAIL, '')
+      .toLowerCase()
+      .replace(/&/g, ' and ')
+      // A US state of incorporation, however spaced: "/DE", "/ DE", "/DE/".
+      .replace(/\/\s*[a-z]{2,3}\s*\/?/g, ' ')
+      .replace(/[^a-z0-9 ]/g, ' ')
+      .split(' ')
+      .filter((w) => w && !LEGAL.has(w))
+  );
 }
 
 export function sameCompany(wanted: string, candidate: string): boolean {

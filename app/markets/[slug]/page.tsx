@@ -15,6 +15,7 @@ import { resolveIn } from '@/lib/entities/registry';
 import { t } from '@/lib/i18n/messages';
 import { CompanyHeader } from './_sections/CompanyHeader';
 import { LeadList, leadsOn } from './_sections/leads';
+import { FilingList, filingsOf } from './_sections/filings';
 
 interface RouteParams {
   params: Promise<{ slug: string }>;
@@ -63,9 +64,20 @@ export default async function ParticipantPage({ params }: RouteParams) {
   }
   const layer = CHAIN_LAYERS.find((l) => l.id === p.layer);
   const entity = resolveIn('company', p.slug);
-  const leads = await leadsOn(profile);
-  const extra: ExtraSection[] =
-    leads.length > 0
+  const [leads, filings] = await Promise.all([leadsOn(profile), filingsOf(p.slug)]);
+  const extra: ExtraSection[] = [
+    ...(filings.length > 0
+      ? [
+          {
+            id: 'filings',
+            title: t('profile.filings.title'),
+            importance: 50,
+            evidence: `${filings.length} most recent, from SEC EDGAR`,
+            node: <FilingList filings={filings} company={p.name} />,
+          },
+        ]
+      : []),
+    ...(leads.length > 0
       ? [
           {
             id: 'leads',
@@ -75,7 +87,8 @@ export default async function ParticipantPage({ params }: RouteParams) {
             node: <LeadList leads={leads} />,
           },
         ]
-      : [];
+      : []),
+  ];
 
   return (
     <Shell currentPath="markets">

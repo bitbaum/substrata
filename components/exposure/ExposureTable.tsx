@@ -7,6 +7,7 @@ import { PRESSURE_WINDOW_DAYS, type ExposureRow } from '@/lib/exposure';
 import { bottleneckHref, marketHref } from '@/lib/links';
 import { methodHref } from '@/lib/methods';
 import { Ticker } from './Ticker';
+import { BINDING_MAX } from '@/components/desk/BindingScore';
 
 function Pressure({ value }: { value: number }) {
   const label = value > 0 ? `+${value} tightening` : value < 0 ? `${value} loosening` : '0 net';
@@ -29,7 +30,7 @@ export function ExposureTable({ rows }: { rows: ExposureRow[] }) {
         <thead>
           <tr>
             <th scope="col">Bottleneck</th>
-            <th scope="col" title="Four judged tests, 0–3 each">
+            <th scope="col" title={`Out of ${BINDING_MAX}: the sum of four judged tests`}>
               Binding
             </th>
             <th scope="col">Pressure · {PRESSURE_WINDOW_DAYS}d</th>
@@ -63,7 +64,7 @@ export function ExposureTable({ rows }: { rows: ExposureRow[] }) {
                       className="exposure-num"
                     >
                       {r.binding}
-                      <span>/12</span>
+                      <span>/{BINDING_MAX}</span>
                     </Link>
                   )}
                 </td>

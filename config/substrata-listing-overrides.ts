@@ -16,7 +16,15 @@
  */
 
 export type ListingOverride =
-  { parent: string; query: string; note: string } | { private: string } | { query: string };
+  | {
+      parent: string;
+      query: string;
+      note: string;
+      /** The parent's home markets, when they differ from the subsidiary's. */
+      jurisdictions?: string[];
+    }
+  | { private: string }
+  | { query: string };
 
 export const LISTING_OVERRIDES: Record<string, ListingOverride> = {
   // Trades through a listed parent.
@@ -58,7 +66,12 @@ export const LISTING_OVERRIDES: Record<string, ListingOverride> = {
     query: 'SK INC',
     note: 'A US subsidiary of SK Siltron, itself a subsidiary of SK Inc.',
   },
-  kuka: { parent: 'Midea Group', query: 'MIDEA GROUP', note: 'Midea took KUKA private in 2022.' },
+  kuka: {
+    parent: 'Midea Group',
+    query: 'MIDEA GROUP',
+    note: 'Midea took KUKA private in 2022.',
+    jurisdictions: ['CN', 'HK'],
+  },
   'element-six': {
     parent: 'Anglo American',
     query: 'ANGLO AMERICAN PLC',

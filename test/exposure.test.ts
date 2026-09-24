@@ -147,6 +147,7 @@ test('a listing must be the same company, not one that shares a word', () => {
   assert.equal(sameCompany('Minsur', 'MINSUR SA-INVERSIONES'), true);
   assert.equal(sameCompany('China Northern Rare Earth', 'CHINA NORTHERN RARE EARTH -A'), true);
   assert.equal(sameCompany('ASML', 'ASML HOLDING NV'), true);
+  assert.equal(sameCompany('MP Materials', 'MP Materials Corp. / DE'), true);
 });
 
 test('the primary line is where the company trades, not an order-book copy', () => {

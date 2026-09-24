@@ -163,20 +163,24 @@ async function main() {
       continue;
     }
     const query = override && 'query' in override ? override.query : p.name;
+    const jurisdictions =
+      override && 'jurisdictions' in override && override.jurisdictions
+        ? override.jurisdictions
+        : p.jurisdictions;
     if (mode === 'revalidate') {
       if (listings[p.slug])
-        listings[p.slug] = revalidate(listings[p.slug], query, p.jurisdictions, sec);
+        listings[p.slug] = revalidate(listings[p.slug], query, jurisdictions, sec);
       continue;
     }
     if (mode === 'missing' && listings[p.slug]) continue;
     const us = secMatch(sec, query);
     let homeLines: SecurityRef[] = [];
     try {
-      homeLines = await figiHomeLines(query, p.jurisdictions);
+      homeLines = await figiHomeLines(query, jurisdictions);
     } catch (error) {
       console.error(`${p.slug}: OpenFIGI failed (${(error as Error).message}); keeping SEC only`);
     }
-    const primary = choosePrimary(homeLines, us, p.jurisdictions);
+    const primary = choosePrimary(homeLines, us, jurisdictions);
     const parent = override && 'parent' in override ? override : null;
     listings[p.slug] =
       primary || us
