@@ -143,11 +143,107 @@ test('the desk labels every lead as unread and sweeps only after responding', ()
   // would be publishing unread rows as findings — the one thing the site says
   // it never does.
   const page = readFileSync(new URL('../app/account/page.tsx', import.meta.url), 'utf8');
-  assert.ok(page.includes('Unread lead'), 'every lead must say it is unread');
+  const row = readFileSync(new URL('../components/desk/FeedItem.tsx', import.meta.url), 'utf8');
+  assert.ok(row.includes('unread by analysts'), 'every lead must say nobody has read it');
   assert.ok(page.includes('after('), 'a desk visit must not wait on the web to paint');
   const store = readFileSync(new URL('../lib/sweep-store.ts', import.meta.url), 'utf8');
   assert.ok(
-    /last_swept < now\(\) - make_interval/.test(store),
+    /last_swept < now\(\) - \(\$2::float8 \* interval/.test(store),
     'an on-demand sweep must be bounded by a per-node cooldown, not by visits',
   );
+});
+
+import { type DeskItem } from '../lib/desk';
+import { applyFilter, railActivity, type FeedFilter } from '../lib/desk-filter';
+import { parseSweepSettings, queryFor } from '../lib/sweep';
+
+const BASE: FeedFilter = {
+  view: 'all',
+  days: null,
+  showVerified: true,
+  showLeads: true,
+  effect: null,
+  bottlenecks: [],
+  q: '',
+  mutedHosts: [],
+  mutedWords: [],
+  readUntil: null,
+};
+const NONE = { read: new Set<string>(), saved: new Set<string>(), hidden: new Set<string>() };
+
+function feedOf(): DeskItem[] {
+  return buildFeed(
+    [EVENT],
+    [
+      lead({
+        id: 'a',
+        url: 'https://finance.yahoo.com/a',
+        title: 'Gas turbine backlog grows again at GE Vernova plants',
+      }),
+      lead({ id: 'b', url: 'https://hitachienergy.com/b', foundAt: '2026-09-24T07:00:00.000Z' }),
+    ],
+    NOW,
+  );
+}
+
+test('hidden rows vanish from every view but Hidden, so hiding is undoable', () => {
+  const feed = feedOf();
+  const hidden = { ...NONE, hidden: new Set(['lead:b']) };
+  assert.ok(!applyFilter(feed, BASE, hidden, NOW).some((i) => i.id === 'b'));
+  assert.deepEqual(
+    applyFilter(feed, { ...BASE, view: 'hidden' }, hidden, NOW).map((i) => i.id),
+    ['b'],
+  );
+});
+
+test('unread respects both per-row marks and the mark-all-read watermark', () => {
+  const feed = feedOf();
+  const unread = (readUntil: string | null, read: string[] = []) =>
+    applyFilter(
+      feed,
+      { ...BASE, view: 'unread', readUntil },
+      { ...NONE, read: new Set(read) },
+      NOW,
+    ).map((i) => i.id);
+  assert.equal(unread(null).length, 3);
+  assert.deepEqual(unread('2026-09-23T23:00:00.000Z'), ['b']);
+  assert.deepEqual(unread(null, ['lead:b', 'event:2026-08-27-tokuyama']), ['a']);
+});
+
+test('muted sites and words, effect and rail filters each narrow the feed', () => {
+  const feed = feedOf();
+  const ids = (f: Partial<FeedFilter>) =>
+    applyFilter(feed, { ...BASE, ...f }, NONE, NOW).map((i) => i.id);
+  assert.ok(!ids({ mutedHosts: ['yahoo.com'] }).includes('a'), 'a parent domain mutes subdomains');
+  assert.ok(!ids({ mutedWords: ['BACKLOG'] }).includes('a'), 'muted words ignore case');
+  assert.deepEqual(
+    ids({ effect: 'loosens' }),
+    ['2026-08-27-tokuyama'],
+    'effect is a verified-only filter',
+  );
+  assert.deepEqual(ids({ bottlenecks: ['Electronic-grade polysilicon'] }), ['2026-08-27-tokuyama']);
+  assert.deepEqual(ids({ showLeads: false }), ['2026-08-27-tokuyama']);
+});
+
+test('rail activity counts rows per rail, busiest first', () => {
+  const activity = railActivity(feedOf());
+  assert.equal(activity[0].name, 'Large power transformer slots');
+  assert.equal(activity[0].count, 2);
+});
+
+test('sweep settings from the database are clamped, and the query year is not a literal', () => {
+  const s = parseSweepSettings({
+    everyHours: 0,
+    nodesPerRun: 50,
+    eventWords: ['a', 'shortage', 'x) OR (y'],
+  });
+  assert.equal(s.everyHours, 1);
+  assert.equal(s.nodesPerRun, 8);
+  assert.deepEqual(s.eventWords, ['shortage'], 'too-short and query-breaking words are dropped');
+  assert.equal(
+    queryFor('neon', ['lead time', 'export'], 2027),
+    '"neon" ("lead time" OR export) 2027',
+  );
+  const source = readFileSync(new URL('../lib/sweep.ts', import.meta.url), 'utf8');
+  assert.ok(!/\) 20\d\d`/.test(source), 'the search year must come from the clock');
 });

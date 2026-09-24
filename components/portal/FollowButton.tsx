@@ -8,7 +8,7 @@ export function FollowButton({
   following,
   label,
 }: {
-  type: 'company' | 'technology';
+  type: 'company' | 'technology' | 'bottleneck' | 'mute';
   id: string;
   following: boolean;
   label: string;
@@ -41,7 +41,13 @@ export function FollowButton({
         className={on ? 'follow-btn is-on' : 'follow-btn'}
         onClick={() => void toggle()}
       >
-        {on ? `Following ${label}` : `Follow ${label}`}
+        {type === 'mute'
+          ? on
+            ? `Muted ${label}`
+            : `Mute ${label}`
+          : on
+            ? `Following ${label}`
+            : `Follow ${label}`}
       </button>
       {error && <span className="follow-error">{error}</span>}
     </span>

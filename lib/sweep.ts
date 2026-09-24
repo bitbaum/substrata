@@ -13,14 +13,18 @@ import { webSearch, readPage } from '@bitbaum/ai-kit/web';
 import { MATERIALS } from '@/config/substrata';
 import { CHOKEPOINTS } from '@/config/substrata-coverage';
 import type { CandidateEvent, EventEffect } from '@/config/substrata-events';
+import { DEFAULT_SWEEP_SETTINGS, queryFor, type SweepSettings } from '@/lib/sweep-settings';
+
+export {
+  DEFAULT_SWEEP_SETTINGS,
+  parseSweepSettings,
+  queryFor,
+  type SweepSettings,
+} from '@/lib/sweep-settings';
 
 /** How many results to consider, how many to read, and how much text to keep around a match. */
 const RESULTS_PER_NODE = 8;
-const PAGES_PER_NODE = 4;
 const EXCERPT_RADIUS = 200;
-
-const EVENT_WORDS =
-  'shortage OR expansion OR "new plant" OR "lead time" OR export OR licence OR license OR closure OR outage OR contract';
 
 /**
  * Domains that never carry an event.
@@ -72,10 +76,10 @@ const NEVER_AN_EVENT = [
  * (`researchandmarkets`) matches a whole label, so it catches every TLD the
  * same farm publishes under without also catching a name it is a substring of.
  */
-export function isNeverAnEvent(url: string): boolean {
+export function isNeverAnEvent(url: string, extra: readonly string[] = []): boolean {
   try {
     const host = new URL(url).hostname.toLowerCase().replace(/^www\./, '');
-    return NEVER_AN_EVENT.some((bad) =>
+    return [...NEVER_AN_EVENT, ...extra].some((bad) =>
       bad.includes('.') ? host === bad || host.endsWith(`.${bad}`) : host.split('.').includes(bad),
     );
   } catch {
@@ -190,9 +194,14 @@ function idFor(url: string): string {
   return createHash('sha1').update(url).digest('hex').slice(0, 12);
 }
 
-export async function sweep(node: { name: string; term: string }): Promise<CandidateEvent[]> {
+export async function sweep(
+  node: { name: string; term: string },
+  settings: SweepSettings = DEFAULT_SWEEP_SETTINGS,
+): Promise<CandidateEvent[]> {
   const foundAt = new Date().toISOString();
-  const query = `"${node.term}" (${EVENT_WORDS}) 2026`;
+  // The year is today's, not a literal: a hardcoded "2026" would quietly
+  // narrow every search to last year from January on.
+  const query = queryFor(node.term, settings.eventWords, new Date().getUTCFullYear());
   const search = await webSearch(query, { limit: RESULTS_PER_NODE, timeoutMs: 15_000 });
 
   if (search.status === 'could_not_look') {
@@ -215,8 +224,8 @@ export async function sweep(node: { name: string; term: string }): Promise<Candi
 
   const out: CandidateEvent[] = [];
   for (const result of search.results
-    .filter((r) => !isNeverAnEvent(r.url))
-    .slice(0, PAGES_PER_NODE)) {
+    .filter((r) => !isNeverAnEvent(r.url, settings.blockedHosts))
+    .slice(0, settings.pagesPerNode)) {
     const page = await readPage(result.url, { timeoutMs: 15_000, maxChars: 60_000 });
     if (!page.ok) continue;
     const excerpt = excerptAround(page.text, node.term);

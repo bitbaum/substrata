@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 
 import { auth, isReviewer } from '@/lib/auth';
 import { database } from '@/lib/db';
-import { freshness, openCandidates, recordVerdict } from '@/lib/sweep-store';
+import { freshness, openCandidates, recordVerdict } from '@/lib/sweep-queue';
 import { openSourceCandidates, recordSourceVerdict, sourceFreshness } from '@/lib/source-store';
 import { Page, Shell, SectionHeader, Empty, Heading } from '@/components/portal/Shell';
 

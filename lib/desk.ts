@@ -19,6 +19,8 @@ import { looksLikeAReference } from '@/lib/sweep';
 export interface Lead {
   id: string;
   bottleneck: string;
+  /** The phrase the sweep searched for. */
+  term?: string;
   url: string;
   title: string;
   published: string | null;
@@ -135,10 +137,47 @@ function leadTime(lead: Lead): { at: string; dated: boolean } {
   return { at: lead.foundAt, dated: false };
 }
 
+/**
+ * Whether a headline names the rail it was filed under.
+ *
+ * The sweep files a page when its BODY mentions the term, so a trucking
+ * logbook that mentions "reduction drive" once lands under precision drives.
+ * The headline is what a reader sees, and one that names none of the rail's
+ * words is usually that kind of accident. It also drops some real stories
+ * ("Rare Earth Trade Report" under a didymium rail), which is why it is a
+ * reader's setting and not the sweep's rule.
+ */
+export function headlineNamesRail(lead: Pick<Lead, 'title' | 'bottleneck' | 'term'>): boolean {
+  const words = `${lead.bottleneck} ${lead.term ?? ''}`
+    .toLowerCase()
+    .split(/[^a-z0-9]+/)
+    .filter((w) => w.length >= 4 && !RAIL_STOPWORDS.has(w))
+    .map((w) => w.replace(/(ies|es|s)$/, ''));
+  const title = lead.title.toLowerCase();
+  return words.some((w) => title.includes(w));
+}
+
+const RAIL_STOPWORDS = new Set([
+  'grade',
+  'capacity',
+  'slots',
+  'queues',
+  'books',
+  'order',
+  'metal',
+  'feed',
+  'refined',
+  'high',
+  'purity',
+  'yield',
+]);
+
 export function buildFeed(
   events: readonly CoverageEvent[],
   leads: readonly Lead[],
   now: Date = new Date(),
+  leadMaxAgeDays = LEAD_MAX_AGE_DAYS,
+  strictLeads = false,
 ): DeskItem[] {
   const items: DeskItem[] = events.map((event) => ({
     source: 'event',
@@ -154,11 +193,12 @@ export function buildFeed(
 
   // A lead whose page an analyst already turned into an event is that event.
   const known = new Set(events.map((event) => event.source));
-  const cutoff = now.getTime() - LEAD_MAX_AGE_DAYS * 86_400_000;
+  const cutoff = now.getTime() - leadMaxAgeDays * 86_400_000;
   const byStory = new Map<string, Extract<DeskItem, { source: 'lead' }>>();
 
   for (const lead of leads) {
     if (known.has(lead.url) || !isStory(lead.title)) continue;
+    if (strictLeads && !headlineNamesRail(lead)) continue;
     const { at, dated } = leadTime(lead);
     if (Date.parse(at) < cutoff) continue;
     const key = storyKey(lead.title);

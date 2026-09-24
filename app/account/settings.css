@@ -1,0 +1,188 @@
+/* Desk settings page: sections, fields, the rails table. Tokens only. */
+.settings-section {
+  padding: 2rem 0;
+  border-top: 1px solid var(--color-border-subtle);
+  scroll-margin-top: 5rem;
+}
+.settings-head {
+  margin-bottom: 1.25rem;
+}
+.settings-head h2 {
+  font: 600 1.4rem var(--font-heading);
+  letter-spacing: var(--tracking-display);
+}
+.settings-head p {
+  margin-top: 0.4rem;
+  max-width: 62ch;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--color-fg-secondary);
+}
+.settings-label {
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-fg-primary);
+}
+.settings-hint {
+  margin-bottom: 0.75rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--color-fg-tertiary);
+}
+.settings-hint a {
+  text-decoration: underline;
+}
+.settings-group {
+  margin-top: 0.5rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 0.6rem;
+}
+.settings-group summary {
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.settings-rails li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.4rem 1rem;
+  padding: 0.55rem 1rem;
+  border-top: 1px solid var(--color-border-subtle);
+  font-size: 0.85rem;
+}
+@media (min-width: 720px) {
+  .settings-rails li {
+    grid-template-columns: minmax(0, 1fr) 3.5rem auto;
+  }
+}
+.settings-rails li.is-off .settings-rail-name {
+  color: var(--color-fg-muted);
+}
+.settings-rail-name:hover {
+  text-decoration: underline;
+}
+.settings-rail-score {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-fg-tertiary);
+}
+.settings-tri {
+  display: inline-flex;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.settings-tri input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.settings-tri span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0 0.7rem;
+  font-size: 0.75rem;
+  color: var(--color-fg-tertiary);
+  cursor: pointer;
+}
+.settings-tri input:checked + span {
+  background: var(--color-accent);
+  color: var(--color-surface-page);
+}
+.settings-tri input:focus-visible + span {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+.settings-grid {
+  display: grid;
+  gap: 1rem 1.5rem;
+}
+@media (min-width: 720px) {
+  .settings-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.settings-wide {
+  grid-column: 1 / -1;
+}
+.settings-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  color: var(--color-fg-secondary);
+}
+.settings-field input,
+.settings-field select,
+.settings-field textarea {
+  min-height: 2.5rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 0.5rem;
+  background: var(--color-surface-page);
+  color: var(--color-fg-primary);
+  font-size: 0.9rem;
+}
+.settings-field textarea {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+.settings-field :disabled {
+  opacity: 0.6;
+}
+.settings-check {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  font-size: 0.9rem;
+  color: var(--color-fg-primary);
+}
+.settings-check input {
+  margin-top: 0.25rem;
+}
+.settings-check small {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--color-fg-tertiary);
+}
+.settings-save {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--color-border-subtle);
+  background: var(--color-surface-page);
+  z-index: 5;
+}
+.settings-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 0.6rem;
+}
+.settings-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+.settings-table th {
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.72rem;
+  color: var(--color-fg-tertiary);
+  border-bottom: 1px solid var(--color-border-subtle);
+  white-space: nowrap;
+}
+.settings-table td {
+  padding: 0.5rem 0.8rem;
+  border-top: 1px solid var(--color-border-subtle);
+  vertical-align: middle;
+}
+.settings-table td a:hover {
+  text-decoration: underline;
+}
