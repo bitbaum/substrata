@@ -11,6 +11,8 @@ import {
   type OfficialSeries,
 } from '@/config/substrata-official-series';
 import { database } from './db';
+import type { DeskItem } from './desk';
+import { seriesItems } from './desk-series';
 import { corpusSeries, sortPoints, type Series } from './series';
 
 const BLS_API = 'https://api.bls.gov/publicAPI/v2/timeseries/data/';
@@ -185,4 +187,12 @@ export async function allSeries(): Promise<AllSeries> {
   } catch {
     return { series: corpusSeries(), officialOk: false };
   }
+}
+
+/** Desk rows for these rails: corpus always, official series when the database answers. */
+export async function railSeriesItems(
+  rails: readonly { slug: string; name: string }[],
+): Promise<DeskItem[]> {
+  const { series } = await allSeries();
+  return seriesItems(series, new Map(rails.map((b) => [b.slug, b.name])));
 }

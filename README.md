@@ -43,7 +43,7 @@ The description is the page's own, so there is no second sentence to keep true.
 | --- | --- |
 | The map | `/atlas` · `/bottlenecks` · `/markets` · `/policy` · `/science` · `/capital` |
 | Latest | `/events` · `/notes` · `/changelog` |
-| About | `/about` · `/learn` · `/talent` · `/roadmap` |
+| About | `/about` · `/learn` · `/talent` · `/careers` · `/roadmap` |
 | Action | `/join` |
 
 Both breakpoints render from `NAV_GROUPS`, and both are `<details>`, so the

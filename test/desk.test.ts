@@ -171,6 +171,7 @@ const BASE: FeedFilter = {
   showLeads: true,
   showFilings: true,
   showSeries: true,
+  showJobs: true,
   effect: null,
   bottlenecks: [],
   q: '',

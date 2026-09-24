@@ -17,6 +17,7 @@
     "research:sweep": "tsx scripts/research/sweep-events.ts",
     "research:listings": "tsx scripts/research/listings.ts",
     "research:accept-events": "tsx scripts/research/accept-events.ts",
+    "research:occupations": "tsx scripts/research/occupations.ts",
     "verify": "pnpm run format:check && pnpm run type-check && pnpm run lint && pnpm run test",
     "format": "prettier --write .",
     "format:check": "prettier --check ."

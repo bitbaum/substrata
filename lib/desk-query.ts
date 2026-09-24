@@ -10,7 +10,15 @@ import { WINDOWS, type DeskSettings, type Grouping, type Window } from '@/lib/fo
 
 export type Params = Record<string, string | undefined>;
 
-export const SOURCES = ['all', 'verified', 'filings', 'science', 'series', 'leads'] as const;
+export const SOURCES = [
+  'all',
+  'verified',
+  'filings',
+  'science',
+  'series',
+  'leads',
+  'jobs',
+] as const;
 export type Sources = (typeof SOURCES)[number];
 export const SOURCE_LABEL: Record<Sources, string> = {
   all: 'All sources you show',
@@ -19,6 +27,7 @@ export const SOURCE_LABEL: Record<Sources, string> = {
   science: 'Papers and grants only',
   series: 'Data series only',
   leads: 'Web leads only',
+  jobs: 'New job postings only',
 };
 
 export const VIEW_LABEL: Record<View, string> = {
@@ -92,6 +101,7 @@ export function parseDeskQuery(
       showFilings: on('filings', settings.showFilings),
       showScience: on('science', settings.showScience),
       showSeries: on('series', settings.showSeries),
+      showJobs: on('jobs', settings.showJobs),
       effect,
       bottlenecks: rail ? [rail.name] : [],
       q,

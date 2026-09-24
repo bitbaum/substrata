@@ -26,6 +26,8 @@ export interface FeedFilter {
   /** Papers, preprints and grants from the science feeds. Absent means shown. */
   showScience?: boolean;
   showSeries?: boolean;
+  /** New job postings the reader follows (/careers). Absent means shown. */
+  showJobs?: boolean;
   effect: EventEffect | null;
   /** Bottleneck names; empty means every rail. */
   bottlenecks: string[];
@@ -86,9 +88,11 @@ export function applyFilter(
           ? filter.showLeads
           : item.source === 'science'
             ? filter.showScience !== false
-            : item.source === 'filing'
-              ? filter.showFilings
-              : filter.showSeries !== false;
+            : item.source === 'job'
+              ? filter.showJobs !== false
+              : item.source === 'filing'
+                ? filter.showFilings
+                : filter.showSeries !== false;
     if (!shown) return false;
     if (since !== null && Date.parse(item.at) < since) return false;
     if (filter.effect && !(item.source === 'event' && item.effect === filter.effect)) return false;

@@ -10,6 +10,7 @@
 import { TECHNOLOGIES, type TechnologyId } from '@/config/substrata-taxonomy';
 import { MARKET_PARTICIPANTS } from '@/lib/participants';
 import { BOTTLENECKS, type Bottleneck } from '@/lib/bottlenecks';
+import { parseJobFollows, type JobFollows } from '@/lib/job-follows';
 
 export type FollowKind = 'individual' | 'organization';
 
@@ -36,6 +37,8 @@ export interface DeskSettings {
   showScience: boolean;
   /** Show new points and threshold moves on data series on the reader's rails. */
   showSeries: boolean;
+  /** Show new job postings at the companies and in the role families followed for jobs. */
+  showJobs: boolean;
   /** The time window the feed opens on. */
   window: Window;
   grouping: Grouping;
@@ -64,6 +67,8 @@ export type Follows = {
   /** Bottleneck slugs never shown, whatever else reaches them. */
   muted: string[];
   kind: FollowKind;
+  /** Companies and role families followed for new job postings (/careers). */
+  jobs: JobFollows;
   desk: DeskSettings;
 };
 
@@ -73,6 +78,7 @@ export const DEFAULT_DESK: DeskSettings = {
   showFilings: true,
   showScience: true,
   showSeries: true,
+  showJobs: true,
   window: '30',
   grouping: 'day',
   strictLeads: true,
@@ -130,6 +136,7 @@ export function parseDesk(raw: unknown): DeskSettings {
     showFilings: bool('showFilings'),
     showScience: bool('showScience'),
     showSeries: bool('showSeries'),
+    showJobs: bool('showJobs'),
     window: WINDOWS.includes(o.window as Window) ? (o.window as Window) : DEFAULT_DESK.window,
     grouping: GROUPINGS.includes(o.grouping as Grouping)
       ? (o.grouping as Grouping)
@@ -165,6 +172,7 @@ export function parseFollows(raw: unknown): Follows {
       bottlenecks: strings(o.bottlenecks, (s) => BOTTLENECK.has(s) && !muted.includes(s)),
       muted,
       kind: o.kind === 'organization' ? 'organization' : 'individual',
+      jobs: parseJobFollows(o.jobs, (s) => COMPANY.has(s)),
       desk: parseDesk(o.desk),
     };
   }
@@ -178,6 +186,7 @@ export function emptyFollows(): Follows {
     bottlenecks: [],
     muted: [],
     kind: 'individual',
+    jobs: { companies: [], families: [] },
     desk: { ...DEFAULT_DESK },
   };
 }
