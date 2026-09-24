@@ -106,7 +106,8 @@ export const FEEDS: readonly Feed[] = [
     what: 'Searches for a primary source for each unsourced producer row; candidates wait for review.',
     shows: { label: 'Data quality', href: '/data' },
     table: 'research_source_runs',
-    everyHours: null,
+    // Every six hours at :52 (appcron-substrata-source, loki install-app-crons.sh).
+    everyHours: 6,
     failedWhen: 'rows_examined > 0 AND could_not_look >= rows_examined',
   },
 ];
