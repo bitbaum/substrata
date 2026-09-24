@@ -20,8 +20,14 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 
 import { MARKET_PARTICIPANTS } from '@/lib/participants';
-import { choosePrimary, sameCompany } from '@/lib/listing-match';
-import { LISTING_OVERRIDES } from '@/config/substrata-listing-overrides';
+import {
+  choosePrimary,
+  isPinned,
+  pinnedLine,
+  sameCompany,
+  type FigiMapped,
+} from '@/lib/listing-match';
+import { LISTING_OVERRIDES, type PinnedLine } from '@/config/substrata-listing-overrides';
 import { HOME_COMPOSITE, type Listing, type ListingsFile, type SecurityRef } from '@/lib/listings';
 
 const OUT = new URL('../../research/listings.json', import.meta.url);
@@ -117,6 +123,27 @@ async function figiHomeLines(query: string, jurisdictions: string[]): Promise<Se
 }
 
 /**
+ * A pinned home line, looked up by identifier rather than by name: OpenFIGI's
+ * mapping of ticker + exchange, accepted only if the name is still the one a
+ * person checked (see `pinnedLine`).
+ */
+async function figiPinned(pin: PinnedLine): Promise<SecurityRef | null> {
+  const wait = lastSearch + SEARCH_GAP_MS - Date.now();
+  if (wait > 0) await new Promise((r) => setTimeout(r, wait));
+  lastSearch = Date.now();
+  const response = await fetch('https://api.openfigi.com/v3/mapping', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify([
+      { idType: 'TICKER', idValue: pin.ticker, exchCode: pin.exchange, marketSecDes: 'Equity' },
+    ]),
+  });
+  if (!response.ok) throw new Error(`OpenFIGI mapping ${response.status}`);
+  const [job] = (await response.json()) as Array<{ data?: FigiMapped[] }>;
+  return pinnedLine(job?.data ?? [], pin);
+}
+
+/**
  * Re-apply the matching rule to what is already stored, without searching
  * again: a rule change must be able to retract a ticker it would no longer
  * accept.
@@ -126,12 +153,15 @@ function revalidate(
   query: string,
   jurisdictions: string[],
   sec: SecRow[],
+  pin?: PinnedLine,
 ): Listing {
   if (listing.status !== 'listed' && listing.status !== 'parent') return listing;
   const homes =
     listing.primary?.figi && sameCompany(query, listing.primary.name) ? [listing.primary] : [];
   const us = secMatch(sec, query);
-  const primary = choosePrimary(homes, us, jurisdictions);
+  const primary = isPinned(listing.primary, pin)
+    ? listing.primary
+    : choosePrimary(homes, us, jurisdictions);
   if (!primary && !us) return { status: 'none-found', query, checkedOn: listing.checkedOn };
   return { ...listing, primary, us };
 }
@@ -162,14 +192,15 @@ async function main() {
       console.log(`${p.slug}: private`);
       continue;
     }
-    const query = override && 'query' in override ? override.query : p.name;
+    const query = (override && 'query' in override && override.query) || p.name;
+    const pin = override && 'home' in override ? override.home : undefined;
     const jurisdictions =
       override && 'jurisdictions' in override && override.jurisdictions
         ? override.jurisdictions
         : p.jurisdictions;
     if (mode === 'revalidate') {
       if (listings[p.slug])
-        listings[p.slug] = revalidate(listings[p.slug], query, jurisdictions, sec);
+        listings[p.slug] = revalidate(listings[p.slug], query, jurisdictions, sec, pin);
       continue;
     }
     if (mode === 'missing' && listings[p.slug]) continue;
@@ -180,7 +211,21 @@ async function main() {
     } catch (error) {
       console.error(`${p.slug}: OpenFIGI failed (${(error as Error).message}); keeping SEC only`);
     }
-    const primary = choosePrimary(homeLines, us, jurisdictions);
+    let pinned: SecurityRef | null = null;
+    if (pin) {
+      try {
+        pinned = await figiPinned(pin);
+      } catch (error) {
+        console.error(`${p.slug}: OpenFIGI mapping failed (${(error as Error).message})`);
+      }
+      if (!pinned)
+        console.error(
+          `${p.slug}: pinned ${pin.ticker} ${pin.exchange} "${pin.figiName}" no longer matches — review the pin`,
+        );
+    }
+    // A pinned line is the home line: a person checked it, and it was taken
+    // only because OpenFIGI still returns that exact ticker and name.
+    const primary = pinned ?? choosePrimary(homeLines, us, jurisdictions);
     const parent = override && 'parent' in override ? override : null;
     listings[p.slug] =
       primary || us

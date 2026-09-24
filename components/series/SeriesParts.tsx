@@ -8,6 +8,7 @@ import {
   formatPoint,
   formatValue,
   isPlanned,
+  isSmallMove,
   latestChange,
   periodLabel,
   type Series,
@@ -30,6 +31,7 @@ export function ChangeBadge({ series }: { series: Series }) {
       </Figure>{' '}
       vs {periodLabel(change.from.date)}
       {effect !== 'neutral' && <span className="series-change-effect"> · {effect}</span>}
+      {isSmallMove(change) && <span className="series-change-effect"> · flat</span>}
     </span>
   );
 }

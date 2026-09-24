@@ -186,12 +186,28 @@ export function formatPoint(point: Pick<SeriesPoint, 'value' | 'low'>): string {
     : formatValue(point.value);
 }
 
+/**
+ * The smallest move, either way, that is called tightening or loosening.
+ *
+ * Below it a change is shown with its sign and read as flat: a lead time from
+ * 128 to 126 weeks, or a monthly price index up 0.4%, is inside the noise of
+ * a survey or a revision, and calling it "loosens" would be a claim the
+ * number cannot carry. The method page states it (`series-change`).
+ */
+export const MIN_MOVE_PCT = 0.03;
+
+/** A move too small to call either way (see MIN_MOVE_PCT). A move off zero has no % and is never small. */
+export function isSmallMove(change: Change | undefined): boolean {
+  return !!change && change.pct !== undefined && Math.abs(change.pct) < MIN_MOVE_PCT;
+}
+
 /** Whether a move is bad news, good news or neither for the bottleneck. */
 export function effectOf(
   series: Pick<Series, 'direction'>,
   change: Change | undefined,
 ): 'tightens' | 'loosens' | 'neutral' {
   if (!change || change.delta === 0 || series.direction === 'neutral') return 'neutral';
+  if (isSmallMove(change)) return 'neutral';
   // A plan or forecast has not happened; it moves nothing yet.
   if (isPlanned(change.to)) return 'neutral';
   const up = change.delta > 0;
@@ -247,50 +263,4 @@ export function seriesById(all: readonly Series[], id: string): Series | undefin
   return all.find((s) => s.id === id);
 }
 
-function csvCell(value: string | number | boolean | undefined): string {
-  const text = value === undefined ? '' : String(value);
-  return /[",\n]/.test(text) ? `"${text.replace(/"/g, '""')}"` : text;
-}
-
-/** One series as CSV: one row per point, provenance on every row. */
-export function seriesCsv(series: Series): string {
-  const header = [
-    'series',
-    'bottleneck',
-    'metric',
-    'unit',
-    'geography',
-    'period',
-    'value',
-    'origin',
-    'primary',
-    'preliminary',
-    'publisher',
-    'published',
-    'source',
-    'quote',
-    'note',
-  ];
-  const rows = series.points.map((p) =>
-    [
-      series.id,
-      series.bottleneck,
-      series.metric,
-      series.unit,
-      series.geography,
-      p.date,
-      p.value,
-      series.origin,
-      p.primary,
-      p.preliminary ?? false,
-      p.publisher,
-      p.published,
-      p.source,
-      p.quote,
-      p.note,
-    ]
-      .map(csvCell)
-      .join(','),
-  );
-  return `${[header.join(','), ...rows].join('\n')}\n`;
-}
+export { seriesCsv } from './series-csv';

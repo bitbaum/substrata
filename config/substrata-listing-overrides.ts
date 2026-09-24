@@ -8,12 +8,29 @@
  *   is Hitachi). The listing shown is the parent's, marked as such, because a
  *   position in the parent is a diluted position in the chokepoint;
  * - the company is privately held, so there is nothing to find;
- * - the trading name differs enough that a name search misses it (TSMC).
+ * - the trading name differs enough that a name search misses it (TSMC);
+ * - OpenFIGI truncates or decorates the name so no strict match is possible
+ *   ("TAIWAN SEMICONDUCTOR MANUFAC", "NKT A/S"). Those get a PINNED home line:
+ *   ticker, exchange and the exact OpenFIGI name, each read off an OpenFIGI
+ *   mapping by hand. The generator accepts the line only if all three still
+ *   match, so a pin cannot drift onto another security — and the matcher in
+ *   lib/listing-match.ts stays as strict as it is.
  *
  * Only relationships that are public and settled belong here. A company that
  * is simply not found stays "no listing found" — that is an honest answer,
  * and a wrong parent is not.
  */
+
+/** A home line checked by hand on OpenFIGI's mapping API. */
+export interface PinnedLine {
+  ticker: string;
+  /** Bloomberg composite code, as in HOME_COMPOSITE. */
+  exchange: string;
+  /** The security's name exactly as OpenFIGI returns it, truncation included. */
+  figiName: string;
+  /** When the pin was read, for a reviewer. */
+  checkedOn: string;
+}
 
 export type ListingOverride =
   | {
@@ -22,9 +39,18 @@ export type ListingOverride =
       note: string;
       /** The parent's home markets, when they differ from the subsidiary's. */
       jurisdictions?: string[];
+      home?: PinnedLine;
     }
   | { private: string }
-  | { query: string };
+  | { query?: string; home?: PinnedLine };
+
+const PINNED_ON = '2026-09-25';
+const TSMC_TT: PinnedLine = {
+  ticker: '2330',
+  exchange: 'TT',
+  figiName: 'TAIWAN SEMICONDUCTOR MANUFAC',
+  checkedOn: PINNED_ON,
+};
 
 export const LISTING_OVERRIDES: Record<string, ListingOverride> = {
   // Trades through a listed parent.
@@ -48,6 +74,7 @@ export const LISTING_OVERRIDES: Record<string, ListingOverride> = {
     parent: 'TSMC',
     query: 'TAIWAN SEMICONDUCTOR MANUFACTURING',
     note: 'A business of TSMC.',
+    home: TSMC_TT,
   },
   'abb-robotics': { parent: 'ABB', query: 'ABB LTD', note: 'A business of ABB.' },
   'amazon-web-services': { parent: 'Amazon', query: 'AMAZON.COM', note: 'A business of Amazon.' },
@@ -93,13 +120,58 @@ export const LISTING_OVERRIDES: Record<string, ListingOverride> = {
   'carl-zeiss-smt': { private: 'Part of Carl Zeiss AG, owned by the Carl Zeiss Foundation.' },
 
   // Trades under a name a search for the short name misses.
-  tsmc: { query: 'TAIWAN SEMICONDUCTOR MANUFACTURING' },
+  tsmc: { query: 'TAIWAN SEMICONDUCTOR MANUFACTURING', home: TSMC_TT },
   meta: { query: 'META PLATFORMS' },
   chalco: { query: 'ALUMINUM CORP OF CHINA' },
   nornickel: { query: 'NORILSK NICKEL' },
   amd: { query: 'ADVANCED MICRO DEVICES' },
   supermicro: { query: 'SUPER MICRO COMPUTER' },
-  umc: { query: 'UNITED MICROELECTRONICS' },
+  umc: {
+    query: 'UNITED MICROELECTRONICS',
+    home: {
+      ticker: '2303',
+      exchange: 'TT',
+      figiName: 'UNITED MICROELECTRONICS CORP',
+      checkedOn: PINNED_ON,
+    },
+  },
   amsc: { query: 'AMERICAN SUPERCONDUCTOR' },
-  smic: { query: 'SEMICONDUCTOR MANUFACTURING INTERNATIONAL' },
+  smic: {
+    query: 'SEMICONDUCTOR MANUFACTURING INTERNATIONAL',
+    // Hong Kong is SMIC's original listing (2004); the Shanghai STAR line
+    // 688981 CH ("SEMICONDUCTOR MANUFACTURIN-A") is a second one.
+    home: {
+      ticker: '981',
+      exchange: 'HK',
+      figiName: 'SEMICONDUCTOR MANUFACTURI-H',
+      checkedOn: PINNED_ON,
+    },
+  },
+
+  // Names OpenFIGI truncates or decorates past what a strict match accepts.
+  'ase-technology': {
+    home: {
+      ticker: '3711',
+      exchange: 'TT',
+      figiName: 'ASE TECHNOLOGY HOLDING CO LT',
+      checkedOn: PINNED_ON,
+    },
+  },
+  globalwafers: {
+    home: { ticker: '6488', exchange: 'TT', figiName: 'GLOBALWAFERS CO LTD', checkedOn: PINNED_ON },
+  },
+  // Rio Tinto plc's London line; the directory row's jurisdiction is Canada
+  // (its operations), where no Rio Tinto share trades.
+  'rio-tinto': {
+    home: { ticker: 'RIO', exchange: 'LN', figiName: 'RIO TINTO PLC', checkedOn: PINNED_ON },
+  },
+  nkt: { home: { ticker: 'NKT', exchange: 'DC', figiName: 'NKT A/S', checkedOn: PINNED_ON } },
+  yaskawa: {
+    home: {
+      ticker: '6506',
+      exchange: 'JP',
+      figiName: 'YASKAWA ELECTRIC CORP',
+      checkedOn: PINNED_ON,
+    },
+  },
 };

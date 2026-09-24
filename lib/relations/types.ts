@@ -26,6 +26,8 @@ export const RELATION_KINDS = [
   'gates',
   'operated-by',
   'supplies',
+  'depends-on',
+  'sells-into',
 ] as const;
 
 export type RelationKind = (typeof RELATION_KINDS)[number];
@@ -48,6 +50,9 @@ export const RELATION_LABEL: Record<RelationKind, { forward: string; inverse: st
   gates: { forward: 'gates', inverse: 'gated by' },
   'operated-by': { forward: 'operated by', inverse: 'operates' },
   supplies: { forward: 'supplies', inverse: 'supplied from' },
+  // From `config/substrata-dependencies.ts`: one sourced sentence per join.
+  'depends-on': { forward: 'depends on', inverse: 'depended on by' },
+  'sells-into': { forward: 'sells into', inverse: 'a market for' },
 };
 
 export interface Relation {
@@ -62,6 +67,10 @@ export interface Relation {
    */
   evidence: Evidence;
   sources: string[];
+  /** The sentence in `sources[0]` that carries the join, verbatim — when the join has one. */
+  quote?: string;
+  /** Where that sentence is narrower or broader than the join. */
+  scope?: string;
 }
 
 /** A relation as read from one end: the other end, and how it reads in that direction. */
@@ -72,4 +81,6 @@ export interface Connection {
   label: string;
   evidence: Evidence;
   sources: string[];
+  quote?: string;
+  scope?: string;
 }

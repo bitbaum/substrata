@@ -14,6 +14,7 @@
  *   China Rare Earth Group → China Northern Rare Earth
  */
 import { HOME_COMPOSITE, type SecurityRef } from '@/lib/listings';
+import type { PinnedLine } from '@/config/substrata-listing-overrides';
 
 const LEGAL = new Set([
   'the',
@@ -111,4 +112,45 @@ export function choosePrimary(
     if (line) return line;
   }
   return usMajor ?? null;
+}
+
+/** One row of an OpenFIGI mapping response. */
+export interface FigiMapped {
+  ticker: string;
+  name: string;
+  figi: string;
+  compositeFIGI?: string;
+}
+
+/**
+ * The pinned home line, if OpenFIGI still returns exactly it.
+ *
+ * Equality on ticker AND name, never similarity: a pin exists because the
+ * name is truncated past what `sameCompany` can read, so the only safe test
+ * is that it is the very string a person checked. A renamed or reused ticker
+ * comes back null and the generator says so, rather than keeping a stale
+ * line.
+ */
+export function pinnedLine(rows: readonly FigiMapped[], pin: PinnedLine): SecurityRef | null {
+  const row = rows.find((r) => r.ticker === pin.ticker && r.name === pin.figiName);
+  if (!row) return null;
+  const figi = row.compositeFIGI ?? row.figi;
+  return {
+    ticker: row.ticker,
+    exchange: pin.exchange,
+    name: row.name,
+    figi,
+    source: `https://www.openfigi.com/id/${figi}`,
+  };
+}
+
+/** Whether a stored line is the one a pin names. */
+export function isPinned(ref: SecurityRef | null, pin: PinnedLine | undefined): boolean {
+  return (
+    !!ref &&
+    !!pin &&
+    ref.ticker === pin.ticker &&
+    ref.exchange === pin.exchange &&
+    ref.name === pin.figiName
+  );
 }

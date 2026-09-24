@@ -5,6 +5,7 @@ import { GRAPH_KINDS, neighbors, type GraphKind } from '../../graph';
 import type { Entity } from '../../entities/types';
 import { t } from '../../i18n/messages';
 import type { ProfileModule } from '../types';
+import { DEPENDENCY_LABELS } from './dependencies';
 
 /**
  * Relations that already have a section of their own, per kind.
@@ -17,9 +18,10 @@ import type { ProfileModule } from '../types';
 const ALREADY_A_SECTION: Record<string, string[]> = {
   // A bottleneck's loops are shown by "What this holds up"; a loop's gates by
   // "What is in the way". Neither should be listed twice.
-  bottleneck: ['produced by', 'fundable by', 'gates'],
+  // Dependency rows have their own section with the quoted sentence.
+  bottleneck: ['produced by', 'fundable by', 'gates', ...DEPENDENCY_LABELS],
   loop: ['gated by'],
-  company: ['makes'],
+  company: ['makes', ...DEPENDENCY_LABELS],
   capital: ['fundable by'],
 };
 

@@ -113,7 +113,7 @@ test('a part supplier does not inherit the upstream of the thing it supplies int
 });
 
 test('the portfolio: weights normalise over resolved lines; unresolved lines are listed', () => {
-  const x = xrayPortfolio('NVDA 50\nASML NA 50\nFOO 10\n2330 TT');
+  const x = xrayPortfolio('NVDA 50\nASML NA 50\nFOO 10\n9999 TT');
   assert.equal(x.holdings.length, 2);
   assert.deepEqual(
     x.holdings.map((h) => h.weight),
@@ -121,7 +121,7 @@ test('the portfolio: weights normalise over resolved lines; unresolved lines are
   );
   assert.deepEqual(
     x.unresolved.map((u) => u.input),
-    ['FOO 10', '2330 TT'],
+    ['FOO 10', '9999 TT'],
   );
   const euv = x.rails.find((r) => r.bottleneck === 'EUV lithography scanners')!;
   assert.equal(euv.weight, 1, 'both holdings rest on EUV');

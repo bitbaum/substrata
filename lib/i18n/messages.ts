@@ -26,6 +26,7 @@ export const EN = {
   'profile.sources.title': 'Sources',
   'profile.timeline.title': 'What has happened',
   'profile.related.title': 'What this connects to',
+  'profile.dependencies.title': 'What it rests on, and what rests on it',
   'profile.discussion.title': 'Discussion',
   'profile.why.title': 'Why it holds things up',
   'profile.severity.title': 'Severity',

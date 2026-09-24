@@ -879,39 +879,6 @@
       ]
     },
     {
-      "id": "average-transformer-lead-time",
-      "bottleneck": "large-power-transformer-slots",
-      "metric": "Average transformer lead time (US)",
-      "unit": "weeks",
-      "geography": "US",
-      "kind": "lead-time",
-      "direction": "up-tightens",
-      "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
-      "points": [
-        {
-          "date": "2021",
-          "value": 50,
-          "source": "https://www.cisa.gov/sites/default/files/2024-09/NIAC_Addressing%20the%20Critical%20Shortage%20of%20Power%20Transformers%20to%20Ensure%20Reliability%20of%20the%20U.S.%20Grid_Report_06112024_508c_pdf_0.pdf",
-          "publisher": "President's National Infrastructure Advisory Council (NIAC), citing Wood Mackenzie",
-          "published": "2024-06",
-          "quote": "transformer lead times have been increasing for the last 2 years – from around 50 weeks in 2021, to 120 weeks on average in 2024.",
-          "primary": true,
-          "note": "\"around 50 weeks in 2021\"; NIAC quoting Wood Mackenzie."
-        },
-        {
-          "date": "2024",
-          "value": 120,
-          "source": "https://www.cisa.gov/sites/default/files/2024-09/NIAC_Addressing%20the%20Critical%20Shortage%20of%20Power%20Transformers%20to%20Ensure%20Reliability%20of%20the%20U.S.%20Grid_Report_06112024_508c_pdf_0.pdf",
-          "publisher": "President's National Infrastructure Advisory Council (NIAC), citing Wood Mackenzie",
-          "published": "2024-06",
-          "quote": "transformer lead times have been increasing for the last 2 years – from around 50 weeks in 2021, to 120 weeks on average in 2024.",
-          "primary": true,
-          "note": "NIAC quoting Wood Mackenzie."
-        }
-      ]
-    },
-    {
       "id": "large-transformer-lead-time-range",
       "bottleneck": "large-power-transformer-slots",
       "metric": "Large (substation power + GSU) transformer lead time range",
@@ -947,6 +914,26 @@
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
       "checkedOn": "2026-09-24",
       "points": [
+        {
+          "date": "2021",
+          "value": 50,
+          "source": "https://www.cisa.gov/sites/default/files/2024-09/NIAC_Addressing%20the%20Critical%20Shortage%20of%20Power%20Transformers%20to%20Ensure%20Reliability%20of%20the%20U.S.%20Grid_Report_06112024_508c_pdf_0.pdf",
+          "publisher": "President's National Infrastructure Advisory Council (NIAC), citing Wood Mackenzie",
+          "published": "2024-06",
+          "quote": "transformer lead times have been increasing for the last 2 years – from around 50 weeks in 2021, to 120 weeks on average in 2024.",
+          "primary": true,
+          "note": "\"around 50 weeks in 2021\"; NIAC quoting Wood Mackenzie. NIAC's wording is \"transformer lead times\"; it cites the Wood Mackenzie survey this series follows. Merged from a separate two-point series on 2026-09-25."
+        },
+        {
+          "date": "2024",
+          "value": 120,
+          "source": "https://www.cisa.gov/sites/default/files/2024-09/NIAC_Addressing%20the%20Critical%20Shortage%20of%20Power%20Transformers%20to%20Ensure%20Reliability%20of%20the%20U.S.%20Grid_Report_06112024_508c_pdf_0.pdf",
+          "publisher": "President's National Infrastructure Advisory Council (NIAC), citing Wood Mackenzie",
+          "published": "2024-06",
+          "quote": "transformer lead times have been increasing for the last 2 years – from around 50 weeks in 2021, to 120 weeks on average in 2024.",
+          "primary": true,
+          "note": "NIAC quoting Wood Mackenzie. NIAC's wording is \"transformer lead times\"; it cites the Wood Mackenzie survey this series follows. Merged from a separate two-point series on 2026-09-25."
+        },
         {
           "date": "2025-Q2",
           "value": 128,
