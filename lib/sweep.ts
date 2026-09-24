@@ -115,6 +115,20 @@ const REFERENCE_PAGE_TITLE = new RegExp(
     // Market-research packaging that is not on the publisher blocklist.
     String.raw`\bmarket\s+(size|share|report|outlook|analysis|research)\b`,
     String.raw`\b(industry|market)\s+(outlook|forecast)\s+20\d\d\b`,
+    // Measured on the desk once leads were shown there: a site's homepage, a
+    // "market worth $X by 2033" release, a stock-picking newsletter, a buying
+    // guide, a preprint id and a newsroom index. None of them describes something that happened.
+    String.raw`^\s*home\s*page\b`,
+    String.raw`\bmarket\s+worth\b`,
+    String.raw`\bmarket\s*\(20\d\d`,
+    String.raw`\bmarket\s+data\b`,
+    String.raw`\bstock\s+picks?\b`,
+    String.raw`\bshould\s+i\b`,
+    String.raw`\b(buyer|procurement)\s+guide\b`,
+    String.raw`\bhow\s+to\s+buy\b`,
+    String.raw`^\s*\[\d{4}\.\d{4,5}\]`,
+    // A publisher's listing of its own announcements, not one of them.
+    String.raw`\bnews\s+(and|&)\s+press\s+releases\b`,
   ].join('|'),
   'i',
 );

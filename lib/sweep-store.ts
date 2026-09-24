@@ -1,4 +1,5 @@
 import { database } from './db';
+import type { Lead } from './desk';
 import { nodes, sweep } from './sweep';
 
 /**
@@ -13,6 +14,51 @@ import { nodes, sweep } from './sweep';
 
 /** Small on purpose: the cron wrapper allows 300s, and each node costs several web calls. */
 const NODES_PER_RUN = 4;
+
+/**
+ * Sweep one node and file what it finds. Shared by the timer and the desk, so
+ * the two cannot disagree about what a lead is or where it goes.
+ */
+async function sweepAndStore(node: {
+  name: string;
+  term: string;
+}): Promise<{ found: number; blind: boolean }> {
+  const db = database();
+  const candidates = await sweep(node);
+  const blind = candidates.some((c) => c.status === 'could_not_look');
+  let found = 0;
+
+  for (const candidate of candidates) {
+    if (candidate.status !== 'candidate') continue;
+    // A URL already seen stays as it was: re-finding a lead is not news, and
+    // a re-run must never resurrect something a reviewer has rejected.
+    const inserted = await db.query(
+      `INSERT INTO research_sweep_candidates
+         (id, bottleneck, term, url, title, published, excerpt, effect_guess)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8)
+       ON CONFLICT (id) DO NOTHING`,
+      [
+        candidate.id,
+        candidate.bottleneck,
+        candidate.term,
+        candidate.url,
+        candidate.title,
+        candidate.published,
+        candidate.excerpt,
+        candidate.effectGuess,
+      ],
+    );
+    found += inserted.rowCount ?? 0;
+  }
+
+  await db.query(
+    `INSERT INTO research_sweep_state (node, last_swept, last_status)
+     VALUES ($1, now(), $2)
+     ON CONFLICT (node) DO UPDATE SET last_swept = now(), last_status = $2`,
+    [node.name, blind ? 'could_not_look' : 'ok'],
+  );
+  return { found, blind };
+}
 
 export interface SweepOutcome {
   swept: string[];
@@ -49,39 +95,9 @@ export async function runScheduledSweep(limit = NODES_PER_RUN): Promise<SweepOut
   const outcome: SweepOutcome = { swept: [], found: 0, couldNotLook: 0 };
 
   for (const node of queue) {
-    const candidates = await sweep(node);
-    const blind = candidates.some((c) => c.status === 'could_not_look');
+    const { found, blind } = await sweepAndStore(node);
     if (blind) outcome.couldNotLook += 1;
-
-    for (const candidate of candidates) {
-      if (candidate.status !== 'candidate') continue;
-      // A URL already seen stays as it was: re-finding a lead is not news, and
-      // a re-run must never resurrect something a reviewer has rejected.
-      const inserted = await db.query(
-        `INSERT INTO research_sweep_candidates
-           (id, bottleneck, term, url, title, published, excerpt, effect_guess)
-         VALUES ($1,$2,$3,$4,$5,$6,$7,$8)
-         ON CONFLICT (id) DO NOTHING`,
-        [
-          candidate.id,
-          candidate.bottleneck,
-          candidate.term,
-          candidate.url,
-          candidate.title,
-          candidate.published,
-          candidate.excerpt,
-          candidate.effectGuess,
-        ],
-      );
-      outcome.found += inserted.rowCount ?? 0;
-    }
-
-    await db.query(
-      `INSERT INTO research_sweep_state (node, last_swept, last_status)
-       VALUES ($1, now(), $2)
-       ON CONFLICT (node) DO UPDATE SET last_swept = now(), last_status = $2`,
-      [node.name, blind ? 'could_not_look' : 'ok'],
-    );
+    outcome.found += found;
     outcome.swept.push(node.name);
   }
 
@@ -122,8 +138,10 @@ export async function freshness(): Promise<Freshness> {
       'SELECT finished_at FROM research_sweep_runs WHERE finished_at IS NOT NULL ORDER BY finished_at DESC LIMIT 1',
     ),
     db.query<{ covered: string; blind: string }>(
+      // Only a failed look is blindness. A desk sweep in flight stamps its node
+      // 'sweeping' first, and that is a look underway, not a look that failed.
       `SELECT count(*) AS covered,
-              count(*) FILTER (WHERE last_status <> 'ok') AS blind
+              count(*) FILTER (WHERE last_status = 'could_not_look') AS blind
          FROM research_sweep_state`,
     ),
     db.query<{ open: string }>(
@@ -209,4 +227,129 @@ export async function recordVerdict(
       WHERE id = $1 AND reviewed_at IS NULL`,
     [id, verdict, actorId],
   );
+}
+
+/**
+ * How stale a rail must be before a desk re-sweeps it. Opening the desk sweeps
+ * what is older than the first; pressing "Check now" what is older than the
+ * second. Either way a node is swept at most that often, however many readers
+ * ask, so the cost follows the number of nodes and not the number of visits.
+ */
+export const ON_DEMAND_COOLDOWN_HOURS = 6;
+export const CHECK_NOW_COOLDOWN_HOURS = 1;
+/** Nodes one request may sweep. Run side by side, so this bounds the wait too. */
+const ON_DEMAND_NODES = 3;
+
+/**
+ * Sweep the stalest of these nodes now, for a reader who wants today's news.
+ *
+ * The claim is one statement: a node is taken only if nobody has swept it
+ * within the cooldown, and taking it stamps it. Two tabs, two readers or a
+ * reload during a sweep therefore cannot sweep the same node twice, and the
+ * cost is bounded by the number of nodes rather than the number of visits.
+ */
+export async function sweepStaleNow(
+  names: readonly string[],
+  { cooldownHours = ON_DEMAND_COOLDOWN_HOURS, limit = ON_DEMAND_NODES } = {},
+): Promise<SweepOutcome> {
+  const wanted = nodes().filter((node) => names.includes(node.name));
+  const outcome: SweepOutcome = { swept: [], found: 0, couldNotLook: 0 };
+  if (wanted.length === 0) return outcome;
+
+  const claimed = await database().query<{ node: string }>(
+    `WITH stale AS (
+       SELECT n AS node
+         FROM unnest($1::text[]) AS n
+         LEFT JOIN research_sweep_state s ON s.node = n
+        WHERE s.last_swept IS NULL
+           OR s.last_swept < now() - make_interval(hours => $2)
+        ORDER BY s.last_swept NULLS FIRST
+        LIMIT $3
+     )
+     INSERT INTO research_sweep_state (node, last_swept, last_status)
+     SELECT node, now(), 'sweeping' FROM stale
+     ON CONFLICT (node) DO UPDATE SET last_swept = now(), last_status = 'sweeping'
+       WHERE research_sweep_state.last_swept < now() - make_interval(hours => $2)
+     RETURNING node`,
+    [wanted.map((node) => node.name), cooldownHours, limit],
+  );
+  const taken = new Set(claimed.rows.map((row) => row.node));
+
+  const chosen = wanted.filter((node) => taken.has(node.name));
+  const results = await Promise.allSettled(chosen.map((node) => sweepAndStore(node)));
+  results.forEach((result, i) => {
+    const name = chosen[i].name;
+    if (result.status === 'fulfilled') {
+      outcome.swept.push(name);
+      outcome.found += result.value.found;
+      if (result.value.blind) outcome.couldNotLook += 1;
+    } else {
+      outcome.couldNotLook += 1;
+    }
+  });
+  return outcome;
+}
+
+/** When each of these nodes was last looked at, and how many are being looked at now. */
+export async function railFreshness(
+  names: readonly string[],
+): Promise<{ lastSwept: string | null; sweeping: number; stale: number }> {
+  const result = await database().query<{
+    last: Date | null;
+    sweeping: string;
+    fresh: string;
+  }>(
+    `SELECT max(last_swept) AS last,
+            count(*) FILTER (WHERE last_status = 'sweeping'
+                             AND last_swept > now() - interval '10 minutes') AS sweeping,
+            count(*) FILTER (WHERE last_swept > now() - make_interval(hours => $2)) AS fresh
+       FROM research_sweep_state
+      WHERE node = ANY($1::text[])`,
+    [names, ON_DEMAND_COOLDOWN_HOURS],
+  );
+  const row = result.rows[0];
+  return {
+    lastSwept: row?.last?.toISOString() ?? null,
+    sweeping: Number(row?.sweeping ?? 0),
+    stale: names.length - Number(row?.fresh ?? 0),
+  };
+}
+
+/**
+ * Recent leads on these bottlenecks, for the desk.
+ *
+ * Unreviewed and accepted leads both; a rejected one is gone for good. Read
+ * newest first and bounded, because the desk shows a feed, not the queue.
+ */
+export async function leadsFor(names: readonly string[], days = 45): Promise<Lead[]> {
+  const result = await database().query<{
+    id: string;
+    bottleneck: string;
+    url: string;
+    title: string;
+    published: string | null;
+    found_at: Date;
+    effect_guess: string;
+  }>(
+    `SELECT id, bottleneck, url, title, published, found_at, effect_guess
+       FROM research_sweep_candidates
+      WHERE bottleneck = ANY($1::text[])
+        AND verdict IS DISTINCT FROM 'rejected'
+        AND found_at > now() - make_interval(days => $2)
+      ORDER BY found_at DESC
+      LIMIT 200`,
+    [names, days],
+  );
+  return result.rows.map((row) => ({
+    id: row.id,
+    bottleneck: row.bottleneck,
+    url: row.url,
+    title: row.title,
+    published: row.published,
+    foundAt: row.found_at.toISOString(),
+    effectGuess:
+      row.effect_guess === 'tightens' || row.effect_guess === 'loosens'
+        ? row.effect_guess
+        : 'neutral',
+  }));
 }
