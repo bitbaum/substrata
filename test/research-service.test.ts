@@ -81,7 +81,7 @@ test('exported chain figures explain relationships and refuse arbitrary slugs', 
   const bottleneck = BOTTLENECKS.find((b) => b.producers.length > 0)!;
   const svg = chainDiagram(bottleneck.slug)!;
   assert.ok(svg.includes(`${bottleneck.producers.length} producer rows`));
-  assert.ok(svg.includes('analyst classification'));
+  assert.ok(svg.includes('judged classification'));
   assert.ok(svg.includes('No customer contracts'));
   assert.equal(chainDiagram('<script>'), null);
   assert.ok(!svg.includes('<script'));

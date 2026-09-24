@@ -6,7 +6,6 @@ import { applyQuery, parseQuery, writeQuery, type ListQuery, type ListSpec } fro
 import {
   EVENT_EFFECT_LABEL,
   EVENT_KIND_LABEL,
-  candidatesAwaiting,
   eventsNewestFirst,
   type CoverageEvent,
   type EventEffect,
@@ -56,7 +55,6 @@ export default async function EventsPage({
   const params = await searchParams;
   const query = parseQuery(params, EVENT_SPEC);
   const result = applyQuery(eventsNewestFirst(), EVENT_SPEC, query);
-  const candidates = candidatesAwaiting();
 
   const hrefFor = (next: ListQuery) => {
     const qs = writeQuery(params, next, EVENT_SPEC, query).toString();
@@ -103,8 +101,12 @@ export default async function EventsPage({
             Events
           </h1>
           <p className="mt-2 max-w-2xl text-base text-fg-secondary">
-            What happened to a bottleneck, on a date, with the sentence that says so. Accepted by an
-            analyst; {candidates} candidates from the sweep are waiting.
+            What happened to a bottleneck, on a date, with the sentence that says so. Each one was
+            read and accepted by hand. Leads the automated sweep found are not events until then;{' '}
+            <Link href="/data" className="underline underline-offset-2">
+              how many are waiting
+            </Link>{' '}
+            is measured live on the data page.
           </p>
         </header>
         <Heading

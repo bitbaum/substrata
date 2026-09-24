@@ -133,8 +133,7 @@ export const CLASSIFICATION: Record<string, Classification> = {
     industries: ['semiconductors', 'mining-materials'],
   },
   '300 mm prime silicon wafers': {
-    plain:
-      'The polished silicon discs every chip is built on. Five companies make them for the whole world.',
+    plain: 'The polished silicon discs most chips are built on, made by a handful of companies.',
     technologies: ['ai', 'manufacturing'],
     industries: ['semiconductors'],
   },

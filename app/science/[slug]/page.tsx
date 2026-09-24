@@ -12,6 +12,7 @@ import {
 import { INDUSTRY_LABEL, TECHNOLOGY_LABEL } from '@/config/substrata-taxonomy';
 import { correctionUrl } from '@/lib/site';
 import { Page, Shell } from '@/components/portal/Shell';
+import { ReadinessFigure } from '@/components/portal/Status';
 import { EntityProfile } from '@/components/portal/EntityProfile';
 import { resolveIn } from '@/lib/entities/registry';
 
@@ -72,7 +73,8 @@ export default async function SciencePage({ params }: RouteParams) {
               <span className="font-mono text-xs uppercase tracking-caps text-fg-tertiary">
                 Readiness ·{' '}
               </span>
-              {entry.readiness}/9 — {readinessLabel(entry.readiness)} ({READINESS_BAND_LABEL[band]})
+              <ReadinessFigure entry={entry} /> — {readinessLabel(entry.readiness)} (
+              {READINESS_BAND_LABEL[band]})
             </span>
             <a
               href={correctionUrl(entry.name)}

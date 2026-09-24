@@ -15,6 +15,12 @@
  * Created: 2026-09-15
  */
 
+/**
+ * Who a judgement on this site belongs to, said the same way everywhere a
+ * score, a readiness level or an estimate is shown. Not "an analyst".
+ */
+export const JUDGED_BY = 'Substrata (one person with AI agents)';
+
 /** The day the first commit landed. Used wherever the site says how long this has run. */
 export const STARTED = '2026-08-26';
 

@@ -15,6 +15,8 @@
  * Created: 2026-09-15
  */
 
+import { JUDGED_BY } from './substrata-about';
+
 export type StageId =
   | 'research'
   | 'data'
@@ -38,6 +40,18 @@ export interface Stage {
   /** Where coverage stands, in one line. Honest: most stages are not covered yet. */
   coverage: string;
 }
+
+/**
+ * Who wrote the relief times, and on what basis. They are orders of magnitude
+ * chosen by hand when the stages were drawn up, not figures from a lead-time
+ * dataset, and every place that shows one says so through this record.
+ */
+export const RELIEF_TIME_ESTIMATE = {
+  by: JUDGED_BY,
+  on: '2026-09-15',
+  basis:
+    'Order-of-magnitude time from a decision to relief at this stage of the loop. Illustrative: chosen by hand, not taken from a measured lead-time dataset.',
+} as const;
 
 export const STAGES: readonly Stage[] = [
   {

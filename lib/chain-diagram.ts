@@ -34,14 +34,14 @@ export function chainDiagram(slug: string) {
   const box = (x: number, y: number, width: number, title: string, detail: string) =>
     `<g><rect x="${x}" y="${y}" width="${width}" height="52" rx="8" fill="${palette.card}" stroke="${palette.border}"/><text x="${x + 12}" y="${y + 21}" font-size="13" font-weight="600">${xml(title.slice(0, 38))}${title.length > 38 ? '…' : ''}</text><text x="${x + 12}" y="${y + 40}" font-size="11" fill="${palette.muted}">${xml(detail)}</text></g>`;
   const center = height / 2;
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 ${height}" role="img" aria-labelledby="title desc"><title id="title">${xml(b.name)}: mapped producers and technologies</title><desc id="desc">Producer links indicate research coverage, with source status per row. Technology links are analyst classification, not measured supply flows. Complete evidence is on the bottleneck page.</desc><rect width="1000" height="${height}" fill="${palette.page}"/><g font-family="system-ui,sans-serif" fill="${palette.text}"><text x="28" y="36" font-size="20" font-weight="600">${xml(b.name)}</text><text x="28" y="61" font-size="12">Substrata · ${xml(b.judgedOn)} assessment · ${b.producers.length} producer rows · ${b.counts.sourced} sourced</text><text x="28" y="98" font-size="12">PRODUCER COVERAGE</text><text x="400" y="98" font-size="12">BOTTLENECK</text><text x="770" y="98" font-size="12">TECHNOLOGY CLASSIFICATION</text>
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 ${height}" role="img" aria-labelledby="title desc"><title id="title">${xml(b.name)}: mapped producers and technologies</title><desc id="desc">Producer links indicate research coverage, with source status per row. Technology links are a judged classification, not measured supply flows. Complete evidence is on the bottleneck page.</desc><rect width="1000" height="${height}" fill="${palette.page}"/><g font-family="system-ui,sans-serif" fill="${palette.text}"><text x="28" y="36" font-size="20" font-weight="600">${xml(b.name)}</text><text x="28" y="61" font-size="12">Substrata · ${xml(b.judgedOn)} assessment · ${b.producers.length} producer rows · ${b.counts.sourced} sourced</text><text x="28" y="98" font-size="12">PRODUCER COVERAGE</text><text x="400" y="98" font-size="12">BOTTLENECK</text><text x="770" y="98" font-size="12">TECHNOLOGY CLASSIFICATION</text>
  ${producers
    .map((p, i) => {
      const y = 120 + i * 65;
      return `<path d="M 318 ${y + 26} C 355 ${y + 26},355 ${center},390 ${center}" fill="none" stroke="${p.source ? palette.source : palette.unverified}" stroke-width="2" ${p.source ? '' : 'stroke-dasharray="5 4"'}/>${box(28, y, 290, p.name, p.verification)}`;
    })
    .join('')}
- ${box(390, center - 26, 330, b.name, `${b.binding}/12 · analyst judgement`)}
+ ${box(390, center - 26, 330, b.name, `${b.binding}/12 · judged severity`)}
  ${b.technologies
    .map((t, i) => {
      const y = 120 + i * 65;
@@ -49,5 +49,5 @@ export function chainDiagram(slug: string) {
    })
    .join('')}
  ${!producers.length ? '<text x="28" y="155" font-size="13">No producer list for this kind of constraint.</text>' : ''}
- <text x="28" y="${height - 34}" font-size="11">${b.producers.length > 6 ? `Showing 6 of ${b.producers.length} producers. ` : ''}Solid: sourced producer row. Dashed: candidate or unverified. Dotted: analyst classification.</text><text x="28" y="${height - 15}" font-size="11">Source: substrata.orangecat.ch/bottlenecks/${xml(b.slug)} · No customer contracts or material quantities are implied.</text></g></svg>`;
+ <text x="28" y="${height - 34}" font-size="11">${b.producers.length > 6 ? `Showing 6 of ${b.producers.length} producers. ` : ''}Solid: sourced producer row. Dashed: candidate or unverified. Dotted: judged classification.</text><text x="28" y="${height - 15}" font-size="11">Source: substrata.orangecat.ch/bottlenecks/${xml(b.slug)} · No customer contracts or material quantities are implied.</text></g></svg>`;
 }

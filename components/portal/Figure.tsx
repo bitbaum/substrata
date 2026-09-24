@@ -39,7 +39,7 @@ export interface Estimate {
 }
 
 type Provenance =
-  | { source: string; sourceLabel: string; asOf?: string; method?: never; estimate?: never }
+  | { source: string; sourceLabel?: string; asOf?: string; method?: never; estimate?: never }
   | { method: MethodId; detail?: string; source?: never; estimate?: never }
   | { estimate: Estimate; source?: never; method?: never };
 
@@ -54,7 +54,8 @@ export type FigureProps = Provenance & {
 /** The one-line explanation used for the tooltip and for screen readers. */
 export function figureExplanation(props: Provenance): string {
   if (props.source !== undefined) {
-    return `Source: ${props.sourceLabel}${props.asOf ? ` (${props.asOf})` : ''}`;
+    const label = props.sourceLabel ?? hostOf(props.source);
+    return `Source: ${label}${props.asOf ? ` (${props.asOf})` : ''}`;
   }
   if (props.method !== undefined) {
     const method = METHODS[props.method];
@@ -62,6 +63,15 @@ export function figureExplanation(props: Provenance): string {
   }
   const { by, on, basis } = props.estimate;
   return `Estimate by ${by}, ${on}: ${basis}`;
+}
+
+/** A source with no label is named by its host, never left blank. */
+function hostOf(href: string): string {
+  try {
+    return new URL(href).hostname.replace(/^www\./, '');
+  } catch {
+    return href;
+  }
 }
 
 function isExternal(href: string): boolean {

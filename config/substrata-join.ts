@@ -74,7 +74,7 @@ export const JOIN: ContributeModel = {
       what:
         'Read the maker list for one material and tell us which rows are wrong, which firms are ' +
         'missing, and which of them actually ship the qualified grade rather than the commodity one.',
-      why: 'About half of the 92 maker rows are unverified, and the unverified ones are exactly where trade knowledge beats desk research.',
+      why: 'Every maker row without a source is marked unverified, and those rows are exactly where trade knowledge beats desk research. /data counts how many there are today.',
       commitment: 'one-off',
       example: '/bottlenecks',
     },
@@ -83,7 +83,7 @@ export const JOIN: ContributeModel = {
       what:
         'Correct the transformer, interconnection and switchgear rows: real lead times, what a ' +
         'queue position actually means, and which reforms have changed anything on the ground.',
-      why: 'Energy is where this research thinks the binding constraint sits, and it is the section with the least primary evidence.',
+      why: 'Energy is where this research thinks the binding constraint sits, and most of its rows still lack primary evidence.',
       commitment: 'occasional',
       example: '/bottlenecks?stage=energy',
     },

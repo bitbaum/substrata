@@ -62,6 +62,19 @@ const BANNED: { pattern: RegExp; why: string }[] = [
   { pattern: /\bhas been commissioned\b/i, why: 'claimed paid client work' },
   { pattern: /\bthis firm\b/i, why: 'claimed a legal entity' },
   { pattern: /\bthe firm's\b/i, why: 'claimed a legal entity' },
+  { pattern: /\ban analyst\b/i, why: 'claimed staff: judgements here are one person with agents' },
+  {
+    pattern: /\banalyst (score|judgements?|estimates?)\b/i,
+    why: 'claimed staff: say "judged", and name who with JUDGED_BY',
+  },
+  {
+    pattern: /\b\d+ (maker|producer) rows\b/i,
+    why: 'a count written into copy goes stale (Join said 92 rows when the data had 90); compute it',
+  },
+  {
+    pattern: /\bfive companies make\b/i,
+    why: 'claimed an exhaustive supplier list the wafer row itself says it does not establish',
+  },
 ];
 
 /**

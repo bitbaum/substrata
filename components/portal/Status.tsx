@@ -10,6 +10,8 @@
 import React from 'react';
 import type { Verification } from '@/config/substrata-evidence';
 import { EVIDENCE_LABEL, EVIDENCE_SHORT } from '@/lib/labels';
+import { JUDGED_BY } from '@/config/substrata-about';
+import { Figure } from './Figure';
 
 const DOT: Record<Verification, string> = {
   sourced: 'bg-status-positive',
@@ -74,11 +76,15 @@ export function Progress({
   );
 }
 
-/** 0–12 severity as a number and a short bar. */
-export function SeverityBar({ value }: { value: number }) {
+/** 0–12 severity as a number and a short bar. The number opens how it is scored. */
+export function SeverityBar({ value, inLink = false }: { value: number; inLink?: boolean }) {
   return (
     <span className="inline-flex items-center gap-2">
-      <span className="font-mono text-xs tabular-nums text-fg-primary">{value}</span>
+      <span className="font-mono text-xs tabular-nums text-fg-primary">
+        <Figure method="severity" inLink={inLink}>
+          {value}
+        </Figure>
+      </span>
       <span
         className="flex h-1.5 w-12 shrink-0 overflow-hidden rounded-full bg-border-subtle"
         aria-hidden
@@ -86,5 +92,32 @@ export function SeverityBar({ value }: { value: number }) {
         <span className="bg-accent" style={{ width: `${(value / 12) * 100}%` }} />
       </span>
     </span>
+  );
+}
+
+/**
+ * A readiness level (1–9) with the judgement behind it: who, when, why, and
+ * the source where there is one. Science entries always carry the reasoning,
+ * so the number is never shown without it.
+ */
+export function ReadinessFigure({
+  entry,
+  inLink = false,
+}: {
+  entry: { readiness: number; readinessWhy: string; judgedOn: string; source: string | null };
+  inLink?: boolean;
+}) {
+  return (
+    <Figure
+      inLink={inLink}
+      estimate={{
+        by: JUDGED_BY,
+        on: entry.judgedOn,
+        basis: entry.readinessWhy,
+        ...(entry.source ? { source: entry.source } : {}),
+      }}
+    >
+      {entry.readiness}/9
+    </Figure>
   );
 }

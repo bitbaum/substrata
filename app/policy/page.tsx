@@ -15,6 +15,7 @@ import {
   type Instrument,
 } from '@/config/substrata-policy';
 import { Empty, Heading, Page, SectionHeader, Shell } from '@/components/portal/Shell';
+import { Figure } from '@/components/portal/Figure';
 import { bottleneckHref, marketHref, policyHref } from '@/lib/links';
 import { hasMarketPage } from '@/lib/participants';
 
@@ -158,22 +159,27 @@ export default function PolicyPage() {
           stats={[
             {
               label: 'Rules tracked',
-              value: totals.instruments,
-              note: `across ${totals.jurisdictions} jurisdictions`,
+              value: <Figure method="rules-tracked">{totals.instruments}</Figure>,
+              note: (
+                <>
+                  across <Figure method="jurisdictions">{totals.jurisdictions}</Figure>{' '}
+                  jurisdictions
+                </>
+              ),
             },
             {
               label: 'Slow building',
-              value: totals.tightening,
+              value: <Figure method="rule-direction">{totals.tightening}</Figure>,
               note: 'controls, tariffs, safeguards',
             },
             {
               label: 'Speed building',
-              value: totals.loosening,
+              value: <Figure method="rule-direction">{totals.loosening}</Figure>,
               note: 'permitting and process reform',
             },
             {
               label: 'With a named backer',
-              value: totals.withProponents,
+              value: <Figure method="rules-with-backer">{totals.withProponents}</Figure>,
               note: 'organisations that asked in their own words',
             },
           ]}
@@ -205,8 +211,8 @@ export default function PolicyPage() {
         <section className="mb-14">
           <Heading
             index="02"
-            title="Rules that speed building"
-            aside={`${speeding.length} tracked`}
+            title="Rules that speed building, or cut both ways"
+            aside={`${speeding.filter((i) => i.effect === 'loosens').length} speed it · ${speeding.filter((i) => i.effect === 'mixed').length} both ways`}
           />
           <ul className="divide-y divide-subtle border-y border-subtle">
             {speeding.map((instrument) => (
@@ -221,17 +227,19 @@ export default function PolicyPage() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b border-strong">
-                  {['Jurisdiction', 'What it decides here', 'Slowing', 'Speeding'].map((c, i) => (
-                    <th
-                      key={c}
-                      scope="col"
-                      className={`py-2.5 pr-4 font-mono text-xs font-medium uppercase tracking-caps text-fg-tertiary ${
-                        i === 1 ? 'hidden sm:table-cell' : ''
-                      }`}
-                    >
-                      {c}
-                    </th>
-                  ))}
+                  {['Jurisdiction', 'What it decides here', 'Slowing', 'Speeding or mixed'].map(
+                    (c, i) => (
+                      <th
+                        key={c}
+                        scope="col"
+                        className={`py-2.5 pr-4 font-mono text-xs font-medium uppercase tracking-caps text-fg-tertiary ${
+                          i === 1 ? 'hidden sm:table-cell' : ''
+                        }`}
+                      >
+                        {c}
+                      </th>
+                    ),
+                  )}
                 </tr>
               </thead>
               <tbody className="divide-y divide-subtle">

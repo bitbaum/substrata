@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { Figure } from '@/components/portal/Figure';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -39,6 +40,8 @@ export default async function JurisdictionPage({ params }: RouteParams) {
   const instruments = instrumentsIn(j.id as JurisdictionId);
   const recommendations = recommendationsIn(j.id as JurisdictionId);
   const slowing = instruments.filter((i) => i.effect === 'tightens').length;
+  const speeding = instruments.filter((i) => i.effect === 'loosens').length;
+  const mixed = instruments.length - slowing - speeding;
 
   return (
     <Shell currentPath="policy">
@@ -57,8 +60,15 @@ export default async function JurisdictionPage({ params }: RouteParams) {
           </h1>
           <p className="mt-3 max-w-2xl text-base leading-relaxed text-fg-secondary">{j.detail}</p>
           <p className="mt-3 font-mono text-xs text-fg-muted">
-            {instruments.length} rule{instruments.length === 1 ? '' : 's'} tracked · {slowing} slow
-            building · {instruments.length - slowing} speed it
+            {instruments.length} rule{instruments.length === 1 ? '' : 's'} tracked ·{' '}
+            <Figure method="rule-direction">{slowing}</Figure> slow building ·{' '}
+            <Figure method="rule-direction">{speeding}</Figure> speed it
+            {mixed > 0 && (
+              <>
+                {' '}
+                · <Figure method="rule-direction">{mixed}</Figure> both ways
+              </>
+            )}
           </p>
         </header>
 

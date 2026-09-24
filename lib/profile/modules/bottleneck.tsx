@@ -1,7 +1,9 @@
 import Link from 'next/link';
 
 import { Empty } from '@/components/portal/Shell';
-import { Status } from '@/components/portal/Status';
+import { Figure } from '@/components/portal/Figure';
+import { ReadinessFigure, Status } from '@/components/portal/Status';
+import { JUDGED_BY } from '@/config/substrata-about';
 import {
   INSTRUMENT_EFFECT_LABEL,
   JURISDICTION_LABEL,
@@ -67,7 +69,7 @@ const severity: ProfileModule<Bottleneck> = {
     return (
       <>
         <p className="mb-4 font-heading text-2xl font-semibold tabular-nums text-fg-primary">
-          {b.binding}
+          <Figure method="severity">{b.binding}</Figure>
           <span className="text-base font-normal text-fg-muted"> / 12</span>
         </p>
         <div className="grid gap-px overflow-hidden rounded-lg border border-subtle bg-border-subtle sm:grid-cols-4">
@@ -77,7 +79,9 @@ const severity: ProfileModule<Bottleneck> = {
                 {label}
               </div>
               <div className="mt-1 font-heading text-2xl font-semibold tabular-nums text-fg-primary">
-                {b.score[key]}
+                <Figure estimate={{ by: JUDGED_BY, on: b.judgedOn, basis: b.rationale }}>
+                  {b.score[key]}
+                </Figure>
                 <span className="text-sm font-normal text-fg-muted"> / 3</span>
               </div>
             </div>
@@ -273,7 +277,7 @@ const removes: ProfileModule<{ b: Bottleneck; fixes: ReturnType<typeof scienceFo
                     {fix.name}
                   </Link>
                   <span className="font-mono text-xs text-fg-secondary">
-                    {fix.readiness}/9 · {readinessLabel(fix.readiness)}
+                    <ReadinessFigure entry={fix} /> · {readinessLabel(fix.readiness)}
                   </span>
                 </div>
                 {relief && (

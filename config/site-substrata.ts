@@ -18,9 +18,8 @@ import { METHOD, STARTED, WHAT_EXISTS_NOT, WHAT_IT_IS, WHO_MAKES_IT } from './su
 import { INVESTMENT_THESIS } from './substrata-acting';
 import { callsTesting } from './substrata-calls';
 import { JOIN } from './substrata-join';
-import { coverageProgress } from './substrata-coverage';
 import { EVENTS } from './substrata-events';
-import { evidenceProgress } from './substrata-evidence';
+import { portalTotals } from '../lib/bottlenecks';
 import { renderContribute } from '../lib/contribute';
 import type { SiteChrome, SitePage } from './site-content';
 import { SITE } from '../lib/site';
@@ -42,8 +41,10 @@ export function substrataSiteChrome(): SiteChrome {
 // =====================================================================
 
 function aboutPage(): SitePage {
-  const coverage = coverageProgress();
-  const evidence = evidenceProgress();
+  // The live producer counts, the same function /data and the front page use.
+  // This used to read the evidence engine's run file, which is a snapshot from
+  // its last run: it said 80 rows were unchecked when 2 were.
+  const producers = portalTotals();
 
   return {
     path: 'about',
@@ -58,8 +59,8 @@ function aboutPage(): SitePage {
         stats: [
           {
             label: 'Producer rows',
-            value: `${coverage.sourced} of ${coverage.total}`,
-            note: `verified · ${evidence.candidates} have a source found but unchecked`,
+            value: `${producers.sourced} of ${producers.producers}`,
+            note: `sourced · ${producers.candidates} have a source found but unchecked · how each is counted: /data`,
           },
           {
             label: 'Events recorded',

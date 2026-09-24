@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Figure } from '@/components/portal/Figure';
 
 import { rolesOf, type Role } from '../../kpi/loops';
 import { t } from '../../i18n/messages';
@@ -61,7 +62,8 @@ const role: ProfileModule<{ roles: Role[]; direct: boolean }> = {
                 </p>
               )}
               <p className="mt-1 text-xs text-fg-tertiary">
-                Worst judgement on this loop: {entry.loop.worstBinding} of 12
+                Worst judgement on this loop:{' '}
+                <Figure method="loop-worst">{entry.loop.worstBinding} of 12</Figure>
                 {entry.loop.judgedOn ? `, judged ${entry.loop.judgedOn}` : ''}
                 {direct ? '' : ` · this join is ${entry.evidence}`}
               </p>

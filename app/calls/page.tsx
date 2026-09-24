@@ -14,6 +14,7 @@ import {
   type Call,
 } from '@/config/substrata-calls';
 import { Empty, Heading, Page, SectionHeader, Shell } from '@/components/portal/Shell';
+import { Figure } from '@/components/portal/Figure';
 import { bottleneckHref } from '@/lib/links';
 
 export const metadata: Metadata = {
@@ -123,22 +124,32 @@ export default function CallsPage() {
           title="Calls"
           lede="Predictions with a date and with the observation that would settle them. This is the part of the research that can be wrong, which is the part worth judging it on."
           stats={[
-            { label: 'Open', value: score.open, note: 'waiting on the world' },
+            {
+              label: 'Open',
+              value: <Figure method="call-counts">{score.open}</Figure>,
+              note: 'waiting on the world',
+            },
             {
               label: 'Resolved',
-              value: score.right + score.wrong + score.unclear,
+              value: (
+                <Figure method="call-counts">{score.right + score.wrong + score.unclear}</Figure>
+              ),
               note: `${score.right} right · ${score.wrong} wrong · ${score.unclear} unclear`,
             },
             {
               label: 'Overdue',
-              value: score.overdue,
+              value: <Figure method="call-counts">{score.overdue}</Figure>,
               note: score.overdue === 0 ? 'nothing past its date' : 'past the date, not yet marked',
             },
             {
               label: 'Hit rate',
-              value: score.enoughToScore
-                ? `${Math.round((score.right / (score.right + score.wrong)) * 100)}%`
-                : '—',
+              value: score.enoughToScore ? (
+                <Figure method="call-counts">
+                  {Math.round((score.right / (score.right + score.wrong)) * 100)}%
+                </Figure>
+              ) : (
+                '—'
+              ),
               note: score.enoughToScore
                 ? 'of resolved calls'
                 : `not published until ${SCORING_THRESHOLD} have resolved`,

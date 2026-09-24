@@ -103,7 +103,7 @@ export const GLOSSARY: readonly GlossaryEntry[] = [
   {
     term: 'Wafer',
     detail:
-      'The polished disc of silicon that chips are built on, usually 300 mm across. Five companies make essentially all of them.',
+      'The polished disc of silicon that chips are built on, usually 300 mm across. A handful of companies make them; the five tracked here are listed on the wafer page, which says what that list does and does not establish.',
     seeAlso: ['Polysilicon'],
   },
   {
