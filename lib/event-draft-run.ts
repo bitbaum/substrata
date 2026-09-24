@@ -7,7 +7,14 @@
  * day the run stops rather than burning the rest of its list on refusals, and
  * the leads it did not reach are simply first in line next time.
  */
-import { ChainExhaustedError, complete, freeChain, usableChain } from '@bitbaum/ai-kit';
+import {
+  ChainExhaustedError,
+  complete,
+  estimateTokens,
+  freeChain,
+  usableChain,
+} from '@bitbaum/ai-kit';
+import { backgroundMay, record } from './ai-budget';
 import { readPage } from '@bitbaum/ai-kit/web';
 
 import { EVENTS } from '@/config/substrata-events';
@@ -23,6 +30,11 @@ export const MAX_ATTEMPTS = 3;
 const RETRY_AFTER_HOURS = 6;
 /** Free tiers ration tokens per minute; a run that hits that waits once for the window to roll. */
 const MINUTE_PAUSE_MS = 60_000;
+/**
+ * What one lead costs, for the readers-first gate: a page excerpt in, a JSON
+ * draft out, up to two calls. Estimated high so the gate errs toward readers.
+ */
+const LEAD_COST_TOKENS = 12_000;
 
 export interface DraftRunOutcome {
   drafted: number;
@@ -84,6 +96,11 @@ function freeAsk(served: { id: string | null }): Ask {
   return async (messages) => {
     const result = await complete({ chain, messages, maxTokens: 2_000, timeoutMs: 45_000 });
     served.id = result.id;
+    const usage = (result.raw as { usage?: { total_tokens?: number } } | null)?.usage;
+    await record(
+      'background',
+      usage?.total_tokens ?? estimateTokens(...messages.map((m) => m.content), result.text),
+    );
     return result.text;
   };
 }
@@ -171,6 +188,15 @@ export async function runDraftBatch({
       );
       outcome.couldNotRead += 1;
       continue;
+    }
+    // Readers first: a draft waits for tomorrow rather than spend the slice
+    // of today's free budget kept for people asking questions.
+    if (!ask) {
+      const gate = await backgroundMay(LEAD_COST_TOKENS);
+      if (!gate.allowed) {
+        outcome.stopped = `budget reserved for readers (${gate.reason})`;
+        break;
+      }
     }
     const result = await draftPacing(() => draftLead(lead, page.text, askModel), started);
     if (typeof result === 'string') {
