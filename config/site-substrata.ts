@@ -70,7 +70,7 @@ function aboutPage(): SitePage {
           {
             label: 'Building since',
             value: STARTED,
-            note: 'one person and a set of AI agents, in public',
+            note: 'built in public, and open to corrections',
           },
         ],
       },
