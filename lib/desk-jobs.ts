@@ -5,7 +5,8 @@
  * earlier or the board does not say.
  */
 import type { DeskItem } from '@/lib/desk';
-import type { JobRow } from '@/lib/careers-query';
+import { newJobsFor, type JobRow } from '@/lib/careers-query';
+import type { JobFollows } from '@/lib/job-follows';
 import { BOTTLENECKS } from '@/lib/bottlenecks';
 import { hostOf } from '@/lib/desk';
 
@@ -27,4 +28,13 @@ export function jobItems(jobs: readonly JobRow[]): DeskItem[] {
       dateOnly: false,
     };
   });
+}
+
+/** The desk's job rows for what a reader follows; none when the table cannot be read. */
+export async function followedJobItems(jobs: JobFollows, days: number): Promise<DeskItem[]> {
+  try {
+    return jobItems(await newJobsFor(jobs.companies, jobs.families, days));
+  } catch {
+    return [];
+  }
 }

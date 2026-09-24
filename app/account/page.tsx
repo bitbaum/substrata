@@ -21,8 +21,7 @@ import { leadsFor, railFreshness } from '@/lib/sweep-queue';
 import { ageLabel, reviewQueue } from '@/lib/event-draft-store';
 import { filingsFor } from '@/lib/filings-store';
 import { filingItems, registrantsOn } from '@/lib/desk-filings';
-import { newJobsFor } from '@/lib/careers-query';
-import { jobItems } from '@/lib/desk-jobs';
+import { followedJobItems } from '@/lib/desk-jobs';
 import type { Filing } from '@/lib/filings';
 import { newItems, type StoredItem } from '@/lib/science-read';
 import { scienceItems } from '@/lib/desk-science';
@@ -135,11 +134,6 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
   } catch {
     science = [];
   }
-  const jobs = await newJobsFor(
-    follows.jobs.companies,
-    follows.jobs.families,
-    settings.leadMaxAgeDays,
-  ).catch(() => []);
   const willSweep = Boolean(settings.sweepOnOpen && fresh && fresh.stale > 0);
   if (willSweep) {
     // After the response, never before it: the first paint must not wait on the web.
@@ -159,7 +153,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
     ...buildFeed(events, leads ?? [], now, settings.leadMaxAgeDays, settings.strictLeads),
     ...filingItems(filings, registrants),
     ...scienceItems(science),
-    ...jobItems(jobs),
+    ...(await followedJobItems(follows.jobs, settings.leadMaxAgeDays)),
   ].sort((a, b) => b.at.localeCompare(a.at));
 
   const query = parseDeskQuery(params, settings, rails);
