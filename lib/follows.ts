@@ -4,6 +4,7 @@
  */
 import { TECHNOLOGIES, type TechnologyId } from '@/config/substrata-taxonomy';
 import { MARKET_PARTICIPANTS } from '@/lib/participants';
+import { BOTTLENECKS, type Bottleneck } from '@/lib/bottlenecks';
 
 export type FollowKind = 'individual' | 'organization';
 
@@ -44,4 +45,22 @@ export function parseFollows(raw: unknown): Follows {
 
 export function emptyFollows(): Follows {
   return { technologies: [], companies: [], kind: 'individual' };
+}
+
+/**
+ * The bottlenecks a reader's follows reach — their rails.
+ *
+ * Following nothing yet is not an empty desk: it is the whole map, until they
+ * narrow it. The same rule the desk applies (app/account keeps its own copy
+ * for now; it should import this one), so Ask and the desk agree about what a
+ * reader's rails are.
+ */
+export function railsOf(follows: Follows): Bottleneck[] {
+  const companies = MARKET_PARTICIPANTS.filter((p) => follows.companies.includes(p.slug));
+  if (follows.technologies.length === 0 && companies.length === 0) return [...BOTTLENECKS];
+  return BOTTLENECKS.filter(
+    (b) =>
+      b.technologies.some((t) => follows.technologies.includes(t)) ||
+      companies.some((p) => b.producers.some((row) => row.name === p.name)),
+  );
 }
