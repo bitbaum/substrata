@@ -132,7 +132,7 @@ const KNOWN_AS = (() => {
     if (o && 'parent' in o) add(o.parent, o.parent, row);
     else {
       add(p.name, p.name, row);
-      if (o && 'query' in o) add(o.query, p.name, row);
+      if (o && 'query' in o && o.query) add(o.query, p.name, row);
     }
   }
   return [...by.entries()];

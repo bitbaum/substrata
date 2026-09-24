@@ -504,10 +504,10 @@
       "status": "listed",
       "primary": {
         "ticker": "RIO",
-        "exchange": "NYSE",
+        "exchange": "LN",
         "name": "RIO TINTO PLC",
-        "cik": 863064,
-        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=863064"
+        "figi": "BBG000DZG349",
+        "source": "https://www.openfigi.com/id/BBG000DZG349"
       },
       "us": {
         "ticker": "RIO",
@@ -665,8 +665,15 @@
       "checkedOn": "2026-09-24"
     },
     "globalwafers": {
-      "status": "none-found",
-      "query": "GlobalWafers",
+      "status": "listed",
+      "primary": {
+        "ticker": "6488",
+        "exchange": "TT",
+        "name": "GLOBALWAFERS CO LTD",
+        "figi": "BBG007D2WSF2",
+        "source": "https://www.openfigi.com/id/BBG007D2WSF2"
+      },
+      "us": null,
       "checkedOn": "2026-09-24"
     },
     "indium-corporation": {
@@ -1089,11 +1096,11 @@
     "tsmc": {
       "status": "listed",
       "primary": {
-        "ticker": "TSM",
-        "exchange": "NYSE",
-        "name": "TAIWAN SEMICONDUCTOR MANUFACTURING CO LTD",
-        "cik": 1046179,
-        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1046179"
+        "ticker": "2330",
+        "exchange": "TT",
+        "name": "TAIWAN SEMICONDUCTOR MANUFAC",
+        "figi": "BBG000BN2HR7",
+        "source": "https://www.openfigi.com/id/BBG000BN2HR7"
       },
       "us": {
         "ticker": "TSM",
@@ -1139,8 +1146,15 @@
       "checkedOn": "2026-09-24"
     },
     "smic": {
-      "status": "none-found",
-      "query": "SEMICONDUCTOR MANUFACTURING INTERNATIONAL",
+      "status": "listed",
+      "primary": {
+        "ticker": "981",
+        "exchange": "HK",
+        "name": "SEMICONDUCTOR MANUFACTURI-H",
+        "figi": "BBG000LB4MP1",
+        "source": "https://www.openfigi.com/id/BBG000LB4MP1"
+      },
+      "us": null,
       "checkedOn": "2026-09-24"
     },
     "globalfoundries": {
@@ -1164,11 +1178,11 @@
     "umc": {
       "status": "listed",
       "primary": {
-        "ticker": "UMC",
-        "exchange": "NYSE",
+        "ticker": "2303",
+        "exchange": "TT",
         "name": "UNITED MICROELECTRONICS CORP",
-        "cik": 1033767,
-        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1033767"
+        "figi": "BBG000BCWSN8",
+        "source": "https://www.openfigi.com/id/BBG000BCWSN8"
       },
       "us": {
         "ticker": "UMC",
@@ -1202,11 +1216,11 @@
       "parent": "TSMC",
       "note": "A business of TSMC.",
       "primary": {
-        "ticker": "TSM",
-        "exchange": "NYSE",
-        "name": "TAIWAN SEMICONDUCTOR MANUFACTURING CO LTD",
-        "cik": 1046179,
-        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1046179"
+        "ticker": "2330",
+        "exchange": "TT",
+        "name": "TAIWAN SEMICONDUCTOR MANUFAC",
+        "figi": "BBG000BN2HR7",
+        "source": "https://www.openfigi.com/id/BBG000BN2HR7"
       },
       "us": {
         "ticker": "TSM",
@@ -1270,11 +1284,11 @@
     "ase-technology": {
       "status": "listed",
       "primary": {
-        "ticker": "ASX",
-        "exchange": "NYSE",
-        "name": "ASE Technology Holding Co., Ltd.",
-        "cik": 1122411,
-        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1122411"
+        "ticker": "3711",
+        "exchange": "TT",
+        "name": "ASE TECHNOLOGY HOLDING CO LT",
+        "figi": "BBG00JNDLLW9",
+        "source": "https://www.openfigi.com/id/BBG00JNDLLW9"
       },
       "us": {
         "ticker": "ASX",
@@ -1460,8 +1474,15 @@
       "checkedOn": "2026-09-24"
     },
     "nkt": {
-      "status": "none-found",
-      "query": "NKT",
+      "status": "listed",
+      "primary": {
+        "ticker": "NKT",
+        "exchange": "DC",
+        "name": "NKT A/S",
+        "figi": "BBG000BSCY61",
+        "source": "https://www.openfigi.com/id/BBG000BSCY61"
+      },
+      "us": null,
       "checkedOn": "2026-09-24"
     },
     "prysmian": {
@@ -1575,8 +1596,15 @@
       "checkedOn": "2026-09-24"
     },
     "yaskawa": {
-      "status": "none-found",
-      "query": "Yaskawa",
+      "status": "listed",
+      "primary": {
+        "ticker": "6506",
+        "exchange": "JP",
+        "name": "YASKAWA ELECTRIC CORP",
+        "figi": "BBG000BDCF47",
+        "source": "https://www.openfigi.com/id/BBG000BDCF47"
+      },
+      "us": null,
       "checkedOn": "2026-09-24"
     },
     "kuka": {
