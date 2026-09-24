@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "checkedOn": "2026-09-24",
+  "claims": [
+    {
+      "bottleneck": "euv-lithography-scanners",
+      "file": "config/substrata-coverage.ts",
+      "text": "its order backlog is measured in tens of billions of euros",
+      "verdict": "measured",
+      "series": ["asml-order-backlog", "asml-euv-systems-with-revenue-recognized"],
+      "how": "ASML reports its total order backlog each year; the queue in years is not published, so the earlier \"measured in years\" was replaced by what is."
+    },
+    {
+      "bottleneck": "euv-lithography-scanners",
+      "file": "config/substrata-taxonomy.ts",
+      "text": "One company on earth builds them.",
+      "verdict": "measured",
+      "series": ["asml-euv-systems-with-revenue-recognized", "asml-low-na-euv-production-capacity"],
+      "how": "Every EUV system recognised is ASML’s; its own production capacity is the ceiling on the world’s supply."
+    },
+    {
+      "bottleneck": "advanced-packaging-capacity",
+      "file": "config/substrata-coverage.ts",
+      "text": "Capacity is allocated ahead and demand has still run past it",
+      "verdict": "measured",
+      "series": ["tsmc-cowos-monthly-capacity", "cowos-supply-demand-gap"],
+      "how": "\"Allocated years ahead\" had no source; a supply–demand gap reported for CoWoS does."
+    },
+    {
+      "bottleneck": "leading-edge-foundry-capacity",
+      "file": "config/substrata-coverage.ts",
+      "text": "New capacity is a commitment of tens of billions of dollars a year",
+      "verdict": "measured",
+      "series": ["tsmc-capital-expenditures", "tsmc-capital-budget-guidance"],
+      "how": "TSMC capital spending, as it reported and guided it. \"Multi-year\" was dropped: no source states how long a new leading-edge fab takes."
+    },
+    {
+      "bottleneck": "high-bandwidth-memory-stacking-yield",
+      "file": "config/substrata-taxonomy.ts",
+      "text": "Three companies can do it at volume.",
+      "verdict": "measured",
+      "series": ["sk-hynix-hbm-market-share-revenue", "dram-market-share-top-three-suppliers"],
+      "how": "Market shares as reported in SK hynix filings."
+    },
+    {
+      "bottleneck": "grain-oriented-electrical-steel-goes",
+      "file": "config/substrata-taxonomy.ts",
+      "text": "Few mills can make it, and a new mill takes years.",
+      "verdict": "measured",
+      "series": ["number-us-domestic-goes-producers", "jsw-jfe-electrical-steel-goes-capacity"],
+      "how": "One US producer, per DOE; a new line announced in India reaches full capacity only by 2030."
+    },
+    {
+      "bottleneck": "high-voltage-cable-and-switchgear",
+      "file": "config/substrata-taxonomy.ts",
+      "text": "Cable order books run far ahead of output, and switchgear waits are long.",
+      "verdict": "softened",
+      "series": [
+        "prysmian-transmission-backlog",
+        "nkt-high-voltage-transmission-order-backlog",
+        "switchgear-average-lead-time"
+      ],
+      "how": "Was \"same multi-year queues as transformers\". The one switchgear lead time found is under a year, so the claim was cut to what the backlogs and that survey show."
+    },
+    {
+      "bottleneck": "large-power-transformer-slots",
+      "file": "config/substrata-coverage.ts",
+      "text": "Lead times run past two years",
+      "verdict": "measured",
+      "series": [
+        "power-transformer-average-lead-time",
+        "gsu-transformer-average-lead-time",
+        "large-transformer-lead-time-range"
+      ],
+      "how": "Was \"several years\". The Wood Mackenzie survey puts the average power-transformer lead time at 128 weeks."
+    },
+    {
+      "bottleneck": "large-power-transformer-slots",
+      "file": "config/substrata-coverage.ts",
+      "text": "It is one of the gates on announced compute, alongside chips.",
+      "verdict": "softened",
+      "series": [],
+      "how": "Was \"gates more announced compute today than chip supply does\". No source compares the two, so the comparison was withdrawn."
+    },
+    {
+      "bottleneck": "heavy-duty-gas-turbine-order-books",
+      "file": "config/substrata-coverage.ts",
+      "text": "the largest maker’s order book runs years ahead of what it can build",
+      "verdict": "measured",
+      "series": [
+        "ge-vernova-gas-power-equipment-backlog-slot-reservation",
+        "ge-vernova-annual-gas-turbine-output-capacity"
+      ],
+      "how": "Was \"effectively sold out\" and \"into the next decade\". GE Vernova’s backlog plus slot reservations, in GW, set against the output capacity it states per year. Siemens Energy and MHI publish no comparable GW figures."
+    },
+    {
+      "bottleneck": "grid-interconnection-queues",
+      "file": "config/substrata-coverage.ts",
+      "text": "a multi-year administrative queue between a signed site and a live megawatt",
+      "verdict": "measured",
+      "series": [
+        "typical-median-time-from-interconnection-request",
+        "active-generation-storage-capacity-us-interconnection"
+      ],
+      "how": "LBNL: the median US project built in 2025 took 61 months from interconnection request to operation."
+    },
+    {
+      "bottleneck": "semiconductor-process-engineers",
+      "file": "config/substrata-taxonomy.ts",
+      "text": "You cannot buy them and you cannot hurry them.",
+      "verdict": "measured",
+      "series": ["us-semiconductor-jobs-at-risk-going-unfilled", "tsmc-professionals-headcount"],
+      "how": "The SIA/Oxford Economics projection of unfilled US semiconductor jobs by 2030; not a count of process engineers specifically, which no source publishes."
+    }
+  ]
+}

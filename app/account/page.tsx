@@ -14,7 +14,7 @@ import { bottleneckHref } from '@/lib/links';
 import { railsOf } from '@/lib/follows';
 import { readFollows, readMarks } from '@/lib/desk-store';
 import { parseDeskQuery, type Params } from '@/lib/desk-query';
-import { buildFeed, type DeskItem, type Lead } from '@/lib/desk';
+import { buildFeed, bucketOf, type DeskItem, type Lead } from '@/lib/desk';
 import { applyFilter, isRead, itemKey, railActivity, VIEWS, type View } from '@/lib/desk-filter';
 import { sweepStaleNow } from '@/lib/sweep-store';
 import { leadsFor, railFreshness } from '@/lib/sweep-queue';
@@ -25,6 +25,7 @@ import { followedJobItems } from '@/lib/desk-jobs';
 import type { Filing } from '@/lib/filings';
 import { newItems, type StoredItem } from '@/lib/science-read';
 import { scienceItems } from '@/lib/desk-science';
+import { railSeriesItems } from '@/lib/series-store';
 
 export const dynamic = 'force-dynamic';
 export const metadata = { title: 'Desk' };
@@ -59,16 +60,6 @@ function SignedOut() {
       </Page>
     </Shell>
   );
-}
-
-function bucketOf(item: DeskItem, now: Date): string {
-  const day = (iso: string) => Date.parse(iso.slice(0, 10));
-  const days = Math.round((day(now.toISOString()) - day(item.at)) / 86_400_000);
-  if (days <= 0) return 'Today';
-  if (days === 1) return 'Yesterday';
-  if (days < 7) return 'This week';
-  if (days < 31) return 'This month';
-  return 'Earlier';
 }
 
 function group(
@@ -153,6 +144,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
     ...buildFeed(events, leads ?? [], now, settings.leadMaxAgeDays, settings.strictLeads),
     ...filingItems(filings, registrants),
     ...scienceItems(science),
+    ...(await railSeriesItems(rails)),
     ...(await followedJobItems(follows.jobs, settings.leadMaxAgeDays)),
   ].sort((a, b) => b.at.localeCompare(a.at));
 

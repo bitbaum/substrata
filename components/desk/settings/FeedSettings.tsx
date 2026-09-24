@@ -42,6 +42,16 @@ export function FeedSettings({ follows }: { follows: Follows }) {
             </span>
           </label>
           <label className="settings-check">
+            <input type="checkbox" name="showSeries" defaultChecked={desk.showSeries} />
+            <span>
+              Data series
+              <small>
+                A new dated number on a series on your rails, flagged when it moves past the alert
+                threshold.
+              </small>
+            </span>
+          </label>
+          <label className="settings-check">
             <input type="checkbox" name="showJobs" defaultChecked={desk.showJobs} />
             <span>
               New job postings

@@ -15,6 +15,7 @@
 
 import type { CoverageEvent, EventEffect } from '@/config/substrata-events';
 import { looksLikeAReference } from '@/lib/sweep';
+import type { SeriesDeskItem } from '@/lib/desk-series';
 
 export interface Lead {
   id: string;
@@ -98,7 +99,8 @@ export type DeskItem =
       effect: EventEffect;
       location: string;
       dateOnly: false;
-    };
+    }
+  | SeriesDeskItem;
 
 /** Leads older than this are not news any more, whenever the sweep found them. */
 export const LEAD_MAX_AGE_DAYS = 45;
@@ -278,3 +280,14 @@ export function buildFeed(
 }
 
 export { whenLabel } from './when';
+
+/** The day-group a row falls in: Today, Yesterday, This week, This month, Earlier. */
+export function bucketOf(item: DeskItem, now: Date): string {
+  const day = (iso: string) => Date.parse(iso.slice(0, 10));
+  const days = Math.round((day(now.toISOString()) - day(item.at)) / 86_400_000);
+  if (days <= 0) return 'Today';
+  if (days === 1) return 'Yesterday';
+  if (days < 7) return 'This week';
+  if (days < 31) return 'This month';
+  return 'Earlier';
+}

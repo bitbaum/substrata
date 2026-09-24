@@ -15,6 +15,7 @@
  */
 import { SITE } from './site';
 import { SCIENCE_PIPELINE_METHODS } from './methods-science';
+import { SERIES_METHODS } from './methods-series';
 import { GRAPH_METHODS } from './methods-graph';
 import { CAREER_METHODS } from './methods-careers';
 import { AI_METHODS } from './methods-ai';
@@ -267,6 +268,7 @@ export const METHODS = {
     code: ['lib/exposure.ts', 'lib/listings.ts', 'scripts/research/listings.ts'],
   },
   ...SCIENCE_PIPELINE_METHODS,
+  ...SERIES_METHODS,
   ...CAREER_METHODS,
 } as const satisfies Record<string, Method>;
 

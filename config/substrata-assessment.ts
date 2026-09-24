@@ -175,7 +175,7 @@ export const ASSESSMENTS: readonly Assessment[] = [
     'compute',
     [3, 3, 3, 3],
     'now',
-    'One maker, a multi-year queue, no second source in progress. The definition of a chokepoint.',
+    'One maker, a backlog in the tens of billions of euros, no second source in progress. The definition of a chokepoint.',
   ),
   a(
     'EUV projection optics',
@@ -189,7 +189,7 @@ export const ASSESSMENTS: readonly Assessment[] = [
     'compute',
     [3, 2, 3, 3],
     'now',
-    'Accelerator output is set by CoWoS-class capacity, allocated years ahead. The allocation is the scarce good.',
+    'Accelerator output is set by CoWoS-class capacity, allocated ahead and still short of demand. The allocation is the scarce good.',
   ),
   a(
     'High-bandwidth memory stacking yield',
@@ -203,7 +203,7 @@ export const ASSESSMENTS: readonly Assessment[] = [
     'compute',
     [3, 2, 3, 3],
     'now',
-    'A handful of fabs at the newest node; new capacity is a multi-year, multi-billion commitment.',
+    'A handful of fabs at the newest node; new capacity costs tens of billions of dollars a year.',
   ),
   a(
     'Photoresist formulation',
@@ -219,7 +219,7 @@ export const ASSESSMENTS: readonly Assessment[] = [
     'energy',
     [2, 3, 3, 3],
     'now',
-    'Lead times of several years and no datacentre without one. Gates more announced compute than chips do.',
+    'Lead times past two years and no datacentre without one. One of the gates on announced compute, alongside chips.',
   ),
   a(
     'Grid interconnection queues',
@@ -233,14 +233,14 @@ export const ASSESSMENTS: readonly Assessment[] = [
     'energy',
     [3, 2, 3, 2],
     'now',
-    'Three makers, order books sold out into the decade. The fastest route to firm power, and it is full.',
+    'Three makers; the largest has an order book years ahead of what it can build. The fastest route to firm power, and it is full.',
   ),
   a(
     'High-voltage cable and switchgear',
     'energy',
     [2, 3, 3, 3],
     'now',
-    'Same lead times as transformers, same inability to answer a demand shock.',
+    'Cable backlogs far ahead of output and long switchgear waits; neither answers a demand shock quickly.',
   ),
 
   // ---------- Actuation ----------
