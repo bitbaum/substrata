@@ -180,6 +180,19 @@ export type CountryDossier = {
   hasAnything: boolean;
 };
 
+/** How a path role reads in a sentence ("Role in the chains: extraction"). */
+export const ROLE_WORDS: Record<PathRole, string> = {
+  extract: 'extraction',
+  refine: 'refining',
+  manufacture: 'manufacturing',
+  energy: 'energy',
+  capital: 'capital',
+  permission: 'permitting',
+  logistics: 'logistics',
+  research: 'research',
+  gap: 'none on record yet',
+};
+
 export function countryDossier(iso2: string): CountryDossier | null {
   const id = norm(iso2);
   if (!id) return null;

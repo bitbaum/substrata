@@ -304,11 +304,13 @@
   text-underline-offset: 0.2em;
 }
 .world-roles {
-  font: 500 0.6875rem/1.5 var(--font-mono);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-fg-tertiary);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--color-fg-secondary);
   margin-bottom: 0.75rem;
+}
+.world-roles-label {
+  color: var(--color-fg-tertiary);
 }
 .world-why {
   font-size: 0.9375rem;
