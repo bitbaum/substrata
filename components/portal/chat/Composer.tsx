@@ -37,6 +37,18 @@ export function Composer({
 }) {
   const { draft, setDraft, busy, contribute, setContribute, ask, stop } = chat;
   const [keyOpen, setKeyOpen] = useState(false);
+  const [optionsOpen, setOptionsOpen] = useState(false);
+  const optionsId = compact ? 'dock-ask-options' : 'page-ask-options';
+  const modelLabel = models.find((m) => m.id === model)?.label ?? model;
+  const picker = (
+    <select value={model} onChange={(e) => setModel(e.target.value)} disabled={busy}>
+      {models.map((m) => (
+        <option key={m.id} value={m.id}>
+          {m.label}
+        </option>
+      ))}
+    </select>
+  );
 
   return (
     <form
@@ -103,19 +115,26 @@ export function Composer({
               </button>
             ) : (
               <>
+                {/* Wide: the picker sits in the bar. Narrow (ask.css): one
+                    labelled button opens it below, so it is never squeezed
+                    to a letter and Ask stays on screen at 320px. */}
                 <label className="companion-model">
                   <span className="sr-only">Model</span>
-                  <select value={model} onChange={(e) => setModel(e.target.value)} disabled={busy}>
-                    {models.map((m) => (
-                      <option key={m.id} value={m.id}>
-                        {m.label}
-                      </option>
-                    ))}
-                  </select>
+                  {picker}
                 </label>
                 <button
                   type="button"
-                  className="companion-tool"
+                  className="companion-tool companion-model-toggle"
+                  onClick={() => setOptionsOpen((v) => !v)}
+                  aria-expanded={optionsOpen}
+                  aria-controls={optionsId}
+                >
+                  <span className="companion-model-toggle-label">Model</span>
+                  <span className="companion-model-toggle-value">{modelLabel}</span>
+                </button>
+                <button
+                  type="button"
+                  className="companion-tool companion-key-toggle"
                   onClick={() => setKeyOpen((v) => !v)}
                   aria-expanded={keyOpen}
                   title="Use any AI you have a key for: OpenAI, Anthropic, Gemini, OpenRouter, Groq…"
@@ -136,6 +155,24 @@ export function Composer({
           )}
         </div>
       </div>
+      {optionsOpen && !keys.active && (
+        <div id={optionsId} className="companion-options">
+          <label className="companion-option">
+            <span>Free model</span>
+            {picker}
+          </label>
+          <button
+            type="button"
+            className="companion-option-key"
+            onClick={() => {
+              setOptionsOpen(false);
+              setKeyOpen(true);
+            }}
+          >
+            Use your own AI key instead
+          </button>
+        </div>
+      )}
       {keyOpen && <AiKeyPanel keys={keys} onDone={() => setKeyOpen(false)} />}
       <p className="companion-aside">
         Have a source we should hold?{' '}
