@@ -5,7 +5,8 @@ import type { FeedRow } from '@/lib/freshness/read';
 import { whenLabel } from '@/lib/when';
 import { StateBadge } from './StateBadge';
 
-function every(hours: number | null): string {
+function every(hours: number | null, onDemand: boolean): string {
+  if (onDemand) return 'on demand · readers’ own keys';
   if (hours === null) return 'not scheduled';
   if (hours === 1) return 'hourly';
   if (hours === 24) return 'daily';
@@ -51,7 +52,7 @@ export function FeedTable({ rows, now }: { rows: FeedRow[]; now: Date }) {
                 'never'
               )}
             </td>
-            <td data-label="Expected">{every(row.everyHours)}</td>
+            <td data-label="Expected">{every(row.everyHours, Boolean(row.feed.onDemand))}</td>
             <td data-label="Last failure">
               {row.lastFailure ? (
                 <time dateTime={row.lastFailure}>{whenLabel(row.lastFailure, now)}</time>

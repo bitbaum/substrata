@@ -15,6 +15,7 @@ import { resolveIn } from '@/lib/entities/registry';
 import { t } from '@/lib/i18n/messages';
 import { CompanyHeader } from './_sections/CompanyHeader';
 import { LeadList, leadsOn } from './_sections/leads';
+import { UpdateNews } from '@/components/updates/UpdateNews';
 import { FilingList, filingsOf } from './_sections/filings';
 import { HiringSection, hiringOf } from './_sections/hiring';
 
@@ -126,6 +127,12 @@ export default async function ParticipantPage({ params }: RouteParams) {
           signedIn={Boolean(session?.actorId)}
           following={following}
         />
+
+        {profile.held.length > 0 && (
+          <div className="mb-10">
+            <UpdateNews scope={{ kind: 'company', slug: p.slug }} />
+          </div>
+        )}
 
         {entity && <EntityProfile entity={entity} extra={extra} />}
       </Page>

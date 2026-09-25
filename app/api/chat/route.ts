@@ -1,8 +1,7 @@
 import { availableModels, isOfferedModel } from '@/lib/chat/models';
 import type { ChatTurn } from '@/lib/chat/types';
 import { allowRequest, boundedJson, sameOrigin } from '@/lib/request-guards';
-import { byokFromBody, type ByokConfig } from '@/lib/byok';
-import { openStoredKey } from '@/lib/byok-vault';
+import { readerKey } from '@/lib/reader-key';
 import { runAgent, type AgentEvent } from '@/lib/chat-agent/loop';
 import { byokTurn, freeCooldown, freeLinks, streamedTurn } from '@/lib/chat-agent/turn';
 import { verifyFromBody } from '@/lib/chat-agent/verify';
@@ -72,20 +71,9 @@ export async function POST(request: Request) {
   // `isOfferedModel` only knows this deployment's free chain. The key arrives
   // in the body (held in the reader's browser) or, signed in, is opened from
   // the vault for this one request.
-  const byokParsed = byokFromBody((input as { byok?: unknown })?.byok);
-  if (byokParsed === 'invalid')
-    return Response.json({ error: 'Invalid key configuration.' }, { status: 400 });
-  let byok: ByokConfig | undefined = byokParsed;
-  if (!byok && (input as { byokStored?: unknown })?.byokStored === true) {
-    const session = await currentSession();
-    byok =
-      (session?.actorId && (await openStoredKey(session.actorId).catch(() => null))) || undefined;
-    if (!byok)
-      return Response.json(
-        { error: 'Your saved key could not be opened. Add it again in AI settings.' },
-        { status: 400 },
-      );
-  }
+  const reader = await readerKey(input);
+  if ('error' in reader) return Response.json({ error: reader.error }, { status: 400 });
+  const byok = reader.key ?? undefined;
   const verify = verifyFromBody((input as { verify?: unknown })?.verify);
   if (verify === 'invalid')
     return Response.json({ error: 'Invalid claim to check.' }, { status: 400 });

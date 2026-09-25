@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     'Every feed and dataset behind the site: when it last ran or was checked, how often it should, and whether it is fresh, late, stale or failing.',
 };
 
-const SUMMARY: FreshState[] = ['failing', 'stale', 'late', 'fresh', 'off'];
+const SUMMARY: FreshState[] = ['failing', 'stale', 'late', 'fresh', 'demand', 'off'];
 
 export default async function FreshnessPage() {
   const report = await freshnessReport();

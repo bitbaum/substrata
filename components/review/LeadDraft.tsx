@@ -40,7 +40,11 @@ export function LeadDraft({ lead, problem }: { lead: LeadWithDraft; problem?: st
       </h2>
 
       {draft === null ? (
-        <p className="review-note">Not drafted yet — the drafter takes the newest leads first.</p>
+        <p className="review-note">
+          Not drafted yet. Drafts are written only on a reader’s own AI key: “Summarise with AI”
+          under “Update news now” on its bottleneck page, or automatic updates for a reader who
+          switched them on.
+        </p>
       ) : draft.status !== 'drafted' ? (
         <p className="review-note">{STATUS_LINE[draft.status]}</p>
       ) : (

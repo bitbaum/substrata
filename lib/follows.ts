@@ -57,6 +57,13 @@ export interface DeskSettings {
   /** Rows at or before this instant count as read. Set by "Mark all read". */
   readUntil: string | null;
   pageSize: number;
+  /**
+   * Draft this reader's new leads into events every hour, on THEIR stored key
+   * (lib/auto-updates.ts). Off by default; the site's free models never do it.
+   */
+  autoDraft: boolean;
+  /** At most this many drafts a UTC day on their key — the spend they agreed to. */
+  autoDraftPerDay: number;
 }
 
 export type Follows = {
@@ -89,7 +96,12 @@ export const DEFAULT_DESK: DeskSettings = {
   staleAfterHours: 6,
   readUntil: null,
   pageSize: 30,
+  autoDraft: false,
+  autoDraftPerDay: 10,
 };
+
+/** The daily caps a reader can pick for automatic drafting on their own key. */
+export const AUTO_DRAFT_CAPS = [5, 10, 20, 40] as const;
 
 const TECH = new Set(TECHNOLOGIES.map((t) => t.id));
 const COMPANY = new Set(MARKET_PARTICIPANTS.map((p) => p.slug));
@@ -151,6 +163,13 @@ export function parseDesk(raw: unknown): DeskSettings {
     staleAfterHours: clampInt(o.staleAfterHours, 1, 72, DEFAULT_DESK.staleAfterHours),
     readUntil,
     pageSize: clampInt(o.pageSize, 10, 100, DEFAULT_DESK.pageSize),
+    autoDraft: bool('autoDraft'),
+    autoDraftPerDay: clampInt(
+      o.autoDraftPerDay,
+      AUTO_DRAFT_CAPS[0],
+      AUTO_DRAFT_CAPS[AUTO_DRAFT_CAPS.length - 1],
+      DEFAULT_DESK.autoDraftPerDay,
+    ),
   };
 }
 

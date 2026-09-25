@@ -128,13 +128,13 @@ export async function runScheduledSweep(): Promise<SweepOutcome & { skipped?: st
 }
 
 /**
- * How stale a rail must be before a desk re-sweeps it. Opening the desk sweeps
- * what is older than the first; pressing "Check now" what is older than the
- * second. Either way a node is swept at most that often, however many readers
+ * How stale a rail must be before it is re-swept. Opening the desk sweeps
+ * what is older than the first; pressing "Update news now" (desk, bottleneck
+ * and company pages) what is older than the second. Either way a node is swept at most that often, however many readers
  * ask, so the cost follows the number of nodes and not the number of visits.
  */
 export const ON_DEMAND_COOLDOWN_HOURS = 6;
-export const CHECK_NOW_COOLDOWN_HOURS = 1;
+export const UPDATE_NOW_COOLDOWN_HOURS = 0.25;
 /** Nodes one request may sweep. Run side by side, so this bounds the wait too. */
 export const ON_DEMAND_NODES = 3;
 

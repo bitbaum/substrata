@@ -77,7 +77,7 @@ export default async function ReviewPage({
       <Page>
         <SectionHeader
           title="Review"
-          lede="Private. Three feeds arrive here: event leads from the scheduled sweep, each with an AI draft to check against its source, candidate sources from the scheduled producer-sourcing run, and contributions people sent in. Deciding something here does not publish it — the corpus is files in git, and a row reaches a page when a person commits it."
+          lede="Private. Three feeds arrive here: event leads from the scheduled sweep, with an AI draft to check against its source where a reader has had one written on their own AI key (“Summarise with AI”, or automatic updates they switched on — the site’s free AI never drafts), candidate sources from the scheduled producer-sourcing run, and contributions people sent in. Deciding something here does not publish it — the corpus is files in git, and a row reaches a page when a person commits it."
           stats={[
             { label: 'Open event leads', value: queue?.waiting ?? '—' },
             { label: 'Drafts ready', value: queue?.draftsReady ?? '—' },
@@ -107,8 +107,8 @@ export default async function ReviewPage({
           <p className="research-kicker">
             {queue.oldestFoundAt ? `Oldest waiting lead: ${ageLabel(queue.oldestFoundAt)}. ` : ''}
             {queue.lastDraftRunAt
-              ? `Drafter last ran ${queue.lastDraftRunAt.slice(0, 16).replace('T', ' ')} UTC; ${queue.undrafted} not drafted yet, ${queue.suggestedNot} suggested not an event.`
-              : 'The drafter has no completed run on record.'}
+              ? `Drafts are written on demand, on readers’ own keys; the last at ${queue.lastDraftRunAt.slice(0, 16).replace('T', ' ')} UTC. ${queue.undrafted} not drafted yet, ${queue.suggestedNot} suggested not an event.`
+              : 'No draft has been written yet — drafts are written on demand, on readers’ own AI keys.'}
           </p>
         )}
         {params.accepted && (

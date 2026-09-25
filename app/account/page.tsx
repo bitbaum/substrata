@@ -26,6 +26,7 @@ import type { Filing } from '@/lib/filings';
 import { newItems, type StoredItem } from '@/lib/science-read';
 import { scienceItems } from '@/lib/desk-science';
 import { railSeriesItems } from '@/lib/series-store';
+import { UpdateNews } from '@/components/updates/UpdateNews';
 
 export const dynamic = 'force-dynamic';
 export const metadata = { title: 'Desk' };
@@ -169,7 +170,6 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
     .filter((b) => b.horizon === 'now')
     .sort((a, b) => b.binding - a.binding)
     .slice(0, 8);
-  const checked = params.checked !== undefined ? Number(params.checked) : null;
   const reviewer = isReviewer(actorId);
 
   return (
@@ -196,15 +196,14 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
               draftsReady: queue.draftsReady,
             }
           }
+          autoDraft={settings.autoDraft ? settings.autoDraftPerDay : null}
         />
 
-        {checked !== null && (
-          <p role="status" className="desk-notice">
-            {checked === 0
-              ? 'Every bottleneck on your desk was checked within the last hour — nothing to re-check yet.'
-              : `Checked ${checked} bottleneck${checked === 1 ? '' : 's'}: ${Number(params.found) || 0} new lead${Number(params.found) === 1 ? '' : 's'}${Number(params.blind) > 0 ? `, ${params.blind} could not be reached` : ''}.`}
-          </p>
-        )}
+        <UpdateNews
+          scope={{ kind: 'desk' }}
+          sweeping={Boolean(fresh && (fresh.sweeping > 0 || willSweep))}
+          refreshPage
+        />
 
         <MovedStrip moved={moved} window={query.window} byName={byName} railHref={railHref} />
 

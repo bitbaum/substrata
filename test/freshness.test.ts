@@ -85,3 +85,10 @@ test('the review queue and the summary', () => {
   assert.equal(worstOf(['fresh', 'failing', 'stale']), 'failing');
   assert.equal(worstOf(['off']), 'off');
 });
+
+test('drafting is reported on demand, never late: it runs only on readers’ own keys', () => {
+  const drafts = FEEDS.find((f) => f.id === 'drafts');
+  assert.ok(drafts?.onDemand, 'the drafts feed must say it runs on demand');
+  assert.equal(drafts.everyHours, null, 'no clock runs drafting, so none may make it late');
+  for (const f of FEEDS.filter((f) => f.onDemand)) assert.equal(f.everyHours, null, f.id);
+});

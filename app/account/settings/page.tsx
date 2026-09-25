@@ -8,6 +8,8 @@ import { RailsSettings } from '@/components/desk/settings/RailsSettings';
 import { FeedSettings } from '@/components/desk/settings/FeedSettings';
 import { SweepSettings } from '@/components/desk/settings/SweepSettings';
 import { AiSettings } from '@/components/desk/settings/AiSettings';
+import { AutoUpdates } from '@/components/desk/settings/AutoUpdates';
+import { storedKey, vaultEnabled } from '@/lib/byok-vault';
 import { railsOf } from '@/lib/follows';
 import { readFollows } from '@/lib/desk-store';
 import { DEFAULT_SWEEP_SETTINGS } from '@/lib/sweep';
@@ -16,6 +18,14 @@ import { nodeStatuses, type NodeStatus } from '@/lib/sweep-queue';
 import { saveSettings } from '../actions';
 
 export const dynamic = 'force-dynamic';
+
+const SAVED: Record<string, string> = {
+  '1': 'Settings saved.',
+  sweep: 'Sweep settings saved.',
+  auto: 'Automatic AI updates saved.',
+  'need-key':
+    'Automatic updates need a key saved on your account — add one under AI, then switch them on.',
+};
 export const metadata = { title: 'Desk settings' };
 
 export default async function DeskSettingsPage({
@@ -32,6 +42,7 @@ export default async function DeskSettingsPage({
   const follows = await readFollows(actorId);
   const rails = railsOf(follows);
   const onDesk = new Set(rails.map((b) => b.slug));
+  const stored = await storedKey(actorId).catch(() => null);
   const followedCo = MARKET_PARTICIPANTS.filter((p) => follows.companies.includes(p.slug));
 
   let statuses: NodeStatus[] | null = null;
@@ -64,7 +75,7 @@ export default async function DeskSettingsPage({
         </header>
         {saved && (
           <p role="status" className="desk-notice">
-            {saved === 'sweep' ? 'Sweep settings saved.' : 'Settings saved.'}
+            {SAVED[saved] ?? SAVED['1']}
           </p>
         )}
 
@@ -73,6 +84,7 @@ export default async function DeskSettingsPage({
           <a href="#feed">Feed</a>
           <a href="#sweep">Sweep</a>
           <a href="#ai">AI</a>
+          <a href="#auto-updates">Automatic updates</a>
           <a href="#account">Account</a>
         </nav>
 
@@ -98,6 +110,8 @@ export default async function DeskSettingsPage({
         <SweepSettings sweep={sweep} statuses={statuses} reviewer={reviewer} now={now} />
 
         <AiSettings />
+
+        <AutoUpdates desk={follows.desk} stored={stored} vaultOn={vaultEnabled()} />
 
         <section id="account" className="settings-section">
           <div className="settings-head">

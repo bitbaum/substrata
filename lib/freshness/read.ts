@@ -90,8 +90,10 @@ async function readFeed(feed: Feed, sweepEvery: number): Promise<FeedRow> {
       everyHours,
       ...reading,
       runsThisWeek: Number(row?.runs ?? 0),
-      state: feedState(reading, everyHours),
-      note: everyHours === null ? 'No timer on the server runs this yet.' : undefined,
+      state: feed.onDemand ? 'demand' : feedState(reading, everyHours),
+      note:
+        feed.onDemand ??
+        (everyHours === null ? 'No timer on the server runs this yet.' : undefined),
     };
   } catch (error) {
     const missing = (error as { code?: string }).code === '42P01';

@@ -35,7 +35,7 @@ export function LeadList({ leads }: { leads: Lead[] }) {
             <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
               <span
                 className="rounded border border-strong px-1.5 font-mono text-xs uppercase tracking-caps text-fg-tertiary"
-                title="Found by the sweep on the open web. Not yet read by an analyst."
+                title="Found by the sweep on the open web. Not yet read by anyone here."
               >
                 Unread lead
               </span>
