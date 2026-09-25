@@ -20,6 +20,7 @@ import { GRAPH_METHODS } from './methods-graph';
 import { CAREER_METHODS } from './methods-careers';
 import { AI_METHODS } from './methods-ai';
 import { FRESHNESS_METHODS } from './methods-freshness';
+import { RESOURCE_METHODS } from './methods-resources';
 
 export interface Method {
   /** Short name, as a heading on /data. */
@@ -227,21 +228,21 @@ export const METHODS = {
     title: 'Share of world output',
     formula: "A place's annual production ÷ the published world total, same unit and year.",
     explanation:
-      'Both inputs come from the same source row (USGS Mineral Commodity Summaries unless the row says otherwise). No share is shown when there is no world total in the same unit.',
-    code: ['lib/quantities.ts', 'config/substrata-quantities.ts'],
+      'Both inputs come from the same source row (USGS Mineral Commodity Summaries unless the row says otherwise). No share is shown when there is no world total in the same unit, or when USGS prints the total as "more than" a number — a share of a lower bound would overstate the country.',
+    code: ['lib/resources/choropleth.ts', 'lib/quantities.ts', 'research/usgs-mcs.json'],
   },
   hhi: {
     title: 'Concentration index (HHI)',
     formula: 'Sum of the squares of each producer’s share of world output (0–1).',
     explanation:
-      'The Herfindahl–Hirschman index competition authorities use. 1.0 is a single supplier; 0.1 is a fragmented market. Computed only over producers with a published share, so it can understate concentration when the tail is missing.',
-    code: ['lib/quantities.ts'],
+      'The Herfindahl–Hirschman index competition authorities use. 1.0 is a single supplier; 0.1 is a fragmented market. Computed only over producers with a published share, so it can understate concentration when the tail is missing (USGS folds small producers into "Other countries", which is left out rather than counted as one producer).',
+    code: ['lib/resources/choropleth.ts', 'lib/quantities.ts'],
   },
   'reserves-to-production': {
     title: 'Reserves-to-production (years)',
     formula: 'Published reserves ÷ annual production, same place, unit and year.',
     explanation:
-      '"At today’s rate with today’s reserves" — not a countdown. Reserves are re-estimated as prices and technology move.',
+      '"At today’s rate with today’s reserves" — not a countdown. Reserves are re-estimated as prices and technology move. USGS reserves are the economically extractable part of what is known (roughly proved + probable), not the larger resource, so a short figure is not a depletion date.',
     code: ['lib/quantities.ts'],
   },
   'net-pressure': {
@@ -272,6 +273,7 @@ export const METHODS = {
   ...SERIES_METHODS,
   ...CAREER_METHODS,
   ...FRESHNESS_METHODS,
+  ...RESOURCE_METHODS,
 } as const satisfies Record<string, Method>;
 
 export type MethodId = keyof typeof METHODS;

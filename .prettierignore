@@ -31,9 +31,10 @@ yarn.lock
 # diff. Remove this line when you want docs formatted too.
 *.md
 
-# Written by the research engine (scripts/research/source-producers.ts), not by hand.
+# Written by the research scripts (scripts/research/*), not by hand.
 research/evidence.json
 research/events.json
+research/usgs-mcs.json
 
 # Screenshot and trace output from the Playwright MCP server.
 .playwright-mcp
