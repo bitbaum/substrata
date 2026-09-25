@@ -27,6 +27,7 @@ import './styles/shell.css';
 import './styles/shell-overlays.css';
 import { SITE } from '@/lib/site';
 import { AskDock } from '@/components/portal/AskDock';
+import { FigureDefinitions } from '@/components/portal/Figure';
 import { RAIL_BOOT } from '@/components/shell/shell-state';
 
 export const metadata: Metadata = {
@@ -70,6 +71,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         {children}
         <AskDock />
+        <FigureDefinitions />
 
         {/* The Loki feedback widget: point at what is wrong on the page,
             and an agent changes it. Env-gated, so a local run and a fork carry
