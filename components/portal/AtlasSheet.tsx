@@ -8,7 +8,7 @@
  * raises it to half, so tapping a country shows its panel without a second
  * gesture. The shape is CSS (app/styles/atlas.css); this only holds the snap.
  */
-import { useId, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
 
 type Snap = 'peek' | 'half' | 'full';
 const ORDER: Snap[] = ['peek', 'half', 'full'];
@@ -34,6 +34,10 @@ export function AtlasSheet({
   }
   const sheet = useRef<HTMLElement>(null);
   const drag = useRef<{ y: number; start: number; moved: boolean } | null>(null);
+  // The map frames what the sheet leaves visible, so it needs to know the snap.
+  useEffect(() => {
+    sheet.current?.closest('.atlas')?.setAttribute('data-sheet', snap);
+  }, [snap]);
 
   function settle(dy: number) {
     const el = sheet.current;

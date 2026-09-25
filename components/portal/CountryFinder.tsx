@@ -18,11 +18,12 @@ const LIMIT = 8;
 
 export function CountryFinder({
   countries,
-  resource,
+  keep,
   label = 'Find a country',
 }: {
   countries: CountryOption[];
-  resource?: string;
+  /** Query parameters the link keeps (resource, measure). */
+  keep: Record<string, string>;
   label?: string;
 }) {
   const id = useId();
@@ -36,8 +37,7 @@ export function CountryFinder({
   }, [countries, query]);
 
   const href = (iso: string) => {
-    const params = new URLSearchParams({ view: 'world', country: iso });
-    if (resource) params.set('resource', resource);
+    const params = new URLSearchParams({ view: 'world', ...keep, country: iso });
     return `/atlas?${params.toString()}`;
   };
 

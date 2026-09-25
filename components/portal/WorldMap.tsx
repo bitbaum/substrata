@@ -30,26 +30,34 @@ import {
 
 export interface WorldMapProps {
   selected?: string;
-  resource?: string;
+  /** Query parameters a click on a country keeps (resource, measure). */
+  keep: Record<string, string>;
   /** Bin per ISO code: 1–5 up the sequential scale; absent = nothing recorded. */
   bins: Record<string, number>;
   labels: Record<string, string>;
+  /** The hover line for a country with no row in this layer. */
+  otherwise?: string;
 }
 
+/** A length custom property (possibly a calc()), resolved to pixels by the browser. */
 function readInset(el: HTMLElement, name: string): number {
-  const probe = getComputedStyle(el).getPropertyValue(name).trim();
-  const px = parseFloat(probe);
-  if (!probe || Number.isNaN(px)) return 0;
-  return probe.endsWith('rem')
-    ? px * parseFloat(getComputedStyle(document.documentElement).fontSize)
-    : px;
+  const probe = document.createElement('div');
+  probe.style.cssText = `position:absolute;visibility:hidden;width:0;height:var(${name}, 0px)`;
+  el.appendChild(probe);
+  const px = probe.offsetHeight;
+  probe.remove();
+  return px;
+}
+
+function withSheet(frame: Frame, sheet: number): Frame {
+  return { ...frame, inset: { ...frame.inset, bottom: Math.max(frame.inset.bottom, sheet) } };
 }
 
 function reducedMotion(): boolean {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
 
-export function WorldMap({ selected, resource, bins, labels }: WorldMapProps) {
+export function WorldMap({ selected, keep, bins, labels, otherwise }: WorldMapProps) {
   const router = useRouter();
   const wrap = useRef<HTMLDivElement>(null);
   const svg = useRef<SVGSVGElement>(null);
@@ -85,6 +93,21 @@ export function WorldMap({ selected, resource, bins, labels }: WorldMapProps) {
     return () => observer.disconnect();
   }, []);
 
+  // How much of the map the panel covers right now (a bottom sheet at half
+  // height covers more than its resting peek). AtlasSheet writes its snap on
+  // .atlas; the CSS turns that into --atlas-map-sheet.
+  const [sheetInset, setSheetInset] = useState(0);
+  useEffect(() => {
+    const el = wrap.current;
+    const stage = el?.closest('.atlas');
+    if (!el || !stage) return;
+    const read = () => setSheetInset(readInset(el, '--atlas-map-sheet'));
+    read();
+    const observer = new MutationObserver(read);
+    observer.observe(stage, { attributes: true, attributeFilter: ['data-sheet'] });
+    return () => observer.disconnect();
+  }, []);
+
   const drawn = useMemo(
     () => (features && frame && frame.width > 0 ? pathsFor(features, frame) : null),
     [features, frame],
@@ -112,7 +135,9 @@ export function WorldMap({ selected, resource, bins, labels }: WorldMapProps) {
     const target = selected && drawn.countries.find((c) => c.iso === selected);
     root.call(
       zoom.transform,
-      target ? focusTransform(frame, target.bounds) : homeTransform(frame, drawn.frameBounds),
+      target
+        ? focusTransform(withSheet(frame, sheetInset), target.bounds)
+        : homeTransform(frame, drawn.frameBounds),
     );
     return () => {
       root.on('.zoom', null);
@@ -121,19 +146,21 @@ export function WorldMap({ selected, resource, bins, labels }: WorldMapProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [drawn, frame]);
 
-  // A new selection glides to the country unless it is already in view.
+  // A new selection — or the panel rising over it — glides the country into
+  // the part of the map the panel leaves visible, unless it is already there.
   useEffect(() => {
     const zoom = behaviour.current;
     if (!svg.current || !zoom || !drawn || !frame || !selected) return;
     const target = drawn.countries.find((c) => c.iso === selected);
     if (!target) return;
+    const view = withSheet(frame, sheetInset);
     const root = select(svg.current);
     const now = (root.property('__zoom') as ZoomTransform | undefined) ?? zoomIdentity;
-    if (inView(frame, target.bounds, now)) return;
-    const next = focusTransform(frame, target.bounds);
+    if (inView(view, target.bounds, now)) return;
+    const next = focusTransform(view, target.bounds);
     if (reducedMotion()) root.call(zoom.transform, next);
     else root.transition().duration(600).call(zoom.transform, next);
-  }, [selected, drawn, frame]);
+  }, [selected, drawn, frame, sheetInset]);
 
   const step = useCallback(
     (factor: number | 'home') => {
@@ -155,8 +182,7 @@ export function WorldMap({ selected, resource, bins, labels }: WorldMapProps) {
 
   function open(iso: string) {
     if (!iso) return;
-    const params = new URLSearchParams({ view: 'world', country: iso });
-    if (resource) params.set('resource', resource);
+    const params = new URLSearchParams({ view: 'world', ...keep, country: iso });
     router.push(`/atlas?${params.toString()}`, { scroll: false });
   }
 
@@ -193,6 +219,19 @@ export function WorldMap({ selected, resource, bins, labels }: WorldMapProps) {
       >
         {drawn && (
           <g ref={layer}>
+            <defs>
+              {/* USGS printed a word, not a number: hatched, never a step on the ramp. */}
+              <pattern
+                id="wm-hatch"
+                width="4"
+                height="4"
+                patternUnits="userSpaceOnUse"
+                patternTransform="rotate(45)"
+              >
+                <rect className="wm-hatch-bg" width="4" height="4" />
+                <line className="wm-hatch-line" x1="0" y1="0" x2="0" y2="4" />
+              </pattern>
+            </defs>
             <path className="wm-sphere" d={drawn.sphere} />
             {drawn.countries.map((c, i) => (
               <path
@@ -225,7 +264,7 @@ export function WorldMap({ selected, resource, bins, labels }: WorldMapProps) {
       {hover && (
         <div className="wm-tip" style={{ left: hover.x, top: hover.y }} aria-hidden>
           <strong>{hover.name}</strong>
-          {labels[hover.iso] && <span>{labels[hover.iso]}</span>}
+          {(labels[hover.iso] ?? otherwise) && <span>{labels[hover.iso] ?? otherwise}</span>}
         </div>
       )}
       {failed && <p className="wm-failed">The map could not load. The country list still works.</p>}

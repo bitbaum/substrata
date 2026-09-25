@@ -4,10 +4,10 @@
  * Pure functions apart from the one cached fetch, so WorldMap.tsx stays about
  * interaction.
  */
-import { geoEqualEarth, geoPath, type GeoPermissibleObjects } from 'd3-geo';
+import { geoArea, geoEqualEarth, geoPath, type GeoPermissibleObjects } from 'd3-geo';
 import { zoomIdentity, type ZoomTransform } from 'd3-zoom';
 import { feature } from 'topojson-client';
-import type { Feature, FeatureCollection, Geometry } from 'geojson';
+import type { Feature, FeatureCollection, Geometry, Position } from 'geojson';
 import type { GeometryCollection, Topology } from 'topojson-specification';
 
 /** Natural Earth 1:50m, built by scripts/geo/build-world-50m.mjs. */
@@ -16,6 +16,24 @@ const GEO_URL = '/geo/countries-50m.json';
 export type CountryFeature = Feature<Geometry, { name: string; iso: string }>;
 
 let loading: Promise<CountryFeature[]> | null = null;
+
+/**
+ * d3-geo is spherical: a ring wound the "wrong" way encloses the rest of the
+ * globe, so one bad polygon floods the ocean with that country's colour.
+ * Simplification leaves a few such rings; a polygon covering more than a
+ * hemisphere is one of them, and reversing its rings puts it right.
+ */
+function rewound(f: CountryFeature): CountryFeature {
+  const fix = (rings: Position[][]) => {
+    const area = geoArea({ type: 'Polygon', coordinates: rings });
+    return area > 2 * Math.PI ? rings.map((ring) => [...ring].reverse()) : rings;
+  };
+  const g = f.geometry;
+  if (g.type === 'Polygon') return { ...f, geometry: { ...g, coordinates: fix(g.coordinates) } };
+  if (g.type === 'MultiPolygon')
+    return { ...f, geometry: { ...g, coordinates: g.coordinates.map(fix) } };
+  return f;
+}
 
 export function loadCountries(): Promise<CountryFeature[]> {
   loading ??= fetch(GEO_URL)
@@ -28,7 +46,7 @@ export function loadCountries(): Promise<CountryFeature[]> {
         Geometry,
         { name: string; iso: string }
       >;
-      return fc.features;
+      return fc.features.map(rewound);
     })
     .catch((error: unknown) => {
       loading = null; // let the next mount retry
@@ -110,9 +128,10 @@ function centreOn(frame: Frame, x: number, y: number, k: number): ZoomTransform 
  */
 export function homeTransform(frame: Frame, frameBounds: Bounds): ZoomTransform {
   const box = visibleBox(frame);
+  // Landscape: the whole world fits and is the point. Portrait: zoom in.
+  if (box.h < box.w * 0.9) return zoomIdentity;
   const mapHeight = frameBounds[1][1] - frameBounds[0][1];
   const k = Math.min(3, Math.max(1, (box.h * 0.66) / mapHeight));
-  if (k === 1) return zoomIdentity;
   const mapWidth = frameBounds[1][0] - frameBounds[0][0];
   return centreOn(
     frame,

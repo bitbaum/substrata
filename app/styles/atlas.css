@@ -24,6 +24,8 @@
   --atlas-map-inset-top: calc(var(--atlas-bar-h) + var(--atlas-gutter) * 2);
   --atlas-map-inset-right: 0rem;
   --atlas-map-inset-bottom: calc(var(--atlas-sheet-peek) + var(--atlas-dock) + 3rem);
+  /* Where a selected country is framed when the sheet stands higher than its peek. */
+  --atlas-map-sheet: 0px;
 
   position: relative;
   isolation: isolate;
@@ -36,6 +38,12 @@
   .atlas {
     --atlas-gutter: 1rem;
     --atlas-dock: 4.75rem;
+  }
+}
+@media (max-width: 1023px) {
+  .atlas[data-sheet='half'],
+  .atlas[data-sheet='full'] {
+    --atlas-map-sheet: 58%;
   }
 }
 @media (min-width: 1024px) {
@@ -99,7 +107,8 @@
 }
 .atlas-pick {
   display: flex;
-  flex: 0 1 22rem;
+  flex: 1 1 10rem;
+  max-width: 22rem;
   min-width: 0;
 }
 .atlas-pick select {
@@ -286,6 +295,11 @@
   margin-top: 1.5rem;
   padding: 1rem 0;
   border-block: 1px solid var(--color-border-subtle);
+}
+.atlas-facts .figure-trigger {
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  text-align: left;
 }
 .atlas-facts dd {
   margin-top: 0.25rem;
