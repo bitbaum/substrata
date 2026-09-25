@@ -41,6 +41,10 @@ secret Ask offers browser-only keys.
 `008-ai-spend.sql` (`research_ai_spend`) is the readers-first ledger: background
 jobs spend at most `SUBSTRATA_BACKGROUND_SHARE` (default 0.25) of the day and
 stop at a `SUBSTRATA_READER_FLOOR` (default 0.5) left for Ask.
+`012-ask-timing.sql` (`research_ask_timing`, applied 2026-09-25) holds Ask's
+per-question latency — durations and call counts only, no question text — for
+the p50/p90 on /data#ask-latency; the same line goes to the journal as
+`substrata ask-timing {…}`.
 
 The sweep's cadence lives in the database, not on the box. The box timer
 `appcron-substrata-sweep.timer` fires hourly at :17, and `/api/cron/sweep`

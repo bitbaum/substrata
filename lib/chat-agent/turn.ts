@@ -1,6 +1,8 @@
 /** One model turn, whichever vendor serves it: the free chain or a reader's own key. */
 import {
+  LinkFailure,
   StreamInterrupted,
+  linkId,
   completeStream,
   createLinkCooldown,
   estimateTokens,
@@ -27,6 +29,8 @@ export interface ModelTurnResult {
   calls: ToolRequest[];
   /** `provider/model` that served it. */
   model: string;
+  /** Links that refused before it, as `provider/model: kind` — for the timing log. */
+  skipped?: string[];
 }
 
 export type ModelTurn = (input: {
@@ -48,13 +52,26 @@ export function streamedTurn(opts: {
   onSpend?: (tokens: number) => void;
   /** Skip links that refused recently (the free chain); a reader's one link never. */
   cooldown?: ReturnType<typeof createLinkCooldown>;
+  /**
+   * "light": ask reasoning models for their shortest hidden thinking, which is
+   * time a reader stares at a status line (ai-kit `reasoningBody`). The free
+   * chain; a reader's own key keeps its full reasoning.
+   */
+  reasoning?: 'light';
 }): ModelTurn {
   return async ({ messages, tools, onText }) => {
     const gate = new StreamGate();
+    const skipped: string[] = [];
     let end: { text: string; toolCalls: { name: string; args: string }[]; id: string } | undefined;
     for await (const delta of completeStream({
       chain: opts.cooldown ? opts.cooldown.filter(opts.chain) : opts.chain,
-      onLinkFailure: opts.cooldown?.record,
+      onLinkFailure: (link, error) => {
+        skipped.push(
+          `${linkId(link)}: ${error instanceof LinkFailure ? (error.kind ?? error.status ?? 'failed') : 'failed'}`,
+        );
+        opts.cooldown?.record(link, error);
+      },
+      reasoning: opts.reasoning,
       model: opts.model,
       env: opts.env,
       messages,
@@ -78,7 +95,7 @@ export function streamedTurn(opts: {
       estimateTokens(JSON.stringify(messages), tools ? JSON.stringify(tools) : '', end.text),
     );
     const read = readTurn(end.text, end.toolCalls, Boolean(tools?.length));
-    return { ...read, model: end.id };
+    return { ...read, model: end.id, skipped };
   };
 }
 

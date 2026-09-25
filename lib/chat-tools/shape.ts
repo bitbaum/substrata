@@ -15,6 +15,8 @@ import {
   type Dependency,
 } from '../dependencies';
 import { remember, type Ledger } from './ledger';
+import { listingFor } from '../listings';
+import { listingLine } from './exposure';
 
 // ---------------------------------------------------------------------------
 // Shaping — short, labelled, linkable.
@@ -141,6 +143,7 @@ export function companyDetail(p: MarketParticipant, ledger: Ledger) {
     page,
     layer: p.layer,
     role: p.role,
+    listing: listingLine(listingFor(p.slug)),
     jurisdictions: p.jurisdictions,
     scarcity_grade: p.scarcity
       ? `${SCARCITY_LABEL[p.scarcity]} (analyst judgement, not a cited fact)`

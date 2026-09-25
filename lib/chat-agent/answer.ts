@@ -30,8 +30,18 @@ export interface AgentAnswer {
   degraded?: boolean;
   /** Verify mode: the verdict the answer opened with. */
   verdict?: Verdict;
-  /** Milliseconds from the request to the first visible text, and to the end. */
-  timing?: { firstText?: number; total: number };
+  /**
+   * Milliseconds from the request to the first visible text and to the end;
+   * how many model calls it took and how many lookups were planned before them.
+   */
+  timing?: {
+    firstText?: number;
+    total: number;
+    calls?: number;
+    planned?: number;
+    /** Links that refused on the way, `provider/model: kind`. */
+    skipped?: string[];
+  };
 }
 
 /** Why the chain came back empty, in words a reader can act on. */

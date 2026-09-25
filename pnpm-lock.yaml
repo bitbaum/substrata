@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@bitbaum/ai-kit':
-        specifier: ^1.13.0
-        version: 1.13.0(react@19.3.0)
+        specifier: ^1.14.0
+        version: 1.14.0(react@19.3.0)
       bip-kit:
         specifier: ^0.3.1
         version: 0.3.1(react@19.3.0)
@@ -175,8 +175,8 @@ packages:
     resolution: {integrity: sha512-Vj1jF3cPfxg7OAfoI7QnVKLoILlm2JF9pnVHrX8qx7AHMiYWT+NDAA7jChlNgRS4WTLc/fD1lXLmPixluj+3Gg==}
     engines: {node: '>=6.9.0'}
 
-  '@bitbaum/ai-kit@1.13.0':
-    resolution: {integrity: sha512-QGSooTjfBug30hQfeAXQpX9EnH2NAe6BakLOjM2B71dMX1zEMLuMDOld/58Oi/Z/vujJU9WT8qG7F05OShZtVQ==}
+  '@bitbaum/ai-kit@1.14.0':
+    resolution: {integrity: sha512-6I2otQeO52jfBeDwbQnjE2Fol69Nnz0YIGMRiBHM1yJRH0Lf2X0BmrPhET0WetU9ibyApJa+G29NsDf0YLsCmg==}
     engines: {node: '>=20'}
     peerDependencies:
       react: '>=18'
@@ -2839,7 +2839,7 @@ snapshots:
       '@babel/helper-string-parser': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
 
-  '@bitbaum/ai-kit@1.13.0(react@19.3.0)':
+  '@bitbaum/ai-kit@1.14.0(react@19.3.0)':
     dependencies:
       ai-forms: 0.1.2(react@19.3.0)
     optionalDependencies:

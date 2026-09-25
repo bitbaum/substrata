@@ -1,6 +1,7 @@
 /** Reading a finished turn: its tool calls in either protocol, and its prose cleaned. */
 import { parseTextToolCalls, stripToolCallLines } from '@bitbaum/ai-kit';
 import { CHAT_TOOLS } from '../chat-tools/registry';
+import { resolveByPath } from '../entities/registry';
 
 /**
  * Make the answer's links work.
@@ -11,7 +12,27 @@ import { CHAT_TOOLS } from '../chat-tools/registry';
  * rather than argued with in the prompt.
  */
 export function tidyAnswer(text: string): string {
-  return text.replace(/[\u2010\u2011]/g, '-').replace(/\[(\/[a-z0-9/_-]+)\](?!\()/gi, '[$1]($1)');
+  return citationLinks(text.replace(/[\u2010\u2011]/g, '-')).replace(
+    /\[(\/[a-z0-9/_-]+)\](?!\()/gi,
+    '[$1]($1)',
+  );
+}
+
+/**
+ * gpt-oss and Nemotron cite in their training format — `【/bottlenecks/x】`,
+ * `【https://…】`, `【3†L1-L4】` — which renders as literal brackets and links
+ * nowhere (seen live 2026-09-25). A site path becomes a link named after its
+ * record, a URL a "source" link, `【W1】` the web marker the prompt asks for;
+ * anything else is a marker pointing at nothing the reader can open, and goes.
+ */
+export function citationLinks(text: string): string {
+  return text.replace(/[ \t]?【([^】\n]{1,300})】/g, (_, inner: string) => {
+    const body = inner.split('†')[0].trim();
+    if (/^\/[\w\-/?=&%.]*$/.test(body)) return ` ([${resolveByPath(body)?.name ?? body}](${body}))`;
+    if (/^https?:\/\/\S+$/.test(body)) return ` ([source](${body}))`;
+    if (/^W\d+$/i.test(body)) return ` [${body.toUpperCase()}]`;
+    return '';
+  });
 }
 
 /** A reasoning model's preamble, closed or (when the head was cut) only closed. */

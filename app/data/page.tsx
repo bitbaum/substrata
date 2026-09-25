@@ -8,6 +8,8 @@ import { ageLabel, reviewQueue } from '@/lib/event-draft-store';
 import { Figure } from '@/components/portal/Figure';
 import { AiSpend } from '@/components/data/AiSpend';
 import { spendReport } from '@/lib/ai-budget';
+import { AskLatency } from '@/components/data/AskLatency';
+import { askLatencyReport } from '@/lib/ask-timing';
 import { METHODS, codeHref, methodAnchor, type MethodId } from '@/lib/methods';
 
 export const metadata = { title: 'Data quality and provenance' };
@@ -22,10 +24,11 @@ export default async function DataPage() {
   // A failure to read the run record must not take down a page about
   // provenance. Null renders as "we cannot tell you", which is the honest
   // answer and is never the same as "nothing has happened".
-  const [sweep, queue, spend] = await Promise.all([
+  const [sweep, queue, spend, latency] = await Promise.all([
     freshness().catch(() => null),
     reviewQueue().catch(() => null),
     spendReport().catch(() => null),
+    askLatencyReport().catch(() => null),
   ]);
   return (
     <Shell currentPath="data">
@@ -100,6 +103,8 @@ export default async function DataPage() {
           </p>
           <h2 id="ai-budget">Who spent the AI budget</h2>
           <AiSpend report={spend} />
+          <h2 id="ask-latency">How long Ask takes</h2>
+          <AskLatency report={latency} />
           <h2>Three different kinds of evidence</h2>
           <p>
             A sourced producer row links to an accepted primary source. A candidate source has been
