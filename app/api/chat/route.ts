@@ -121,6 +121,10 @@ export async function POST(request: Request) {
           chain: freeLinks(model),
           cooldown: freeCooldown,
           reasoning: 'light',
+          // Measured 2026-09-25: Groq answers in <1 s, the OpenRouter link that
+          // works takes 3-7 s, and one that has shown nothing by 9 s was (in
+          // the timing log) hung or thinking into an empty reply — 38 s lost.
+          firstTokenMs: 9_000,
           // A reader's question is the priority class; recorded so /data can
           // show it beside background spend. Their own key is not our budget.
           onSpend: (tokens) => void record('interactive', tokens),

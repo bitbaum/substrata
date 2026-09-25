@@ -58,6 +58,11 @@ export function streamedTurn(opts: {
    * chain; a reader's own key keeps its full reasoning.
    */
   reasoning?: 'light';
+  /**
+   * Walk on from a link that has shown nothing after this long (ai-kit
+   * `firstTokenMs`; never applied to the chain's last link). The free chain.
+   */
+  firstTokenMs?: number;
 }): ModelTurn {
   return async ({ messages, tools, onText }) => {
     const gate = new StreamGate();
@@ -72,6 +77,7 @@ export function streamedTurn(opts: {
         opts.cooldown?.record(link, error);
       },
       reasoning: opts.reasoning,
+      firstTokenMs: opts.firstTokenMs,
       model: opts.model,
       env: opts.env,
       messages,
