@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import { Inquire } from './Inquire';
-import { countryDossier, worldInsights } from '@/lib/geo';
+import { countryDossier } from '@/lib/geo';
+import { worldInsights } from '@/lib/geo-insights';
+import { MAP_ISOS } from '@/app/atlas/countries';
 import { neighbors } from '@/lib/graph';
 import { EU_MEMBERS } from '@/lib/geo';
 import { policyHref } from '@/lib/links';
-import { countryDiagram } from '@/lib/country-diagram';
 import { countryResources } from '@/lib/resources/country';
 import { CountryResources } from './resources/CountryResources';
 import { CountryAccess } from './resources/CountryAccess';
@@ -16,19 +17,7 @@ export function WorldPanel({ country, resource }: { country?: string; resource?:
   const measured = selected ? countryResources(selected).measured.length > 0 : false;
   const eu = selected && (EU_MEMBERS as readonly string[]).includes(selected);
   const connected = selected ? neighbors('country', selected).slice(0, 12) : [];
-  const insights = worldInsights();
-  const graphNodes = [
-    ...((dossier?.relatedBottlenecks ?? []).map((b) => ({
-      href: b.href,
-      label: b.label,
-      kind: 'bottleneck',
-    })) ?? []),
-    ...((dossier?.organisations ?? []).map((o) => ({
-      href: o.href,
-      label: o.label,
-      kind: 'company',
-    })) ?? []),
-  ];
+  const insights = worldInsights(MAP_ISOS);
 
   // The map, the controls and the panel's frame and title are the atlas'
   // (app/atlas/page.tsx); this renders what the panel says about the place.
@@ -44,12 +33,6 @@ export function WorldPanel({ country, resource }: { country?: string; resource?:
               <span className="resource-unit">Directory note, not a finding: </span>
               {dossier.why}
             </p>
-          )}
-          {graphNodes.length > 0 && (
-            <figure
-              className="country-graph"
-              dangerouslySetInnerHTML={{ __html: countryDiagram(dossier.name, graphNodes) }}
-            />
           )}
           <CountryResources iso2={dossier.iso2} selected={resource} />
           <CountryAccess iso2={dossier.iso2} />
@@ -137,9 +120,10 @@ export function WorldPanel({ country, resource }: { country?: string; resource?:
         <div>
           <h2>The world, as recorded</h2>
           <p className="world-why">
-            {insights.onMap} countries on the map. {insights.withDirectory} have a geology directory
-            row. {insights.withCorpus} appear in the research corpus. {insights.gaps} are still
-            gaps. Paint is coverage, not importance.
+            {insights.onMap} countries on the map. {insights.withFigures} have USGS or EIA
+            production or reserves figures. {insights.withCorpus} appear in the research corpus.{' '}
+            {insights.withDirectory} have a directory row. {insights.gaps} have none of these yet.
+            Paint shows the picked resource, or coverage when none is picked — not importance.
           </p>
           <h3>Directory minerals</h3>
           <ul className="resource-chips">
