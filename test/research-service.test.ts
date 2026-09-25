@@ -20,7 +20,7 @@ test('atlas counts partition actual bottlenecks and never turn missing coverage 
   for (const s of atlasData('ai'))
     for (const row of s.rows) assert.ok(row.technologies.includes('ai'));
   const totals = evidenceTotals();
-  assert.equal(totals.sourced + totals.candidate + totals.unverified, totals.producerRows);
+  assert.equal(totals.sourced + totals.unverified, totals.producerRows);
 });
 test('search finds companies and text and applies every query term', () => {
   const documents = researchDocuments();

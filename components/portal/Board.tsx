@@ -220,11 +220,7 @@ export function Board({ params, query, result, basePath = '/bottlenecks' }: Prop
                           <span className="font-mono text-xs tabular-nums text-fg-secondary">
                             <Figure method="producer-rows">{row.counts.total}</Figure>
                           </span>
-                          <Progress
-                            sourced={row.counts.sourced}
-                            candidate={row.counts.candidate}
-                            total={row.counts.total}
-                          />
+                          <Progress sourced={row.counts.sourced} total={row.counts.total} />
                         </div>
                       ) : (
                         <span className="text-xs text-fg-muted">Single node</span>

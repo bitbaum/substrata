@@ -144,14 +144,7 @@ const chokepoints: ProfileModule<CompanyProfile> = {
                       Sourced: {hostOf(h.source)} ↗
                     </a>
                   ) : (
-                    <Status
-                      state={h.verification}
-                      label={
-                        h.candidateCount > 0
-                          ? `${h.candidateCount} source${h.candidateCount > 1 ? 's' : ''} found, unchecked`
-                          : undefined
-                      }
-                    />
+                    <Status state={h.verification} />
                   )}
                 </p>
               </div>

@@ -1,19 +1,28 @@
 /**
- * What counts as a candidate event, in one place.
- *
- * Extracted from `scripts/research/sweep-events.ts` when the sweep also had to
- * run on a timer in production. A second copy of "what is an event" living in
- * an API route is how the scheduled sweep and the hand-run one would quietly
- * stop agreeing — so the script keeps the CLI, the file IO and the prune, and
- * the judgement lives here.
+ * What counts as a candidate event, in one place. The box timer's sweep
+ * (`lib/sweep-store.ts`) is the only caller; its queue is the only queue.
  */
 import { createHash } from 'node:crypto';
 import { webSearch, readPage } from '@bitbaum/ai-kit/web';
 
 import { MATERIALS } from '@/config/substrata';
 import { CHOKEPOINTS } from '@/config/substrata-coverage';
-import type { CandidateEvent, EventEffect } from '@/config/substrata-events';
+import type { EventEffect } from '@/config/substrata-events';
 import { DEFAULT_SWEEP_SETTINGS, queryFor, type SweepSettings } from '@/lib/sweep-settings';
+
+/** What the sweep files: a page naming a bottleneck's term with words of change. Never a finding. */
+export interface CandidateEvent {
+  id: string;
+  bottleneck: string;
+  term: string;
+  url: string;
+  title: string;
+  published: string | null;
+  excerpt: string;
+  effectGuess: EventEffect;
+  foundAt: string;
+  status: 'candidate' | 'could_not_look';
+}
 
 export {
   DEFAULT_SWEEP_SETTINGS,

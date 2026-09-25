@@ -17,7 +17,6 @@ export function evidenceTotals() {
   return {
     producerRows: rows.length,
     sourced: rows.filter((p) => p.verification === 'sourced').length,
-    candidate: rows.filter((p) => p.verification === 'candidate').length,
     unverified: rows.filter((p) => p.verification === 'unverified').length,
     assessments: BOTTLENECKS.length,
     latestAssessment:

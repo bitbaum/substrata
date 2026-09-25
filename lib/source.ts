@@ -1,18 +1,14 @@
 /**
  * What counts as a producer-sourcing candidate, in one place.
  *
- * Extracted from `scripts/research/source-producers.ts` for exactly the
- * reason `lib/sweep.ts` was extracted from `scripts/research/sweep-events.ts`:
- * this judgement now has to run on a timer in production too, and a second
- * copy of "does this page confirm this row" living in an API route is how the
- * scheduled run and the hand-run one would quietly stop agreeing. The script
- * keeps the CLI, the file IO and the blindness-streak guard; the search
- * query, the domain-ranking and the excerpt match live here.
+ * The box timer's run (`lib/source-store.ts`) is the only caller, and
+ * `research_source_candidates` the only queue: the search query, the
+ * domain-ranking and the excerpt match live here.
  *
  * A page is a candidate only when a company name and a material term sit in
  * the SAME window of text — see `matchOnPage`. This module never decides that
  * a row is SOURCED; it only ever returns a candidate, exactly as
- * `EvidenceStatus` and `research_source_candidates` both expect.
+ * `research_source_candidates` expects.
  */
 import { readPage, webSearch, type WebResult } from '@bitbaum/ai-kit/web';
 

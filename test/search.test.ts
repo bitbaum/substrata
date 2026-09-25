@@ -64,7 +64,7 @@ for (const { q, top, type, within = 1 } of PAIRS) {
   });
 }
 
-test('every entity kind is searchable, plus events, evidence and the glossary', () => {
+test('every entity kind is searchable, plus events and the glossary', () => {
   const types = new Set(searchDocuments().map((d) => d.type));
   for (const t of [
     'bottleneck',
@@ -73,7 +73,6 @@ test('every entity kind is searchable, plus events, evidence and the glossary', 
     'policy',
     'science',
     'event',
-    'evidence',
     'note',
     'glossary',
   ])

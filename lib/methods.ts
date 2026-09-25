@@ -72,12 +72,12 @@ export const METHODS = {
     code: ['lib/atlas.ts', 'config/substrata-coverage.ts'],
   },
   'sourced-rows': {
-    title: 'Sourced, candidate and unverified rows',
+    title: 'Sourced and unverified rows, and pages found but unchecked',
     formula:
-      'Producer rows counted by verification state: sourced (an accepted primary source is linked), candidate (a source found, not yet reviewed), unverified (neither).',
+      'Producer rows counted by verification state from the corpus: sourced (an accepted primary source is linked) or unverified (none yet). Unchecked pages: open rows in the producer-sourcing queue, counted live from the database.',
     explanation:
-      'A sourced row establishes the specific claim next to its link (that this company makes this thing). It does not verify the rest of the company profile. Candidate rows have a source found but not yet read; unverified rows have neither.',
-    code: ['config/substrata-evidence.ts', 'lib/atlas.ts'],
+      'A sourced row establishes the specific claim next to its link (that this company makes this thing). It does not verify the rest of the company profile. A page the sourcing engine found is a lead until a person reads it; it never changes a row\u2019s state.',
+    code: ['config/substrata-evidence.ts', 'lib/atlas.ts', 'lib/source-store.ts'],
   },
   organisations: {
     title: 'Organisations',
@@ -129,7 +129,7 @@ export const METHODS = {
     formula:
       'Leads in the research sweep\u2019s queue that no person has read yet, counted live from the database.',
     explanation:
-      'The automated sweep proposes leads; this counts the ones nobody has read. They are never shown as findings. The committed worklist file in the repository is an older snapshot of the same queue and is not used for this count.',
+      'The automated sweep proposes leads; this counts the ones nobody has read. They are never shown as findings. The database queue is the only one; there is no committed copy.',
     code: ['lib/sweep-store.ts'],
   },
   'review-queue': {

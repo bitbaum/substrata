@@ -9,7 +9,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 import { DATASETS, FEEDS } from '../config/substrata-freshness';
@@ -30,6 +30,17 @@ test('every dataset states a real date and a positive age limit', () => {
     assert.ok(d.maxAgeDays > 0, `${d.id} allows no age`);
     assert.ok(Date.parse(d.checkedOn) <= Date.now() + 86_400_000, `${d.id} is dated in the future`);
   }
+});
+
+test('every committed research file is declared, and every declared file exists', () => {
+  // A dataset nobody declared is never judged, so it could ship stale forever;
+  // a declared file that was deleted leaves a row judging nothing.
+  const root = process.cwd();
+  const declared = new Set(DATASETS.map((d) => d.file));
+  for (const f of readdirSync(join(root, 'research')).filter((f) => f.endsWith('.json'))) {
+    assert.ok(declared.has(`research/${f}`), `research/${f} has no DATASETS row`);
+  }
+  for (const d of DATASETS) assert.ok(existsSync(join(root, d.file)), `${d.id}: ${d.file} is gone`);
 });
 
 test('the stale guard fires on an old file (the gate can fail)', () => {

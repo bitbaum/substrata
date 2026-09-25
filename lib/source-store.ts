@@ -1,20 +1,18 @@
 import { createHash } from 'node:crypto';
 
-import { evidenceKey } from '@/config/substrata-evidence';
+import { evidenceKey, type EvidenceCandidate } from '@/config/substrata-evidence';
 import { database } from './db';
 import { examineRow, unsourcedRows } from './source';
 
 /**
- * The scheduled producer-sourcing run, and where its findings go.
+ * The scheduled producer-sourcing run, and the one queue its findings go to.
  *
- * The CLI (`scripts/research/source-producers.ts`) writes into
- * `research/evidence.json`, a file in git, because a person is at the
- * keyboard to commit it. A timer has no working tree to commit into — the
- * box runs releases, not checkouts, same as the event sweep's own comment
- * says — so this writes into a review queue instead. `app/review` reads it
- * exactly the way it already reads `research_sweep_candidates`: nothing here
- * is a finding until a person reads the excerpt and promotes the row in
- * `config/substrata-coverage.ts` by hand.
+ * The box timer (`appcron-substrata-source`, every six hours) is the only
+ * producer-sourcing run. The box runs releases, not checkouts, so it writes a
+ * review queue rather than a file. `app/review` reads it the way it reads
+ * `research_sweep_candidates`, and bottleneck pages read its open rows live
+ * (`openCandidatesFor`). Nothing here is a finding until a person reads the
+ * excerpt and promotes the row in `config/substrata-coverage.ts` by hand.
  */
 
 /** Small on purpose, same reasoning as the event sweep: each row costs several web calls. */
@@ -200,4 +198,45 @@ export async function recordSourceVerdict(
       WHERE id = $1 AND reviewed_at IS NULL`,
     [id, verdict, actorId],
   );
+}
+
+/**
+ * Open (unreviewed) candidates for one material's producer rows, by producer:
+ * what a bottleneck page shows as "found, unchecked". `null` when the queue
+ * cannot be read (no database at build time or in CI, or an outage), so the
+ * page says it could not look instead of implying nothing was found.
+ */
+export async function openCandidatesFor(
+  material: string,
+): Promise<Map<string, EvidenceCandidate[]> | null> {
+  try {
+    const result = await database().query<{
+      producer: string;
+      url: string;
+      title: string;
+      excerpt: string;
+      matched: string;
+    }>(
+      `SELECT producer, url, title, excerpt, matched
+         FROM research_source_candidates
+        WHERE material = $1 AND reviewed_at IS NULL
+        ORDER BY found_at DESC
+        LIMIT 60`,
+      [material],
+    );
+    const byProducer = new Map<string, EvidenceCandidate[]>();
+    for (const row of result.rows) {
+      const list = byProducer.get(row.producer) ?? [];
+      list.push({
+        url: row.url,
+        title: row.title,
+        excerpt: row.excerpt,
+        matched: row.matched.split(', ').filter(Boolean),
+      });
+      byProducer.set(row.producer, list);
+    }
+    return byProducer;
+  } catch {
+    return null;
+  }
 }

@@ -31,7 +31,6 @@ export async function GET() {
       producers: {
         total: totals.producers,
         sourced: totals.sourced,
-        withCandidate: totals.candidates,
       },
     },
     { status: ok ? 200 : 503, headers: { 'Cache-Control': 'no-store' } },

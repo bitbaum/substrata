@@ -50,7 +50,6 @@ export interface PortalTotals {
   bindingNow: number;
   producers: number;
   sourced: number;
-  candidates: number;
   jurisdictions: number;
 }
 
@@ -61,7 +60,6 @@ export function portalTotals(): PortalTotals {
     bindingNow: BOTTLENECKS.filter((b) => b.horizon === 'now').length,
     producers: producers.length,
     sourced: producers.filter((p) => p.verification === 'sourced').length,
-    candidates: producers.filter((p) => p.verification === 'candidate').length,
     jurisdictions: new Set(BOTTLENECKS.flatMap((b) => b.jurisdictions)).size,
   };
 }

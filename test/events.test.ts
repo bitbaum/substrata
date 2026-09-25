@@ -6,6 +6,8 @@
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
 
 import { MATERIALS } from '../config/substrata';
 import { ASSESSMENTS, bindingScore } from '../config/substrata-assessment';
@@ -14,7 +16,6 @@ import {
   EVENTS,
   EVENT_EFFECT_LABEL,
   EVENT_KIND_LABEL,
-  EVENT_WORKLIST,
   eventsFor,
   eventsSince,
 } from '../config/substrata-events';
@@ -93,14 +94,11 @@ test('event lookups agree with the file', () => {
   );
 });
 
-test('the sweep worklist is a worklist: every entry names a real bottleneck and never an accepted state', () => {
-  assert.equal(EVENT_WORKLIST.version, 1);
-  for (const c of EVENT_WORKLIST.candidates) {
-    assert.ok(UNIVERSE.has(c.bottleneck), `worklist names unknown bottleneck ${c.bottleneck}`);
-    assert.ok(
-      c.status === 'candidate' || c.status === 'could_not_look',
-      `${c.id}: status ${c.status}`,
-    );
-    if (c.status === 'candidate') assert.match(c.url, /^https?:\/\//, `${c.id}: url`);
+test('each engine has one queue: no committed worklist shadows the database', () => {
+  // research/events.json and research/evidence.json were hand-run copies of the
+  // sweep and sourcing queues; they went stale while the box timers ran and
+  // /api/events reported a week-old sweep. The queues live in the database only.
+  for (const file of ['research/events.json', 'research/evidence.json']) {
+    assert.ok(!existsSync(join(process.cwd(), file)), `${file} is back: use the database queue`);
   }
 });
