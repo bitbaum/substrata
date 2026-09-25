@@ -4,7 +4,14 @@
  * Pure functions apart from the one cached fetch, so WorldMap.tsx stays about
  * interaction.
  */
-import { geoArea, geoEqualEarth, geoPath, type GeoPermissibleObjects } from 'd3-geo';
+import {
+  geoArea,
+  geoBounds,
+  geoEqualEarth,
+  geoPath,
+  type GeoPath,
+  type GeoPermissibleObjects,
+} from 'd3-geo';
 import { zoomIdentity, type ZoomTransform } from 'd3-zoom';
 import { feature } from 'topojson-client';
 import type { Feature, FeatureCollection, Geometry, Position } from 'geojson';
@@ -23,7 +30,7 @@ let loading: Promise<CountryFeature[]> | null = null;
  * Simplification leaves a few such rings; a polygon covering more than a
  * hemisphere is one of them, and reversing its rings puts it right.
  */
-function rewound(f: CountryFeature): CountryFeature {
+export function rewound(f: CountryFeature): CountryFeature {
   const fix = (rings: Position[][]) => {
     const area = geoArea({ type: 'Polygon', coordinates: rings });
     return area > 2 * Math.PI ? rings.map((ring) => [...ring].reverse()) : rings;
@@ -77,94 +84,140 @@ const FRAME: GeoPermissibleObjects = {
   ],
 };
 
-export interface Frame {
-  width: number;
-  height: number;
-  /** Pixels covered by the floating bar, the panel or the resting sheet. */
-  inset: { top: number; right: number; bottom: number };
+/**
+ * The part of the canvas nothing floats over — below the bar, above the sheet
+ * and the legend, left of the panel — in canvas pixels. Measured from the DOM
+ * (map-view.ts), so it is right at every width and every sheet snap.
+ */
+export interface View {
+  x0: number;
+  y0: number;
+  x1: number;
+  y1: number;
 }
 
-type Bounds = [[number, number], [number, number]];
+export type Bounds = [[number, number], [number, number]];
 
-/** The part of the frame nothing floats over, where the world is framed. */
-function visibleBox({ width, height, inset }: Frame) {
-  const x0 = 0;
-  const x1 = Math.max(width - inset.right, width * 0.4);
-  const y0 = inset.top;
-  const y1 = Math.max(height - inset.bottom, y0 + height * 0.3);
-  return { x0, x1, y0, y1, w: x1 - x0, h: y1 - y0, cx: (x0 + x1) / 2, cy: (y0 + y1) / 2 };
+function box(view: View) {
+  const w = Math.max(view.x1 - view.x0, 1);
+  const h = Math.max(view.y1 - view.y0, 1);
+  return { ...view, w, h, cx: view.x0 + w / 2, cy: view.y0 + h / 2 };
 }
 
-/** The projection fitted to the visible width, centred in the visible height. */
-export function projectionFor(frame: Frame) {
-  const box = visibleBox(frame);
-  const pad = Math.min(24, box.w * 0.04);
-  const projection = geoEqualEarth().fitWidth(box.w - pad * 2, FRAME);
-  const [[, y0], [, y1]] = geoPath(projection).bounds(FRAME);
+/**
+ * One projection per canvas width: the band edge to edge across the whole
+ * canvas. Where the world sits in the visible part is the zoom transform's
+ * job, so a sheet rising or a panel opening never re-projects 240 paths.
+ */
+export function projectionFor(width: number) {
+  const pad = Math.min(24, width * 0.04);
+  const projection = geoEqualEarth().fitWidth(Math.max(width - pad * 2, 1), FRAME);
+  const [[x0, y0]] = geoPath(projection).bounds(FRAME);
   const [tx, ty] = projection.translate();
-  projection.translate([tx + box.x0 + pad, ty + box.cy - (y1 - y0) / 2 - y0]);
+  projection.translate([tx - x0 + pad, ty - y0]);
   return projection;
 }
 
-export function pathsFor(features: CountryFeature[], frame: Frame) {
-  const path = geoPath(projectionFor(frame));
+/**
+ * What to frame when a country is picked. Russia's Chukotka tip and the
+ * Aleutians cross the antimeridian, so their outline's projected bounds span
+ * the whole map and "fit Russia" framed the world, centred on the Atlantic.
+ * A crossing country is framed by the side of the line that holds most of it.
+ */
+function focusBounds(f: CountryFeature, path: GeoPath, whole: Bounds, width: number): Bounds {
+  if (whole[1][0] - whole[0][0] < width * 0.45) return whole;
+  const [[lon0, lat0], [lon1, lat1]] = geoBounds(f);
+  if (lon0 <= lon1) return whole; // genuinely wide, not wrapped
+  const [w, e] = 180 - lon0 >= lon1 + 180 ? [lon0, 180] : [-180, lon1];
+  const steps = 8;
+  const points: Position[] = [];
+  for (let i = 0; i <= steps; i++) {
+    const lon = w + ((e - w) * i) / steps;
+    const lat = lat0 + ((lat1 - lat0) * i) / steps;
+    points.push([lon, lat0], [lon, lat1], [w, lat], [e, lat]);
+  }
+  return path.bounds({ type: 'MultiPoint', coordinates: points }) as Bounds;
+}
+
+export function pathsFor(features: CountryFeature[], width: number) {
+  const path = geoPath(projectionFor(width));
   return {
     sphere: path(SPHERE) ?? '',
-    countries: features.map((f) => ({
-      iso: f.properties.iso,
-      name: f.properties.name,
-      d: path(f) ?? '',
-      bounds: path.bounds(f) as Bounds,
-    })),
+    countries: features.map((f) => {
+      const bounds = path.bounds(f) as Bounds;
+      return {
+        iso: f.properties.iso,
+        name: f.properties.name,
+        d: path(f) ?? '',
+        bounds: focusBounds(f, path, bounds, width),
+      };
+    }),
     frameBounds: path.bounds(FRAME) as Bounds,
   };
 }
 
 export const MAX_ZOOM = 12;
 
-function centreOn(frame: Frame, x: number, y: number, k: number): ZoomTransform {
-  const box = visibleBox(frame);
-  return zoomIdentity.translate(box.cx - x * k, box.cy - y * k).scale(k);
+function centreOn(view: View, x: number, y: number, k: number): ZoomTransform {
+  const b = box(view);
+  return zoomIdentity.translate(b.cx - x * k, b.cy - y * k).scale(k);
+}
+
+/** The scale at which the whole band fits the visible part, with a margin. */
+export function homeScale(view: View, frameBounds: Bounds): number {
+  const b = box(view);
+  const pad = Math.min(24, b.w * 0.04);
+  const [[x0, y0], [x1, y1]] = frameBounds;
+  return Math.min((b.w - pad * 2) / (x1 - x0), (b.h - pad * 2) / (y1 - y0));
 }
 
 /**
- * The resting view. A landscape frame shows the whole world; a portrait one
- * (a phone) would show a thin strip, so it starts zoomed until the land fills
- * about two thirds of the visible height, centred on Europe, Africa and Asia,
- * and the reader pans.
+ * The resting view: the whole world, as wide as the visible part allows,
+ * centred in it. On a phone that is the full width between the bar and the
+ * sheet; beside the desktop panel it is the canvas left of it.
  */
-export function homeTransform(frame: Frame, frameBounds: Bounds): ZoomTransform {
-  const box = visibleBox(frame);
-  // Wide enough (a tablet, a desktop): the whole world is the point. A phone
-  // would show a thin strip, so it zooms in.
-  if (box.w >= 600 || box.h < box.w) return zoomIdentity;
-  const mapHeight = frameBounds[1][1] - frameBounds[0][1];
-  const k = Math.min(3, Math.max(1, (box.h * 0.66) / mapHeight));
-  const mapWidth = frameBounds[1][0] - frameBounds[0][0];
-  return centreOn(
-    frame,
-    frameBounds[0][0] + mapWidth * 0.56,
-    frameBounds[0][1] + mapHeight * 0.4,
-    k,
-  );
+export function homeTransform(view: View, frameBounds: Bounds): ZoomTransform {
+  const [[x0, y0], [x1, y1]] = frameBounds;
+  return centreOn(view, (x0 + x1) / 2, (y0 + y1) / 2, homeScale(view, frameBounds));
 }
 
-/** Frame one country: large ones fit, small ones stop at a readable zoom. */
-export function focusTransform(frame: Frame, bounds: Bounds): ZoomTransform {
-  const box = visibleBox(frame);
+/**
+ * Frame one country in the visible part: large ones fit (never smaller than
+ * the whole world), small ones stop at a readable zoom.
+ */
+export function focusTransform(view: View, bounds: Bounds, frameBounds: Bounds): ZoomTransform {
+  const b = box(view);
   const [[x0, y0], [x1, y1]] = bounds;
-  const fit = Math.min((box.w * 0.6) / Math.max(x1 - x0, 1), (box.h * 0.6) / Math.max(y1 - y0, 1));
-  // A country as large as the view (Russia, Canada) stays at world scale,
-  // moved into the part of the map the panel leaves open.
-  if (fit <= 1.25 && inView(frame, bounds, zoomIdentity)) return zoomIdentity;
-  const k = fit <= 1.25 ? 1 : Math.min(8, fit);
-  return centreOn(frame, (x0 + x1) / 2, (y0 + y1) / 2, k);
+  const fit = Math.min((b.w * 0.6) / Math.max(x1 - x0, 1), (b.h * 0.6) / Math.max(y1 - y0, 1));
+  const k = Math.max(homeScale(view, frameBounds), Math.min(6, fit));
+  return clampToView(view, frameBounds, centreOn(view, (x0 + x1) / 2, (y0 + y1) / 2, k));
+}
+
+/**
+ * Keep empty ocean out of the view: where the world is larger than the
+ * visible part it fills it edge to edge, where it is smaller it is centred.
+ * Without this, Russia centred beside the desktop panel left the top half of
+ * the canvas above the Arctic.
+ */
+export function clampToView(view: View, frameBounds: Bounds, t: ZoomTransform): ZoomTransform {
+  const b = box(view);
+  const [[fx0, fy0], [fx1, fy1]] = frameBounds;
+  const axis = (lo: number, hi: number, v0: number, v1: number, shift: number) => {
+    const size = (hi - lo) * t.k;
+    if (size <= v1 - v0) return (v0 + v1) / 2 - ((lo + hi) / 2) * t.k;
+    return Math.min(v0 - lo * t.k, Math.max(v1 - hi * t.k, shift));
+  };
+  const x = axis(fx0, fx1, b.x0, b.x1, t.x);
+  const y = axis(fy0, fy1, b.y0, b.y1, t.y);
+  return zoomIdentity.translate(x, y).scale(t.k);
 }
 
 /** Is the country already comfortably inside the visible part of the view? */
-export function inView(frame: Frame, bounds: Bounds, t: ZoomTransform): boolean {
-  const box = visibleBox(frame);
-  const [x, y] = t.apply([(bounds[0][0] + bounds[1][0]) / 2, (bounds[0][1] + bounds[1][1]) / 2]);
-  const size = Math.max(bounds[1][0] - bounds[0][0], bounds[1][1] - bounds[0][1]) * t.k;
-  return x > box.x0 + 32 && x < box.x1 - 32 && y > box.y0 + 32 && y < box.y1 - 32 && size > 10;
+export function inView(view: View, bounds: Bounds, t: ZoomTransform): boolean {
+  const b = box(view);
+  const [[bx0, by0], [bx1, by1]] = bounds;
+  const [x, y] = t.apply([(bx0 + bx1) / 2, (by0 + by1) / 2]);
+  const size = Math.max(bx1 - bx0, by1 - by0) * t.k;
+  const m = Math.min(32, b.w / 6, b.h / 6);
+  return x > b.x0 + m && x < b.x1 - m && y > b.y0 + m && y < b.y1 - m && size > 10;
 }

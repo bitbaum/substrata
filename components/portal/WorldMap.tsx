@@ -11,7 +11,7 @@
  * arrows) and every country by name through the panel's search, which is also
  * how Malta or Singapore are reached on a phone.
  */
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { select } from 'd3-selection';
 import 'd3-transition';
@@ -20,13 +20,14 @@ import { zoom as d3zoom, zoomIdentity, type ZoomBehavior, type ZoomTransform } f
 import {
   MAX_ZOOM,
   focusTransform,
+  homeScale,
   homeTransform,
   inView,
   loadCountries,
   pathsFor,
   type CountryFeature,
-  type Frame,
 } from './world-map-geo';
+import { useMapView } from './map-view';
 
 export interface WorldMapProps {
   selected?: string;
@@ -37,20 +38,6 @@ export interface WorldMapProps {
   labels: Record<string, string>;
   /** The hover line for a country with no row in this layer. */
   otherwise?: string;
-}
-
-/** A length custom property (possibly a calc()), resolved to pixels by the browser. */
-function readInset(el: HTMLElement, name: string): number {
-  const probe = document.createElement('div');
-  probe.style.cssText = `position:absolute;visibility:hidden;width:0;height:var(${name}, 0px)`;
-  el.appendChild(probe);
-  const px = probe.offsetHeight;
-  probe.remove();
-  return px;
-}
-
-function withSheet(frame: Frame, sheet: number): Frame {
-  return { ...frame, inset: { ...frame.inset, bottom: Math.max(frame.inset.bottom, sheet) } };
 }
 
 function reducedMotion(): boolean {
@@ -65,7 +52,6 @@ export function WorldMap({ selected, keep, bins, labels, otherwise }: WorldMapPr
   const behaviour = useRef<ZoomBehavior<SVGSVGElement, unknown> | null>(null);
   const [features, setFeatures] = useState<CountryFeature[] | null>(null);
   const [failed, setFailed] = useState(false);
-  const [frame, setFrame] = useState<Frame | null>(null);
   const [hover, setHover] = useState<{ iso: string; name: string; x: number; y: number } | null>(
     null,
   );
@@ -74,109 +60,101 @@ export function WorldMap({ selected, keep, bins, labels, otherwise }: WorldMapPr
     loadCountries().then(setFeatures, () => setFailed(true));
   }, []);
 
-  useLayoutEffect(() => {
-    const el = wrap.current;
-    if (!el) return;
-    const measure = () =>
-      setFrame({
-        width: el.clientWidth,
-        height: el.clientHeight,
-        inset: {
-          top: readInset(el, '--atlas-map-inset-top'),
-          right: readInset(el, '--atlas-map-inset-right'),
-          bottom: readInset(el, '--atlas-map-inset-bottom'),
-        },
-      });
-    measure();
-    const observer = new ResizeObserver(measure);
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  // How much of the map the panel covers right now (a bottom sheet at half
-  // height covers more than its resting peek). AtlasSheet writes its snap on
-  // .atlas; the CSS turns that into --atlas-map-sheet.
-  const [sheetInset, setSheetInset] = useState(0);
-  useEffect(() => {
-    const el = wrap.current;
-    const stage = el?.closest('.atlas');
-    if (!el || !stage) return;
-    const read = () => setSheetInset(readInset(el, '--atlas-map-sheet'));
-    read();
-    const observer = new MutationObserver(read);
-    observer.observe(stage, { attributes: true, attributeFilter: ['data-sheet'] });
-    return () => observer.disconnect();
-  }, []);
+  // The canvas and the part of it nothing covers (map-view.ts).
+  const frame = useMapView(wrap);
+  const width = frame?.width ?? 0;
+  const view = frame?.view;
+  // Until the reader pans or zooms, the map follows the sheet and the panel;
+  // after that it stays where they put it.
+  const moved = useRef(false);
 
   const drawn = useMemo(
-    () => (features && frame && frame.width > 0 ? pathsFor(features, frame) : null),
-    [features, frame],
+    () => (features && width > 0 ? pathsFor(features, width) : null),
+    [features, width],
   );
 
-  // One zoom behaviour per frame size; it writes the transform straight to the
-  // layer so a pinch never re-renders 240 paths.
+  // One zoom behaviour per projection; it writes the transform straight to
+  // the layer so a pinch never re-renders 240 paths.
   useEffect(() => {
     if (!svg.current || !drawn || !frame) return;
     const [[x0, y0], [x1, y1]] = drawn.frameBounds;
+    const minK = Math.min(1, homeScale(frame.view, drawn.frameBounds));
+    // Room to move the world into the visible part — below the bar, above a
+    // raised sheet, left of the panel — but never all the way off the canvas.
+    const padX = frame.width / (2 * minK);
+    const padY = frame.height / (2 * minK);
     const zoom = d3zoom<SVGSVGElement, unknown>()
-      .scaleExtent([1, MAX_ZOOM])
+      .scaleExtent([minK, MAX_ZOOM])
       .translateExtent([
-        [x0 - 48, y0 - 96],
-        [x1 + 48, y1 + 96],
+        [x0 - padX, y0 - padY],
+        [x1 + padX, y1 + padY],
       ])
       .clickDistance(6)
-      .on('zoom', (event: { transform: ZoomTransform }) => {
+      .on('zoom', (event: { transform: ZoomTransform; sourceEvent: unknown }) => {
         layer.current?.setAttribute('transform', event.transform.toString());
+        if (event.sourceEvent) moved.current = true;
         setHover(null);
       });
     behaviour.current = zoom;
     const root = select(svg.current);
     root.call(zoom);
-    const target = selected && drawn.countries.find((c) => c.iso === selected);
-    root.call(
-      zoom.transform,
-      target
-        ? focusTransform(withSheet(frame, sheetInset), target.bounds)
-        : homeTransform(frame, drawn.frameBounds),
-    );
     return () => {
       root.on('.zoom', null);
     };
-    // Re-frame on a new size only; a new selection moves the view below.
+    // A new behaviour only when the projection or the canvas changes size.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [drawn, frame]);
+  }, [drawn, frame?.width, frame?.height]);
 
-  // A new selection — or the panel rising over it — glides the country into
-  // the part of the map the panel leaves visible, unless it is already there.
+  // Frame the world, or the selected country, in the visible part: on first
+  // draw, on a new selection, and when the sheet or panel changes what is
+  // visible. Once the reader has panned or zoomed, a change of sheet only
+  // brings the country back if it has left the visible part.
+  const framed = useRef<{ drawn: typeof drawn; selected?: string }>({ drawn: null });
   useEffect(() => {
     const zoom = behaviour.current;
-    if (!svg.current || !zoom || !drawn || !frame || !selected) return;
-    const target = drawn.countries.find((c) => c.iso === selected);
-    if (!target) return;
-    const view = withSheet(frame, sheetInset);
+    if (!svg.current || !zoom || !drawn || !view) return;
+    // A full sheet leaves a sliver: leave the map as it was underneath and
+    // frame it again when the sheet comes down.
+    if (view.y1 - view.y0 < 96) return;
+    // A new projection (a new width) makes the current transform meaningless.
+    const fresh = framed.current.drawn !== drawn;
+    const picked = framed.current.selected !== selected;
     const root = select(svg.current);
+    const target = selected ? drawn.countries.find((c) => c.iso === selected) : undefined;
     const now = (root.property('__zoom') as ZoomTransform | undefined) ?? zoomIdentity;
-    if (inView(view, target.bounds, now)) return;
-    const next = focusTransform(view, target.bounds);
-    if (reducedMotion()) root.call(zoom.transform, next);
+    const free = fresh || picked || !moved.current;
+    if (target && !free && inView(view, target.bounds, now)) return;
+    if (!target && !free) return;
+    const next = target
+      ? focusTransform(view, target.bounds, drawn.frameBounds)
+      : homeTransform(view, drawn.frameBounds);
+    framed.current = { drawn, selected };
+    moved.current = false;
+    if (fresh || reducedMotion()) root.call(zoom.transform, next);
     else root.transition().duration(600).call(zoom.transform, next);
-  }, [selected, drawn, frame, sheetInset]);
+  }, [selected, drawn, view]);
 
   const step = useCallback(
     (factor: number | 'home') => {
       const zoom = behaviour.current;
-      if (!svg.current || !zoom || !drawn || !frame) return;
+      if (!svg.current || !zoom || !drawn || !view) return;
       const root = select(svg.current);
       const run = reducedMotion() ? root : root.transition().duration(250);
-      if (factor === 'home') run.call(zoom.transform, homeTransform(frame, drawn.frameBounds));
-      else run.call(zoom.scaleBy, factor);
+      if (factor === 'home') {
+        moved.current = false;
+        run.call(zoom.transform, homeTransform(view, drawn.frameBounds));
+      } else {
+        moved.current = true;
+        run.call(zoom.scaleBy, factor);
+      }
     },
-    [drawn, frame],
+    [drawn, view],
   );
 
   const pan = useCallback((dx: number, dy: number) => {
     const zoom = behaviour.current;
     if (!svg.current || !zoom) return;
+    moved.current = true;
     select(svg.current).call(zoom.translateBy, dx, dy);
   }, []);
 
