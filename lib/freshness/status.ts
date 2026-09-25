@@ -4,13 +4,14 @@
  */
 import type { Dataset } from '@/config/substrata-freshness';
 
-export type FreshState = 'fresh' | 'late' | 'stale' | 'failing' | 'off' | 'unknown';
+export type FreshState = 'fresh' | 'late' | 'stale' | 'failing' | 'demand' | 'off' | 'unknown';
 
 export const STATE_LABEL: Record<FreshState, string> = {
   fresh: 'Fresh',
   late: 'Late',
   stale: 'Stale',
   failing: 'Failing',
+  demand: 'On demand',
   off: 'Not scheduled',
   unknown: 'Cannot tell',
 };
@@ -93,6 +94,6 @@ export function queueState(
 
 /** The worst of several states, for a one-word summary. */
 export function worstOf(states: readonly FreshState[]): FreshState {
-  const order: FreshState[] = ['failing', 'stale', 'late', 'unknown', 'fresh', 'off'];
+  const order: FreshState[] = ['failing', 'stale', 'late', 'unknown', 'fresh', 'demand', 'off'];
   return order.find((s) => states.includes(s)) ?? 'fresh';
 }

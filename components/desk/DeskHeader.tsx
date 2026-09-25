@@ -2,8 +2,7 @@ import Link from 'next/link';
 
 import { whenLabel } from '@/lib/desk';
 import { WINDOW_LABEL, type Window } from '@/lib/follows';
-import { DeskRefresh } from '@/components/portal/DeskRefresh';
-import { checkNow, markAllRead } from '@/app/account/actions';
+import { markAllRead } from '@/app/account/actions';
 import { methodHref } from '@/lib/methods';
 
 export interface Freshness {
@@ -29,6 +28,7 @@ export function DeskHeader({
   mutedCount,
   now,
   queue = null,
+  autoDraft = null,
 }: {
   firstName?: string;
   /** Unread rows in the current window and sources — the same number as the Unread tab. */
@@ -40,6 +40,8 @@ export function DeskHeader({
   mutedCount: number;
   now: Date;
   queue?: QueueLine | null;
+  /** The reader's automatic AI updates: their daily cap when on, null when off. */
+  autoDraft?: number | null;
 }) {
   return (
     <header className="desk-hero">
@@ -82,6 +84,15 @@ export function DeskHeader({
               </Link>
             </>
           )}
+          {' · '}
+          <Link
+            href="/account/settings#auto-updates"
+            title="Drafting runs only on your own AI key — never on the site's free AI"
+          >
+            {autoDraft === null
+              ? 'AI drafts on demand, with your own key'
+              : `Automatic AI updates on your key, up to ${autoDraft} a day`}
+          </Link>
           {mutedCount > 0 && (
             <>
               {' · '}
@@ -91,7 +102,6 @@ export function DeskHeader({
         </p>
       </div>
       <div className="desk-hero-actions">
-        <DeskRefresh action={checkNow} sweeping={Boolean(fresh?.sweeping)} />
         {unread > 0 && (
           <form action={markAllRead}>
             <button

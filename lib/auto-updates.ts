@@ -19,13 +19,6 @@ import { database } from './db';
 import { draftLeads, leadsToDraft } from './event-draft-run';
 import { parseFollows, railsOf } from './follows';
 
-/**
- * Tokens one draft costs a reader's key: a page excerpt in, a JSON row out.
- * Measured on 2026-09-25 across the drafts the free chain made before this
- * rule (see the project note ai-and-feed-economy). Used only for the estimate
- * shown next to the switch; the reader's vendor bills what it counts.
- */
-export const TOKENS_PER_DRAFT = 3_400;
 /** Leads per reader per hourly run, so one reader's backlog cannot hold up the next. */
 export const AUTO_DRAFTS_PER_RUN = 5;
 /** The box wrapper gives a run 300 s; stop starting drafts well before. */

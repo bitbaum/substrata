@@ -22,6 +22,7 @@ import { currentSession } from '@/lib/auth';
 import { readFollows } from '@/lib/desk-store';
 import { pipelineSection } from '@/components/science/BottleneckPipeline';
 import { CheckThis } from '@/components/portal/CheckThis';
+import { UpdateNews } from '@/components/updates/UpdateNews';
 
 interface RouteParams {
   params: Promise<{ slug: string }>;
@@ -119,6 +120,10 @@ export default async function BottleneckPage({ params }: RouteParams) {
               />
             </div>
           )}
+
+          <div className="mt-5">
+            <UpdateNews scope={{ kind: 'bottleneck', slug: b.slug }} />
+          </div>
 
           <dl
             id="assessment"

@@ -20,9 +20,9 @@ export function AiSpend({ report }: { report: { capacity: number; days: SpendDay
   return (
     <>
       <p>
-        Ask shares one free daily AI budget with the scheduled jobs that draft events for review.
-        Readers come first: background jobs may spend at most a quarter of the day and stop before
-        half of it is gone.{' '}
+        The free daily AI budget is spent only by readers asking questions (Ask and fact-checks). No
+        scheduled job uses it any more: drafting news into events runs only on a reader’s own AI
+        key. The background column shows the days before that.{' '}
         {today ? (
           <>
             On {today.day} (UTC), readers used{' '}

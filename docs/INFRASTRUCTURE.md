@@ -72,14 +72,38 @@ research; correct the source corpus, redeploy, and capture a new digest.
 
 ## From lead to event
 
-`010-event-drafts.sql` backs the drafter. `POST /api/cron/drafts` (box timer
-`appcron-substrata-drafts`, hourly at :32) takes up to five open sweep leads,
-newest first, reads each page and asks the free model chain for a draft
-CoverageEvent plus an "event / not an event" suggestion (`lib/event-draft.ts`,
-`lib/event-draft-run.ts`). A draft whose quote is not on the fetched page word
-for word is refused after one retry; names are cut to the directory's; a
-per-minute refusal pauses the run once and a daily one ends it. Nothing is
-published by this.
+`010-event-drafts.sql` backs the drafter. It reads a lead's page and asks a
+model for a draft CoverageEvent plus an "event / not an event" suggestion
+(`lib/event-draft.ts`, `lib/event-draft-run.ts`). A draft whose quote is not
+on the fetched page word for word is refused after one retry; names are cut
+to the directory's. Nothing is published by this.
+
+**No background job spends the free AI** (George, 2026-09-25: "background jobs
+should not exist if there is a free tier only"). The free chain is kept for
+readers' questions (Ask, fact-checks). Drafting calls a model only through
+`lib/byok-ask.ts`, on a reader's own key, in two ways:
+
+- **Update news now** (bottleneck pages, company pages, the desk;
+  `components/updates/UpdateNews.tsx`). Step one, `POST /api/updates`, sweeps
+  the page's bottlenecks with the self-hosted SearXNG sweep (`sweepStaleNow`,
+  15-minute cooldown per bottleneck, `update-now` rate lane per visitor) and
+  returns the open leads — no AI, signed out too. Step two, `POST
+  /api/updates/draft`, "Summarise with AI", drafts up to three of them on the
+  key the reader sends (browser) or has sealed on their account; without one
+  it answers 402 and the page offers the key panel.
+- **Automatic AI updates** (`/account/settings#auto-updates`, `lib/auto-updates.ts`).
+  A reader with a key sealed on their account may switch it on and pick a
+  daily cap. `POST /api/cron/auto-updates` (box timer
+  `appcron-substrata-auto-updates`, hourly at :32) drafts up to five new leads
+  per opted-in reader per run, on that reader's rails and key, counted per UTC
+  day in `research_auto_draft_days` (`013-auto-updates.sql`). Nobody opted in
+  means no model call.
+
+`test/no-free-background-ai.test.ts` walks the import graph from every
+`app/api/cron/**` route and the background modules and fails on any path to
+`freeChain`/`usableChain`, the Ask turn, the free ledger, or a model call
+outside `lib/byok-ask.ts`. The old `/api/cron/drafts` timer is gone (loki#890).
+`/data/freshness` reports drafting as "on demand", never late.
 
 At `/review` each lead shows its draft as an editable form beside the page
 text around the quote. Accept re-checks the edited row with `lib/event-rules.ts`

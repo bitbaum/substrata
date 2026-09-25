@@ -12,11 +12,12 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
 import { auth, isReviewer } from '@/lib/auth';
-import { setMark, clearMarks, readFollows, updateFollows } from '@/lib/desk-store';
-import { normaliseHost, railsOf, parseDesk, type Follows } from '@/lib/follows';
+import { setMark, clearMarks, updateFollows } from '@/lib/desk-store';
+import { normaliseHost, parseDesk, type Follows } from '@/lib/follows';
 import { type MarkState } from '@/lib/desk-filter';
 import { parseSweepSettings } from '@/lib/sweep';
-import { CHECK_NOW_COOLDOWN_HOURS, saveSweepSettings, sweepStaleNow } from '@/lib/sweep-store';
+import { saveSweepSettings, sweepStaleNow } from '@/lib/sweep-store';
+import { storedKey } from '@/lib/byok-vault';
 import { recordVerdict } from '@/lib/sweep-review';
 import { BOTTLENECKS } from '@/lib/bottlenecks';
 import { TECHNOLOGIES } from '@/config/substrata-taxonomy';
@@ -71,13 +72,19 @@ export async function verdict(form: FormData) {
   revalidatePath('/account');
 }
 
-export async function checkNow() {
+/**
+ * Automatic AI updates on the reader's own saved key. Refused without one:
+ * the switch spends that key and nothing else, so there must be one to spend.
+ */
+export async function saveAutoUpdates(form: FormData) {
   const actorId = await actor();
-  const rails = railsOf(await readFollows(actorId)).map((b) => b.name);
-  const outcome = await sweepStaleNow(rails, { cooldownHours: CHECK_NOW_COOLDOWN_HOURS });
-  redirect(
-    `/account?checked=${outcome.swept.length}&found=${outcome.found}&blind=${outcome.couldNotLook}`,
-  );
+  const on = form.get('autoDraft') === 'on';
+  if (on && !(await storedKey(actorId))) redirect('/account/settings?saved=need-key#auto-updates');
+  await updateFollows(actorId, (f) => ({
+    ...f,
+    desk: parseDesk({ ...f.desk, autoDraft: on, autoDraftPerDay: form.get('autoDraftPerDay') }),
+  }));
+  redirect('/account/settings?saved=auto#auto-updates');
 }
 
 /** Sweep one named rail now, from the settings table. Ten-minute cooldown per node. */

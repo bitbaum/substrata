@@ -43,6 +43,12 @@ export interface Feed {
    * a run that crashed (never finished) is caught separately.
    */
   failedWhen: string;
+  /**
+   * Set when the feed runs when a reader asks, not on a clock — then it is
+   * reported as "on demand" with this reason, never as late. Drafting is one:
+   * it runs only on readers' own AI keys (George, 2026-09-25).
+   */
+  onDemand?: string;
 }
 
 export const FEEDS: readonly Feed[] = [
@@ -58,10 +64,12 @@ export const FEEDS: readonly Feed[] = [
   {
     id: 'drafts',
     label: 'Event drafts',
-    what: 'Reads waiting sweep leads and drafts an event from each, quote checked against the page.',
+    what: 'Reads sweep leads and drafts an event from each, quote checked against the page — on a reader’s own AI key, never the free AI.',
     shows: { label: 'Unreviewed drafts in /review', href: '/review' },
     table: 'research_event_draft_runs',
-    everyHours: 1,
+    everyHours: null,
+    onDemand:
+      'Runs when a reader presses “Summarise with AI”, and hourly only for readers who switched on automatic updates — each time on their own key.',
     failedWhen: 'drafted = 0 AND could_not_read > 0',
   },
   {
