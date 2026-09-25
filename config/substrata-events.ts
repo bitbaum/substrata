@@ -7,15 +7,14 @@
  * the energy stage gets the answer without reading a headline.
  *
  * This file holds ACCEPTED events: an analyst read the source and wrote the
- * line. The sweep (scripts/research/sweep-events.ts) files candidates into
- * research/events.json and never writes here. Kinds and effects are closed
+ * line. The sweep (box timer, lib/sweep-store.ts) files candidates into its
+ * one queue, `research_sweep_candidates`, and never writes here. Kinds and effects are closed
  * sets, and a test refuses an event that names a bottleneck or participant
  * the universe does not have.
  *
  * Created: 2026-09-15
  */
 
-import eventsWorklist from '../research/events.json';
 // Rows accepted at /review and written by `pnpm run research:accept-events`.
 // Same shape, same tests, same rule: they reach a page through a commit.
 import reviewedEvents from './substrata-events-accepted.json';
@@ -51,36 +50,6 @@ export interface CoverageEvent {
   quote: string;
   /** The date the analyst accepted it; git carries the rest. */
   acceptedOn: string;
-}
-
-/**
- * What the sweep files: a page that mentions a bottleneck's term with the
- * words of a change around it. A worklist entry, never a finding.
- */
-export interface CandidateEvent {
-  id: string;
-  bottleneck: string;
-  term: string;
-  url: string;
-  title: string;
-  published: string | null;
-  excerpt: string;
-  effectGuess: EventEffect;
-  foundAt: string;
-  status: 'candidate' | 'could_not_look';
-}
-
-export interface EventsWorklist {
-  version: 1;
-  generatedAt: string | null;
-  candidates: CandidateEvent[];
-}
-
-export const EVENT_WORKLIST: EventsWorklist = eventsWorklist as EventsWorklist;
-
-/** Candidates nobody has read yet. Counted on the site, never listed as findings. */
-export function candidatesAwaiting(): number {
-  return EVENT_WORKLIST.candidates.filter((c) => c.status === 'candidate').length;
 }
 
 export const EVENT_KIND_LABEL: Record<EventKind, string> = {

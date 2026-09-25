@@ -10,12 +10,7 @@ const NAME = 10;
 const AKA = 7;
 const BODY = 1.5;
 
-/**
- * How much a type's match is worth, relative to an entity. Evidence rows are
- * named "<producer> · <material>", so they match both halves of most queries
- * and — unweighted — buried the bottleneck they are evidence FOR under seven
- * of its own candidate pages. They are the trail, not the destination.
- */
+/** How much a type's match is worth, relative to an entity. */
 const TYPE_WEIGHT: Partial<Record<SearchType, number>> = {
   bottleneck: 1.1,
   glossary: 0.9,
@@ -25,7 +20,6 @@ const TYPE_WEIGHT: Partial<Record<SearchType, number>> = {
   loop: 0.9,
   talent: 0.9,
   event: 0.8,
-  evidence: 0.55,
 };
 
 export function idf(index: SearchIndex, word: string): number {

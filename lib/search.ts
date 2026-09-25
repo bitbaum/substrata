@@ -5,9 +5,9 @@
  * `lib/research-index.ts` is the retrieval projection the assistant uses, and
  * its scoring is tuned for that (OR over a question's meaningful words). This
  * module reads the same entity registry — so search can never know about a
- * thing the profile pages do not — and adds the three kinds of record that are
- * not entities but that a reader searches for all the same: accepted events,
- * evidence-engine candidates and glossary terms.
+ * thing the profile pages do not — and adds the two kinds of record that are
+ * not entities but that a reader searches for all the same: accepted events
+ * and glossary terms.
  *
  * Ranking, in order of weight:
  *   1. the name (an exact name match beats everything),

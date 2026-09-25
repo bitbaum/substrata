@@ -1,16 +1,11 @@
-import Link from 'next/link';
-
 import { Figure } from '@/components/portal/Figure';
-import { Status } from '@/components/portal/Status';
+import { ProducersTable } from '@/components/portal/ProducersTable';
 import { JUDGED_BY } from '@/config/substrata-about';
 import { stageById } from '@/config/substrata-stages';
 import { bottleneckBySlug, type Bottleneck } from '../../bottlenecks';
-import { marketHref } from '../../links';
 import type { Entity } from '../../entities/types';
 import { t } from '../../i18n/messages';
 import type { ProfileModule } from '../types';
-import { Ticker } from '@/components/exposure/Ticker';
-import { listingForName } from '@/lib/listings';
 
 // What a bottleneck is, how it is judged and who makes it. What governs it and
 // what would change it live in `bottleneck-levers.tsx`.
@@ -98,94 +93,9 @@ const producers: ProfileModule<Bottleneck> = {
     const b = bottleneck(e);
     return b && b.producers.length > 0 ? b : null;
   },
-  evidence: (b) =>
-    `${b.counts.sourced} verified · ${b.counts.candidate} unchecked · ${b.counts.total} rows`,
+  evidence: (b) => `${b.counts.sourced} verified of ${b.counts.total} rows`,
   Render({ data: b }) {
-    return (
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse text-left">
-          <thead>
-            <tr className="border-b border-strong">
-              {['Organisation', 'Where', 'Step', 'Evidence'].map((column, i) => (
-                <th
-                  key={column}
-                  scope="col"
-                  className={`py-2.5 pr-4 font-mono text-xs font-medium uppercase tracking-caps text-fg-tertiary ${
-                    i === 1 ? 'hidden sm:table-cell' : ''
-                  }`}
-                >
-                  {column}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-subtle">
-            {b.producers.map((p) => (
-              <tr key={p.name} className="group align-top">
-                <td className="py-3 pr-4">
-                  <Link
-                    href={marketHref(p.name)}
-                    className="text-fg-primary underline-offset-4 group-hover:underline"
-                  >
-                    {p.name}
-                  </Link>
-                  <span className="mt-1 block text-xs">
-                    <Ticker listing={listingForName(p.name)} compact />
-                  </span>
-                </td>
-                <td className="hidden py-3 pr-4 font-mono text-xs tabular-nums text-fg-secondary sm:table-cell">
-                  {p.jurisdictions.join(' ')}
-                </td>
-                <td className="py-3 pr-4 text-sm text-fg-secondary">{p.role}</td>
-                <td className="py-3 text-sm">
-                  {p.source ? (
-                    <a
-                      href={p.source}
-                      className="inline-flex items-center gap-2 text-accent underline-offset-4 hover:underline"
-                      rel="noreferrer"
-                    >
-                      <span
-                        aria-hidden
-                        className="inline-block h-1.5 w-1.5 rounded-full bg-status-positive"
-                      />
-                      Verified source ↗
-                    </a>
-                  ) : p.candidates.length > 0 ? (
-                    <details>
-                      <summary className="inline-flex cursor-pointer items-center gap-2 text-fg-secondary underline-offset-4 hover:text-fg-primary hover:underline">
-                        <span
-                          aria-hidden
-                          className="inline-block h-1.5 w-1.5 rounded-full bg-status-warning"
-                        />
-                        {p.candidates.length} found, unchecked
-                      </summary>
-                      <ul className="mt-2 space-y-3">
-                        {p.candidates.map((c) => (
-                          <li key={c.url} className="max-w-prose">
-                            <a
-                              href={c.url}
-                              rel="noreferrer"
-                              className="text-accent underline-offset-4 hover:underline"
-                            >
-                              {c.title || c.url} ↗
-                            </a>
-                            <p className="mt-1 text-xs leading-relaxed text-fg-tertiary">
-                              “{c.excerpt}”
-                            </p>
-                          </li>
-                        ))}
-                      </ul>
-                    </details>
-                  ) : (
-                    <Status state="unverified" />
-                  )}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    );
+    return <ProducersTable b={b} />;
   },
 };
 

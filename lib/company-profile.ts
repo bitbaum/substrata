@@ -45,7 +45,6 @@ export interface HeldChokepoint {
   supplier: boolean;
   verification: Verification;
   source: string | null;
-  candidateCount: number;
   /**
    * For a maker: the other makers the corpus records on the same row — the
    * second sources. For a part supplier: the makers it supplies into.
@@ -154,7 +153,6 @@ export function companyProfile(slug: string): CompanyProfile | undefined {
         supplier: row.supplier,
         verification: row.verification,
         source: row.source,
-        candidateCount: row.candidateCount,
         counterparts,
         soleRecorded: !row.supplier && counterparts.length === 0,
       },

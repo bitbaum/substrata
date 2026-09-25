@@ -63,8 +63,8 @@ export default async function BottlenecksPage({
               ),
               note: (
                 <>
-                  <Figure method="sourced-rows">{totals.candidates}</Figure> have a source found but
-                  unchecked
+                  <Figure method="sourced-rows">{totals.producers - totals.sourced}</Figure> still
+                  unverified
                 </>
               ),
             },

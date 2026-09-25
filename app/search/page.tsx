@@ -64,7 +64,7 @@ export default async function SearchPage({
       <Page>
         <SectionHeader
           title="Search"
-          lede="Bottlenecks, companies, countries, policy, science, events, evidence, notes and the glossary — one index, grouped by what each result is."
+          lede="Bottlenecks, companies, countries, policy, science, events, notes and the glossary — one index, grouped by what each result is."
         />
         <SearchBox initialQuery={q} type={type} />
         <p className="search-help" aria-hidden>

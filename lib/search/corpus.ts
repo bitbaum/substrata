@@ -1,14 +1,14 @@
 /**
  * The search corpus: every entity in the registry plus the records that are
- * not entities but that a reader searches for all the same — accepted events,
- * evidence-engine candidates and glossary terms.
+ * not entities but that a reader searches for all the same — accepted events
+ * and glossary terms. Pages the sourcing engine found are a review queue, not
+ * corpus, so they are not indexed (lib/source-store.ts).
  */
 import { GLOSSARY } from '@/config/substrata-glossary';
 import { EVENTS, EVENT_EFFECT_LABEL, EVENT_KIND_LABEL } from '@/config/substrata-events';
-import { EVIDENCE } from '@/config/substrata-evidence';
 import { allEntities } from '../entities/registry';
 import type { EntityKind } from '../entities/types';
-import { bottleneckHref, glossaryHref } from '../links';
+import { glossaryHref } from '../links';
 import { allLearn, allNotes, type Note } from '../notes';
 import type { SearchType } from '../search-types';
 
@@ -101,19 +101,6 @@ export function searchDocuments(): SearchDoc[] {
     meta: `${ev.date} · ${EVENT_EFFECT_LABEL[ev.effect]}`,
   }));
 
-  const evidence: SearchDoc[] = EVIDENCE.rows
-    .filter((row) => row.candidates.length > 0)
-    .map((row) => ({
-      id: `evidence:${row.material}:${row.producer}`,
-      type: 'evidence' as const,
-      title: `${row.producer} · ${row.material}`,
-      aka: [],
-      summary: row.candidates[0].excerpt,
-      body: row.candidates.map((c) => `${c.title} ${c.excerpt}`).join(' '),
-      href: bottleneckHref(row.material),
-      meta: `${row.candidates.length} page${row.candidates.length === 1 ? '' : 's'} found, not yet read`,
-    }));
-
   const glossary: SearchDoc[] = GLOSSARY.map((g) => ({
     id: `glossary:${g.term}`,
     type: 'glossary' as const,
@@ -125,5 +112,5 @@ export function searchDocuments(): SearchDoc[] {
     meta: 'definition',
   }));
 
-  return [...entities, ...events, ...evidence, ...glossary];
+  return [...entities, ...events, ...glossary];
 }

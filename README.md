@@ -143,50 +143,34 @@ having asked for a rule only where it says so in its own document.
 
 ## Research engine
 
-`research/evidence.json` is what the engine has found; `config/substrata-coverage.ts`
-is what the firm asserts. They are kept apart on purpose. A row reads one of
-three ways — unverified lead, candidate source, sourced — and only the last is
-a finding.
+`config/substrata-coverage.ts` is what the firm asserts; the producer-sourcing
+engine's finds are a review queue, and the two are kept apart on purpose. A
+producer row is sourced or unverified, and only sourced is a finding.
 
-```bash
-# The fleet's SearXNG listens on the box's loopback only. From a laptop, tunnel it.
-ssh -N -L 8899:127.0.0.1:8899 ubuntu@167.233.22.31 &
-SEARXNG_URL=http://127.0.0.1:8899 pnpm research:source            # rows not yet examined
-SEARXNG_URL=http://127.0.0.1:8899 pnpm research:source --all      # re-examine everything
-SEARXNG_URL=http://127.0.0.1:8899 pnpm research:source --limit 5  # a quick run
-```
+Each engine has ONE queue, in Postgres, filled by a box timer:
 
-For each unverified producer row it searches for the company with the
-material's keywords, reads the top pages through ai-kit's SSRF-checked reader,
-and files a page as a candidate only if it names the company AND a material
-term, with the matching excerpt. Promotion to "sourced" is a deliberate edit
-to the coverage file by someone who read the excerpt. Commit the evidence file
-after a run: git is the timestamp.
+| Engine | Timer | Queue | Judgement |
+| --- | --- | --- | --- |
+| Producer sourcing | `appcron-substrata-source`, every 6 h | `research_source_candidates` | `lib/source.ts` |
+| Event sweep | `appcron-substrata-sweep`, hourly (due per `/account/settings#sweep`) | `research_sweep_candidates` | `lib/sweep.ts` |
 
-The judgement behind this — the query, the domain ranking, the excerpt
-match — lives in `lib/source.ts`, shared with a scheduled counterpart:
-`POST /api/cron/source`, driven by a systemd timer on the box the same way
-the event sweep already was, examining a few least-recently-checked
-unsourced rows per run and filing candidates into Postgres
-(`research_source_candidates`) rather than into git — a running server has
-no working tree to commit a promotion into. `/review` lists what it finds;
-promoting one to `sourced()` is still a person editing the coverage file.
-Needs `scripts/db/004-source-sweep.sql` applied and `CRON_SECRET` set — see
-`docs/INFRASTRUCTURE.md`.
+For each unsourced producer row the sourcing run searches for the company with
+the material's keywords, reads the top pages through ai-kit's SSRF-checked
+reader, and files a page only if it names the company AND a material term,
+with the matching excerpt. Bottleneck pages show those open rows live as
+"N found, unchecked"; `/review` lists them. Promotion to "sourced" is a
+deliberate edit to the coverage file by someone who read the excerpt.
 
-## Events and the sweep
+The sweep does the same per bottleneck for words of change. `/api/events`
+reports its last run and open-lead count from the queue; the site lists only
+accepted events (`config/substrata-events.ts`).
 
-`config/substrata-events.ts` holds accepted events: one line, one date, one
-source, one effect (tightens / loosens / neutral) on the bottlenecks it names.
-`research/events.json` is the sweep's worklist of candidates. The site counts
-candidates and lists only accepted events.
+There is no hand-run CLI and no committed worklist any more (removed
+2026-09-25): SearXNG is only reachable from the box, and a second queue in git
+went stale while the timers ran. To force a run, start the unit on the box:
+`sudo systemctl start appcron-substrata-source.service` (or `-sweep`).
 
-```bash
-SEARXNG_URL=http://127.0.0.1:8899 pnpm research:sweep             # every bottleneck
-SEARXNG_URL=http://127.0.0.1:8899 pnpm research:sweep --limit 5   # a quick run
-```
-
-Accepting a candidate means reading the page, taking the date from the page
+Accepting an event means reading the page, taking the date from the page
 (search engines rarely supply one), writing the headline, and adding the row
 to the accepted file. `config/substrata-assessment.ts` holds each bottleneck's
 stage, binding score and horizon; events are what should move them.

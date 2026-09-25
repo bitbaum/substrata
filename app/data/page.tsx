@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Page, Shell, SectionHeader } from '@/components/portal/Shell';
 import { evidenceTotals } from '@/lib/atlas';
-import { EVIDENCE } from '@/config/substrata-evidence';
+import { sourceFreshness } from '@/lib/source-store';
 import { freshness } from '@/lib/sweep-queue';
 import { ageLabel, reviewQueue } from '@/lib/event-draft-store';
 import { Figure } from '@/components/portal/Figure';
@@ -24,8 +24,9 @@ export default async function DataPage() {
   // A failure to read the run record must not take down a page about
   // provenance. Null renders as "we cannot tell you", which is the honest
   // answer and is never the same as "nothing has happened".
-  const [sweep, queue, spend, latency] = await Promise.all([
+  const [sweep, sourcing, queue, spend, latency] = await Promise.all([
     freshness().catch(() => null),
+    sourceFreshness().catch(() => null),
     reviewQueue().catch(() => null),
     spendReport().catch(() => null),
     askLatencyReport().catch(() => null),
@@ -42,11 +43,15 @@ export default async function DataPage() {
               value: <Figure method="producer-rows">{t.producerRows}</Figure>,
             },
             { label: 'Sourced', value: <Figure method="sourced-rows">{t.sourced}</Figure> },
-            {
-              label: 'Candidate sources',
-              value: <Figure method="sourced-rows">{t.candidate}</Figure>,
-            },
             { label: 'Unverified', value: <Figure method="sourced-rows">{t.unverified}</Figure> },
+            {
+              label: 'Pages found, unchecked',
+              value: sourcing ? (
+                <Figure method="sourced-rows">{sourcing.openCandidates}</Figure>
+              ) : (
+                'not readable now'
+              ),
+            },
           ]}
         />
         <div className="research-prose">
@@ -122,10 +127,12 @@ export default async function DataPage() {
           </p>
           <h2>Dates and reproducibility</h2>
           <p>
-            The evidence engine last recorded a run at {EVIDENCE.generatedAt ?? 'no recorded date'}.
-            Export time tells you when a file was generated, not when its claims were verified. The
-            export includes a SHA-256 content digest so you can identify an exact dataset and
-            reproduce counts.
+            The producer-sourcing engine last completed a run at{' '}
+            {sourcing?.lastRunAt?.slice(0, 16).replace('T', ' ') ??
+              'a time that cannot be read now'}
+            {sourcing?.lastRunAt ? ' UTC' : ''}. Export time tells you when a file was generated,
+            not when its claims were verified. The export includes a SHA-256 content digest so you
+            can identify an exact dataset and reproduce counts.
           </p>
           <h2 id="methods">How each number is computed</h2>
           <p>

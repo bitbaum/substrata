@@ -41,9 +41,8 @@ export function substrataSiteChrome(): SiteChrome {
 // =====================================================================
 
 function aboutPage(): SitePage {
-  // The live producer counts, the same function /data and the front page use.
-  // This used to read the evidence engine's run file, which is a snapshot from
-  // its last run: it said 80 rows were unchecked when 2 were.
+  // The producer counts from the corpus, the same function /data and the front
+  // page use. Pages the sourcing engine found are a live queue, not counted here.
   const producers = portalTotals();
 
   return {
@@ -60,7 +59,7 @@ function aboutPage(): SitePage {
           {
             label: 'Producer rows',
             value: `${producers.sourced} of ${producers.producers}`,
-            note: `sourced · ${producers.candidates} have a source found but unchecked · how each is counted: /data`,
+            note: `sourced · ${producers.producers - producers.sourced} still unverified · how each is counted: /data`,
           },
           {
             label: 'Events recorded',

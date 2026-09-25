@@ -13,12 +13,7 @@ import {
   type Chokepoint,
 } from '@/config/substrata-coverage';
 import { PARTICIPANTS } from '@/config/substrata-participants';
-import {
-  evidenceFor,
-  verificationFor,
-  type EvidenceCandidate,
-  type Verification,
-} from '@/config/substrata-evidence';
+import { verificationFor, type Verification } from '@/config/substrata-evidence';
 import {
   assessmentFor,
   bindingScore,
@@ -41,7 +36,6 @@ export interface BottleneckProducer {
   supplier: boolean;
   verification: Verification;
   source: string | null;
-  candidates: EvidenceCandidate[];
 }
 
 export interface Bottleneck {
@@ -66,7 +60,7 @@ export interface Bottleneck {
   producers: BottleneckProducer[];
   /** Row-level state: the weakest link across its producers. */
   state: Verification;
-  counts: { sourced: number; candidate: number; total: number };
+  counts: { sourced: number; total: number };
   /** The analyst's assessment: four tests, 0–3 each, and when it binds. */
   score: BindingScore;
   binding: number;
@@ -105,7 +99,6 @@ function holdersOf(point: Chokepoint): BottleneckProducer[] {
       supplier: holder.role === 'part',
       verification: row.source ? 'sourced' : 'unverified',
       source: row.source,
-      candidates: [],
     };
   });
 }
@@ -119,7 +112,9 @@ export function slugOf(name: string): string {
 
 function stateOf(counts: Bottleneck['counts']): Verification {
   if (counts.total > 0 && counts.sourced === counts.total) return 'sourced';
-  if (counts.candidate > 0 || counts.sourced > 0) return 'candidate';
+  // Partly sourced. Pages the engine found and nobody read are a live queue,
+  // not corpus, so they never change a row's state here (lib/source-store.ts).
+  if (counts.sourced > 0) return 'candidate';
   return 'unverified';
 }
 
@@ -155,13 +150,11 @@ export function materialBottlenecks(): Bottleneck[] {
       jurisdictions: producer.jurisdictions,
       role: ROLE_LABEL[producer.role] ?? producer.role,
       supplier: false,
-      verification: verificationFor(entry.material, producer.name, producer.source),
+      verification: verificationFor(producer.source),
       source: producer.source,
-      candidates: evidenceFor(entry.material, producer.name)?.candidates ?? [],
     }));
     const counts = {
       sourced: producers.filter((p) => p.verification === 'sourced').length,
-      candidate: producers.filter((p) => p.verification === 'candidate').length,
       total: producers.length,
     };
     return {
@@ -190,10 +183,9 @@ export function chokepointBottlenecks(): Bottleneck[] {
       producers.length > 0
         ? {
             sourced: producers.filter((p) => p.verification === 'sourced').length,
-            candidate: producers.filter((p) => p.verification === 'candidate').length,
             total: producers.length,
           }
-        : { sourced: point.source ? 1 : 0, candidate: 0, total: 1 };
+        : { sourced: point.source ? 1 : 0, total: 1 };
     return {
       slug: slugOf(point.name),
       name: point.name,

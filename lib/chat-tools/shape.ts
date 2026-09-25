@@ -101,14 +101,6 @@ export function bottleneckDetail(b: Bottleneck, ledger: Ledger) {
       jurisdictions: p.jurisdictions,
       status: VERIFICATION_LABEL[p.verification],
       source: p.source,
-      candidate_pages:
-        p.verification === 'candidate'
-          ? p.candidates.slice(0, 2).map((c) => ({
-              url: c.url,
-              title: clip(c.title, 90),
-              status: 'Search-engine candidate, not checked',
-            }))
-          : undefined,
     })),
     producer_note:
       'A producer list is corpus coverage, never the whole market. Only "Sourced" rows are findings.',

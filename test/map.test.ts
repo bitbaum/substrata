@@ -26,10 +26,8 @@ test('the map carries every producer row with a three-valued verification', () =
     map.progress.producers.sourced,
     rows.filter((r) => r.verification === 'sourced').length,
   );
-  assert.equal(
-    map.progress.producers.withCandidate,
-    rows.filter((r) => r.verification === 'candidate').length,
-  );
+  // Found-but-unchecked pages are a database queue, never corpus or export.
+  assert.equal(rows.filter((r) => r.verification === 'candidate').length, 0);
 });
 
 test('the map and the site are drawn from the same objects', () => {

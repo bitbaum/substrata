@@ -25,7 +25,6 @@ export interface Produces {
   supplier: boolean;
   verification: Verification;
   source: string | null;
-  candidateCount: number;
 }
 
 export interface MarketParticipant {
@@ -165,7 +164,6 @@ export function buildMarketParticipants(): MarketParticipant[] {
         supplier: producer.supplier,
         verification: producer.verification,
         source: producer.source,
-        candidateCount: producer.candidates.length,
       });
       if (producer.verification === 'sourced') record.hasVerifiedRow = true;
       for (const code of producer.jurisdictions) {

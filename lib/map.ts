@@ -8,10 +8,10 @@
  * from the config the pages are drawn from, so the API cannot say something
  * the site does not.
  *
- * The verification vocabulary is the site's, and it is three-valued on
- * purpose: `sourced` is a checked claim, `candidate` is the engine's lead,
- * and `unverified` is neither. A consumer that treats a candidate as a
- * finding has been told, in the field name, that it is not one.
+ * The verification vocabulary is the site's: `sourced` is a checked claim and
+ * `unverified` is not. Pages the sourcing engine found are a review queue in
+ * the database, not corpus, so this document (and the export digest built
+ * from it) never carries them.
  *
  * Created: 2026-09-14
  */
@@ -22,37 +22,31 @@ import { chokepointProgress, coverageProgress } from '@/lib/coverage-progress';
 import { INVESTMENT_THESIS } from '@/config/substrata-acting';
 import { CAPITAL_KINDS, CAPITAL_PROVIDERS, FUNDING_ASSESSMENTS } from '@/config/substrata-capital';
 import { CHAIN_LAYERS, PARTICIPANTS } from '@/config/substrata-participants';
-import { EVIDENCE, evidenceFor, verificationFor } from '@/config/substrata-evidence';
+import { verificationFor } from '@/config/substrata-evidence';
 import { RESEARCH_PROGRAMMES, programmeProgress } from '@/config/substrata-programmes';
 import { CALLS, record } from '@/config/substrata-calls';
 import { eventsNewestFirst } from '@/config/substrata-events';
 import { STAGES } from '@/config/substrata-stages';
 import { BOTTLENECKS } from '@/lib/bottlenecks';
-import { portalTotals } from '@/lib/bottlenecks';
 import { SITE } from '@/lib/site';
 
 export function buildMap() {
   const coverage = coverageProgress();
   const chokepoints = chokepointProgress();
-  // Candidates are counted on the joined rows, not the evidence file: a row
-  // an analyst has since sourced is no longer waiting on anyone.
-  const totals = portalTotals();
 
   return {
     name: COMPANY.name,
     tagline: COMPANY.tagline,
     host: SITE.host,
     generatedAt: new Date().toISOString(),
-    evidenceGeneratedAt: EVIDENCE.generatedAt,
     notice:
-      'Research, not advice. Rows are three-valued: "sourced" is a claim backed by a primary ' +
-      'source, "candidate" is a page the research engine found that mentions the company with ' +
-      'the material, "unverified" is a lead. Only "sourced" is a finding.',
+      'Research, not advice. A row is "sourced" when a claim is backed by a primary source and ' +
+      '"unverified" otherwise. Only "sourced" is a finding. A bottleneck whose rows are only ' +
+      'partly sourced reads "candidate".',
     progress: {
       producers: {
         total: coverage.total,
         sourced: coverage.sourced,
-        withCandidate: totals.candidates,
       },
       chokepoints: { total: chokepoints.total, sourced: chokepoints.sourced },
     },
@@ -97,17 +91,13 @@ export function buildMap() {
         curve: listing ? areaFor(listing).curve : null,
         spec: listing?.spec ?? null,
         thesis: entry.thesis,
-        producers: entry.producers.map((producer) => {
-          const found = evidenceFor(entry.material, producer.name);
-          return {
-            name: producer.name,
-            jurisdictions: producer.jurisdictions,
-            role: producer.role,
-            verification: verificationFor(entry.material, producer.name, producer.source),
-            source: producer.source,
-            candidates: found?.candidates.map((c) => ({ url: c.url, title: c.title })) ?? [],
-          };
-        }),
+        producers: entry.producers.map((producer) => ({
+          name: producer.name,
+          jurisdictions: producer.jurisdictions,
+          role: producer.role,
+          verification: verificationFor(producer.source),
+          source: producer.source,
+        })),
       };
     }),
     chokepoints: CHOKEPOINTS.map((point) => ({

@@ -41,37 +41,24 @@ export function Status({
 }
 
 /** A node whose producers are partly verified says how many, rather than picking one word. */
-export function rowLabel(counts: {
-  sourced: number;
-  candidate: number;
-  total: number;
-}): string | undefined {
+export function rowLabel(counts: { sourced: number; total: number }): string | undefined {
   if (counts.total > 1 && counts.sourced > 0 && counts.sourced < counts.total) {
     return `${counts.sourced} of ${counts.total} verified`;
   }
   return undefined;
 }
 
-/** Three counts as a tiny stacked bar: verified, source found, unverified. */
-export function Progress({
-  sourced,
-  candidate,
-  total,
-}: {
-  sourced: number;
-  candidate: number;
-  total: number;
-}) {
+/** Two counts as a tiny bar: verified, and the rest still unverified. */
+export function Progress({ sourced, total }: { sourced: number; total: number }) {
   if (total === 0) return null;
   const pct = (n: number) => `${(n / total) * 100}%`;
   return (
     <span
       className="flex h-1.5 w-full max-w-24 overflow-hidden rounded-full bg-border-subtle"
       role="img"
-      aria-label={`${sourced} verified, ${candidate} with a source found, ${total - sourced - candidate} unverified, of ${total}`}
+      aria-label={`${sourced} verified, ${total - sourced} unverified, of ${total}`}
     >
       <span className="bg-status-positive" style={{ width: pct(sourced) }} />
-      <span className="bg-status-warning" style={{ width: pct(candidate) }} />
     </span>
   );
 }

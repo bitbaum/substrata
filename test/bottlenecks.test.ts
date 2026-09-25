@@ -40,8 +40,7 @@ test('every row the programme cites has a page on the portal', () => {
 test('a bottleneck is sourced only when every producer is', () => {
   for (const b of BOTTLENECKS) {
     if (b.state === 'sourced') assert.equal(b.counts.sourced, b.counts.total, b.name);
-    if (b.counts.sourced === 0 && b.counts.candidate === 0)
-      assert.equal(b.state, 'unverified', b.name);
+    if (b.counts.sourced === 0) assert.equal(b.state, 'unverified', b.name);
   }
   const totals = portalTotals();
   assert.equal(

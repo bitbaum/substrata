@@ -12,8 +12,6 @@
  * row instead, because a reviewer changes it at /account/settings#sweep.
  */
 import claims from '../research/claims.json';
-import events from '../research/events.json';
-import evidence from '../research/evidence.json';
 import jobBoards from '../research/job-boards.json';
 import learningPaths from '../research/learning-paths.json';
 import listings from '../research/listings.json';
@@ -117,7 +115,7 @@ export const FEEDS: readonly Feed[] = [
     id: 'source',
     label: 'Producer sourcing',
     what: 'Searches for a primary source for each unsourced producer row; candidates wait for review.',
-    shows: { label: 'Data quality', href: '/data' },
+    shows: { label: 'Unchecked sources on bottleneck pages and in /review', href: '/review' },
     table: 'research_source_runs',
     // Every six hours at :52 (appcron-substrata-source, loki install-app-crons.sh).
     everyHours: 6,
@@ -171,22 +169,6 @@ export const DATASETS: readonly Dataset[] = [
     file: 'research/job-boards.json',
     refresh: 'Re-check each careers page and update checkedOn',
     checkedOn: day(jobBoards.checkedOn),
-    maxAgeDays: 30,
-  },
-  {
-    id: 'producer-evidence',
-    label: 'Producer sourcing worklist',
-    file: 'research/evidence.json',
-    refresh: 'pnpm run research:source',
-    checkedOn: day(evidence.generatedAt),
-    maxAgeDays: 30,
-  },
-  {
-    id: 'events-worklist',
-    label: 'Offline event sweep worklist',
-    file: 'research/events.json',
-    refresh: 'pnpm run research:sweep',
-    checkedOn: day(events.generatedAt),
     maxAgeDays: 30,
   },
   {

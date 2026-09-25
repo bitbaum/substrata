@@ -100,15 +100,10 @@ box, and add `/api/cron/source` to whatever schedule
 `/opt/_appcron/run.sh` already runs `/api/cron/sweep` on. The generic deploy
 workflow does not do either automatically.
 
-A second, independent leg needs neither of those: `.github/workflows/research-sweep.yml`
-runs both CLI scripts on a weekly GitHub Actions schedule against a Brave or
-Tavily key (repository secret — `BRAVE_SEARCH_API_KEY` / `TAVILY_API_KEY`,
-skips cleanly until one is set) and opens a draft PR with whatever lands in
-`research/evidence.json` / `research/events.json`. No box access, no
-migration, no `_appcron` registration — the CLI scripts already write into
-those git-tracked files when a person runs them, so the workflow only adds
-the timer. A draft PR because the fleet's auto-merge sweep leaves drafts
-alone, and nobody has read these rows yet.
+A second leg — a weekly GitHub Actions run of the CLI scripts writing
+`research/evidence.json` / `research/events.json` — was removed on 2026-09-25
+with the scripts and files: it kept a second copy of each queue that went
+stale while the box timers ran. The database queues are the only ones.
 
 ## Work log
 
