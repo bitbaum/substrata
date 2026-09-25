@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Inquire } from './Inquire';
-import { countryDossier } from '@/lib/geo';
+import { ROLE_WORDS, countryDossier } from '@/lib/geo';
 import { worldInsights } from '@/lib/geo-insights';
 import { MAP_ISOS } from '@/app/atlas/countries';
 import { neighbors } from '@/lib/graph';
@@ -25,7 +25,12 @@ export function WorldPanel({ country, resource }: { country?: string; resource?:
     <div className="world-panel">
       {dossier ? (
         <>
-          <p className="world-roles">{dossier.roles.join(' · ')}</p>
+          {/* A sentence, not a caps label: a bare "EXTRACT" above the next
+              section's heading read as a heading with nothing under it. */}
+          <p className="world-roles">
+            <span className="world-roles-label">Role in the chains: </span>
+            {dossier.roles.map((r) => ROLE_WORDS[r]).join(' · ')}
+          </p>
           {!measured && dossier.why && (
             // The directory sentence is an interpretation, not a figure: shown
             // only when no production table lists the country, and labelled.

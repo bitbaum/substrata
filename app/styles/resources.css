@@ -94,12 +94,47 @@
 .resource-item[open] > summary::before {
   content: '−';
 }
-/* The table's header is hidden on phones (series.css), so each cell names itself. */
+/* The figures table sits in a narrow panel on every screen, so it is laid out
+   by ITS width, not the viewport's. Four columns only where they fit; below
+   that each measure is a block: label and value on one line, then the year
+   before and the world standing, each an unbreakable figure group. */
+.resource-figures-wrap {
+  container-type: inline-size;
+}
+.resource-figures td {
+  font-variant-numeric: tabular-nums;
+}
+.resource-nowrap,
+.resource-figures .resource-value {
+  white-space: nowrap;
+}
 .resource-cell-label {
   display: none;
   color: var(--color-fg-tertiary);
 }
-@media (max-width: 639px) {
+@container (max-width: 36rem) {
+  .series-table.resource-figures thead {
+    display: none;
+  }
+  .series-table.resource-figures tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.2rem 1rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+  .series-table.resource-figures th,
+  .series-table.resource-figures td {
+    padding: 0;
+    border: 0;
+  }
+  .series-table.resource-figures .resource-value {
+    text-align: right;
+  }
+  .series-table.resource-figures td:nth-child(n + 3) {
+    grid-column: 1 / -1;
+    color: var(--color-fg-secondary);
+  }
   .resource-cell-label {
     display: inline;
   }

@@ -3,6 +3,12 @@
  * year, the year before, change, rank, share), reserves, and
  * reserves-to-production. Every value is a <Figure>: the table's own numbers
  * link the source, derived ones link their method.
+ *
+ * It lives in a panel ~22rem wide on every screen, so the four columns are
+ * laid out by the PANEL's width (a container query in resources.css), not the
+ * viewport's: at 1440 the old viewport rule kept four columns in the narrow
+ * panel and "282,000 (+10%)" broke after its "(". Each figure group is one
+ * unbreakable unit (.resource-nowrap); groups wrap between each other.
  */
 import { Figure } from '../Figure';
 import type { ResourceFacts, SeriesFact } from '@/lib/resources/country';
@@ -46,7 +52,7 @@ function Standing({ fact }: { fact: SeriesFact }) {
 export function ResourceFigures({ facts }: { facts: ResourceFacts }) {
   const rows = [...facts.production, ...(facts.reserves ? [facts.reserves] : [])];
   return (
-    <div className="series-table-wrap">
+    <div className="series-table-wrap resource-figures-wrap">
       <table className="series-table resource-figures">
         <thead>
           <tr>
@@ -65,28 +71,35 @@ export function ResourceFigures({ facts }: { facts: ResourceFacts }) {
                   {fact.year} · {fact.unitLabel}
                 </span>
               </th>
-              <td>
+              <td className="resource-value">
                 <Value fact={fact} facts={facts} />
               </td>
               <td>
                 {fact.prior ? (
                   <>
                     <span className="resource-cell-label">{fact.prior.year}: </span>
-                    {fact.prior.text}
-                    {fact.change !== null && (
-                      <>
-                        {' '}
-                        (<Figure method="production-change">{formatChange(fact.change)}</Figure>)
-                      </>
-                    )}
+                    <span className="resource-nowrap">
+                      {fact.prior.text}
+                      {fact.change !== null && (
+                        <>
+                          {' '}
+                          (<Figure method="production-change">{formatChange(fact.change)}</Figure>)
+                        </>
+                      )}
+                    </span>
                   </>
                 ) : (
-                  <span className="text-fg-tertiary">—</span>
+                  <>
+                    <span className="resource-cell-label">Year before: </span>
+                    <span className="text-fg-tertiary">—</span>
+                  </>
                 )}
               </td>
               <td>
                 <span className="resource-cell-label">World: </span>
-                <Standing fact={fact} />
+                <span className="resource-nowrap">
+                  <Standing fact={fact} />
+                </span>
               </td>
             </tr>
           ))}
