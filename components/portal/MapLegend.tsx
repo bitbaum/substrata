@@ -49,17 +49,17 @@ export function MapLegend({
           </li>
         ))}
       </ul>
-      {(legend.note || legend.source) && (
-        <p>
+      {legend.note && (
+        <p className="map-note" data-caveat={legend.caveat || undefined}>
           {legend.note}
-          {legend.source && (
-            <>
-              {' '}
-              <a href={legend.source.href} rel="noopener noreferrer" target="_blank">
-                Source: {legend.source.label}
-              </a>
-            </>
-          )}
+        </p>
+      )}
+      {legend.source && (
+        <p className="map-source">
+          <a href={legend.source.href} rel="noopener noreferrer" target="_blank">
+            <span className="map-source-short">Source: {legend.source.short}</span>
+            <span className="map-source-long">Source: {legend.source.label}</span>
+          </a>
         </p>
       )}
     </figure>

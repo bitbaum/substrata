@@ -43,7 +43,7 @@
 @media (max-width: 1023px) {
   .atlas[data-sheet='half'],
   .atlas[data-sheet='full'] {
-    --atlas-map-sheet: 58%;
+    --atlas-map-sheet: 57%;
   }
 }
 @media (min-width: 1024px) {
@@ -158,7 +158,10 @@
 }
 
 /* ----------------------------------------------------------- panel / sheet */
+/* The sheet's snaps are heights, not offsets, so its scroll area is always
+   exactly what is on screen and nothing hides below the fold of the sheet. */
 .atlas-sheet {
+  --atlas-sheet-full: calc(100% - var(--atlas-bar-h) - var(--atlas-gutter) * 2);
   position: absolute;
   z-index: 4;
   left: 0;
@@ -166,32 +169,37 @@
   bottom: 0;
   display: flex;
   flex-direction: column;
-  height: calc(100% - var(--atlas-bar-h) - var(--atlas-gutter) * 2);
+  height: var(--atlas-sheet-peek);
+  max-height: var(--atlas-sheet-full);
   border: 1px solid var(--color-border-strong);
   border-bottom: 0;
   border-radius: var(--atlas-radius) var(--atlas-radius) 0 0;
   background: var(--color-surface-page);
   box-shadow: var(--shadow-overlay);
-  transform: translateY(calc(100% - var(--atlas-sheet-peek)));
-  transition: transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: height 280ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .atlas-sheet[data-snap='half'] {
-  transform: translateY(45%);
+  height: 55%;
 }
 .atlas-sheet[data-snap='full'] {
-  transform: translateY(0);
+  height: var(--atlas-sheet-full);
 }
 .atlas-sheet[data-dragging] {
   transition: none;
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   .atlas-sheet {
+    --atlas-sheet-full: calc(
+      100% - var(--atlas-bar-h) - var(--atlas-gutter) * 3 - var(--atlas-dock)
+    );
     left: var(--atlas-gutter);
     right: var(--atlas-gutter);
     bottom: var(--atlas-dock);
-    height: calc(100% - var(--atlas-bar-h) - var(--atlas-gutter) * 3 - var(--atlas-dock));
     border-bottom: 1px solid var(--color-border-strong);
     border-radius: var(--atlas-radius);
+  }
+  .atlas-sheet[data-snap='half'] {
+    height: 50%;
   }
 }
 @media (min-width: 1024px) {
@@ -203,9 +211,9 @@
     left: auto;
     width: var(--atlas-panel-w);
     height: auto;
+    max-height: none;
     border-bottom: 1px solid var(--color-border-strong);
     border-radius: var(--atlas-radius);
-    transform: none;
   }
 }
 .atlas-sheet-grip {
@@ -266,6 +274,27 @@
   font: 600 1.375rem/1.2 var(--font-heading);
   letter-spacing: -0.02em;
   color: var(--color-fg-primary);
+}
+/* The painted resource's figure for the open country, in the head so a phone
+   sees it while the sheet covers the legend. */
+.atlas-metric {
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--color-fg-secondary);
+}
+.atlas-metric span {
+  margin-right: 0.25rem;
+  font-weight: 600;
+  color: var(--color-fg-primary);
+}
+@media (max-width: 1023px) {
+  .atlas[data-sheet='half'] .map-legend,
+  .atlas[data-sheet='full'] .map-legend,
+  .atlas[data-sheet='half'] .wm-zoom,
+  .atlas[data-sheet='full'] .wm-zoom {
+    visibility: hidden;
+  }
 }
 .atlas-close {
   display: inline-flex;

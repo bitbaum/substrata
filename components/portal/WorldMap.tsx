@@ -197,7 +197,7 @@ export function WorldMap({ selected, keep, bins, labels, otherwise }: WorldMapPr
         height={frame?.height ?? 0}
         role="application"
         aria-roledescription="map"
-        aria-label="World map. Plus and minus zoom, arrow keys pan, 0 resets. Find a country by name in the panel."
+        aria-label="World map. Plus and minus zoom, arrow keys pan, Home resets. Find a country by name in the panel."
         tabIndex={0}
         onKeyDown={(e) => {
           const keys: Record<string, () => void> = {
@@ -205,6 +205,7 @@ export function WorldMap({ selected, keep, bins, labels, otherwise }: WorldMapPr
             '=': () => step(1.6),
             '-': () => step(1 / 1.6),
             '0': () => step('home'),
+            Home: () => step('home'),
             ArrowLeft: () => pan(60, 0),
             ArrowRight: () => pan(-60, 0),
             ArrowUp: () => pan(0, 60),
@@ -221,15 +222,9 @@ export function WorldMap({ selected, keep, bins, labels, otherwise }: WorldMapPr
           <g ref={layer}>
             <defs>
               {/* USGS printed a word, not a number: hatched, never a step on the ramp. */}
-              <pattern
-                id="wm-hatch"
-                width="4"
-                height="4"
-                patternUnits="userSpaceOnUse"
-                patternTransform="rotate(45)"
-              >
+              <pattern id="wm-hatch" width="4" height="4" patternUnits="userSpaceOnUse">
                 <rect className="wm-hatch-bg" width="4" height="4" />
-                <line className="wm-hatch-line" x1="0" y1="0" x2="0" y2="4" />
+                <path className="wm-hatch-line" d="M-1 1l2-2M0 4l4-4M3 5l2-2" />
               </pattern>
             </defs>
             <path className="wm-sphere" d={drawn.sphere} />

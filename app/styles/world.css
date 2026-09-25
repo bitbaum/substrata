@@ -381,3 +381,25 @@
   background: var(--color-fg-primary);
   color: var(--color-surface-page);
 }
+
+/* On a phone the legend keeps its title, scale and source; the caveat moves
+   to the panel's reading distance (it is in the country head's figure). */
+.map-source-short {
+  display: none;
+}
+@media (max-width: 767px) {
+  .map-legend .map-note:not([data-caveat]) {
+    display: none;
+  }
+  .map-source-short {
+    display: inline;
+  }
+  .map-source-long {
+    display: none;
+  }
+  .map-source a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+  }
+}

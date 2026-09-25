@@ -42,7 +42,7 @@ export function AtlasSheet({
   function settle(dy: number) {
     const el = sheet.current;
     if (!el) return;
-    el.style.transform = '';
+    el.style.height = '';
     el.removeAttribute('data-dragging');
     // A drag of a fifth of the sheet moves one stop; a flick of the grip is a tap.
     const threshold = Math.max(48, el.clientHeight * 0.2);
@@ -77,7 +77,7 @@ export function AtlasSheet({
           const el = sheet.current;
           if (!el) return;
           e.currentTarget.setPointerCapture(e.pointerId);
-          drag.current = { y: e.clientY, start: el.getBoundingClientRect().top, moved: false };
+          drag.current = { y: e.clientY, start: el.offsetHeight, moved: false };
         }}
         onPointerMove={(e) => {
           const el = sheet.current;
@@ -87,9 +87,8 @@ export function AtlasSheet({
           if (Math.abs(dy) < 6 && !d.moved) return;
           d.moved = true;
           el.setAttribute('data-dragging', '');
-          const offset = d.start - (el.offsetParent?.getBoundingClientRect().top ?? 0);
-          const top = el.offsetParent ? el.offsetParent.clientHeight - el.offsetHeight : 0;
-          el.style.transform = `translateY(${Math.max(0, offset - top + dy)}px)`;
+          const room = el.offsetParent?.clientHeight ?? d.start;
+          el.style.height = `${Math.min(room, Math.max(48, d.start - dy))}px`;
         }}
         onPointerUp={(e) => {
           const d = drag.current;

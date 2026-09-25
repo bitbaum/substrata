@@ -56,17 +56,24 @@ export function loadCountries(): Promise<CountryFeature[]> {
 }
 
 const SPHERE: GeoPermissibleObjects = { type: 'Sphere' };
-/** Leave the far south out of the fit: without Antarctica it is empty ocean. */
+/**
+ * What the fit frames: the inhabited band, 58°S to 84°N, edge to edge. Points,
+ * not a polygon — on a sphere a polygon's edges are great circles, and a
+ * "rectangle" through the antimeridian is not the band it looks like.
+ */
+const LONS = Array.from({ length: 73 }, (_, i) => -180 + i * 5);
+const LATS = Array.from({ length: 29 }, (_, i) => -58 + i * 5).concat(84);
 const FRAME: GeoPermissibleObjects = {
-  type: 'Polygon',
+  type: 'MultiPoint',
   coordinates: [
-    [
-      [-179.9, -58],
-      [179.9, -58],
-      [179.9, 84],
-      [-179.9, 84],
-      [-179.9, -58],
-    ],
+    ...LONS.flatMap((lon) => [
+      [lon, -58],
+      [lon, 84],
+    ]),
+    ...LATS.flatMap((lat) => [
+      [-180, lat],
+      [180, lat],
+    ]),
   ],
 };
 
@@ -128,8 +135,9 @@ function centreOn(frame: Frame, x: number, y: number, k: number): ZoomTransform 
  */
 export function homeTransform(frame: Frame, frameBounds: Bounds): ZoomTransform {
   const box = visibleBox(frame);
-  // Landscape: the whole world fits and is the point. Portrait: zoom in.
-  if (box.h < box.w * 0.9) return zoomIdentity;
+  // Wide enough (a tablet, a desktop): the whole world is the point. A phone
+  // would show a thin strip, so it zooms in.
+  if (box.w >= 600 || box.h < box.w) return zoomIdentity;
   const mapHeight = frameBounds[1][1] - frameBounds[0][1];
   const k = Math.min(3, Math.max(1, (box.h * 0.66) / mapHeight));
   const mapWidth = frameBounds[1][0] - frameBounds[0][0];
@@ -146,7 +154,9 @@ export function focusTransform(frame: Frame, bounds: Bounds): ZoomTransform {
   const box = visibleBox(frame);
   const [[x0, y0], [x1, y1]] = bounds;
   const fit = Math.min((box.w * 0.6) / Math.max(x1 - x0, 1), (box.h * 0.6) / Math.max(y1 - y0, 1));
-  return centreOn(frame, (x0 + x1) / 2, (y0 + y1) / 2, Math.max(1, Math.min(8, fit)));
+  // A country as large as the view (Russia, Canada) is best seen in the whole world.
+  if (fit <= 1.25) return zoomIdentity;
+  return centreOn(frame, (x0 + x1) / 2, (y0 + y1) / 2, Math.min(8, fit));
 }
 
 /** Is the country already comfortably inside the visible part of the view? */

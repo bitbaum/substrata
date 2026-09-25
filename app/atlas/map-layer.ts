@@ -33,7 +33,10 @@ export interface MapLegend {
   /** Categorical swatches: presence, hatched, not listed. */
   keys: { bin: number; label: string }[];
   note?: string;
-  source?: { label: string; href: string };
+  /** `short` is the publisher, for a phone's one-line credit. */
+  source?: { label: string; short: string; href: string };
+  /** The note changes how to read the colours, so a phone shows it too. */
+  caveat?: boolean;
   /** Production / reserves, when the resource has both. */
   measures?: { id: ChoroplethMeasure; label: string; current: boolean }[];
 }
@@ -59,7 +62,8 @@ export function quantified(): Map<string, ChoroplethMeasure[]> {
 /** Upper bounds of bins 1–4 as a fraction; bin 5 is everything above. */
 const STEPS = [0.01, 0.05, 0.1, 0.25] as const;
 const pct = (f: number) => `${+(f * 100).toFixed(f < 0.01 ? 2 : f < 0.1 ? 1 : 0)}%`;
-const num = (n: number) => n.toLocaleString('en-US', { maximumSignificantDigits: 3 });
+const num = (n: number) =>
+  n.toLocaleString('en-US', { notation: 'compact', maximumSignificantDigits: 2 });
 
 export function shareBin(fraction: number): number {
   const index = STEPS.findIndex((top) => fraction < top);
@@ -93,7 +97,7 @@ function quantityLayer(label: string, c: Choropleth, measures: ChoroplethMeasure
     labels,
     otherwise: 'Not listed by USGS',
     legend: {
-      title: `${label} · ${c.label}, ${c.year}`,
+      title: `${label} · ${c.label}, ${c.year}${byShare ? '' : ` (${c.unit})`}`,
       scale: [1, 2, 3, 4, 5].map((bin) => ({
         bin,
         label: bin === 5 ? `≥ ${bounds[4]}` : `${bounds[bin - 1]}–${bounds[bin]}`,
@@ -105,7 +109,12 @@ function quantityLayer(label: string, c: Choropleth, measures: ChoroplethMeasure
       note: byShare
         ? `Share of the world total, ${c.world.text} ${c.unit} (${c.unitLabel}).`
         : `In ${c.unitLabel}. USGS prints the world total as "${c.world.text}", so countries are shaded against the largest producer, not as a share.`,
-      source: { label: `${c.source.edition}, ${c.source.table}`, href: c.source.url },
+      source: {
+        label: `${c.source.edition}, ${c.source.table}`,
+        short: c.source.label.split(',')[0],
+        href: c.source.url,
+      },
+      caveat: !byShare,
       measures:
         measures.length > 1
           ? measures.map((id) => ({ id, label: MEASURE_LABEL[id], current: id === c.measure }))

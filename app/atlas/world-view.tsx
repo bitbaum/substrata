@@ -34,6 +34,7 @@ export function WorldView({
   const dossier = selected ? countryDossier(selected) : null;
   const layer = mapLayer(resource, measure, MAP_ISOS);
   const withData = quantified();
+  const kind = RESOURCE_KINDS.find((r) => r.id === resource);
   const measureHref = (m: string) => {
     const params = new URLSearchParams({ view: 'world', ...keep });
     if (m === 'reserves') params.set('measure', m);
@@ -88,6 +89,11 @@ export function WorldView({
                   {dossier.region} · {dossier.iso2.toUpperCase()}
                 </p>
                 <p className="atlas-title">{dossier.name}</p>
+                {kind && (
+                  <p className="atlas-metric">
+                    <span>{kind.label}</span> {layer.labels[selected] ?? layer.otherwise ?? '—'}
+                  </p>
+                )}
               </div>
               <Link className="atlas-close" href={worldHref} aria-label="Close this country">
                 ×
