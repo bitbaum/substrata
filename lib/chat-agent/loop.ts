@@ -29,7 +29,7 @@
  */
 import { ChainExhaustedError, StreamInterrupted, type ChatMessage } from '@bitbaum/ai-kit';
 import { ByokError, type ByokConfig } from '../byok';
-import { CHAT_TOOLS, runTool, toolDefinitions } from '../chat-tools/registry';
+import { toolDefinitions } from '../chat-tools/registry';
 import { emptyLedger, type ToolEnv } from '../chat-tools/ledger';
 import { preloadPage, type ReaderContext } from '../chat-context';
 import { followUpsFor } from '../chat-query';
@@ -37,12 +37,12 @@ import type { ChatTurn } from '../chat/types';
 import {
   answerableFromPage,
   budgetMessage,
-  isPageRecord,
   sourcesOf,
   type AgentAnswer,
   type AgentEvent,
 } from './answer';
-import { renderCalls, safeArgs, tidyAnswer, type ToolRequest } from './parse';
+import { renderCalls, tidyAnswer } from './parse';
+import { planLookups, runLookups } from './plan';
 import { systemPrompt } from './prompt';
 import type { ModelTurn, ModelTurnResult } from './turn';
 import { gatherEvidence, verdictOf, verifyQuestion, type VerifyRequest } from './verify';
@@ -88,17 +88,26 @@ export async function runAgent(input: {
   });
   const ledger = emptyLedger();
   const env: ToolEnv = { ...input.env, ledger };
-  const [preload, evidence] = await Promise.all([
+  const question = input.verify ? verifyQuestion(input.verify) : input.question;
+  const pageOnly = !input.verify && answerableFromPage(question, Boolean(input.context.entity));
+  // The lookups the question obviously needs, made now rather than after a
+  // model round asks for them (plan.ts).
+  const plan =
+    input.verify || pageOnly
+      ? { calls: [], confident: false }
+      : planLookups(question, input.context, env);
+  const [preload, evidence, lookedUp] = await Promise.all([
     preloadPage(input.context, env),
     input.verify ? gatherEvidence(input.verify, env) : Promise.resolve(undefined),
+    plan.calls.length ? runLookups(plan.calls, input.context, env, emit) : Promise.resolve([]),
   ]);
-  const question = input.verify ? verifyQuestion(input.verify) : input.question;
+  const noTools = pageOnly || plan.confident;
   const tools = toolDefinitions(env);
-  const pageOnly = !input.verify && answerableFromPage(question, Boolean(preload?.text));
   const system = systemPrompt({
     context: input.context,
     preloaded: preload?.text,
-    tools: pageOnly ? [] : tools,
+    lookedUp: lookedUp.length ? lookedUp.join('\n\n') : undefined,
+    tools: noTools ? [] : tools,
     byok: input.byok,
     today: input.today,
     verify: evidence,
@@ -113,12 +122,17 @@ export async function runAgent(input: {
     })),
     { role: 'user', content: question },
   ];
-  if (input.verify || pageOnly) emit({ type: 'status', text: 'Writing…' });
-  const seen = new Set<string>();
+  if (input.verify || noTools) emit({ type: 'status', text: 'Writing…' });
+  const seen = new Set<string>(plan.calls.map((c) => `${c.name}:${c.args}`));
+  let modelCalls = 0;
+  const skipped: string[] = [];
   let answer = '';
   let model: string | undefined;
   let shown = '';
-  const lastRound = pageOnly ? 0 : MAX_ROUNDS;
+  // Model calls are the latency: one when the lookups already answer the
+  // question; two when the page record or planned lookups are in hand and the
+  // model may still need something; four only for a question from nowhere.
+  const lastRound = noTools ? 0 : plan.calls.length || preload ? 1 : MAX_ROUNDS;
 
   try {
     for (let round = 0; round <= lastRound; round++) {
@@ -126,6 +140,7 @@ export async function runAgent(input: {
       if (round > 0) emit({ type: 'status', text: 'Reading what came back…' });
       shown = '';
       let result: ModelTurnResult;
+      modelCalls++;
       try {
         result = await input.turn({
           messages,
@@ -145,6 +160,7 @@ export async function runAgent(input: {
         throw error;
       }
       model = result.model;
+      skipped.push(...(result.skipped ?? []));
       const fresh = result.calls
         .filter((c) => {
           const key = `${c.name}:${c.args}`;
@@ -156,7 +172,7 @@ export async function runAgent(input: {
       if (offer && fresh.length) {
         if (shown) emit({ type: 'reset' });
         if (input.env.signal?.aborted) return;
-        const results = await runCalls(fresh, input.context, env, emit);
+        const results = await runLookups(fresh, input.context, env, emit);
         messages.push(
           {
             role: 'assistant',
@@ -197,7 +213,12 @@ export async function runAgent(input: {
           trail: ledger.trail,
           outside: ledger.web.length > 0,
           degraded: true,
-          timing: { total: Date.now() - started },
+          timing: {
+            total: Date.now() - started,
+            calls: modelCalls,
+            planned: plan.calls.length,
+            skipped,
+          },
         },
       });
       return;
@@ -241,36 +262,16 @@ export async function runAgent(input: {
     trail: ledger.trail,
     outside: ledger.web.length > 0,
     model,
-    timing: { firstText, total: Date.now() - started },
+    timing: {
+      firstText,
+      total: Date.now() - started,
+      calls: modelCalls,
+      planned: plan.calls.length,
+      skipped,
+    },
   };
   if (input.verify) data.verdict = verdictOf(answer);
   emit({ type: 'done', data });
-}
-
-/**
- * One round's calls, run together. Labels go out first so the reader sees
- * everything being looked up at once; results come back in call order.
- */
-async function runCalls(
-  calls: ToolRequest[],
-  context: ReaderContext,
-  env: ToolEnv,
-  emit: (event: AgentEvent) => void,
-): Promise<string[]> {
-  for (const call of calls) {
-    const label = CHAT_TOOLS.find((t) => t.name === call.name)?.label(safeArgs(call.args));
-    emit({ type: 'tool', label: label ?? call.name });
-  }
-  const outs = await Promise.all(
-    calls.map((call) =>
-      isPageRecord(call, context)
-        ? {
-            result: '{"note":"This is the record on this page; it is already given to you above."}',
-          }
-        : runTool(call.name, call.args, env),
-    ),
-  );
-  return outs.map((o, i) => `[${calls[i].name}] ${o.result}`);
 }
 
 /** Run to completion and return the final answer — for callers that do not stream. */

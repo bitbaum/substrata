@@ -10,6 +10,7 @@ import { readerContext } from '@/lib/chat-context';
 import { lookUp, readSource, webLookupEnabled } from '@/lib/chat-web';
 import { currentSession } from '@/lib/auth';
 import { record } from '@/lib/ai-budget';
+import { recordAskTiming, timingOf } from '@/lib/ask-timing';
 import { database } from '@/lib/db';
 import { parseFollows, type Follows } from '@/lib/follows';
 import { searchLeads } from '@/lib/sweep-queue';
@@ -119,6 +120,7 @@ export async function POST(request: Request) {
       : streamedTurn({
           chain: freeLinks(model),
           cooldown: freeCooldown,
+          reasoning: 'light',
           // A reader's question is the priority class; recorded so /data can
           // show it beside background spend. Their own key is not our budget.
           onSpend: (tokens) => void record('interactive', tokens),
@@ -131,7 +133,18 @@ export async function POST(request: Request) {
     const encoder = new TextEncoder();
     const stream = new ReadableStream({
       async start(controller) {
+        const asked = Date.now();
         const send = (event: AgentEvent) => {
+          if (event.type === 'done')
+            void recordAskTiming(timingOf(event.data), event.data.timing?.skipped);
+          if (event.type === 'error' && event.kind !== 'byok')
+            void recordAskTiming({
+              outcome: 'error',
+              totalMs: Date.now() - asked,
+              calls: 0,
+              planned: 0,
+              fallbacks: 0,
+            });
           try {
             controller.enqueue(encoder.encode(`${JSON.stringify(event)}\n`));
           } catch {

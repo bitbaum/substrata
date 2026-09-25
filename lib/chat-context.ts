@@ -46,6 +46,10 @@ const SECTIONS: [RegExp, string][] = [
     "the reader's own research desk: a feed of accepted events and new sweep leads on their followed rails",
   ],
   [/^\/bottlenecks\/?$/, 'the bottleneck board: every tracked bottleneck, scored'],
+  [
+    /^\/exposure(\/|$)/,
+    'the exposure screen: for every bottleneck, the companies holding it and where their shares trade (listed, listed only via a parent, or private), with tickers — the listed_exposure tool reads it',
+  ],
   [/^\/markets\/?$/, 'the market directory of companies in the chains'],
   [/^\/search(\/|$)/, 'search results'],
   [/^\/events(\/|$)/, 'the accepted events feed'],

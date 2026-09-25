@@ -19,6 +19,7 @@
  * Results are kept short because the free tier pays for every token of them.
  */
 import { DEPENDENCY_TOOLS } from './dependencies';
+import { EXPOSURE_TOOLS } from './exposure';
 import { LEAD_TOOLS } from './leads';
 import type { ToolEnv } from './ledger';
 import { LIST_TOOLS } from './lists';
@@ -30,6 +31,7 @@ import { WEB_TOOLS } from './web';
 export const CHAT_TOOLS: readonly ChatTool[] = [
   ...RECORD_TOOLS,
   ...DEPENDENCY_TOOLS,
+  ...EXPOSURE_TOOLS,
   ...LIST_TOOLS,
   ...LEAD_TOOLS,
   ...WEB_TOOLS,
