@@ -170,17 +170,61 @@ function Constraints({ iso2, resource }: { iso2: string; resource: string }) {
   );
 }
 
+/**
+ * Only blocks with something sourced are rendered. A heading followed by "not
+ * recorded", four times per resource, read as 25 empty rows on Russia's panel
+ * (2026-09-25): the absence is still stated, once, in one line that names what
+ * was looked for and in which sources.
+ */
 export function ResourceContext({ iso2, resource }: { iso2: string; resource: string }) {
+  const usgsFacilities = facilitiesFor(iso2, resource);
+  const hasProducers =
+    Boolean(usgsFacilities?.rows.length) || corpusProducersFor(iso2, resource).length > 0;
+  const hasConstraints =
+    usgsStatements(iso2, resource).length + corpusEvents(iso2, resource).length > 0;
+  const hasRestrictions = restrictionsFor(iso2, resource).length > 0;
+  const hasSanctions = sanctionsOn(iso2, resource).length > 0;
+
+  const missing = [
+    !hasProducers &&
+      `producers (${usgsFacilities ? `USGS ${usgsFacilities.year} country chapter` : 'no USGS country chapter read'}, corpus)`,
+    !hasConstraints && 'constraints or changes (USGS, accepted events)',
+    !hasRestrictions &&
+      (inInventory(iso2)
+        ? `export restrictions (OECD ${RESTRICTIONS_SOURCE.dataYear})`
+        : `export restrictions (country not in the OECD ${RESTRICTIONS_SOURCE.dataYear} inventory)`),
+    !hasSanctions && 'EU or US sanctions naming it',
+  ].filter((m): m is string => Boolean(m));
+
   return (
     <div className="resource-context">
-      <h4>Who produces it</h4>
-      <Producers iso2={iso2} resource={resource} />
-      <h4>Constraints and changes, as the sources state them</h4>
-      <Constraints iso2={iso2} resource={resource} />
-      <h4>Export restrictions (OECD, {RESTRICTIONS_SOURCE.dataYear} data)</h4>
-      <Restrictions iso2={iso2} resource={resource} />
-      <h4>Sanctions that name it</h4>
-      <Sanctions iso2={iso2} resource={resource} />
+      {hasProducers && (
+        <>
+          <h4>Who produces it</h4>
+          <Producers iso2={iso2} resource={resource} />
+        </>
+      )}
+      {hasConstraints && (
+        <>
+          <h4>Constraints and changes, as the sources state them</h4>
+          <Constraints iso2={iso2} resource={resource} />
+        </>
+      )}
+      {hasRestrictions && (
+        <>
+          <h4>Export restrictions (OECD, {RESTRICTIONS_SOURCE.dataYear} data)</h4>
+          <Restrictions iso2={iso2} resource={resource} />
+        </>
+      )}
+      {hasSanctions && (
+        <>
+          <h4>Sanctions that name it</h4>
+          <Sanctions iso2={iso2} resource={resource} />
+        </>
+      )}
+      {missing.length > 0 && (
+        <p className="resource-empty">Not in the sources read: {missing.join(' · ')}.</p>
+      )}
     </div>
   );
 }
