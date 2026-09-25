@@ -1,62 +1,72 @@
-import Link from 'next/link';
-import { Page, Shell, SectionHeader } from '@/components/portal/Shell';
-import { WorldPanel } from '@/components/portal/WorldPanel';
-import { AtlasChain } from '@/components/portal/AtlasChain';
-import { TECHNOLOGIES } from '@/config/substrata-taxonomy';
-import { BOTTLENECKS } from '@/lib/bottlenecks';
+/**
+ * /atlas — where the constraints physically are.
+ *
+ * What it is FOR: a reader arrives with a thing (a bottleneck, a country, a
+ * technology) and wants to see it in place. Three jobs, and nothing else:
+ *
+ *   1. See where a bottleneck sits and who makes it — the chains view: what
+ *      it needs, the thing, its makers, what it holds up; walk upstream and
+ *      downstream by clicking.
+ *   2. See what a country holds and what constrains it — the world view:
+ *      the map painted by one resource, the country's panel.
+ *   3. See what a technology depends on — the chains view narrowed by
+ *      ?topic=, reached from any technology node.
+ *
+ * One full-bleed canvas (the diagram or the map), one floating bar (the view
+ * and its one choice), one panel (right from 1024px, a bottom sheet below).
+ * The index of every bottleneck and the per-stage coverage counts are not
+ * here: they live on /bottlenecks, which is that list, grouped by stage.
+ *
+ * URLs kept from before: ?view=world, ?country=, ?resource=, ?topic=, ?chain=.
+ */
+import type { Metadata } from 'next';
 
-export const metadata = {
+import { Shell } from '@/components/portal/Shell';
+import { RESOURCE_KINDS } from '@/config/substrata-resources';
+import { ChainView } from './chain-view';
+import { WorldView } from './world-view';
+
+export const metadata: Metadata = {
   title: 'Map',
-  description: 'Trace one bottleneck from producers to technologies, or open any country.',
+  description:
+    'Where each bottleneck sits and who makes it, and what every country produces and holds — one bottleneck or one resource at a time.',
 };
 
-export default async function AtlasPage({
-  searchParams,
-}: {
-  searchParams: Promise<{
-    topic?: string;
-    chain?: string;
-    view?: string;
-    country?: string;
-    resource?: string;
-  }>;
-}) {
-  const {
-    topic: requested,
-    chain: requestedChain,
-    view: requestedView,
-    country,
-    resource,
-  } = await searchParams;
-  const view = requestedView === 'world' ? 'world' : 'chain';
-  const topic = TECHNOLOGIES.find((t) => t.id === requested)?.id ?? '';
-  const listed = topic ? BOTTLENECKS.filter((b) => b.technologies.includes(topic)) : BOTTLENECKS;
-  const chain =
-    listed.find((b) => b.slug === requestedChain) ??
-    listed.find((b) => b.producers.length > 0) ??
-    listed[0] ??
-    BOTTLENECKS[0];
+type Params = {
+  topic?: string;
+  chain?: string;
+  view?: string;
+  country?: string;
+  resource?: string;
+  measure?: string;
+};
+
+export default async function AtlasPage({ searchParams }: { searchParams: Promise<Params> }) {
+  const params = await searchParams;
+  const view = params.view === 'world' ? 'world' : 'chain';
+  const resource = RESOURCE_KINDS.find((r) => r.id === params.resource)?.id;
+  const measure = params.measure === 'reserves' ? 'reserves' : 'production';
+  // What the world view carries from one click to the next.
+  const keep: Record<string, string> = {};
+  if (resource) keep.resource = resource;
+  if (resource && measure === 'reserves') keep.measure = measure;
+  const worldHref = `/atlas?${new URLSearchParams({ view: 'world', ...keep }).toString()}`;
   return (
     <Shell>
-      <Page>
-        <SectionHeader
-          title="The map"
-          lede="Pick a bottleneck and see who the corpus records as making it, and which technologies it gates. Or open the world and click a country."
-        />
-        <nav className="map-views" aria-label="Map view">
-          <Link href="/atlas" aria-current={view === 'chain' ? 'page' : undefined}>
-            Chains
-          </Link>
-          <Link href="/atlas?view=world" aria-current={view === 'world' ? 'page' : undefined}>
-            World
-          </Link>
-        </nav>
+      <div className="atlas" data-view={view}>
+        <h1 className="sr-only">Map</h1>
         {view === 'world' ? (
-          <WorldPanel country={country} resource={resource} />
+          <WorldView
+            country={params.country}
+            resource={resource}
+            measure={measure}
+            keep={keep}
+            worldHref={worldHref}
+          />
         ) : (
-          <AtlasChain topic={topic} chain={chain} />
+          <ChainView topic={params.topic} requested={params.chain} worldHref={worldHref} />
         )}
-      </Page>
+      </div>
     </Shell>
   );
 }
