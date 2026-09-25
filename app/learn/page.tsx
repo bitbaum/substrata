@@ -21,7 +21,7 @@ export default function LearnPage() {
   const rest = explainers.filter((e) => e !== start);
 
   return (
-    <Shell currentPath="learn">
+    <Shell>
       <Page>
         <SectionHeader
           title="Learn"

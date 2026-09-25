@@ -23,8 +23,11 @@ import './styles/freshness.css';
 import './styles/updates.css';
 import './styles/roles.css';
 import './styles/science-pipeline.css';
+import './styles/shell.css';
+import './styles/shell-overlays.css';
 import { SITE } from '@/lib/site';
 import { AskDock } from '@/components/portal/AskDock';
+import { RAIL_BOOT } from '@/components/shell/shell-state';
 
 export const metadata: Metadata = {
   title: { default: SITE.name, template: `%s · ${SITE.name}` },
@@ -62,7 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     // than only the text when it arrives.
     <html lang={DEFAULT_LOCALE} dir={dirFor(DEFAULT_LOCALE)} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: THEME_BOOT }} />
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOT + RAIL_BOOT }} />
       </head>
       <body>
         {children}

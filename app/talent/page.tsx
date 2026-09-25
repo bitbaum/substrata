@@ -9,7 +9,7 @@ export const metadata = { title: 'Talent and expertise' };
 export default function TalentPage() {
   const bottlenecks = BOTTLENECKS.filter((b) => b.stage === 'talent');
   return (
-    <Shell currentPath="talent">
+    <Shell>
       <Page>
         <SectionHeader
           title="Some constraints are people"

@@ -92,7 +92,7 @@ export default async function MarketsPage({
   ).filter(([, rows]) => rows.length > 0);
 
   return (
-    <Shell currentPath="markets">
+    <Shell>
       <Page>
         <SectionHeader
           title="Markets"

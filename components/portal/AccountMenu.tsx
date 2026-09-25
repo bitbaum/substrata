@@ -1,8 +1,15 @@
 import Link from 'next/link';
-import { authEnabled, currentSession, signIn, signOut } from '@/lib/auth';
+import { ACCOUNT_NAV } from '@/config/site-nav';
+import { authEnabled, currentSession, isReviewer, signIn, signOut } from '@/lib/auth';
 import { ThemeToggle } from './ThemeToggle';
 import { DetailsMenu } from './DetailsMenu';
 
+/**
+ * Everything personal, in one place: the desk, its settings, the reviewer
+ * inbox, appearance, and signing in or out. These used to be rows in the
+ * research sidebar (Desk, Inbox) or nowhere at all (Settings); they are about
+ * the reader, not the research, so they live behind the reader's own avatar.
+ */
 export async function AccountMenu() {
   const session = await currentSession();
   const name = session?.user?.name ?? session?.user?.email ?? 'Account';
@@ -33,7 +40,7 @@ export async function AccountMenu() {
           ) : (
             <p className="px-3 py-2 text-sm text-fg-tertiary">Sign-in is being configured.</p>
           )}
-          <Link href="/account" className="account-menu-link">
+          <Link href={ACCOUNT_NAV.desk.href} className="account-menu-link">
             What the desk is
           </Link>
           <ThemeToggle />
@@ -41,6 +48,12 @@ export async function AccountMenu() {
       </DetailsMenu>
     );
   }
+
+  const links = [
+    ACCOUNT_NAV.desk,
+    ACCOUNT_NAV.settings,
+    ...(isReviewer(session.actorId) ? [ACCOUNT_NAV.inbox] : []),
+  ];
 
   return (
     <DetailsMenu className="account-menu">
@@ -56,9 +69,11 @@ export async function AccountMenu() {
       </summary>
       <div className="account-menu-panel">
         <p className="account-menu-label">{name}</p>
-        <Link href="/account" className="account-menu-link">
-          Desk
-        </Link>
+        {links.map((link) => (
+          <Link key={link.href} href={link.href} className="account-menu-link">
+            {link.label}
+          </Link>
+        ))}
         <ThemeToggle />
         <form
           action={async () => {

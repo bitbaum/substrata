@@ -36,7 +36,7 @@ export default function ResearchPage() {
   const cited = rowsCitedBy(programme);
 
   return (
-    <Shell currentPath="research">
+    <Shell>
       <Page>
         <header className="mb-8">
           <p className="font-mono text-xs uppercase tracking-caps text-fg-tertiary">

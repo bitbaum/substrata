@@ -42,7 +42,7 @@ export default async function NotePage({ params }: RouteParams) {
   const others = allNotes().filter((n) => n.slug !== note.slug);
 
   return (
-    <Shell currentPath="notes">
+    <Shell>
       <Page>
         <nav className="mb-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary">
           <Link href="/notes" className="hover:text-fg-primary">

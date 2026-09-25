@@ -94,7 +94,7 @@ export default async function EventsPage({
   );
 
   return (
-    <Shell currentPath="events">
+    <Shell>
       <Page>
         <header className="mb-6">
           <h1 className="font-heading text-3xl font-semibold tracking-display text-fg-primary sm:text-4xl">

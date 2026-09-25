@@ -32,7 +32,6 @@ function ceilingFor(path: string): number {
  * logic that read it moved to lib/) and the stylesheet's tokens and chrome.
  */
 const GRANDFATHERED: Record<string, number> = {
-  'app/globals.css': 664,
   'config/substrata-participants.ts': 1138,
   'config/substrata-coverage.ts': 849,
   'config/substrata-countries.ts': 621,

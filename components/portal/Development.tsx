@@ -15,7 +15,7 @@ export async function Development({
         ? 'Changelog'
         : 'Building Substrata in public';
   return (
-    <Shell currentPath={view}>
+    <Shell>
       <Page>
         <SectionHeader
           title={title}

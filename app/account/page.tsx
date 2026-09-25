@@ -33,7 +33,7 @@ export const metadata = { title: 'Desk' };
 
 function SignedOut() {
   return (
-    <Shell currentPath="account">
+    <Shell>
       <Page>
         <SectionHeader
           title="Your research desk"
@@ -173,7 +173,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
   const reviewer = isReviewer(actorId);
 
   return (
-    <Shell currentPath="account">
+    <Shell>
       <Page>
         <DeskHeader
           firstName={session.user?.name?.split(' ')[0]}

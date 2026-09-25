@@ -36,7 +36,7 @@ export default function SciencePage() {
   const reaching = SCIENCE.filter((s) => readinessBand(s.readiness) === 'production').length;
 
   return (
-    <Shell currentPath="science">
+    <Shell>
       <Page>
         <SectionHeader
           title="Science"

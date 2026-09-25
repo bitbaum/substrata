@@ -20,7 +20,7 @@ export default function PolicyPage() {
   const speeding = all.filter((i) => i.effect !== 'tightens');
 
   return (
-    <Shell currentPath="policy">
+    <Shell>
       <Page>
         <SectionHeader
           title="Policy"

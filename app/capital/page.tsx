@@ -34,7 +34,7 @@ export default function CapitalPage() {
   const totals = capitalTotals();
 
   return (
-    <Shell currentPath="capital">
+    <Shell>
       <Page>
         <SectionHeader
           title="Capital"

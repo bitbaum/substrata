@@ -118,7 +118,7 @@ export default function CallsPage() {
   const score = record();
 
   return (
-    <Shell currentPath="calls">
+    <Shell>
       <Page>
         <SectionHeader
           title="Calls"

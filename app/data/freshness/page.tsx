@@ -34,7 +34,7 @@ export default async function FreshnessPage() {
   );
 
   return (
-    <Shell currentPath="data/freshness">
+    <Shell>
       <Page>
         <PageHeader
           kicker={

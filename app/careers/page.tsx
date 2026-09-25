@@ -66,7 +66,7 @@ export default async function CareersPage({ searchParams }: { searchParams: Prom
   ).toString();
 
   return (
-    <Shell currentPath="careers">
+    <Shell>
       <Page>
         <PageHeader
           kicker="Careers"

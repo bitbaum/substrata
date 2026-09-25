@@ -57,7 +57,7 @@ export default async function BottleneckCareersPage({ params }: RouteParams) {
   const makers = makersOf(b.name).filter((p) => boardFor(p.slug)?.careersUrl);
 
   return (
-    <Shell currentPath="careers">
+    <Shell>
       <Page>
         <nav className="mb-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary">
           <Link href="/careers" className="hover:text-fg-primary">

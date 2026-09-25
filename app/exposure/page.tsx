@@ -49,7 +49,7 @@ export default async function ExposurePage({ searchParams }: { searchParams: Pro
   const qs = queryString(query);
 
   return (
-    <Shell currentPath="exposure">
+    <Shell>
       <Page>
         <PageHeader
           kicker="Exposure"

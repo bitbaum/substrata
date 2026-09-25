@@ -1,139 +1,61 @@
 /**
- * Two shells, from one config.
+ * The shell every page renders inside. The chrome itself is client-side
+ * (components/shell/AppFrame.tsx: sidebar, top bar, tab bar, palette); this
+ * server half reads the session once and hands down only what differs by
+ * reader — whether they are signed in, whether they review, and the account
+ * menu, which needs server actions to sign in and out.
  *
- * Public homepage: wordmark, research links, search, account.
- * Signed-in anywhere except the homepage: desk sidebar stays put so clicking
- * Map or Markets does not throw the reader into a different shell.
+ * The current page comes from the URL (usePathname), not from a prop each
+ * page passed, so a sub-page like /careers/paths marks its own row.
  */
 import React from 'react';
 import Link from 'next/link';
 
 import { siteChrome } from '@/config/site-content';
-import { DESK_NAV, FOOTER_NAV } from '@/config/site-nav';
+import { FOOTER_NAV } from '@/config/site-nav';
 import { currentSession, isReviewer } from '@/lib/auth';
 import { SITE, correctionUrl } from '@/lib/site';
+import { AppFrame } from '@/components/shell/AppFrame';
 import { AccountMenu } from './AccountMenu';
 import { FreshnessBadge } from './FreshnessBadge';
 import { Inquire } from './Inquire';
-import { Mark, SearchIcon } from './Mark';
-import { MobileMenu, PublicNav } from './PublicNav';
-import { SearchBox } from './SearchBox';
 
-const PUBLIC_ONLY = new Set(['']);
-
-export function DeskSidebar({
-  currentPath,
-  items,
-}: {
-  currentPath: string;
-  items: typeof DESK_NAV;
-}) {
-  const current = currentPath === '' ? '/' : `/${currentPath}`;
+function Footer({ note }: { note: string }) {
   return (
-    <nav className="desk-sidebar" aria-label="Desk">
-      <ul>
-        {items.map((item) => (
-          <li key={item.href}>
-            <Link
-              href={item.href}
-              aria-current={current === item.href ? 'page' : undefined}
-              className="desk-sidebar-link"
-            >
+    <footer className="site-footer mt-auto border-t border-subtle">
+      <div className="mx-auto flex max-w-shell flex-col gap-4 px-4 py-6 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+        <div className="max-w-xl">
+          <p className="text-xs leading-relaxed text-fg-muted">{note}</p>
+          <FreshnessBadge />
+        </div>
+        <nav aria-label="About Substrata" className="site-footer-nav">
+          {FOOTER_NAV.map((item) => (
+            <Link key={item.href} href={item.href}>
               {item.label}
             </Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
+          ))}
+          <a href={SITE.repo}>Source</a>
+          <a href={correctionUrl('Substrata')}>Correction</a>
+        </nav>
+      </div>
+    </footer>
   );
 }
 
-export async function Shell({
-  currentPath,
-  children,
-}: {
-  currentPath: string;
-  children: React.ReactNode;
-}) {
+export async function Shell({ children }: { children: React.ReactNode }) {
   const chrome = siteChrome();
   const session = await currentSession();
-  const desk = Boolean(session?.actorId) && !PUBLIC_ONLY.has(currentPath);
-  const deskItems = DESK_NAV.filter(
-    (item) => item.href !== '/review' || isReviewer(session?.actorId),
-  );
-  const deskLink = desk
-    ? [{ label: 'Desk', href: '/account', hint: 'Your saved research and follows.' }]
-    : [];
-
+  const actorId = session?.actorId;
   return (
-    <div className={desk ? 'desk-shell' : 'flex min-h-screen flex-col bg-surface-page'}>
-      <header className="site-header sticky top-0 z-[60] border-b border-subtle bg-surface-page/95 backdrop-blur">
-        <div className="relative mx-auto flex max-w-shell items-center gap-4 px-4 py-2.5 sm:px-6 lg:px-8">
-          <Link
-            href={desk ? '/account' : '/'}
-            className="inline-flex shrink-0 items-center gap-2 rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-          >
-            <Mark className="h-7 w-7 text-fg-primary" />
-            <span className="font-heading text-lg font-semibold tracking-display text-fg-primary">
-              {chrome.name}
-            </span>
-          </Link>
-          <PublicNav currentPath={currentPath} extra={deskLink} />
-          <div className="ml-auto flex items-center gap-1 sm:gap-2">
-            {/*
-              The inline search appears at lg, not md. Below that it competed
-              with the nav for the same row: at 834px the grouped menus and a
-              280px search box did not both fit, which is how the nav came to
-              be hidden below 1100px in the first place.
-            */}
-            <SearchBox />
-            <Link
-              href="/search"
-              className="inline-flex h-11 w-11 items-center justify-center text-fg-secondary hover:text-fg-primary lg:hidden"
-              aria-label="Search the research"
-            >
-              <SearchIcon className="h-5 w-5" />
-            </Link>
-            <AccountMenu />
-            {/* Last in the row, where a hand reaches for it. It used to sit
-                against the wordmark, adrift in the middle of the header. */}
-            <MobileMenu currentPath={currentPath} extra={deskLink} />
-          </div>
-        </div>
-      </header>
-      {desk && <DeskSidebar currentPath={currentPath} items={deskItems} />}
-      <main className="flex-1">{children}</main>
-      <footer className="site-footer mt-auto border-t border-subtle">
-        <div className="mx-auto flex max-w-shell flex-col gap-4 px-4 py-6 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          <div className="max-w-xl">
-            <p className="text-xs leading-relaxed text-fg-muted">{chrome.footerNote}</p>
-            <FreshnessBadge />
-          </div>
-          {!desk && (
-            <nav aria-label="Footer" className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
-              {FOOTER_NAV.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-fg-secondary hover:text-fg-primary"
-                >
-                  {item.label}
-                </Link>
-              ))}
-              <a href={SITE.repo} className="text-fg-secondary hover:text-fg-primary">
-                Source
-              </a>
-              <a
-                href={correctionUrl('Substrata')}
-                className="text-fg-secondary hover:text-fg-primary"
-              >
-                Correction
-              </a>
-            </nav>
-          )}
-        </div>
-      </footer>
-    </div>
+    <AppFrame
+      name={chrome.name}
+      signedIn={Boolean(actorId)}
+      reviewer={isReviewer(actorId)}
+      account={<AccountMenu />}
+      footer={<Footer note={chrome.footerNote} />}
+    >
+      {children}
+    </AppFrame>
   );
 }
 

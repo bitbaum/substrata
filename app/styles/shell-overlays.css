@@ -1,0 +1,335 @@
+/*
+ * What the shell lays over the page: the phone tab bar, the "More" sheet,
+ * the command palette and the account menu. Split from shell.css by job —
+ * that file is the frame, this one is everything that floats.
+ */
+
+/* ------------------------------------------------------------- tab bar */
+.shell-tabbar {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 40;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  height: var(--shell-offset-bottom);
+  padding: 0 0.25rem env(safe-area-inset-bottom, 0px);
+  border-top: 1px solid var(--color-border-subtle);
+  background: color-mix(in srgb, var(--color-surface-page) 96%, transparent);
+  backdrop-filter: blur(8px);
+}
+@media (min-width: 768px) {
+  .shell-tabbar {
+    display: none;
+  }
+}
+.shell-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  min-width: 0;
+  min-height: 2.75rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--color-fg-tertiary);
+  cursor: pointer;
+}
+.shell-tab span {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.shell-tab[aria-current='page'],
+.shell-tab[data-here] {
+  box-shadow: inset 0 2px 0 var(--color-fg-primary);
+  color: var(--color-fg-primary);
+}
+
+/* ------------------------------------------------------------- overlays */
+.shell-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+}
+.shell-backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--color-scrim);
+}
+.shell-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.375rem;
+  color: var(--color-fg-secondary);
+  cursor: pointer;
+}
+.shell-icon-button:hover {
+  background: var(--color-surface-raised);
+  color: var(--color-fg-primary);
+}
+
+/* The phone's "More" sheet rises from the tab bar. */
+.shell-sheet {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  max-height: 88dvh;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  border-top: 1px solid var(--color-border-strong);
+  border-radius: 0.75rem 0.75rem 0 0;
+  background: var(--color-surface-page);
+  box-shadow: var(--shadow-overlay);
+}
+.shell-sheet-head {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.25rem 0.5rem 0.25rem 1.25rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+  font-weight: 600;
+}
+.shell-sheet-body {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0.75rem 0.5rem 1.25rem;
+}
+.shell-sheet-group {
+  margin-top: 0.75rem;
+}
+.shell-sheet-label {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+}
+.shell-sheet-search,
+.shell-sheet-action {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  min-height: 3rem;
+  padding: 0 1rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 0.5rem;
+  font-size: 0.92rem;
+  color: var(--color-fg-secondary);
+  cursor: pointer;
+}
+.shell-sheet-search {
+  margin-bottom: 0.5rem;
+  background: var(--color-surface-raised);
+}
+.shell-sheet-action {
+  margin-top: 1.25rem;
+  padding: 0.75rem 1rem;
+  color: var(--color-fg-primary);
+}
+
+/* ------------------------------------------------------ command palette */
+.shell-palette-wrap {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0.5rem;
+}
+@media (min-width: 768px) {
+  .shell-palette-wrap {
+    padding: 12dvh 1rem 1rem;
+  }
+}
+.shell-palette {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: min(40rem, 100%);
+  max-height: min(36rem, 85dvh);
+  overflow: hidden;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 0.75rem;
+  background: var(--color-surface-page);
+  box-shadow: var(--shadow-overlay);
+}
+.shell-palette-input {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 0.375rem 0 1rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.shell-palette-input input {
+  flex: 1;
+  min-width: 0;
+  min-height: 3.25rem;
+  border: 0;
+  background: transparent;
+  /* 16px: anything smaller and iOS zooms the page when the field focuses. */
+  font-size: 1rem;
+  color: var(--color-fg-primary);
+  outline: none;
+}
+.shell-palette-close {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  font: 0.7rem/1 var(--font-mono);
+  color: var(--color-fg-tertiary);
+  cursor: pointer;
+}
+.shell-palette-list {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0.375rem;
+}
+.shell-palette-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 0.125rem 0.75rem;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+}
+.shell-palette-row[aria-selected='true'] {
+  background: var(--color-surface-raised);
+}
+.shell-palette-row-title {
+  overflow: hidden;
+  font-size: 0.92rem;
+  color: var(--color-fg-primary);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.shell-palette-row-group {
+  font: 0.65rem/1 var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+}
+.shell-palette-row-sub {
+  grid-column: 1 / -1;
+  overflow: hidden;
+  font-size: 0.78rem;
+  color: var(--color-fg-tertiary);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------- footer */
+.site-footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1.25rem;
+  font-size: 0.875rem;
+}
+.site-footer-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  color: var(--color-fg-secondary);
+}
+.site-footer-nav a:hover {
+  color: var(--color-fg-primary);
+}
+
+/* --------------------------------------------------------- account menu */
+.account-menu {
+  position: relative;
+}
+.account-menu-summary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  cursor: pointer;
+  list-style: none;
+}
+.account-menu-summary::-webkit-details-marker {
+  display: none;
+}
+.account-avatar,
+.account-avatar-image {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border-strong);
+  object-fit: cover;
+}
+.account-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.account-menu-panel {
+  position: absolute;
+  right: 0;
+  z-index: 40;
+  width: min(16rem, calc(100vw - 1rem));
+  margin-top: 0.4rem;
+  padding: 0.6rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 0.5rem;
+  background: var(--color-surface-page);
+  box-shadow: var(--shadow-overlay);
+}
+.account-menu-label {
+  padding: 0.4rem 0.6rem 0.8rem;
+  font-size: 0.8rem;
+  color: var(--color-fg-tertiary);
+}
+.account-menu-link,
+.account-menu-action {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0 0.6rem;
+  text-align: left;
+  font-size: 0.9rem;
+  color: var(--color-fg-primary);
+  cursor: pointer;
+}
+.account-menu-link:hover {
+  background: var(--color-surface-raised);
+}
+.account-menu-action {
+  background: var(--color-fg-primary);
+  color: var(--color-surface-page);
+  margin-top: 0.4rem;
+}
+.theme-toggle {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.25rem;
+  margin: 0.6rem 0;
+}
+.theme-toggle-option {
+  min-height: 2.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.65rem;
+  color: var(--color-fg-tertiary);
+  cursor: pointer;
+}
+.theme-toggle-option[aria-pressed='true'] {
+  color: var(--color-fg-primary);
+  border: 1px solid var(--color-fg-primary);
+}

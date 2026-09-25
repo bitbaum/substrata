@@ -57,7 +57,7 @@ export default async function DeskSettingsPage({
   }
 
   return (
-    <Shell currentPath="account">
+    <Shell>
       <Page>
         <header className="desk-hero">
           <div>

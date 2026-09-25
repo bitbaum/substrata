@@ -129,6 +129,10 @@
 .atlas-controls label {
   display: flex;
   flex-direction: column;
+  /* A flex item will not shrink below its content without this, so the
+     longest bottleneck name set the page width at 390px (nav rule 8). */
+  min-width: 0;
+  max-width: 100%;
   gap: 0.3rem;
   font-size: 0.75rem;
   letter-spacing: 0.08em;
