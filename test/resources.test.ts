@@ -72,6 +72,10 @@ test('bauxite ranks the mine, not the alumina refinery; unknown resources return
   assert.equal(bauxite?.series, 'mine-bauxite');
   assert.equal(bauxite?.values.gn.rank, 1);
   assert.equal(choropleth('neon'), null);
-  assert.equal(choropleth('natural-gas')?.values.ru.rank, 2, 'EIA dry gas: Russia second to the US');
+  assert.equal(
+    choropleth('natural-gas')?.values.ru.rank,
+    2,
+    'EIA dry gas: Russia second to the US',
+  );
   assert.ok(choroplethOptions().some((o) => o.resource === 'gallium'));
 });

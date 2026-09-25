@@ -52,7 +52,7 @@ export default async function ResourcePage({ params }: RouteParams) {
           <p className="resource-line">
             Concentration of {p.label.toLowerCase()}:{' '}
             <Figure method="hhi">{p.hhi.toFixed(2)}</Figure> on the Herfindahl index over the
-            countries listed individually (1.00 is a single supplier).
+            countries listed individually (a single supplier would score one).
             {ranking.reserves?.hhi !== null && ranking.reserves?.hhi !== undefined && (
               <>
                 {' '}

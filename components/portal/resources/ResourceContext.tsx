@@ -15,6 +15,14 @@ import { sanctionsOn } from '@/lib/resources/sanctions';
 import { corpusEvents, usgsStatements } from '@/lib/resources/statements';
 
 const SHOW = 6;
+/** Restrictions and sanctions can run to dozens of rows; the rest live on /resources/[slug]. */
+const SHOW_MEASURES = 3;
+
+/** The first sentence of a long register text; the link carries the rest. */
+function firstSentence(text: string): string {
+  const m = text.match(/^.*?[.;](?=\s|$)/);
+  return m ? m[0] : text;
+}
 
 function Producers({ iso2, resource }: { iso2: string; resource: string }) {
   const usgs = facilitiesFor(iso2, resource);
@@ -44,8 +52,9 @@ function Producers({ iso2, resource }: { iso2: string; resource: string }) {
           </ul>
           <p className="resource-source">
             USGS Minerals Yearbook {usgs.year}, {usgs.table}
-            {usgs.rows.length > SHOW && `, ${usgs.rows.length - SHOW} more rows`}. Capacity in{' '}
-            {usgs.unit.toLowerCase()}.{' '}
+            {usgs.rows.length > SHOW && `, ${usgs.rows.length - SHOW} more rows`}. Capacity as
+            printed: the table says “{usgs.unit.toLowerCase()}”, and names other units line by line
+            — read the unit in the table.{' '}
             <a href={usgs.pdf} rel="noopener noreferrer" target="_blank">
               Chapter ↗
             </a>{' '}
@@ -82,7 +91,7 @@ function Restrictions({ iso2, resource }: { iso2: string; resource: string }) {
     );
   return (
     <ul className="resource-list">
-      {rows.slice(0, SHOW).map((m, i) => (
+      {rows.slice(0, SHOW_MEASURES).map((m, i) => (
         <li key={i}>
           {restrictionSummary(m)}
           {m.lines.some((l) => l.sharedWith) && (
@@ -96,11 +105,18 @@ function Restrictions({ iso2, resource }: { iso2: string; resource: string }) {
           )}{' '}
           {m.link && (
             <a href={m.link} rel="noopener noreferrer" target="_blank">
-              {m.document ?? 'Legal text'} ↗
+              <span title={m.document ?? undefined}>Legal text ↗</span>
             </a>
           )}
         </li>
       ))}
+      {rows.length > SHOW_MEASURES && (
+        <li>
+          <Link href={`/resources/${resource}#restrictions-${iso2}`}>
+            All {rows.length} measures →
+          </Link>
+        </li>
+      )}
     </ul>
   );
 }
@@ -113,7 +129,7 @@ function Sanctions({ iso2, resource }: { iso2: string; resource: string }) {
     <ul className="resource-list">
       {hits.map((h, i) => (
         <li key={i}>
-          <span className="resource-strong">{h.by}</span> · {h.type}: {h.text}{' '}
+          <span className="resource-strong">{h.by}</span> · {h.type}: {firstSentence(h.text)}{' '}
           <a href={h.url} rel="noopener noreferrer" target="_blank">
             {h.date ? `${h.date} ↗` : 'Source ↗'}
           </a>

@@ -157,6 +157,14 @@ def parse(rows: list[dict]) -> tuple[str, list[dict]]:
                 location = out[-1]["location"]
             out.append({"group": group, "commodity": commodity, "companies": company, "location": location, "capacity": r.get(c_cap, "")})
             last_commodity, last_company = commodity, company
+        elif out and not a and r.get(c_comp) and c_cap and r.get(c_cap):
+            # No commodity cell but its own capacity: another company on the same commodity.
+            company = last_company if r[c_comp].lower() == "do." else r[c_comp]
+            location = r.get(c_loc, "")
+            if location.lower() == "do.":
+                location = out[-1]["location"]
+            out.append({"group": group, "commodity": last_commodity, "companies": company, "location": location, "capacity": r[c_cap]})
+            last_company = company
         elif out and not a and (r.get(c_comp) or r.get(c_loc)):
             if r.get(c_comp):
                 out[-1]["companies"] += " " + r[c_comp]

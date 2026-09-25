@@ -12,7 +12,7 @@ import { formatShare, ordinal } from '@/lib/resources/format';
 import { ENERGY_GAPS } from '@/lib/resources/usgs';
 
 /** Open the first few; the rest stay one click away. */
-const OPEN = 2;
+const OPEN = 1;
 
 function Headline({ facts }: { facts: ResourceFacts }) {
   const lead = leadOf(facts.production) ?? facts.production[0];

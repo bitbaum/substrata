@@ -71,6 +71,7 @@ export function ResourceFigures({ facts }: { facts: ResourceFacts }) {
               <td>
                 {fact.prior ? (
                   <>
+                    <span className="resource-cell-label">{fact.prior.year}: </span>
                     {fact.prior.text}
                     {fact.change !== null && (
                       <>
@@ -84,6 +85,7 @@ export function ResourceFigures({ facts }: { facts: ResourceFacts }) {
                 )}
               </td>
               <td>
+                <span className="resource-cell-label">World: </span>
                 <Standing fact={fact} />
               </td>
             </tr>

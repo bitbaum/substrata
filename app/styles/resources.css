@@ -23,6 +23,7 @@
 }
 .resource-item > summary {
   cursor: pointer;
+  list-style: none;
   display: flex;
   flex-wrap: wrap;
   gap: 0.25rem 0.6rem;
@@ -80,4 +81,26 @@
 }
 .resource-ranking th[scope='row'] {
   white-space: nowrap;
+}
+.resource-item > summary::-webkit-details-marker {
+  display: none;
+}
+.resource-item > summary::before {
+  content: '+';
+  width: 1ch;
+  font-family: var(--font-mono);
+  color: var(--color-fg-tertiary);
+}
+.resource-item[open] > summary::before {
+  content: '−';
+}
+/* The table's header is hidden on phones (series.css), so each cell names itself. */
+.resource-cell-label {
+  display: none;
+  color: var(--color-fg-tertiary);
+}
+@media (max-width: 639px) {
+  .resource-cell-label {
+    display: inline;
+  }
 }
