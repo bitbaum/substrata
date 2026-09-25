@@ -14,6 +14,7 @@ import { useSyncExternalStore, type ReactNode } from 'react';
 
 import { ACCOUNT_NAV, HOME_LINK, NAV_ACTION, isCurrent } from '@/config/site-nav';
 import { Mark, SearchIcon } from '@/components/portal/Mark';
+import { requestOpen } from '@/lib/ask-bridge';
 
 function useShortcutLabel(): string {
   return useSyncExternalStore(
@@ -57,6 +58,11 @@ export function TopBar({
         </kbd>
       </button>
       <div className="shell-topbar-end">
+        {/* Phones only: a floating Ask button covered the text above the tab
+            bar, so on a phone Ask lives here, as Loki's does. */}
+        <button type="button" className="shell-ask" onClick={requestOpen}>
+          Ask
+        </button>
         {signedIn && (
           <Link
             href={ACCOUNT_NAV.desk.href}

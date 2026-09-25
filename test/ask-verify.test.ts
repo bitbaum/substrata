@@ -125,9 +125,15 @@ test('a verify request is bounded: a claim, an optional figure, a url or a site 
 test('verify reads the cited source AND searches the web, in parallel, before the model', async () => {
   const ledger = emptyLedger();
   const order: string[] = [];
-  const slow = (label: string, ms: number) =>
-    new Promise<void>((r) => setTimeout(() => (order.push(label), r()), ms));
-  const t0 = Date.now();
+  // Ordering, not a stopwatch: parallel means both lookups started before
+  // either finished. A 20 ms wall-clock margin failed on a loaded machine.
+  const events: string[] = [];
+  const slow = (label: string, ms: number) => {
+    events.push(`start:${label}`);
+    return new Promise<void>((r) =>
+      setTimeout(() => (order.push(label), events.push(`end:${label}`), r()), ms),
+    );
+  };
   const block = await gatherEvidence(
     { claim: 'ASML shipped 53 EUV systems in 2024', value: '53', source: 'https://example.com/ar' },
     {
@@ -145,7 +151,11 @@ test('verify reads the cited source AND searches the web, in parallel, before th
       },
     },
   );
-  assert.ok(Date.now() - t0 < 220, 'the two lookups overlapped');
+  assert.deepEqual(
+    events.slice(0, 2).sort(),
+    ['start:read', 'start:web'],
+    'the two lookups overlapped: both started before either ended',
+  );
   assert.deepEqual(order.sort(), ['read', 'web']);
   assert.equal(ledger.web[0].cited, true, 'the cited source comes first');
   assert.equal(ledger.web.length, 2);
