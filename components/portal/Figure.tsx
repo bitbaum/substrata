@@ -98,6 +98,20 @@ export function Figure(props: FigureProps) {
   }
 
   const popId = `figure-${id.replace(/[^a-zA-Z0-9_-]/g, '')}`;
+  // The explanation is a description, never inline text: a list of eighteen
+  // computed counts used to carry eighteen copies of the same sentence into
+  // every copy-paste and every screen-reader pass through the page. A method's
+  // rule is defined once per page (<FigureDefinitions />) and referenced by
+  // id; only what is unique to this figure (a source, an estimate, a method's
+  // extra detail) gets its own element — `hidden`, so it is never read in the
+  // flow or copied, and still resolves as the button's description.
+  const own = props.method !== undefined ? props.detail : explanation;
+  const describedBy = [
+    props.method !== undefined ? methodDefinitionId(props.method) : undefined,
+    own ? `${popId}-sr` : undefined,
+  ]
+    .filter(Boolean)
+    .join(' ');
   return (
     <>
       <button
@@ -105,13 +119,15 @@ export function Figure(props: FigureProps) {
         popoverTarget={popId}
         className={`figure-trigger ${valueClass}`}
         title={explanation}
-        aria-describedby={`${popId}-sr`}
+        aria-describedby={describedBy}
       >
         {children}
       </button>
-      <span id={`${popId}-sr`} className="sr-only">
-        {explanation}
-      </span>
+      {own && (
+        <span id={`${popId}-sr`} hidden>
+          {own}
+        </span>
+      )}
       <span id={popId} popover="auto" role="note" className="figure-pop" data-check-anchor>
         <FigureBody {...props} />
         <span className="figure-pop-check">
@@ -127,6 +143,28 @@ export function Figure(props: FigureProps) {
         </span>
       </span>
     </>
+  );
+}
+
+/** The id of a method's one shared definition on the page. */
+export function methodDefinitionId(method: MethodId): string {
+  return `figure-def-${method}`;
+}
+
+/**
+ * Every method's rule, once per page, as the target of each figure's
+ * aria-describedby. Rendered by the root layout; `hidden` keeps it out of the
+ * reading order and out of copied text while it still names the description.
+ */
+export function FigureDefinitions() {
+  return (
+    <div hidden>
+      {(Object.keys(METHODS) as MethodId[]).map((method) => (
+        <span key={method} id={methodDefinitionId(method)}>
+          {figureExplanation({ method })}
+        </span>
+      ))}
+    </div>
   );
 }
 

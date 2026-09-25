@@ -9,6 +9,7 @@ import './styles/world.css';
 import './styles/search.css';
 import './styles/research.css';
 import './styles/atlas.css';
+import './styles/atlas-chain.css';
 import './styles/ask.css';
 import './styles/ask-key.css';
 import './styles/discussion.css';
@@ -27,6 +28,7 @@ import './styles/shell.css';
 import './styles/shell-overlays.css';
 import { SITE } from '@/lib/site';
 import { AskDock } from '@/components/portal/AskDock';
+import { FigureDefinitions } from '@/components/portal/Figure';
 import { RAIL_BOOT } from '@/components/shell/shell-state';
 
 export const metadata: Metadata = {
@@ -70,6 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         {children}
         <AskDock />
+        <FigureDefinitions />
 
         {/* The Loki feedback widget: point at what is wrong on the page,
             and an agent changes it. Env-gated, so a local run and a fork carry

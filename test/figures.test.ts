@@ -94,3 +94,48 @@ test('the scanner sees a typed number and excuses an explained one', () => {
   assert.equal(found.length, 1, JSON.stringify(found));
   assert.match(found[0].text, /Over 90%/);
 });
+
+/**
+ * A figure's explanation is its description, not its text. The atlas once
+ * listed eighteen computed counts and each carried the method's sentence
+ * inline — eighteen copies in every copy-paste and screen-reader pass.
+ */
+test('a figure describes itself by reference, and the page defines each method once', async () => {
+  const { createElement } = await import('react');
+  const { renderToStaticMarkup } = await import('react-dom/server');
+  const { Figure, FigureDefinitions, methodDefinitionId } =
+    await import('../components/portal/Figure');
+  const formula = METHODS['stage-counts'].formula;
+  const html = renderToStaticMarkup(
+    createElement(
+      'p',
+      null,
+      createElement(Figure, { method: 'stage-counts', children: '3' }),
+      createElement(Figure, { method: 'stage-counts', children: '4' }),
+    ),
+  );
+  // Nothing outside the closed popover repeats the rule as text.
+  // (The tooltip attribute is not text; the popover is closed until asked.)
+  const outsidePopover = html
+    .replace(
+      /<span[^>]*popover="auto"[\s\S]*?Check this number with Ask<\/button><\/span><\/span>/g,
+      '',
+    )
+    .replace(/ title="[^"]*"/g, '');
+  assert.ok(!outsidePopover.includes(formula), `explanation emitted inline:\n${outsidePopover}`);
+  const refs = [...html.matchAll(/aria-describedby="([^"]+)"/g)].map((m) => m[1]);
+  assert.deepEqual(refs, [methodDefinitionId('stage-counts'), methodDefinitionId('stage-counts')]);
+
+  const defs = renderToStaticMarkup(createElement(FigureDefinitions));
+  assert.match(defs, /^<div hidden="">/);
+  const ids = [...defs.matchAll(/id="([^"]+)"/g)].map((m) => m[1]);
+  assert.equal(ids.length, new Set(ids).size, 'a definition id appears twice');
+  assert.ok(ids.includes(methodDefinitionId('stage-counts')));
+  assert.equal(defs.split(formula).length - 1, 1, 'the rule is defined exactly once');
+
+  // A sourced figure has no shared rule, so its own description is hidden, not inline.
+  const sourced = renderToStaticMarkup(
+    createElement(Figure, { source: 'https://example.org/x', children: '9' }),
+  );
+  assert.match(sourced, /<span id="[^"]+-sr" hidden="">Source: example.org<\/span>/);
+});

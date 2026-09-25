@@ -1,0 +1,128 @@
+/*
+ * The chains view (components/portal/AtlasChain.tsx): one bottleneck as a
+ * flow — needs → the bottleneck → made by → holds up. Top to bottom on a
+ * phone, left to right from 768px, always in that reading order.
+ */
+.atlas-canvas-chain {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--atlas-map-inset-top) var(--atlas-gutter)
+    calc(var(--atlas-sheet-peek) + var(--atlas-dock) + 2rem);
+  background: var(--color-surface-page);
+}
+@media (min-width: 768px) {
+  .atlas-canvas-chain {
+    display: grid;
+    align-content: center;
+    padding-inline: 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .atlas-canvas-chain {
+    padding: var(--atlas-map-inset-top) calc(var(--atlas-map-inset-right) + 0.5rem) 3rem 2rem;
+  }
+}
+.flow {
+  display: flex;
+  flex-direction: column;
+  max-width: 34rem;
+}
+@media (min-width: 768px) {
+  .flow {
+    display: grid;
+    grid-template-columns:
+      minmax(0, 1fr) 1.75rem minmax(0, 1.2fr) 1.75rem minmax(0, 1fr)
+      1.75rem minmax(0, 1fr);
+    align-items: center;
+    max-width: 72rem;
+  }
+}
+.flow-col {
+  min-width: 0;
+}
+.flow-kicker {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font: 500 0.6875rem/1.4 var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-fg-tertiary);
+}
+.flow-kicker span {
+  color: var(--color-fg-muted);
+}
+.flow-nodes a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.125rem;
+  min-height: 2.75rem;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--color-border-subtle);
+}
+.flow-nodes li:last-child a {
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.flow-label {
+  font-size: 0.9375rem;
+  line-height: 1.3;
+  color: var(--color-fg-secondary);
+  overflow-wrap: anywhere;
+}
+.flow-nodes a:hover .flow-label {
+  color: var(--color-fg-primary);
+}
+.flow-note {
+  font: 0.75rem/1.4 var(--font-mono);
+  color: var(--color-fg-tertiary);
+}
+.flow-empty {
+  padding: 0.75rem 0;
+  border-block: 1px dashed var(--color-border-strong);
+  font-size: 0.8125rem;
+  color: var(--color-fg-muted);
+}
+/* The one boxed thing on the canvas: the bottleneck the chain is about. */
+.flow-focus {
+  padding: 1.25rem;
+  border: 1px solid var(--color-fg-primary);
+  border-radius: var(--atlas-radius);
+  background: var(--color-surface-raised);
+}
+.flow-title {
+  margin-bottom: 0.5rem;
+  font: 600 1.5rem/1.15 var(--font-heading);
+  letter-spacing: var(--tracking-display);
+  color: var(--color-fg-primary);
+  overflow-wrap: anywhere;
+}
+@media (min-width: 1280px) {
+  .flow-title {
+    font-size: 1.75rem;
+  }
+}
+.flow-arrow {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0;
+  color: var(--color-fg-muted);
+}
+.flow-arrow svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transform: rotate(90deg);
+}
+@media (min-width: 768px) {
+  .flow-arrow {
+    padding: 0;
+  }
+  .flow-arrow svg {
+    transform: none;
+  }
+}
