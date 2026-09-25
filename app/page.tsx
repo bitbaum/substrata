@@ -39,7 +39,7 @@ export default function TodayPage() {
     BOTTLENECKS.find((b) => b.producers.length > 0);
 
   return (
-    <Shell currentPath="">
+    <Shell>
       <Page>
         <HomeHero newest={latestEvent ? latestEvent.date : latestRule?.date} featured={featured} />
 

@@ -30,7 +30,7 @@ export default async function SeriesPage({ params }: RouteParams) {
   if (!series) notFound();
   const bottleneck = bottleneckBySlug(series.bottleneck);
   return (
-    <Shell currentPath="data">
+    <Shell>
       <Page>
         <nav className="mb-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary">
           <Link href="/data/series" className="hover:text-fg-primary">

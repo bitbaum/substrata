@@ -81,7 +81,7 @@ export default async function BottleneckPage({ params }: RouteParams) {
       : [];
 
   return (
-    <Shell currentPath="bottlenecks">
+    <Shell>
       <Page>
         <nav className="mb-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary">
           <Link href="/bottlenecks" className="hover:text-fg-primary">

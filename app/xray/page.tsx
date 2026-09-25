@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default async function XrayPage() {
   const session = await currentSession();
   return (
-    <Shell currentPath="xray">
+    <Shell>
       <Page>
         <header className="xray-head">
           <p className="desk-kicker">Portfolio X-ray</p>

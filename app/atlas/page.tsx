@@ -37,7 +37,7 @@ export default async function AtlasPage({
     listed[0] ??
     BOTTLENECKS[0];
   return (
-    <Shell currentPath="atlas">
+    <Shell>
       <Page>
         <SectionHeader
           title="The map"

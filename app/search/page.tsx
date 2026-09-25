@@ -60,13 +60,13 @@ export default async function SearchPage({
   const types = SEARCH_TYPES.filter((t) => result.counts[t]);
 
   return (
-    <Shell currentPath="search">
+    <Shell>
       <Page>
         <SectionHeader
           title="Search"
           lede="Bottlenecks, companies, countries, policy, science, events, evidence, notes and the glossary — one index, grouped by what each result is."
         />
-        <SearchBox mode="page" initialQuery={q} type={type} />
+        <SearchBox initialQuery={q} type={type} />
         <p className="search-help" aria-hidden>
           <kbd>/</kbd> to search from anywhere · <kbd>↑</kbd>
           <kbd>↓</kbd> to move · <kbd>Enter</kbd> to open

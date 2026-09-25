@@ -73,7 +73,7 @@ export default async function ReviewPage({
   ]);
 
   return (
-    <Shell currentPath="review">
+    <Shell>
       <Page>
         <SectionHeader
           title="Review"

@@ -37,7 +37,7 @@ export default async function PathsPage() {
   const families = ROLE_FAMILIES.filter((f) => f.id !== 'business' && f.id !== 'software-ai');
 
   return (
-    <Shell currentPath="careers">
+    <Shell>
       <Page>
         <nav className="mb-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary">
           <Link href="/careers" className="hover:text-fg-primary">

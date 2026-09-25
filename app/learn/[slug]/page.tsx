@@ -32,7 +32,7 @@ export default async function LearnArticle({ params }: RouteParams) {
   const others = allLearn().filter((p) => p.slug !== piece.slug);
 
   return (
-    <Shell currentPath="learn">
+    <Shell>
       <Page>
         <nav className="mb-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary">
           <Link href="/learn" className="hover:text-fg-primary">

@@ -38,7 +38,7 @@ export default async function CompaniesHiringPage() {
   const live = rows.filter((r) => r.live).length;
 
   return (
-    <Shell currentPath="careers">
+    <Shell>
       <Page>
         <nav className="mb-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary">
           <Link href="/careers" className="hover:text-fg-primary">

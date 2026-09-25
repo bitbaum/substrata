@@ -50,7 +50,7 @@ export async function RolePage({ id }: { id: AudienceId }) {
   const signedIn = Boolean(session?.actorId);
 
   return (
-    <Shell currentPath={`for/${audience.id}`}>
+    <Shell>
       <Page>
         <RoleTabs
           current={audience.id}

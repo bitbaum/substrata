@@ -47,7 +47,7 @@ export default async function SeriesIndex({ searchParams }: { searchParams: Prom
   const points = shown.reduce((n, s) => n + s.points.length, 0);
 
   return (
-    <Shell currentPath="data">
+    <Shell>
       <Page>
         <SectionHeader
           title="Data series"

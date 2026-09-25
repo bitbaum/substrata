@@ -31,7 +31,7 @@ export default async function DataPage() {
     askLatencyReport().catch(() => null),
   ]);
   return (
-    <Shell currentPath="data">
+    <Shell>
       <Page>
         <SectionHeader
           title="Every claim should be checkable"

@@ -40,7 +40,7 @@ export default async function ProviderPage({ params }: RouteParams) {
   const entity = resolveIn('capital', provider.id);
 
   return (
-    <Shell currentPath="capital">
+    <Shell>
       <Page>
         <nav className="mb-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary">
           <Link href="/capital" className="hover:text-fg-primary">

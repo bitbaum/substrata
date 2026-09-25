@@ -151,7 +151,7 @@
 }
 .settings-save {
   position: sticky;
-  bottom: 0;
+  bottom: var(--shell-offset-bottom);
   display: flex;
   gap: 0.75rem;
   padding: 1rem 0;

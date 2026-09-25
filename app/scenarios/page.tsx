@@ -62,7 +62,7 @@ export default async function ScenariosPage({ searchParams }: { searchParams: Pr
   );
 
   return (
-    <Shell currentPath="scenarios">
+    <Shell>
       <Page>
         <header className="xray-head">
           <p className="desk-kicker">Scenarios</p>

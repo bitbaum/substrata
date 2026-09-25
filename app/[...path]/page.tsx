@@ -36,7 +36,7 @@ export default async function Page({ params }: RouteParams) {
   if (!page) notFound();
 
   return (
-    <Shell currentPath={currentPath}>
+    <Shell>
       <div className="mx-auto max-w-shell px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
         {!pageRendersOwnHeader(page) && (
           <header className="mb-10 border-b border-subtle pb-8">

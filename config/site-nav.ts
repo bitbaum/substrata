@@ -1,47 +1,61 @@
 /**
- * Chrome, as data. One research list, two shells, and nine destinations a
- * reader can hold in their head.
+ * Chrome, as data: one shell for every page, signed in or not.
  *
- * Public header and desk sidebar share the same link objects, so a destination
- * cannot exist in one and vanish in the other. Homepage stays a public page
- * even when signed in. Every other signed-in page keeps the desk sidebar, so
- * clicking a left-panel item does not throw the reader into a different shell.
+ * The left panel had grown to seventeen flat rows — the desk, three working
+ * screens, nine research links, careers, talent, freshness and an inbox — and
+ * the public header carried a second, different grouping of the same pages.
+ * Two menus for one site, and neither could be held in the head.
  *
- * The header is GROUPED, and was grouped once before: the README has described
- * "three menu groups and one action, because seven flat items was more than a
- * reader could hold" since `components/portal/Megamenu.tsx` existed. That file
- * was deleted in 7f59e09 and the README was never told. What replaced it was a
- * flat list of nine uppercase links that wrapped onto two rows at 1440px and
- * was hidden entirely below 1100px — so a tablet got a lone "MENU" in an empty
- * header, and a desktop got a header twice as tall as it should be.
+ * This follows the shell Loki and OrangeCat settled on after the same problem,
+ * rather than inventing a third answer:
  *
- * The grouping lives here rather than in a component this time, which is what
- * makes it hard to lose again: a link is declared once in `LINK`, and both the
- * header groups and the desk list are built from those objects. `test/nav.test.ts`
- * holds the two halves together.
+ * - Five sections, grouped by what a reader is doing. Only the section holding
+ *   the current page opens by itself, so the panel shows five headings and a
+ *   handful of rows, not seventeen. (`components/shell/`)
+ * - Personal things — desk, settings, the reviewer inbox, sign out — live in
+ *   the account menu in the top bar, never mixed into the research list.
+ * - The long tail (reader views, data pages, the project's own pages) is one
+ *   keystroke away in the command palette, ⌘K, which also searches every
+ *   bottleneck and company.
+ * - On a phone: four tabs and "More", which opens the same sections.
  *
- * Every destination carries one line saying what is behind it, so a reader
- * chooses from what they will find rather than from a noun. Those lines are
- * taken from each page's own description — never written fresh here, because a
- * second description is a second thing to keep true.
+ * Every link is declared once in `LINK` and every surface is built from these
+ * lists, so a page cannot be in one menu and missing from another.
+ * `test/nav.test.ts` holds the lists to the contract; the README table is the
+ * sidebar and is checked against it.
+ *
+ * Every destination carries one line saying what is behind it, taken from the
+ * page's own description rather than written fresh here.
  */
 
 import { AUDIENCES, audienceHref } from './audiences';
 
+export type NavIcon =
+  'home' | 'explore' | 'markets' | 'science' | 'careers' | 'news' | 'bottlenecks' | 'map' | 'more';
+
 export interface NavLink {
   label: string;
   href: string;
-  /** One line, in the page's own words. Shown in the menu, never on the page. */
+  /** One line, in the page's own words. Shown in menus, never on the page. */
   hint: string;
 }
 
-export interface NavGroup {
+export interface NavSection {
+  id: string;
   label: string;
+  icon: NavIcon;
+  /** What the section is for, as the question a reader brings to it. */
+  question: string;
   items: readonly NavLink[];
 }
 
-/** Every public destination, declared once. */
+/** Every destination, declared once. */
 const LINK = {
+  home: {
+    label: 'Home',
+    href: '/',
+    hint: 'The bottlenecks on the path to transformative technology, and where to start.',
+  },
   map: {
     label: 'Map',
     href: '/atlas',
@@ -51,6 +65,16 @@ const LINK = {
     label: 'Bottlenecks',
     href: '/bottlenecks',
     hint: 'What has to exist before more compute, power or machines — and how hard each binds.',
+  },
+  policy: {
+    label: 'Policy',
+    href: '/policy',
+    hint: 'The rules that speed up or slow down building, and who publicly asked for them.',
+  },
+  capital: {
+    label: 'Capital',
+    href: '/capital',
+    hint: 'Who could fund relief — and where money is not the constraint at all.',
   },
   markets: {
     label: 'Markets',
@@ -65,27 +89,42 @@ const LINK = {
   xray: {
     label: 'X-ray',
     href: '/xray',
-    hint: 'Paste holdings and see which bottlenecks each one holds and rests on. Nothing you paste is stored.',
+    hint: 'Paste holdings and see which bottlenecks each one holds and rests on.',
   },
   scenarios: {
     label: 'Scenarios',
     href: '/scenarios',
     hint: 'What if a company, a bottleneck or a country fails? Traced one recorded step at a time.',
   },
-  policy: {
-    label: 'Policy',
-    href: '/policy',
-    hint: 'The rules that speed up or slow down building, and who publicly asked for them.',
-  },
   science: {
     label: 'Science',
     href: '/science',
     hint: 'What could remove each bottleneck, and how far off it is.',
   },
-  capital: {
-    label: 'Capital',
-    href: '/capital',
-    hint: 'Who could fund relief — and where money is not the constraint at all.',
+  pipeline: {
+    label: 'Pipeline',
+    href: '/science/pipeline',
+    hint: 'The research, lab work, pilots and products that could relieve each bottleneck.',
+  },
+  learn: {
+    label: 'Learn',
+    href: '/learn',
+    hint: 'What the terms mean, for people who do not work in these industries.',
+  },
+  careers: {
+    label: 'Careers',
+    href: '/careers',
+    hint: 'Open roles at the companies that hold the bottlenecks, and how to train into them.',
+  },
+  careerPaths: {
+    label: 'Skills and training',
+    href: '/careers/paths',
+    hint: 'What each kind of work needs, what postings ask for, and public ways to train into it.',
+  },
+  careerCompanies: {
+    label: 'Where companies hire',
+    href: '/careers/companies',
+    hint: 'Every company in the directory and where its open roles are published.',
   },
   news: {
     label: 'News',
@@ -97,40 +136,45 @@ const LINK = {
     href: '/notes',
     hint: 'Written pieces: what the map implies, and where the evidence falls short.',
   },
-  changelog: {
-    label: 'Changelog',
-    href: '/changelog',
-    hint: 'Progress from the development profile. The project is in beta.',
-  },
-  about: {
-    label: 'About',
-    href: '/about',
-    hint: 'What this is, who makes it, and what it deliberately is not.',
-  },
-  learn: {
-    label: 'Learn',
-    href: '/learn',
-    hint: 'What the terms mean, for people who do not work in these industries.',
+  calls: {
+    label: 'Calls',
+    href: '/calls',
+    hint: 'Dated predictions with the observation that would settle each one, scored in public.',
   },
   talent: {
     label: 'Talent',
     href: '/talent',
     hint: 'The expertise needed to ramp a factory or connect a grid, made visible.',
   },
-  careers: {
-    label: 'Careers',
-    href: '/careers',
-    hint: 'Open roles at the companies that hold the bottlenecks, and how to train into them.',
-  },
-  roadmap: {
-    label: 'Roadmap',
-    href: '/roadmap',
-    hint: 'Plans from the development profile, with what is done and what is not.',
+  data: {
+    label: 'Data quality',
+    href: '/data',
+    hint: 'What has a source, what is still a lead, and what is a dated judgement.',
   },
   freshness: {
     label: 'Freshness',
     href: '/data/freshness',
     hint: 'Every feed and dataset: when it last ran, how often it should, and whether it is late.',
+  },
+  ask: {
+    label: 'Ask',
+    href: '/chat',
+    hint: 'Ask a question of the research and get an answer with its sources.',
+  },
+  about: {
+    label: 'About',
+    href: '/about',
+    hint: 'What this is, who makes it, and what it deliberately is not.',
+  },
+  changelog: {
+    label: 'Changelog',
+    href: '/changelog',
+    hint: 'Progress from the development profile. The project is in beta.',
+  },
+  roadmap: {
+    label: 'Roadmap',
+    href: '/roadmap',
+    hint: 'Plans from the development profile, with what is done and what is not.',
   },
   join: {
     label: 'Join',
@@ -139,67 +183,80 @@ const LINK = {
   },
 } satisfies Record<string, NavLink>;
 
+export const HOME_LINK: NavLink = LINK.home;
+
 /**
- * The reader's own door: one view per audience (config/audiences.ts), each
- * composed from the screens below. Careers and Talent are reached from
- * the job-seeker view and the desk rather than taking menu rows; freshness is
- * the footer badge on every page.
+ * The sidebar: five sections, grouped by what a reader is doing.
+ * Five headings is the whole panel until one opens.
  */
-const FOR_YOU: readonly NavLink[] = AUDIENCES.map((a) => ({
-  label: a.label,
+export const NAV_SECTIONS: readonly NavSection[] = [
+  {
+    id: 'explore',
+    label: 'Explore',
+    icon: 'explore',
+    question: 'What has to exist, where it is made, and what governs it?',
+    items: [LINK.bottlenecks, LINK.map, LINK.policy, LINK.capital],
+  },
+  {
+    id: 'markets',
+    label: 'Markets',
+    icon: 'markets',
+    question: 'Who holds each bottleneck, and what does it mean for a portfolio?',
+    items: [LINK.markets, LINK.exposure, LINK.xray, LINK.scenarios],
+  },
+  {
+    id: 'science',
+    label: 'Science',
+    icon: 'science',
+    question: 'What could relieve each bottleneck, and how far off is it?',
+    items: [LINK.science, LINK.pipeline, LINK.learn],
+  },
+  {
+    id: 'careers',
+    label: 'Careers',
+    icon: 'careers',
+    question: 'Where are the bottlenecks hiring, and how do you train into them?',
+    items: [LINK.careers, LINK.careerPaths, LINK.careerCompanies],
+  },
+  {
+    id: 'news',
+    label: 'News',
+    icon: 'news',
+    question: 'What changed, and what does it imply?',
+    items: [LINK.news, LINK.notes],
+  },
+];
+
+/** Phone bottom bar: four destinations, then "More" opens every section. */
+export const MOBILE_TABS: readonly (NavLink & { icon: NavIcon })[] = [
+  { ...LINK.bottlenecks, icon: 'bottlenecks' },
+  { ...LINK.map, icon: 'map' },
+  { ...LINK.markets, icon: 'markets' },
+  { ...LINK.news, icon: 'news' },
+];
+
+/** The one thing in the top bar that asks for something. */
+export const NAV_ACTION: NavLink = LINK.join;
+
+/** Personal pages. The account menu only; never in the research list. */
+export const ACCOUNT_NAV = {
+  desk: { label: 'Desk', href: '/account', hint: 'Your saved research, follows and leads.' },
+  settings: {
+    label: 'Settings',
+    href: '/account/settings',
+    hint: 'What your desk shows, how often it updates, and your own AI key.',
+  },
+  inbox: { label: 'Inbox', href: '/review', hint: 'Contributions waiting on a reviewer.' },
+} satisfies Record<string, NavLink>;
+
+/** One view per reader (config/audiences.ts). Homepage chooser and palette. */
+export const READER_VIEWS: readonly NavLink[] = AUDIENCES.map((a) => ({
+  label: `For ${a.label.toLowerCase()}`,
   href: audienceHref(a.id),
   hint: a.hint,
 }));
 
-/** The header, grouped. Three groups is the whole menu; nothing hides below them. */
-export const NAV_GROUPS: readonly NavGroup[] = [
-  { label: 'For you', items: FOR_YOU },
-  {
-    label: 'The map',
-    items: [LINK.map, LINK.bottlenecks, LINK.markets, LINK.policy, LINK.science, LINK.capital],
-  },
-  {
-    label: 'News & about',
-    items: [LINK.news, LINK.notes, LINK.learn, LINK.changelog, LINK.roadmap, LINK.about],
-  },
-];
-
-/**
- * The one thing in the header that asks for something.
- *
- * It sits outside the groups on purpose: a contribution is not a destination
- * to browse, and burying it in a dropdown is how an invitation stops working.
- */
-export const NAV_ACTION: NavLink = LINK.join;
-
-/** The research, in the order a reader should be able to fall into it. */
-export const RESEARCH_NAV: readonly NavLink[] = [
-  LINK.map,
-  LINK.bottlenecks,
-  LINK.markets,
-  LINK.policy,
-  LINK.science,
-  LINK.capital,
-  LINK.learn,
-  LINK.news,
-];
-
-export const PUBLIC_NAV: readonly NavLink[] = RESEARCH_NAV;
-
-export const DESK_NAV: readonly NavLink[] = [
-  { label: 'Desk', href: '/account', hint: 'Your saved research and follows.' },
-  // A working screen rather than a place to browse, so it lives with the desk;
-  // the public reaches it from Markets.
-  LINK.exposure,
-  LINK.xray,
-  LINK.scenarios,
-  ...RESEARCH_NAV,
-  LINK.careers,
-  LINK.talent,
-  LINK.freshness,
-  { label: 'Inbox', href: '/review', hint: 'Contributions waiting on a reviewer.' },
-];
-
+/** The project's own pages: footer, the "More" sheet and the palette. */
 export const FOOTER_NAV: readonly NavLink[] = [
   LINK.about,
   LINK.notes,
@@ -208,13 +265,52 @@ export const FOOTER_NAV: readonly NavLink[] = [
   LINK.join,
 ];
 
-/** Whether a rendered path sits inside a destination, so a group can mark itself. */
+/** Reached from the palette and from the pages that cite them. */
+export const PALETTE_EXTRA: readonly NavLink[] = [
+  LINK.ask,
+  LINK.calls,
+  LINK.talent,
+  LINK.data,
+  LINK.freshness,
+];
+
+/** Every research destination in the sidebar, in order. */
+export const RESEARCH_NAV: readonly NavLink[] = NAV_SECTIONS.flatMap((s) => s.items);
+export const PUBLIC_NAV: readonly NavLink[] = RESEARCH_NAV;
+
+/** Whether a rendered path sits inside a destination. */
 export function isCurrent(current: string, href: string): boolean {
+  if (href === '/') return current === '/';
   return current === href || current.startsWith(`${href}/`);
 }
 
+/**
+ * The most specific link a path sits in, so /careers/paths marks "Skills and
+ * training" and not "Careers" as well.
+ */
+export function currentHref(current: string, links: readonly NavLink[]): string | null {
+  let best: string | null = null;
+  for (const link of links) {
+    if (isCurrent(current, link.href) && (!best || link.href.length > best.length))
+      best = link.href;
+  }
+  return best;
+}
+
+export function sectionFor(current: string): NavSection | undefined {
+  const href = currentHref(current, RESEARCH_NAV);
+  return href ? NAV_SECTIONS.find((s) => s.items.some((i) => i.href === href)) : undefined;
+}
+
 export function navPaths(): string[] {
-  return [...PUBLIC_NAV, ...DESK_NAV, ...FOOTER_NAV, ...NAV_GROUPS.flatMap((g) => g.items)]
+  return [
+    HOME_LINK,
+    ...RESEARCH_NAV,
+    ...Object.values(ACCOUNT_NAV),
+    ...READER_VIEWS,
+    ...FOOTER_NAV,
+    ...PALETTE_EXTRA,
+  ]
     .map((item) => item.href.split(/[?#]/)[0])
     .filter((href, i, all) => all.indexOf(href) === i);
 }

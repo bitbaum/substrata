@@ -30,7 +30,7 @@ export default async function BottlenecksPage({
   const covered = new Set(BOTTLENECKS.map((b) => b.stage)).size;
 
   return (
-    <Shell currentPath="bottlenecks">
+    <Shell>
       <Page>
         <SectionHeader
           title="Bottlenecks"

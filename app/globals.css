@@ -20,6 +20,11 @@
   --tracking-caps: 0.18em;
 
   --spacing-shell: 76rem;
+  /* The shell's frame (app/styles/shell.css). */
+  --spacing-sidebar: 15rem;
+  --spacing-rail: 5rem;
+  --spacing-topbar: 3.5rem;
+  --spacing-tabbar: 4rem;
 
   --primitive-black: #000000;
   --primitive-white: #ffffff;
@@ -46,6 +51,24 @@
   --color-status-positive: var(--primitive-green-500);
   --color-status-warning: var(--primitive-amber-500);
   --color-status-negative: var(--primitive-red);
+
+  --shadow-overlay: 0 16px 48px color-mix(in srgb, var(--primitive-black) 35%, transparent);
+  --color-scrim: color-mix(in srgb, var(--primitive-black) 55%, transparent);
+}
+
+/*
+ * How much of the bottom of the screen the shell owns: the phone's tab bar
+ * plus the home-indicator inset, and nothing from 768px up. Anything fixed or
+ * sticky to the bottom (the Ask button, a sticky composer or save bar) sits
+ * above it by adding this, rather than each guessing the bar's height.
+ */
+:root {
+  --shell-offset-bottom: 0px;
+}
+@media (max-width: 767px) {
+  :root {
+    --shell-offset-bottom: calc(var(--spacing-tabbar) + env(safe-area-inset-bottom, 0px));
+  }
 }
 
 html[data-theme='light'] {
@@ -75,231 +98,6 @@ html[data-theme='light'] {
   color-scheme: light;
 }
 
-/* Research service surfaces: one set of spacing, controls and responsive rules. */
-.site-header {
-  border-top: 0;
-}
-/*
- * The header nav.
- *
- * Wide: three group menus and one action. Narrow: one panel. The old shape was
- * nine flat uppercase links with `flex-wrap`, hidden below 1100px — so a phone
- * and an iPad both got a lone "MENU" adrift beside the wordmark, and a 1440px
- * desktop got those nine links wrapped onto two rows inside the header.
- */
-.public-nav {
-  display: none;
-  align-items: center;
-  /* Never wraps. Wrapping is what made the header two rows tall. */
-  flex-wrap: nowrap;
-  gap: 0.1rem;
-}
-@media (min-width: 820px) {
-  .public-nav {
-    display: flex;
-  }
-}
-.public-nav-group {
-  position: relative;
-}
-.public-nav-group > summary,
-.public-nav-link,
-.public-nav-action {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  min-height: 2.75rem;
-  padding: 0 0.7rem;
-  border-radius: 0.3rem;
-  font-size: 0.78rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-fg-secondary);
-  white-space: nowrap;
-  cursor: pointer;
-  list-style: none;
-}
-.public-nav-group > summary::-webkit-details-marker {
-  display: none;
-}
-.public-nav-group > summary:hover,
-.public-nav-link:hover,
-.public-nav-action:hover,
-.public-nav-group[open] > summary {
-  color: var(--color-fg-primary);
-  background: var(--color-surface-raised);
-}
-/* Where you are, marked under the word rather than by weight alone. */
-.public-nav-group > summary[aria-current='page'],
-.public-nav-link[aria-current='page'] {
-  color: var(--color-fg-primary);
-  box-shadow: inset 0 -2px 0 var(--color-fg-primary);
-}
-.public-nav-action {
-  margin-left: 0.3rem;
-  border: 1px solid var(--color-border-strong);
-  color: var(--color-fg-primary);
-}
-.nav-caret {
-  width: 0.55rem;
-  height: 0.35rem;
-  flex: none;
-  transition: transform 120ms ease;
-}
-.public-nav-group[open] .nav-caret {
-  transform: rotate(180deg);
-}
-.public-nav-panel {
-  position: absolute;
-  top: calc(100% + 0.35rem);
-  left: 0;
-  z-index: 50;
-  width: 22rem;
-  max-width: calc(100vw - 2rem);
-  padding: 0.4rem;
-  border: 1px solid var(--color-border-strong);
-  border-radius: 0.4rem;
-  background: var(--color-surface-page);
-}
-/* A menu row is a label and what is behind it — the whole point of grouping. */
-.nav-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-  min-height: 2.75rem;
-  padding: 0.5rem 0.6rem;
-  border-radius: 0.3rem;
-}
-.nav-item:hover {
-  background: var(--color-surface-raised);
-}
-.nav-item-label {
-  font-size: 0.9rem;
-  color: var(--color-fg-primary);
-}
-/* Where you are, as a rule down the left edge — a bullet after the word read
-   as a typo. */
-.nav-item[aria-current='page'] {
-  box-shadow: inset 2px 0 0 var(--color-fg-primary);
-}
-.nav-item[aria-current='page'] .nav-item-label {
-  font-weight: 600;
-}
-.nav-item-hint {
-  font-size: 0.76rem;
-  line-height: 1.45;
-  color: var(--color-fg-tertiary);
-}
-
-/* ---- narrow ---- */
-.public-nav-more {
-  display: block;
-  /* Static on purpose: the panel anchors to the header's own container, which
-     is what makes it full width instead of hanging off this button. */
-  position: static;
-}
-@media (min-width: 820px) {
-  .public-nav-more {
-    display: none;
-  }
-}
-.public-nav-more > summary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: 0.3rem;
-  color: var(--color-fg-secondary);
-  cursor: pointer;
-  list-style: none;
-}
-.public-nav-more > summary::-webkit-details-marker {
-  display: none;
-}
-.public-nav-more[open] > summary,
-.public-nav-more > summary:hover {
-  color: var(--color-fg-primary);
-  background: var(--color-surface-raised);
-}
-.nav-burger {
-  width: 1.15rem;
-  height: 0.8rem;
-}
-.public-nav-more-panel {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 50;
-  max-height: calc(100dvh - 4rem);
-  overflow-y: auto;
-  padding: 0.75rem;
-  border: 1px solid var(--color-border-strong);
-  border-radius: 0 0 0.4rem 0.4rem;
-  background: var(--color-surface-page);
-}
-.public-nav-more-group {
-  padding-top: 0.5rem;
-}
-.public-nav-more-group + .public-nav-more-group {
-  margin-top: 0.4rem;
-  border-top: 1px solid var(--color-border-subtle);
-}
-.public-nav-more-label {
-  padding: 0 0.6rem 0.3rem;
-  font-size: 0.7rem;
-  letter-spacing: var(--tracking-caps);
-  text-transform: uppercase;
-  color: var(--color-fg-muted);
-}
-.public-nav-more-action {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 2.75rem;
-  margin-top: 0.8rem;
-  border: 1px solid var(--color-border-strong);
-  border-radius: 0.3rem;
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-fg-primary);
-}
-.public-nav-search {
-  display: flex;
-  gap: 0.4rem;
-}
-.public-nav-search input {
-  flex: 1;
-  min-width: 0;
-  min-height: 2.75rem;
-  padding: 0 0.7rem;
-  border: 1px solid var(--color-border-strong);
-  border-radius: 0.3rem;
-  background: var(--color-surface-raised);
-  color: var(--color-fg-primary);
-}
-.public-nav-search button {
-  min-height: 2.75rem;
-  padding: 0 0.9rem;
-  border-radius: 0.3rem;
-  background: var(--color-accent);
-  color: var(--color-surface-page);
-  font-weight: 650;
-  cursor: pointer;
-}
-@media (min-width: 820px) {
-  .desk-shell .public-nav,
-  .desk-shell .public-nav-more {
-    display: none;
-  }
-}
-@media (max-width: 819px) {
-  .desk-shell .public-nav-more {
-    display: block;
-  }
-}
 .map-views {
   display: flex;
   gap: 0;
@@ -367,116 +165,6 @@ html[data-theme='light'] {
   border: 1px solid var(--color-border-strong);
   font-size: 0.85rem;
 }
-.desk-shell {
-  display: grid;
-  min-height: 100vh;
-  grid-template-columns: 13rem minmax(0, 1fr);
-  grid-template-rows: auto 1fr auto;
-  background: var(--color-surface-page);
-}
-.desk-shell .site-header,
-.desk-shell .site-footer {
-  grid-column: 1 / -1;
-}
-.desk-sidebar {
-  border-right: 1px solid var(--color-border-subtle);
-  padding: 1.25rem 0.75rem;
-  overflow-y: auto;
-}
-.desk-sidebar-link {
-  display: flex;
-  align-items: center;
-  min-height: 2.75rem;
-  padding: 0 0.75rem;
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-fg-secondary);
-}
-.desk-sidebar-link[aria-current='page'],
-.desk-sidebar-link:hover {
-  color: var(--color-fg-primary);
-}
-.account-menu {
-  position: relative;
-}
-.account-menu-summary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 2.75rem;
-  min-width: 2.75rem;
-  cursor: pointer;
-  list-style: none;
-}
-.account-menu-summary::-webkit-details-marker {
-  display: none;
-}
-.account-avatar,
-.account-avatar-image {
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: 999px;
-  border: 1px solid var(--color-border-strong);
-  object-fit: cover;
-}
-.account-avatar {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-.account-menu-panel {
-  position: absolute;
-  right: 0;
-  z-index: 40;
-  width: 16rem;
-  margin-top: 0.4rem;
-  padding: 0.6rem;
-  border: 1px solid var(--color-border-strong);
-  background: var(--color-surface-page);
-}
-.account-menu-label {
-  padding: 0.4rem 0.6rem 0.8rem;
-  font-size: 0.8rem;
-  color: var(--color-fg-tertiary);
-}
-.account-menu-link,
-.account-menu-action {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  min-height: 2.75rem;
-  padding: 0 0.6rem;
-  text-align: left;
-  font-size: 0.9rem;
-  color: var(--color-fg-primary);
-  cursor: pointer;
-}
-.account-menu-action {
-  background: var(--color-fg-primary);
-  color: var(--color-surface-page);
-  margin-top: 0.4rem;
-}
-.theme-toggle {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.25rem;
-  margin: 0.6rem 0;
-}
-.theme-toggle-option {
-  min-height: 2.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.65rem;
-  color: var(--color-fg-tertiary);
-  cursor: pointer;
-}
-.theme-toggle-option[aria-pressed='true'] {
-  color: var(--color-fg-primary);
-  border: 1px solid var(--color-fg-primary);
-}
 .changelog-list {
   display: flex;
   flex-direction: column;
@@ -491,56 +179,6 @@ html[data-theme='light'] {
   font-size: 0.75rem;
   letter-spacing: 0.08em;
   color: var(--color-fg-tertiary);
-}
-@media (max-width: 1024px) {
-  .desk-shell {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .desk-sidebar {
-    display: none;
-  }
-}
-.site-search {
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.15rem 0.15rem 0.15rem 0.7rem;
-  border: 1px solid var(--color-border-strong);
-  border-radius: 999px;
-  background: var(--color-surface-raised);
-}
-.site-search input {
-  width: 14rem;
-  border: 0;
-  background: transparent;
-  color: var(--color-fg-primary);
-  font-size: 0.85rem;
-}
-.site-search input:focus {
-  outline: none;
-}
-.site-action {
-  min-height: 2.5rem;
-  align-items: center;
-  padding: 0 0.7rem;
-  font-size: 0.85rem;
-  color: var(--color-fg-secondary);
-}
-.site-action:hover {
-  color: var(--color-fg-primary);
-}
-.site-join {
-  min-height: 2.5rem;
-  align-items: center;
-  border: 1px solid var(--color-accent);
-  border-radius: 999px;
-  padding: 0 0.95rem;
-  font-size: 0.85rem;
-  font-weight: 550;
-  color: var(--color-accent);
-}
-.site-join:hover {
-  background: var(--color-accent);
-  color: var(--color-surface-page);
 }
 .hero-split {
   display: grid;
@@ -621,23 +259,9 @@ html[data-theme='light'] {
   border-color: var(--color-accent);
   color: var(--color-accent);
 }
-.site-menu summary::-webkit-details-marker {
-  display: none;
-}
-.portal-utility {
-  padding: 0.6rem 0.45rem;
-  font-size: 0.8rem;
-  color: var(--color-fg-secondary);
-}
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 4px;
-}
-@media (max-width: 520px) {
-  .portal-utility {
-    padding: 0.7rem 0.15rem;
-    font-size: 0.75rem;
-  }
 }
 @media (prefers-reduced-motion: reduce) {
   html {

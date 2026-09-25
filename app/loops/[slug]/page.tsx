@@ -43,7 +43,7 @@ export default async function LoopPage({ params }: RouteParams) {
   const entity = resolveIn('loop', loop.id);
 
   return (
-    <Shell currentPath="research">
+    <Shell>
       <Page>
         <nav className="mb-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary">
           <Link href="/research" className="hover:text-fg-primary">

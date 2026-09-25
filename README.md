@@ -34,24 +34,45 @@ built by one person with AI agents; the site says so.
 
 ## The portal
 
-Three menu groups and one action, because nine flat items was more than a
-reader could hold. Every destination carries a one-line description in the
-menu, so a reader chooses from what they will find rather than from a noun.
-The description is the page's own, so there is no second sentence to keep true.
+One shell on every page, signed in or not (`components/shell/`), built from
+the pattern Loki and OrangeCat already use rather than a third invention.
+The sidebar is five sections grouped by what a reader is doing; only the
+section holding the current page opens by itself, so the panel reads as six
+lines, not seventeen. Every destination carries a one-line description (the
+page's own), shown in the rail's flyouts, the phone's "More" sheet and the
+palette.
 
-| Group | Routes |
+| Section | Routes |
 | --- | --- |
-| For you | `/for/equities` · `/for/commodities` · `/for/industry` · `/for/jobs` · `/for/learning` |
-| The map | `/atlas` · `/bottlenecks` · `/markets` · `/policy` · `/science` · `/capital` |
-| News & about | `/events` · `/notes` · `/learn` · `/changelog` · `/roadmap` · `/about` |
-| Action | `/join` |
+| Explore | `/bottlenecks` · `/atlas` · `/policy` · `/capital` |
+| Markets | `/markets` · `/exposure` · `/xray` · `/scenarios` |
+| Science | `/science` · `/science/pipeline` · `/learn` |
+| Careers | `/careers` · `/careers/paths` · `/careers/companies` |
+| News | `/events` · `/notes` |
+| Phone tabs | `/bottlenecks` · `/atlas` · `/markets` · `/events` · More |
+
+- **≥1024px**: the full sidebar, collapsible to an icon rail (remembered per
+  browser). **768–1023px**: the rail, icon over label; each section opens a
+  flyout. **<768px**: four tabs and "More" at the bottom, above the
+  safe-area inset; the Ask button sits above the tab bar.
+- **Top bar**: search (opens the palette), `Join`, and the account menu.
+  Personal pages — Desk, Settings, the reviewer Inbox — and sign-in/out live
+  in the account menu, never in the research list.
+- **⌘K / Ctrl+K / "/"** opens the command palette: every page (including the
+  reader views, data and project pages that have no sidebar row) plus live
+  results from the search index; Enter on the last row opens `/search`.
+- **Footer**: About, Notes, Changelog, Roadmap, Join, Source, Correction.
+
+`test/nav.test.ts` holds the sections, tabs and this table together and checks
+nav contract rules 1, 2 and 6 in the shell's source.
 
 **For you** is one view per reader (`config/audiences.ts`, `app/for/*`):
 equity investors, commodity traders, industry teams, job seekers and learners.
 Each view only chooses and orders sections of existing screens — X-ray,
 exposure, filings, series, events, scenarios, science, careers, learning — and
 links each to the full screen; none computes anything of its own. The homepage
-opens the same five doors straight under the hero.
+opens the same five doors straight under the hero, and the palette lists them
+("For equity investors", …).
 
 **Freshness** (`/data/freshness`, `/api/health/freshness`, footer badge): every
 scheduled feed (run tables `research_*_runs`) and committed dataset (its own
@@ -60,21 +81,14 @@ scheduled feed (run tables `research_*_runs`) and committed dataset (its own
 committed dataset is past its maximum age, so stale data cannot be deployed as
 current; the endpoint returns 503 when anything is stale or failing.
 
-Both breakpoints render from `NAV_GROUPS`, and both are `<details>`, so the
-menu opens without JavaScript. Wide: the three groups as dropdowns plus the
-action, on one row. Narrow: one panel, the full width of the shell, groups
-stacked, search at the top.
-
-This table went stale once and cost a redesign. `components/portal/Megamenu.tsx`
-was deleted in 7f59e09 and nothing here noticed: what shipped instead was nine
-flat uppercase links that wrapped onto two rows at 1440px and were hidden
-outright below 1100px, so a tablet got a lone "MENU" in an empty header and a
-phone got a dropdown anchored 22rem off the left edge of the screen. The
-grouping now lives in `config/site-nav.ts` with `test/nav.test.ts` holding it to
-this table, which is the part a README cannot do on its own.
+This table went stale once and cost a redesign: `Megamenu.tsx` was deleted in
+7f59e09 and nothing noticed, and what shipped instead hid the whole nav below
+1100px — a tablet got a lone "MENU", and a signed-in reader at 834px got no
+navigation at all. The sections now live in `config/site-nav.ts` with
+`test/nav.test.ts` holding them to this table.
 
 ```
-config/site-nav.ts              the navigation, as data — both menus render from it
+config/site-nav.ts              the navigation, as data — sidebar, tabs, sheet and palette render from it
 config/substrata-taxonomy.ts    technologies, industries, plain-English lines
 config/substrata-policy.ts      instruments, proponents, recommendations
 config/substrata-science.ts     candidate reliefs and readiness

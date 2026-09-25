@@ -17,7 +17,7 @@ export default function NotesPage() {
   const tags = noteTags();
 
   return (
-    <Shell currentPath="notes">
+    <Shell>
       <Page>
         <SectionHeader
           title="The Substrata journal"

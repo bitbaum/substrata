@@ -75,8 +75,9 @@ test('research destinations stay in both the public bar and the desk list', () =
     '/capital',
     '/learn',
     '/events',
-    // Talent left the header on 2026-09-25 when the job-seeker view (/for/jobs)
-    // took its place as the way in; it stays in the desk list and that view.
+    // Talent left the sidebar in the shell rebuild (2026-09-25): it is the
+    // talent stage of the bottleneck list, reached from /for/jobs, /careers and
+    // the palette, and a second "careers" row beside Careers was a duplicate.
   ]) {
     assert.ok(
       RESEARCH_NAV.some((item) => item.href === href),

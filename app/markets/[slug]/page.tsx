@@ -108,7 +108,7 @@ export default async function ParticipantPage({ params }: RouteParams) {
   ];
 
   return (
-    <Shell currentPath="markets">
+    <Shell>
       <Page>
         <nav className="mb-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary">
           <Link href="/markets" className="hover:text-fg-primary">

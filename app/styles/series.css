@@ -67,8 +67,9 @@
 }
 .series-key-trend {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.25rem 0.75rem;
   min-width: 0;
 }
 .series-key-body {
@@ -90,7 +91,9 @@
   font-family: var(--font-mono);
   font-size: 0.75rem;
   color: var(--color-fg-secondary);
-  white-space: nowrap;
+  /* Wraps inside its column: with the shell's sidebar beside it, a 3-column
+     row at 834px left ~190px for "−6.8% vs Jul 2026 · tightens", and the
+     unwrapped badge pushed the page 96px sideways (nav contract rule 8). */
   padding-left: 0.5rem;
   border-left: 2px solid var(--color-border-strong);
 }

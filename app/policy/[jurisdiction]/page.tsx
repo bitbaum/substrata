@@ -44,7 +44,7 @@ export default async function JurisdictionPage({ params }: RouteParams) {
   const mixed = instruments.length - slowing - speeding;
 
   return (
-    <Shell currentPath="policy">
+    <Shell>
       <Page>
         <nav className="mb-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary">
           <Link href="/policy" className="hover:text-fg-primary">
