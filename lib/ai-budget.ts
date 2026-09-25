@@ -133,3 +133,10 @@ export async function spendReport(days = 7): Promise<{ capacity: number; days: S
   }
   return { capacity: dayCapacity(), days: [...byDay.values()] };
 }
+
+/**
+ * Free-model questions (Ask and fact-checks together) per visitor per day.
+ * The free models are a small daily pool shared with the other apps on the
+ * box; a reader's own key is theirs to spend and is not counted.
+ */
+export const FREE_QUESTIONS_PER_DAY = 40;

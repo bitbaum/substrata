@@ -9,7 +9,7 @@ import { verifyFromBody } from '@/lib/chat-agent/verify';
 import { readerContext } from '@/lib/chat-context';
 import { lookUp, readSource, webLookupEnabled } from '@/lib/chat-web';
 import { currentSession } from '@/lib/auth';
-import { record } from '@/lib/ai-budget';
+import { FREE_QUESTIONS_PER_DAY, record } from '@/lib/ai-budget';
 import { recordAskTiming, timingOf } from '@/lib/ask-timing';
 import { database } from '@/lib/db';
 import { parseFollows, type Follows } from '@/lib/follows';
@@ -105,6 +105,17 @@ export async function POST(request: Request) {
     if (!(await allowRequest(request, 'chat', 30)))
       return Response.json(
         { error: 'Hourly question limit reached. Please try again later.' },
+        { status: 429, headers: { 'Retry-After': '3600' } },
+      );
+    // The free models are a small daily pool shared with the other apps on
+    // the box, so one visitor must not be able to spend it. A reader's own
+    // key is theirs to spend and is not capped here.
+    if (!byok && !(await allowRequest(request, 'chat-day', FREE_QUESTIONS_PER_DAY, 24)))
+      return Response.json(
+        {
+          error:
+            "You have used today's free questions. Add your own AI key in the Ask panel to keep going, or come back tomorrow.",
+        },
         { status: 429, headers: { 'Retry-After': '3600' } },
       );
     const topicRaw = (input as { topic?: unknown })?.topic;

@@ -6,16 +6,21 @@ export function sameOrigin(request: Request) {
   return origin === new URL(request.url).origin || origin === process.env.AUTH_URL;
 }
 /** Atomic, cross-process throttle; raw IPs are never stored. Proxy must overwrite X-Forwarded-For. */
-export async function allowRequest(request: Request, lane: string, limit: number) {
+/**
+ * At most `limit` requests per IP per lane in a window of `windowHours` (one
+ * hour unless said otherwise). A lane's window is fixed by its first caller:
+ * give an hourly and a daily limit different lane names.
+ */
+export async function allowRequest(request: Request, lane: string, limit: number, windowHours = 1) {
   const secret = process.env.AUTH_SECRET;
   if (!secret) throw new Error('Request guard not configured');
   const ip = request.headers.get('x-forwarded-for')?.split(',').at(-1)?.trim() ?? 'unknown';
   const key = createHmac('sha256', secret).update(`${lane}:${ip}`).digest('hex');
   const result = await database().query<{ hits: number }>(
     `INSERT INTO research_rate_limits(key,window_start,hits) VALUES($1,now(),1)
- ON CONFLICT(key) DO UPDATE SET hits=CASE WHEN research_rate_limits.window_start < now()-interval '1 hour' THEN 1 ELSE research_rate_limits.hits+1 END,
- window_start=CASE WHEN research_rate_limits.window_start < now()-interval '1 hour' THEN now() ELSE research_rate_limits.window_start END RETURNING hits`,
-    [key],
+ ON CONFLICT(key) DO UPDATE SET hits=CASE WHEN research_rate_limits.window_start < now()-($2::float8 * interval '1 hour') THEN 1 ELSE research_rate_limits.hits+1 END,
+ window_start=CASE WHEN research_rate_limits.window_start < now()-($2::float8 * interval '1 hour') THEN now() ELSE research_rate_limits.window_start END RETURNING hits`,
+    [key, windowHours],
   );
   return result.rows[0].hits <= limit;
 }
