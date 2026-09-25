@@ -253,29 +253,6 @@ export function countryDossier(iso2: string): CountryDossier | null {
   };
 }
 
-export function worldInsights() {
-  const facts = countryFacts();
-  const onMap = COUNTRIES.filter((c) => c.iso2 && c.iso2 !== 'aq');
-  const withDirectory = onMap.filter((c) => (resourcesFor(c.iso2)?.resources.length ?? 0) > 0);
-  const withCorpus = onMap.filter((c) => facts.get(c.iso2)?.hasRecord);
-  const tallies = new Map<string, number>();
-  for (const c of onMap) {
-    for (const r of resourcesFor(c.iso2)?.resources ?? []) {
-      tallies.set(r, (tallies.get(r) ?? 0) + 1);
-    }
-  }
-  const resources = [...tallies.entries()]
-    .sort((a, b) => b[1] - a[1])
-    .map(([id, count]) => ({ id, label: resourceLabel(id), count }));
-  return {
-    onMap: onMap.length,
-    withDirectory: withDirectory.length,
-    withCorpus: withCorpus.length,
-    gaps: onMap.length - withDirectory.length,
-    resources,
-  };
-}
-
 export function countriesWithResources(): Set<string> {
   return new Set(
     COUNTRIES.filter((c) => (resourcesFor(c.iso2)?.resources.length ?? 0) > 0).map((c) => c.iso2),

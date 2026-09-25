@@ -1,7 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { WORLD_PATHS } from '../config/world-paths';
-import { EU_MEMBERS, countryDossier, countryFacts, worldInsights } from '../lib/geo';
+import { EU_MEMBERS, countryDossier, countryFacts } from '../lib/geo';
+import { worldInsights } from '../lib/geo-insights';
 import { ROUTES } from '../lib/links';
 import { FOOTER_NAV, PUBLIC_NAV, RESEARCH_NAV, navPaths } from '../config/site-nav';
 
