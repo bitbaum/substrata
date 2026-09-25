@@ -333,3 +333,11 @@
   color: var(--color-fg-primary);
   border: 1px solid var(--color-fg-primary);
 }
+/* Signed out, the control says what it does rather than showing a dot. */
+.account-menu-signin {
+  padding: 0 0.9rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: var(--color-fg-primary);
+}

@@ -379,3 +379,24 @@
     border-color: var(--color-fg-primary);
   }
 }
+/* Phones: Ask sits in the bar (see components/shell/TopBar.tsx); from 768px up
+   the floating dock button has room and this one hides. */
+.shell-ask {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0 0.9rem;
+  border-radius: 999px;
+  background: var(--color-fg-primary);
+  color: var(--color-surface-page);
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  .shell-ask {
+    display: none;
+  }
+}

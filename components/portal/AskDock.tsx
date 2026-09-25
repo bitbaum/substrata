@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { CHECK_EVENT, type CheckRequest } from '@/lib/ask-bridge';
+import { CHECK_EVENT, OPEN_EVENT, type CheckRequest } from '@/lib/ask-bridge';
 import { ResearchChat } from './ResearchChat';
 
 /**
@@ -22,8 +22,13 @@ export function AskDock() {
       setPending({ ...detail, id: Date.now() });
       setOpen(true);
     };
+    const onOpen = () => setOpen(true);
     window.addEventListener(CHECK_EVENT, onCheck);
-    return () => window.removeEventListener(CHECK_EVENT, onCheck);
+    window.addEventListener(OPEN_EVENT, onOpen);
+    return () => {
+      window.removeEventListener(CHECK_EVENT, onCheck);
+      window.removeEventListener(OPEN_EVENT, onOpen);
+    };
   }, []);
 
   if (path === '/chat') return null;

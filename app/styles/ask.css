@@ -445,3 +445,11 @@
   color: var(--color-fg-primary);
   font-weight: 650;
 }
+
+/* Phones: Ask is the top-bar button (TopBar .shell-ask); a floating toggle
+   here covered the text just above the tab bar. The panel still opens here. */
+@media (max-width: 767px) {
+  .ask-dock-toggle {
+    display: none;
+  }
+}

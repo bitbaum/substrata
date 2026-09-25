@@ -7,6 +7,12 @@
  * provider to offer a check.
  */
 export const CHECK_EVENT = 'substrata-check';
+/** Open the dock with nothing pre-asked — the phone's top-bar Ask button. */
+export const OPEN_EVENT = 'substrata-ask-open';
+
+export function requestOpen(): void {
+  window.dispatchEvent(new Event(OPEN_EVENT));
+}
 
 export interface CheckRequest {
   /** The claim as it reads on the page. */

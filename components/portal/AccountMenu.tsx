@@ -19,11 +19,7 @@ export async function AccountMenu() {
   if (!session?.actorId) {
     return (
       <DetailsMenu className="account-menu">
-        <summary className="account-menu-summary" aria-label="Account">
-          <span className="account-avatar" aria-hidden>
-            ●
-          </span>
-        </summary>
+        <summary className="account-menu-summary account-menu-signin">Sign in</summary>
         <div className="account-menu-panel">
           <p className="account-menu-label">Research desk</p>
           {authEnabled ? (
