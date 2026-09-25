@@ -206,6 +206,8 @@ export const ROUTES = [
   '/loops/:slug',
   '/facilities',
   '/facilities/:slug',
+  '/resources/:slug',
+  '/resources/:slug/csv',
   '/events',
   '/notes',
   '/notes/:slug',

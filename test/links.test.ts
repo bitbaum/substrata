@@ -44,10 +44,12 @@ import {
   scienceHref,
 } from '../lib/links';
 import { allLearn, allNotes } from '../lib/notes';
+import { resourcesWithData } from '../lib/resources/usgs';
 import { MARKET_PARTICIPANTS, hasMarketPage } from '../lib/participants';
 
 /** What each dynamic route can actually serve, from the same source the pages use. */
 const GENERATED: Record<string, Set<string>> = {
+  '/resources': new Set(resourcesWithData()),
   '/bottlenecks': new Set(BOTTLENECKS.map((b) => b.slug)),
   '/markets': new Set(MARKET_PARTICIPANTS.map((p) => p.slug)),
   '/policy': new Set(POLICY_PAGES),

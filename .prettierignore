@@ -35,6 +35,10 @@ yarn.lock
 research/evidence.json
 research/events.json
 research/usgs-mcs.json
+research/eia-energy.json
+research/usgs-producers.json
+research/oecd-export-restrictions.json
+research/sanctions.json
 
 # Screenshot and trace output from the Playwright MCP server.
 .playwright-mcp

@@ -5,6 +5,7 @@ import {
 } from '@/config/substrata-resources';
 import { WORLD_PATHS } from '@/config/world-paths';
 import { entityId, type Entity } from '../types';
+import { countryHeadline } from '@/lib/resources/headline';
 function countryName(iso2: string): string {
   return WORLD_PATHS.find((p) => p.iso2 === iso2)?.name ?? iso2.toUpperCase();
 }
@@ -23,6 +24,9 @@ function aliasesOf(aliases: string[] | undefined, name: string): string[] {
 function countries(): Entity[] {
   return COUNTRY_RESOURCES.map((row) => {
     const name = countryName(row.iso2);
+    // Computed facts lead; the directory sentence is kept, labelled, for
+    // countries no production table lists.
+    const facts = countryHeadline(row.iso2);
     return {
       id: entityId('country', row.iso2),
       kind: 'country' as const,
@@ -30,8 +34,8 @@ function countries(): Entity[] {
       name,
       aka: aliasesOf([row.iso2.toUpperCase()], name),
       href: `/atlas?view=world&country=${row.iso2}`,
-      summary: row.why,
-      evidence: 'directory, not a finding',
+      summary: facts ?? row.why,
+      evidence: facts ? 'computed from USGS and EIA tables' : 'directory, not a finding',
       sources: [],
       topics: ['country', row.iso2, ...row.resources],
       // "Directory cross-references" rather than "Related bottlenecks named in
@@ -39,7 +43,7 @@ function countries(): Entity[] {
       // "bottlenecks", which is exactly the kind of near-ubiquitous connector
       // that outscored the actual bottleneck entities in search. The names
       // that follow are the real cross-reference and stay.
-      retrievalText: `${name} (${row.iso2.toUpperCase()}). ${row.why} Directory resources: ${row.resources.map(resourceLabel).join(', ') || 'none listed'}. Directory cross-references: ${row.relatedBottlenecks.join(', ') || 'none yet'}. ${RESOURCE_DIRECTORY_NOTE}`,
+      retrievalText: `${name} (${row.iso2.toUpperCase()}). ${facts ?? ''} Directory note: ${row.why} Directory resources: ${row.resources.map(resourceLabel).join(', ') || 'none listed'}. Directory cross-references: ${row.relatedBottlenecks.join(', ') || 'none yet'}. ${RESOURCE_DIRECTORY_NOTE}`,
     };
   });
 }

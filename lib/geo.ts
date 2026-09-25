@@ -175,7 +175,6 @@ export type CountryDossier = {
   organisations: CountryLink[];
   events: { date: string; headline: string }[];
   instruments: CountryLink[];
-  similar: CountryLink[];
   corpus: CountryFact;
   directoryNote: string;
   hasAnything: boolean;
@@ -198,19 +197,6 @@ export function countryDossier(iso2: string): CountryDossier | null {
     .map((n) => BOTTLENECKS.find((b) => b.name === n))
     .filter((b): b is NonNullable<typeof b> => Boolean(b))
     .map((b) => ({ href: bottleneckHref(b.slug), label: b.name }));
-  const similar = (endowment?.resources ?? [])
-    .flatMap((r) =>
-      COUNTRIES.filter(
-        (row) =>
-          row.iso2 && row.iso2 !== id && (resourcesFor(row.iso2)?.resources.includes(r) ?? false),
-      ).map((row) => row.iso2),
-    )
-    .filter((iso, i, all) => all.indexOf(iso) === i)
-    .slice(0, 8)
-    .map((iso) => ({
-      href: `/atlas?view=world&country=${iso}`,
-      label: WORLD_PATHS.find((p) => p.iso2 === iso)?.name ?? iso.toUpperCase(),
-    }));
   const roles = new Set<PathRole>(index?.roles ?? []);
   if (endowment?.resources.length) roles.add('extract');
   if (fact?.hasRecord) roles.add('research');
@@ -261,7 +247,6 @@ export function countryDossier(iso2: string): CountryDossier | null {
     organisations,
     events,
     instruments,
-    similar,
     corpus,
     directoryNote: RESOURCE_DIRECTORY_NOTE,
     hasAnything: resources.length + related.length + organisations.length + events.length > 0,
