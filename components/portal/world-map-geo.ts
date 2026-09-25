@@ -154,9 +154,11 @@ export function focusTransform(frame: Frame, bounds: Bounds): ZoomTransform {
   const box = visibleBox(frame);
   const [[x0, y0], [x1, y1]] = bounds;
   const fit = Math.min((box.w * 0.6) / Math.max(x1 - x0, 1), (box.h * 0.6) / Math.max(y1 - y0, 1));
-  // A country as large as the view (Russia, Canada) is best seen in the whole world.
-  if (fit <= 1.25) return zoomIdentity;
-  return centreOn(frame, (x0 + x1) / 2, (y0 + y1) / 2, Math.min(8, fit));
+  // A country as large as the view (Russia, Canada) stays at world scale,
+  // moved into the part of the map the panel leaves open.
+  if (fit <= 1.25 && inView(frame, bounds, zoomIdentity)) return zoomIdentity;
+  const k = fit <= 1.25 ? 1 : Math.min(8, fit);
+  return centreOn(frame, (x0 + x1) / 2, (y0 + y1) / 2, k);
 }
 
 /** Is the country already comfortably inside the visible part of the view? */
