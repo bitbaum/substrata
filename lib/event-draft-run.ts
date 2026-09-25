@@ -23,6 +23,8 @@ import { draftLead, type Ask, type DraftLead, type DraftOutcome } from './event-
 
 /** Leads per run. Hourly, so the backlog clears in about a day and the steady state is only new leads. */
 export const DRAFTS_PER_RUN = 5;
+/** Vendors background drafting may not use; see freeAsk. */
+export const BACKGROUND_EXCLUDED = new Set(['openrouter']);
 /** Stop starting new drafts after this long; the box's curl gives up at 300s. */
 const RUN_BUDGET_MS = 200_000;
 /** A failed look (page unreadable, quote refused) is retried, but not forever. */
@@ -92,7 +94,13 @@ async function save(
 
 /** The free chain, asked for JSON-sized answers. Records which link served, for the draft's `model`. */
 function freeAsk(served: { id: string | null }): Ask {
-  const chain = usableChain(freeChain('SUBSTRATA'), process.env);
+  // Background work never draws on OpenRouter: its free tier is about fifty
+  // requests a day shared by every app on the box, and that belongs to people
+  // asking questions. Drafts wait for a vendor with a pool of its own.
+  const chain = usableChain(
+    freeChain('SUBSTRATA').filter((p) => !BACKGROUND_EXCLUDED.has(p.id)),
+    process.env,
+  );
   return async (messages) => {
     const result = await complete({ chain, messages, maxTokens: 2_000, timeoutMs: 45_000 });
     served.id = result.id;

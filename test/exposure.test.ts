@@ -164,3 +164,25 @@ test('the primary line is where the company trades, not an order-book copy', () 
     'an OTC ADR is never the primary',
   );
 });
+
+import { ROTATION_HOURS, ciksInFeed, registrantsToFetch } from '../lib/filings-select';
+
+test('an hourly filings run reads the feeds plus a slice, and the slices cover everyone', () => {
+  const atom =
+    '<feed><title>Latest Filings</title><entry><title>8-K - WOLFSPEED, INC. (0000895419) (Filer)</title></entry></feed>';
+  assert.deepEqual([...ciksInFeed(atom)], [895419]);
+  const all = Array.from({ length: 51 }, (_, i) => ({ cik: 1000 + i }));
+  const seen = new Set<number>();
+  let perRun = 0;
+  for (let hour = 0; hour < ROTATION_HOURS; hour++) {
+    const run = registrantsToFetch(all, new Set(), hour);
+    perRun = Math.max(perRun, run.length);
+    for (const r of run) seen.add(r.cik);
+  }
+  assert.equal(seen.size, all.length, 'every registrant is read within one rotation');
+  assert.ok(perRun <= Math.ceil(all.length / ROTATION_HOURS), 'a run reads only its slice');
+  assert.ok(
+    registrantsToFetch(all, new Set([1005]), 3).some((r) => r.cik === 1005),
+    'a registrant in the feed is read this hour, whatever its slot',
+  );
+});

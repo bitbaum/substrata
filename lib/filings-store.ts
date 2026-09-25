@@ -2,11 +2,13 @@
  * Fetching filings from EDGAR into research_filings, and reading them back.
  *
  * EDGAR asks for a descriptive User-Agent with a contact and at most ten
- * requests a second; one request per registrant an hour is far inside that.
+ * requests a second. Which registrants a run reads is decided in
+ * filings-select.ts: the latest-filings feeds plus a rotating slice.
  */
 import { database } from './db';
 import { edgarRegistrants } from './listings';
 import { parseSubmissions, type Filing } from './filings';
+import { FEED_FORMS, FEED_PAGES, ciksInFeed, feedUrl, registrantsToFetch } from './filings-select';
 
 const USER_AGENT = 'Substrata research cato@orangecat.ch';
 /** How far back a first fetch reaches. Later runs only add what is new. */
@@ -27,7 +29,28 @@ export async function fetchFilings(): Promise<FilingRun> {
   const since = new Date(Date.now() - BACKFILL_DAYS * 86_400_000).toISOString().slice(0, 10);
   const outcome: FilingRun = { registrants: 0, filingsNew: 0, failed: 0 };
 
-  for (const registrant of edgarRegistrants()) {
+  // A feed that cannot be read only means this run leans on the rotation.
+  const inFeeds = new Set<number>();
+  for (const form of FEED_FORMS) {
+    for (let page = 0; page < FEED_PAGES; page++) {
+      try {
+        const response = await fetch(feedUrl(form, page), {
+          headers: { 'User-Agent': USER_AGENT },
+          signal: AbortSignal.timeout(15_000),
+        });
+        if (response.ok) for (const cik of ciksInFeed(await response.text())) inFeeds.add(cik);
+      } catch {
+        // fall through to the rotation
+      }
+      await new Promise((r) => setTimeout(r, GAP_MS));
+    }
+  }
+
+  for (const registrant of registrantsToFetch(
+    edgarRegistrants(),
+    inFeeds,
+    new Date().getUTCHours(),
+  )) {
     outcome.registrants += 1;
     try {
       const cik = String(registrant.cik).padStart(10, '0');

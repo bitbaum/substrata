@@ -1,5 +1,5 @@
 import { currentSession } from '@/lib/auth';
-import { record } from '@/lib/ai-budget';
+import { record, FREE_QUESTIONS_PER_DAY } from '@/lib/ai-budget';
 import { runAgentToAnswer } from '@/lib/chat-agent/loop';
 import { freeCooldown, freeLinks, streamedTurn } from '@/lib/chat-agent/turn';
 import { readerContext } from '@/lib/chat-context';
@@ -43,6 +43,10 @@ export async function POST(request: Request) {
     // route should answer 503 like the rest of the file rather than a raw 500.
     if (!(await allowRequest(request, 'factcheck', 20)))
       return Response.json({ error: 'Hourly fact-check limit reached.' }, { status: 429 });
+    // A fact-check spends the same shared free models as a question, so it
+    // counts against the same daily allowance (see app/api/chat/route.ts).
+    if (!(await allowRequest(request, 'chat-day', FREE_QUESTIONS_PER_DAY, 24)))
+      return Response.json({ error: "Today's free AI allowance is used up." }, { status: 429 });
     // The same agent loop as Ask — the same tools, the same honesty rules and
     // the same records-read list — rather than a second, weaker retrieval path.
     // Web material, where it is used, arrives labelled as unchecked.
