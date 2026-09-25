@@ -138,7 +138,19 @@ test('listing lines for every status', () => {
   );
 });
 
+test('a news question on a page gets its lookups, not the page-only shortcut', async () => {
+  const { data } = await ask(
+    'What is new on gallium export controls?',
+    '/bottlenecks/gallium-refined',
+  );
+  assert.equal(data.timing?.planned, 1, 'recent_leads was looked up');
+});
+
 test('training-format citation markers become markdown links, or go', () => {
+  assert.equal(
+    tidyAnswer('ASML makes them (Sourced)【ASML](/markets/asml). Stray 】 too.'),
+    'ASML makes them (Sourced)[ASML](/markets/asml). Stray  too.',
+  );
   assert.equal(
     tidyAnswer('Only Anthropic depends on it【/bottlenecks/large-power-transformer-slots】.'),
     'Only Anthropic depends on it ([Large power transformer slots](/bottlenecks/large-power-transformer-slots)).',

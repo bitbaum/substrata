@@ -26,13 +26,19 @@ export function tidyAnswer(text: string): string {
  * anything else is a marker pointing at nothing the reader can open, and goes.
  */
 export function citationLinks(text: string): string {
-  return text.replace(/[ \t]?【([^】\n]{1,300})】/g, (_, inner: string) => {
-    const body = inner.split('†')[0].trim();
-    if (/^\/[\w\-/?=&%.]*$/.test(body)) return ` ([${resolveByPath(body)?.name ?? body}](${body}))`;
-    if (/^https?:\/\/\S+$/.test(body)) return ` ([source](${body}))`;
-    if (/^W\d+$/i.test(body)) return ` [${body.toUpperCase()}]`;
-    return '';
-  });
+  // A half-converted marker, `【ASML](/markets/asml)`, is a link with the wrong
+  // opening bracket (seen live 2026-09-25); mend it before the pairs are read.
+  const mended = text.replace(/【(?=[^【】\n]*\]\()/g, '[');
+  return mended
+    .replace(/[ \t]?【([^】\n]{1,300})】/g, (_, inner: string) => {
+      const body = inner.split('†')[0].trim();
+      if (/^\/[\w\-/?=&%.]*$/.test(body))
+        return ` ([${resolveByPath(body)?.name ?? body}](${body}))`;
+      if (/^https?:\/\/\S+$/.test(body)) return ` ([source](${body}))`;
+      if (/^W\d+$/i.test(body)) return ` [${body.toUpperCase()}]`;
+      return '';
+    })
+    .replace(/[【】]/g, '');
 }
 
 /** A reasoning model's preamble, closed or (when the head was cut) only closed. */

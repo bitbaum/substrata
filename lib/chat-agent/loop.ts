@@ -89,13 +89,16 @@ export async function runAgent(input: {
   const ledger = emptyLedger();
   const env: ToolEnv = { ...input.env, ledger };
   const question = input.verify ? verifyQuestion(input.verify) : input.question;
-  const pageOnly = !input.verify && answerableFromPage(question, Boolean(input.context.entity));
   // The lookups the question obviously needs, made now rather than after a
-  // model round asks for them (plan.ts).
-  const plan =
-    input.verify || pageOnly
-      ? { calls: [], confident: false }
-      : planLookups(question, input.context, env);
+  // model round asks for them (plan.ts). A plan outranks "the page answers
+  // it": "what is new here" reads like a page question and needs the leads.
+  const plan = input.verify
+    ? { calls: [], confident: false }
+    : planLookups(question, input.context, env);
+  const pageOnly =
+    !input.verify &&
+    !plan.calls.length &&
+    answerableFromPage(question, Boolean(input.context.entity));
   const [preload, evidence, lookedUp] = await Promise.all([
     preloadPage(input.context, env),
     input.verify ? gatherEvidence(input.verify, env) : Promise.resolve(undefined),
