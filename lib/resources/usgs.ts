@@ -1,5 +1,7 @@
 /**
- * USGS world production and reserves, read from research/usgs-mcs.json.
+ * World production and reserves by country, read from research/usgs-mcs.json
+ * (USGS, minerals) and research/eia-energy.json (EIA, oil, gas, coal, hydro).
+ * Both files share one table shape, so everything downstream reads them alike.
  *
  * That file is written by scripts/research/usgs-mcs.py from the Mineral
  * Commodity Summaries chapter tables and is never edited by hand. Every value
@@ -12,6 +14,7 @@
  * methods in lib/methods-resources.ts.
  */
 import data from '@/research/usgs-mcs.json';
+import energy from '@/research/eia-energy.json';
 
 export interface UsgsCell {
   raw: string;
@@ -58,6 +61,10 @@ export interface UsgsChapter {
   rows: UsgsRow[];
   footnotes: Record<string, string>;
   events: string;
+  /** Publisher and edition, filled in for every chapter on load. */
+  source: string;
+  edition: string;
+  retrieved: string;
 }
 
 interface UsgsFile {
@@ -72,6 +79,24 @@ interface UsgsFile {
 }
 
 const FILE = data as unknown as UsgsFile;
+const ENERGY = energy as unknown as {
+  gaps: string[];
+  retrieved: string;
+  chapters: UsgsChapter[];
+};
+
+const ALL: readonly UsgsChapter[] = [
+  ...FILE.chapters.map((c) => ({
+    ...c,
+    source: 'USGS',
+    edition: FILE.edition,
+    retrieved: FILE.retrieved,
+  })),
+  ...ENERGY.chapters.map((c) => ({ ...c, retrieved: ENERGY.retrieved })),
+];
+
+/** What the open energy source does not publish (reserves for oil and gas, uranium). */
+export const ENERGY_GAPS: readonly string[] = ENERGY.gaps;
 
 export const USGS = {
   source: FILE.source,
@@ -89,21 +114,25 @@ export const UNIT_LABEL: Record<string, string> = {
   kg: 'kilograms',
   Mcm: 'million m³',
   Mct: 'million carats',
+  'kb/d': 'thousand barrels a day',
+  bcm: 'billion m³',
+  Mst: 'million short tons',
+  TWh: 'terawatt-hours',
 };
 
 /** Multiply by this to express a value in its chapter's base unit (only Mt → kt differs today). */
 const TO_BASE: Record<string, Record<string, number>> = { kt: { Mt: 1000 } };
 
 export function chapters(): readonly UsgsChapter[] {
-  return FILE.chapters;
+  return ALL;
 }
 
 export function chapterFor(resource: string): UsgsChapter | undefined {
-  return FILE.chapters.find((c) => c.resource === resource);
+  return ALL.find((c) => c.resource === resource);
 }
 
 export function resourcesWithData(): string[] {
-  return FILE.chapters.map((c) => c.resource);
+  return ALL.map((c) => c.resource);
 }
 
 /** A production or capacity series: one (stage, product) across the table's years. */

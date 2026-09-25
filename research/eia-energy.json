@@ -1,0 +1,7587 @@
+{
+ "source": "EIA International Energy Statistics",
+ "bulk": "https://api.eia.gov/bulk/INTL.zip",
+ "licence": "US Government work, public domain",
+ "retrieved": "2026-09-25",
+ "updated": "2026-09-21",
+ "gaps": [
+  "Oil and natural gas reserves: not in the EIA bulk file (formerly Oil & Gas Journal figures). Energy Institute Statistical Review has them under its own licence; not read.",
+  "Uranium: not in EIA international data. The OECD-NEA/IAEA 'Red Book' publishes it as a PDF report; not read."
+ ],
+ "chapters": [
+  {
+   "slug": "eia-oil",
+   "commodity": "Crude oil including lease condensate",
+   "resource": "oil",
+   "source": "EIA International Energy Statistics",
+   "edition": "EIA international bulk file, updated 2026-09-21",
+   "url": "https://www.eia.gov/international/data/world",
+   "table": "Crude oil including lease condensate, annual (series INTL.57-1-<ISO3>-TBPD.A)",
+   "unit": "kb/d",
+   "unitQuote": "thousand barrels per day",
+   "primary": "production",
+   "columns": [
+    {
+     "key": "production:2024",
+     "measure": "production",
+     "stage": "production",
+     "year": 2024
+    },
+    {
+     "key": "production:2025",
+     "measure": "production",
+     "stage": "production",
+     "year": 2025
+    }
+   ],
+   "rows": [
+    {
+     "name": "United States",
+     "kind": "country",
+     "iso2": "us",
+     "cells": {
+      "production:2024": {
+       "raw": "13234.585620218579",
+       "value": 13234.586
+      },
+      "production:2025": {
+       "raw": "13586.086904109588",
+       "value": 13586.087
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Russia",
+     "kind": "country",
+     "iso2": "ru",
+     "cells": {
+      "production:2024": {
+       "raw": "9891.875412042025",
+       "value": 9891.875
+      },
+      "production:2025": {
+       "raw": "9885.10903296257",
+       "value": 9885.109
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Saudi Arabia",
+     "kind": "country",
+     "iso2": "sa",
+     "cells": {
+      "production:2024": {
+       "raw": "9232.154456284154",
+       "value": 9232.154
+      },
+      "production:2025": {
+       "raw": "9556.054035616438",
+       "value": 9556.054
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Canada",
+     "kind": "country",
+     "iso2": "ca",
+     "cells": {
+      "production:2024": {
+       "raw": "4776.393035519126",
+       "value": 4776.393
+      },
+      "production:2025": {
+       "raw": "4963.934906849316",
+       "value": 4963.935
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Iraq",
+     "kind": "country",
+     "iso2": "iq",
+     "cells": {
+      "production:2024": {
+       "raw": "4458.704918032787",
+       "value": 4458.705
+      },
+      "production:2025": {
+       "raw": "4388.068493150685",
+       "value": 4388.068
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "China",
+     "kind": "country",
+     "iso2": "cn",
+     "cells": {
+      "production:2024": {
+       "raw": "4234.027322404371",
+       "value": 4234.027
+      },
+      "production:2025": {
+       "raw": "4324.684931506849",
+       "value": 4324.685
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Iran",
+     "kind": "country",
+     "iso2": "ir",
+     "cells": {
+      "production:2024": {
+       "raw": "3946.5245901639346",
+       "value": 3946.525
+      },
+      "production:2025": {
+       "raw": "4051.4246575342468",
+       "value": 4051.425
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "United Arab Emirates",
+     "kind": "country",
+     "iso2": "ae",
+     "cells": {
+      "production:2024": {
+       "raw": "3674.8688524590166",
+       "value": 3674.869
+      },
+      "production:2025": {
+       "raw": "3771.219178082192",
+       "value": 3771.219
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Brazil",
+     "kind": "country",
+     "iso2": "br",
+     "cells": {
+      "production:2024": {
+       "raw": "3356.467092896175",
+       "value": 3356.467
+      },
+      "production:2025": {
+       "raw": "3769.407010164946",
+       "value": 3769.407
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Kuwait",
+     "kind": "country",
+     "iso2": "kw",
+     "cells": {
+      "production:2024": {
+       "raw": "2549.1803278688526",
+       "value": 2549.18
+      },
+      "production:2025": {
+       "raw": "2583.5479452054797",
+       "value": 2583.548
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Kazakhstan",
+     "kind": "country",
+     "iso2": "kz",
+     "cells": {
+      "production:2024": {
+       "raw": "1800.0327350900516",
+       "value": 1800.033
+      },
+      "production:2025": {
+       "raw": "2046.610159015274",
+       "value": 2046.61
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Norway",
+     "kind": "country",
+     "iso2": "no",
+     "cells": {
+      "production:2024": {
+       "raw": "1790.5108672404372",
+       "value": 1790.511
+      },
+      "production:2025": {
+       "raw": "1858.4642345479451",
+       "value": 1858.464
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Mexico",
+     "kind": "country",
+     "iso2": "mx",
+     "cells": {
+      "production:2024": {
+       "raw": "1841.777868852459",
+       "value": 1841.778
+      },
+      "production:2025": {
+       "raw": "1726.046087671233",
+       "value": 1726.046
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Nigeria",
+     "kind": "country",
+     "iso2": "ng",
+     "cells": {
+      "production:2024": {
+       "raw": "1488.869571654497",
+       "value": 1488.87
+      },
+      "production:2025": {
+       "raw": "1605.4142781736975",
+       "value": 1605.414
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Libya",
+     "kind": "country",
+     "iso2": "ly",
+     "cells": {
+      "production:2024": {
+       "raw": "1163.2732240437158",
+       "value": 1163.273
+      },
+      "production:2025": {
+       "raw": "1363.041095890411",
+       "value": 1363.041
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Qatar",
+     "kind": "country",
+     "iso2": "qa",
+     "cells": {
+      "production:2024": {
+       "raw": "1293.5008540081967",
+       "value": 1293.501
+      },
+      "production:2025": {
+       "raw": "1297.384436580822",
+       "value": 1297.384
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Algeria",
+     "kind": "country",
+     "iso2": "dz",
+     "cells": {
+      "production:2024": {
+       "raw": "1119.6174863387978",
+       "value": 1119.617
+      },
+      "production:2025": {
+       "raw": "1142.958904109589",
+       "value": 1142.959
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Angola",
+     "kind": "country",
+     "iso2": "ao",
+     "cells": {
+      "production:2024": {
+       "raw": "1135.7951564147422",
+       "value": 1135.795
+      },
+      "production:2025": {
+       "raw": "1030.8147238615236",
+       "value": 1030.815
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Oman",
+     "kind": "country",
+     "iso2": "om",
+     "cells": {
+      "production:2024": {
+       "raw": "992.588737704918",
+       "value": 992.589
+      },
+      "production:2025": {
+       "raw": "1002.0691753424658",
+       "value": 1002.069
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Venezuela",
+     "kind": "country",
+     "iso2": "ve",
+     "cells": {
+      "production:2024": {
+       "raw": "863.4699453551913",
+       "value": 863.47
+      },
+      "production:2025": {
+       "raw": "972.6164383561644",
+       "value": 972.616
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Argentina",
+     "kind": "country",
+     "iso2": "ar",
+     "cells": {
+      "production:2024": {
+       "raw": "700.7792575954543",
+       "value": 700.779
+      },
+      "production:2025": {
+       "raw": "794.0044469152623",
+       "value": 794.004
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Guyana",
+     "kind": "country",
+     "iso2": "gy",
+     "cells": {
+      "production:2024": {
+       "raw": "617.3497267759562",
+       "value": 617.35
+      },
+      "production:2025": {
+       "raw": "747.4321424657534",
+       "value": 747.432
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Colombia",
+     "kind": "country",
+     "iso2": "co",
+     "cells": {
+      "production:2024": {
+       "raw": "772.6929232513663",
+       "value": 772.693
+      },
+      "production:2025": {
+       "raw": "746.4789698630137",
+       "value": 746.479
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "United Kingdom",
+     "kind": "country",
+     "iso2": "gb",
+     "cells": {
+      "production:2024": {
+       "raw": "593.886912568306",
+       "value": 593.887
+      },
+      "production:2025": {
+       "raw": "615.7787123287671",
+       "value": 615.779
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Indonesia",
+     "kind": "country",
+     "iso2": "id",
+     "cells": {
+      "production:2024": {
+       "raw": "581.9808743169399",
+       "value": 581.981
+      },
+      "production:2025": {
+       "raw": "581.668493150685",
+       "value": 581.668
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "India",
+     "kind": "country",
+     "iso2": "in",
+     "cells": {
+      "production:2024": {
+       "raw": "589.9741928259017",
+       "value": 589.974
+      },
+      "production:2025": {
+       "raw": "580.6003500561703",
+       "value": 580.6
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Azerbaijan",
+     "kind": "country",
+     "iso2": "az",
+     "cells": {
+      "production:2024": {
+       "raw": "591.1359490455661",
+       "value": 591.136
+      },
+      "production:2025": {
+       "raw": "560.6209743572489",
+       "value": 560.621
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Malaysia",
+     "kind": "country",
+     "iso2": "my",
+     "cells": {
+      "production:2024": {
+       "raw": "478.344106167057",
+       "value": 478.344
+      },
+      "production:2025": {
+       "raw": "512.6701369863014",
+       "value": 512.67
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Egypt",
+     "kind": "country",
+     "iso2": "eg",
+     "cells": {
+      "production:2024": {
+       "raw": "536.8497267759562",
+       "value": 536.85
+      },
+      "production:2025": {
+       "raw": "504.7945205479452",
+       "value": 504.795
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Ecuador",
+     "kind": "country",
+     "iso2": "ec",
+     "cells": {
+      "production:2024": {
+       "raw": "475.28359898907104",
+       "value": 475.284
+      },
+      "production:2025": {
+       "raw": "440.7002074273973",
+       "value": 440.7
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Australia",
+     "kind": "country",
+     "iso2": "au",
+     "cells": {
+      "production:2024": {
+       "raw": "270.3931134012048",
+       "value": 270.393
+      },
+      "production:2025": {
+       "raw": "245.58340250301202",
+       "value": 245.583
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Congo-Brazzaville",
+     "kind": "country",
+     "iso2": "cg",
+     "cells": {
+      "production:2024": {
+       "raw": "247.12295081967213",
+       "value": 247.123
+      },
+      "production:2025": {
+       "raw": "241.23561643835617",
+       "value": 241.236
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Gabon",
+     "kind": "country",
+     "iso2": "ga",
+     "cells": {
+      "production:2024": {
+       "raw": "215.02732240437157",
+       "value": 215.027
+      },
+      "production:2025": {
+       "raw": "239.31506849315068",
+       "value": 239.315
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Turkmenistan",
+     "kind": "country",
+     "iso2": "tm",
+     "cells": {
+      "production:2024": {
+       "raw": "190.65793",
+       "value": 190.658
+      },
+      "production:2025": {
+       "raw": "190.65793",
+       "value": 190.658
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Ghana",
+     "kind": "country",
+     "iso2": "gh",
+     "cells": {
+      "production:2024": {
+       "raw": "187.7513661202186",
+       "value": 187.751
+      },
+      "production:2025": {
+       "raw": "182.9808219178082",
+       "value": 182.981
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Bahrain",
+     "kind": "country",
+     "iso2": "bh",
+     "cells": {
+      "production:2024": {
+       "raw": "173.94535519125682",
+       "value": 173.945
+      },
+      "production:2025": {
+       "raw": "175.78082191780823",
+       "value": 175.781
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Vietnam",
+     "kind": "country",
+     "iso2": "vn",
+     "cells": {
+      "production:2024": {
+       "raw": "162.81011475409838",
+       "value": 162.81
+      },
+      "production:2025": {
+       "raw": "164.66995616438356",
+       "value": 164.67
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Thailand",
+     "kind": "country",
+     "iso2": "th",
+     "cells": {
+      "production:2024": {
+       "raw": "153.0311475409836",
+       "value": 153.031
+      },
+      "production:2025": {
+       "raw": "161.57890410958905",
+       "value": 161.579
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Chad",
+     "kind": "country",
+     "iso2": "td",
+     "cells": {
+      "production:2024": {
+       "raw": "127.25409836065573",
+       "value": 127.254
+      },
+      "production:2025": {
+       "raw": "126.4904109589041",
+       "value": 126.49
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Turkiye",
+     "kind": "country",
+     "iso2": "tr",
+     "cells": {
+      "production:2024": {
+       "raw": "101.99316120218579",
+       "value": 101.993
+      },
+      "production:2025": {
+       "raw": "124.61568767123288",
+       "value": 124.616
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "South Sudan",
+     "kind": "country",
+     "iso2": "ss",
+     "cells": {
+      "production:2024": {
+       "raw": "78.90710382513662",
+       "value": 78.907
+      },
+      "production:2025": {
+       "raw": "112.65753424657534",
+       "value": 112.658
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Niger",
+     "kind": "country",
+     "iso2": "ne",
+     "cells": {
+      "production:2024": {
+       "raw": "30.56830601092896",
+       "value": 30.568
+      },
+      "production:2025": {
+       "raw": "101.41095890410959",
+       "value": 101.411
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Brunei",
+     "kind": "country",
+     "iso2": "bn",
+     "cells": {
+      "production:2024": {
+       "raw": "94.32367486338798",
+       "value": 94.324
+      },
+      "production:2025": {
+       "raw": "100.87573253662481",
+       "value": 100.876
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Senegal",
+     "kind": "country",
+     "iso2": "sn",
+     "cells": {
+      "production:2024": {
+       "raw": "36.37978142076503",
+       "value": 36.38
+      },
+      "production:2025": {
+       "raw": "100",
+       "value": 100
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Italy",
+     "kind": "country",
+     "iso2": "it",
+     "cells": {
+      "production:2024": {
+       "raw": "84.87483333333333",
+       "value": 84.875
+      },
+      "production:2025": {
+       "raw": "83.70368493150684",
+       "value": 83.704
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Equatorial Guinea",
+     "kind": "country",
+     "iso2": "gq",
+     "cells": {
+      "production:2024": {
+       "raw": "86.72676986135923",
+       "value": 86.727
+      },
+      "production:2025": {
+       "raw": "76.38650421252973",
+       "value": 76.387
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Syria",
+     "kind": "country",
+     "iso2": "sy",
+     "cells": {
+      "production:2024": {
+       "raw": "54.15300546448088",
+       "value": 54.153
+      },
+      "production:2025": {
+       "raw": "75.24657534246575",
+       "value": 75.247
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Denmark",
+     "kind": "country",
+     "iso2": "dk",
+     "cells": {
+      "production:2024": {
+       "raw": "59.96365623770402",
+       "value": 59.964
+      },
+      "production:2025": {
+       "raw": "71.81064217701133",
+       "value": 71.811
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Cameroon",
+     "kind": "country",
+     "iso2": "cm",
+     "cells": {
+      "production:2024": {
+       "raw": "61.49726775956284",
+       "value": 61.497
+      },
+      "production:2025": {
+       "raw": "59.24383561643835",
+       "value": 59.244
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Pakistan",
+     "kind": "country",
+     "iso2": "pk",
+     "cells": {
+      "production:2024": {
+       "raw": "65.87340328872418",
+       "value": 65.873
+      },
+      "production:2025": {
+       "raw": "57.51526766573127",
+       "value": 57.515
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Ivory Coast",
+     "kind": "country",
+     "iso2": "ci",
+     "cells": {
+      "production:2024": {
+       "raw": "36.20715821461516",
+       "value": 36.207
+      },
+      "production:2025": {
+       "raw": "55.09230825291715",
+       "value": 55.092
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Romania",
+     "kind": "country",
+     "iso2": "ro",
+     "cells": {
+      "production:2024": {
+       "raw": "55.297330601092895",
+       "value": 55.297
+      },
+      "production:2025": {
+       "raw": "51.54805205479452",
+       "value": 51.548
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Trinidad and Tobago",
+     "kind": "country",
+     "iso2": "tt",
+     "cells": {
+      "production:2024": {
+       "raw": "50.67338442388956",
+       "value": 50.673
+      },
+      "production:2025": {
+       "raw": "51.19955070497243",
+       "value": 51.2
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Peru",
+     "kind": "country",
+     "iso2": "pe",
+     "cells": {
+      "production:2024": {
+       "raw": "40.63115007377049",
+       "value": 40.631
+      },
+      "production:2025": {
+       "raw": "44.152745205479455",
+       "value": 44.153
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Germany",
+     "kind": "country",
+     "iso2": "de",
+     "cells": {
+      "production:2024": {
+       "raw": "28.724265027322403",
+       "value": 28.724
+      },
+      "production:2025": {
+       "raw": "31.579964383561645",
+       "value": 31.58
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Papua New Guinea",
+     "kind": "country",
+     "iso2": "pg",
+     "cells": {
+      "production:2024": {
+       "raw": "32.278907103825134",
+       "value": 32.279
+      },
+      "production:2025": {
+       "raw": "31.515898630136988",
+       "value": 31.516
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Ukraine",
+     "kind": "country",
+     "iso2": "ua",
+     "cells": {
+      "production:2024": {
+       "raw": "31.545139344262296",
+       "value": 31.545
+      },
+      "production:2025": {
+       "raw": "31.23073698630137",
+       "value": 31.231
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Sudan",
+     "kind": "country",
+     "iso2": "sd",
+     "cells": {
+      "production:2024": {
+       "raw": "37.489286988160295",
+       "value": 37.489
+      },
+      "production:2025": {
+       "raw": "30",
+       "value": 30
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Uzbekistan",
+     "kind": "country",
+     "iso2": "uz",
+     "cells": {
+      "production:2024": {
+       "raw": "31.104226775956285",
+       "value": 31.104
+      },
+      "production:2025": {
+       "raw": "29.583860273972604",
+       "value": 29.584
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Belarus",
+     "kind": "country",
+     "iso2": "by",
+     "cells": {
+      "production:2024": {
+       "raw": "27.60196174863388",
+       "value": 27.602
+      },
+      "production:2025": {
+       "raw": "25.730490410958904",
+       "value": 25.73
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Cuba",
+     "kind": "country",
+     "iso2": "cu",
+     "cells": {
+      "production:2024": {
+       "raw": "28.23602544498127",
+       "value": 28.236
+      },
+      "production:2025": {
+       "raw": "25.46308978224432",
+       "value": 25.463
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Tunisia",
+     "kind": "country",
+     "iso2": "tn",
+     "cells": {
+      "production:2024": {
+       "raw": "26.984453715846996",
+       "value": 26.984
+      },
+      "production:2025": {
+       "raw": "25.326027397260273",
+       "value": 25.326
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Hungary",
+     "kind": "country",
+     "iso2": "hu",
+     "cells": {
+      "production:2024": {
+       "raw": "21.22893169398907",
+       "value": 21.229
+      },
+      "production:2025": {
+       "raw": "23.419824657534246",
+       "value": 23.42
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Netherlands",
+     "kind": "country",
+     "iso2": "nl",
+     "cells": {
+      "production:2024": {
+       "raw": "23.856852007605802",
+       "value": 23.857
+      },
+      "production:2025": {
+       "raw": "21.469768621528573",
+       "value": 21.47
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Israel",
+     "kind": "country",
+     "iso2": "il",
+     "cells": {
+      "production:2024": {
+       "raw": "18",
+       "value": 18
+      },
+      "production:2025": {
+       "raw": "19.52054794520548",
+       "value": 19.521
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Bolivia",
+     "kind": "country",
+     "iso2": "bo",
+     "cells": {
+      "production:2024": {
+       "raw": "20.707363715846995",
+       "value": 20.707
+      },
+      "production:2025": {
+       "raw": "17.660805479452055",
+       "value": 17.661
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Poland",
+     "kind": "country",
+     "iso2": "pl",
+     "cells": {
+      "production:2024": {
+       "raw": "16.08084699453552",
+       "value": 16.081
+      },
+      "production:2025": {
+       "raw": "16.541194520547947",
+       "value": 16.541
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Congo-Kinshasa",
+     "kind": "country",
+     "iso2": "cd",
+     "cells": {
+      "production:2024": {
+       "raw": "17",
+       "value": 17
+      },
+      "production:2025": {
+       "raw": "16",
+       "value": 16
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Yemen",
+     "kind": "country",
+     "iso2": "ye",
+     "cells": {
+      "production:2024": {
+       "raw": "15",
+       "value": 15
+      },
+      "production:2025": {
+       "raw": "15",
+       "value": 15
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Mongolia",
+     "kind": "country",
+     "iso2": "mn",
+     "cells": {
+      "production:2024": {
+       "raw": "14.374513661202187",
+       "value": 14.375
+      },
+      "production:2025": {
+       "raw": "13.671846575342466",
+       "value": 13.672
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Albania",
+     "kind": "country",
+     "iso2": "al",
+     "cells": {
+      "production:2024": {
+       "raw": "13.040459016393443",
+       "value": 13.04
+      },
+      "production:2025": {
+       "raw": "12.156394520547945",
+       "value": 12.156
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Suriname",
+     "kind": "country",
+     "iso2": "sr",
+     "cells": {
+      "production:2024": {
+       "raw": "13.011026460374318",
+       "value": 13.011
+      },
+      "production:2025": {
+       "raw": "12.08945095890411",
+       "value": 12.089
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Serbia",
+     "kind": "country",
+     "iso2": "rs",
+     "cells": {
+      "production:2024": {
+       "raw": "12.316180327868853",
+       "value": 12.316
+      },
+      "production:2025": {
+       "raw": "11.480917808219179",
+       "value": 11.481
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "France",
+     "kind": "country",
+     "iso2": "fr",
+     "cells": {
+      "production:2024": {
+       "raw": "10.99498087431694",
+       "value": 10.995
+      },
+      "production:2025": {
+       "raw": "10.221830136986302",
+       "value": 10.222
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Croatia",
+     "kind": "country",
+     "iso2": "hr",
+     "cells": {
+      "production:2024": {
+       "raw": "9.651314207650273",
+       "value": 9.651
+      },
+      "production:2025": {
+       "raw": "8.996876712328767",
+       "value": 8.997
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Austria",
+     "kind": "country",
+     "iso2": "at",
+     "cells": {
+      "production:2024": {
+       "raw": "8.900729508196722",
+       "value": 8.901
+      },
+      "production:2025": {
+       "raw": "8.754980821917808",
+       "value": 8.755
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "New Zealand",
+     "kind": "country",
+     "iso2": "nz",
+     "cells": {
+      "production:2024": {
+       "raw": "6.82381693989071",
+       "value": 6.824
+      },
+      "production:2025": {
+       "raw": "7.914704109589041",
+       "value": 7.915
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Burma",
+     "kind": "country",
+     "iso2": "mm",
+     "cells": {
+      "production:2024": {
+       "raw": "5.724885245901639",
+       "value": 5.725
+      },
+      "production:2025": {
+       "raw": "5.555309589041096",
+       "value": 5.555
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Kyrgyzstan",
+     "kind": "country",
+     "iso2": "kg",
+     "cells": {
+      "production:2024": {
+       "raw": "5.945601092896175",
+       "value": 5.946
+      },
+      "production:2025": {
+       "raw": "5.5434027397260275",
+       "value": 5.543
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Guatemala",
+     "kind": "country",
+     "iso2": "gt",
+     "cells": {
+      "production:2024": {
+       "raw": "5.817273491053821",
+       "value": 5.817
+      },
+      "production:2025": {
+       "raw": "5.384625074259524",
+       "value": 5.385
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Japan",
+     "kind": "country",
+     "iso2": "jp",
+     "cells": {
+      "production:2024": {
+       "raw": "3.171707650273224",
+       "value": 3.172
+      },
+      "production:2025": {
+       "raw": "3.1066301369863014",
+       "value": 3.107
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Bangladesh",
+     "kind": "country",
+     "iso2": "bd",
+     "cells": {
+      "production:2024": {
+       "raw": "3",
+       "value": 3
+      },
+      "production:2025": {
+       "raw": "3",
+       "value": 3
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Timor-Leste",
+     "kind": "country",
+     "iso2": "tl",
+     "cells": {
+      "production:2024": {
+       "raw": "2",
+       "value": 2
+      },
+      "production:2025": {
+       "raw": "2",
+       "value": 2
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Chile",
+     "kind": "country",
+     "iso2": "cl",
+     "cells": {
+      "production:2024": {
+       "raw": "2.1068159445817214",
+       "value": 2.107
+      },
+      "production:2025": {
+       "raw": "1.9683219693957577",
+       "value": 1.968
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Greece",
+     "kind": "country",
+     "iso2": "gr",
+     "cells": {
+      "production:2024": {
+       "raw": "1.497",
+       "value": 1.497
+      },
+      "production:2025": {
+       "raw": "1.497",
+       "value": 1.497
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Czechia",
+     "kind": "country",
+     "iso2": "cz",
+     "cells": {
+      "production:2024": {
+       "raw": "1.382016393442623",
+       "value": 1.382
+      },
+      "production:2025": {
+       "raw": "1.3455506849315069",
+       "value": 1.346
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Barbados",
+     "kind": "country",
+     "iso2": "bb",
+     "cells": {
+      "production:2024": {
+       "raw": "1",
+       "value": 1
+      },
+      "production:2025": {
+       "raw": "1",
+       "value": 1
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Bulgaria",
+     "kind": "country",
+     "iso2": "bg",
+     "cells": {
+      "production:2024": {
+       "raw": "1",
+       "value": 1
+      },
+      "production:2025": {
+       "raw": "1",
+       "value": 1
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Belize",
+     "kind": "country",
+     "iso2": "bz",
+     "cells": {
+      "production:2024": {
+       "raw": "0.7871234",
+       "value": 0.787
+      },
+      "production:2025": {
+       "raw": "0.7871234",
+       "value": 0.787
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Lithuania",
+     "kind": "country",
+     "iso2": "lt",
+     "cells": {
+      "production:2024": {
+       "raw": "0.7",
+       "value": 0.7
+      },
+      "production:2025": {
+       "raw": "0.7",
+       "value": 0.7
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Philippines",
+     "kind": "country",
+     "iso2": "ph",
+     "cells": {
+      "production:2024": {
+       "raw": "0.5182322404371584",
+       "value": 0.518
+      },
+      "production:2025": {
+       "raw": "0.502972602739726",
+       "value": 0.503
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "South Africa",
+     "kind": "country",
+     "iso2": "za",
+     "cells": {
+      "production:2024": {
+       "raw": "0.45389344262295084",
+       "value": 0.454
+      },
+      "production:2025": {
+       "raw": "0.3709150684931507",
+       "value": 0.371
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Tajikistan",
+     "kind": "country",
+     "iso2": "tj",
+     "cells": {
+      "production:2024": {
+       "raw": "0.316",
+       "value": 0.316
+      },
+      "production:2025": {
+       "raw": "0.316",
+       "value": 0.316
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Georgia",
+     "kind": "country",
+     "iso2": "ge",
+     "cells": {
+      "production:2024": {
+       "raw": "0.23981693989071037",
+       "value": 0.24
+      },
+      "production:2025": {
+       "raw": "0.22346849315068493",
+       "value": 0.223
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Taiwan",
+     "kind": "country",
+     "iso2": "tw",
+     "cells": {
+      "production:2024": {
+       "raw": "0.196",
+       "value": 0.196
+      },
+      "production:2025": {
+       "raw": "0.196",
+       "value": 0.196
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Spain",
+     "kind": "country",
+     "iso2": "es",
+     "cells": {
+      "production:2024": {
+       "raw": "0.01221311475409836",
+       "value": 0.012
+      },
+      "production:2025": {
+       "raw": "0.026504109589041095",
+       "value": 0.027
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Morocco",
+     "kind": "country",
+     "iso2": "ma",
+     "cells": {
+      "production:2024": {
+       "raw": "0.025",
+       "value": 0.025
+      },
+      "production:2025": {
+       "raw": "0.025",
+       "value": 0.025
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Jordan",
+     "kind": "country",
+     "iso2": "jo",
+     "cells": {
+      "production:2024": {
+       "raw": "0.02",
+       "value": 0.02
+      },
+      "production:2025": {
+       "raw": "0.02",
+       "value": 0.02
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Slovakia",
+     "kind": "country",
+     "iso2": "sk",
+     "cells": {
+      "production:2024": {
+       "raw": "0.02457377049180328",
+       "value": 0.025
+      },
+      "production:2025": {
+       "raw": "0.018556164383561644",
+       "value": 0.019
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "World",
+     "kind": "world",
+     "cells": {
+      "production:2024": {
+       "raw": "81949.4481623602",
+       "value": 81949.448
+      },
+      "production:2025": {
+       "raw": "84383.37418562062",
+       "value": 84383.374
+      }
+     },
+     "footnotes": []
+    }
+   ],
+   "footnotes": {},
+   "events": ""
+  },
+  {
+   "slug": "eia-natural-gas",
+   "commodity": "Dry natural gas",
+   "resource": "natural-gas",
+   "source": "EIA International Energy Statistics",
+   "edition": "EIA international bulk file, updated 2026-09-21",
+   "url": "https://www.eia.gov/international/data/world",
+   "table": "Dry natural gas, annual (series INTL.26-1-<ISO3>-BCM.A)",
+   "unit": "bcm",
+   "unitQuote": "billion cubic metres",
+   "primary": "production",
+   "columns": [
+    {
+     "key": "production:2023",
+     "measure": "production",
+     "stage": "production",
+     "year": 2023
+    },
+    {
+     "key": "production:2024",
+     "measure": "production",
+     "stage": "production",
+     "year": 2024
+    }
+   ],
+   "rows": [
+    {
+     "name": "United States",
+     "kind": "country",
+     "iso2": "us",
+     "cells": {
+      "production:2023": {
+       "raw": "1070.469349373109",
+       "value": 1070.469
+      },
+      "production:2024": {
+       "raw": "1069.4311709782937",
+       "value": 1069.431
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Russia",
+     "kind": "country",
+     "iso2": "ru",
+     "cells": {
+      "production:2023": {
+       "raw": "597.5904425885686",
+       "value": 597.59
+      },
+      "production:2024": {
+       "raw": "642.0409745112812",
+       "value": 642.041
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Iran",
+     "kind": "country",
+     "iso2": "ir",
+     "cells": {
+      "production:2023": {
+       "raw": "274.03284122869684",
+       "value": 274.033
+      },
+      "production:2024": {
+       "raw": "279.00145892607986",
+       "value": 279.001
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "China",
+     "kind": "country",
+     "iso2": "cn",
+     "cells": {
+      "production:2023": {
+       "raw": "239.40154582413513",
+       "value": 239.402
+      },
+      "production:2024": {
+       "raw": "258.4436224064633",
+       "value": 258.444
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Canada",
+     "kind": "country",
+     "iso2": "ca",
+     "cells": {
+      "production:2023": {
+       "raw": "194.10187744361693",
+       "value": 194.102
+      },
+      "production:2024": {
+       "raw": "198.95219361392827",
+       "value": 198.952
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Qatar",
+     "kind": "country",
+     "iso2": "qa",
+     "cells": {
+      "production:2023": {
+       "raw": "170.81443169995018",
+       "value": 170.814
+      },
+      "production:2024": {
+       "raw": "169.95443088929267",
+       "value": 169.954
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Australia",
+     "kind": "country",
+     "iso2": "au",
+     "cells": {
+      "production:2023": {
+       "raw": "151.31262567623645",
+       "value": 151.313
+      },
+      "production:2024": {
+       "raw": "152.17628088921506",
+       "value": 152.176
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Norway",
+     "kind": "country",
+     "iso2": "no",
+     "cells": {
+      "production:2023": {
+       "raw": "123.05189680817453",
+       "value": 123.052
+      },
+      "production:2024": {
+       "raw": "130.91798200357718",
+       "value": 130.918
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Saudi Arabia",
+     "kind": "country",
+     "iso2": "sa",
+     "cells": {
+      "production:2023": {
+       "raw": "121.2192974372479",
+       "value": 121.219
+      },
+      "production:2024": {
+       "raw": "123.38515474590736",
+       "value": 123.385
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Algeria",
+     "kind": "country",
+     "iso2": "dz",
+     "cells": {
+      "production:2023": {
+       "raw": "105.28310184470818",
+       "value": 105.283
+      },
+      "production:2024": {
+       "raw": "98.80507972803824",
+       "value": 98.805
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Malaysia",
+     "kind": "country",
+     "iso2": "my",
+     "cells": {
+      "production:2023": {
+       "raw": "77.83334684860596",
+       "value": 77.833
+      },
+      "production:2024": {
+       "raw": "80.5776454368299",
+       "value": 80.578
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Turkmenistan",
+     "kind": "country",
+     "iso2": "tm",
+     "cells": {
+      "production:2023": {
+       "raw": "84.27665392718664",
+       "value": 84.277
+      },
+      "production:2024": {
+       "raw": "77.60007314770155",
+       "value": 77.6
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Indonesia",
+     "kind": "country",
+     "iso2": "id",
+     "cells": {
+      "production:2023": {
+       "raw": "69.07181061416824",
+       "value": 69.072
+      },
+      "production:2024": {
+       "raw": "69.79688711592816",
+       "value": 69.797
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "United Arab Emirates",
+     "kind": "country",
+     "iso2": "ae",
+     "cells": {
+      "production:2023": {
+       "raw": "58.26119011139701",
+       "value": 58.261
+      },
+      "production:2024": {
+       "raw": "59.411250179407254",
+       "value": 59.411
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Egypt",
+     "kind": "country",
+     "iso2": "eg",
+     "cells": {
+      "production:2023": {
+       "raw": "57.434713275627075",
+       "value": 57.435
+      },
+      "production:2024": {
+       "raw": "47.47230389274829",
+       "value": 47.472
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Argentina",
+     "kind": "country",
+     "iso2": "ar",
+     "cells": {
+      "production:2023": {
+       "raw": "43.39464994867016",
+       "value": 43.395
+      },
+      "production:2024": {
+       "raw": "46.78011811623545",
+       "value": 46.78
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Uzbekistan",
+     "kind": "country",
+     "iso2": "uz",
+     "cells": {
+      "production:2023": {
+       "raw": "48.587836889897",
+       "value": 48.588
+      },
+      "production:2024": {
+       "raw": "46.19846063755099",
+       "value": 46.198
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Oman",
+     "kind": "country",
+     "iso2": "om",
+     "cells": {
+      "production:2023": {
+       "raw": "42.0360127175177",
+       "value": 42.036
+      },
+      "production:2024": {
+       "raw": "44.349334903661116",
+       "value": 44.349
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Nigeria",
+     "kind": "country",
+     "iso2": "ng",
+     "cells": {
+      "production:2023": {
+       "raw": "37.103663916864264",
+       "value": 37.104
+      },
+      "production:2024": {
+       "raw": "39.08910879088156",
+       "value": 39.089
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Azerbaijan",
+     "kind": "country",
+     "iso2": "az",
+     "cells": {
+      "production:2023": {
+       "raw": "35.77513771602923",
+       "value": 35.775
+      },
+      "production:2024": {
+       "raw": "37.87513969554177",
+       "value": 37.875
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "India",
+     "kind": "country",
+     "iso2": "in",
+     "cells": {
+      "production:2023": {
+       "raw": "35.168252192371895",
+       "value": 35.168
+      },
+      "production:2024": {
+       "raw": "35.93615081708581",
+       "value": 35.936
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Mexico",
+     "kind": "country",
+     "iso2": "mx",
+     "cells": {
+      "production:2023": {
+       "raw": "34.47724453826184",
+       "value": 34.477
+      },
+      "production:2024": {
+       "raw": "31.2836309351286",
+       "value": 31.284
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "United Kingdom",
+     "kind": "country",
+     "iso2": "gb",
+     "cells": {
+      "production:2023": {
+       "raw": "34.042292819037684",
+       "value": 34.042
+      },
+      "production:2024": {
+       "raw": "30.817931764459686",
+       "value": 30.818
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Kazakhstan",
+     "kind": "country",
+     "iso2": "kz",
+     "cells": {
+      "production:2023": {
+       "raw": "28.768997122343595",
+       "value": 28.769
+      },
+      "production:2024": {
+       "raw": "29.26409059562564",
+       "value": 29.264
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Thailand",
+     "kind": "country",
+     "iso2": "th",
+     "cells": {
+      "production:2023": {
+       "raw": "25.04016821180272",
+       "value": 25.04
+      },
+      "production:2024": {
+       "raw": "26.984008046418044",
+       "value": 26.984
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Israel",
+     "kind": "country",
+     "iso2": "il",
+     "cells": {
+      "production:2023": {
+       "raw": "24.26498061556593",
+       "value": 24.265
+      },
+      "production:2024": {
+       "raw": "26.629834846875347",
+       "value": 26.63
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Venezuela",
+     "kind": "country",
+     "iso2": "ve",
+     "cells": {
+      "production:2023": {
+       "raw": "23.990476088050738",
+       "value": 23.99
+      },
+      "production:2024": {
+       "raw": "25.42990465225774",
+       "value": 25.43
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Trinidad and Tobago",
+     "kind": "country",
+     "iso2": "tt",
+     "cells": {
+      "production:2023": {
+       "raw": "26.012090387378898",
+       "value": 26.012
+      },
+      "production:2024": {
+       "raw": "25.286747701597577",
+       "value": 25.287
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Pakistan",
+     "kind": "country",
+     "iso2": "pk",
+     "cells": {
+      "production:2023": {
+       "raw": "26.134504704221104",
+       "value": 26.135
+      },
+      "production:2024": {
+       "raw": "24.125624810789333",
+       "value": 24.126
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Brazil",
+     "kind": "country",
+     "iso2": "br",
+     "cells": {
+      "production:2023": {
+       "raw": "22.70184334597347",
+       "value": 22.702
+      },
+      "production:2024": {
+       "raw": "22.135606346956806",
+       "value": 22.136
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Bangladesh",
+     "kind": "country",
+     "iso2": "bd",
+     "cells": {
+      "production:2023": {
+       "raw": "23.28494295918",
+       "value": 23.285
+      },
+      "production:2024": {
+       "raw": "20.14460467124",
+       "value": 20.145
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Kuwait",
+     "kind": "country",
+     "iso2": "kw",
+     "cells": {
+      "production:2023": {
+       "raw": "18.9393547294042",
+       "value": 18.939
+      },
+      "production:2024": {
+       "raw": "19.912355646578344",
+       "value": 19.912
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Bahrain",
+     "kind": "country",
+     "iso2": "bh",
+     "cells": {
+      "production:2023": {
+       "raw": "18.968668405460004",
+       "value": 18.969
+      },
+      "production:2024": {
+       "raw": "19.158354686650828",
+       "value": 19.158
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Ukraine",
+     "kind": "country",
+     "iso2": "ua",
+     "cells": {
+      "production:2023": {
+       "raw": "17.765596156553556",
+       "value": 17.766
+      },
+      "production:2024": {
+       "raw": "18.165596533603562",
+       "value": 18.166
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Peru",
+     "kind": "country",
+     "iso2": "pe",
+     "cells": {
+      "production:2023": {
+       "raw": "13.754879964410355",
+       "value": 13.755
+      },
+      "production:2024": {
+       "raw": "13.562030784899905",
+       "value": 13.562
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Burma",
+     "kind": "country",
+     "iso2": "mm",
+     "cells": {
+      "production:2023": {
+       "raw": "13.623407651846053",
+       "value": 13.623
+      },
+      "production:2024": {
+       "raw": "12.871070391606827",
+       "value": 12.871
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Mozambique",
+     "kind": "country",
+     "iso2": "mz",
+     "cells": {
+      "production:2023": {
+       "raw": "10.688024505041241",
+       "value": 10.688
+      },
+      "production:2024": {
+       "raw": "12.169101900653486",
+       "value": 12.169
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Libya",
+     "kind": "country",
+     "iso2": "ly",
+     "cells": {
+      "production:2023": {
+       "raw": "11.378206725904588",
+       "value": 11.378
+      },
+      "production:2024": {
+       "raw": "12.101814407346195",
+       "value": 12.102
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Papua New Guinea",
+     "kind": "country",
+     "iso2": "pg",
+     "cells": {
+      "production:2023": {
+       "raw": "11.570233414288694",
+       "value": 11.57
+      },
+      "production:2024": {
+       "raw": "11.4071043057214",
+       "value": 11.407
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Bolivia",
+     "kind": "country",
+     "iso2": "bo",
+     "cells": {
+      "production:2023": {
+       "raw": "12.312579341383469",
+       "value": 12.313
+      },
+      "production:2024": {
+       "raw": "11.167659537090932",
+       "value": 11.168
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Brunei",
+     "kind": "country",
+     "iso2": "bn",
+     "cells": {
+      "production:2023": {
+       "raw": "9.869368881411187",
+       "value": 9.869
+      },
+      "production:2024": {
+       "raw": "10.515219255317314",
+       "value": 10.515
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Iraq",
+     "kind": "country",
+     "iso2": "iq",
+     "cells": {
+      "production:2023": {
+       "raw": "10.220009633627704",
+       "value": 10.22
+      },
+      "production:2024": {
+       "raw": "10.322209728831307",
+       "value": 10.322
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Colombia",
+     "kind": "country",
+     "iso2": "co",
+     "cells": {
+      "production:2023": {
+       "raw": "10.99626521672412",
+       "value": 10.996
+      },
+      "production:2024": {
+       "raw": "10.08963736259338",
+       "value": 10.09
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Netherlands",
+     "kind": "country",
+     "iso2": "nl",
+     "cells": {
+      "production:2023": {
+       "raw": "11.842287254651522",
+       "value": 11.842
+      },
+      "production:2024": {
+       "raw": "9.683409218995365",
+       "value": 9.683
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Romania",
+     "kind": "country",
+     "iso2": "ro",
+     "cells": {
+      "production:2023": {
+       "raw": "8.962176992508077",
+       "value": 8.962
+      },
+      "production:2024": {
+       "raw": "9.158818177224012",
+       "value": 9.159
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Equatorial Guinea",
+     "kind": "country",
+     "iso2": "gq",
+     "cells": {
+      "production:2023": {
+       "raw": "6.8326728373552825",
+       "value": 6.833
+      },
+      "production:2024": {
+       "raw": "6.650865831998296",
+       "value": 6.651
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Vietnam",
+     "kind": "country",
+     "iso2": "vn",
+     "cells": {
+      "production:2023": {
+       "raw": "7.48000705083515",
+       "value": 7.48
+      },
+      "production:2024": {
+       "raw": "6.371548006898035",
+       "value": 6.372
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Angola",
+     "kind": "country",
+     "iso2": "ao",
+     "cells": {
+      "production:2023": {
+       "raw": "5.860005523782617",
+       "value": 5.86
+      },
+      "production:2024": {
+       "raw": "5.800005467225116",
+       "value": 5.8
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Poland",
+     "kind": "country",
+     "iso2": "pl",
+     "cells": {
+      "production:2023": {
+       "raw": "5.343663173762474",
+       "value": 5.344
+      },
+      "production:2024": {
+       "raw": "5.204675043417185",
+       "value": 5.205
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Germany",
+     "kind": "country",
+     "iso2": "de",
+     "cells": {
+      "production:2023": {
+       "raw": "4.336919250892298",
+       "value": 4.337
+      },
+      "production:2024": {
+       "raw": "4.1279190538836685",
+       "value": 4.128
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Syria",
+     "kind": "country",
+     "iso2": "sy",
+     "cells": {
+      "production:2023": {
+       "raw": "3.7478478016290135",
+       "value": 3.748
+      },
+      "production:2024": {
+       "raw": "3.7478478016290135",
+       "value": 3.748
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Ghana",
+     "kind": "country",
+     "iso2": "gh",
+     "cells": {
+      "production:2023": {
+       "raw": "3.115689741569428",
+       "value": 3.116
+      },
+      "production:2024": {
+       "raw": "3.416001679570613",
+       "value": 3.416
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "New Zealand",
+     "kind": "country",
+     "iso2": "nz",
+     "cells": {
+      "production:2023": {
+       "raw": "4.019378646825246",
+       "value": 4.019
+      },
+      "production:2024": {
+       "raw": "3.344233008476973",
+       "value": 3.344
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Ivory Coast",
+     "kind": "country",
+     "iso2": "ci",
+     "cells": {
+      "production:2023": {
+       "raw": "2.8535898419551176",
+       "value": 2.854
+      },
+      "production:2024": {
+       "raw": "2.7085787064449334",
+       "value": 2.709
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Italy",
+     "kind": "country",
+     "iso2": "it",
+     "cells": {
+      "production:2023": {
+       "raw": "2.730588240793636",
+       "value": 2.731
+      },
+      "production:2024": {
+       "raw": "2.6196821361998954",
+       "value": 2.62
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Cameroon",
+     "kind": "country",
+     "iso2": "cm",
+     "cells": {
+      "production:2023": {
+       "raw": "2.5100649986059524",
+       "value": 2.51
+      },
+      "production:2024": {
+       "raw": "2.5237657081143414",
+       "value": 2.524
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Turkiye",
+     "kind": "country",
+     "iso2": "tr",
+     "cells": {
+      "production:2023": {
+       "raw": "0.8072807610755935",
+       "value": 0.807
+      },
+      "production:2024": {
+       "raw": "2.259190129465193",
+       "value": 2.259
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Denmark",
+     "kind": "country",
+     "iso2": "dk",
+     "cells": {
+      "production:2023": {
+       "raw": "2.020829362853283",
+       "value": 2.021
+      },
+      "production:2024": {
+       "raw": "2.2499158921440396",
+       "value": 2.25
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Tanzania",
+     "kind": "country",
+     "iso2": "tz",
+     "cells": {
+      "production:2023": {
+       "raw": "1.9919771426603663",
+       "value": 1.992
+      },
+      "production:2024": {
+       "raw": "1.9919771426603663",
+       "value": 1.992
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Japan",
+     "kind": "country",
+     "iso2": "jp",
+     "cells": {
+      "production:2023": {
+       "raw": "2.0193599034237515",
+       "value": 2.019
+      },
+      "production:2024": {
+       "raw": "1.9026037934572384",
+       "value": 1.903
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Congo-Brazzaville",
+     "kind": "country",
+     "iso2": "cg",
+     "cells": {
+      "production:2023": {
+       "raw": "1.2926608435219757",
+       "value": 1.293
+      },
+      "production:2024": {
+       "raw": "1.7725340137386976",
+       "value": 1.773
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Hungary",
+     "kind": "country",
+     "iso2": "hu",
+     "cells": {
+      "production:2023": {
+       "raw": "1.6209165811365476",
+       "value": 1.621
+      },
+      "production:2024": {
+       "raw": "1.723816678132662",
+       "value": 1.724
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Philippines",
+     "kind": "country",
+     "iso2": "ph",
+     "cells": {
+      "production:2023": {
+       "raw": "2.1352572687715554",
+       "value": 2.135
+      },
+      "production:2024": {
+       "raw": "1.658907819761565",
+       "value": 1.659
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Tunisia",
+     "kind": "country",
+     "iso2": "tn",
+     "cells": {
+      "production:2023": {
+       "raw": "1.478880915304681",
+       "value": 1.479
+      },
+      "production:2024": {
+       "raw": "1.169593392949568",
+       "value": 1.17
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Ireland",
+     "kind": "country",
+     "iso2": "ie",
+     "cells": {
+      "production:2023": {
+       "raw": "1.1703861162740918",
+       "value": 1.17
+      },
+      "production:2024": {
+       "raw": "1.098570048725781",
+       "value": 1.099
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Chile",
+     "kind": "country",
+     "iso2": "cl",
+     "cells": {
+      "production:2023": {
+       "raw": "1.3623204520946968",
+       "value": 1.362
+      },
+      "production:2024": {
+       "raw": "1.092868198227094",
+       "value": 1.093
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Cuba",
+     "kind": "country",
+     "iso2": "cu",
+     "cells": {
+      "production:2023": {
+       "raw": "0.9656597749762629",
+       "value": 0.966
+      },
+      "production:2024": {
+       "raw": "0.9700009143462694",
+       "value": 0.97
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Croatia",
+     "kind": "country",
+     "iso2": "hr",
+     "cells": {
+      "production:2023": {
+       "raw": "0.6913006516366763",
+       "value": 0.691
+      },
+      "production:2024": {
+       "raw": "0.6511006137431505",
+       "value": 0.651
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Austria",
+     "kind": "country",
+     "iso2": "at",
+     "cells": {
+      "production:2023": {
+       "raw": "0.5639245314895847",
+       "value": 0.564
+      },
+      "production:2024": {
+       "raw": "0.5366405059069245",
+       "value": 0.537
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Gabon",
+     "kind": "country",
+     "iso2": "ga",
+     "cells": {
+      "production:2023": {
+       "raw": "0.46300043643538424",
+       "value": 0.463
+      },
+      "production:2024": {
+       "raw": "0.47735344999036633",
+       "value": 0.477
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Serbia",
+     "kind": "country",
+     "iso2": "rs",
+     "cells": {
+      "production:2023": {
+       "raw": "0.34017695050436436",
+       "value": 0.34
+      },
+      "production:2024": {
+       "raw": "0.32219693372586755",
+       "value": 0.322
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Ecuador",
+     "kind": "country",
+     "iso2": "ec",
+     "cells": {
+      "production:2023": {
+       "raw": "0.24647248810542252",
+       "value": 0.246
+      },
+      "production:2024": {
+       "raw": "0.2661901389525426",
+       "value": 0.266
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Jordan",
+     "kind": "country",
+     "iso2": "jo",
+     "cells": {
+      "production:2023": {
+       "raw": "0.22881841859110447",
+       "value": 0.229
+      },
+      "production:2024": {
+       "raw": "0.22881841859110447",
+       "value": 0.229
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Czechia",
+     "kind": "country",
+     "iso2": "cz",
+     "cells": {
+      "production:2023": {
+       "raw": "0.1632737590050782",
+       "value": 0.163
+      },
+      "production:2024": {
+       "raw": "0.181566776245686",
+       "value": 0.182
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Rwanda",
+     "kind": "country",
+     "iso2": "rw",
+     "cells": {
+      "production:2023": {
+       "raw": "0.09037908518501163",
+       "value": 0.09
+      },
+      "production:2024": {
+       "raw": "0.09037908518501163",
+       "value": 0.09
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Guatemala",
+     "kind": "country",
+     "iso2": "gt",
+     "cells": {
+      "production:2023": {
+       "raw": "0.06812644748012747",
+       "value": 0.068
+      },
+      "production:2024": {
+       "raw": "0.0721911573405552",
+       "value": 0.072
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Belarus",
+     "kind": "country",
+     "iso2": "by",
+     "cells": {
+      "production:2023": {
+       "raw": "0.0692516297259236",
+       "value": 0.069
+      },
+      "production:2024": {
+       "raw": "0.0692516297259236",
+       "value": 0.069
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Taiwan",
+     "kind": "country",
+     "iso2": "tw",
+     "cells": {
+      "production:2023": {
+       "raw": "0.06014756784629674",
+       "value": 0.06
+      },
+      "production:2024": {
+       "raw": "0.06014756784629674",
+       "value": 0.06
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "South Africa",
+     "kind": "country",
+     "iso2": "za",
+     "cells": {
+      "production:2023": {
+       "raw": "0.058176511158472756",
+       "value": 0.058
+      },
+      "production:2024": {
+       "raw": "0.05798751098881168",
+       "value": 0.058
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Albania",
+     "kind": "country",
+     "iso2": "al",
+     "cells": {
+      "production:2023": {
+       "raw": "0.05021507719403012",
+       "value": 0.05
+      },
+      "production:2024": {
+       "raw": "0.05449641299807765",
+       "value": 0.054
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Morocco",
+     "kind": "country",
+     "iso2": "ma",
+     "cells": {
+      "production:2023": {
+       "raw": "0.0557350551565138",
+       "value": 0.056
+      },
+      "production:2024": {
+       "raw": "0.042993043128595684",
+       "value": 0.043
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Slovakia",
+     "kind": "country",
+     "iso2": "sk",
+     "cells": {
+      "production:2023": {
+       "raw": "0.046508917284064547",
+       "value": 0.047
+      },
+      "production:2024": {
+       "raw": "0.03750890880043937",
+       "value": 0.038
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Senegal",
+     "kind": "country",
+     "iso2": "sn",
+     "cells": {
+      "production:2023": {
+       "raw": "0.03468005622153522",
+       "value": 0.035
+      },
+      "production:2024": {
+       "raw": "0.03468005622153522",
+       "value": 0.035
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Kyrgyzstan",
+     "kind": "country",
+     "iso2": "kg",
+     "cells": {
+      "production:2023": {
+       "raw": "0.028668429190356226",
+       "value": 0.029
+      },
+      "production:2024": {
+       "raw": "0.03116843151860193",
+       "value": 0.031
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Spain",
+     "kind": "country",
+     "iso2": "es",
+     "cells": {
+      "production:2023": {
+       "raw": "0.03409713062950947",
+       "value": 0.034
+      },
+      "production:2024": {
+       "raw": "0.029452126265174672",
+       "value": 0.029
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Niger",
+     "kind": "country",
+     "iso2": "ne",
+     "cells": {
+      "production:2023": {
+       "raw": "0.02693302538488798",
+       "value": 0.027
+      },
+      "production:2024": {
+       "raw": "0.02693302538488798",
+       "value": 0.027
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Tajikistan",
+     "kind": "country",
+     "iso2": "tj",
+     "cells": {
+      "production:2023": {
+       "raw": "0.01847956624739349",
+       "value": 0.018
+      },
+      "production:2024": {
+       "raw": "0.018041565823196996",
+       "value": 0.018
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Belgium",
+     "kind": "country",
+     "iso2": "be",
+     "cells": {
+      "production:2023": {
+       "raw": "0.01300001225412526",
+       "value": 0.013
+      },
+      "production:2024": {
+       "raw": "0.0150000141393753",
+       "value": 0.015
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "France",
+     "kind": "country",
+     "iso2": "fr",
+     "cells": {
+      "production:2023": {
+       "raw": "0.018013149131395883",
+       "value": 0.018
+      },
+      "production:2024": {
+       "raw": "0.012629815329804905",
+       "value": 0.013
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Georgia",
+     "kind": "country",
+     "iso2": "ge",
+     "cells": {
+      "production:2023": {
+       "raw": "0.011637843600716468",
+       "value": 0.012
+      },
+      "production:2024": {
+       "raw": "0.010357842394156443",
+       "value": 0.01
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Yemen",
+     "kind": "country",
+     "iso2": "ye",
+     "cells": {
+      "production:2023": {
+       "raw": "0.01038125612213396",
+       "value": 0.01
+      },
+      "production:2024": {
+       "raw": "0.01038125612213396",
+       "value": 0.01
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Bulgaria",
+     "kind": "country",
+     "iso2": "bg",
+     "cells": {
+      "production:2023": {
+       "raw": "0.010969648734465388",
+       "value": 0.011
+      },
+      "production:2024": {
+       "raw": "0.009246625620667593",
+       "value": 0.009
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Suriname",
+     "kind": "country",
+     "iso2": "sr",
+     "cells": {
+      "production:2023": {
+       "raw": "0.007125006730361691",
+       "value": 0.007
+      },
+      "production:2024": {
+       "raw": "0.007125006730361691",
+       "value": 0.007
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Barbados",
+     "kind": "country",
+     "iso2": "bb",
+     "cells": {
+      "production:2023": {
+       "raw": "0.0044488031356328",
+       "value": 0.004
+      },
+      "production:2024": {
+       "raw": "0.0037283942412822",
+       "value": 0.004
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Slovenia",
+     "kind": "country",
+     "iso2": "si",
+     "cells": {
+      "production:2023": {
+       "raw": "0.004010034645289124",
+       "value": 0.004
+      },
+      "production:2024": {
+       "raw": "0.0033450340326019092",
+       "value": 0.003
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Greece",
+     "kind": "country",
+     "iso2": "gr",
+     "cells": {
+      "production:2023": {
+       "raw": "0.0019570018475488487",
+       "value": 0.002
+      },
+      "production:2024": {
+       "raw": "0.001991001885261469",
+       "value": 0.002
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Timor-Leste",
+     "kind": "country",
+     "iso2": "tl",
+     "cells": {
+      "production:2023": {
+       "raw": "0.5210335946339847",
+       "value": 0.521
+      },
+      "production:2024": {
+       "raw": "0",
+       "value": 0
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "World",
+     "kind": "world",
+     "cells": {
+      "production:2023": {
+       "raw": "4155.466176063216",
+       "value": 4155.466
+      },
+      "production:2024": {
+       "raw": "4218.349190550455",
+       "value": 4218.349
+      }
+     },
+     "footnotes": []
+    }
+   ],
+   "footnotes": {},
+   "events": ""
+  },
+  {
+   "slug": "eia-coal",
+   "commodity": "Coal",
+   "resource": "coal",
+   "source": "EIA International Energy Statistics",
+   "edition": "EIA international bulk file, updated 2026-09-21",
+   "url": "https://www.eia.gov/international/data/world",
+   "table": "Coal, annual (series INTL.7-1-<ISO3>-MT.A)",
+   "unit": "kt",
+   "unitQuote": "thousand metric tons; reserves in million short tons",
+   "primary": "production",
+   "columns": [
+    {
+     "key": "production:2023",
+     "measure": "production",
+     "stage": "production",
+     "year": 2023
+    },
+    {
+     "key": "production:2024",
+     "measure": "production",
+     "stage": "production",
+     "year": 2024
+    },
+    {
+     "key": "reserves",
+     "measure": "reserves",
+     "year": 2023,
+     "unit": "Mst"
+    }
+   ],
+   "rows": [
+    {
+     "name": "China",
+     "kind": "country",
+     "iso2": "cn",
+     "cells": {
+      "production:2023": {
+       "raw": "4362064.93740546",
+       "value": 4362064.937
+      },
+      "production:2024": {
+       "raw": "4402501.222000046",
+       "value": 4402501.222
+      },
+      "reserves": {
+       "raw": "173107.86471",
+       "value": 173107.865
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "India",
+     "kind": "country",
+     "iso2": "in",
+     "cells": {
+      "production:2023": {
+       "raw": "968828.8478183363",
+       "value": 968828.848
+      },
+      "production:2024": {
+       "raw": "1012945.8381122032",
+       "value": 1012945.838
+      },
+      "reserves": {
+       "raw": "140794.74937",
+       "value": 140794.749
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Indonesia",
+     "kind": "country",
+     "iso2": "id",
+     "cells": {
+      "production:2023": {
+       "raw": "781258.9258862487",
+       "value": 781258.926
+      },
+      "production:2024": {
+       "raw": "836000.0000000056",
+       "value": 836000.0
+      },
+      "reserves": {
+       "raw": "38641.47705",
+       "value": 38641.477
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Russia",
+     "kind": "country",
+     "iso2": "ru",
+     "cells": {
+      "production:2023": {
+       "raw": "479918.4987095189",
+       "value": 479918.499
+      },
+      "production:2024": {
+       "raw": "476207.87265377166",
+       "value": 476207.873
+      },
+      "reserves": {
+       "raw": "178757.20346",
+       "value": 178757.203
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Australia",
+     "kind": "country",
+     "iso2": "au",
+     "cells": {
+      "production:2023": {
+       "raw": "442934.51570342935",
+       "value": 442934.516
+      },
+      "production:2024": {
+       "raw": "467739.2509999969",
+       "value": 467739.251
+      },
+      "reserves": {
+       "raw": "164764.48032",
+       "value": 164764.48
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "United States",
+     "kind": "country",
+     "iso2": "us",
+     "cells": {
+      "production:2023": {
+       "raw": "524311.0646441006",
+       "value": 524311.065
+      },
+      "production:2024": {
+       "raw": "464968.7605674558",
+       "value": 464968.761
+      },
+      "reserves": {
+       "raw": "273243.90973",
+       "value": 273243.91
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "South Africa",
+     "kind": "country",
+     "iso2": "za",
+     "cells": {
+      "production:2023": {
+       "raw": "237964.10078079655",
+       "value": 237964.101
+      },
+      "production:2024": {
+       "raw": "237425.36816400374",
+       "value": 237425.368
+      },
+      "reserves": {
+       "raw": "10905.15283",
+       "value": 10905.153
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Kazakhstan",
+     "kind": "country",
+     "iso2": "kz",
+     "cells": {
+      "production:2023": {
+       "raw": "117705.65676825952",
+       "value": 117705.657
+      },
+      "production:2024": {
+       "raw": "112888.13145402461",
+       "value": 112888.131
+      },
+      "reserves": {
+       "raw": "28224.64755",
+       "value": 28224.648
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Germany",
+     "kind": "country",
+     "iso2": "de",
+     "cells": {
+      "production:2023": {
+       "raw": "102254.3673937876",
+       "value": 102254.367
+      },
+      "production:2024": {
+       "raw": "91940.85699999848",
+       "value": 91940.857
+      },
+      "reserves": {
+       "raw": "39021.774",
+       "value": 39021.774
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Poland",
+     "kind": "country",
+     "iso2": "pl",
+     "cells": {
+      "production:2023": {
+       "raw": "88716.72971341231",
+       "value": 88716.73
+      },
+      "production:2024": {
+       "raw": "85159.60423662537",
+       "value": 85159.604
+      },
+      "reserves": {
+       "raw": "30597.92098",
+       "value": 30597.921
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Mongolia",
+     "kind": "country",
+     "iso2": "mn",
+     "cells": {
+      "production:2023": {
+       "raw": "64737.424104088575",
+       "value": 64737.424
+      },
+      "production:2024": {
+       "raw": "82637.77487622463",
+       "value": 82637.775
+      },
+      "reserves": {
+       "raw": "2777.8212",
+       "value": 2777.821
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Turkiye",
+     "kind": "country",
+     "iso2": "tr",
+     "cells": {
+      "production:2023": {
+       "raw": "78532.1406054936",
+       "value": 78532.141
+      },
+      "production:2024": {
+       "raw": "78997.95899999984",
+       "value": 78997.959
+      },
+      "reserves": {
+       "raw": "12097.85225",
+       "value": 12097.852
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Colombia",
+     "kind": "country",
+     "iso2": "co",
+     "cells": {
+      "production:2023": {
+       "raw": "49422.99692361119",
+       "value": 49422.997
+      },
+      "production:2024": {
+       "raw": "58077.77714759395",
+       "value": 58077.777
+      },
+      "reserves": {
+       "raw": "5019.91974",
+       "value": 5019.92
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Canada",
+     "kind": "country",
+     "iso2": "ca",
+     "cells": {
+      "production:2023": {
+       "raw": "48633.65978151357",
+       "value": 48633.66
+      },
+      "production:2024": {
+       "raw": "48642.80387622167",
+       "value": 48642.804
+      },
+      "reserves": {
+       "raw": "7255.40442",
+       "value": 7255.404
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Vietnam",
+     "kind": "country",
+     "iso2": "vn",
+     "cells": {
+      "production:2023": {
+       "raw": "47373.98766038975",
+       "value": 47373.988
+      },
+      "production:2024": {
+       "raw": "44648.584000000315",
+       "value": 44648.584
+      },
+      "reserves": {
+       "raw": "3434.79796",
+       "value": 3434.798
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Serbia",
+     "kind": "country",
+     "iso2": "rs",
+     "cells": {
+      "production:2023": {
+       "raw": "33219.09749412139",
+       "value": 33219.097
+      },
+      "production:2024": {
+       "raw": "31249.439999999995",
+       "value": 31249.44
+      },
+      "reserves": {
+       "raw": "7839.62872",
+       "value": 7839.629
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Czechia",
+     "kind": "country",
+     "iso2": "cz",
+     "cells": {
+      "production:2023": {
+       "raw": "30032.45528384206",
+       "value": 30032.455
+      },
+      "production:2024": {
+       "raw": "25031.996999999606",
+       "value": 25031.997
+      },
+      "reserves": {
+       "raw": "3962.80445",
+       "value": 3962.804
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "North Korea",
+     "kind": "country",
+     "iso2": "kp",
+     "cells": {
+      "production:2023": {
+       "raw": "21928.294921731092",
+       "value": 21928.295
+      },
+      "production:2024": {
+       "raw": "23004.55700000018",
+       "value": 23004.557
+      },
+      "reserves": {
+       "raw": "11684.486",
+       "value": 11684.486
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Ukraine",
+     "kind": "country",
+     "iso2": "ua",
+     "cells": {
+      "production:2023": {
+       "raw": "19850.980449909377",
+       "value": 19850.98
+      },
+      "production:2024": {
+       "raw": "19769.000000000342",
+       "value": 19769.0
+      },
+      "reserves": {
+       "raw": "37891.90625",
+       "value": 37891.906
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Laos",
+     "kind": "country",
+     "iso2": "la",
+     "cells": {
+      "production:2023": {
+       "raw": "16628.980223951774",
+       "value": 16628.98
+      },
+      "production:2024": {
+       "raw": "18020.838000000433",
+       "value": 18020.838
+      },
+      "reserves": {
+       "raw": "68.34322",
+       "value": 68.343
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Mozambique",
+     "kind": "country",
+     "iso2": "mz",
+     "cells": {
+      "production:2023": {
+       "raw": "10582.590273378019",
+       "value": 10582.59
+      },
+      "production:2024": {
+       "raw": "16187.10600000034",
+       "value": 16187.106
+      },
+      "reserves": {
+       "raw": "1975.33952",
+       "value": 1975.34
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Pakistan",
+     "kind": "country",
+     "iso2": "pk",
+     "cells": {
+      "production:2023": {
+       "raw": "13764.556475774889",
+       "value": 13764.556
+      },
+      "production:2024": {
+       "raw": "15075.233546059628",
+       "value": 15075.234
+      },
+      "reserves": {
+       "raw": "3149.29967",
+       "value": 3149.3
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Bulgaria",
+     "kind": "country",
+     "iso2": "bg",
+     "cells": {
+      "production:2023": {
+       "raw": "20970.29706103198",
+       "value": 20970.297
+      },
+      "production:2024": {
+       "raw": "14992.782000000394",
+       "value": 14992.782
+      },
+      "reserves": {
+       "raw": "2396.42194",
+       "value": 2396.422
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Philippines",
+     "kind": "country",
+     "iso2": "ph",
+     "cells": {
+      "production:2023": {
+       "raw": "14457.239806698439",
+       "value": 14457.24
+      },
+      "production:2024": {
+       "raw": "14939.452000000028",
+       "value": 14939.452
+      },
+      "reserves": {
+       "raw": "397.93391",
+       "value": 397.934
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Thailand",
+     "kind": "country",
+     "iso2": "th",
+     "cells": {
+      "production:2023": {
+       "raw": "12811.984763321312",
+       "value": 12811.985
+      },
+      "production:2024": {
+       "raw": "12811.999999999765",
+       "value": 12812.0
+      },
+      "reserves": {
+       "raw": "1171.75553",
+       "value": 1171.756
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Romania",
+     "kind": "country",
+     "iso2": "ro",
+     "cells": {
+      "production:2023": {
+       "raw": "14751.982456175148",
+       "value": 14751.982
+      },
+      "production:2024": {
+       "raw": "12589.99999999996",
+       "value": 12590.0
+      },
+      "reserves": {
+       "raw": "320.77221",
+       "value": 320.772
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Bosnia and Herzegovina",
+     "kind": "country",
+     "iso2": "ba",
+     "cells": {
+      "production:2023": {
+       "raw": "11692.69449143955",
+       "value": 11692.694
+      },
+      "production:2024": {
+       "raw": "11797.999999999975",
+       "value": 11798.0
+      },
+      "reserves": {
+       "raw": "2495.62984",
+       "value": 2495.63
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Greece",
+     "kind": "country",
+     "iso2": "gr",
+     "cells": {
+      "production:2023": {
+       "raw": "10468.587550211168",
+       "value": 10468.588
+      },
+      "production:2024": {
+       "raw": "6317.07200000005",
+       "value": 6317.072
+      },
+      "reserves": {
+       "raw": "3170.24356",
+       "value": 3170.244
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Brazil",
+     "kind": "country",
+     "iso2": "br",
+     "cells": {
+      "production:2023": {
+       "raw": "6573.712086481878",
+       "value": 6573.712
+      },
+      "production:2024": {
+       "raw": "6078.811183472004",
+       "value": 6078.811
+      },
+      "reserves": {
+       "raw": "7270.83676",
+       "value": 7270.837
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Mexico",
+     "kind": "country",
+     "iso2": "mx",
+     "cells": {
+      "production:2023": {
+       "raw": "5708.993210568325",
+       "value": 5708.993
+      },
+      "production:2024": {
+       "raw": "5692.771999999973",
+       "value": 5692.772
+      },
+      "reserves": {
+       "raw": "1278.6796",
+       "value": 1278.68
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Zimbabwe",
+     "kind": "country",
+     "iso2": "zw",
+     "cells": {
+      "production:2023": {
+       "raw": "3978.9282680515425",
+       "value": 3978.928
+      },
+      "production:2024": {
+       "raw": "5692.730999999999",
+       "value": 5692.731
+      },
+      "reserves": {
+       "raw": "553.35962",
+       "value": 553.36
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Uzbekistan",
+     "kind": "country",
+     "iso2": "uz",
+     "cells": {
+      "production:2023": {
+       "raw": "6379.168413561115",
+       "value": 6379.168
+      },
+      "production:2024": {
+       "raw": "5313.331000000028",
+       "value": 5313.331
+      },
+      "reserves": {
+       "raw": "1515.67625",
+       "value": 1515.676
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Kyrgyzstan",
+     "kind": "country",
+     "iso2": "kg",
+     "cells": {
+      "production:2023": {
+       "raw": "3684.8216178184684",
+       "value": 3684.822
+      },
+      "production:2024": {
+       "raw": "4396.322000000003",
+       "value": 4396.322
+      },
+      "reserves": {
+       "raw": "31414.73269",
+       "value": 31414.733
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Hungary",
+     "kind": "country",
+     "iso2": "hu",
+     "cells": {
+      "production:2023": {
+       "raw": "4071.9951573715566",
+       "value": 4071.995
+      },
+      "production:2024": {
+       "raw": "3890.000000000028",
+       "value": 3890.0
+      },
+      "reserves": {
+       "raw": "2902.38223",
+       "value": 2902.382
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Malaysia",
+     "kind": "country",
+     "iso2": "my",
+     "cells": {
+      "production:2023": {
+       "raw": "3598.199720833734",
+       "value": 3598.2
+      },
+      "production:2024": {
+       "raw": "3331.192000000033",
+       "value": 3331.192
+      },
+      "reserves": {
+       "raw": "249.12206",
+       "value": 249.122
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "North Macedonia",
+     "kind": "country",
+     "iso2": "mk",
+     "cells": {
+      "production:2023": {
+       "raw": "3999.539243539898",
+       "value": 3999.539
+      },
+      "production:2024": {
+       "raw": "3234.186999999988",
+       "value": 3234.187
+      },
+      "reserves": {
+       "raw": "365.96692",
+       "value": 365.967
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Burma",
+     "kind": "country",
+     "iso2": "mm",
+     "cells": {
+      "production:2023": {
+       "raw": "1030.9987738826314",
+       "value": 1030.999
+      },
+      "production:2024": {
+       "raw": "2735.6379999999995",
+       "value": 2735.638
+      },
+      "reserves": {
+       "raw": "277.78212",
+       "value": 277.782
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "New Zealand",
+     "kind": "country",
+     "iso2": "nz",
+     "cells": {
+      "production:2023": {
+       "raw": "2600.0805878489236",
+       "value": 2600.081
+      },
+      "production:2024": {
+       "raw": "2509.426000000079",
+       "value": 2509.426
+      },
+      "reserves": {
+       "raw": "7440.5925",
+       "value": 7440.592
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Botswana",
+     "kind": "country",
+     "iso2": "bw",
+     "cells": {
+      "production:2023": {
+       "raw": "2242.25711051021",
+       "value": 2242.257
+      },
+      "production:2024": {
+       "raw": "2454.559000000041",
+       "value": 2454.559
+      },
+      "reserves": {
+       "raw": "1829.8346",
+       "value": 1829.835
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Tajikistan",
+     "kind": "country",
+     "iso2": "tj",
+     "cells": {
+      "production:2023": {
+       "raw": "2393.597153409764",
+       "value": 2393.597
+      },
+      "production:2024": {
+       "raw": "2408.8099999999813",
+       "value": 2408.81
+      },
+      "reserves": {
+       "raw": "4491.91325",
+       "value": 4491.913
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Slovenia",
+     "kind": "country",
+     "iso2": "si",
+     "cells": {
+      "production:2023": {
+       "raw": "2439.5360987767804",
+       "value": 2439.536
+      },
+      "production:2024": {
+       "raw": "2169.2010000000064",
+       "value": 2169.201
+      },
+      "reserves": {
+       "raw": "104.71945",
+       "value": 104.719
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Zambia",
+     "kind": "country",
+     "iso2": "zm",
+     "cells": {
+      "production:2023": {
+       "raw": "2090.644357956907",
+       "value": 2090.644
+      },
+      "production:2024": {
+       "raw": "2019.1960000000179",
+       "value": 2019.196
+      },
+      "reserves": {
+       "raw": "1041.68295",
+       "value": 1041.683
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Iran",
+     "kind": "country",
+     "iso2": "ir",
+     "cells": {
+      "production:2023": {
+       "raw": "1819.886835695915",
+       "value": 1819.887
+      },
+      "production:2024": {
+       "raw": "1971.0550000000096",
+       "value": 1971.055
+      },
+      "reserves": {
+       "raw": "1326.07893",
+       "value": 1326.079
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Peru",
+     "kind": "country",
+     "iso2": "pe",
+     "cells": {
+      "production:2023": {
+       "raw": "1382.0805987012156",
+       "value": 1382.081
+      },
+      "production:2024": {
+       "raw": "1904.5363373099651",
+       "value": 1904.536
+      },
+      "reserves": {
+       "raw": "1727.31977",
+       "value": 1727.32
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Tanzania",
+     "kind": "country",
+     "iso2": "tz",
+     "cells": {
+      "production:2023": {
+       "raw": "2341.467215405398",
+       "value": 2341.467
+      },
+      "production:2024": {
+       "raw": "1855.8959999999747",
+       "value": 1855.896
+      },
+      "reserves": {
+       "raw": "1554.2571",
+       "value": 1554.257
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Montenegro",
+     "kind": "country",
+     "iso2": "me",
+     "cells": {
+      "production:2023": {
+       "raw": "1862.1977853775327",
+       "value": 1862.198
+      },
+      "production:2024": {
+       "raw": "1624.8000000000495",
+       "value": 1624.8
+      },
+      "reserves": {
+       "raw": "371.47847",
+       "value": 371.478
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Nigeria",
+     "kind": "country",
+     "iso2": "ng",
+     "cells": {
+      "production:2023": {
+       "raw": "1322.0484277512442",
+       "value": 1322.048
+      },
+      "production:2024": {
+       "raw": "1262.1049999999777",
+       "value": 1262.105
+      },
+      "reserves": {
+       "raw": "2363.35264",
+       "value": 2363.353
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Afghanistan",
+     "kind": "country",
+     "iso2": "af",
+     "cells": {
+      "production:2023": {
+       "raw": "766.6438031818686",
+       "value": 766.644
+      },
+      "production:2024": {
+       "raw": "1175.9986014413098",
+       "value": 1175.999
+      },
+      "reserves": {
+       "raw": "72.75246",
+       "value": 72.752
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Ethiopia",
+     "kind": "country",
+     "iso2": "et",
+     "cells": {
+      "production:2023": {
+       "raw": "455.65845810726086",
+       "value": 455.658
+      },
+      "production:2024": {
+       "raw": "1073.3889999999838",
+       "value": 1073.389
+      },
+      "reserves": {
+       "raw": "0",
+       "value": 0
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Bangladesh",
+     "kind": "country",
+     "iso2": "bd",
+     "cells": {
+      "production:2023": {
+       "raw": "767.3060874796898",
+       "value": 767.306
+      },
+      "production:2024": {
+       "raw": "907.1309999999992",
+       "value": 907.131
+      },
+      "reserves": {
+       "raw": "3593.5306",
+       "value": 3593.531
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "South Korea",
+     "kind": "country",
+     "iso2": "kr",
+     "cells": {
+      "production:2023": {
+       "raw": "646.9992305548618",
+       "value": 646.999
+      },
+      "production:2024": {
+       "raw": "544.0000000000027",
+       "value": 544.0
+      },
+      "reserves": {
+       "raw": "359.35306",
+       "value": 359.353
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Japan",
+     "kind": "country",
+     "iso2": "jp",
+     "cells": {
+      "production:2023": {
+       "raw": "607.8172771520788",
+       "value": 607.817
+      },
+      "production:2024": {
+       "raw": "518.2220000000017",
+       "value": 518.222
+      },
+      "reserves": {
+       "raw": "385.8085",
+       "value": 385.808
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Eswatini",
+     "kind": "country",
+     "iso2": "sz",
+     "cells": {
+      "production:2023": {
+       "raw": "253.17469891147934",
+       "value": 253.175
+      },
+      "production:2024": {
+       "raw": "354.06299999999857",
+       "value": 354.063
+      },
+      "reserves": {
+       "raw": "5119.12764",
+       "value": 5119.128
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Venezuela",
+     "kind": "country",
+     "iso2": "ve",
+     "cells": {
+      "production:2023": {
+       "raw": "148.5848232951996",
+       "value": 148.585
+      },
+      "production:2024": {
+       "raw": "314.73400000000333",
+       "value": 314.734
+      },
+      "reserves": {
+       "raw": "805.78861",
+       "value": 805.789
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Albania",
+     "kind": "country",
+     "iso2": "al",
+     "cells": {
+      "production:2023": {
+       "raw": "472.86843764025804",
+       "value": 472.868
+      },
+      "production:2024": {
+       "raw": "256.4520000000026",
+       "value": 256.452
+      },
+      "reserves": {
+       "raw": "575.40582",
+       "value": 575.406
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Niger",
+     "kind": "country",
+     "iso2": "ne",
+     "cells": {
+      "production:2023": {
+       "raw": "426.9114876099005",
+       "value": 426.911
+      },
+      "production:2024": {
+       "raw": "193.631999999999",
+       "value": 193.632
+      },
+      "reserves": {
+       "raw": "99.2079",
+       "value": 99.208
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Georgia",
+     "kind": "country",
+     "iso2": "ge",
+     "cells": {
+      "production:2023": {
+       "raw": "147.89982410983626",
+       "value": 147.9
+      },
+      "production:2024": {
+       "raw": "177.78599999999707",
+       "value": 177.786
+      },
+      "reserves": {
+       "raw": "993.18131",
+       "value": 993.181
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Bhutan",
+     "kind": "country",
+     "iso2": "bt",
+     "cells": {
+      "production:2023": {
+       "raw": "3.5618579437206734",
+       "value": 3.562
+      },
+      "production:2024": {
+       "raw": "169.48879843510505",
+       "value": 169.489
+      },
+      "reserves": {
+       "raw": "0",
+       "value": 0
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Norway",
+     "kind": "country",
+     "iso2": "no",
+     "cells": {
+      "production:2023": {
+       "raw": "119.74485759318691",
+       "value": 119.745
+      },
+      "production:2024": {
+       "raw": "119.90300000000283",
+       "value": 119.903
+      },
+      "reserves": {
+       "raw": "2.20462",
+       "value": 2.205
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "United Kingdom",
+     "kind": "country",
+     "iso2": "gb",
+     "cells": {
+      "production:2023": {
+       "raw": "552.924342433612",
+       "value": 552.924
+      },
+      "production:2024": {
+       "raw": "106.50987333291859",
+       "value": 106.51
+      },
+      "reserves": {
+       "raw": "28.66006",
+       "value": 28.66
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Malawi",
+     "kind": "country",
+     "iso2": "mw",
+     "cells": {
+      "production:2023": {
+       "raw": "2.5969599370170497",
+       "value": 2.597
+      },
+      "production:2024": {
+       "raw": "32.494961355301754",
+       "value": 32.495
+      },
+      "reserves": {
+       "raw": "884.05262",
+       "value": 884.053
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Cambodia",
+     "kind": "country",
+     "iso2": "kh",
+     "cells": {
+      "production:2023": {
+       "raw": "26.760968174464693",
+       "value": 26.761
+      },
+      "production:2024": {
+       "raw": "28.814999999999785",
+       "value": 28.815
+      },
+      "reserves": {
+       "raw": "0",
+       "value": 0
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Chile",
+     "kind": "country",
+     "iso2": "cl",
+     "cells": {
+      "production:2023": {
+       "raw": "121.56985542280455",
+       "value": 121.57
+      },
+      "production:2024": {
+       "raw": "24.270000000000095",
+       "value": 24.27
+      },
+      "reserves": {
+       "raw": "1301.82811",
+       "value": 1301.828
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Nepal",
+     "kind": "country",
+     "iso2": "np",
+     "cells": {
+      "production:2023": {
+       "raw": "9.080989200415301",
+       "value": 9.081
+      },
+      "production:2024": {
+       "raw": "2.869000000000028",
+       "value": 2.869
+      },
+      "reserves": {
+       "raw": "8.81848",
+       "value": 8.818
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Argentina",
+     "kind": "country",
+     "iso2": "ar",
+     "cells": {
+      "production:2023": {
+       "raw": "20.575236744201426",
+       "value": 20.575
+      },
+      "production:2024": {
+       "raw": "2.0000000000000218",
+       "value": 2.0
+      },
+      "reserves": {
+       "raw": "881.848",
+       "value": 881.848
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Armenia",
+     "kind": "country",
+     "iso2": "am",
+     "cells": {
+      "production:2023": {
+       "raw": "0.059999928644964",
+       "value": 0.06
+      },
+      "production:2024": {
+       "raw": "0.05999999999999975",
+       "value": 0.06
+      },
+      "reserves": {
+       "raw": "349.43227",
+       "value": 349.432
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Taiwan",
+     "kind": "country",
+     "iso2": "tw",
+     "cells": {
+      "production:2023": {
+       "raw": "0",
+       "value": 0
+      },
+      "production:2024": {
+       "raw": "0",
+       "value": 0
+      },
+      "reserves": {
+       "raw": "1.10231",
+       "value": 1.102
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Slovakia",
+     "kind": "country",
+     "iso2": "sk",
+     "cells": {
+      "production:2023": {
+       "raw": "764.999090223291",
+       "value": 764.999
+      },
+      "production:2024": {
+       "raw": "0",
+       "value": 0
+      },
+      "reserves": {
+       "raw": "20.94389",
+       "value": 20.944
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Uganda",
+     "kind": "country",
+     "iso2": "ug",
+     "cells": {
+      "production:2023": {
+       "raw": "0",
+       "value": 0
+      },
+      "production:2024": {
+       "raw": "0",
+       "value": 0
+      },
+      "reserves": {
+       "raw": "881.848",
+       "value": 881.848
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Bolivia",
+     "kind": "country",
+     "iso2": "bo",
+     "cells": {
+      "production:2023": {
+       "raw": "0",
+       "value": 0
+      },
+      "production:2024": {
+       "raw": "0",
+       "value": 0
+      },
+      "reserves": {
+       "raw": "1.10231",
+       "value": 1.102
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Greenland",
+     "kind": "country",
+     "iso2": "gl",
+     "cells": {
+      "production:2023": {
+       "raw": "0",
+       "value": 0
+      },
+      "production:2024": {
+       "raw": "0",
+       "value": 0
+      },
+      "reserves": {
+       "raw": "422.18473",
+       "value": 422.185
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Congo-Kinshasa",
+     "kind": "country",
+     "iso2": "cd",
+     "cells": {
+      "production:2023": {
+       "raw": "0",
+       "value": 0
+      },
+      "production:2024": {
+       "raw": "0",
+       "value": 0
+      },
+      "reserves": {
+       "raw": "1089.08228",
+       "value": 1089.082
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Spain",
+     "kind": "country",
+     "iso2": "es",
+     "cells": {
+      "production:2023": {
+       "raw": "0",
+       "value": 0
+      },
+      "production:2024": {
+       "raw": "0",
+       "value": 0
+      },
+      "reserves": {
+       "raw": "1308.44197",
+       "value": 1308.442
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Madagascar",
+     "kind": "country",
+     "iso2": "mg",
+     "cells": {
+      "production:2023": {
+       "raw": "0",
+       "value": 0
+      },
+      "production:2024": {
+       "raw": "0",
+       "value": 0
+      },
+      "reserves": {
+       "raw": "165.3465",
+       "value": 165.346
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Turkmenistan",
+     "kind": "country",
+     "iso2": "tm",
+     "cells": {
+      "production:2023": {
+       "raw": "0",
+       "value": 0
+      },
+      "production:2024": {
+       "raw": "0",
+       "value": 0
+      },
+      "reserves": {
+       "raw": "881.848",
+       "value": 881.848
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Namibia",
+     "kind": "country",
+     "iso2": "na",
+     "cells": {
+      "production:2023": {
+       "raw": "0",
+       "value": 0
+      },
+      "production:2024": {
+       "raw": "0",
+       "value": 0
+      },
+      "reserves": {
+       "raw": "385.8085",
+       "value": 385.808
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "New Caledonia",
+     "kind": "country",
+     "iso2": "nc",
+     "cells": {
+      "production:2023": {
+       "raw": "0",
+       "value": 0
+      },
+      "production:2024": {
+       "raw": "0",
+       "value": 0
+      },
+      "reserves": {
+       "raw": "2.20462",
+       "value": 2.205
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Algeria",
+     "kind": "country",
+     "iso2": "dz",
+     "cells": {
+      "production:2023": {
+       "raw": "0",
+       "value": 0
+      },
+      "production:2024": {
+       "raw": "0",
+       "value": 0
+      },
+      "reserves": {
+       "raw": "245.81513",
+       "value": 245.815
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Ecuador",
+     "kind": "country",
+     "iso2": "ec",
+     "cells": {
+      "production:2023": {
+       "raw": "0",
+       "value": 0
+      },
+      "production:2024": {
+       "raw": "0",
+       "value": 0
+      },
+      "reserves": {
+       "raw": "26.45544",
+       "value": 26.455
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Egypt",
+     "kind": "country",
+     "iso2": "eg",
+     "cells": {
+      "production:2023": {
+       "raw": "0",
+       "value": 0
+      },
+      "production:2024": {
+       "raw": "0",
+       "value": 0
+      },
+      "reserves": {
+       "raw": "200.62042",
+       "value": 200.62
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Italy",
+     "kind": "country",
+     "iso2": "it",
+     "cells": {
+      "production:2023": {
+       "raw": "0",
+       "value": 0
+      },
+      "production:2024": {
+       "raw": "0",
+       "value": 0
+      },
+      "reserves": {
+       "raw": "672.4091",
+       "value": 672.409
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Morocco",
+     "kind": "country",
+     "iso2": "ma",
+     "cells": {
+      "production:2023": {
+       "raw": "0",
+       "value": 0
+      },
+      "production:2024": {
+       "raw": "0",
+       "value": 0
+      },
+      "reserves": {
+       "raw": "105.82176",
+       "value": 105.822
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Portugal",
+     "kind": "country",
+     "iso2": "pt",
+     "cells": {
+      "production:2023": {
+       "raw": "0",
+       "value": 0
+      },
+      "production:2024": {
+       "raw": "0",
+       "value": 0
+      },
+      "reserves": {
+       "raw": "3.30693",
+       "value": 3.307
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Sweden",
+     "kind": "country",
+     "iso2": "se",
+     "cells": {
+      "production:2023": {
+       "raw": "0",
+       "value": 0
+      },
+      "production:2024": {
+       "raw": "0",
+       "value": 0
+      },
+      "reserves": {
+       "raw": "5.51155",
+       "value": 5.512
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Belgium",
+     "kind": "country",
+     "iso2": "be",
+     "cells": {
+      "production:2023": {
+       "raw": "0",
+       "value": 0
+      },
+      "production:2024": {
+       "raw": "0",
+       "value": 0
+      },
+      "reserves": {
+       "raw": "4519.471",
+       "value": 4519.471
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Central African Republic",
+     "kind": "country",
+     "iso2": "cf",
+     "cells": {
+      "production:2023": {
+       "raw": "0",
+       "value": 0
+      },
+      "production:2024": {
+       "raw": "0",
+       "value": 0
+      },
+      "reserves": {
+       "raw": "3.30693",
+       "value": 3.307
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "France",
+     "kind": "country",
+     "iso2": "fr",
+     "cells": {
+      "production:2023": {
+       "raw": "0",
+       "value": 0
+      },
+      "production:2024": {
+       "raw": "0",
+       "value": 0
+      },
+      "reserves": {
+       "raw": "176.3696",
+       "value": 176.37
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Ireland",
+     "kind": "country",
+     "iso2": "ie",
+     "cells": {
+      "production:2023": {
+       "raw": "0",
+       "value": 0
+      },
+      "production:2024": {
+       "raw": "0",
+       "value": 0
+      },
+      "reserves": {
+       "raw": "44.0924",
+       "value": 44.092
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Lesotho",
+     "kind": "country",
+     "iso2": "ls",
+     "cells": {
+      "production:2023": {
+       "raw": "56.72495623001807",
+       "value": 56.725
+      },
+      "production:2024": {
+       "raw": "0",
+       "value": 0
+      },
+      "reserves": {
+       "raw": "0",
+       "value": 0
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Netherlands",
+     "kind": "country",
+     "iso2": "nl",
+     "cells": {
+      "production:2023": {
+       "raw": "0",
+       "value": 0
+      },
+      "production:2024": {
+       "raw": "0",
+       "value": 0
+      },
+      "reserves": {
+       "raw": "3579.20057",
+       "value": 3579.201
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "World",
+     "kind": "world",
+     "cells": {
+      "production:2023": {
+       "raw": "8698633.861821484",
+       "value": 8698633.862
+      },
+      "production:2024": {
+       "raw": "8797184.379389578",
+       "value": 8797184.379
+      },
+      "reserves": {
+       "raw": "1285176.61514",
+       "value": 1285176.615
+      }
+     },
+     "footnotes": []
+    }
+   ],
+   "footnotes": {},
+   "events": ""
+  },
+  {
+   "slug": "eia-hydropower",
+   "commodity": "Hydroelectricity net generation",
+   "resource": "hydropower",
+   "source": "EIA International Energy Statistics",
+   "edition": "EIA international bulk file, updated 2026-09-21",
+   "url": "https://www.eia.gov/international/data/world",
+   "table": "Hydroelectricity net generation, annual (series INTL.33-12-<ISO3>-BKWH.A)",
+   "unit": "TWh",
+   "unitQuote": "billion kilowatthours",
+   "primary": "production",
+   "columns": [
+    {
+     "key": "production:2023",
+     "measure": "production",
+     "stage": "production",
+     "year": 2023
+    },
+    {
+     "key": "production:2024",
+     "measure": "production",
+     "stage": "production",
+     "year": 2024
+    }
+   ],
+   "rows": [
+    {
+     "name": "China",
+     "kind": "country",
+     "iso2": "cn",
+     "cells": {
+      "production:2023": {
+       "raw": "1242.2720869",
+       "value": 1242.272
+      },
+      "production:2024": {
+       "raw": "1424",
+       "value": 1424
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Brazil",
+     "kind": "country",
+     "iso2": "br",
+     "cells": {
+      "production:2023": {
+       "raw": "421.9008681",
+       "value": 421.901
+      },
+      "production:2024": {
+       "raw": "417.8532317",
+       "value": 417.853
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Canada",
+     "kind": "country",
+     "iso2": "ca",
+     "cells": {
+      "production:2023": {
+       "raw": "360.467752674",
+       "value": 360.468
+      },
+      "production:2024": {
+       "raw": "342",
+       "value": 342
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "United States",
+     "kind": "country",
+     "iso2": "us",
+     "cells": {
+      "production:2023": {
+       "raw": "245.00233841",
+       "value": 245.002
+      },
+      "production:2024": {
+       "raw": "242.89605423",
+       "value": 242.896
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Russia",
+     "kind": "country",
+     "iso2": "ru",
+     "cells": {
+      "production:2023": {
+       "raw": "198",
+       "value": 198
+      },
+      "production:2024": {
+       "raw": "212",
+       "value": 212
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "India",
+     "kind": "country",
+     "iso2": "in",
+     "cells": {
+      "production:2023": {
+       "raw": "147.8753435",
+       "value": 147.875
+      },
+      "production:2024": {
+       "raw": "154.675552",
+       "value": 154.676
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Norway",
+     "kind": "country",
+     "iso2": "no",
+     "cells": {
+      "production:2023": {
+       "raw": "136.105126456",
+       "value": 136.105
+      },
+      "production:2024": {
+       "raw": "138.952116059",
+       "value": 138.952
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Vietnam",
+     "kind": "country",
+     "iso2": "vn",
+     "cells": {
+      "production:2023": {
+       "raw": "100.6490625",
+       "value": 100.649
+      },
+      "production:2024": {
+       "raw": "96",
+       "value": 96
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Venezuela",
+     "kind": "country",
+     "iso2": "ve",
+     "cells": {
+      "production:2023": {
+       "raw": "64.982572901",
+       "value": 64.983
+      },
+      "production:2024": {
+       "raw": "73",
+       "value": 73
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Turkiye",
+     "kind": "country",
+     "iso2": "tr",
+     "cells": {
+      "production:2023": {
+       "raw": "61.8794613",
+       "value": 61.879
+      },
+      "production:2024": {
+       "raw": "71.6674608",
+       "value": 71.667
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "France",
+     "kind": "country",
+     "iso2": "fr",
+     "cells": {
+      "production:2023": {
+       "raw": "55.589776735",
+       "value": 55.59
+      },
+      "production:2024": {
+       "raw": "70.817275331",
+       "value": 70.817
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Japan",
+     "kind": "country",
+     "iso2": "jp",
+     "cells": {
+      "production:2023": {
+       "raw": "72.082868182",
+       "value": 72.083
+      },
+      "production:2024": {
+       "raw": "69.886131808",
+       "value": 69.886
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Sweden",
+     "kind": "country",
+     "iso2": "se",
+     "cells": {
+      "production:2023": {
+       "raw": "65.589289225",
+       "value": 65.589
+      },
+      "production:2024": {
+       "raw": "64.121774722",
+       "value": 64.122
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Colombia",
+     "kind": "country",
+     "iso2": "co",
+     "cells": {
+      "production:2023": {
+       "raw": "56.189507",
+       "value": 56.19
+      },
+      "production:2024": {
+       "raw": "55",
+       "value": 55
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Paraguay",
+     "kind": "country",
+     "iso2": "py",
+     "cells": {
+      "production:2023": {
+       "raw": "44",
+       "value": 44
+      },
+      "production:2024": {
+       "raw": "53",
+       "value": 53
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Italy",
+     "kind": "country",
+     "iso2": "it",
+     "cells": {
+      "production:2023": {
+       "raw": "38.425399082",
+       "value": 38.425
+      },
+      "production:2024": {
+       "raw": "52.265419354",
+       "value": 52.265
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Switzerland",
+     "kind": "country",
+     "iso2": "ch",
+     "cells": {
+      "production:2023": {
+       "raw": "36.983415867",
+       "value": 36.983
+      },
+      "production:2024": {
+       "raw": "44.931493023",
+       "value": 44.931
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Austria",
+     "kind": "country",
+     "iso2": "at",
+     "cells": {
+      "production:2023": {
+       "raw": "39.937318309",
+       "value": 39.937
+      },
+      "production:2024": {
+       "raw": "44.870251128",
+       "value": 44.87
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Laos",
+     "kind": "country",
+     "iso2": "la",
+     "cells": {
+      "production:2023": {
+       "raw": "40",
+       "value": 40
+      },
+      "production:2024": {
+       "raw": "40",
+       "value": 40
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Pakistan",
+     "kind": "country",
+     "iso2": "pk",
+     "cells": {
+      "production:2023": {
+       "raw": "34",
+       "value": 34
+      },
+      "production:2024": {
+       "raw": "40",
+       "value": 40
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Spain",
+     "kind": "country",
+     "iso2": "es",
+     "cells": {
+      "production:2023": {
+       "raw": "24.647984917",
+       "value": 24.648
+      },
+      "production:2024": {
+       "raw": "33.737547245",
+       "value": 33.738
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Argentina",
+     "kind": "country",
+     "iso2": "ar",
+     "cells": {
+      "production:2023": {
+       "raw": "21.7249408",
+       "value": 21.725
+      },
+      "production:2024": {
+       "raw": "33",
+       "value": 33
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Peru",
+     "kind": "country",
+     "iso2": "pe",
+     "cells": {
+      "production:2023": {
+       "raw": "29.729",
+       "value": 29.729
+      },
+      "production:2024": {
+       "raw": "32",
+       "value": 32
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Malaysia",
+     "kind": "country",
+     "iso2": "my",
+     "cells": {
+      "production:2023": {
+       "raw": "31.5",
+       "value": 31.5
+      },
+      "production:2024": {
+       "raw": "32",
+       "value": 32
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Indonesia",
+     "kind": "country",
+     "iso2": "id",
+     "cells": {
+      "production:2023": {
+       "raw": "24.59",
+       "value": 24.59
+      },
+      "production:2024": {
+       "raw": "27.138",
+       "value": 27.138
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Chile",
+     "kind": "country",
+     "iso2": "cl",
+     "cells": {
+      "production:2023": {
+       "raw": "23.302",
+       "value": 23.302
+      },
+      "production:2024": {
+       "raw": "26",
+       "value": 26
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "New Zealand",
+     "kind": "country",
+     "iso2": "nz",
+     "cells": {
+      "production:2023": {
+       "raw": "26.1708667",
+       "value": 26.171
+      },
+      "production:2024": {
+       "raw": "23.4494207",
+       "value": 23.449
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Germany",
+     "kind": "country",
+     "iso2": "de",
+     "cells": {
+      "production:2023": {
+       "raw": "19.957637729",
+       "value": 19.958
+      },
+      "production:2024": {
+       "raw": "23.085071991",
+       "value": 23.085
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Ecuador",
+     "kind": "country",
+     "iso2": "ec",
+     "cells": {
+      "production:2023": {
+       "raw": "25.7335",
+       "value": 25.733
+      },
+      "production:2024": {
+       "raw": "23",
+       "value": 23
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Mexico",
+     "kind": "country",
+     "iso2": "mx",
+     "cells": {
+      "production:2023": {
+       "raw": "19.3581227",
+       "value": 19.358
+      },
+      "production:2024": {
+       "raw": "22.6654189",
+       "value": 22.665
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Tajikistan",
+     "kind": "country",
+     "iso2": "tj",
+     "cells": {
+      "production:2023": {
+       "raw": "20",
+       "value": 20
+      },
+      "production:2024": {
+       "raw": "21",
+       "value": 21
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Iran",
+     "kind": "country",
+     "iso2": "ir",
+     "cells": {
+      "production:2023": {
+       "raw": "12.645681918",
+       "value": 12.646
+      },
+      "production:2024": {
+       "raw": "18",
+       "value": 18
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "North Korea",
+     "kind": "country",
+     "iso2": "kp",
+     "cells": {
+      "production:2023": {
+       "raw": "16.6",
+       "value": 16.6
+      },
+      "production:2024": {
+       "raw": "17",
+       "value": 17
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Zambia",
+     "kind": "country",
+     "iso2": "zm",
+     "cells": {
+      "production:2023": {
+       "raw": "17.091",
+       "value": 17.091
+      },
+      "production:2024": {
+       "raw": "17",
+       "value": 17
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Mozambique",
+     "kind": "country",
+     "iso2": "mz",
+     "cells": {
+      "production:2023": {
+       "raw": "16.48449",
+       "value": 16.484
+      },
+      "production:2024": {
+       "raw": "16.3",
+       "value": 16.3
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Ethiopia",
+     "kind": "country",
+     "iso2": "et",
+     "cells": {
+      "production:2023": {
+       "raw": "17.126",
+       "value": 17.126
+      },
+      "production:2024": {
+       "raw": "16",
+       "value": 16
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Portugal",
+     "kind": "country",
+     "iso2": "pt",
+     "cells": {
+      "production:2023": {
+       "raw": "11.978671443",
+       "value": 11.979
+      },
+      "production:2024": {
+       "raw": "15.14188412",
+       "value": 15.142
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Egypt",
+     "kind": "country",
+     "iso2": "eg",
+     "cells": {
+      "production:2023": {
+       "raw": "15.056",
+       "value": 15.056
+      },
+      "production:2024": {
+       "raw": "15",
+       "value": 15
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Romania",
+     "kind": "country",
+     "iso2": "ro",
+     "cells": {
+      "production:2023": {
+       "raw": "18.8223471",
+       "value": 18.822
+      },
+      "production:2024": {
+       "raw": "14.4935278",
+       "value": 14.494
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Finland",
+     "kind": "country",
+     "iso2": "fi",
+     "cells": {
+      "production:2023": {
+       "raw": "15.2",
+       "value": 15.2
+      },
+      "production:2024": {
+       "raw": "14.1287285",
+       "value": 14.129
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Kyrgyzstan",
+     "kind": "country",
+     "iso2": "kg",
+     "cells": {
+      "production:2023": {
+       "raw": "11.764498041",
+       "value": 11.764
+      },
+      "production:2024": {
+       "raw": "14",
+       "value": 14
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Australia",
+     "kind": "country",
+     "iso2": "au",
+     "cells": {
+      "production:2023": {
+       "raw": "15.229555249",
+       "value": 15.23
+      },
+      "production:2024": {
+       "raw": "13.765711256",
+       "value": 13.766
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Iceland",
+     "kind": "country",
+     "iso2": "is",
+     "cells": {
+      "production:2023": {
+       "raw": "14.104043",
+       "value": 14.104
+      },
+      "production:2024": {
+       "raw": "13.4639556",
+       "value": 13.464
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Congo-Kinshasa",
+     "kind": "country",
+     "iso2": "cd",
+     "cells": {
+      "production:2023": {
+       "raw": "13.424",
+       "value": 13.424
+      },
+      "production:2024": {
+       "raw": "13.4",
+       "value": 13.4
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Sudan",
+     "kind": "country",
+     "iso2": "sd",
+     "cells": {
+      "production:2023": {
+       "raw": "11.5",
+       "value": 11.5
+      },
+      "production:2024": {
+       "raw": "11.5",
+       "value": 11.5
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Nepal",
+     "kind": "country",
+     "iso2": "np",
+     "cells": {
+      "production:2023": {
+       "raw": "10.588",
+       "value": 10.588
+      },
+      "production:2024": {
+       "raw": "11",
+       "value": 11
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Bhutan",
+     "kind": "country",
+     "iso2": "bt",
+     "cells": {
+      "production:2023": {
+       "raw": "11.1645625",
+       "value": 11.165
+      },
+      "production:2024": {
+       "raw": "11",
+       "value": 11
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Georgia",
+     "kind": "country",
+     "iso2": "ge",
+     "cells": {
+      "production:2023": {
+       "raw": "10.863",
+       "value": 10.863
+      },
+      "production:2024": {
+       "raw": "11",
+       "value": 11
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Kazakhstan",
+     "kind": "country",
+     "iso2": "kz",
+     "cells": {
+      "production:2023": {
+       "raw": "9.357",
+       "value": 9.357
+      },
+      "production:2024": {
+       "raw": "11",
+       "value": 11
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Angola",
+     "kind": "country",
+     "iso2": "ao",
+     "cells": {
+      "production:2023": {
+       "raw": "11.2202",
+       "value": 11.22
+      },
+      "production:2024": {
+       "raw": "11",
+       "value": 11
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Serbia",
+     "kind": "country",
+     "iso2": "rs",
+     "cells": {
+      "production:2023": {
+       "raw": "12.9199956",
+       "value": 12.92
+      },
+      "production:2024": {
+       "raw": "10.4302904",
+       "value": 10.43
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Philippines",
+     "kind": "country",
+     "iso2": "ph",
+     "cells": {
+      "production:2023": {
+       "raw": "10.085",
+       "value": 10.085
+      },
+      "production:2024": {
+       "raw": "10.085",
+       "value": 10.085
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Burma",
+     "kind": "country",
+     "iso2": "mm",
+     "cells": {
+      "production:2023": {
+       "raw": "9.4311875",
+       "value": 9.431
+      },
+      "production:2024": {
+       "raw": "10",
+       "value": 10
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Nigeria",
+     "kind": "country",
+     "iso2": "ng",
+     "cells": {
+      "production:2023": {
+       "raw": "9.10718",
+       "value": 9.107
+      },
+      "production:2024": {
+       "raw": "9.2",
+       "value": 9.2
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Ukraine",
+     "kind": "country",
+     "iso2": "ua",
+     "cells": {
+      "production:2023": {
+       "raw": "10.713",
+       "value": 10.713
+      },
+      "production:2024": {
+       "raw": "9",
+       "value": 9
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Ghana",
+     "kind": "country",
+     "iso2": "gh",
+     "cells": {
+      "production:2023": {
+       "raw": "9.1865",
+       "value": 9.187
+      },
+      "production:2024": {
+       "raw": "8.6",
+       "value": 8.6
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Uzbekistan",
+     "kind": "country",
+     "iso2": "uz",
+     "cells": {
+      "production:2023": {
+       "raw": "6.6",
+       "value": 6.6
+      },
+      "production:2024": {
+       "raw": "8",
+       "value": 8
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Albania",
+     "kind": "country",
+     "iso2": "al",
+     "cells": {
+      "production:2023": {
+       "raw": "8.708557",
+       "value": 8.709
+      },
+      "production:2024": {
+       "raw": "8",
+       "value": 8
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Costa Rica",
+     "kind": "country",
+     "iso2": "cr",
+     "cells": {
+      "production:2023": {
+       "raw": "8.54",
+       "value": 8.54
+      },
+      "production:2024": {
+       "raw": "8",
+       "value": 8
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Panama",
+     "kind": "country",
+     "iso2": "pa",
+     "cells": {
+      "production:2023": {
+       "raw": "6.147",
+       "value": 6.147
+      },
+      "production:2024": {
+       "raw": "7.13",
+       "value": 7.13
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Sri Lanka",
+     "kind": "country",
+     "iso2": "lk",
+     "cells": {
+      "production:2023": {
+       "raw": "7",
+       "value": 7
+      },
+      "production:2024": {
+       "raw": "7",
+       "value": 7
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Cambodia",
+     "kind": "country",
+     "iso2": "kh",
+     "cells": {
+      "production:2023": {
+       "raw": "5.32",
+       "value": 5.32
+      },
+      "production:2024": {
+       "raw": "7",
+       "value": 7
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Croatia",
+     "kind": "country",
+     "iso2": "hr",
+     "cells": {
+      "production:2023": {
+       "raw": "8.2270861",
+       "value": 8.227
+      },
+      "production:2024": {
+       "raw": "6.8211134",
+       "value": 6.821
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Thailand",
+     "kind": "country",
+     "iso2": "th",
+     "cells": {
+      "production:2023": {
+       "raw": "6.58821",
+       "value": 6.588
+      },
+      "production:2024": {
+       "raw": "6.41479",
+       "value": 6.415
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Guatemala",
+     "kind": "country",
+     "iso2": "gt",
+     "cells": {
+      "production:2023": {
+       "raw": "5.653",
+       "value": 5.653
+      },
+      "production:2024": {
+       "raw": "6.3",
+       "value": 6.3
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "United Kingdom",
+     "kind": "country",
+     "iso2": "gb",
+     "cells": {
+      "production:2023": {
+       "raw": "5.237101777",
+       "value": 5.237
+      },
+      "production:2024": {
+       "raw": "5.914003896",
+       "value": 5.914
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Zimbabwe",
+     "kind": "country",
+     "iso2": "zw",
+     "cells": {
+      "production:2023": {
+       "raw": "5.455360808",
+       "value": 5.455
+      },
+      "production:2024": {
+       "raw": "5.7",
+       "value": 5.7
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Cameroon",
+     "kind": "country",
+     "iso2": "cm",
+     "cells": {
+      "production:2023": {
+       "raw": "5.233",
+       "value": 5.233
+      },
+      "production:2024": {
+       "raw": "5.233",
+       "value": 5.233
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Slovenia",
+     "kind": "country",
+     "iso2": "si",
+     "cells": {
+      "production:2023": {
+       "raw": "4.916099225",
+       "value": 4.916
+      },
+      "production:2024": {
+       "raw": "5.205695507",
+       "value": 5.206
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Uganda",
+     "kind": "country",
+     "iso2": "ug",
+     "cells": {
+      "production:2023": {
+       "raw": "4.978",
+       "value": 4.978
+      },
+      "production:2024": {
+       "raw": "5",
+       "value": 5
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Bosnia and Herzegovina",
+     "kind": "country",
+     "iso2": "ba",
+     "cells": {
+      "production:2023": {
+       "raw": "5.542352941",
+       "value": 5.542
+      },
+      "production:2024": {
+       "raw": "5",
+       "value": 5
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Uruguay",
+     "kind": "country",
+     "iso2": "uy",
+     "cells": {
+      "production:2023": {
+       "raw": "3.517",
+       "value": 3.517
+      },
+      "production:2024": {
+       "raw": "4.5",
+       "value": 4.5
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Slovakia",
+     "kind": "country",
+     "iso2": "sk",
+     "cells": {
+      "production:2023": {
+       "raw": "4.132350772",
+       "value": 4.132
+      },
+      "production:2024": {
+       "raw": "4.372847866",
+       "value": 4.373
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "South Korea",
+     "kind": "country",
+     "iso2": "kr",
+     "cells": {
+      "production:2023": {
+       "raw": "3.761097586",
+       "value": 3.761
+      },
+      "production:2024": {
+       "raw": "4.230313255",
+       "value": 4.23
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Taiwan",
+     "kind": "country",
+     "iso2": "tw",
+     "cells": {
+      "production:2023": {
+       "raw": "3.963022166",
+       "value": 3.963
+      },
+      "production:2024": {
+       "raw": "4.208168168",
+       "value": 4.208
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Honduras",
+     "kind": "country",
+     "iso2": "hn",
+     "cells": {
+      "production:2023": {
+       "raw": "3.882",
+       "value": 3.882
+      },
+      "production:2024": {
+       "raw": "3.8",
+       "value": 3.8
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Bolivia",
+     "kind": "country",
+     "iso2": "bo",
+     "cells": {
+      "production:2023": {
+       "raw": "2.974914733",
+       "value": 2.975
+      },
+      "production:2024": {
+       "raw": "3.3",
+       "value": 3.3
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Latvia",
+     "kind": "country",
+     "iso2": "lv",
+     "cells": {
+      "production:2023": {
+       "raw": "3.7734564",
+       "value": 3.773
+      },
+      "production:2024": {
+       "raw": "3.1871623",
+       "value": 3.187
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Kenya",
+     "kind": "country",
+     "iso2": "ke",
+     "cells": {
+      "production:2023": {
+       "raw": "2.667",
+       "value": 2.667
+      },
+      "production:2024": {
+       "raw": "3.1",
+       "value": 3.1
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Greece",
+     "kind": "country",
+     "iso2": "gr",
+     "cells": {
+      "production:2023": {
+       "raw": "4.719",
+       "value": 4.719
+      },
+      "production:2024": {
+       "raw": "3.044735887",
+       "value": 3.045
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Ivory Coast",
+     "kind": "country",
+     "iso2": "ci",
+     "cells": {
+      "production:2023": {
+       "raw": "3.2",
+       "value": 3.2
+      },
+      "production:2024": {
+       "raw": "3",
+       "value": 3
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Guinea",
+     "kind": "country",
+     "iso2": "gn",
+     "cells": {
+      "production:2023": {
+       "raw": "2.947",
+       "value": 2.947
+      },
+      "production:2024": {
+       "raw": "3",
+       "value": 3
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Azerbaijan",
+     "kind": "country",
+     "iso2": "az",
+     "cells": {
+      "production:2023": {
+       "raw": "1.641586219",
+       "value": 1.642
+      },
+      "production:2024": {
+       "raw": "3",
+       "value": 3
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "South Africa",
+     "kind": "country",
+     "iso2": "za",
+     "cells": {
+      "production:2023": {
+       "raw": "2.73",
+       "value": 2.73
+      },
+      "production:2024": {
+       "raw": "2.912",
+       "value": 2.912
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Bulgaria",
+     "kind": "country",
+     "iso2": "bg",
+     "cells": {
+      "production:2023": {
+       "raw": "3.0991082",
+       "value": 3.099
+      },
+      "production:2024": {
+       "raw": "2.9",
+       "value": 2.9
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Tanzania",
+     "kind": "country",
+     "iso2": "tz",
+     "cells": {
+      "production:2023": {
+       "raw": "2.699",
+       "value": 2.699
+      },
+      "production:2024": {
+       "raw": "2.8",
+       "value": 2.8
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Czechia",
+     "kind": "country",
+     "iso2": "cz",
+     "cells": {
+      "production:2023": {
+       "raw": "2.317578495",
+       "value": 2.318
+      },
+      "production:2024": {
+       "raw": "2.627451851",
+       "value": 2.627
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "El Salvador",
+     "kind": "country",
+     "iso2": "sv",
+     "cells": {
+      "production:2023": {
+       "raw": "2.012904994",
+       "value": 2.013
+      },
+      "production:2024": {
+       "raw": "2.012904994",
+       "value": 2.013
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Iraq",
+     "kind": "country",
+     "iso2": "iq",
+     "cells": {
+      "production:2023": {
+       "raw": "1.382999",
+       "value": 1.383
+      },
+      "production:2024": {
+       "raw": "2",
+       "value": 2
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Montenegro",
+     "kind": "country",
+     "iso2": "me",
+     "cells": {
+      "production:2023": {
+       "raw": "2.221",
+       "value": 2.221
+      },
+      "production:2024": {
+       "raw": "2",
+       "value": 2
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Armenia",
+     "kind": "country",
+     "iso2": "am",
+     "cells": {
+      "production:2023": {
+       "raw": "1.646",
+       "value": 1.646
+      },
+      "production:2024": {
+       "raw": "2",
+       "value": 2
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Poland",
+     "kind": "country",
+     "iso2": "pl",
+     "cells": {
+      "production:2023": {
+       "raw": "2.407",
+       "value": 2.407
+      },
+      "production:2024": {
+       "raw": "1.839106181",
+       "value": 1.839
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Malawi",
+     "kind": "country",
+     "iso2": "mw",
+     "cells": {
+      "production:2023": {
+       "raw": "1.694",
+       "value": 1.694
+      },
+      "production:2024": {
+       "raw": "1.694",
+       "value": 1.694
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Dominican Republic",
+     "kind": "country",
+     "iso2": "do",
+     "cells": {
+      "production:2023": {
+       "raw": "1.465",
+       "value": 1.465
+      },
+      "production:2024": {
+       "raw": "1.465",
+       "value": 1.465
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "North Macedonia",
+     "kind": "country",
+     "iso2": "mk",
+     "cells": {
+      "production:2023": {
+       "raw": "1.6178858",
+       "value": 1.618
+      },
+      "production:2024": {
+       "raw": "1.3615639",
+       "value": 1.362
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Congo-Brazzaville",
+     "kind": "country",
+     "iso2": "cg",
+     "cells": {
+      "production:2023": {
+       "raw": "1.219",
+       "value": 1.219
+      },
+      "production:2024": {
+       "raw": "1.1",
+       "value": 1.1
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Namibia",
+     "kind": "country",
+     "iso2": "na",
+     "cells": {
+      "production:2023": {
+       "raw": "1.323",
+       "value": 1.323
+      },
+      "production:2024": {
+       "raw": "1",
+       "value": 1
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Papua New Guinea",
+     "kind": "country",
+     "iso2": "pg",
+     "cells": {
+      "production:2023": {
+       "raw": "1",
+       "value": 1
+      },
+      "production:2024": {
+       "raw": "1",
+       "value": 1
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Mali",
+     "kind": "country",
+     "iso2": "ml",
+     "cells": {
+      "production:2023": {
+       "raw": "0.969",
+       "value": 0.969
+      },
+      "production:2024": {
+       "raw": "0.92",
+       "value": 0.92
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Gabon",
+     "kind": "country",
+     "iso2": "ga",
+     "cells": {
+      "production:2023": {
+       "raw": "0.912",
+       "value": 0.912
+      },
+      "production:2024": {
+       "raw": "0.912",
+       "value": 0.912
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Suriname",
+     "kind": "country",
+     "iso2": "sr",
+     "cells": {
+      "production:2023": {
+       "raw": "0.9",
+       "value": 0.9
+      },
+      "production:2024": {
+       "raw": "0.9",
+       "value": 0.9
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Madagascar",
+     "kind": "country",
+     "iso2": "mg",
+     "cells": {
+      "production:2023": {
+       "raw": "0.982628",
+       "value": 0.983
+      },
+      "production:2024": {
+       "raw": "0.9",
+       "value": 0.9
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Morocco",
+     "kind": "country",
+     "iso2": "ma",
+     "cells": {
+      "production:2023": {
+       "raw": "0.516",
+       "value": 0.516
+      },
+      "production:2024": {
+       "raw": "0.814",
+       "value": 0.814
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Ireland",
+     "kind": "country",
+     "iso2": "ie",
+     "cells": {
+      "production:2023": {
+       "raw": "0.900004369",
+       "value": 0.9
+      },
+      "production:2024": {
+       "raw": "0.756515427",
+       "value": 0.757
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Syria",
+     "kind": "country",
+     "iso2": "sy",
+     "cells": {
+      "production:2023": {
+       "raw": "0.754",
+       "value": 0.754
+      },
+      "production:2024": {
+       "raw": "0.754",
+       "value": 0.754
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Afghanistan",
+     "kind": "country",
+     "iso2": "af",
+     "cells": {
+      "production:2023": {
+       "raw": "0.749149972",
+       "value": 0.749
+      },
+      "production:2024": {
+       "raw": "0.749149972",
+       "value": 0.749
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Lebanon",
+     "kind": "country",
+     "iso2": "lb",
+     "cells": {
+      "production:2023": {
+       "raw": "0.7",
+       "value": 0.7
+      },
+      "production:2024": {
+       "raw": "0.7",
+       "value": 0.7
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Bangladesh",
+     "kind": "country",
+     "iso2": "bd",
+     "cells": {
+      "production:2023": {
+       "raw": "0.647",
+       "value": 0.647
+      },
+      "production:2024": {
+       "raw": "0.7",
+       "value": 0.7
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Nicaragua",
+     "kind": "country",
+     "iso2": "ni",
+     "cells": {
+      "production:2023": {
+       "raw": "0.649",
+       "value": 0.649
+      },
+      "production:2024": {
+       "raw": "0.649",
+       "value": 0.649
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Fiji",
+     "kind": "country",
+     "iso2": "fj",
+     "cells": {
+      "production:2023": {
+       "raw": "0.602066631",
+       "value": 0.602
+      },
+      "production:2024": {
+       "raw": "0.602066631",
+       "value": 0.602
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Belgium",
+     "kind": "country",
+     "iso2": "be",
+     "cells": {
+      "production:2023": {
+       "raw": "0.363087669",
+       "value": 0.363
+      },
+      "production:2024": {
+       "raw": "0.548538846",
+       "value": 0.549
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "New Caledonia",
+     "kind": "country",
+     "iso2": "nc",
+     "cells": {
+      "production:2023": {
+       "raw": "0.539",
+       "value": 0.539
+      },
+      "production:2024": {
+       "raw": "0.539",
+       "value": 0.539
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Rwanda",
+     "kind": "country",
+     "iso2": "rw",
+     "cells": {
+      "production:2023": {
+       "raw": "0.498",
+       "value": 0.498
+      },
+      "production:2024": {
+       "raw": "0.52",
+       "value": 0.52
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Greenland",
+     "kind": "country",
+     "iso2": "gl",
+     "cells": {
+      "production:2023": {
+       "raw": "0.480345",
+       "value": 0.48
+      },
+      "production:2024": {
+       "raw": "0.467",
+       "value": 0.467
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Lithuania",
+     "kind": "country",
+     "iso2": "lt",
+     "cells": {
+      "production:2023": {
+       "raw": "0.433949054",
+       "value": 0.434
+      },
+      "production:2024": {
+       "raw": "0.428198658",
+       "value": 0.428
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Equatorial Guinea",
+     "kind": "country",
+     "iso2": "gq",
+     "cells": {
+      "production:2023": {
+       "raw": "0.348",
+       "value": 0.348
+      },
+      "production:2024": {
+       "raw": "0.4",
+       "value": 0.4
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Belarus",
+     "kind": "country",
+     "iso2": "by",
+     "cells": {
+      "production:2023": {
+       "raw": "0.394",
+       "value": 0.394
+      },
+      "production:2024": {
+       "raw": "0.4",
+       "value": 0.4
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Burundi",
+     "kind": "country",
+     "iso2": "bi",
+     "cells": {
+      "production:2023": {
+       "raw": "0.368",
+       "value": 0.368
+      },
+      "production:2024": {
+       "raw": "0.36",
+       "value": 0.36
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Eswatini",
+     "kind": "country",
+     "iso2": "sz",
+     "cells": {
+      "production:2023": {
+       "raw": "0.395",
+       "value": 0.395
+      },
+      "production:2024": {
+       "raw": "0.35",
+       "value": 0.35
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Moldova",
+     "kind": "country",
+     "iso2": "md",
+     "cells": {
+      "production:2023": {
+       "raw": "0.317",
+       "value": 0.317
+      },
+      "production:2024": {
+       "raw": "0.317",
+       "value": 0.317
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Senegal",
+     "kind": "country",
+     "iso2": "sn",
+     "cells": {
+      "production:2023": {
+       "raw": "0.31",
+       "value": 0.31
+      },
+      "production:2024": {
+       "raw": "0.31",
+       "value": 0.31
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Liberia",
+     "kind": "country",
+     "iso2": "lr",
+     "cells": {
+      "production:2023": {
+       "raw": "0.349",
+       "value": 0.349
+      },
+      "production:2024": {
+       "raw": "0.3",
+       "value": 0.3
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Belize",
+     "kind": "country",
+     "iso2": "bz",
+     "cells": {
+      "production:2023": {
+       "raw": "0.239",
+       "value": 0.239
+      },
+      "production:2024": {
+       "raw": "0.239",
+       "value": 0.239
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Hungary",
+     "kind": "country",
+     "iso2": "hu",
+     "cells": {
+      "production:2023": {
+       "raw": "0.2175438",
+       "value": 0.218
+      },
+      "production:2024": {
+       "raw": "0.2266936",
+       "value": 0.227
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Mauritania",
+     "kind": "country",
+     "iso2": "mr",
+     "cells": {
+      "production:2023": {
+       "raw": "0.209952799",
+       "value": 0.21
+      },
+      "production:2024": {
+       "raw": "0.209952799",
+       "value": 0.21
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "French Polynesia",
+     "kind": "country",
+     "iso2": "pf",
+     "cells": {
+      "production:2023": {
+       "raw": "0.192",
+       "value": 0.192
+      },
+      "production:2024": {
+       "raw": "0.192",
+       "value": 0.192
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Sierra Leone",
+     "kind": "country",
+     "iso2": "sl",
+     "cells": {
+      "production:2023": {
+       "raw": "0.18",
+       "value": 0.18
+      },
+      "production:2024": {
+       "raw": "0.18",
+       "value": 0.18
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Haiti",
+     "kind": "country",
+     "iso2": "ht",
+     "cells": {
+      "production:2023": {
+       "raw": "0.185",
+       "value": 0.185
+      },
+      "production:2024": {
+       "raw": "0.16",
+       "value": 0.16
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Central African Republic",
+     "kind": "country",
+     "iso2": "cf",
+     "cells": {
+      "production:2023": {
+       "raw": "0.141",
+       "value": 0.141
+      },
+      "production:2024": {
+       "raw": "0.141",
+       "value": 0.141
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Faroe Islands",
+     "kind": "country",
+     "iso2": "fo",
+     "cells": {
+      "production:2023": {
+       "raw": "0.131",
+       "value": 0.131
+      },
+      "production:2024": {
+       "raw": "0.131",
+       "value": 0.131
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Cuba",
+     "kind": "country",
+     "iso2": "cu",
+     "cells": {
+      "production:2023": {
+       "raw": "0.122337615",
+       "value": 0.122
+      },
+      "production:2024": {
+       "raw": "0.122337615",
+       "value": 0.122
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Jamaica",
+     "kind": "country",
+     "iso2": "jm",
+     "cells": {
+      "production:2023": {
+       "raw": "0.119",
+       "value": 0.119
+      },
+      "production:2024": {
+       "raw": "0.12",
+       "value": 0.12
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Mauritius",
+     "kind": "country",
+     "iso2": "mu",
+     "cells": {
+      "production:2023": {
+       "raw": "0.094442",
+       "value": 0.094
+      },
+      "production:2024": {
+       "raw": "0.11",
+       "value": 0.11
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Luxembourg",
+     "kind": "country",
+     "iso2": "lu",
+     "cells": {
+      "production:2023": {
+       "raw": "0.093934399",
+       "value": 0.094
+      },
+      "production:2024": {
+       "raw": "0.108989159",
+       "value": 0.109
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Burkina Faso",
+     "kind": "country",
+     "iso2": "bf",
+     "cells": {
+      "production:2023": {
+       "raw": "0.089",
+       "value": 0.089
+      },
+      "production:2024": {
+       "raw": "0.09",
+       "value": 0.09
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Netherlands",
+     "kind": "country",
+     "iso2": "nl",
+     "cells": {
+      "production:2023": {
+       "raw": "0.0680282",
+       "value": 0.068
+      },
+      "production:2024": {
+       "raw": "0.0853927",
+       "value": 0.085
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Togo",
+     "kind": "country",
+     "iso2": "tg",
+     "cells": {
+      "production:2023": {
+       "raw": "0.08",
+       "value": 0.08
+      },
+      "production:2024": {
+       "raw": "0.08",
+       "value": 0.08
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Mongolia",
+     "kind": "country",
+     "iso2": "mn",
+     "cells": {
+      "production:2023": {
+       "raw": "0.064",
+       "value": 0.064
+      },
+      "production:2024": {
+       "raw": "0.064",
+       "value": 0.064
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Puerto Rico",
+     "kind": "country",
+     "iso2": "pr",
+     "cells": {
+      "production:2023": {
+       "raw": "0.045",
+       "value": 0.045
+      },
+      "production:2024": {
+       "raw": "0.045",
+       "value": 0.045
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Estonia",
+     "kind": "country",
+     "iso2": "ee",
+     "cells": {
+      "production:2023": {
+       "raw": "0.0227393",
+       "value": 0.023
+      },
+      "production:2024": {
+       "raw": "0.0300015",
+       "value": 0.03
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Samoa",
+     "kind": "country",
+     "iso2": "ws",
+     "cells": {
+      "production:2023": {
+       "raw": "0.03",
+       "value": 0.03
+      },
+      "production:2024": {
+       "raw": "0.03",
+       "value": 0.03
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Dominica",
+     "kind": "country",
+     "iso2": "dm",
+     "cells": {
+      "production:2023": {
+       "raw": "0.023",
+       "value": 0.023
+      },
+      "production:2024": {
+       "raw": "0.023",
+       "value": 0.023
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Algeria",
+     "kind": "country",
+     "iso2": "dz",
+     "cells": {
+      "production:2023": {
+       "raw": "0.02326",
+       "value": 0.023
+      },
+      "production:2024": {
+       "raw": "0.02",
+       "value": 0.02
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Denmark",
+     "kind": "country",
+     "iso2": "dk",
+     "cells": {
+      "production:2023": {
+       "raw": "0.0196861",
+       "value": 0.02
+      },
+      "production:2024": {
+       "raw": "0.0195708",
+       "value": 0.02
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Saint Vincent/Grenadines",
+     "kind": "country",
+     "iso2": "vc",
+     "cells": {
+      "production:2023": {
+       "raw": "0.019",
+       "value": 0.019
+      },
+      "production:2024": {
+       "raw": "0.019",
+       "value": 0.019
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Jordan",
+     "kind": "country",
+     "iso2": "jo",
+     "cells": {
+      "production:2023": {
+       "raw": "0.019",
+       "value": 0.019
+      },
+      "production:2024": {
+       "raw": "0.019",
+       "value": 0.019
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Tunisia",
+     "kind": "country",
+     "iso2": "tn",
+     "cells": {
+      "production:2023": {
+       "raw": "0.009",
+       "value": 0.009
+      },
+      "production:2024": {
+       "raw": "0.012",
+       "value": 0.012
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Vanuatu",
+     "kind": "country",
+     "iso2": "vu",
+     "cells": {
+      "production:2023": {
+       "raw": "0.009",
+       "value": 0.009
+      },
+      "production:2024": {
+       "raw": "0.009",
+       "value": 0.009
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Sao Tome and Principe",
+     "kind": "country",
+     "iso2": "st",
+     "cells": {
+      "production:2023": {
+       "raw": "0.006",
+       "value": 0.006
+      },
+      "production:2024": {
+       "raw": "0.006",
+       "value": 0.006
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Turkmenistan",
+     "kind": "country",
+     "iso2": "tm",
+     "cells": {
+      "production:2023": {
+       "raw": "0.006",
+       "value": 0.006
+      },
+      "production:2024": {
+       "raw": "0.006",
+       "value": 0.006
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Guyana",
+     "kind": "country",
+     "iso2": "gy",
+     "cells": {
+      "production:2023": {
+       "raw": "0.004",
+       "value": 0.004
+      },
+      "production:2024": {
+       "raw": "0.004",
+       "value": 0.004
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Lesotho",
+     "kind": "country",
+     "iso2": "ls",
+     "cells": {
+      "production:2023": {
+       "raw": "0.000603992",
+       "value": 0.001
+      },
+      "production:2024": {
+       "raw": "0.000603992",
+       "value": 0.001
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "Solomon Islands",
+     "kind": "country",
+     "iso2": "sb",
+     "cells": {
+      "production:2023": {
+       "raw": "0.001",
+       "value": 0.001
+      },
+      "production:2024": {
+       "raw": "0.001",
+       "value": 0.001
+      }
+     },
+     "footnotes": []
+    },
+    {
+     "name": "World",
+     "kind": "world",
+     "cells": {
+      "production:2023": {
+       "raw": "4231.399843454",
+       "value": 4231.4
+      },
+      "production:2024": {
+       "raw": "4511.889445571",
+       "value": 4511.889
+      }
+     },
+     "footnotes": []
+    }
+   ],
+   "footnotes": {},
+   "events": ""
+  }
+ ]
+}

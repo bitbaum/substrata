@@ -5,10 +5,15 @@ import { neighbors } from '@/lib/graph';
 import { EU_MEMBERS } from '@/lib/geo';
 import { policyHref } from '@/lib/links';
 import { countryDiagram } from '@/lib/country-diagram';
+import { countryResources } from '@/lib/resources/country';
+import { CountryResources } from './resources/CountryResources';
+import { CountryAccess } from './resources/CountryAccess';
+import { Peers } from './resources/Peers';
 
-export function WorldPanel({ country }: { country?: string }) {
+export function WorldPanel({ country, resource }: { country?: string; resource?: string }) {
   const selected = country?.toLowerCase() ?? '';
   const dossier = selected ? countryDossier(selected) : null;
+  const measured = selected ? countryResources(selected).measured.length > 0 : false;
   const eu = selected && (EU_MEMBERS as readonly string[]).includes(selected);
   const connected = selected ? neighbors('country', selected).slice(0, 12) : [];
   const insights = worldInsights();
@@ -32,26 +37,23 @@ export function WorldPanel({ country }: { country?: string }) {
       {dossier ? (
         <>
           <p className="world-roles">{dossier.roles.join(' · ')}</p>
-          <p className="world-why">{dossier.why}</p>
+          {!measured && dossier.why && (
+            // The directory sentence is an interpretation, not a figure: shown
+            // only when no production table lists the country, and labelled.
+            <p className="world-why">
+              <span className="resource-unit">Directory note, not a finding: </span>
+              {dossier.why}
+            </p>
+          )}
           {graphNodes.length > 0 && (
             <figure
               className="country-graph"
               dangerouslySetInnerHTML={{ __html: countryDiagram(dossier.name, graphNodes) }}
             />
           )}
-          {dossier.resources.length > 0 && (
-            <section className="mt-5">
-              <h3>Natural resources</h3>
-              <ul className="resource-chips">
-                {dossier.resources.map((r) => (
-                  <li key={r.id}>
-                    <Link href={`/atlas?view=world&resource=${r.id}`}>{r.label}</Link>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-2 text-xs text-fg-tertiary">{dossier.directoryNote}</p>
-            </section>
-          )}
+          <CountryResources iso2={dossier.iso2} selected={resource} />
+          <CountryAccess iso2={dossier.iso2} />
+          <Peers iso2={dossier.iso2} prefer={resource} />
           {dossier.relatedBottlenecks.length > 0 && (
             <section className="mt-5">
               <h3>Related bottlenecks</h3>
@@ -113,18 +115,6 @@ export function WorldPanel({ country }: { country?: string }) {
                 {connected.map((edge) => (
                   <li key={edge.rel + edge.to.href}>
                     {edge.rel} <Link href={edge.to.href}>{edge.to.label}</Link>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )}
-          {dossier.similar.length > 0 && (
-            <section className="mt-5">
-              <h3>Similar geologies</h3>
-              <ul>
-                {dossier.similar.map((row) => (
-                  <li key={row.href}>
-                    <Link href={row.href}>{row.label}</Link>
                   </li>
                 ))}
               </ul>

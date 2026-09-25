@@ -19,6 +19,10 @@
     "research:accept-events": "tsx scripts/research/accept-events.ts",
     "research:occupations": "tsx scripts/research/occupations.ts",
     "research:usgs": "python3 scripts/research/usgs-mcs.py",
+    "research:eia": "python3 scripts/research/eia-energy.py",
+    "research:producers": "python3 scripts/research/usgs-myb-producers.py",
+    "research:restrictions": "python3 scripts/research/oecd-export-restrictions.py",
+    "research:sanctions": "python3 scripts/research/sanctions.py",
     "verify": "pnpm run format:check && pnpm run type-check && pnpm run lint && pnpm run test",
     "format": "prettier --write .",
     "format:check": "prettier --check ."

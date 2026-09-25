@@ -18,7 +18,7 @@ test('every USGS chapter maps to a Substrata resource and adds up to its world t
   const ids = new Set(RESOURCE_KINDS.map((r) => r.id as string));
   for (const chapter of chapters()) {
     assert.ok(ids.has(chapter.resource), `${chapter.slug}: unknown resource ${chapter.resource}`);
-    assert.ok(chapter.url.startsWith('https://pubs.usgs.gov/'), chapter.slug);
+    assert.ok(/^https:\/\/(pubs\.usgs\.gov|www\.eia\.gov)\//.test(chapter.url), chapter.slug);
     const world = worldRow(chapter);
     assert.ok(world, `${chapter.slug}: no world row`);
     for (const series of seriesOf(chapter)) {
@@ -71,6 +71,11 @@ test('bauxite ranks the mine, not the alumina refinery; unknown resources return
   const bauxite = choropleth('bauxite');
   assert.equal(bauxite?.series, 'mine-bauxite');
   assert.equal(bauxite?.values.gn.rank, 1);
-  assert.equal(choropleth('natural-gas'), null);
+  assert.equal(choropleth('neon'), null);
+  assert.equal(
+    choropleth('natural-gas')?.values.ru.rank,
+    2,
+    'EIA dry gas: Russia second to the US',
+  );
   assert.ok(choroplethOptions().some((o) => o.resource === 'gallium'));
 });

@@ -104,7 +104,7 @@ export function WorldView({
           )
         }
       >
-        <WorldPanel country={dossier ? selected : undefined} />
+        <WorldPanel country={dossier ? selected : undefined} resource={resource} />
         {dossier && (
           <section className="atlas-section">
             <h3>Another country</h3>

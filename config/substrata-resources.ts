@@ -557,4 +557,6 @@ export const RESOURCE_TO_BOTTLENECKS: Partial<Record<ResourceId, readonly string
   quartz: ['Crucible-grade high-purity quartz sand'],
   neon: ['Neon, excimer laser grade'],
   iron: ['Grain-oriented electrical steel (GOES)'],
+  silicon: ['Electronic-grade polysilicon', '300 mm prime silicon wafers'],
+  pgms: ['Ruthenium, sputtering and ALD grade'],
 };

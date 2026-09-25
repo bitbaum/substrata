@@ -1,0 +1,3123 @@
+{
+ "retrieved": "2026-09-25",
+ "eu": {
+  "source": "EU Sanctions Map",
+  "api": "https://www.sanctionsmap.eu/api/v1/regime",
+  "regimes": [
+   {
+    "id": 1,
+    "iso2": "af",
+    "adoptedBy": "UN",
+    "title": "Restrictive measures imposed with respect to the Taliban",
+    "amended": "2024-09-12",
+    "url": "https://www.sanctionsmap.eu/#/main/details/1/",
+    "legalActs": [
+     {
+      "title": "Council Decision concerning restrictive measures directed against certain individuals, groups, undertakings and entities in view of the situation in Afghanistan",
+      "number": "05.02.2022 consolidated basic legal act - 2011/486/CFSP",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02011D0486-20220205"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures directed against certain individuals, groups, undertakings and entities in view of the situation in Afghanistan",
+      "number": "13.09.2024 consolidated basic legal act - (EU) No 753/2011",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02011R0753-20240913&qid=1751294529505"
+     },
+     {
+      "title": "Resolution 1988 (2011)",
+      "number": "S/RES/1988 (2011)",
+      "url": "https://undocs.org/S/RES/1988(2011)"
+     },
+     {
+      "title": "Resolution 1989 (2011)",
+      "number": "S/RES/1989 (2011)",
+      "url": "https://undocs.org/S/RES/1989(2011)"
+     },
+     {
+      "title": "Resolution 1267 (1999)",
+      "number": "S/RES/1267 (1999)",
+      "url": "https://undocs.org/S/RES/1267(1999)"
+     },
+     {
+      "title": "Resolution 2082 (2012)",
+      "number": "S/RES/2082 (2012)",
+      "url": "https://www.undocs.org/S/RES/2082%20(2012)"
+     },
+     {
+      "title": "Resolution 2160 (2014)",
+      "number": "S/RES/2160 (2014)",
+      "url": "https://www.undocs.org/S/RES/2160%20(2014)"
+     },
+     {
+      "title": "Resolution 2255 (2015)",
+      "number": "S/RES/2255 (2015)",
+      "url": "https://www.undocs.org/S/RES/2255%20(2015)"
+     },
+     {
+      "title": "Resolution 2501 (2019)",
+      "number": "S/RES/2501 (2019)",
+      "url": "https://undocs.org/en/S/RES/2501(2019)"
+     },
+     {
+      "title": "Resolution 2557 (2020)",
+      "number": "S/RES/2557 (2020)",
+      "url": "https://undocs.org/en/S/RES/2557(2020)"
+     },
+     {
+      "title": "Resolution 2615 (2021)",
+      "number": "S/RES/2615 (2021)",
+      "url": "https://undocs.org/en/S/RES/2615(2021)"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Arms export",
+      "text": "It is prohibited to export arms and related materiel to the listed individuals. Related technical advice, training and assistance is also prohibited."
+     },
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall enforce travel restrictions on persons listed in the Annex of Council Decision 2011/486/CFSP."
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "iso2": "by",
+    "adoptedBy": "EU",
+    "title": "Restrictive measures in view of the situation in Belarus and the involvement of Belarus in the Russian aggression against Ukraine",
+    "amended": "2026-04-22",
+    "url": "https://www.sanctionsmap.eu/#/main/details/2/",
+    "legalActs": [
+     {
+      "title": "Council Regulation concerning restrictive measures in view of the situation in Belarus and the involvement of Belarus in the Russian aggression against Ukraine",
+      "number": "24.04.2026 consolidated basic legal act - (EC) No 765/2006",
+      "url": "http://data.europa.eu/eli/reg/2006/765/2026-04-24"
+     },
+     {
+      "title": "Council Decision concerning restrictive measures in view of the situation in Belarus and the involvement of Belarus in the Russian aggression against Ukraine",
+      "number": "23.07.2026 amendments not yet included in the consolidated legal act - (CFSP) 2026/1847",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202601847"
+     },
+     {
+      "title": "Council Decision concerning restrictive measures in view of the situation in Belarus and the involvement of Belarus in the Russian aggression against Ukraine",
+      "number": "24.04.2026 consolidated basic legal act - 2012/642/CFSP",
+      "url": "http://data.europa.eu/eli/dec/2012/642/2026-04-24"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures in view of the situation in Belarus and the involvement of Belarus in the Russian aggression against Ukraine",
+      "number": "23.07.2026 amendments not yet included in the consolidated legal act - (CFSP) 2026/1846",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202601817"
+     },
+     {
+      "title": "Council Implementing Regulation concerning restrictive measures in view of the situation in Belarus and the involvement of Belarus in the Russian aggression against Ukraine",
+      "number": "23.07.2026 amendments not yet included in the consolidated legal act - (CFSP) 2026/1817",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202601817"
+     },
+     {
+      "title": "Council Implementing Decision concerning restrictive measures in view of the situation in Belarus and the involvement of Belarus in the Russian aggression against Ukraine",
+      "number": "23.07.2026 amendments not yet included in the consolidated legal act - (CFSP) 2026/1816",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202601817"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures in view of the situation in Belarus and the involvement of Belarus in the Russian aggression against Ukraine",
+      "number": "11.8.2026 amendments not yet included in consolidated legal act - (EU) 2026/513",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32026R0513R%2801%29&qid=1786537732417"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Arms export",
+      "text": "It is prohibited to export arms and related materiel to Belarus. Related technical or financial assistance and brokering services are also prohibited."
+     },
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     },
+     {
+      "type": "Embargo on dual-use goods",
+      "text": "It is prohibited to sell, supply, transfer or export dual-use goods and technology to Belarus. It is also prohibited to sell, supply, transfer or export goods and technology, which might contribute to Belarus's military and technological enhancement, or to the development of its defence and security sector, as listed in Annex Va of Regulation (EC) 765/2006, to Belarus. The transit of such goods and technology via Belarus is also prohibited. Related technical or financial assistance and brokering or other services are also prohibited."
+     },
+     {
+      "type": "Financial measures",
+      "text": "Transactions related to the management of reserves as well as of assets of the Central Bank of Belarus are prohibited."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to acquire new or extend existing participation in any entity operating in the energy sector or in the mining and quarrying sector in Belarus. It is also prohibited to grant new loan or credit or otherwise provide financing to, or create any joint venture with, any entity operating in the energy sector or in the mining and quarrying sector in Belarus. The provision of related investment services is also prohibited."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to engage, directly or indirectly, in any transaction with persons or entities listed in Annex XV of Regulation (EC) 765/2006 or with any person or entity established in Belarus whose proprietary rights are owned for more than 50% by an entity listed in Annex XV."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to sell, supply, transfer or export banknotes denominated in any official currency of a Member State to Belarus or to any person or entity in Belarus, including the Government and the Central Bank of Belarus, or for use in Belarus."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to sell transferable securities denominated in any official currency of a Member State issued after 12.04.2022 or units in collective investment undertakings providing exposure to such securities, to any Belarusian national or person residing in Belarus or any entity established in Belarus."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited for Union central securities depositories to provide any services as defined in the Annex to Regulation (EU) 909/2014 for transferable securities issued after 12.04.2022 to any Belarusian national or person residing in Belarus or any entity established in Belarus."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to accept any deposits from Belarusian nationals or persons residing in Belarus, or entities established in Belarus, if the total value of deposits of the person or entity per credit institution exceeds 100 000 EUR."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to provide public financing or financial assistance for trade with, or investment in, Belarus."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to list and provide services as of 12.04.2022 on trading venues registered or recognised in the Union for the transferable securities of any person or entity established in Belarus and with over 50% public ownership."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to provide insurance or re-insurance to Belarus, its Government, its public bodies, corporations or agencies; or any person, entity or body acting on behalf or at the direction of such entity."
+     },
+     {
+      "type": "Financial measures",
+      "text": "European Investment Bank (EIB) is prohibited from making any disbursement or payment under or in connection with any existing agreements entered between Belarus or any public authority thereof and the EIB."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to make new loans or credit with a maturity exceeding 90 days; or to purchase, sell, provide investment services for or assistance in the issuance of, or otherwise deal with transferable securities and money-market instruments with a maturity exceeding 90 days to Belarus, its Government, its public bodies, corporations or agencies; or a major credit or other institution established in Belarus with over 50% public ownership, as listed in Annex IX of Regulation (EC) 765/2006; or an entity established outside the EU but owned for more than 50% by an entity mentioned before; or any person or entity acting on behalf or at the direction of such entity."
+     },
+     {
+      "type": "Flights, airports, aircrafts",
+      "text": "It shall be prohibited for any aircraft operated by Belarusian air carriers to take off from, land in or overfly the territory of the Union."
+     },
+     {
+      "type": "Road transport",
+      "text": "It is prohibited for any road transport undertaking established in Belarus to transport goods by road within the Union, including in transit, carried out by means of trailers or semi-trailers registered in Belarus. It is also prohibited for any entity established in the Union which is owned for 25 % or more by a Belarussian person or entity to be admitted to become a road transport undertaking which transports goods by road within the territory of the Union, including in transit. As of 2.8.2024 any entity established in the Union after 8 April 2022, which is owned for 25% or more by a Belarusian person or entity, is prohibited to transport goods by road within the territory of the Union, including in transit."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall enforce travel restrictions on persons listed in the Annex of Council Decision 2012/642/CFSP."
+     },
+     {
+      "type": "Restrictions on equipment used for internal repression",
+      "text": "It is prohibited to export equipment which might be used for internal repression to Belarus. Related technical or financial assistance and services are also prohibited. Derogations subject to specific conditions exist for (a) biathlon rifles, ammunition and sights, and (b) small-calibre sporting rifles, small-calibre sporting pistols and ammunition"
+     },
+     {
+      "type": "Restrictions on goods",
+      "text": "It is prohibited to purchase, import or transfer goods which allow Belarus to diversify its sources of revenue, as listed in Annex XXVII of Regulation (EC) 765/2006, from Belarus. Related technical or financial and brokering or other services are also prohibited."
+     },
+     {
+      "type": "Restrictions on goods",
+      "text": "It is prohibited to sell, supply, transfer, or export which could contribute in particular to the enhancement of Belarusian industrial capacities, as listed in Annex XIX Regulation (EC) 765/2006, to any natural or legal person in Belarus or for use in Belarus. The transit of such goods and technology via Belarus is also prohibited. Related technical or financial assistance and brokering or other services are also prohibited."
+     },
+     {
+      "type": "Aviation or the space industry",
+      "text": "It is prohibited to sell, supply, transfer or export goods and technology suited for use in aviation or the space industry, as listed in Annex XVII of Regulation (EC) No 765/2006, to Belarus. Transit via Belarus of goods and technology, as listed in Annex XVII, exported from the Union, is also prohibited. It is also prohibited to provide any related insurance and reinsurance and certain related maintenance activities. Related technical or financial assistance and brokering or other services are also prohibited."
+     },
+     {
+      "type": "Cement",
+      "text": "It is prohibited to import, purchase or transfer cement products, as listed in Annex XI of Regulation (EC) 765/2006, from Belarus. Related technical or financial assistance and brokering services are also prohibited."
+     },
+     {
+      "type": "Diamonds",
+      "text": "It is prohibited, as of 1.7.2024, to purchase, import, or transfer diamonds and products incorporating diamonds, as listed in Parts A, B and C of Annex XXIX of Regulation (EC) 765/2006, from Belarus into the Union or to any third country and if they transited via the territory of Belarus. Related technical or financial assistance and brokering or other services are also prohibited."
+     },
+     {
+      "type": "Firearms, their parts and essential components and ammunition",
+      "text": "It is prohibited to sell, supply, transfer or export firearms, their parts and essential components and ammunition, as listed in Annex I to Regulation (EU) No 258/2012, and firearms and other arms as listed in Annex XVI to Regulation (EC) No 765/2006, to Belarus. The transit via the territory of Belarus of such items is also prohibited. Related technical and financial assistance or brokering and other services are also prohibited."
+     },
+     {
+      "type": "Gold",
+      "text": "It is prohibited to purchase, import or transfer gold, as listed in Annexes XXI and XXII of Regulation (EC) 765/2006, from Belarus. Related technical or financial assistance and brokering services are also prohibited."
+     },
+     {
+      "type": "Iron and steel",
+      "text": "It is prohibited to import, purchase or transfer iron and steel products, as listed in Annex XII of Regulation (EC) 765/2006, from Belarus. Related technical or financial assistance and brokering services are also prohibited."
+     },
+     {
+      "type": "Luxury goods",
+      "text": "It is prohibited to sell, supply, transfer or export luxury goods, as listed in Annex XXV of Regulation (EC) 765/2006, to any natural or legal person in Belarus or for use in Belarus. Related technical or financial assistance and brokering or other services are also prohibited."
+     },
+     {
+      "type": "Machinery and electrical equipment",
+      "text": "It is prohibited to sell, supply, transfer or export machinery, as listed in Annex XIV of Regulation (EC) 765/2006, to any person or entity in Belarus or for use in Belarus. Transit via Belarus of machinery, as listed in Annex XIVa, exported from the Union, is also prohibited. Related technical or financial assistance and brokering services are also prohibited."
+     },
+     {
+      "type": "Maritime navigation",
+      "text": "It is prohibited to sell, supply, transfer or export maritime navigation goods and technology, as listed in Annex XXIV Regulation (EC) 765/2006, to any natural or legal person in Belarus or for use in Belarus. Related technical or financial assistance and brokering or other services are also prohibited."
+     },
+     {
+      "type": "Mineral products",
+      "text": "It is prohibited to import, purchase or transfer mineral products, as listed in Annex VII of Regulation (EC) 765/2006, from Belarus. Related technical or financial assistance and brokering services are also prohibited."
+     },
+     {
+      "type": "Oil refining",
+      "text": "It is prohibited to sell, supply, transfer or export goods and technology suited for use in oil refining and liquefaction of natural gas, as listed in Annex XX of Regulation (EC) 765/2006, to any natural or legal person in Belarus or for use in Belarus, Related technical or financial assistance and brokering or other services are also prohibited."
+     },
+     {
+      "type": "Potassium chloride",
+      "text": "It is prohibited to import, purchase or transfer potassium chloride (“potash”) products, as listed in Annex VIII of Regulation (EC) 765/2006, from Belarus."
+     },
+     {
+      "type": "Rubber",
+      "text": "It is prohibited to import, purchase or transfer rubber products, as listed in Annex XIII of Regulation (EC) 765/2006, from Belarus. Related technical or financial assistance and brokering services are also prohibited."
+     },
+     {
+      "type": "Telecommunications equipment",
+      "text": "It is prohibited to sell, supply, transfer or export equipment, technology or software intended primarily for use in the monitoring or interception by the regime of Belarus of the internet and of telephone communications on mobile or fixed networks in Belarus as listed in Annex IV of Regulation (EC) 765/2006. It is also prohibited to provide telecommunication or internal monitoring or interception services and related financial and technical assistance."
+     },
+     {
+      "type": "Tobacco",
+      "text": "It is prohibited to sell, supply, transfer or export goods used for the production or manufacturing of tobacco products, as listed in Annex VI of Regulation (EC) 765/2006, in Belarus."
+     },
+     {
+      "type": "Wood",
+      "text": "It is prohibited to import, purchase or transfer wood products, as listed in Annex X of Regulation (EC) 765/2006, from Belarus. Related technical or financial assistance and brokering services are also prohibited."
+     },
+     {
+      "type": "Restrictions on services",
+      "text": "It is prohibited to provide accounting, auditing, bookkeeping or tax consulting services, business and management consulting or public relations services, architectural and engineering services, legal advisory services and IT consultancy services, market research and public opinion polling services, technical testing and analysis services or advertising services to any Belarusian public bodies and agencies or those acting on behalf of these. It is also prohibited to sell, supply, transfer, export, or provide software for the management of enterprises and software for industrial design and manufacture as listed in Annex XXVI of Regulation (EC) 765/2006 to any Belarusian public bodies or agencies or those acting on behalf of these. Related technical or financial assistance and brokering or other services are also prohibited. Certain exceptions apply."
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "iso2": "ba",
+    "adoptedBy": "EU",
+    "title": "Restrictive measures in view of the situation in Bosnia and Herzegovina",
+    "amended": "2026-03-30",
+    "url": "https://www.sanctionsmap.eu/#/main/details/4/",
+    "legalActs": [
+     {
+      "title": "Council Decision concerning restrictive measures in view of the situation in Bosnia and Herzegovina",
+      "number": "31.03.2026 consolidated basic legal act - 2011/173/CFSP",
+      "url": "http://data.europa.eu/eli/dec/2011/173/2026-03-31"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "There are no persons listed under this restrictive measures regime."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "There are no persons listed under this restrictive measures regime."
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "iso2": "bi",
+    "adoptedBy": "EU",
+    "title": "Restrictive measures in view of the situation in Burundi",
+    "amended": "2025-09-23",
+    "url": "https://www.sanctionsmap.eu/#/main/details/7/",
+    "legalActs": [
+     {
+      "title": "Council Decision concerning restrictive measures in view of the situation in Burundi",
+      "number": "24.09.2025 consolidated basic legal act - (CFSP) 2015/1763",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02015D1763-20250924"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures in view of the situation in Burundi",
+      "number": "24.09.2025 consolidated basic legal act - (EU) 2015/1755",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02015R1755-20250924"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     },
+     {
+      "type": "Prohibition to satisfy claims",
+      "text": "It is prohibited to satisfy claims made by the persons listed in Council Regulation (EU) 2015/1755 in connection with any contract or transaction the performance of which has been affected by the measures imposed by the same regulation."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall enforce travel restrictions on persons listed in the Annex of Council Decision (CFSP) 2015/1763."
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "iso2": "cf",
+    "adoptedBy": "UN",
+    "title": "Restrictive measures in view of the situation in the Central African Republic",
+    "amended": "2025-03-25",
+    "url": "https://www.sanctionsmap.eu/#/main/details/9/",
+    "legalActs": [
+     {
+      "title": "Resolution 2339 (2017)",
+      "number": "S/RES/2339(2017)",
+      "url": "http://undocs.org/en/S/RES/2339(2017)"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures in view of the situation in the Central African Republic",
+      "number": "26.03.2025 consolidated basic legal act - (EU) No 224/2014",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02014R0224-20250326"
+     },
+     {
+      "title": "Council Decision concerning restrictive measures against the Central African Republic",
+      "number": "26.03.2025 consolidated basic legal act - 2013/798/CFSP",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02013D0798-20250326"
+     },
+     {
+      "title": "Resolution 2399 (2018)",
+      "number": "S/RES/2399(2018)",
+      "url": "https://www.undocs.org/en/S/RES/2399(2018)"
+     },
+     {
+      "title": "Resolution 2454 (2019)",
+      "number": "S/RES/2454(2019)",
+      "url": "https://undocs.org/S/RES/2454(2019)"
+     },
+     {
+      "title": "Resolution 2488 (2019)",
+      "number": "S/RES/2488(2019)",
+      "url": "https://undocs.org/en/S/RES/2488(2019)"
+     },
+     {
+      "title": "Resolution 2507 (2020)",
+      "number": "S/RES/2507(2020)",
+      "url": "https://undocs.org/en/S/RES/2507(2020)"
+     },
+     {
+      "title": "Resolution 2536 (2020)",
+      "number": "S/RES/2536(2020)",
+      "url": "https://undocs.org/en/S/RES/2536(2020)"
+     },
+     {
+      "title": "Resolution 2588 (2021)",
+      "number": "S/RES/2588(2021)",
+      "url": "https://undocs.org/en/S/RES/2588(2021)"
+     },
+     {
+      "title": "Resolution 2127 (2013)",
+      "number": "S/RES/2127(2013)",
+      "url": "https://www.undocs.org/S/RES/2127%20(2013)"
+     },
+     {
+      "title": "Resolution 2648 (2022)",
+      "number": "S/RES/2648 (2022)",
+      "url": "https://documents-dds-ny.un.org/doc/UNDOC/GEN/N22/445/88/PDF/N2244588.pdf?OpenElement"
+     },
+     {
+      "title": "Resolution 2693 (2023)",
+      "number": "S/RES/2693 (2023)",
+      "url": "https://documents.un.org/doc/undoc/gen/n23/222/41/pdf/n2322241.pdf"
+     },
+     {
+      "title": "Resolution 2134 (2014)",
+      "number": "S/RES/2134 (2014)",
+      "url": "https://documents.un.org/doc/undoc/gen/n14/218/94/pdf/n1421894.pdf"
+     },
+     {
+      "title": "Resolution 2196 (2015)",
+      "number": "S/RES/2196 (2015)",
+      "url": "https://documents.un.org/doc/undoc/gen/n15/020/30/pdf/n1502030.pdf"
+     },
+     {
+      "title": "Resolution 2262 (2016)",
+      "number": "S/RES/2262 (2016)",
+      "url": "https://documents.un.org/doc/undoc/gen/n16/019/79/pdf/n1601979.pdf"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Arms export",
+      "text": "It is prohibited to export arms and related materiel to Central African Republic. Related technical or financial assistance and services are also prohibited."
+     },
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     },
+     {
+      "type": "Prohibition to satisfy claims",
+      "text": "It is prohibited to satisfy claims made by the persons listed in Council Regulation (EU) No 224/2014 in connection with any contract or transaction the performance of which has been affected by the measures imposed by the same regulation."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall enforce travel restrictions on persons listed in the Annex of Council Decision 2013/798/CFSP."
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "iso2": "cn",
+    "adoptedBy": "EU",
+    "title": "Specific restrictive measures in relation to the events at the Tiananmen Square protests of 1989",
+    "amended": "1989-06-26",
+    "url": "https://www.sanctionsmap.eu/#/main/details/10/",
+    "legalActs": [],
+    "measures": [
+     {
+      "type": "Arms embargo",
+      "text": "Political declaration from 1989 by the Member States to interrupt military cooperation and apply an embargo on trade in arms with China"
+     }
+    ]
+   },
+   {
+    "id": 20,
+    "iso2": "kp",
+    "adoptedBy": "UN and EU",
+    "title": "Restrictive measures in relation to the non-proliferation of the weapons of mass destruction",
+    "amended": "2025-12-15",
+    "url": "https://www.sanctionsmap.eu/#/main/details/20/",
+    "legalActs": [
+     {
+      "title": "Resolution 2371 (2017)",
+      "number": "S/RES/2371 (2017)",
+      "url": "https://undocs.org/S/RES/2371(2017)"
+     },
+     {
+      "title": "Resolution 2375 (2017)",
+      "number": "S/RES/2375 (2017)",
+      "url": "https://undocs.org/S/RES/2375(2017)"
+     },
+     {
+      "title": "Resolution 2270 (2016)",
+      "number": "S/RES/2270 (2016)",
+      "url": "https://undocs.org/S/RES/2270(2016)"
+     },
+     {
+      "title": "Resolution 2321 (2016)",
+      "number": "S/RES/2321 (2016)",
+      "url": "https://undocs.org/S/RES/2321(2016)"
+     },
+     {
+      "title": "Resolution 1874 (2009)",
+      "number": "S/RES/1874 (2009)",
+      "url": "https://undocs.org/S/RES/1874(2009)"
+     },
+     {
+      "title": "Resolution 1718 (2006)",
+      "number": "S/RES/1718 (2006)",
+      "url": "http://unscr.com/en/resolutions/doc/1718"
+     },
+     {
+      "title": "Resolution 2094 (2013)",
+      "number": "S/RES/2094 (2013)",
+      "url": "https://undocs.org/S/RES/2094(2013)"
+     },
+     {
+      "title": "Resolution 2397 (2017)",
+      "number": "S/RES/2397 (2017)",
+      "url": "https://undocs.org/S/RES/2397(2017)"
+     },
+     {
+      "title": "Resolution 2087 (2013)",
+      "number": "S/RES/2087 (2013)",
+      "url": "https://documents.un.org/doc/undoc/gen/n13/213/96/pdf/n1321396.pdf"
+     },
+     {
+      "title": "Council Decision concerning restrictive measures against the Democratic People's Republic of Korea and repealing Decision 2013/183/CFSP",
+      "number": "17.12.2025 consolidated basic legal act - (CFSP) 2016/849",
+      "url": "http://data.europa.eu/eli/dec/2016/849/2025-12-17"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures against the Democratic People's Republic of Korea and repealing Regulation (EC) No 329/2007",
+      "number": "17.12.2025 consolidated basic legal act - (EU) 2017/1509",
+      "url": "http://data.europa.eu/eli/reg/2017/1509/2025-12-17"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Arms export",
+      "text": "It is prohibited to export the following items and technology to the DPRK: (1) arms and related materiel of all types; (2) all items, materials, equipment, goods and technology, which could contribute to the DPRK's nuclear-related, ballistic-missile-related or other weapons of mass destruction-related programs; (3) key components for the ballistic-missile sector; (4) any other item that could contribute to the development of the operational capabilities of the DPRK's armed forces; (5) other items listed in Council Decision (CFSP) 2016/849. Related financial assistance, technical training, advice, services, assistance or brokering services, or other intermediary services are also prohibited."
+     },
+     {
+      "type": "Arms procurement",
+      "text": "It is prohibited to procure from the DPRK (1) arms and related materiel of all types; (2) all items, materials, equipment, goods and technology, which could contribute to the DPRK's nuclear-related, ballistic-missile-related or other weapons of mass destruction-related programs; (3) key components for the ballistic-missile sector; (4) any other item that could contribute to the development of the operational capabilities of the DPRK's armed forces; (5) other items listed in Council Decision (CFSP) 2016/849. The procurement of related assistance, technical training, advice and services are also prohibited."
+     },
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     },
+     {
+      "type": "Dual-use goods export",
+      "text": "It is prohibited to export to DPRK (1) items, materials and equipment relating to dual-use goods and technology; (2) and any other item listed in the conventional arms dual-use list adopted by the UN Sanctions Committee pursuant to paragraph 7 of UNSCR 2321 (2016). Related assistance, technical training, advice and services are also prohibited."
+     },
+     {
+      "type": "Financial measures",
+      "text": "Member States shall not enter into new commitments for grants, financial assistance or concessional loans to the DPRK."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to sell or purchase, broker or assist in the issuance of DPRK public bonds issued after 18 February 2013 to or from the Government of the DPRK."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited for the financial insitutions in the Member States to open representative offices, subsidiaries, branches or banking accounts in the DPRK. Existing representative offices, subsidiaries or banking accounts in the DPRK shall be closed. It is also prohibited for DPRK banks to (1) establish new joint ventures with the banks in the Member States; (2) take an ownership interest in banks under the jurisdiction of Member States; (3) or establish or maintain correspondent banking relationships with banks under the jurisdiction of Member States. Existing joint ventures, ownership interests and correspondent banking relationships with DPRK banks shall be terminated."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to transfer funds to or from the DPRK. Financial institutions in the Member States shall not enter into, or continue to participate in, any transactions with (1) banks domiciled in the DPRK; (2) branches or subsidiaries within or outside the jurisdiction of the Member States of banks domiciled in the DPRK; (3) or financial entities that are controlled by persons or entities domiciled in the DPRK."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to provide public or private financial support for trade with the DPRK or to DPRK nationals or entities involved in such trade."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited for a DPRK diplomatic mission or consular post, and their DPRK members, to own or control banking accounts in the Union."
+     },
+     {
+      "type": "Flights, airports, aircrafts",
+      "text": "Member States shall deny permission to land in, take off from or overfly their territory to any DPRK aircraft."
+     },
+     {
+      "type": "Inspections",
+      "text": "Member States shall inspect vessels on the high seas if they have information that the cargo contains items whose export is prohibited. They shall also cooperate with another State which has information that leads it to suspect that the DPRK is attempting to supply, sell, transfer or procure illicit cargo where that State requests additional maritime and shipping information in order to, inter alia, determine whether the item, commodity or product in question originated in the DPRK."
+     },
+     {
+      "type": "Inspections",
+      "text": "Member States shall inspect all cargo to and from the DPRK and seize and dispose any prohibited items. Member States shall deny entry into their ports of any vessel that has refused to allow an inspection."
+     },
+     {
+      "type": "Investments",
+      "text": "It is prohibited for the DPRK, its nationals, or entities incorporated in the DPRK to invest in the territories of the Member States."
+     },
+     {
+      "type": "Investments",
+      "text": "All EU investments in the DPRK, in all sectors, are prohibited."
+     },
+     {
+      "type": "Other restrictions",
+      "text": "It is prohibited to purchase or transfer fishing rights from the DPRK."
+     },
+     {
+      "type": "Other restrictions",
+      "text": "It is prohibited for real property to be leased or otherwise made available to the DPRK for any purpose other than diplomatic or consular activities. It is also prohibited to lease from the DPRK real property which is situated outside the territory of the DPRK."
+     },
+     {
+      "type": "Other restrictions",
+      "text": "Member States shall not provide work authorisations for DPRK nationals in their jurisdictions in connection with admission to their territories. With a view to eliminating remittances to DPRK, Member States shall not renew work authorisations for DPRK nationals present on their territory. Member States shall repatriate to the DPRK all DPRK nationals earning income in that Member State's jurisdiction and all DPRK government safety oversight attachés monitoring DPRK workers abroad immediately, but no later than 21 December 2019."
+     },
+     {
+      "type": "Ports and vessels",
+      "text": "It is prohibited to obtain authorization for a vessel to use the DPRK flag, to own, lease, operate, or provide any vessel classification, certification or associated service, or to insure any vessel flagged to the DPRK, including chartering such vessels. It shall be prohibited to register vessels in the DPRK. It is prohibited to apply for or to assist in the registration or maintenance on the register of any vessel owned, controlled or operated by the DPRK or DPRK nationals, any vessels listed in Annex XVIII or that has been deregistered by another State. It is prohibited to provide vessel classification services to vessels listed in Annex XVIII of Council Regulation (EU) 2017/1509. Member States shall de-register any vessel that is owned, controlled, or operated by the DPRK and any vessel where there are reasonable grounds to believe that the vessel has been involved in activities prohibited by the relevant UN Security Council Resolutions. It is prohibited to provide insurance or reinsurance services to vessels owned, controlled, or operated by the DPRK or vessels listed in Annex XVIII of Council Regulation (EU) 2017/1509."
+     },
+     {
+      "type": "Ports and vessels",
+      "text": "A Member State that is a flag State of a vessel designated by the UN Sanctions Committee shall, if the Committee has so specified, de-flag the vessel or direct the vessel to an identified port."
+     },
+     {
+      "type": "Ports and vessels",
+      "text": "It is prohibited to provide any servicing to DPRK vessels, if there is information available that the vessels carry prohibited items. Vessels listed in Annex XIV of the Council Regulation (EU) 2017/1509 shall be seized."
+     },
+     {
+      "type": "Ports and vessels",
+      "text": "It is prohibited to facilitate or engage in ship-to-ship transfers to or from any DPRK flagged vessel of any goods that are being sold, supplied, transferred or exported to or from the DPRK."
+     },
+     {
+      "type": "Ports and vessels",
+      "text": "Member States shall seize, inspect and impound any vessel in their ports, and may seize, inspect and impound any vessel subject to their jurisdiction in their territorial waters where there are reasonable grounds to believe that the vessel has been involved in activities, or the transport of items, prohibited by the relevant UN Security Council Resolutions."
+     },
+     {
+      "type": "Ports and vessels",
+      "text": "Member States shall prohibit the entry into their ports of DPRK vessels."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall enforce travel restrictions on persons listed in Annex I, II and III of Council Decision (CFSP) 2016/849. Member States shall also expel: (1) DPRK nationals who they determine are working on behalf of or at the direction of a listed person or entity, or who they determine are assisting in the evasion of sanctions; (2) individuals working on behalf of or at the direction of a DPRK bank or financial institution; (3) DPRK diplomats, government representatives or other DPRK nationals acting in a governmental capacity who they determine are working on behalf of or at the direction of a listed person or entity or of a person or entity assisting in the evasion of sanctions; (4) any national of a third country determined to be involved in similar activities."
+     },
+     {
+      "type": "Restrictions on goods",
+      "text": "It is prohibited to procure coal, iron, and iron ore, as listed in Annex V of Council Regulation (EU) 2017/1509 from the DPRK."
+     },
+     {
+      "type": "Restrictions on goods",
+      "text": "It is prohibited to export helicopters and vessels as listed in Annex XI of Council Regulation (EU) 2017/1509 to the DPRK."
+     },
+     {
+      "type": "Restrictions on goods",
+      "text": "It is prohibited to import copper, nickel, silver and zinc, as listed in Annex VII of Council Regulation (EU) 2017/1509 from the DPRK."
+     },
+     {
+      "type": "Restrictions on goods",
+      "text": "It is prohibited to export to the DPRK all condensates and natural gas liquids, as listed in Annex XIc of the Council Regulation (EU) 2017/1509."
+     },
+     {
+      "type": "Aviation and jet fuel",
+      "text": "It is prohibited to export aviation fuel, as listed in Annex III of Council Regulation (EU) 2017/1509 to the DPRK."
+     },
+     {
+      "type": "Crude oil",
+      "text": "It is prohibited to sell, supply, transfer or export crude oil, as listed in Annex XIe of Council Regulation (EU) 2017/1509, to the DPRK."
+     },
+     {
+      "type": "Earth and stone",
+      "text": "It is prohibited to import, purchase or transfer earth and stone, including magnesite and magnesia, listed in Annex XIi of Council Regulation (EU) 2017/1509 from the DPRK."
+     },
+     {
+      "type": "Food and agricultural products",
+      "text": "It is prohibited to import, purchase or transfer food and agricultural products listed in Annex XIg of Council Regulation (EU) 2017/1509 from the DPRK."
+     },
+     {
+      "type": "Gold, precious metals, diamonds",
+      "text": "It is prohibited to export, import or broker gold and precious metals, as well as of diamonds, as listed in Annex IX of Council Regulation (EU) 2017/1509 to, from or for the Government of the DPRK. The procurement from the DPRK of gold, titanium ore, vanadium ore, rare-earth minerals, copper, nickel, silver and zinc, as listed in as listed in Annex IV of Council Regulation (EU) 2017/1509 is also prohibited."
+     },
+     {
+      "type": "Luxury goods",
+      "text": "It is prohibited to import or export luxury goods, as listed in Annex VIII of Council Regulation (EU) 2017/1509 to or from the DPRK."
+     },
+     {
+      "type": "Machinery and electrical equipment",
+      "text": "It is prohibited to import, purchase or transfer machinery and electrical equipment listed in Annex XIh of Council Regulation (EU) 2017/1509 from the DPRK."
+     },
+     {
+      "type": "Other items",
+      "text": "It is prohibited to deliver newly printed, minted or unissued DPRK-denominated banknotes and coinage to or for the benefit of the Central Bank of the DPRK."
+     },
+     {
+      "type": "Other items",
+      "text": "It is prohibited to import textiles from the DPRK, as listed in Annex XIf of the Council Regulation (EU) 2017/1509."
+     },
+     {
+      "type": "Other items",
+      "text": "It is prohibited to procure statues, as listed in Annex X of Council Regulation (EU) 2017/1509 from the DPRK."
+     },
+     {
+      "type": "Petrol products",
+      "text": "It is prohibited to import, purchase or transfer petroleum products, as listed in Annex VI of Council Regulation (EU) 2017/1509, from the DPRK."
+     },
+     {
+      "type": "Refined petroleum products",
+      "text": "It is prohibited to sell, supply, transfer or export all refined petroleum products as listed in Annex XId of Council Regulation (EU) 2017/1509, to the DPRK."
+     },
+     {
+      "type": "Seafood",
+      "text": "It is prohibited to import, purchase or transfer seafood, as listed in Annex XIa of Council Regulation (EU) 2017/1509, from the DPRK."
+     },
+     {
+      "type": "Vessels",
+      "text": "It is prohibited to import, purchase or transfer vessels listed in Annex XIk of Council Regulation (EU) 2017/1509 from the DPRK."
+     },
+     {
+      "type": "Wood",
+      "text": "It is prohibited to import, purchase or transfer wood listed in Annex XIj of Council Regulation (EU) 2017/1509 from the DPRK."
+     },
+     {
+      "type": "industrial machinery, transportation vehicles, and iron, steel and other metals",
+      "text": "It is prohibited to sell, supply, transfer or export all industrial machinery, transportation vehicles, and iron, steel and other metals listed in part A of Annex XIl of Council Regulation (EU) 2017/1509 to the DPRK."
+     },
+     {
+      "type": "Restrictions on services",
+      "text": "It is prohibited to provide computer and related services to the DPRK."
+     },
+     {
+      "type": "Restrictions on services",
+      "text": "It is prohibited to provide services incidental to mining and to manufacturing in the chemical, mining and refining industry to the DPRK."
+     },
+     {
+      "type": "Restrictions on services",
+      "text": "It is prohibited to lease or charter vessels and aircraft and to provide crew services to (1) the DPRK, (2) any persons listed in Council Decision (CFSP) 2016/849, (3) any other DPRK entities, or (4) any other persons or entities whom the Member State determines to have assisted in the evasion of sanctions."
+     },
+     {
+      "type": "Restrictions on services",
+      "text": "It is prohibited to procure vessel or aircraft services from the DPRK."
+     },
+     {
+      "type": "Training and education",
+      "text": "Member States shall take the necessary measures to exercise vigilance and prevent specialized teaching or training of DPRK nationals, within their territories or by their nationals, in disciplines which would contribute to the DPRK's proliferation-sensitive nuclear activities and the development of nuclear-weapon delivery systems. Scientific and technical cooperation involving persons or groups officially sponsored by or representing the DPRK shall be suspended."
+     },
+     {
+      "type": "Vigilance",
+      "text": "Member States shall exercise vigilance with a view to reducing current commitments for grants, financial assistance or concessional loans to the DPRK and, if possible, putting an end to them."
+     },
+     {
+      "type": "Vigilance",
+      "text": "Member States shall exercise enhanced vigilance over DPRK diplomatic personnel so as to prevent such persons from contributing to the DPRK's nuclear or ballistic-missile programs or other prohibited activities."
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "iso2": "cd",
+    "adoptedBy": "UN and EU",
+    "title": "Restrictive measures in view of the situation in the Democratic Republic of the Congo",
+    "amended": "2025-12-09",
+    "url": "https://www.sanctionsmap.eu/#/main/details/11/",
+    "legalActs": [
+     {
+      "title": "Resolution 1596 (2005)",
+      "number": "S/RES/1596 (2005)",
+      "url": "http://undocs.org/S/RES/1596(2005)"
+     },
+     {
+      "title": "Resolution 1649 (2005)",
+      "number": "S/RES/1649 (2005)",
+      "url": "http://undocs.org/en/S/RES/1649(2005)"
+     },
+     {
+      "title": "Resolution 1493 (2003)",
+      "number": "S/RES/1493 (2003)",
+      "url": "https://undocs.org/S/RES/1493(2003)"
+     },
+     {
+      "title": "Resolution 1771 (2007)",
+      "number": "S/RES/1771 (2007)",
+      "url": "http://undocs.org/en/S/RES/1771(2007)"
+     },
+     {
+      "title": "Resolution 1807 (2008)",
+      "number": "S/RES/1807 (2008)",
+      "url": "https://undocs.org/S/RES/1807(2008)"
+     },
+     {
+      "title": "Resolution 2078 (2012)",
+      "number": "S/RES/2078 (2012)",
+      "url": "https://undocs.org/S/RES/2078(2012)"
+     },
+     {
+      "title": "Resolution 1698 (2006)",
+      "number": "S/RES/1698 (2006)",
+      "url": "https://www.undocs.org/S/RES/1698(2006)"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures in view of the situation in the Democratic Republic of the Congo",
+      "number": "10.12.2025 consolidated basic legal act - (EC) No 1183/2005",
+      "url": "http://data.europa.eu/eli/reg/2005/1183/2025-12-10"
+     },
+     {
+      "title": "Council Decision concerning restrictive measures in view of the situation in the Democratic Republic of the Congo",
+      "number": "10.12.2025 consolidated basic legal act - 2010/788/CFSP",
+      "url": "http://data.europa.eu/eli/dec/2010/788/2025-12-10"
+     },
+     {
+      "title": "Resolution 2136 (2014)",
+      "number": "S/RES/2136 (2014)",
+      "url": "https://www.undocs.org/S/RES/2136%20(2014)"
+     },
+     {
+      "title": "Resolution 2198 (2015)",
+      "number": "S/RES/2198 (2015)",
+      "url": "https://www.undocs.org/S/RES/2198%20(2015)"
+     },
+     {
+      "title": "Resolution 2293 (2016)",
+      "number": "S/RES/2293 (2016)",
+      "url": "https://undocs.org/en/S/RES/2293(2016)"
+     },
+     {
+      "title": "Resolution 2360 (2017)",
+      "number": "S/RES/2360 (2017)",
+      "url": "https://www.undocs.org/S/RES/2360(2017)"
+     },
+     {
+      "title": "Resolution 2478 (2019)",
+      "number": "S/RES/2478 (2019)",
+      "url": "https://undocs.org/S/RES/2478(2019)"
+     },
+     {
+      "title": "Resolution 2528 (2020)",
+      "number": "S/RES/2528 (2020)",
+      "url": "https://undocs.org/S/RES/2528(2020)"
+     },
+     {
+      "title": "Resolution 2582 (2021)",
+      "number": "S/RES/2582 (2021)",
+      "url": "https://undocs.org/S/RES/2582(2021)"
+     },
+     {
+      "title": "Resolution 1533 (2004)",
+      "number": "S/RES/1533 (2004)",
+      "url": "https://documents.un.org/doc/undoc/gen/n04/268/75/pdf/n0426875.pdf"
+     },
+     {
+      "title": "Resolution 2641 (2022)",
+      "number": "S/RES/2641 (2022)",
+      "url": "https://documents.un.org/doc/undoc/gen/n22/407/66/pdf/n2240766.pdf"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Arms export",
+      "text": "It is prohibited to export arms and related materiel to all non-governmental entities and individuals operating in the territory of the DRC. Related technical or financial assistance and services are also prohibited."
+     },
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     },
+     {
+      "type": "Prohibition to satisfy claims",
+      "text": "It is prohibited to satisfy claims made by the persons listed in Council Regulation (EC) No 1183/2005 in connection with any contract or transaction the performance of which has been affected by the measures imposed by the same regulation."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall enforce travel restrictions on persons listed in Annex I and II of Council Decision 2010/788/CFSP."
+     }
+    ]
+   },
+   {
+    "id": 59,
+    "iso2": "gt",
+    "adoptedBy": "EU",
+    "title": "Restrictive measures in view of the situation in Guatemala",
+    "amended": "2026-01-12",
+    "url": "https://www.sanctionsmap.eu/#/main/details/59/",
+    "legalActs": [
+     {
+      "title": "Council Decision concerning restrictive measures in view of the situation in Guatemala",
+      "number": "13.01.2026 consolidated basic legal act - (CFSP) 2024/254",
+      "url": "http://data.europa.eu/eli/dec/2024/254/2026-01-13"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures in view of the situation in Guatemala",
+      "number": "13.01.2026 consolidated basic legal act - (EU) 2024/287",
+      "url": "http://data.europa.eu/eli/reg/2024/287/2026-01-13"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall enforce travel restrictions on persons listed in the Annex of Council Decision (CFSP) 2024/254."
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "iso2": "gn",
+    "adoptedBy": "EU",
+    "title": "Restrictive measures in view of the situation in Guinea",
+    "amended": "2025-10-12",
+    "url": "https://www.sanctionsmap.eu/#/main/details/14/",
+    "legalActs": [
+     {
+      "title": "Council Decision concerning restrictive measures in view of the situation in Guinea",
+      "number": "15.10.2025 consolidated basic legal act - 2010/638/CFSP",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02010D0638-20251015"
+     },
+     {
+      "title": "Council Regulationconcerning restrictive measures in view of the situation in Guinea",
+      "number": "13.09.2024 consolidated basic legal act - (EU) No 1284/2009",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02009R1284-20240913"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall enforce travel restrictions on persons listed in the Annex of Council Decision 2010/638/CFSP."
+     }
+    ]
+   },
+   {
+    "id": 15,
+    "iso2": "gw",
+    "adoptedBy": "UN and EU",
+    "title": "Restrictive measures in view of the situation in Guinea-Bissau",
+    "amended": "2025-09-23",
+    "url": "https://www.sanctionsmap.eu/#/main/details/15/",
+    "legalActs": [
+     {
+      "title": "Council Decision concerning restrictive measures in view of the situation in Guinea-Bissau and repealing Decision 2012/237/CFSP",
+      "number": "24.09.2025 consolidated basic legal act - 2012/285/CFSP",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02012D0285-20250924"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures in view of the situation in Guinea-Bissau",
+      "number": "24.09.2025 consolidated basic legal act - (EU) No 377/2012",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02012R0377-20250924"
+     },
+     {
+      "title": "Resolution 2048 (2012)",
+      "number": "S/RES/2048 (2012)",
+      "url": "https://undocs.org/S/RES/2048(2012)"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall enforce travel restrictions on persons listed in Annex I and II of Council Decision 2012/285/CFSP."
+     }
+    ]
+   },
+   {
+    "id": 54,
+    "iso2": "ht",
+    "adoptedBy": "UN and EU",
+    "title": "Restrictive measures in view of the situation in Haiti",
+    "amended": "2025-12-14",
+    "url": "https://www.sanctionsmap.eu/#/main/details/54/",
+    "legalActs": [
+     {
+      "title": "Resolution 2653 (2022)",
+      "number": "S/RES/2653",
+      "url": "http://unscr.com/en/resolutions/doc/2653"
+     },
+     {
+      "title": "Council Decision concerning restrictive measures in view of the situation in Haiti",
+      "number": "14.07.2025 consolidated basic legal act - (CFSP) 2022/2319",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02022D2319-20260714"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures in view of the situation in Haiti",
+      "number": "15.12.2025 consolidated basic legal act - (EU) 2022/2309",
+      "url": "http://data.europa.eu/eli/reg/2022/2309/2025-12-15"
+     },
+     {
+      "title": "Resolution 2699 (2023)",
+      "number": "S/RES/2699",
+      "url": "http://unscr.com/en/resolutions/doc/2699"
+     },
+     {
+      "title": "Resolution 2670 (2023)",
+      "number": "S/RES/2670",
+      "url": "http://unscr.com/en/resolutions/doc/2700"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Arms export",
+      "text": "It is prohibited to supply, sell, transfer or export arms and related materiel to the listed persons and entities. Related technical or financial assistance and training are also prohibited."
+     },
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall enforce travel restrictions on persons listed in the Annex of Council Decision (CFSP) 2022/2319."
+     }
+    ]
+   },
+   {
+    "id": 16,
+    "iso2": "ht",
+    "adoptedBy": "EU",
+    "title": "Prohibiting the satisfying of certain claims by the Haitian authorities",
+    "amended": "1994-05-29",
+    "url": "https://www.sanctionsmap.eu/#/main/details/16/",
+    "legalActs": [
+     {
+      "title": "Council Decision concerning the common position defined on the basis of Article J.2 of the Treaty on European Union regarding the reduction of economic relations with Haiti",
+      "number": "30.05.1994 consolidated basic legal act - 94/315/CFSP",
+      "url": "http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:31994D0315"
+     },
+     {
+      "title": "Council Regulation prohibiting the satisfying of claims by the Haitian authorities with regard to contracts and transactions the performance of which was affected by the measures imposed by or pursuant to United Nations Security Council resolutions 917 (1994), 841 (1993), 873 (1993) and 875 (1993)",
+      "number": "30.05.1994 consolidated basic legal act - (EC) No 1264/94",
+      "url": "http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:31994R1264"
+     },
+     {
+      "title": "Resolution 917 (1994)",
+      "number": "S/RES/917 (1994)",
+      "url": "https://documents-dds-ny.un.org/doc/UNDOC/GEN/N94/207/93/PDF/N9420793.pdf?OpenElement"
+     },
+     {
+      "title": "Resolution 841 (1993)",
+      "number": "S/RES/841 (1993)",
+      "url": "https://documents-dds-ny.un.org/doc/UNDOC/GEN/N93/354/58/IMG/N9335458.pdf?OpenElement"
+     },
+     {
+      "title": "Resolution 873 (1993)",
+      "number": "S/RES/873 (1993)",
+      "url": "https://documents-dds-ny.un.org/doc/UNDOC/GEN/N93/555/41/PDF/N9355541.pdf?OpenElement"
+     },
+     {
+      "title": "Resolution 875 (1993)",
+      "number": "S/RES/875 (1993)",
+      "url": "https://documents-dds-ny.un.org/doc/UNDOC/GEN/N93/560/55/PDF/N9356055.pdf?OpenElement"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Prohibition to satisfy claims",
+      "text": "It is prohibited to satisfy claims made by any person or body referred to in paragraph 11 of United Nations Security Council regulation 917 (1994)."
+     }
+    ]
+   },
+   {
+    "id": 17,
+    "iso2": "ir",
+    "adoptedBy": "EU",
+    "title": "Restrictive measures in relation to serious human rights violations in Iran",
+    "amended": "2026-03-31",
+    "url": "https://www.sanctionsmap.eu/#/main/details/17/",
+    "legalActs": [
+     {
+      "title": "Council Decision concerning restrictive measures directed against certain persons and entities in view of the situation in Iran",
+      "number": "01.04.2026 consolidated basic legal act - 2011/235/CFSP",
+      "url": "http://data.europa.eu/eli/dec/2011/235/2026-04-01"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures directed against certain persons, entities and bodies in view of the situation in Iran",
+      "number": "01.04.2026 consolidated basic legal act - (EU) No 359/2011",
+      "url": "http://data.europa.eu/eli/reg/2011/359/2026-04-01"
+     },
+     {
+      "title": "Council Implementing Decision concerning restrictive measures directed against certain persons, entities and bodies in view of the situation in Iran",
+      "number": "24.07.2026 - amendments not yet included in the consolidated legal act - (CFSP) 2026/1850",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202601850"
+     },
+     {
+      "title": "Council Implementing Regulation concerning restrictive measures directed against certain persons, entities and bodies in view of the situation in Iran",
+      "number": "24.07.2026 - amendments not yet included in the consolidated legal act - (CFSP) 2026/1851",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202601851"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall enforce travel restrictions on persons listed in the Annex of Council Decision 2011/235/CFSP."
+     },
+     {
+      "type": "Restrictions on equipment used for internal repression",
+      "text": "It is prohibited to export equipment which might be used for internal repression to Iran. Related technical or financial assistance and services are also prohibited."
+     },
+     {
+      "type": "Telecommunications equipment",
+      "text": "It is prohibited to export equipment or software listed in Annex IV of Council Regulation (EU) No 359/2011 intended for use in the monitoring or interception by the Iranian regime of the Internet and of telephone communications in Iran. Related assistance to install, operate or update such equipment or software is also prohibited."
+     }
+    ]
+   },
+   {
+    "id": 18,
+    "iso2": "ir",
+    "adoptedBy": "UN and EU",
+    "title": "Restrictive measures in relation to the non-proliferation of weapons of mass destruction",
+    "amended": "2026-03-31",
+    "url": "https://www.sanctionsmap.eu/#/main/details/18/",
+    "legalActs": [
+     {
+      "title": "Council Decision concerning restrictive measures against Iran and repealing Common Position 2007/140/CFSP",
+      "number": "01.04.2026 consolidated basic legal act - 2010/413/CFSP",
+      "url": "http://data.europa.eu/eli/dec/2010/413/2026-04-01"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures against Iran and repealing Regulation No 961/2010",
+      "number": "01.04.2026 consolidated basic legal act - (EU) No 267/2012",
+      "url": "http://data.europa.eu/eli/reg/2012/267/2026-04-01"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures against Iran and repealing Regulation No 961/2010",
+      "number": "23.04.2026 amendments not yet included in the consolidated basic legal act - (EU) No 267/2012",
+      "url": "http://data.europa.eu/eli/reg/2026/759/corrigendum/2026-04-23/oj"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Arms export",
+      "text": "A prohibition to sell, supply, or transfer, directly or indirectly, or procure arms and related materiel of all types, including weapons and ammunition, military vehicles and equipment, paramilitary equipment and spare parts for such arms and related materiel; and the provision of associated services continues to apply after Implementation Day. The EU arms embargo covers all goods included in the EU common military list. The EU arms embargo stays in place until Transition Day"
+     },
+     {
+      "type": "Arms procurement",
+      "text": "It is prohibited to procure arms and related materiel from Iran."
+     },
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the persons and entities listed in Annexes VIII and IX of Council Regulation (EU) 267/2012 should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them. It is also prohibited to supply specialized financial messaging services, which are used to exchange financial data, to the listed persons and entities. The list of persons and entities concerned is included in the Financial Sanctions Database (linked)."
+     },
+     {
+      "type": "Embargo on dual-use goods",
+      "text": "The proliferation-sensitive transfers and activities concerning items on Annex II to Council Regulation 267/2012, including associated services and related investments are subject to prior authorisation by the competent authorities of the Member State."
+     },
+     {
+      "type": "Inspections",
+      "text": "Member States shall inspect all cargo to and from Iran, if they have information that the cargo contains prohibited items. Upon discovery, Member States shall seize and dispose prohibited items."
+     },
+     {
+      "type": "Prohibition to satisfy claims",
+      "text": "It is prohibited to satisfy claims made by the Iranian persons, entities or bodies; or persons listed in the Council Regulation (EU) No 267/2012, in connection with any contract or transaction the performance of which has been affected by the measures imposed by the same regulation."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall enforce travel restrictions on persons who are also subject to the asset freeze."
+     },
+     {
+      "type": "Restrictions on goods",
+      "text": "It is prohibited to sell, supply, transfer, export or procure items listed in Annex III to Council Regulation (EU) 267/2012 and any other item that the Member State determines that could contribute to the development of nuclear weapon delivery systems. The provision of associated services is also prohibited."
+     },
+     {
+      "type": "Restrictions on goods",
+      "text": "Proliferation-sensitive transfers and activities concerning items listed under Annex I to Council Regulation 267/2012, including associated services and related investments are subject to prior authorisation by the competent authorities of the Member State. In some cases, the Member State will need to refer the matter to the UN Security Council."
+     },
+     {
+      "type": "Restrictions on goods",
+      "text": "The sale, supply transfer or export of Enterprise Resource Planning software, designed specifically for use in nuclear and military industries, as described in Annex VIIA to Council Regulation 267/2012, and the provision of associated services is subject to prior authorisation to be granted by the competent authorities of the Member State."
+     },
+     {
+      "type": "Restrictions on goods",
+      "text": "The sale, supply, transfer or export of certain graphite and raw or semi-finished metals as listed in Annex VIIB to Council Regulation 267/2012 and the provision of associated services is subject to prior authorisation to be granted by the competent authorities of the Member State."
+     }
+    ]
+   },
+   {
+    "id": 56,
+    "iso2": "ir",
+    "adoptedBy": "EU",
+    "title": "Restrictive measures in view of Iran’s military support to Russia’s war of aggression against Ukraine and to armed groups and entities in the Middle East and the Red Sea region",
+    "amended": "2026-06-07",
+    "url": "https://www.sanctionsmap.eu/#/main/details/56/",
+    "legalActs": [
+     {
+      "title": "Council Regulation concerning restrictive measures in view of Iran’s military support to Russia’s war of aggression against Ukraine and to armed groups and entities in the Middle East and the Red Sea region",
+      "number": "08.06.2026 consolidated basic legal act - (EU) 2023/1529",
+      "url": "http://data.europa.eu/eli/reg/2023/1529/2026-06-08"
+     },
+     {
+      "title": "Council Decision concerning restrictive measures in view of Iran’s military support to Russia’s war of aggression against Ukraine and to armed groups and entities in the Middle East and the Red Sea region",
+      "number": "08.06.2026 consolidated basic legal act - (CFSP) 2023/1532",
+      "url": "http://data.europa.eu/eli/dec/2023/1532/2026-06-08"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     },
+     {
+      "type": "Ports and vessels",
+      "text": "It is prohibited to engage in any transaction, directly or indirectly, with ports and locks listed in Annex IV of Regulation (EU) 2023/1529."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall enforce travel restrictions on persons listed in the Annex of Council Decision (CFSP) 2023/1532"
+     },
+     {
+      "type": "Other items",
+      "text": "It is prohibited to sell, supply, transfer or export goods and technology which might contribute to Iran's capability to manufacture UAVs or missiles, as listed in Annex II of Regulation (EU) 2023/1529, to Iran. The transit of such goods and technology via Iran is also prohibited, as well as related technical or financial assistance and brokering services."
+     }
+    ]
+   },
+   {
+    "id": 19,
+    "iso2": "iq",
+    "adoptedBy": "UN",
+    "title": "Restrictive measures on Iraq",
+    "amended": "2025-12-22",
+    "url": "https://www.sanctionsmap.eu/#/main/details/19/",
+    "legalActs": [
+     {
+      "title": "Common Position on Iraq and repealing Common Positions 96/741/CFSP and 2002/599/CFSP",
+      "number": "16.02.2023 consolidated basic legal act - 2003/495/CFSP",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02003E0495-20230216"
+     },
+     {
+      "title": "Council Regulation concerning certain specific restrictions on economic and financial relations with Iraq and repealing Regulation (EC) No 2465/96",
+      "number": "24.12.2025 consolidated basic legal act - (EC) No 1210/2003",
+      "url": "http://data.europa.eu/eli/reg/2003/1210/2025-12-24"
+     },
+     {
+      "title": "Council Regulation prohibiting the satisfying of Iraqi claims with regard to contracts and transactions the performance of which was affected by United Nations Security Council Resolution 661 (1990) and related resolutions",
+      "number": "07.12.1992 consolidated basic legal act - (EEC) No 3541/92",
+      "url": "http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:31992R3541"
+     },
+     {
+      "title": "Resolution 1546 (2004)",
+      "number": "S/RES/1546 (2004)",
+      "url": "https://www.un.org/depts/unmovic/new/documents/resolutions/s-res-1546.pdf"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Arms embargo",
+      "text": "It is prohibited to sell, supply, trensfer or export arms and related materiel to ... . Related technical or financial assistance and services are also prohibited."
+     },
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     },
+     {
+      "type": "Cultural property",
+      "text": "It is prohibited to import, export and deal in Iraqi cultural property and other items of archaeological, historical, cultural, rare scientific and religious importance, as listed in Annex II of Council Regulation (EC) No 1210/2003, if they have been illegally removed from locations in Iraq."
+     }
+    ]
+   },
+   {
+    "id": 21,
+    "iso2": "lb",
+    "adoptedBy": "UN",
+    "title": "Restrictive measures in relation to the UN Security Council Resolution 1701 (2006) on Lebanon",
+    "amended": "2024-09-12",
+    "url": "https://www.sanctionsmap.eu/#/main/details/21/",
+    "legalActs": [
+     {
+      "title": "Common Position concerning a prohibition on the sale or supply of arms and related materiel and on the provision of related services to entities or individuals in Lebanon in accordance with UNSC Resolution 1701 (2006)",
+      "number": "15.09.2006 consolidated basic legal act - 2006/625/CFSP",
+      "url": "http://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32006E0625"
+     },
+     {
+      "title": "Council Regulation concerning certain restrictive measures in respect of Lebanon",
+      "number": "13.09.2024 consolidated basic legal act - (EC) No 1412/2006",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1412-20240913"
+     },
+     {
+      "title": "Resolution 1701 (2006)",
+      "number": "S/RES/1701 (2006)",
+      "url": "https://undocs.org/S/RES/1701(2006)"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Arms export",
+      "text": "It is prohibited to export arms and related materiel to Lebanon. Related technical or financial assistance and services are also prohibited."
+     }
+    ]
+   },
+   {
+    "id": 22,
+    "iso2": "lb",
+    "adoptedBy": "UN",
+    "title": "Restrictive measures in relation to the 14 February 2005 terrorist bombing in Beirut, Lebanon",
+    "amended": "2024-09-12",
+    "url": "https://www.sanctionsmap.eu/#/main/details/22/",
+    "legalActs": [
+     {
+      "title": "Common Position concerning specific restrictive measures against certain persons suspected of involvement in the assassination of former Lebanese Prime Minister Rafiq Hariri",
+      "number": "16.02.2023 consolidated basic legal act - 2005/888/CFSP",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02005E0888-20230216"
+     },
+     {
+      "title": "Council Regulation imposing specific restrictive measures against certain persons suspected of involvement in the assassination of former Lebanese Prime Minister Rafiq Hariri",
+      "number": "13.09.2024 consolidated basic legal act - (EC) No 305/2006",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R0305-20240913"
+     },
+     {
+      "title": "Resolution 1595 (2005)",
+      "number": "S/RES/1595 (2005)",
+      "url": "http://unscr.com/en/resolutions/doc/1595"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "There are no persons listed under this restrictive measures regime."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "There are no persons listed under this restrictive measures regime."
+     }
+    ]
+   },
+   {
+    "id": 51,
+    "iso2": "lb",
+    "adoptedBy": "EU",
+    "title": "Restrictive measures in view of the situation in Lebanon",
+    "amended": "2025-07-24",
+    "url": "https://www.sanctionsmap.eu/#/main/details/51/",
+    "legalActs": [
+     {
+      "title": "Council Regulation concerning restrictive measures in view of the situation in Lebanon",
+      "number": "13.09.2024 consolidated basic legal act - (EU) 2021/1275",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02021R1275-20240913"
+     },
+     {
+      "title": "Council Decision  concerning restrictive measures in view of the situation in Lebanon",
+      "number": "29.07.2025 consolidated basic legal act - (CFSP) 2021/1277",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02021D1277-20250729"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall enforce travel restrictions on persons listed in the Annex ... of Council Decision ... ."
+     }
+    ]
+   },
+   {
+    "id": 43,
+    "iso2": "ly",
+    "adoptedBy": "EU",
+    "title": "Prohibiting the satisfying of certain claims in relation to transactions that have been prohibited by the UN Security Council Resolution 883 (1993) and related resolutions",
+    "amended": "2025-07-30",
+    "url": "https://www.sanctionsmap.eu/#/main/details/43/",
+    "legalActs": [
+     {
+      "title": "Common Position concerning the lifting of restrictive measures against Libya",
+      "number": "14.10.2004 consolidated basic legal act - 2004/698/CFSP",
+      "url": "http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32004E0698"
+     },
+     {
+      "title": "Council Regulation prohibiting the satisfying of claims with regard to contracts and transactions the performance of which was affected by the United Nations Security Council Resolution 883 (1993) and related resolutions",
+      "number": "29.11.1993 consolidated basic legal act - (EC) No 3275/93",
+      "url": "http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:31993R3275"
+     },
+     {
+      "title": "Resolution 883 (1993)",
+      "number": "S/RES/883 (1993)",
+      "url": "http://www.securitycouncilreport.org/atf/cf/%7B65BFCF9B-6D27-4E9C-8CD3-CF6E4FF96FF9%7D/ROL%20SRES883.pdf"
+     },
+     {
+      "title": "Council Decision concerning restrictive measures in view of the situation in Libya",
+      "number": "31.07.2025 consolidated basic legal act - (CFSP) 2015/1333",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02015D1333-20250731"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures in view of the situation in Libya",
+      "number": "31.07.2025 consolidated basic legal act - (EU) 2016/44",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02016R0044-20250731"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Prohibition to satisfy claims",
+      "text": "It is prohibited to satisfy claims made by any person or body referred to in paragraph 8 of United Nations Security Council Resolution 883 (1993)."
+     }
+    ]
+   },
+   {
+    "id": 23,
+    "iso2": "ly",
+    "adoptedBy": "UN and EU",
+    "title": "Restrictive measures in view of the situation in Libya",
+    "amended": "2025-07-30",
+    "url": "https://www.sanctionsmap.eu/#/main/details/23/",
+    "legalActs": [
+     {
+      "title": "Resolution 2174 (2014)",
+      "number": "S/RES/2174 (2014)",
+      "url": "https://undocs.org/S/RES/2174(2014)"
+     },
+     {
+      "title": "Resolution 1970 (2011)",
+      "number": "S/RES/1970 (2011)",
+      "url": "https://undocs.org/S/RES/1970(2011)"
+     },
+     {
+      "title": "Resolution 2009 (2011)",
+      "number": "S/RES/2009 (2011)",
+      "url": "https://undocs.org/en/S/RES/2009(2011)"
+     },
+     {
+      "title": "Resolution 2095 (2013)",
+      "number": "S/RES/2095 (2013)",
+      "url": "https://undocs.org/S/RES/2095(2013)"
+     },
+     {
+      "title": "Resolution 2146 (2014)",
+      "number": "S/RES/2146 (2014)",
+      "url": "https://undocs.org/S/RES/2146(2014)"
+     },
+     {
+      "title": "Resolution 2362 (2017)",
+      "number": "S/RES/2362 (2017)",
+      "url": "http://undocs.org/en/S/RES/2362(2017)"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures in view of the situation in Libya and repealing Regulation (EU) No 204/2011",
+      "number": "31.07.2025 consolidated basic legal act - (EU) 2016/44",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02016R0044-20250731"
+     },
+     {
+      "title": "Council Decision concerning restrictive measures in view of the situation in Libya, and repealing Decision 2011/137/CFSP",
+      "number": "31.07.2025 consolidated basic legal act - (CFSP) 2015/1333",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02015D1333-20250731"
+     },
+     {
+      "title": "Resolution 2441 (2018)",
+      "number": "S/RES/2441 (2018)",
+      "url": "https://undocs.org/en/S/RES/2441(2018)"
+     },
+     {
+      "title": "Resolution 2509 (2020)",
+      "number": "S/RES/2509 (2020)",
+      "url": "https://undocs.org/en/S/RES/2509(2020)"
+     },
+     {
+      "title": "Resolution 2571 (2021)",
+      "number": "S/RES/2571 (2021)",
+      "url": "https://undocs.org/en/S/RES/2571(2021)"
+     },
+     {
+      "title": "Resolution 1973 (2011)",
+      "number": "S/RES/1973 (2011)",
+      "url": "https://documents.un.org/doc/undoc/gen/n11/268/39/pdf/n1126839.pdf"
+     },
+     {
+      "title": "Resolution 2016 (2011)",
+      "number": "S/RES/2016 (2011)",
+      "url": "https://documents.un.org/doc/undoc/gen/n11/567/10/pdf/n1156710.pdf"
+     },
+     {
+      "title": "Resolution 2780 (2025)",
+      "number": "S/RES/2780 (2025)",
+      "url": "https://docs.un.org/en/S/RES/2780(2025)"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Arms export",
+      "text": "It is prohibited to export arms and related materiel to Libya. Related assistance and training is also prohibited."
+     },
+     {
+      "type": "Arms procurement",
+      "text": "It is prohibited to procure arms and related materiel, as well as equipment which might be used for internal repression, from Libya."
+     },
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     },
+     {
+      "type": "Flights, airports, aircrafts",
+      "text": "Member States deny permission to any aircraft to take off from, land in or overfly their territory, if they have information that the aircraft contains prohibited items."
+     },
+     {
+      "type": "Inspections",
+      "text": "Member States shall inspect the cargo of vessels and aircraft bound to or from Libya, if they have information that the cargo of contains prohibited items. Upon discovery, Member States shall seize and dispose prohibited items."
+     },
+     {
+      "type": "Ports and vessels",
+      "text": "In the absence of direction from the Government of Libya, a Member State that is a flag State of a designated vessel, shall direct the vessel not to load, transport, or discharge crude oil illicitly exported from Libya. Financial transactions with respect to crude oil illicitly exported from Libya aboard designated vessels are also prohibited."
+     },
+     {
+      "type": "Ports and vessels",
+      "text": "Member States shall deny entry into their ports of designated vessels."
+     },
+     {
+      "type": "Ports and vessels",
+      "text": "It is prohibited to provide bunkering and other services to designated vessels."
+     },
+     {
+      "type": "Prohibition to satisfy claims",
+      "text": "It is prohibited to satisfy claims made by Libyan persons, entities, bodies; or persons listed in Council Regulation (EU) 2016/445, in connection with any contract or transaction the performance of which has been affected by the measures imposed by the same regulation."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall enforce travel restrictions on persons listed in the Annex I of Council Decision (CFSP) 2015/1333."
+     },
+     {
+      "type": "Restrictions on equipment used for internal repression",
+      "text": "It is prohibited to export equipment which might be used for internal repression to Libya. Related technical assistance, training, financial and other assistance is also prohibited."
+     },
+     {
+      "type": "Vessels",
+      "text": "Prior authorisation by the national competent authority of the Member State concerned is required for the export to Libya of goods listed in Annex VII of Council Regulation (EU) 2016/44 of 18 January 2016 (which could be used for smuggling of migrants and trafficking in human beings), as well as for related technical assistance, brokering services, financing or financial assistance."
+     },
+     {
+      "type": "Vigilance",
+      "text": "Member States shall require their nationals, persons subject to their jurisdiction and firms incorporated in their territories to exercise vigilance when doing business with entities incorporated in Libya or subject to Libya's jurisdiction, with a view to preventing business that could contribute to violence and the use of force against civilians."
+     }
+    ]
+   },
+   {
+    "id": 42,
+    "iso2": "ml",
+    "adoptedBy": "EU",
+    "title": "Restrictive measures in view of the situation in Mali",
+    "amended": "2025-12-02",
+    "url": "https://www.sanctionsmap.eu/#/main/details/42/",
+    "legalActs": [
+     {
+      "title": "Resolution 2374 (2017)",
+      "number": "S/RES/2374 (2017)",
+      "url": "https://www.undocs.org/en/s/res/2374(2017)"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures in view of the situation in Mali",
+      "number": "03.12.2025 consolidated basic legal act - (EU) 2017/1770",
+      "url": "http://data.europa.eu/eli/reg/2017/1770/2025-12-03"
+     },
+     {
+      "title": "Council Decision concerning restrictive measures in view of the situation in Mali",
+      "number": "03.12.2025 consolidated basic legal act  - (CFSP) 2017/1775",
+      "url": "http://data.europa.eu/eli/dec/2017/1775/2025-12-03"
+     },
+     {
+      "title": "Resolution 2432 (2018)",
+      "number": "S/RES/2432 (2018)",
+      "url": "https://undocs.org/en/S/RES/2432(2018)"
+     },
+     {
+      "title": "Resolution 2484 (2019)",
+      "number": "S/RES/2484 (2019)",
+      "url": "https://undocs.org/en/S/RES/2484(2019)"
+     },
+     {
+      "title": "Resolution 2541 (2020)",
+      "number": "S/RES/2541 (2020)",
+      "url": "https://undocs.org/en/S/RES/2541(2020)"
+     },
+     {
+      "title": "Resolution 2590 (2021)",
+      "number": "S/RES/2590 (2021)",
+      "url": "https://undocs.org/en/S/RES/2590(2021)"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "There are no persons listed under this restrictive measures regime."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": ""
+     }
+    ]
+   },
+   {
+    "id": 55,
+    "iso2": "md",
+    "adoptedBy": "EU",
+    "title": "Restrictive measures in view of actions destabilising the Republic of Moldova",
+    "amended": "2026-04-22",
+    "url": "https://www.sanctionsmap.eu/#/main/details/55/",
+    "legalActs": [
+     {
+      "title": "Council Regulation concerning restrictive measures in view of actions destabilising the Republic of Moldova",
+      "number": "23.04.2026 consolidated basic legal act - (EU) 2023/888",
+      "url": "http://data.europa.eu/eli/reg/2023/888/2026-04-23"
+     },
+     {
+      "title": "Council Decision concerning restrictive measures in view of actions destabilising the Republic of Moldova",
+      "number": "23.04.2026 consolidated basic legal act - (CFSP) 2023/891",
+      "url": "http://data.europa.eu/eli/dec/2023/891/2026-04-23"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall enforce travel restrictions on persons listed in the Annex of Council Decision (CFSP) 2023/891."
+     }
+    ]
+   },
+   {
+    "id": 25,
+    "iso2": "md",
+    "adoptedBy": "EU",
+    "title": "Restrictive measures in relation to the campaign against Latinscript schools in the Transnistrian region",
+    "amended": "2025-10-28",
+    "url": "https://www.sanctionsmap.eu/#/main/details/25/",
+    "legalActs": [
+     {
+      "title": "Council Decision concerning restrictive measures against the leadership of the Transnistrian region of the Republic of Moldova",
+      "number": "29.10.2025 consolidated basic legal act - 2010/573/CFSP",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02010D0573-20251029"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Restrictions on admission",
+      "text": "There are no persons listed under this restrictive measures regime."
+     }
+    ]
+   },
+   {
+    "id": 28,
+    "iso2": "me",
+    "adoptedBy": "UN and EU",
+    "title": "Prohibiting the satisfying of certain claims in relation to transactions that have been prohibited by the UN Security Council Resolution  757(1992) and related resolutions",
+    "amended": "1994-07-10",
+    "url": "https://www.sanctionsmap.eu/#/main/details/28/",
+    "legalActs": [
+     {
+      "title": "Council Decision on the Common Position defined by the Council on the basis of Article J.2 of the Treaty on European Union concerning prohibition of the satisfaction of the claims referred to in paragraph 9 of United Nations Security Council Resolution No 757 (1992)",
+      "number": "13.06.1994 consolidated basic legal act - 94/366/CFSP",
+      "url": "http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:31994D0366"
+     },
+     {
+      "title": "Council Regulation prohibiting the satisfying of claims with regard to contracts and transactions the performance of which was affected by the United Nations Security Council Resolution 757(1992) and related resolutions",
+      "number": "11.07.1994 consolidated basic legal act - (EC) No 1733/94",
+      "url": "http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:31994R1733"
+     },
+     {
+      "title": "Resolution 757 (1992)",
+      "number": "S/RES/757 (1992)",
+      "url": "http://undocs.org/S/RES/757%281992%29"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Prohibition to satisfy claims",
+      "text": "It shall be prohibited to satisfy or to take any step to satisfy a claim made by any person or body referred to in paragraph 9 of United Nations Security Council Resolution 757(1992)."
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "iso2": "mm",
+    "adoptedBy": "EU",
+    "title": "Restrictive measures in view of the situation in Myanmar/Burma",
+    "amended": "2026-04-28",
+    "url": "https://www.sanctionsmap.eu/#/main/details/8/",
+    "legalActs": [
+     {
+      "title": "Council Regulation concerning restrictive measures in view of the situation in Myanmar/Burma and repealing Regulation (EC) No 194/2008",
+      "number": "29.04.2026 consolidated basic legal act - (EU) No 401/2013",
+      "url": "http://data.europa.eu/eli/reg/2013/401/2026-04-29"
+     },
+     {
+      "title": "Council Decision concerning restrictive measures in view of the situation in Myanmar/Burma",
+      "number": "29.04.2026 consolidated basic legal act - 2013/184/CFSP",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02013D0184-20260429"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Arms export",
+      "text": "It is prohibited to export arms and related materiel to Myanmar (Burma). Related technical or financial assistance and services are also prohibited."
+     },
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the persons and entities listed in Annexes IV of Council Regulation (EU) 401/2013 should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them. The list of persons and entities concerned is included in the Financial Sanctions Database (linked)."
+     },
+     {
+      "type": "Dual-use goods export",
+      "text": "The export of dual-use goods and technology to Myanmar (Burma) is prohibited if those items are or may be intended for military use, military end-user or the Border Guard Police. Any provision of related technical assistance, financing or financial assistance, brokering services or other services are also prohibited."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall enforce travel restrictions on persons listed in the Annex of Council Decision 2013/184/CFSP"
+     },
+     {
+      "type": "Restrictions on equipment used for internal repression",
+      "text": "It is prohibited to export equipment which might be used for internal repression to Myanmar/Burma. Related technical or financial assistance and services are also prohibited."
+     },
+     {
+      "type": "Telecommunications equipment",
+      "text": "It is prohibited to export telecommunications monitoring and interception equipment, technology or software as listed in Annex III of Council Regulation (EU) No 401/2013 to Myanmar (Burma). Related technical assistance or brokering services are also prohibited, unless the competent authority of the relevant Member State has given prior authorisation."
+     },
+     {
+      "type": "Restrictions on military training and military cooperation",
+      "text": "The provision of military training to or military cooperation with the Myanmar Armed Forces (Tatmadaw) and the Border Guard Police shall be prohibited. The prohibition shall not apply to training or cooperation aimed at strengthening democratic principles, the rule of law or respect for international law."
+     }
+    ]
+   },
+   {
+    "id": 48,
+    "iso2": "ni",
+    "adoptedBy": "EU",
+    "title": "Restrictive measures in view of the situation in Nicaragua",
+    "amended": "2025-09-29",
+    "url": "https://www.sanctionsmap.eu/#/main/details/48/",
+    "legalActs": [
+     {
+      "title": "Council Regulation concerning restrictive measures in view of the situation in Nicaragua",
+      "number": "01.10.2025 consolidated basic legal act - (EU) 2019/1716",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02019R1716-20251001"
+     },
+     {
+      "title": "Council Decision concerning restrictive measures in view of the situation in Nicaragua",
+      "number": "01.10.2025 consolidated basic legal act - (CFSP) 2019/1720",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02019D1720-20251001"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall enforce travel restrictions on persons listed in the Annex of Council Decision (CFSP) 2019/1720."
+     }
+    ]
+   },
+   {
+    "id": 58,
+    "iso2": "ne",
+    "adoptedBy": "EU",
+    "title": "Restrictive measures in view of the situation in Niger",
+    "amended": "2025-10-19",
+    "url": "https://www.sanctionsmap.eu/#/main/details/58/",
+    "legalActs": [
+     {
+      "title": "Council Decision concerning restrictive measures in view of the situation in Niger",
+      "number": "21.10.2025 consolidated basic legal act - (CFSP) 2023/2287",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02023D2287-20251021"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures in view of the situation in Niger",
+      "number": "13.09.2024 consolidated basic legal act - (EU) 2023/2406",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02023R2406-20240913"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall enforce travel restrictions on persons listed in the Annex of Council Decision (CFSP) 2023/2287."
+     }
+    ]
+   },
+   {
+    "id": 61,
+    "iso2": "ru",
+    "adoptedBy": "EU",
+    "title": "Restrictive measures in view of the situation in Russia",
+    "amended": "2026-06-14",
+    "url": "https://www.sanctionsmap.eu/#/main/details/61/",
+    "legalActs": [
+     {
+      "title": "Council Decision concerning restrictive measures in view of the situation in Russia",
+      "number": "13.07.2026 consolidated basic legal act - (CFSP) 2024/1484",
+      "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A02024D1484-20260713"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures in view of the situation in Russia",
+      "number": "15.06.2026 - consolidated basic legal act - 2024/1485",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02024R1485-20260615"
+     },
+     {
+      "title": "Council Implementing Regulation concerning restrictive measures in view of the situation in Russia",
+      "number": "13.07.2026 - amendments not yet included in the consolidated legal act - 2026/1708",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202601708"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All funds and economic resources beloning to, owned, held or controlled by any natural or legal person, enity or body listed in Annex IV of Regulation (EU) 2024/1485 shall be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them or to their benefit."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall take the necessary measures to prevent the entry into, or transit through, their territories of natural persons listed in Annex of Council Decision (CFSP) 2024/1484."
+     },
+     {
+      "type": "Restrictions on equipment used for internal repression",
+      "text": "It is prohibited to sell, supply, transfer or export equipment which might be used for internal repression. Related technical, financial and other assistance is also prohibited."
+     },
+     {
+      "type": "Telecommunications equipment",
+      "text": "It is prohibited to sell, supply, transfer or export, directly or indirectly, equipment, technology or software listed in Annex II of Council Regulation (EU) 2024/1485, whether or not originating in the Union, to any natural or legal person, entity or body in Russia or for use in Russia. Related services are also prohibited."
+     }
+    ]
+   },
+   {
+    "id": 63,
+    "iso2": "ru",
+    "adoptedBy": "EU",
+    "title": "Restrictive measures in view of Russia's destabilising activities",
+    "amended": "2026-06-14",
+    "url": "https://www.sanctionsmap.eu/#/main/details/63/",
+    "legalActs": [
+     {
+      "title": "Council Regulation concerning restrictive measures in view of Russia’s destabilising activities",
+      "number": "15.06.2026 consolidated basic legal act - (EU) 2024/2642",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02024R2642-20260615"
+     },
+     {
+      "title": "Council Decision concerning restrictive measures in view of Russia’s destabilising activities",
+      "number": "15.06.2026 consolidated basic legal act - (CFSP) 2024/2643",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02024D2643-20260615"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall enforce travel restrictions on persons listed in the Annex of Council Decision (CFSP) 2024/2643."
+     }
+    ]
+   },
+   {
+    "id": 26,
+    "iso2": "ru",
+    "adoptedBy": "EU",
+    "title": "Restrictive measures in view of Russia's actions destabilising the situation in Ukraine (sectoral restrictive measures)",
+    "amended": "2026-04-22",
+    "url": "https://www.sanctionsmap.eu/#/main/details/26/",
+    "legalActs": [
+     {
+      "title": "Council Decision concerning restrictive measures in view of Russia's actions destabilising the situation in Ukraine",
+      "number": "24.07.2026 consolidated basic legal act - (CFSP) 2014/512",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02014D0512-20260724&qid=1786537732417"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures in view of Russia's actions destabilising the situation in Ukraine",
+      "number": "24.07.2026 consolidated basic legal act - (EU) No 833/2014",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02014R0833-20260724"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures in view of Russia's actions destabilising the situation in Ukraine",
+      "number": "23.07.2026 amendments not yet included in the consolidated legal act (2026/1848)",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202601848"
+     },
+     {
+      "title": "Council Decision concerning restrictive measures in view of Russia's actions destabilising the situation in Ukraine",
+      "number": "23.07.2026 amendments not yet included in the consolidated legal act - (CFSP) 2026/1849",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202601849"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures in view of Russia’s actions destabilising the situation in Ukraine",
+      "number": "11.08.2026 amendments not yet included in consolidated legal act - (EU) 2026/506",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32026R0506R%2803%29&qid=1786537732417"
+     },
+     {
+      "title": "Council Decision concerning restrictive measures in view of Russia’s actions destabilising the situation in Ukraine",
+      "number": "31.07.2026 amendments not yet included in the consolidated legal act - (CFSP) 2026/1849",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32026D1849R%2801%29&qid=1786537732417"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Arms export",
+      "text": "It is prohibited to export arms and related materiel to Russia. Related technical or financial assistance and brokering services are also prohibited."
+     },
+     {
+      "type": "Arms import",
+      "text": "It is prohibited to import, purchase or transport arms and related materiel from Russia."
+     },
+     {
+      "type": "Dual-use goods export",
+      "text": "It is prohibited to sell, supply, transfer or export dual-use goods and technology to any person or entity in Russia or for use in Russia. The sale, supply, transfer or export of goods and technology, which might contribute to Russia's military and technological enhancement or the development of the defence and security sector, as listed in Annex VII of Regulation (EU) 833/2014, is also prohibited. The transit via the territory of Russia of these goods and technology as well as of firearms, their parts and essential components and ammunition exported from the Union is also prohibited. Related technical or financial assistance and brokering or other services are also prohibited."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to purchase, sell, provide investment services for or assistance in the issuance of, or otherwise deal with transferable securities and money market instruments, issued after 12.4.2022 by an entity established in Russia, which is publicly controlled or with over 50% public ownership, as listed in Annex XIII of Regulation (EU) 833/2014, or by an entity established outside the Union whose proprietary rights are owned for more than 50% by an entity listed in Annex XIII."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited for any Russian nationals or entities established in Russia to participate in procurement contracts in the Union."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to engage, directly or indirectly, in any transaction with a legal person, entity or body established outside Russia as listed in Annex XLIV."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to provide credit rating services and access to any subscription services in relation to credit rating activities to any Russian national or person residing in Russia or an entity established in Russia."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to sell, supply, transfer or export banknotes denominated in any official currency of a Member State to Russia or to any person or entity in Russia, including the government and the Central Bank of Russia, or for use in Russia."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to engage, directly or indirectly, in any transaction with person and entities listed in Annex XIV or with any persons or entities established in Russia whose proprietary rights are owned for more than 50% by an entity listed in Annex XIV."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to sell transferable securities denominated in any official currency of a Member State issued after 12.4.2022, or denominated in any other currency after 6.8.2023, to any Russian national or person residing in Russia or an entity established in Russia."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited for Union central securities depositories to provide any services as defined in the Annex of Regulation (EU) 909/2014 for transferable securities issued after 12.4.2022 to any Russian national or person residing in Russia or an entity established in Russia."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to accept any deposits from Russian nationals or persons residing in Russia or entities established in Russia or from an entity outside the Union if its proprietary rights are owned for more than 50% by Russian nationals or persons residing in Russia, if the total value of deposits of the person or entity per credit institution exceeds EUR 100 000. It is also prohibited to provide crypto-asset wallet, account or custody services to Russian nationals or persons residing in Russia or entities established in Russia."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to engage in any transaction with an entity established in Russia, which is publically controlled or with over 50% public ownership, as listed in Annex XIX of Regulation (EU) 833/2014; or with an entity established outside the union whose proprietary rights are owned for more than 50% by an entity listed in Annex XIX. Certain exemptions apply. It is also prohibited as from 22.10.2022 to hold any posts in the governing bodies of any entity referred to above."
+     },
+     {
+      "type": "Financial measures",
+      "text": "Transactions related to the management of reserves as well as of assets of the Central Bank of Russia are prohibited."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to purchase, sell, provide investment services for or assistance in the issuance of, or otherwise deal with transferable securities and money-market instruments issued after 9.3.2022 by Russia and its government, Central Bank of Russia or any entity acting on behalf of it. It is also prohibited to make or be part of any arrangement to make new loans or credit to the previously mentioned entities after 23.2.2022."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to list and provide services for, as of 12.4.2022, and to admit to trading as of 29.01.2023, on trading venues registered or recognised in the Union for the transferable securities of any entity established in Russia and with over 50% public ownership."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to purchase, sell, provide investment services for or assistance in the issuance of, or otherwise deal with transferable securities and money market instruments with a maturity exceeding 30 days, issued after 12.9.2014 to 12.4.2022 or any transferable securities and money market instruments issued after 12.4.2022 by an entity established in Russia engaged in the conception, production, sales or export of military equipment or services, as listed in Annex V of Regulation (EU) 833/2014; or by an entity established in Russia listed in Annex VI of Regulation (EU) 833/2014."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to provide trust services to Russian nationals or persons residing in Russia and entities established in Russia."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to purchase, sell, provide investment services for or assistance in the issuance of, or otherwise deal with transferable securities and money-market instruments issued after 12.4.2022 by any major credit institution or other institution with over 50% public ownership or control as of 26.2.2022 or any other credit institution as listed in Annex XII of Regulation (EU) 833/2014; or an entity established outside the Union whose proprietary rights are owned for more than 50% by an entity listed in Annex XII."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to make or be part of any arrangement to make new loans or credit with a maturity exceeding 30 days to any person or entity listed in Annex III, V or VI of Regulation (EU) 833/2014, after 12.9.2014 to 26.2.2022; or to any person or entity listed in Annex III, V, VI, XII or XIII of Regulation (EU) 833/2014, after 26.2.2022."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It shall be prohibited to engage, directly or indirectly, in any transaction involving the crypto-assets listed in Annex LIII."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It shall be prohibited, during the five years following the sale or any form of lease arrangement of vessels or aircraft that were operated, directly or indirectly, by the Government of Russia or by a legal person, entity or body established in Russia, to sell, provide, underwrite or otherwise enter into any contract or arrangement which results in the transfer of risks from, or the ceding of exposure to risks associated with, insurance coverage for such vessels or aircraft."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to provide public financing or financial assistance for trade with, or investment in, Russia. It is also prohibited to invest, participate or otherwise contribute to projects co-financed by the Russian Direct Investment Fund."
+     },
+     {
+      "type": "Financial measures",
+      "text": "Financial measures are very different in nature accross restrictive measures regimes. Insert the specific description of the measure. For reference see DPRK, Russia, Crimea or Syria restrictive measures regimes."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to accept donations, economic benefits or support, including financial assistance, from the Government of Russia, an entity established in Russia publicly controlled or with over 50 % public ownership and from certain other entities ."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to engage in any transaction with entities as listed in Annex XLIII of Regulation (EU) 833/2014 to obtain an injunction, order, relief, judgment or other Court decision pursuant to Article 248 of the Arbitration Procedure Code of the Russian Federation or equivalent Russian legislation, in connection with any contract or transaction the performance of which has been affected, directly or indirectly, in whole or in part, by the restrictive measures imposed by the EU."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to provide EU funding or Member State national programme funding to any entity established in Russia or to any entity owned for more than 50 % by an entity established in Russia."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to acquire new or extend existing participation in any entity operating in the energy sector or in the mining and quarrying sector in Russia. It is also prohibited to grant new loan or credit or otherwise provide financing to, or create any joint venture with, any entity operating in the energy sector or in the mining and quarrying sector in Russia. The provision of related investment services is also prohibited."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited for EU operators to engage in any transaction with credit or financial institutions and crypto assets providers (in Russia and third countries) as listed in Annex XLV of Regulation (EU) 833/2014."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to purchase, sell, provide investment services for or assistance in the issuance of, or otherwise deal with transferable securities and money market instruments with a maturity exceeding 90 days (issued after 1.8.2014 to 12.9.2014), or with a maturity exceeding 30 days (issued after 12.9.2014 to 12.4.2022) or any transferable securities and money market instruments issued after 12.4.2022 by major credit institution established in Russia with over 50% public ownership or control as of 1.8.2014, as listed in Annex III of Regulation (EU) 833/2014, or an entity established outside the Union whose proprietary rights are owned for more than 50%, as listed in Annex III."
+     },
+     {
+      "type": "Flights, airports, aircrafts",
+      "text": "It is prohibited for any aircraft operated by Russian air carriers or for any non-Russian-registered aircraft which is owned or chartered, or otherwise controlled by any Russian person or entity, to take off from, land in or overfly the territory of the Union. The prohibition also applies to any other aircraft which is used for a non-scheduled flight and with regard to which a Russian person or entity is in a position to effectively determine the place or time of its take-off or landing."
+     },
+     {
+      "type": "Intellectual Property Rights",
+      "text": "Intellectual property offices and other competent institutions constituted under the law of a Member State or the Union shall not accept applications for registration of new trademarks and patents by Russian nationals or persons residing in Russia, or by entities established in Russia."
+     },
+     {
+      "type": "Liquified Natural Gas",
+      "text": "It is prohibited to purchase, import or transfer liquified natural gas falling under CN code 2711 11 00, originating in Russia or exported from Russia, through liquefied natural gas terminals in the Union that are not connected to the interconnected natural gas system. Related technical or financial assistance and brokering services are also prohibited."
+     },
+     {
+      "type": "Liquified Natural Gas",
+      "text": "It is prohibited to sell, supply, transfer, or export, goods and technology and to provide services to any person or entity in Russia when such goods, technology and services are for the completion of liquefied natural gas projects, such as terminals and plants. Related technical or financial assistance and brokering services are also prohibited."
+     },
+     {
+      "type": "Liquified Natural Gas",
+      "text": "It is prohibited to provide reloading services in the territory of the Union for the purposes of transshipment operations of liquified natural gas falling under CN code 2711 11 00, originating in Russia or exported from Russia. Related technical or financial assistance and brokering services are also prohibited."
+     },
+     {
+      "type": "Liquified Natural Gas",
+      "text": "It shall be prohibited, as of 25 April 2026, to purchase, import or transfer, directly or indirectly, liquified natural gas falling under CN code 2711 11 00, if it originates in Russia or is exported from Russia."
+     },
+     {
+      "type": "Critical infrastructure",
+      "text": "It is prohibited as of 27.03.2023 to allow Russian nationals or persons residing in Russia to hold any posts in the governing bodies of the owners or operators of critical infrastructures, European critical infrastructures and critical entities."
+     },
+     {
+      "type": "Media ban",
+      "text": "It is prohibited for operators to broadcast or to enable, facilitate or otherwise contribute to broadcast, any content by the entities listed in Annex XV of Regulation (EU) 833/2014. It is also prohibited to advertise products or services in any content produced or broadcast by the entities listed in Annex XV."
+     },
+     {
+      "type": "Road transport",
+      "text": "It is prohibited for any entity established in the Union which is owned for 25 % or more by a Russian person or entity to be admitted to become a road transport undertaking which transports goods by road within the territory of the Union, including in transit. It is also prohibited as of 26 July 2024 for any road transport undertaking established in the Union after 8 April 2022 which is owned for 25 % or more by a Russian person or entity to transport goods by road within the territory of the Union, including in transit."
+     },
+     {
+      "type": "Road transport",
+      "text": "It is prohibited for any road transport undertaking established in Russia to transport goods by road within the Union, including in transit. The prohibition applies also to transport carried out by means of trailers or semi-trailers registered in Russia, including if those trailers or semi-trailers are hauled by trucks registered in other countries."
+     },
+     {
+      "type": "Storage capacity",
+      "text": "It is prohibited to provide storage capacity as defined in Article 2(1), point 28 of Regulation (EC) No 715/2009, except for the part of liquefied natural gas facilities used for storage, to Russian nationals or persons residing in Russia or entities established in Russia."
+     },
+     {
+      "type": "Ports and vessels",
+      "text": "It is prohibited to provide access to ports and other maritime services to vessels listed in Annex XLII of Regulation (EU) 833/2014."
+     },
+     {
+      "type": "Ports and vessels",
+      "text": "It is prohibited, as of 24.07.2023, to provide access to EU ports and locks by any vessel performing ship-to-ship transfers, if there is reasonable cause to suspect that the vessel is in breach of sanctions, as well as by any vessel suspected of illegally interfering with, switching off or otherwise disabling its shipborne automatic identification system when transporting crude oil or petroleum products subject to the prohibitions in Article 3m and 3n of Regulation (EU) No 833/2014."
+     },
+     {
+      "type": "Ports and vessels",
+      "text": "Member States shall prohibit the entry into their ports and to locks of any Russian registered vessels."
+     },
+     {
+      "type": "Ports and vessels",
+      "text": "It is prohibited, as of 24.07.2023, to provide access to EU ports and locks by any vessel performing ship-to-ship transfers, if there is reasonable cause to suspect that the vessel is in breach of sanctions, as well as by any vessel suspected of illegally interfering with, switching off or otherwise disabling its shipborne automatic identification system when transporting crude oil or petroleum products subject to the prohibitions in Article 3m and 3n of Regulation (EU) No 833/2014."
+     },
+     {
+      "type": "Ports and vessels",
+      "text": "It shall be prohibited to engage in any transaction, directly or indirectly, with ports and locks listed in Part A of Annex XLVII. Part A of Annex XLVII shall include ports and locks in Russia that are used: (a) for the transfer of unmanned aerial vehicles (UAVs) or missiles, related technologies or components thereof in support of Russia’s war of aggression against Ukraine; (b) for the transport of goods and technology used in the defence and security sector, from or to Russia, for use in Russia or for Russia’s warfare in Ukraine; (c) for the maritime transport of crude oil or petroleum products, as listed in Annex XXV, that originate in Russia or are exported from Russia by vessels practicing irregular and high-risk shipping practices as set out in the International Maritime Organisation General Assembly resolution A.1192(33); (d) for the transport of goods originating in or exported from the Union, as listed in Annexes XI, XX and XXIII to this Regulation, or goods originating in Russia or exported from Russia and imported into the Union, as listed in Annex XXI to this Regulation, and thereby enabling Russia’s actions destabilising the situation in Ukraine; (e) in such a way as to facilitate or engage in the violation or circumvention or otherwise significantly frustrate the provisions of this Regulation or of Regulations (EU) No 269/2014, (EU) No 692/2014 or (EU) 2022/263."
+     },
+     {
+      "type": "Prohibition to satisfy claims",
+      "text": "It is prohibited to satisfy claims in connection with any contract or transaction the performance of which has been affected by any of the measures imposed under this restrictive measures regime, if they are made by entities listed in the Annexes of Regulation (EU) 833/2014 or entities established outside the Union whose proprietary rights are owned for more than 50% by them; by any Russian person, entity or body; or by any person, entity or body acting through or on behalf of one of the aforementioned."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Russian nationals, who are members of the diplomatic or consular personnel of Russia, or members of the administrative and technical staff or of the service staff of diplomatic missions or consular posts of Russia, or their family members, holders of a valid residence permit, including diplomatic identification documents, or a valid visa issued by another State, who intend to travel to or transit through the territory of any Member State, based on that residence permit or visa, shall notify the Member State or Member States concerned by the travel at least 24 hours before the intended date of entry into their territory."
+     },
+     {
+      "type": "Restrictions on goods",
+      "text": "It is prohibited to purchase, import or transfer goods which generate significant revenues for Russia thereby enabling its actions destabilising the situation in Ukraine, such as caviar, cement and wood products, as listed in Annex XXI of Regulation (EU) 833/2014, from Russia. Related technical or financial assistance and brokering services are also prohibited."
+     },
+     {
+      "type": "Restrictions on goods",
+      "text": "it is prohibited to sell, supply, transfer or export goods which could contribute to the enhancement of Russian industrial capacities, as listed in Annex XXIII of regulation (EU) 833/2014, to any person or entity in Russia or for use in Russia. Related technical or financial assistance and brokering or other services are also prohibited."
+     },
+     {
+      "type": "Aviation or the space industry",
+      "text": "It is prohibited to sell, supply, transfer or export goods and technology suited for use in aviation or the space industry, as listed in Annex XI, and jet fuel and fuel additives as listed in Annex XX of Regulation (EU) 833/2014, to Russia. The transit of such goods and technology via Russia is also prohibited. It is also prohibited to provide any related insurance and reinsurance and certain related maintenance activities. Related technical or financial assistance and brokering or other services are also prohibited."
+     },
+     {
+      "type": "Crude oil",
+      "text": "It is prohibited to purchase, import or transfer crude oil or petroleum products, as listed in Annex XXV of Regulation (EU) No 833/2014, from Russia. Related technical or financial assistance and brokering services are also prohibited. Certain exemptions apply."
+     },
+     {
+      "type": "Cultural property",
+      "text": "It is prohibited to purchase, import, transfer, sell, supply or export, Ukrainian cultural property goods and other goods of archaeological, historical, cultural, rare scientific or religious importance, where there is suspicion that the goods have been removed from Ukraine without consent or have been removed in breach of Ukrainian or international law. Related technical or financial assistance and brokering or other services are also prohibited."
+     },
+     {
+      "type": "Diamonds",
+      "text": "It is prohibited, as of 1.1.2024, to purchase, import, or transfer diamonds and products incorporating diamonds, as listed in Parts A, B and C of Annex XXXVIIIA of Regulation (EU) 833/2014, from Russia into the Union or to any third country and if they transited via the territory of Russia. It is also prohibited, as of 1.3.2024, to purchase, import, or transfer, products listed in Part A of Annex XXXVIIIA, when processed in a third country, consisting of diamonds from Russia with a weight equal to or above 1.0 carats per diamond. It shall be prohibited, as of 1.9.2024, when a weight equal to or above 0.5 carats or 0.1 grams per diamond. Related technical or financial assistance and brokering or other services are also prohibited. Certain exceptions apply."
+     },
+     {
+      "type": "Firearms, their parts and essential components and ammunition",
+      "text": "It is prohibited to sell, supply, transfer or export firearms, their parts and essential components and ammunition, as listed in Annex I to Regulation (EU) No 258/2012, and firearms and other arms as listed in Annex XXXV to Regulation (EU) No 833/2014, to Russia. Related technical and financial assistance and brokering services is also prohibited."
+     },
+     {
+      "type": "Gold",
+      "text": "It is prohibited to purchase, import or transfer gold, as listed in Annex XXVI and Annex XXVII of Regulation (EU) No 833/2014, from Russia. Related technical or financial assistance and brokering services are also prohibited. Certain exceptions apply."
+     },
+     {
+      "type": "Iron and steel",
+      "text": "It is prohibited to import, purchase or transfer iron and steel products, as listed in Annex XVII of Regulation (EU) 833/2014, from Russia. Related technical or financial assistance and brokering services are also prohibited."
+     },
+     {
+      "type": "Luxury goods",
+      "text": "It is prohibited to sell, supply, transfer or export luxury goods, as listed in Annex XVIII of Regulation (EU) 833/2014, to any person or entity in Russia or for use in Russia. Related technical or financial assistance or brokering services is also prohibited."
+     },
+     {
+      "type": "Maritime navigation",
+      "text": "It is prohibited to sell, supply, transfer or export maritime navigation goods and technology, as listed in Annex XVI of Regulation (EU) 833/2014, to any person or entity in Russia, for use in Russia or for the placing on board of a Russian-flagged vessel. Related technical or financial assistance and brokering or other services are also prohibited."
+     },
+     {
+      "type": "Oil refining",
+      "text": "It is prohibited to sell, supply, transfer or export goods and technology suited for use in oil refining and liquefaction of natural gas, as listed in Annex X of Regulation (EU) 833/2014, to any person or entity in Russia or for use in Russia. Related technical or financial assistance and brokering or other services are also prohibited."
+     },
+     {
+      "type": "Other items",
+      "text": "It is prohibited to sell, supply, transfer or export goods or technology, as listed in Annex II of Regulation (EU) 833/2014, to any person or entity in Russia or for use in Russia. It is also prohibited to sell, supply, transfer or export any goods or technology to any person or entity operating in the energy sector. Related technical or financial assistance and brokering or other services are also prohibited."
+     },
+     {
+      "type": "Petrol products",
+      "text": "It is prohibited, as of 21 January 2026, to purchase, import or transfer, directly of indirectly, petroleum producsts falling under CN code 2710 obtained in a third country from crude oil falling under CN code 2709 00 originating in Russia. Related technical or financial assistance, brokering services as well as insurance and re-insurance are also prohibited."
+     },
+     {
+      "type": "Restrictions for the export of dual-use and advanced technology items to entities",
+      "text": "This list includes natural or legal persons, entities or bodies which are military end-users, form part of Russia’s military-industrial complex or which have commercial or other links with or which otherwise support Russia’s defence and security sector. These natural or legal persons, entities or bodies contribute to Russia’s military and technological enhancement or to the development of Russia’s defence and security sector. The list also includes entities in third countries other than Russia. Their inclusion in this list (Annex IV of Regulation (EU) No 833/2014) does not entail any attribution of responsibility for their actions to the jurisdiction in which they are operating."
+     },
+     {
+      "type": "Restrictions on services",
+      "text": "Prohibits: Acquiring ownership, creating joint ventures, or entering contracts with entities in specified Russian economic zones. Maintaining existing ownership, ventures, or contracts in specified zones after January 25, 2026. Providing loans, credit, financing, or investment services related to affected entities or activities."
+     },
+     {
+      "type": "Restrictions on services",
+      "text": "The provision of certain services to the Russian government shall be prohibited."
+     },
+     {
+      "type": "Restrictions on services",
+      "text": "It is prohibited to provide accounting, auditing, bookkeeping or tax consulting services, business and management consulting or public relations services, architectural and engineering services, legal advisory services and IT consultancy services, market research and public opinion polling services, technical testing and analysis services or advertising services to the Government of Russia or legal entities established in Russia. It is also prohibited to sell, supply, transfer, export, or provide software for the management of enterprises, software for industrial design and manufacture and software with certain uses in the banking and financial sector as listed in Annex XXXIX of Regulation (EU) 833/2014 to the Government of Russia or entities established in Russia. Related technical or financial assistance and brokering or other services are also prohibited. Certain exceptions apply."
+     }
+    ]
+   },
+   {
+    "id": 27,
+    "iso2": "rs",
+    "adoptedBy": "UN and EU",
+    "title": "Prohibiting the satisfying of certain claims in relation to transactions that have been prohibited by the UN Security Council Resolution 757(1992) and related resolutions",
+    "amended": "1994-07-15",
+    "url": "https://www.sanctionsmap.eu/#/main/details/27/",
+    "legalActs": [
+     {
+      "title": "Council Decision on the Common Position defined by the Council on the basis of Article J.2 of the Treaty on European Union concerning prohibition of the satisfaction of the claims referred to in paragraph 9 of United Nations Security Council Resolution No 757 (1992)",
+      "number": "13.06.1994 consolidated basic legal act - 94/366/CFSP",
+      "url": "http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:31994D0366"
+     },
+     {
+      "title": "Council Regulation prohibiting the satisfying of claims with regard to contracts and transactions the performance of which was affected by the United Nations Security Council Resolution 757(1992) and related resolutions",
+      "number": "11.07.1994 consolidated basic legal act - (EC) No 1733/94",
+      "url": "http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:31994R1733"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Prohibition to satisfy claims",
+      "text": "It is prohibited to satisfy claims made by any person or body referred to in paragraph 9 of United Nations Security Council Resolution 757(1992)."
+     }
+    ]
+   },
+   {
+    "id": 29,
+    "iso2": "so",
+    "adoptedBy": "UN",
+    "title": "Restrictive measures in view of the situation in Somalia",
+    "amended": "2024-09-12",
+    "url": "https://www.sanctionsmap.eu/#/main/details/29/",
+    "legalActs": [
+     {
+      "title": "Council Decision concerning restrictive measures against Somalia and repealing Common Position 2009/138/CFSP",
+      "number": "17.06.2024 consolidated basic legal act - 2010/231/CFSP",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02010D0231-20240617"
+     },
+     {
+      "title": "Council Regulation imposing certain specific restrictive measures directed against certain natural or legal persons, entities or bodies, in view of the situation in Somalia",
+      "number": "13.09.2024 consolidated basic legal act - (EU) No 356/2010",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02010R0356-20240913"
+     },
+     {
+      "title": "Council Regulation concerning certain restrictive measures in respect of Somalia",
+      "number": "13.09.2024 consolidated basic legal act - (EC) No 147/2003",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02003R0147-20240913"
+     },
+     {
+      "title": "Resolution 733 (1992)",
+      "number": "S/RES/733 (1992)",
+      "url": "http://undocs.org/S/RES/733(1992)"
+     },
+     {
+      "title": "Resolution 751 (1992)",
+      "number": "S/RES/751 (1992)",
+      "url": "https://undocs.org/S/RES/751(1992)"
+     },
+     {
+      "title": "Resolution 1844 (2008)",
+      "number": "S/RES/1844 (2008)",
+      "url": "https://undocs.org/S/RES/1844(2008)"
+     },
+     {
+      "title": "Resolution 2036 (2012)",
+      "number": "S/RES/2036 (2012)",
+      "url": "https://undocs.org/S/RES/2036(2012)"
+     },
+     {
+      "title": "Resolution 2498 (2019)",
+      "number": "S/RES/2498 (2019)",
+      "url": "http://unscr.com/en/resolutions/doc/2498"
+     },
+     {
+      "title": "Resolution 2551 (2020)",
+      "number": "S/RES/2551 (2020)",
+      "url": "https://undocs.org/en/S/RES/2551(2020)"
+     },
+     {
+      "title": "Resolution 2607 (2021)",
+      "number": "S/RES/2607 (2021)",
+      "url": "https://undocs.org/en/S/RES/2607(2021)"
+     },
+     {
+      "title": "Resolution 2662 (20022)",
+      "number": "S/RES/2662 (2022)",
+      "url": "https://documents.un.org/doc/undoc/gen/n22/700/89/pdf/n2270089.pdf?token=QQoShWBPyKdSVIUuXj&fe=true"
+     },
+     {
+      "title": "Resolution 2714 (2023)",
+      "number": "S/RES/2714 (2023)",
+      "url": "https://documents.un.org/doc/undoc/gen/n23/380/13/pdf/n2338013.pdf?token=Rjdv0nlmtBZWsnSKuc&fe=true"
+     },
+     {
+      "title": "Resolution 2713 (2023)",
+      "number": "S/RES/2713 (2023)",
+      "url": "https://documents.un.org/doc/undoc/gen/n23/380/06/pdf/n2338006.pdf?token=pcOULUTO90kGf6nMvV&fe=true"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Arms export",
+      "text": "It is prohibited to export arms and related materiel to Somalia and to the listed individuals. Related technical advice, training and assistance is also prohibited."
+     },
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     },
+     {
+      "type": "Inspections",
+      "text": "Member States shall inspect all cargo to and from Somalia in their territory, if they have information that the cargo contains prohibited items. Upon discovery, Member States shall seize and dispose prohibited items."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall enforce travel restrictions on persons listed in Annex I of Council Decision 2010/231/CFSP."
+     },
+     {
+      "type": "Other items",
+      "text": "It is prohibited to import charcoal, as listed in Annex II of Council Regulation (EC) No 147/2003 from Somalia. Related financing or financial assistance is also prohibited."
+     },
+     {
+      "type": "Vigilance",
+      "text": "Member States shall exercise vigilance over the supply, sale or transfer to Somalia of items not subject to the arms embargo and over the related technical advice, financial and other assistance and training."
+     }
+    ]
+   },
+   {
+    "id": 30,
+    "iso2": "ss",
+    "adoptedBy": "UN and EU",
+    "title": "Restrictive measures in view of the situation in South Sudan",
+    "amended": "2025-07-09",
+    "url": "https://www.sanctionsmap.eu/#/main/details/30/",
+    "legalActs": [
+     {
+      "title": "Council Decision concerning restrictive measures in view of the situation in South Sudan and repealing Decision 2014/449/CFSP",
+      "number": "10.07.25 consolidated basic legal act - (CFSP) 2015/740",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02015D0740-20250710"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures in respect of the situation in South Sudan, and repealing Regulation (EU) No 748/2014",
+      "number": "10.07.25 consolidated basic legal act - (EU) 2015/735",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02015R0735-20250710"
+     },
+     {
+      "title": "Resolution 2206 (2015)",
+      "number": "S/RES/2206 (2015)",
+      "url": "https://undocs.org/S/RES/2206(2015)"
+     },
+     {
+      "title": "Resolution 2290 (2016)",
+      "number": "S/RES/2290 (2016)",
+      "url": "https://www.undocs.org/S/RES/2290(2016)"
+     },
+     {
+      "title": "Resolution 2428 (2018)",
+      "number": "S/RES/2428 (2018)",
+      "url": "https://www.undocs.org/S/RES/2428(2018)"
+     },
+     {
+      "title": "Resolution 2521 (2020)",
+      "number": "S/RES/2521 (2020)",
+      "url": "https://undocs.org/S/RES/2521(2020)"
+     },
+     {
+      "title": "Resolution 2577 (2021)",
+      "number": "S/RES/2577 (2021)",
+      "url": "https://undocs.org/en/S/RES/2577(2021)"
+     },
+     {
+      "title": "Resolution 2633 (2022)",
+      "number": "S/RES/2633 (2022)",
+      "url": "https://documents.un.org/doc/undoc/gen/n22/363/06/pdf/n2236306.pdf"
+     },
+     {
+      "title": "Resolution 2683 (2023)",
+      "number": "S/RES/2683 (2023)",
+      "url": "https://documents.un.org/doc/undoc/gen/n23/151/26/pdf/n2315126.pdf"
+     },
+     {
+      "title": "Resolution 2731 (2024)",
+      "number": "S/RES/2731 (2024)",
+      "url": "https://documents.un.org/doc/undoc/gen/n24/152/22/pdf/n2415222.pdf"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Arms export",
+      "text": "It is prohibited to export arms and related materiel to South Sudan. Related technical or financial assistance and services are also prohibited."
+     },
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall enforce travel restrictions on persons listed in Annex I and II of Council Decision (CFSP) 2015/740."
+     }
+    ]
+   },
+   {
+    "id": 31,
+    "iso2": "sd",
+    "adoptedBy": "UN and EU",
+    "title": "Restrictive measures in view of the situation in Sudan",
+    "amended": "2026-05-06",
+    "url": "https://www.sanctionsmap.eu/#/main/details/31/",
+    "legalActs": [
+     {
+      "title": "Council Decision concerning restrictive measures in view of the situation in Sudan and repealing Decision 2011/423/CFSP",
+      "number": "07.05.2026 consolidated basic legal act - 2014/450/CFSP",
+      "url": "http://data.europa.eu/eli/dec/2014/450/2026-05-07"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures in view of the situation in Sudan and repealing Regulations (EC) No 131/2004 and (EC) No 1184/2005",
+      "number": "07.05.2026 consolidated basic legal act - (EU) No 747/2014",
+      "url": "http://data.europa.eu/eli/reg/2014/747/2026-05-07"
+     },
+     {
+      "title": "Resolution 1591 (2005)",
+      "number": "S/RES/1591 (2005)",
+      "url": "http://unscr.com/en/resolutions/doc/1591"
+     },
+     {
+      "title": "Resolution 1556 (2004)",
+      "number": "S/RES/1556 (2004)",
+      "url": "http://unscr.com/en/resolutions/doc/1556"
+     },
+     {
+      "title": "Resolution 1945 (2010)",
+      "number": "S/RES/1945 (2010)",
+      "url": "http://unscr.com/en/resolutions/doc/1945"
+     },
+     {
+      "title": "Resolution 2035 (2012)",
+      "number": "S/RES/2035 (2012)",
+      "url": "https://undocs.org/S/RES/2035(2012)"
+     },
+     {
+      "title": "Resolution 2091 (2013)",
+      "number": "S/RES/2091 (2013)",
+      "url": "https://www.undocs.org/S/RES/2091%20(2013)"
+     },
+     {
+      "title": "Resolution 2138 (2014)",
+      "number": "S/RES/2138 (2014)",
+      "url": "https://www.undocs.org/S/RES/2138%20(2014)"
+     },
+     {
+      "title": "Resolution 2200 (2015)",
+      "number": "S/RES/2200 (2015)",
+      "url": "https://www.undocs.org/S/RES/2200%20(2015)"
+     },
+     {
+      "title": "Resolution 2265 (2016)",
+      "number": "S/RES/2265 (2016)",
+      "url": "https://www.undocs.org/S/RES/2265%20(2016)"
+     },
+     {
+      "title": "Resolution 2340 (2017)",
+      "number": "S/RES/2340 (2017)",
+      "url": "https://www.undocs.org/%20S/RES/2340%20(2017)"
+     },
+     {
+      "title": "Resolution 2750 (2024)",
+      "number": "S/RES/2750 (2024)",
+      "url": "https://documents.un.org/doc/undoc/gen/n24/263/03/pdf/n2426303.pdf"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Arms export",
+      "text": "It is prohibited to export arms and related materiel to Sudan. Related technical or financial assistance and services are also prohibited."
+     },
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall enforce travel restrictions on persons listed in the Annex of Council Decision 2014/450/CFSP."
+     }
+    ]
+   },
+   {
+    "id": 57,
+    "iso2": "sd",
+    "adoptedBy": "EU",
+    "title": "Restrictive measures in view of activities undermining the stability and the political transition of Sudan",
+    "amended": "2026-04-21",
+    "url": "https://www.sanctionsmap.eu/#/main/details/57/",
+    "legalActs": [
+     {
+      "title": "Council Regulation concerning restrictive measures in view of activities undermining the stability and political transition of Sudan",
+      "number": "23.06.2026 consolidated basic legal act (EU) 2023/2147",
+      "url": "http://data.europa.eu/eli/reg/2023/2147/2026-06-23"
+     },
+     {
+      "title": "Council Decision concerning restrictive measures in view of activities undermining the stability and political transition of Sudan",
+      "number": "23.06.2026 consolidated basic legal act - (CFSP) 2023/2135",
+      "url": "http://data.europa.eu/eli/dec/2023/2135/2026-06-23"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall enforce travel restrictions on persons listed in the Annex of Council Decision (CFSP) 2023/2135."
+     }
+    ]
+   },
+   {
+    "id": 32,
+    "iso2": "sy",
+    "adoptedBy": "EU",
+    "title": "Restrictive measures against Syria",
+    "amended": "2025-09-23",
+    "url": "https://www.sanctionsmap.eu/#/main/details/32/",
+    "legalActs": [
+     {
+      "title": "Council Decision concerning restrictive measures against Syria",
+      "number": "24.9.2025 consolidated basic legal act - 2013/255/CFSP",
+      "url": "http://data.europa.eu/eli/dec/2013/255/2025-09-24"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures in view of the situation in Syria",
+      "number": "24.9.2025 consolidated basic legal act - (EU) No 36/2012",
+      "url": "http://data.europa.eu/eli/reg/2012/36/2025-09-24"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Arms import",
+      "text": "It is prohibited to import arms and related material from Syria. Related financial assistance is also prohibited."
+     },
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     },
+     {
+      "type": "Financial measures",
+      "text": "Member States shall not enter into new commitments for grants, financial assistance or concessional loans to the Government of Syria."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to provide insurance and re-insurance to the Government of Syria."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to open new branches, subsidiaries, or representative offices of Syrian banks in the territories of Member States. It is also prohibited to establish new joint ventures, take an ownership interest, open new bank accounts or establish new correspondent banking relationships with Syrian banks. Exemptions apply for activities linked to the delivery of humanitarian assistance, reconstruction purposes and certain activities related to the energy, transport and financial sector."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to sell or purchase, or provide brokering or assistance in the issuance of Syrian public or public-guaranteed bonds issued after 1 December 2011 to and from the Government of Syria."
+     },
+     {
+      "type": "Financial measures",
+      "text": "Disbursements or payments by the European Investment Bank (EIB) under or in connection with any existing loan agreements entered into between Syria and the EIB are prohibited. The continuation by the EIB of any existing Technical Assistance Service Contracts for sovereign projects located in Syria is also prohibited."
+     },
+     {
+      "type": "Financial measures",
+      "text": "Member States shall not enter into new long-term commitments for public and private provided financial support for trade with Syria."
+     },
+     {
+      "type": "Inspections",
+      "text": "Member States shall inspect the cargo of vessels and aircraft bound for Syria, if they have information that the cargo contains prohibited items. Upon discovery, Member States shall seize and dispose prohibited items."
+     },
+     {
+      "type": "Prohibition to satisfy claims",
+      "text": "It is prohibited to grant claims to the listed persons or entities, or any other person or entity in Syria."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall enforce travel restrictions on persons listed in the Annex I of Council Decision 2013/255/CFSP."
+     },
+     {
+      "type": "Restrictions on equipment used for internal repression",
+      "text": "It is prohibited to export equipment, goods and technology which might be used for internal repression, as listed in Annex IA and IX of Council Regulation (EU) No 36/2012 to Syria. Related technical or financial assistance and services are also prohibited."
+     },
+     {
+      "type": "Cultural property",
+      "text": "It is prohibited to import, export, transfer or provide related brokering services for cultural property and other items of archaeological, historical, cultural, rare scientific and religious importance, including those listed in Annex XI of Council Regulation (EU) No 36/2012, which have been illegally removed from Syria on or after 15 March 2011."
+     },
+     {
+      "type": "Gold, precious metals, diamonds",
+      "text": "It is prohibited to export, import or broker gold, precious metals and diamonds, as listed in Annex VIII of Council Regulation (EU) No 36/2012, to, from or for Government of Syria."
+     },
+     {
+      "type": "Luxury goods",
+      "text": "It is prohibited to export luxury goods as listed in Annex X of Council Regulation (EU) No 36/2012 to Syria."
+     }
+    ]
+   },
+   {
+    "id": 34,
+    "iso2": "sy",
+    "adoptedBy": "UN",
+    "title": "Restrictive measures in relation to the 14 February 2005 terrorist bombing in Beirut, Lebanon",
+    "amended": "2024-09-12",
+    "url": "https://www.sanctionsmap.eu/#/main/details/34/",
+    "legalActs": [
+     {
+      "title": "Council Regulation imposing specific restrictive measures against certain persons suspected of involvement in the assassination of former Lebanese Prime Minister Rafiq Hariri",
+      "number": "13.09.2024 consolidated basic legal act - (EC) No 305/2006",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R0305-20240913"
+     },
+     {
+      "title": "Common Position concerning specific restrictive measures against certain persons suspected of involvement in the assassination of former Lebanese Prime Minister Rafiq Hariri",
+      "number": "12.12.2005 consolidated basic legal act - 2005/888/CFSP",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02005E0888-20230216"
+     },
+     {
+      "title": "Resolution 1595 (2005)",
+      "number": "S/RES/1595 (2005)",
+      "url": "http://www.un.org/Docs/journal/asp/ws.asp?m=s/res/1595(2005)"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "There are no persons listed under this restrictive measures regime."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "There are no persons listed under this restrictive measures regime."
+     }
+    ]
+   },
+   {
+    "id": 33,
+    "iso2": "tn",
+    "adoptedBy": "EU",
+    "title": "Misappropriation of state funds of Tunisia",
+    "amended": "2026-01-29",
+    "url": "https://www.sanctionsmap.eu/#/main/details/33/",
+    "legalActs": [
+     {
+      "title": "Council Regulation concerning restrictive measures directed against certain persons, entities and bodies in view of the situation in Tunisia",
+      "number": "31.01.2026 consolidated basic legal act - (EU) No 101/2011",
+      "url": "http://data.europa.eu/eli/reg/2011/101/2026-01-31"
+     },
+     {
+      "title": "Council Decision concerning restrictive measures directed against certain persons and entities in view of the situation in Tunisia",
+      "number": "31.01.2026 consolidated basic legal act - 2011/72/CFSP",
+      "url": "http://data.europa.eu/eli/dec/2011/72(1)/2026-01-31"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     }
+    ]
+   },
+   {
+    "id": 49,
+    "iso2": "tr",
+    "adoptedBy": "EU",
+    "title": "Restrictive measures in view of Türkiye’s  unauthorised drilling activities in the Eastern Mediterranean",
+    "amended": "2025-11-24",
+    "url": "https://www.sanctionsmap.eu/#/main/details/49/",
+    "legalActs": [
+     {
+      "title": "Council Decision concerning restrictive measures in view of Türkiye’s unauthorised drilling activities in the Eastern Mediterranean",
+      "number": "26.11.2025 consolidated basic legal act - (CFSP) 2019/1894",
+      "url": "http://data.europa.eu/eli/dec/2019/1894/2025-11-26"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures in view of Türkiye’s unauthorised drilling activities in the Eastern Mediterranean",
+      "number": "26.11.2025 consolidated basic legal act - (EU) 2019/1890",
+      "url": "http://data.europa.eu/eli/reg/2019/1890/2025-11-26"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall enforce travel restrictions on persons listed in the Annex to Council Decision (CFSP) 2019/1894."
+     }
+    ]
+   },
+   {
+    "id": 52,
+    "iso2": "ua",
+    "adoptedBy": "EU",
+    "title": "Restrictive measures in response to the illegal recognition, occupation or annexation by the Russian Federation of certain non-government controlled areas of Ukraine",
+    "amended": "2026-02-23",
+    "url": "https://www.sanctionsmap.eu/#/main/details/52/",
+    "legalActs": [
+     {
+      "title": "Council Regulation concerning restrictive measures in response to the recognition of the non-government controlled areas of the Donetsk and Luhansk oblasts of Ukraine and the ordering of Russian armed forces into those areas",
+      "number": "25.02.2025 consolidated basic legal act - (EU) 2022/263",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02022R0263-20250225"
+     },
+     {
+      "title": "Council Decision concerning restrictive measures in response to the recognition of the non-government controlled areas of the Donetsk and Luhansk oblasts of Ukraine and the ordering of Russian armed forces into those areas",
+      "number": "24.02.2026 consolidated basic legal act - (CFSP) 2022/266",
+      "url": "http://data.europa.eu/eli/dec/2022/266/2026-02-24"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to create joint ventures in or with an entity in the specified territories."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to grant financing to entities in the specified territories."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to sell, supply, transfer or export banknotes to or for the use in the specified territories."
+     },
+     {
+      "type": "Investments",
+      "text": "The acquisition or extension of a participation in ownership or control of, in entities in the specified territories and of other securities of a participating nature are prohibited."
+     },
+     {
+      "type": "Investments",
+      "text": "The acquisition or extension of a participation in ownership of real estates in the specified territories is prohibited."
+     },
+     {
+      "type": "Restrictions on goods",
+      "text": "It is prohibited to import goods originating in the specified territories into the EU and to provide, directly or indirectly, financing or financial assistance as well as insurance and reinsurance related to such import."
+     },
+     {
+      "type": "Restrictions on goods",
+      "text": "It is prohibited to sell, supply, transfer or export goods and technology listed in Annex II of Council Regulation (EU) 2022/263 to entities in or for the use in the specified territories. Related technical, brokering and financial assistance or training and other services are also prohibited."
+     },
+     {
+      "type": "Restrictions on services",
+      "text": "It is prohibited to provide the following services to entities in the specified territories: accounting, auditing, bookkeeping or tax consulting services, or business and management consulting or public relations services; construction, architectural and engineering services, legal advisory services and IT consultancy services; market research and public opinion polling services, technical testing and analysis services and advertising services. It is also prohibited to sell, supply, transfer, export or provide software (as well as related intellectual property rights) for the management of enterprises and software for industrial design and manufacture as listed in Annex III of Regulation (EU) 2022/263 to entities in the specified territories. Related technical or financial assistance and brokering or other services are also prohibited."
+     },
+     {
+      "type": "Restrictions on services",
+      "text": "It is prohibited to provide services directly related to tourism activities in the specified territories."
+     },
+     {
+      "type": "Restrictions on services",
+      "text": "It is prohibited to provide technical assistance or brokering directly relating to infrastructure in the specified territories in the sectors of (1) transport; (2) telecommunications; (3) energy and (4) the prospecting, exploration and production of oil, gas and mineral resources."
+     }
+    ]
+   },
+   {
+    "id": 35,
+    "iso2": "ua",
+    "adoptedBy": "EU",
+    "title": "Misappropriation of state funds of Ukraine",
+    "amended": "2026-03-02",
+    "url": "https://www.sanctionsmap.eu/#/main/details/35/",
+    "legalActs": [
+     {
+      "title": "Council Decision concerning restrictive measures directed against certain persons, entities and bodies in view of the situation in Ukraine",
+      "number": "03.03.2026 consolidated basic legal act - 2014/119/CFSP",
+      "url": "http://data.europa.eu/eli/dec/2014/119(1)/2026-03-03"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures directed against certain persons, entities and bodies in view of the situation in Ukraine",
+      "number": "03.03.2026 consolidated basic legal act - (EU) No 208/2014",
+      "url": "http://data.europa.eu/eli/reg/2014/208/2026-03-03"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     }
+    ]
+   },
+   {
+    "id": 36,
+    "iso2": "ua",
+    "adoptedBy": "EU",
+    "title": "Restrictive measures in respect of actions undermining or threatening the territorial integrity, sovereignty and independence of Ukraine",
+    "amended": "2026-06-14",
+    "url": "https://www.sanctionsmap.eu/#/main/details/36/",
+    "legalActs": [
+     {
+      "title": "Council Decision concerning restrictive measures in respect of actions undermining or threatening the territorial integrity, sovereignty and independence of Ukraine",
+      "number": "07.08.2026 consolidated basic legal act - 2014/145/CFSP",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02014D0145-20260807"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures in respect of actions undermining or threatening the territorial integrity, sovereignty and independence of Ukraine",
+      "number": "07.08.2026 consolidated legal act - (EU) No 269/2014",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02014R0269-20260807"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall enforce travel restrictions on persons listed in the Annex of Council Decision 2014/145/CFSP."
+     }
+    ]
+   },
+   {
+    "id": 37,
+    "iso2": "ua",
+    "adoptedBy": "EU",
+    "title": "Restrictive measures in response to the illegal annexation of Crimea and Sevastopol",
+    "amended": "2026-06-16",
+    "url": "https://www.sanctionsmap.eu/#/main/details/37/",
+    "legalActs": [
+     {
+      "title": "Council Decision concerning restrictive measures in response to the illegal annexation of Crimea and Sevastopol",
+      "number": "17.06.2026 consolidated basic legal act - 2014/386/CFSP",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02014D0386-20260617"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures in response to the illegal annexation of Crimea and Sevastopol",
+      "number": "25.02.2025 consolidated basic legal act - (EU) No 692/2014",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02014R0692-20250225"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to create joint ventures with entities in Crimea or Sevastopol."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to grant financing to entities in Crimea or Sevastopol."
+     },
+     {
+      "type": "Financial measures",
+      "text": "It is prohibited to sell, supply, transfer or export banknotes to Crimea or Sevastopl or for use in Crimea or Sevastopol."
+     },
+     {
+      "type": "Investments",
+      "text": "The acquisition or extension of a participation in real estates and entities in Crimea or Sevastopol is prohibited."
+     },
+     {
+      "type": "Investments",
+      "text": "The acquisition or extension of a participation in entities in Crimea or Sevastopol and other securities of a participating nature are prohibited."
+     },
+     {
+      "type": "Restrictions on goods",
+      "text": "It is prohibited to import goods originating in Crimea or Sevastopol into the EU and to provide financing or financial assistance as well as insurance and reinsurance related to such import."
+     },
+     {
+      "type": "Restrictions on goods",
+      "text": "It is prohibited to sell, supply, transfer or export goods and technology listed in Annex II of Council Regulation 692/2014, whether or not originating in the Union, to entities in or for use in Crimea or Sevastopol. Related technical and financial assistance or training and other services are also prohibited."
+     },
+     {
+      "type": "Restrictions on services",
+      "text": "It is prohibited to provide technical assistance or brokering services directly relating to infrastructure in Crimea or Sevastopol in the sectors of (1) transport; (2) telecommunications; (3) energy; and (4) the prospection, exploration and production of oil, gas and mineral resources."
+     },
+     {
+      "type": "Restrictions on services",
+      "text": "It is prohibited to provide services directly related to tourism activities in Crimea or Sevastopol. In particular, it is prohibited for any ship providing cruise services, to enter into or call at any port situated in the Crimean Peninsula listed in Annex III of Council Regulation (EU) No 692/2014."
+     },
+     {
+      "type": "Restrictions on services",
+      "text": "It is prohibited to provide the following services to entities in Crimea or Sevastopol: accounting, auditing, bookkeeping or tax consulting services, or business and management consulting or public relations services; construction, architectural and engineering services, legal advisory services and IT consultancy services; market research and public opinion polling services, technical testing and analysis services and advertising services. It is also prohibited to sell, supply, transfer, export or provide software (as well as related intellectual property rights) for the management of enterprises and software for industrial design and manufacture as listed in Annex IV of Regulation (EU) No 692/2014 to entities in Crimea or Sevastopol. Related technical or financial assistance and brokering or other services are also prohibited."
+     }
+    ]
+   },
+   {
+    "id": 38,
+    "iso2": "us",
+    "adoptedBy": "EU",
+    "title": "Measures protecting against the effects of the extra-territorial application of certain legislation adopted by the US",
+    "amended": "2018-08-06",
+    "url": "https://www.sanctionsmap.eu/#/main/details/38/",
+    "legalActs": [
+     {
+      "title": "Joint Action concerning measures protecting against the effects of the extra-territorial application of legislation adopted by a third country, and actions based thereon or resulting therefrom",
+      "number": "22.11.1996 consolidated basic legal act - 96/668/CFSP",
+      "url": "http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:31996E0668"
+     },
+     {
+      "title": "Council Regulation protecting against the effects of the extra-territorial application of legislation adopted by a third country, and actions based thereon or resulting therefrom",
+      "number": "07.08.2018 consolidated basic legal act - (EC) No 2271/96",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?qid=1571925577358&uri=CELEX:01996R2271-20180807"
+     },
+     {
+      "title": "Commission Implementing Regulation laying down the criteria for the application of the second paragraph of Article 5 of Council Regulation (EC) No 2271/96 protecting against the effects of the extra-territorial application of legislation adopted by a third country, and actions based thereon or resulting therefrom",
+      "number": "07.08.2018 - amendments not yet included in the consolidated legal act  - (EU) 2018/1101",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv:OJ.LI.2018.199.01.0007.01.ENG&toc=OJ:L:2018:199I:TOC"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Protection against the effects of the extra-territorial application of third-country's legislation",
+      "text": "The EU introduced legislation that allows each Member State to take the measure it deems necessary to protect the interests of the natural or legal persons affected by the extra-territorial application of a third country´s laws."
+     }
+    ]
+   },
+   {
+    "id": 44,
+    "iso2": "ve",
+    "adoptedBy": "EU",
+    "title": "Restrictive measures in view of the situation in Venezuela",
+    "amended": "2025-12-14",
+    "url": "https://www.sanctionsmap.eu/#/main/details/44/",
+    "legalActs": [
+     {
+      "title": "Council Regulation concerning restrictive measures in view of the situation in Venezuela",
+      "number": "17.12.2025 consolidated basic legal act - (EU) 2017/2063",
+      "url": "http://data.europa.eu/eli/reg/2017/2063/2025-12-17"
+     },
+     {
+      "title": "Council Decision concerning restrictive measures in view of the situation in Venezuela",
+      "number": "17.12.2025 consolidated basic legal act - (CFSP) 2017/2074",
+      "url": "http://data.europa.eu/eli/dec/2017/2074/2025-12-17"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Arms export",
+      "text": "It shall be prohibited to export arms and related materiel of all types to Venezuela. The prohibition shall not apply to the execution of contracts concluded before 13.11.2017 or to ancillary contracts necessary for the execution of such contracts. Related technical or financial assistance and services are also prohibited."
+     },
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": ""
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member states shall prevent the entry into, or transit through their territories through, of persons listed in Annex I of Council Decision (CFSP) 2017/2074."
+     },
+     {
+      "type": "Restrictions on equipment used for internal repression",
+      "text": "It is prohibited to export equipment which might be used for internal repression to Venezuela. Related technical, financial and other assistance is also prohibited."
+     },
+     {
+      "type": "Telecommunications equipment",
+      "text": "It is prohibited to export equipment, technology or software intended primarily for use in the monitoring or interception by the Venezuelan regime of the Internet and of telephone communications on mobile or fixed networks in Venezuela as listed in Annex II of Regulation (EU) 2017/2063. It is also prohibited to provide telecommunication or Internet monitoring or interception services and related financial and technical assistance."
+     }
+    ]
+   },
+   {
+    "id": 39,
+    "iso2": "ye",
+    "adoptedBy": "UN",
+    "title": "Restrictive measures in view of the situation in Yemen",
+    "amended": "2024-09-12",
+    "url": "https://www.sanctionsmap.eu/#/main/details/39/",
+    "legalActs": [
+     {
+      "title": "Resolution 2140 (2014)",
+      "number": "S/RES/2140 (2014)",
+      "url": "https://undocs.org/S/RES/2140(2014)"
+     },
+     {
+      "title": "Resolution 2216 (2015)",
+      "number": "S/RES/2216 (2015)",
+      "url": "https://undocs.org/S/RES/2216(2015)"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures in view of the situation in Yemen",
+      "number": "13.09.2024 consolidated basic legal act - (EU) No 1352/2014",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02014R1352-20240913"
+     },
+     {
+      "title": "Council Decision concerning restrictive measures in view of the situation in Yemen",
+      "number": "14.08.2024 consolidated basic legal act - 2014/932/CFSP",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02014D0932-20240814"
+     },
+     {
+      "title": "Resolution 2266 (2016)",
+      "number": "S/RES/2266 (2016)",
+      "url": "https://www.undocs.org/S/RES/2266%20(2016)"
+     },
+     {
+      "title": "Resolution 2342 (2017)",
+      "number": "S/RES/2342 (2017)",
+      "url": "https://www.undocs.org/S/RES/2342%20(2017)"
+     },
+     {
+      "title": "Resolution 2402 (2018)",
+      "number": "S/RES/2402 (2018)",
+      "url": "https://www.undocs.org/S/RES/2402%20(2018)"
+     },
+     {
+      "title": "Resolution 2456 (2019)",
+      "number": "S/RES/2456 (2019)",
+      "url": "https://undocs.org/en/S/RES/2456(2019)"
+     },
+     {
+      "title": "Resolution 2511 (2020)",
+      "number": "S/RES/2511 (2020)",
+      "url": "https://undocs.org/en/S/RES/2511(2020)"
+     },
+     {
+      "title": "Resolution 2564 (2021)",
+      "number": "S/RES/2564 (2021)",
+      "url": "https://undocs.org/en/S/RES/2564(2021)"
+     },
+     {
+      "title": "Resolution 2624 (2022)",
+      "number": "S/RES/2624 (2022)",
+      "url": "https://undocs.org/Home/Mobile?FinalSymbol=s%2Fres%2F2624%2520(2022)&Language=E&DeviceType=Desktop&LangRequested=False"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Arms export",
+      "text": "It is prohibited to export arms and related materiel to the listed persons and entities. Related technical or financial assistance and training is also prohibited."
+     },
+     {
+      "type": "Asset freeze and prohibition to make funds available",
+      "text": "All assets of the listed persons and entities should be frozen. It is also prohibited to make any funds or assets directly or indirectly available to them."
+     },
+     {
+      "type": "Inspections",
+      "text": "Member States shall inspect all cargo to Yemen if they have information that the cargo contains prohibited items. Upon discovery, Member States shall seize and dispose prohibited items."
+     },
+     {
+      "type": "Restrictions on admission",
+      "text": "Member States shall enforce travel restrictions on persons listed in the Annex of Council Decision 2014/932/CFSP."
+     }
+    ]
+   },
+   {
+    "id": 40,
+    "iso2": "zw",
+    "adoptedBy": "EU",
+    "title": "Restrictive measures concerning an arms embargo in view of the situation in Zimbabwe",
+    "amended": "2026-02-16",
+    "url": "https://www.sanctionsmap.eu/#/main/details/40/",
+    "legalActs": [
+     {
+      "title": "Council Decision concerning restrictive measures in view of the situation in Zimbabwe",
+      "number": "19.02.2026 consolidated basic legal act - 2011/101/CFSP",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02011D0101-20260219"
+     },
+     {
+      "title": "Council Regulation concerning restrictive measures in view of the situation in Zimbabwe",
+      "number": "19.02.2026 consolidated basic legal act - (EC) No 314/2004",
+      "url": "http://data.europa.eu/eli/reg/2004/314/2026-02-19"
+     }
+    ],
+    "measures": [
+     {
+      "type": "Arms export",
+      "text": "It is prohibited to export arms and related materiel to Zimbabwe. Related technical or financial assistance and services are also prohibited."
+     },
+     {
+      "type": "Restrictions on equipment used for internal repression",
+      "text": "It is prohibited to export equipment which might be used for internal repression to Zimbabwe. Related technical or financial assistance is also prohibited."
+     }
+    ]
+   }
+  ]
+ },
+ "us": {
+  "source": "OFAC, Sanctions Programs and Country Information",
+  "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information",
+  "programs": [
+   {
+    "iso2": "ir",
+    "title": "",
+    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/iran-sanctions"
+   },
+   {
+    "iso2": "kp",
+    "title": "",
+    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/north-korea-sanctions"
+   },
+   {
+    "iso2": "cu",
+    "title": "",
+    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/cuba-sanctions"
+   },
+   {
+    "iso2": "ve",
+    "title": "",
+    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/venezuela-related-sanctions"
+   },
+   {
+    "iso2": "af",
+    "title": "Afghanistan-Related Sanctions",
+    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/afghanistan-related-sanctions"
+   },
+   {
+    "iso2": "by",
+    "title": "Belarus Sanctions",
+    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/belarus-sanctions"
+   },
+   {
+    "iso2": "mm",
+    "title": "Burma-Related Sanctions",
+    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/burma"
+   },
+   {
+    "iso2": "cf",
+    "title": "Central African Republic Sanctions",
+    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/central-african-republic-sanctions"
+   },
+   {
+    "iso2": "cn",
+    "title": "Chinese Military Companies Sanctions",
+    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/chinese-military-companies-sanctions"
+   },
+   {
+    "iso2": "cd",
+    "title": "Democratic Republic of the Congo-Related Sanctions",
+    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/democratic-republic-of-the-congo-related-sanctions"
+   },
+   {
+    "iso2": "cn",
+    "title": "Hong Kong-Related Sanctions",
+    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/hong-kong-related-sanctions"
+   },
+   {
+    "iso2": "iq",
+    "title": "Iraq-Related Sanctions",
+    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/iraq-related-sanctions"
+   },
+   {
+    "iso2": "lb",
+    "title": "Lebanon-Related Sanctions",
+    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/lebanon-related-sanctions"
+   },
+   {
+    "iso2": "ly",
+    "title": "Libya Sanctions",
+    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/libya-sanctions"
+   },
+   {
+    "iso2": "ml",
+    "title": "Mali-Related Sanctions",
+    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/mali-related-sanctions"
+   },
+   {
+    "iso2": "ni",
+    "title": "Nicaragua-related Sanctions",
+    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/nicaragua-related-sanctions"
+   },
+   {
+    "iso2": "sy",
+    "title": "Promoting Accountability for Assad and Regional Stabilization Sanctions (PAARSS)",
+    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/paarss"
+   },
+   {
+    "iso2": "ru",
+    "title": "Russian Harmful Foreign Activities Sanctions",
+    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/russian-harmful-foreign-activities-sanctions"
+   },
+   {
+    "iso2": "so",
+    "title": "Somalia Sanctions",
+    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/somalia-sanctions"
+   },
+   {
+    "iso2": "ss",
+    "title": "South Sudan-Related Sanctions",
+    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/south-sudan-related-sanctions"
+   },
+   {
+    "iso2": "sd",
+    "title": "Sudan and Darfur Sanctions",
+    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/sudan-and-darfur-sanctions"
+   },
+   {
+    "iso2": "ru",
+    "title": "Ukraine-/Russia-related Sanctions",
+    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/ukraine-russia-related-sanctions"
+   },
+   {
+    "iso2": "ye",
+    "title": "Yemen-related Sanctions",
+    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/yemen-related-sanctions"
+   }
+  ]
+ },
+ "gaps": [
+  "UK: gov.uk publishes each regime as prose, with no machine-readable list of measures per regime; not read."
+ ]
+}

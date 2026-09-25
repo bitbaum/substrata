@@ -1,0 +1,11 @@
+# Secret scanning: the default rules, plus the public URLs they mistake for keys.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Public download links recorded in research data"
+# TYPO3 "dumpFile" links carry a public checksum token. The OECD export
+# restrictions inventory links a Rwandan law this way
+# (research/oecd-export-restrictions.json); it is not a credential.
+regexTarget = "line"
+regexes = ['''eID=dumpFile&t=f&f=\d+&token=[0-9a-f]{40}''']

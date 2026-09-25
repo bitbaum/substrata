@@ -18,6 +18,7 @@ import './styles/notes.css';
 import './styles/follow.css';
 import './styles/figure.css';
 import './styles/series.css';
+import './styles/resources.css';
 import './styles/ticker.css';
 import './styles/screen.css';
 import './styles/freshness.css';

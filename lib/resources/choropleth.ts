@@ -1,7 +1,7 @@
 /**
  * One resource, one number per country — what the world map paints.
  *
- * Pure: no React, no I/O beyond the committed JSON. The map (WorldMap) calls
+ * Pure: no React, no I/O beyond the committed JSON (USGS minerals, EIA energy). The map (WorldMap) calls
  * `choropleth('nickel')` and colours each ISO code by `share` (or `value`),
  * labels the legend with `label` + `unitLabel` + `year`, and links `source`.
  *
@@ -21,7 +21,6 @@
  */
 import {
   UNIT_LABEL,
-  USGS,
   cellText,
   chapterFor,
   chapters,
@@ -167,10 +166,10 @@ export function choropleth(
     hhi: shares.length ? shares.reduce((sum, s) => sum + s * s, 0) : null,
     source: {
       url: chapter.url,
-      label: `USGS, ${USGS.edition}: ${chapter.commodity}`,
-      edition: USGS.edition,
+      label: `${chapter.source}, ${chapter.edition}: ${chapter.commodity}`,
+      edition: chapter.edition,
       table: chapter.table,
-      retrieved: USGS.retrieved,
+      retrieved: chapter.retrieved,
     },
   };
 }

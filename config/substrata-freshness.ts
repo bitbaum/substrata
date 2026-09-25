@@ -20,6 +20,10 @@ import listings from '../research/listings.json';
 import occupations from '../research/occupations.json';
 import series from '../research/series.json';
 import usgs from '../research/usgs-mcs.json';
+import eia from '../research/eia-energy.json';
+import oecd from '../research/oecd-export-restrictions.json';
+import sanctions from '../research/sanctions.json';
+import producers from '../research/usgs-producers.json';
 import { ASSESSMENTS } from './substrata-assessment';
 
 export type FeedId = 'sweep' | 'source' | 'filings' | 'science' | 'series' | 'drafts' | 'jobs';
@@ -217,6 +221,39 @@ export const DATASETS: readonly Dataset[] = [
     refresh: 'pnpm run research:usgs (new edition each February)',
     checkedOn: day(usgs.retrieved),
     maxAgeDays: 400,
+  },
+  {
+    id: 'eia-energy',
+    label: 'Oil, gas, coal and hydro by country (EIA)',
+    file: 'research/eia-energy.json',
+    refresh: 'pnpm run research:eia',
+    checkedOn: day(eia.retrieved),
+    maxAgeDays: 120,
+  },
+  {
+    id: 'usgs-producers',
+    label: 'Producers per country (USGS Minerals Yearbook)',
+    file: 'research/usgs-producers.json',
+    refresh: 'pnpm run research:producers (new country chapters through the year)',
+    checkedOn: day(producers.retrieved),
+    maxAgeDays: 400,
+  },
+  {
+    id: 'oecd-export-restrictions',
+    label: 'Export restrictions (OECD inventory)',
+    file: 'research/oecd-export-restrictions.json',
+    refresh: 'pnpm run research:restrictions (OECD adds a data year annually)',
+    checkedOn: day(oecd.retrieved),
+    maxAgeDays: 400,
+  },
+  {
+    id: 'sanctions',
+    label: 'Sanctions regimes (EU Sanctions Map, OFAC)',
+    file: 'research/sanctions.json',
+    // Regimes are amended every few weeks; a file older than this is not shown as current.
+    refresh: 'pnpm run research:sanctions',
+    checkedOn: day(sanctions.retrieved),
+    maxAgeDays: 60,
   },
 ];
 
