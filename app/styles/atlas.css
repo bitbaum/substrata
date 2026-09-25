@@ -16,16 +16,17 @@
   --atlas-bar-h: 2.75rem;
   --atlas-panel-w: 24rem;
   --atlas-sheet-peek: 8rem;
-  /* Room the floating Ask button needs at the bottom (0 on phones). */
+  /* Room kept free at the bottom right (0 on phones, where Ask is in the top
+     bar): the floating Ask button, and above it the Loki feedback launcher,
+     which the widget's own auto-avoid stacks there (bottom 80px, 40px tall).
+     The panel and sheet end above both, so neither lies on the panel. */
   --atlas-dock: 0rem;
   --atlas-radius: 0.75rem;
   --atlas-glass: color-mix(in srgb, var(--color-surface-page) 84%, transparent);
-  /* What the map keeps clear of when it frames the world (WorldMap reads these). */
+  /* What the chain flow keeps clear of. The world map measures what covers it
+     instead (components/portal/map-view.ts). */
   --atlas-map-inset-top: calc(var(--atlas-bar-h) + var(--atlas-gutter) * 2);
   --atlas-map-inset-right: 0rem;
-  --atlas-map-inset-bottom: calc(var(--atlas-sheet-peek) + var(--atlas-dock) + 3rem);
-  /* Where a selected country is framed when the sheet stands higher than its peek. */
-  --atlas-map-sheet: 0px;
 
   position: relative;
   isolation: isolate;
@@ -37,19 +38,12 @@
 @media (min-width: 768px) {
   .atlas {
     --atlas-gutter: 1rem;
-    --atlas-dock: 4.75rem;
-  }
-}
-@media (max-width: 1023px) {
-  .atlas[data-sheet='half'],
-  .atlas[data-sheet='full'] {
-    --atlas-map-sheet: 57%;
+    --atlas-dock: 8.5rem;
   }
 }
 @media (min-width: 1024px) {
   .atlas {
     --atlas-map-inset-right: calc(var(--atlas-panel-w) + var(--atlas-gutter) * 2);
-    --atlas-map-inset-bottom: 3rem;
   }
 }
 .atlas-canvas {
@@ -245,7 +239,14 @@
   min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding: 0 1rem 1.5rem;
+  /* On a phone the feedback launcher sits over the sheet's bottom-right
+     corner, just above the tab bar; the last row can scroll clear of it. */
+  padding: 0 1rem 4rem;
+}
+@media (min-width: 768px) {
+  .atlas-sheet-scroll {
+    padding-bottom: 1.5rem;
+  }
 }
 @media (min-width: 1024px) {
   .atlas-sheet-scroll {
