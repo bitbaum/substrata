@@ -18,6 +18,7 @@
     "research:listings": "tsx scripts/research/listings.ts",
     "research:accept-events": "tsx scripts/research/accept-events.ts",
     "research:occupations": "tsx scripts/research/occupations.ts",
+    "research:usgs": "python3 scripts/research/usgs-mcs.py",
     "verify": "pnpm run format:check && pnpm run type-check && pnpm run lint && pnpm run test",
     "format": "prettier --write .",
     "format:check": "prettier --check ."

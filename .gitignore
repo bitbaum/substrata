@@ -9,3 +9,6 @@ next-env.d.ts
 
 # Screenshot and trace output from the Playwright MCP server, never committed.
 .playwright-mcp
+
+# Python bytecode from scripts/research/*.py
+__pycache__/

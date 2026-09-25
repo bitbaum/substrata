@@ -19,6 +19,7 @@ import learningPaths from '../research/learning-paths.json';
 import listings from '../research/listings.json';
 import occupations from '../research/occupations.json';
 import series from '../research/series.json';
+import usgs from '../research/usgs-mcs.json';
 import { ASSESSMENTS } from './substrata-assessment';
 
 export type FeedId = 'sweep' | 'source' | 'filings' | 'science' | 'series' | 'drafts' | 'jobs';
@@ -207,6 +208,15 @@ export const DATASETS: readonly Dataset[] = [
     refresh: 'pnpm run research:occupations (O*NET publishes yearly)',
     checkedOn: day(occupations.generatedOn),
     maxAgeDays: 365,
+  },
+  {
+    id: 'usgs-mcs',
+    label: 'World production and reserves (USGS MCS)',
+    file: 'research/usgs-mcs.json',
+    // USGS publishes a new edition every February; bump EDITION_YEAR and re-run.
+    refresh: 'pnpm run research:usgs (new edition each February)',
+    checkedOn: day(usgs.retrieved),
+    maxAgeDays: 400,
   },
 ];
 

@@ -1,0 +1,7991 @@
+{
+ "source": "USGS Mineral Commodity Summaries",
+ "edition": "Mineral Commodity Summaries 2026 (February 2026)",
+ "publisher": "U.S. Geological Survey",
+ "licence": "US Government work, public domain",
+ "retrieved": "2026-09-25",
+ "definitions": {
+  "reserves": "USGS reserves: the part of an identified resource that could be economically extracted or produced at the time of determination (MCS Appendix C). Roughly proved + probable; not the broader resource.",
+  "resources": "USGS resources: a concentration of material in such form and amount that economic extraction is currently or potentially feasible. Broader than reserves and given only as world totals in the chapter text.",
+  "e": "Estimated by USGS.",
+  "W": "Withheld to avoid disclosing company proprietary data.",
+  "NA": "Not available."
+ },
+ "appendix": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-appendixes.pdf",
+ "chapters": [
+  {
+   "slug": "lithium",
+   "commodity": "Lithium",
+   "resource": "lithium",
+   "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-lithium.pdf",
+   "table": "World Mine Production and Reserves",
+   "unit": "t",
+   "unitQuote": "Data in metric tons, lithium content",
+   "primary": "mine",
+   "columns": [
+    {
+     "key": "mine:2024",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2024,
+     "estimated": true
+    },
+    {
+     "key": "mine:2025",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2025,
+     "estimated": true
+    },
+    {
+     "key": "reserves",
+     "measure": "reserves",
+     "year": 2025
+    }
+   ],
+   "rows": [
+    {
+     "name": "United States",
+     "cells": {
+      "mine:2024": {
+       "raw": "W",
+       "withheld": true,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "W",
+       "withheld": true,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "4,400,000",
+       "value": 4400000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "us"
+    },
+    {
+     "name": "Argentina",
+     "cells": {
+      "mine:2024": {
+       "raw": "13,800",
+       "value": 13800,
+       "footnotes": [
+        "5"
+       ]
+      },
+      "mine:2025": {
+       "raw": "23,000",
+       "value": 23000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "4,400,000",
+       "value": 4400000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ar"
+    },
+    {
+     "name": "Australia",
+     "cells": {
+      "mine:2024": {
+       "raw": "82,700",
+       "value": 82700,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "92,000",
+       "value": 92000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "8,400,000",
+       "value": 8400000,
+       "footnotes": [
+        "6"
+       ]
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "au"
+    },
+    {
+     "name": "Brazil",
+     "cells": {
+      "mine:2024": {
+       "raw": "10,200",
+       "value": 10200,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "12,000",
+       "value": 12000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "540,000",
+       "value": 540000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "br"
+    },
+    {
+     "name": "Canada",
+     "cells": {
+      "mine:2024": {
+       "raw": "4,820",
+       "value": 4820,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "5,600",
+       "value": 5600,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "1,600,000",
+       "value": 1600000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ca"
+    },
+    {
+     "name": "Chile",
+     "cells": {
+      "mine:2024": {
+       "raw": "48,900",
+       "value": 48900,
+       "footnotes": [
+        "5"
+       ]
+      },
+      "mine:2025": {
+       "raw": "56,000",
+       "value": 56000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "9,200,000",
+       "value": 9200000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "cl"
+    },
+    {
+     "name": "China",
+     "cells": {
+      "mine:2024": {
+       "raw": "41,400",
+       "value": 41400,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "62,000",
+       "value": 62000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "4,600,000",
+       "value": 4600000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "cn"
+    },
+    {
+     "name": "Mali",
+     "cells": {
+      "mine:2024": {
+       "raw": "770",
+       "value": 770,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "9,400",
+       "value": 9400,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "370,000",
+       "value": 370000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ml"
+    },
+    {
+     "name": "Portugal",
+     "cells": {
+      "mine:2024": {
+       "raw": "380",
+       "value": 380,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "380",
+       "value": 380,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "60,000",
+       "value": 60000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "pt"
+    },
+    {
+     "name": "Zimbabwe",
+     "cells": {
+      "mine:2024": {
+       "raw": "20,000",
+       "value": 20000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "28,000",
+       "value": 28000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "500,000",
+       "value": 500000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "zw"
+    },
+    {
+     "name": "Other countries",
+     "cells": {
+      "mine:2024": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "2,400,000",
+       "value": 2400000
+      }
+     },
+     "footnotes": [
+      "7"
+     ],
+     "kind": "other"
+    },
+    {
+     "name": "World total (rounded)",
+     "cells": {
+      "mine:2024": {
+       "raw": "222,000",
+       "value": 222000,
+       "footnotes": [
+        "8"
+       ],
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "290,000",
+       "value": 290000,
+       "footnotes": [
+        "8"
+       ],
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "37,000,000",
+       "value": 37000000
+      }
+     },
+     "footnotes": [],
+     "kind": "world"
+    }
+   ],
+   "footnotes": {
+    "5": "Reported.",
+    "6": "For Australia, Joint Ore Reserves Committee-compliant or equivalent reserves were 5.1 million tons.",
+    "7": "Other countries with reported reserves include Austria, Congo (Kinshasa), Czechia, Finland, Germany, Ghana, Mexico, Namibia, Serbia, and Spain.",
+    "8": "Excludes U.S. production."
+   },
+   "events": "Excluding U.S. production, worldwide lithium production in 2025 increased by 31% to approximately 290,000 tons from 222,000 tons in 2024 in response to strong demand from the lithium-ion battery market, high lithium prices from 2021 to early 2023, and an increase in global lithium production capacity. Global consumption of lithium in 2025 was estimated to be 263,000 tons, a 20% increase from consumption of 220,000 tons in 2024. Concern about a short-term lithium oversupply kept prices low during the first half of 2025. However, considerable EV sales growth in China and Europe and increased demand for battery energy storage systems contributed to lithium price increases during the second half of 2025. Spot lithium carbonate prices in China [cost, insurance, and freight (c.i.f.)] increased from approximately $9,300 per ton in January to approximately $10,300 per ton in November. For fixed contracts, the annual average U.S. lithium carbonate price was $9,000 per ton in 2025, a decrease of 31% from that in 2024. Spot lithium hydroxide prices in China [free on board (f.o.b.)] increased from approximately $10,300 per ton in January to approximately $11,200 per ton in November. Spodumene (6% lithium oxide) prices in Australia (f.o.b.) increased from approximately $800 per ton in January to approximately $970 per ton in November. Four brine operations in Argentina, seven mineral operations in Australia, one mineral operation in Brazil, two mineral operations in Canada, two brine operations Chile, nine mineral and six brine operations in China, two mineral operations in Mali, and five mineral operations in Zimbabwe accounted for the majority of world lithium production. Additionally, smaller operations in Argentina, Brazil, China, Portugal, and the United States also contributed to world lithium production. Namibia temporarily removed from mine production owing to legal uncertainties. Despite some lithium producers reducing output or expansion projects being postponed in 2025 owing to low prices, significant production capacity expansions took place in Argentina, Brazil, Canada, Chile, China, Mali, the United States, and Zimbabwe. Lithium supply security has become a priority for technology companies in Asia, Europe, and North America. Strategic alliances and joint ventures among technology companies and exploration companies continued to be established to ensure a reliable, diversified supply of lithium for battery suppliers and vehicle manufacturers. Brine-based lithium sources were in various stages of development or exploration in Argentina, Bolivia, Canada, Chile, China, and the United States; mineral-based lithium sources were in various stages of development or exploration in Australia, Austria, Brazil, Canada, China, Congo (Kinshasa), Czechia, Ethiopia, Finland, France, Germany, Ghana, India, Iran, Kazakhstan, Mali, Namibia, Nigeria, Peru, Portugal, Russia, Rwanda, Serbia, Spain, Thailand, Turkey, the United Kingdom, the United States, and Zimbabwe; lithium-clay sources were in various stages of development or exploration in Mexico and the United States."
+  },
+  {
+   "slug": "copper",
+   "commodity": "Copper",
+   "resource": "copper",
+   "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-copper.pdf",
+   "table": "World Mine and Refinery Production and Reserves",
+   "unit": "kt",
+   "unitQuote": "Data in thousand metric tons, copper content",
+   "primary": "mine",
+   "columns": [
+    {
+     "key": "mine:2024",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2024
+    },
+    {
+     "key": "mine:2025",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2025,
+     "estimated": true
+    },
+    {
+     "key": "refinery:2024",
+     "measure": "production",
+     "stage": "refinery",
+     "year": 2024
+    },
+    {
+     "key": "refinery:2025",
+     "measure": "production",
+     "stage": "refinery",
+     "year": 2025,
+     "estimated": true
+    },
+    {
+     "key": "reserves",
+     "measure": "reserves",
+     "year": 2025
+    }
+   ],
+   "rows": [
+    {
+     "name": "United States",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,050",
+       "value": 1050
+      },
+      "mine:2025": {
+       "raw": "1,000",
+       "value": 1000,
+       "estimated": true
+      },
+      "refinery:2024": {
+       "raw": "921",
+       "value": 921
+      },
+      "refinery:2025": {
+       "raw": "850",
+       "value": 850,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "47,000",
+       "value": 47000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "us"
+    },
+    {
+     "name": "Australia",
+     "cells": {
+      "mine:2024": {
+       "raw": "765",
+       "value": 765
+      },
+      "mine:2025": {
+       "raw": "730",
+       "value": 730,
+       "estimated": true
+      },
+      "refinery:2024": {
+       "raw": "434",
+       "value": 434
+      },
+      "refinery:2025": {
+       "raw": "460",
+       "value": 460,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "100,000",
+       "value": 100000,
+       "footnotes": [
+        "7"
+       ]
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "au"
+    },
+    {
+     "name": "Canada",
+     "cells": {
+      "mine:2024": {
+       "raw": "515",
+       "value": 515
+      },
+      "mine:2025": {
+       "raw": "500",
+       "value": 500,
+       "estimated": true
+      },
+      "refinery:2024": {
+       "raw": "324",
+       "value": 324
+      },
+      "refinery:2025": {
+       "raw": "320",
+       "value": 320,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "7,000",
+       "value": 7000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ca"
+    },
+    {
+     "name": "Chile",
+     "cells": {
+      "mine:2024": {
+       "raw": "5,510",
+       "value": 5510
+      },
+      "mine:2025": {
+       "raw": "5,300",
+       "value": 5300,
+       "estimated": true
+      },
+      "refinery:2024": {
+       "raw": "1,940",
+       "value": 1940
+      },
+      "refinery:2025": {
+       "raw": "1,700",
+       "value": 1700,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "180,000",
+       "value": 180000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "cl"
+    },
+    {
+     "name": "China",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,840",
+       "value": 1840
+      },
+      "mine:2025": {
+       "raw": "1,800",
+       "value": 1800,
+       "estimated": true
+      },
+      "refinery:2024": {
+       "raw": "12,400",
+       "value": 12400
+      },
+      "refinery:2025": {
+       "raw": "14,000",
+       "value": 14000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "41,000",
+       "value": 41000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "cn"
+    },
+    {
+     "name": "Congo (Kinshasa)",
+     "cells": {
+      "mine:2024": {
+       "raw": "2,990",
+       "value": 2990
+      },
+      "mine:2025": {
+       "raw": "3,200",
+       "value": 3200,
+       "estimated": true
+      },
+      "refinery:2024": {
+       "raw": "2,560",
+       "value": 2560
+      },
+      "refinery:2025": {
+       "raw": "2,800",
+       "value": 2800,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "80,000",
+       "value": 80000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "cd"
+    },
+    {
+     "name": "Germany",
+     "cells": {
+      "mine:2024": {
+       "raw": "—",
+       "value": 0,
+       "zero": true
+      },
+      "mine:2025": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "refinery:2024": {
+       "raw": "597",
+       "value": 597
+      },
+      "refinery:2025": {
+       "raw": "610",
+       "value": 610,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "—",
+       "value": 0,
+       "zero": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "de"
+    },
+    {
+     "name": "India",
+     "cells": {
+      "mine:2024": {
+       "raw": "27",
+       "value": 27
+      },
+      "mine:2025": {
+       "raw": "23",
+       "value": 23,
+       "estimated": true
+      },
+      "refinery:2024": {
+       "raw": "545",
+       "value": 545
+      },
+      "refinery:2025": {
+       "raw": "620",
+       "value": 620,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "2,200",
+       "value": 2200
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "in"
+    },
+    {
+     "name": "Indonesia",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,010",
+       "value": 1010
+      },
+      "mine:2025": {
+       "raw": "710",
+       "value": 710,
+       "estimated": true
+      },
+      "refinery:2024": {
+       "raw": "349",
+       "value": 349
+      },
+      "refinery:2025": {
+       "raw": "400",
+       "value": 400,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "21,000",
+       "value": 21000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "id"
+    },
+    {
+     "name": "Japan",
+     "cells": {
+      "mine:2024": {
+       "raw": "—",
+       "value": 0,
+       "zero": true
+      },
+      "mine:2025": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "refinery:2024": {
+       "raw": "1,570",
+       "value": 1570
+      },
+      "refinery:2025": {
+       "raw": "1,400",
+       "value": 1400,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "—",
+       "value": 0,
+       "zero": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "jp"
+    },
+    {
+     "name": "Kazakhstan",
+     "cells": {
+      "mine:2024": {
+       "raw": "724",
+       "value": 724
+      },
+      "mine:2025": {
+       "raw": "710",
+       "value": 710,
+       "estimated": true
+      },
+      "refinery:2024": {
+       "raw": "498",
+       "value": 498
+      },
+      "refinery:2025": {
+       "raw": "500",
+       "value": 500,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "20,000",
+       "value": 20000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "kz"
+    },
+    {
+     "name": "Korea, Republic of",
+     "cells": {
+      "mine:2024": {
+       "raw": "—",
+       "value": 0,
+       "zero": true
+      },
+      "mine:2025": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "refinery:2024": {
+       "raw": "604",
+       "value": 604
+      },
+      "refinery:2025": {
+       "raw": "610",
+       "value": 610,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "—",
+       "value": 0,
+       "zero": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "kr"
+    },
+    {
+     "name": "Mexico",
+     "cells": {
+      "mine:2024": {
+       "raw": "717",
+       "value": 717
+      },
+      "mine:2025": {
+       "raw": "690",
+       "value": 690,
+       "estimated": true
+      },
+      "refinery:2024": {
+       "raw": "489",
+       "value": 489
+      },
+      "refinery:2025": {
+       "raw": "480",
+       "value": 480,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "53,000",
+       "value": 53000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "mx"
+    },
+    {
+     "name": "Peru",
+     "cells": {
+      "mine:2024": {
+       "raw": "2,740",
+       "value": 2740
+      },
+      "mine:2025": {
+       "raw": "2,700",
+       "value": 2700,
+       "estimated": true
+      },
+      "refinery:2024": {
+       "raw": "385",
+       "value": 385
+      },
+      "refinery:2025": {
+       "raw": "340",
+       "value": 340,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "85,000",
+       "value": 85000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "pe"
+    },
+    {
+     "name": "Poland",
+     "cells": {
+      "mine:2024": {
+       "raw": "400",
+       "value": 400
+      },
+      "mine:2025": {
+       "raw": "410",
+       "value": 410,
+       "estimated": true
+      },
+      "refinery:2024": {
+       "raw": "589",
+       "value": 589
+      },
+      "refinery:2025": {
+       "raw": "560",
+       "value": 560,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "33,000",
+       "value": 33000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "pl"
+    },
+    {
+     "name": "Russia",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,020",
+       "value": 1020
+      },
+      "mine:2025": {
+       "raw": "1,300",
+       "value": 1300,
+       "estimated": true
+      },
+      "refinery:2024": {
+       "raw": "896",
+       "value": 896
+      },
+      "refinery:2025": {
+       "raw": "950",
+       "value": 950,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "80,000",
+       "value": 80000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ru"
+    },
+    {
+     "name": "Zambia",
+     "cells": {
+      "mine:2024": {
+       "raw": "823",
+       "value": 823
+      },
+      "mine:2025": {
+       "raw": "940",
+       "value": 940,
+       "estimated": true
+      },
+      "refinery:2024": {
+       "raw": "189",
+       "value": 189
+      },
+      "refinery:2025": {
+       "raw": "270",
+       "value": 270,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "21,000",
+       "value": 21000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "zm"
+    },
+    {
+     "name": "Other countries",
+     "cells": {
+      "mine:2024": {
+       "raw": "2,850",
+       "value": 2850
+      },
+      "mine:2025": {
+       "raw": "3,000",
+       "value": 3000,
+       "estimated": true
+      },
+      "refinery:2024": {
+       "raw": "2,310",
+       "value": 2310
+      },
+      "refinery:2025": {
+       "raw": "2,100",
+       "value": 2100,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "210,000",
+       "value": 210000
+      }
+     },
+     "footnotes": [],
+     "kind": "other"
+    },
+    {
+     "name": "World total (rounded)",
+     "cells": {
+      "mine:2024": {
+       "raw": "23,000",
+       "value": 23000
+      },
+      "mine:2025": {
+       "raw": "23,000",
+       "value": 23000,
+       "estimated": true
+      },
+      "refinery:2024": {
+       "raw": "27,600",
+       "value": 27600
+      },
+      "refinery:2025": {
+       "raw": "29,000",
+       "value": 29000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "980,000",
+       "value": 980000
+      }
+     },
+     "footnotes": [],
+     "kind": "world"
+    }
+   ],
+   "footnotes": {
+    "7": "For Australia, Joint Ore Reserves Committee-compliant or equivalent reserves were 27 million tons."
+   },
+   "events": "In 2025, production of copper was affected by concentrator shutdowns and lower ore grades at multiple mines in the United States. Domestic output of refined copper decreased by an estimated 9% compared with that in 2024 owing to planned maintenance of both primary smelters. As of September, copper production started in 2025 at a new mine in Arizona, at a new secondary smelter in Georgia, and at a new secondary refinery in Kentucky. By yearend, one additional mine in Arizona was expected to begin commercial operations. The COMEX copper price was projected to average a record high of $4. per pound in 2025, 14% greater than $4. per pound in 2024. Analysts attributed the increase primarily to uncertainty regarding the implementation of tariffs on U.S. imports of copper materials. On November 7, 2025, the U.S. Final 2025 List of Critical Minerals was published in the Federal Register (90 FR 50494). The changes in the 2025 list from the prior list published in 2022 (87 FR 10381) were the addition of copper, lead, potash, rhenium, silicon, and silver, based on the U.S. Geological Survey (USGS) updated methodology for the 2025 list. As required by the Energy Act, public comment and interagency input were requested in response to the draft U.S. list of critical minerals published in the Federal Register (90 FR 41591). Based on that input, boron, metallurgical coal, phosphate rock, and uranium were also added."
+  },
+  {
+   "slug": "cobalt",
+   "commodity": "Cobalt",
+   "resource": "cobalt",
+   "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-cobalt.pdf",
+   "table": "World Mine Production and Reserves",
+   "unit": "t",
+   "unitQuote": "Data in metric tons, cobalt content",
+   "primary": "mine",
+   "columns": [
+    {
+     "key": "mine:2024",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2024,
+     "estimated": true
+    },
+    {
+     "key": "mine:2025",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2025,
+     "estimated": true
+    },
+    {
+     "key": "reserves",
+     "measure": "reserves",
+     "year": 2025
+    }
+   ],
+   "rows": [
+    {
+     "name": "United States",
+     "cells": {
+      "mine:2024": {
+       "raw": "200",
+       "value": 200,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "300",
+       "value": 300,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "70,000",
+       "value": 70000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "us"
+    },
+    {
+     "name": "Australia",
+     "cells": {
+      "mine:2024": {
+       "raw": "4,780",
+       "value": 4780,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "3,700",
+       "value": 3700,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "1,700,000",
+       "value": 1700000,
+       "footnotes": [
+        "10"
+       ]
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "au"
+    },
+    {
+     "name": "Canada",
+     "cells": {
+      "mine:2024": {
+       "raw": "3,350",
+       "value": 3350,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "3,500",
+       "value": 3500,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "220,000",
+       "value": 220000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ca"
+    },
+    {
+     "name": "China",
+     "cells": {
+      "mine:2024": {
+       "raw": "2,000",
+       "value": 2000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "2,000",
+       "value": 2000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "160,000",
+       "value": 160000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "cn"
+    },
+    {
+     "name": "Congo (Kinshasa)",
+     "cells": {
+      "mine:2024": {
+       "raw": "226,000",
+       "value": 226000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "230,000",
+       "value": 230000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "6,000,000",
+       "value": 6000000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "cd"
+    },
+    {
+     "name": "Cuba",
+     "cells": {
+      "mine:2024": {
+       "raw": "3,450",
+       "value": 3450,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "2,000",
+       "value": 2000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "500,000",
+       "value": 500000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "cu"
+    },
+    {
+     "name": "Indonesia",
+     "cells": {
+      "mine:2024": {
+       "raw": "35,000",
+       "value": 35000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "44,000",
+       "value": 44000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "760,000",
+       "value": 760000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "id"
+    },
+    {
+     "name": "Madagascar",
+     "cells": {
+      "mine:2024": {
+       "raw": "3,100",
+       "value": 3100,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "3,900",
+       "value": 3900,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "100,000",
+       "value": 100000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "mg"
+    },
+    {
+     "name": "Papua New Guinea",
+     "cells": {
+      "mine:2024": {
+       "raw": "2,630",
+       "value": 2630,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "2,800",
+       "value": 2800,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "84,000",
+       "value": 84000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "pg"
+    },
+    {
+     "name": "Philippines",
+     "cells": {
+      "mine:2024": {
+       "raw": "3,100",
+       "value": 3100,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "3,700",
+       "value": 3700,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "260,000",
+       "value": 260000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ph"
+    },
+    {
+     "name": "Russia",
+     "cells": {
+      "mine:2024": {
+       "raw": "8,000",
+       "value": 8000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "7,700",
+       "value": 7700,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "800,000",
+       "value": 800000,
+       "footnotes": [
+        "11"
+       ]
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ru"
+    },
+    {
+     "name": "Turkey",
+     "cells": {
+      "mine:2024": {
+       "raw": "2,200",
+       "value": 2200,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "1,900",
+       "value": 1900,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "91,000",
+       "value": 91000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "tr"
+    },
+    {
+     "name": "Other countries",
+     "cells": {
+      "mine:2024": {
+       "raw": "7,780",
+       "value": 7780,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "9,100",
+       "value": 9100,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "780,000",
+       "value": 780000
+      }
+     },
+     "footnotes": [],
+     "kind": "other"
+    },
+    {
+     "name": "World total (rounded)",
+     "cells": {
+      "mine:2024": {
+       "raw": "302,000",
+       "value": 302000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "310,000",
+       "value": 310000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "12,000,000",
+       "value": 12000000
+      }
+     },
+     "footnotes": [],
+     "kind": "world"
+    }
+   ],
+   "footnotes": {
+    "10": "For Australia, Joint Ore Reserves Committee-compliant or equivalent reserves were 680,000 tons.",
+    "11": "Data from the Russia Ministry of Natural Resources."
+   },
+   "events": "Congo (Kinshasa) was the world’s leading source of mined cobalt and accounted for an estimated 73% of world total, followed by Indonesia, which accounted for 14%. In February, Congo (Kinshasa) temporarily banned cobalt exports to address market oversupply and low prices. In October, the temporary ban was replaced with export quotas of 18,125 tons of contained cobalt for the remainder of 2025, and up to 96,600 tons contained cobalt per year in 2026 and 2027, inclusive of 9,600 tons for national strategic reserves. Uncertainty in supply availability following the announcement of the Congo (Kinshasa) export ban likely contributed to the sharp increase in estimated United States imports and industry stocks during the year. China remained the world leading producer of refined cobalt and the world leading consumer, primarily for the lithium-ion battery industry. In 2025, the United States published a solicitation to procure 7,480 tons of cobalt over a period of 5 years for the National Defense Stockpile. The solicitation was cancelled before the end of the year."
+  },
+  {
+   "slug": "nickel",
+   "commodity": "Nickel",
+   "resource": "nickel",
+   "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-nickel.pdf",
+   "table": "World Mine Production and Reserves",
+   "unit": "t",
+   "unitQuote": "Data in metric tons, nickel content",
+   "primary": "mine",
+   "columns": [
+    {
+     "key": "mine:2024",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2024
+    },
+    {
+     "key": "mine:2025",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2025,
+     "estimated": true
+    },
+    {
+     "key": "reserves",
+     "measure": "reserves",
+     "year": 2025
+    }
+   ],
+   "rows": [
+    {
+     "name": "United States",
+     "cells": {
+      "mine:2024": {
+       "raw": "7,490",
+       "value": 7490
+      },
+      "mine:2025": {
+       "raw": "10,000",
+       "value": 10000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "340,000",
+       "value": 340000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "us"
+    },
+    {
+     "name": "Australia",
+     "cells": {
+      "mine:2024": {
+       "raw": "98,000",
+       "value": 98000
+      },
+      "mine:2025": {
+       "raw": "45,000",
+       "value": 45000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "25,000,000",
+       "value": 25000000,
+       "footnotes": [
+        "9"
+       ]
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "au"
+    },
+    {
+     "name": "Brazil",
+     "cells": {
+      "mine:2024": {
+       "raw": "67,500",
+       "value": 67500
+      },
+      "mine:2025": {
+       "raw": "70,000",
+       "value": 70000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "16,000,000",
+       "value": 16000000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "br"
+    },
+    {
+     "name": "Canada",
+     "cells": {
+      "mine:2024": {
+       "raw": "125,000",
+       "value": 125000
+      },
+      "mine:2025": {
+       "raw": "140,000",
+       "value": 140000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "2,200,000",
+       "value": 2200000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ca"
+    },
+    {
+     "name": "China",
+     "cells": {
+      "mine:2024": {
+       "raw": "115,000",
+       "value": 115000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "120,000",
+       "value": 120000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "4,400,000",
+       "value": 4400000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "cn"
+    },
+    {
+     "name": "Indonesia",
+     "cells": {
+      "mine:2024": {
+       "raw": "2,310,000",
+       "value": 2310000
+      },
+      "mine:2025": {
+       "raw": "2,600,000",
+       "value": 2600000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "62,000,000",
+       "value": 62000000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "id"
+    },
+    {
+     "name": "New Caledonia",
+     "cells": {
+      "mine:2024": {
+       "raw": "116,000",
+       "value": 116000
+      },
+      "mine:2025": {
+       "raw": "140,000",
+       "value": 140000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "7,100,000",
+       "value": 7100000
+      }
+     },
+     "footnotes": [
+      "10"
+     ],
+     "kind": "country",
+     "iso2": "nc"
+    },
+    {
+     "name": "Philippines",
+     "cells": {
+      "mine:2024": {
+       "raw": "354,000",
+       "value": 354000
+      },
+      "mine:2025": {
+       "raw": "270,000",
+       "value": 270000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "4,800,000",
+       "value": 4800000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ph"
+    },
+    {
+     "name": "Russia",
+     "cells": {
+      "mine:2024": {
+       "raw": "205,000",
+       "value": 205000
+      },
+      "mine:2025": {
+       "raw": "200,000",
+       "value": 200000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "8,300,000",
+       "value": 8300000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ru"
+    },
+    {
+     "name": "Other countries",
+     "cells": {
+      "mine:2024": {
+       "raw": "308,000",
+       "value": 308000
+      },
+      "mine:2025": {
+       "raw": "290,000",
+       "value": 290000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": ">9,100,000",
+       "moreThan": true,
+       "value": 9100000
+      }
+     },
+     "footnotes": [],
+     "kind": "other"
+    },
+    {
+     "name": "World total (rounded)",
+     "cells": {
+      "mine:2024": {
+       "raw": "3,710,000",
+       "value": 3710000
+      },
+      "mine:2025": {
+       "raw": "3,900,000",
+       "value": 3900000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": ">140,000,000",
+       "moreThan": true,
+       "value": 140000000
+      }
+     },
+     "footnotes": [],
+     "kind": "world"
+    }
+   ],
+   "footnotes": {
+    "9": "For Australia, Joint Ore Reserves Committee-compliant or equivalent reserves were 11 million tons.",
+    "10": "Overseas territory of France."
+   },
+   "events": "Prices continued their downward trend from 2022 highs. In 2025, the annual average LME nickel cash price was estimated to have decreased by 11% compared with that in 2024. According to the International Nickel Study Group, the global primary nickel market balance (the difference between production and consumption) has been in a state of surplus since 2022. The surplus was estimated to be 98,500 tons in 2022, 170,000 tons in 2023, and 182,000 tons in 2024. Through the first 9 months of 2025, the estimated surplus was 189,000 tons, compared with 107,000 tons during the same period in 2024. Nickel-bearing mine projects were under consideration or development in Alaska, Michigan, Minnesota, Nevada, and Oregon. In Minnesota, a company continued to progress a feasibility study for the Tamarack nickel-copper-cobalt project. In 2025, the Nikolai and NorthMet projects, located in Alaska and Minnesota, respectively, were designated as Federal Transparency Projects under the Fixing America’s Surface Transport Act and added to the permitting dashboard. Three companies were considering or developing nickel refinery projects in Missouri, Oklahoma, and Texas. In Oklahoma, a company built a pilot-scale nickel refining facility. The last U.S. primary nickel refinery, the Port Nickel facility in Louisiana, ceased operations in 1985. Small amounts of nickel continued to be recovered domestically as a byproduct of copper and platinum-group-metals processing and from recycled materials. Executive Order 14285, issued in April, called for the development of seabed mineral deposits to help secure supplies of critical minerals such as nickel. Following the order, several companies submitted applications to explore regions prospective for nickel-bearing ferromanganese crusts and polymetallic nodules. A 2022 U.S. Geological Survey study estimated that global seabed deposits contain approximately 4. billion tons of nickel. Estimated global nickel mine production increased by 5% to an estimated 3. million tons in 2025. Production in Indonesia increased by an estimated 13% as new operations continued to ramp up production. Canadian production increased after a company completed a mine expansion. In New Caledonia, production increased as a result of more consistent operating conditions after the interruptions in 2024. Production in Australia decreased by an estimated 54% after multiple companies placed mines into care-and-maintenance status owing to low prices. In the Philippines, production declined by an estimated 24% after multiple mines reported production cuts. In the Philippine Province of Palawan, a 50-year ban on new mining permits was announced. The ban did not affect existing operations."
+  },
+  {
+   "slug": "rare-earths",
+   "commodity": "Rare earths",
+   "resource": "rare-earths",
+   "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-rare-earths.pdf",
+   "table": "World Mine Production and Reserves",
+   "unit": "t",
+   "unitQuote": "Data in metric tons, rare-earth-oxide (REO) equivalent",
+   "primary": "mine",
+   "columns": [
+    {
+     "key": "mine:2024",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2024,
+     "estimated": true
+    },
+    {
+     "key": "mine:2025",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2025,
+     "estimated": true
+    },
+    {
+     "key": "reserves",
+     "measure": "reserves",
+     "year": 2025
+    }
+   ],
+   "rows": [
+    {
+     "name": "United States",
+     "cells": {
+      "mine:2024": {
+       "raw": "45,500",
+       "value": 45500,
+       "footnotes": [
+        "11"
+       ]
+      },
+      "mine:2025": {
+       "raw": "51,000",
+       "value": 51000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "1,900,000",
+       "value": 1900000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "us"
+    },
+    {
+     "name": "Australia",
+     "cells": {
+      "mine:2024": {
+       "raw": "29,000",
+       "value": 29000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "29,000",
+       "value": 29000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "6,300,000",
+       "value": 6300000,
+       "footnotes": [
+        "13"
+       ]
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "au"
+    },
+    {
+     "name": "Brazil",
+     "cells": {
+      "mine:2024": {
+       "raw": "560",
+       "value": 560,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "2,000",
+       "value": 2000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "11,000,000",
+       "value": 11000000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "br"
+    },
+    {
+     "name": "Burma",
+     "cells": {
+      "mine:2024": {
+       "raw": "27,000",
+       "value": 27000,
+       "footnotes": [
+        "12"
+       ],
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "22,000",
+       "value": 22000,
+       "footnotes": [
+        "12"
+       ],
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "NA",
+       "notAvailable": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "mm"
+    },
+    {
+     "name": "Canada",
+     "cells": {
+      "mine:2024": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "830,000",
+       "value": 830000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ca"
+    },
+    {
+     "name": "China",
+     "cells": {
+      "mine:2024": {
+       "raw": "270,000",
+       "value": 270000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "270,000",
+       "value": 270000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "44,000,000",
+       "value": 44000000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "cn"
+    },
+    {
+     "name": "Greenland",
+     "cells": {
+      "mine:2024": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "1,500,000",
+       "value": 1500000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "gl"
+    },
+    {
+     "name": "India",
+     "cells": {
+      "mine:2024": {
+       "raw": "2,900",
+       "value": 2900,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "2,900",
+       "value": 2900,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "NA",
+       "notAvailable": true,
+       "footnotes": [
+        "14"
+       ]
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "in"
+    },
+    {
+     "name": "Madagascar",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,400",
+       "value": 1400,
+       "footnotes": [
+        "12"
+       ],
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "2,700",
+       "value": 2700,
+       "footnotes": [
+        "12"
+       ],
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "NA",
+       "notAvailable": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "mg"
+    },
+    {
+     "name": "Malaysia",
+     "cells": {
+      "mine:2024": {
+       "raw": "140",
+       "value": 140,
+       "footnotes": [
+        "12"
+       ],
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "110",
+       "value": 110,
+       "footnotes": [
+        "12"
+       ],
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "710,000",
+       "value": 710000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "my"
+    },
+    {
+     "name": "Nigeria",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,500",
+       "value": 1500,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "1,500",
+       "value": 1500,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "NA",
+       "notAvailable": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ng"
+    },
+    {
+     "name": "Russia",
+     "cells": {
+      "mine:2024": {
+       "raw": "2,600",
+       "value": 2600,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "2,600",
+       "value": 2600,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "3,800,000",
+       "value": 3800000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ru"
+    },
+    {
+     "name": "South Africa",
+     "cells": {
+      "mine:2024": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "860,000",
+       "value": 860000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "za"
+    },
+    {
+     "name": "Tanzania",
+     "cells": {
+      "mine:2024": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "890,000",
+       "value": 890000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "tz"
+    },
+    {
+     "name": "Thailand",
+     "cells": {
+      "mine:2024": {
+       "raw": "2,100",
+       "value": 2100,
+       "footnotes": [
+        "12"
+       ],
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "4,800",
+       "value": 4800,
+       "footnotes": [
+        "12"
+       ],
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "NA",
+       "notAvailable": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "th"
+    },
+    {
+     "name": "Vietnam",
+     "cells": {
+      "mine:2024": {
+       "raw": "300",
+       "value": 300,
+       "footnotes": [
+        "12"
+       ],
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "150",
+       "value": 150,
+       "footnotes": [
+        "12"
+       ],
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "3,500,000",
+       "value": 3500000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "vn"
+    },
+    {
+     "name": "Other",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,000",
+       "value": 1000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "550",
+       "value": 550,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "NA",
+       "notAvailable": true
+      }
+     },
+     "footnotes": [],
+     "kind": "other"
+    },
+    {
+     "name": "World total (rounded)",
+     "cells": {
+      "mine:2024": {
+       "raw": "380,000",
+       "value": 380000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "390,000",
+       "value": 390000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": ">75,000,000",
+       "moreThan": true,
+       "value": 75000000
+      }
+     },
+     "footnotes": [],
+     "kind": "world"
+    }
+   ],
+   "footnotes": {
+    "11": "Reported.",
+    "12": "Estimated based on reported import data for China. Source: Trade Data Monitor Inc.",
+    "13": "For Australia, Joint Ore Reserves Committee-compliant or equivalent reserves were 3.3 million tons.",
+    "14": "A 2015 report from OSCOM indicated that monazite reserves from their operations were 256,000 tons; rare-earth reserves were not reported."
+   },
+   "events": "In April 2025, China tightened its export controls on rare-earth elements, adding specific controls on alloys, compounds, metals, and oxides of samarium, gadolinium, terbium, dysprosium, lutetium, scandium, and yttrium. In October, China expanded its rare-earths export controls to include europium, holmium, erbium, thulium, and ytterbium. In November, China suspended the October export controls for 1 year. The April export controls remained in effect, although China began to issue general export licenses to selected exporters."
+  },
+  {
+   "slug": "graphite",
+   "commodity": "Graphite (natural)",
+   "resource": "graphite",
+   "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-graphite.pdf",
+   "table": "World Mine Production and Reserves",
+   "unit": "t",
+   "unitQuote": "Data in metric tons",
+   "primary": "mine",
+   "columns": [
+    {
+     "key": "mine:2024",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2024
+    },
+    {
+     "key": "mine:2025",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2025,
+     "estimated": true
+    },
+    {
+     "key": "reserves",
+     "measure": "reserves",
+     "year": 2025
+    }
+   ],
+   "rows": [
+    {
+     "name": "United States",
+     "cells": {
+      "mine:2024": {
+       "raw": "—",
+       "value": 0,
+       "zero": true
+      },
+      "mine:2025": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "us"
+    },
+    {
+     "name": "Austria",
+     "cells": {
+      "mine:2024": {
+       "raw": "100",
+       "value": 100
+      },
+      "mine:2025": {
+       "raw": "200",
+       "value": 200,
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "at"
+    },
+    {
+     "name": "Brazil",
+     "cells": {
+      "mine:2024": {
+       "raw": "58,000",
+       "value": 58000
+      },
+      "mine:2025": {
+       "raw": "65,000",
+       "value": 65000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "74,000,000",
+       "value": 74000000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "br"
+    },
+    {
+     "name": "Canada",
+     "cells": {
+      "mine:2024": {
+       "raw": "11,700",
+       "value": 11700
+      },
+      "mine:2025": {
+       "raw": "8,000",
+       "value": 8000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "5,900,000",
+       "value": 5900000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ca"
+    },
+    {
+     "name": "China",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,270,000",
+       "value": 1270000
+      },
+      "mine:2025": {
+       "raw": "1,400,000",
+       "value": 1400000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "100,000,000",
+       "value": 100000000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "cn"
+    },
+    {
+     "name": "Germany",
+     "cells": {
+      "mine:2024": {
+       "raw": "140",
+       "value": 140
+      },
+      "mine:2025": {
+       "raw": "140",
+       "value": 140,
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "de"
+    },
+    {
+     "name": "India",
+     "cells": {
+      "mine:2024": {
+       "raw": "17,600",
+       "value": 17600
+      },
+      "mine:2025": {
+       "raw": "17,000",
+       "value": 17000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "8,600,000",
+       "value": 8600000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "in"
+    },
+    {
+     "name": "Korea, North",
+     "cells": {
+      "mine:2024": {
+       "raw": "8,100",
+       "value": 8100,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "8,000",
+       "value": 8000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "2,000,000",
+       "value": 2000000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "kp"
+    },
+    {
+     "name": "Korea, Republic of",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,000",
+       "value": 1000
+      },
+      "mine:2025": {
+       "raw": "500",
+       "value": 500,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "1,800,000",
+       "value": 1800000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "kr"
+    },
+    {
+     "name": "Madagascar",
+     "cells": {
+      "mine:2024": {
+       "raw": "85,000",
+       "value": 85000
+      },
+      "mine:2025": {
+       "raw": "80,000",
+       "value": 80000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "27,000,000",
+       "value": 27000000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "mg"
+    },
+    {
+     "name": "Mexico",
+     "cells": {
+      "mine:2024": {
+       "raw": "706",
+       "value": 706
+      },
+      "mine:2025": {
+       "raw": "740",
+       "value": 740,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "3,100,000",
+       "value": 3100000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "mx"
+    },
+    {
+     "name": "Mozambique",
+     "cells": {
+      "mine:2024": {
+       "raw": "39,000",
+       "value": 39000
+      },
+      "mine:2025": {
+       "raw": "60,000",
+       "value": 60000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "25,000,000",
+       "value": 25000000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "mz"
+    },
+    {
+     "name": "Norway",
+     "cells": {
+      "mine:2024": {
+       "raw": "5,340",
+       "value": 5340
+      },
+      "mine:2025": {
+       "raw": "6,600",
+       "value": 6600,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "600,000",
+       "value": 600000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "no"
+    },
+    {
+     "name": "Russia",
+     "cells": {
+      "mine:2024": {
+       "raw": "20,000",
+       "value": 20000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "25,000",
+       "value": 25000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "14,000,000",
+       "value": 14000000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ru"
+    },
+    {
+     "name": "Sri Lanka",
+     "cells": {
+      "mine:2024": {
+       "raw": "3,000",
+       "value": 3000
+      },
+      "mine:2025": {
+       "raw": "3,200",
+       "value": 3200,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "1,500,000",
+       "value": 1500000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "lk"
+    },
+    {
+     "name": "Tanzania",
+     "cells": {
+      "mine:2024": {
+       "raw": "27,000",
+       "value": 27000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "75,000",
+       "value": 75000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "18,000,000",
+       "value": 18000000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "tz"
+    },
+    {
+     "name": "Turkey",
+     "cells": {
+      "mine:2024": {
+       "raw": "2,600",
+       "value": 2600
+      },
+      "mine:2025": {
+       "raw": "2,200",
+       "value": 2200,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "6,900,000",
+       "value": 6900000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "tr"
+    },
+    {
+     "name": "Ukraine",
+     "cells": {
+      "mine:2024": {
+       "raw": "900",
+       "value": 900
+      },
+      "mine:2025": {
+       "raw": "800",
+       "value": 800,
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ua"
+    },
+    {
+     "name": "Vietnam",
+     "cells": {
+      "mine:2024": {
+       "raw": "500",
+       "value": 500
+      },
+      "mine:2025": {
+       "raw": "500",
+       "value": 500,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "9,700,000",
+       "value": 9700000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "vn"
+    },
+    {
+     "name": "World total (rounded)",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,550,000",
+       "value": 1550000
+      },
+      "mine:2025": {
+       "raw": "1,800,000",
+       "value": 1800000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "310,000,000",
+       "value": 310000000
+      }
+     },
+     "footnotes": [],
+     "kind": "world"
+    }
+   ],
+   "footnotes": {},
+   "events": "In 2022, U.S. apparent consumption of natural graphite reached its highest level since 1978 and remained elevated through 2025. Imports of graphite battery anode material, natural and synthetic, during the first 8 months of 2025 were 43,400 tons compared with 28,100 tons for the same period in 2024. The leading sources in 2025 were China (55%), Indonesia (31%), and the Republic of Korea (14%). In December 2024, a group of graphite producers based in North America submitted a petition asking the U.S. Department of Commerce (DOC) and the U.S. International Trade Commission (ITC) to review China’s trade practices involving graphite active anode material (AAM). The ITC determined that AAM from China was likely being sold at less than fair market value in the United States. In 2025, the DOC released its preliminary results, which set antidumping duties at 93.50% and countervailing duties ranging from 11.58% to 721.03% depending on the company. In 2025, China was the world’s leading natural graphite supplier, producing an estimated 82% of total world production. Most production of natural graphite in China was crystalline flake. During the first 9 months of the year, China exported 115,000 tons of natural graphite, 6% more than the 109,000 tons exported during the same period in 2024. During the first 9 months of 2025, China exported 37,400 tons of spherical purified graphite (SPG), 29% more than the 29,100 tons exported during the same period in 2024. The leading recipients of natural graphite from China in the first 9 months of 2025 were Japan (36%), Indonesia (22%), the Republic of Korea (10%), and Germany (8%). The leading recipients of SPG from China in the first 9 months of 2025 were the Republic of Korea (40%), Indonesia (33%), Japan (16%), and the United States (11%). The increase of exports to Indonesia were likely owing to a Chinese company’s new SPG facility that began production in Central Java, Indonesia. Chinese companies were also developing or considering SPG facilities in Finland, Malaysia, Morocco, Oman, and Sweden. Five companies were considering or developing graphite-mining projects in the United States: two in Alabama, one in Alaska, one in Montana, and one in New York. In Alaska, the company completed a feasibility study in 2025, which included plans to produce an average of 175,000 tons per year of graphite concentrate over 20 years. The project was also added to the Fixing America’s Surface Transport Act dashboard, which seeks to decrease permitting timelines. In New York, a zinc producer continued development of the Kilbourne graphite deposit near its existing zinc mine. The company also began construction of a graphite demonstration plant to produce natural graphite concentrate for qualification purposes. In 2025, Tanzania more than doubled graphite production to 75,000 tons. Commercial production began in 2017 with a Tanzanian company in Manyara, and in 2019 a Chinese company started production in Tanga. In 2024, Australian and Chinese companies commissioned graphite mines in Lindi and Manyara, respectively. In Mozambique, a Chinese company began production at a new graphite mine in Niassa and an Australian company restarted production at the Balama Mine in June after being suspended since late 2024. In Brazil, two companies continued to ramp up production at the Boa Sorte and Santa Cruz graphite mines, both of which began production in 2024. Additionally, a Russian company began graphite production at the Soyuznoye deposit in 2025. SPG was produced in the United States by two companies in Illinois and Louisiana. In Alabama, a company commissioned an SPG qualification line at its plant in Kellyton. At least eight other companies were considering SPG plants in the United States. In Australia, a company commissioned an SPG demonstration plant in Queensland."
+  },
+  {
+   "slug": "iron-ore",
+   "commodity": "Iron ore",
+   "resource": "iron",
+   "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-iron-ore.pdf",
+   "table": "World Mine Production and Reserves",
+   "unit": "kt",
+   "unitQuote": "Data in thousand metric tons, usable ore; reserves in million metric tons",
+   "primary": "mine-usable-ore",
+   "columns": [
+    {
+     "key": "mine-usable-ore:2024",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2024,
+     "product": "usable ore"
+    },
+    {
+     "key": "mine-usable-ore:2025",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2025,
+     "product": "usable ore",
+     "estimated": true
+    },
+    {
+     "key": "mine-iron-content:2024",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2024,
+     "product": "iron content"
+    },
+    {
+     "key": "mine-iron-content:2025",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2025,
+     "product": "iron content",
+     "estimated": true
+    },
+    {
+     "key": "reserves-crude-ore",
+     "measure": "reserves",
+     "year": 2025,
+     "product": "crude ore",
+     "unit": "Mt"
+    },
+    {
+     "key": "reserves-iron-content",
+     "measure": "reserves",
+     "year": 2025,
+     "product": "iron content",
+     "unit": "Mt"
+    }
+   ],
+   "rows": [
+    {
+     "name": "United States",
+     "cells": {
+      "mine-usable-ore:2024": {
+       "raw": "45,100",
+       "value": 45100
+      },
+      "mine-usable-ore:2025": {
+       "raw": "38,000",
+       "value": 38000,
+       "estimated": true
+      },
+      "mine-iron-content:2024": {
+       "raw": "28,600",
+       "value": 28600
+      },
+      "mine-iron-content:2025": {
+       "raw": "24,000",
+       "value": 24000,
+       "estimated": true
+      },
+      "reserves-crude-ore": {
+       "raw": "3,600",
+       "value": 3600
+      },
+      "reserves-iron-content": {
+       "raw": "2,700",
+       "value": 2700
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "us"
+    },
+    {
+     "name": "Australia",
+     "cells": {
+      "mine-usable-ore:2024": {
+       "raw": "982,000",
+       "value": 982000
+      },
+      "mine-usable-ore:2025": {
+       "raw": "980,000",
+       "value": 980000,
+       "estimated": true
+      },
+      "mine-iron-content:2024": {
+       "raw": "607,000",
+       "value": 607000
+      },
+      "mine-iron-content:2025": {
+       "raw": "600,000",
+       "value": 600000,
+       "estimated": true
+      },
+      "reserves-crude-ore": {
+       "raw": "59,000",
+       "value": 59000,
+       "footnotes": [
+        "6"
+       ]
+      },
+      "reserves-iron-content": {
+       "raw": "27,000",
+       "value": 27000,
+       "footnotes": [
+        "6"
+       ]
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "au"
+    },
+    {
+     "name": "Brazil",
+     "cells": {
+      "mine-usable-ore:2024": {
+       "raw": "428,000",
+       "value": 428000
+      },
+      "mine-usable-ore:2025": {
+       "raw": "420,000",
+       "value": 420000,
+       "estimated": true
+      },
+      "mine-iron-content:2024": {
+       "raw": "268,000",
+       "value": 268000
+      },
+      "mine-iron-content:2025": {
+       "raw": "260,000",
+       "value": 260000,
+       "estimated": true
+      },
+      "reserves-crude-ore": {
+       "raw": "34,000",
+       "value": 34000
+      },
+      "reserves-iron-content": {
+       "raw": "15,000",
+       "value": 15000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "br"
+    },
+    {
+     "name": "Canada",
+     "cells": {
+      "mine-usable-ore:2024": {
+       "raw": "70,000",
+       "value": 70000
+      },
+      "mine-usable-ore:2025": {
+       "raw": "69,000",
+       "value": 69000,
+       "estimated": true
+      },
+      "mine-iron-content:2024": {
+       "raw": "42,000",
+       "value": 42000
+      },
+      "mine-iron-content:2025": {
+       "raw": "41,000",
+       "value": 41000,
+       "estimated": true
+      },
+      "reserves-crude-ore": {
+       "raw": "6,000",
+       "value": 6000
+      },
+      "reserves-iron-content": {
+       "raw": "2,300",
+       "value": 2300
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ca"
+    },
+    {
+     "name": "Chile",
+     "cells": {
+      "mine-usable-ore:2024": {
+       "raw": "18,000",
+       "value": 18000,
+       "estimated": true
+      },
+      "mine-usable-ore:2025": {
+       "raw": "19,000",
+       "value": 19000,
+       "estimated": true
+      },
+      "mine-iron-content:2024": {
+       "raw": "11,000",
+       "value": 11000,
+       "estimated": true
+      },
+      "mine-iron-content:2025": {
+       "raw": "12,000",
+       "value": 12000,
+       "estimated": true
+      },
+      "reserves-crude-ore": {
+       "raw": "3,000",
+       "value": 3000
+      },
+      "reserves-iron-content": {
+       "raw": "740",
+       "value": 740
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "cl"
+    },
+    {
+     "name": "China",
+     "cells": {
+      "mine-usable-ore:2024": {
+       "raw": "293,000",
+       "value": 293000
+      },
+      "mine-usable-ore:2025": {
+       "raw": "290,000",
+       "value": 290000,
+       "estimated": true
+      },
+      "mine-iron-content:2024": {
+       "raw": "183,000",
+       "value": 183000
+      },
+      "mine-iron-content:2025": {
+       "raw": "180,000",
+       "value": 180000,
+       "estimated": true
+      },
+      "reserves-crude-ore": {
+       "raw": "17,000",
+       "value": 17000
+      },
+      "reserves-iron-content": {
+       "raw": "3,000",
+       "value": 3000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "cn"
+    },
+    {
+     "name": "India",
+     "cells": {
+      "mine-usable-ore:2024": {
+       "raw": "282,000",
+       "value": 282000
+      },
+      "mine-usable-ore:2025": {
+       "raw": "310,000",
+       "value": 310000,
+       "estimated": true
+      },
+      "mine-iron-content:2024": {
+       "raw": "175,000",
+       "value": 175000
+      },
+      "mine-iron-content:2025": {
+       "raw": "190,000",
+       "value": 190000,
+       "estimated": true
+      },
+      "reserves-crude-ore": {
+       "raw": "5,500",
+       "value": 5500
+      },
+      "reserves-iron-content": {
+       "raw": "3,400",
+       "value": 3400
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "in"
+    },
+    {
+     "name": "Iran",
+     "cells": {
+      "mine-usable-ore:2024": {
+       "raw": "90,000",
+       "value": 90000,
+       "estimated": true
+      },
+      "mine-usable-ore:2025": {
+       "raw": "93,000",
+       "value": 93000,
+       "estimated": true
+      },
+      "mine-iron-content:2024": {
+       "raw": "59,000",
+       "value": 59000,
+       "estimated": true
+      },
+      "mine-iron-content:2025": {
+       "raw": "61,000",
+       "value": 61000,
+       "estimated": true
+      },
+      "reserves-crude-ore": {
+       "raw": "4,200",
+       "value": 4200
+      },
+      "reserves-iron-content": {
+       "raw": "1,500",
+       "value": 1500
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ir"
+    },
+    {
+     "name": "Kazakhstan",
+     "cells": {
+      "mine-usable-ore:2024": {
+       "raw": "37,000",
+       "value": 37000
+      },
+      "mine-usable-ore:2025": {
+       "raw": "35,000",
+       "value": 35000,
+       "estimated": true
+      },
+      "mine-iron-content:2024": {
+       "raw": "11,100",
+       "value": 11100
+      },
+      "mine-iron-content:2025": {
+       "raw": "11,000",
+       "value": 11000,
+       "estimated": true
+      },
+      "reserves-crude-ore": {
+       "raw": "3,800",
+       "value": 3800
+      },
+      "reserves-iron-content": {
+       "raw": "1,500",
+       "value": 1500
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "kz"
+    },
+    {
+     "name": "Mauritania",
+     "cells": {
+      "mine-usable-ore:2024": {
+       "raw": "14,300",
+       "value": 14300
+      },
+      "mine-usable-ore:2025": {
+       "raw": "15,000",
+       "value": 15000,
+       "estimated": true
+      },
+      "mine-iron-content:2024": {
+       "raw": "8,940",
+       "value": 8940
+      },
+      "mine-iron-content:2025": {
+       "raw": "9,300",
+       "value": 9300,
+       "estimated": true
+      },
+      "reserves-crude-ore": {
+       "raw": "10,000",
+       "value": 10000
+      },
+      "reserves-iron-content": {
+       "raw": "4,400",
+       "value": 4400
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "mr"
+    },
+    {
+     "name": "Mexico",
+     "cells": {
+      "mine-usable-ore:2024": {
+       "raw": "7,800",
+       "value": 7800
+      },
+      "mine-usable-ore:2025": {
+       "raw": "7,700",
+       "value": 7700,
+       "estimated": true
+      },
+      "mine-iron-content:2024": {
+       "raw": "4,900",
+       "value": 4900
+      },
+      "mine-iron-content:2025": {
+       "raw": "4,800",
+       "value": 4800,
+       "estimated": true
+      },
+      "reserves-crude-ore": {
+       "raw": "940",
+       "value": 940
+      },
+      "reserves-iron-content": {
+       "raw": "520",
+       "value": 520
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "mx"
+    },
+    {
+     "name": "Peru",
+     "cells": {
+      "mine-usable-ore:2024": {
+       "raw": "19,800",
+       "value": 19800
+      },
+      "mine-usable-ore:2025": {
+       "raw": "21,000",
+       "value": 21000,
+       "estimated": true
+      },
+      "mine-iron-content:2024": {
+       "raw": "13,300",
+       "value": 13300
+      },
+      "mine-iron-content:2025": {
+       "raw": "14,000",
+       "value": 14000,
+       "estimated": true
+      },
+      "reserves-crude-ore": {
+       "raw": "1,800",
+       "value": 1800
+      },
+      "reserves-iron-content": {
+       "raw": "1,000",
+       "value": 1000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "pe"
+    },
+    {
+     "name": "Russia",
+     "cells": {
+      "mine-usable-ore:2024": {
+       "raw": "91,000",
+       "value": 91000,
+       "estimated": true
+      },
+      "mine-usable-ore:2025": {
+       "raw": "86,000",
+       "value": 86000,
+       "estimated": true
+      },
+      "mine-iron-content:2024": {
+       "raw": "53,000",
+       "value": 53000,
+       "estimated": true
+      },
+      "mine-iron-content:2025": {
+       "raw": "50,000",
+       "value": 50000,
+       "estimated": true
+      },
+      "reserves-crude-ore": {
+       "raw": "35,000",
+       "value": 35000
+      },
+      "reserves-iron-content": {
+       "raw": "14,000",
+       "value": 14000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ru"
+    },
+    {
+     "name": "South Africa",
+     "cells": {
+      "mine-usable-ore:2024": {
+       "raw": "64,000",
+       "value": 64000,
+       "estimated": true
+      },
+      "mine-usable-ore:2025": {
+       "raw": "66,000",
+       "value": 66000,
+       "estimated": true
+      },
+      "mine-iron-content:2024": {
+       "raw": "41,000",
+       "value": 41000,
+       "estimated": true
+      },
+      "mine-iron-content:2025": {
+       "raw": "42,000",
+       "value": 42000,
+       "estimated": true
+      },
+      "reserves-crude-ore": {
+       "raw": "1,200",
+       "value": 1200
+      },
+      "reserves-iron-content": {
+       "raw": "680",
+       "value": 680
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "za"
+    },
+    {
+     "name": "Sweden",
+     "cells": {
+      "mine-usable-ore:2024": {
+       "raw": "25,000",
+       "value": 25000,
+       "estimated": true
+      },
+      "mine-usable-ore:2025": {
+       "raw": "26,000",
+       "value": 26000,
+       "estimated": true
+      },
+      "mine-iron-content:2024": {
+       "raw": "18,000",
+       "value": 18000,
+       "estimated": true
+      },
+      "mine-iron-content:2025": {
+       "raw": "18,000",
+       "value": 18000,
+       "estimated": true
+      },
+      "reserves-crude-ore": {
+       "raw": "1,300",
+       "value": 1300
+      },
+      "reserves-iron-content": {
+       "raw": "600",
+       "value": 600
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "se"
+    },
+    {
+     "name": "Turkey",
+     "cells": {
+      "mine-usable-ore:2024": {
+       "raw": "17,000",
+       "value": 17000,
+       "estimated": true
+      },
+      "mine-usable-ore:2025": {
+       "raw": "18,000",
+       "value": 18000,
+       "estimated": true
+      },
+      "mine-iron-content:2024": {
+       "raw": "11,000",
+       "value": 11000,
+       "estimated": true
+      },
+      "mine-iron-content:2025": {
+       "raw": "11,000",
+       "value": 11000,
+       "estimated": true
+      },
+      "reserves-crude-ore": {
+       "raw": "150",
+       "value": 150
+      },
+      "reserves-iron-content": {
+       "raw": "99",
+       "value": 99
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "tr"
+    },
+    {
+     "name": "Ukraine",
+     "cells": {
+      "mine-usable-ore:2024": {
+       "raw": "54,700",
+       "value": 54700
+      },
+      "mine-usable-ore:2025": {
+       "raw": "52,000",
+       "value": 52000,
+       "estimated": true
+      },
+      "mine-iron-content:2024": {
+       "raw": "34,000",
+       "value": 34000
+      },
+      "mine-iron-content:2025": {
+       "raw": "32,000",
+       "value": 32000,
+       "estimated": true
+      },
+      "reserves-crude-ore": {
+       "raw": "6,500",
+       "value": 6500,
+       "footnotes": [
+        "7"
+       ]
+      },
+      "reserves-iron-content": {
+       "raw": "2,300",
+       "value": 2300,
+       "footnotes": [
+        "7"
+       ]
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ua"
+    },
+    {
+     "name": "Other countries",
+     "cells": {
+      "mine-usable-ore:2024": {
+       "raw": "60,700",
+       "value": 60700
+      },
+      "mine-usable-ore:2025": {
+       "raw": "64,000",
+       "value": 64000,
+       "estimated": true
+      },
+      "mine-iron-content:2024": {
+       "raw": "34,700",
+       "value": 34700
+      },
+      "mine-iron-content:2025": {
+       "raw": "36,000",
+       "value": 36000,
+       "estimated": true
+      },
+      "reserves-crude-ore": {
+       "raw": "11,000",
+       "value": 11000
+      },
+      "reserves-iron-content": {
+       "raw": "6,000",
+       "value": 6000
+      }
+     },
+     "footnotes": [],
+     "kind": "other"
+    },
+    {
+     "name": "World total (rounded)",
+     "cells": {
+      "mine-usable-ore:2024": {
+       "raw": "2,600,000",
+       "value": 2600000
+      },
+      "mine-usable-ore:2025": {
+       "raw": "2,600,000",
+       "value": 2600000,
+       "estimated": true
+      },
+      "mine-iron-content:2024": {
+       "raw": "1,600,000",
+       "value": 1600000
+      },
+      "mine-iron-content:2025": {
+       "raw": "1,600,000",
+       "value": 1600000,
+       "estimated": true
+      },
+      "reserves-crude-ore": {
+       "raw": "200,000",
+       "value": 200000
+      },
+      "reserves-iron-content": {
+       "raw": "87,000",
+       "value": 87000
+      }
+     },
+     "footnotes": [],
+     "kind": "world"
+    }
+   ],
+   "footnotes": {
+    "6": "For Australia, Joint Ore Reserves Committee-compliant or equivalent reserves were 24 billion tons of crude ore and 10 billion tons of iron content.",
+    "7": "For Ukraine, reserves consist of the A and B categories of the Soviet reserves classification system."
+   },
+   "events": "Iron ore production in 2025 was estimated to have decreased owing to the idling of two iron ore mines in March as part of the operating company’s strategy to decrease stockpiles. Domestic iron ore production was estimated to be 38 million tons in 2025, a 16% decrease from 45. million tons in 2024. Global prices of iron ore averaged a unit value of $99. per ton (spot prices for imported iron ore fines, 62% iron content, cost, insurance, and freight, at Tianjin Port, China) in the first 9 months of 2025, a decrease from $112. during the same period in 2024. Domestic pig iron production and raw steel production were estimated to have increased to 21 million tons and 82 million tons, respectively, in 2025. In December 2024, one company announced that construction would restart at a 7-million-ton-per-year-productioncapacity iron mine and pelletizing plant project in Minnesota with startup expected in early 2026. In March, another company idled two iron ore mines in Minnesota: one was indefinitely idled and the other was partially idled. The two mines were rated for a combined 10-million-ton-per-year production capacity. In September and October, two companies announced plans to explore rare-earth-element extraction at iron ore deposits. One of the companies was developing an iron ore mine in Nevada with a permit to extract 11. million tons per year. The other operates multiple mines in Minnesota and Michigan. The World Steel Association estimated global finished steel demand to remain unchanged in 2025. Global end-use consumption of steel products was affected in 2025 by declining steel demand in China offset by growth in developing economies including Egypt, India, Saudi Arabia, and Vietnam. Globally, the manufacturing sector was affected by affordability pressures on consumers and elevated production costs. Countries with economies reliant on the export of automotive components, machinery, and other steel-intensive goods were negatively affected by trade tensions. On November 7, 2025, the U.S. Final 2025 List of Critical Minerals was published in the Federal Register (90 FR 50494). The changes in the 2025 list from the prior list published in 2022 (87 FR 10381) were the addition of copper, lead, potash, rhenium, silicon, and silver, based on the U.S. Geological Survey updated methodology for the 2025 list. As required by the Energy Act, public comment and interagency input were requested in response to the draft U.S. list of critical minerals published in the Federal Register (90 FR 41591). Based on that input, boron, metallurgical coal, phosphate, and uranium were also added. Metallurgical coal was added because of its role in the smelting and refining of iron ore into steel at blast furnaces and basic oxygen furnaces."
+  },
+  {
+   "slug": "bauxite-alumina",
+   "commodity": "Bauxite and alumina",
+   "resource": "bauxite",
+   "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-bauxite-alumina.pdf",
+   "table": "World Alumina Refinery and Bauxite Mine Production and Bauxite Reserves",
+   "unit": "kt",
+   "unitQuote": "Data in thousand metric dry tons",
+   "primary": "mine-bauxite",
+   "columns": [
+    {
+     "key": "refinery-alumina:2024",
+     "measure": "production",
+     "stage": "refinery",
+     "year": 2024,
+     "product": "alumina"
+    },
+    {
+     "key": "refinery-alumina:2025",
+     "measure": "production",
+     "stage": "refinery",
+     "year": 2025,
+     "product": "alumina",
+     "estimated": true
+    },
+    {
+     "key": "mine-bauxite:2024",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2024,
+     "product": "bauxite"
+    },
+    {
+     "key": "mine-bauxite:2025",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2025,
+     "product": "bauxite",
+     "estimated": true
+    },
+    {
+     "key": "reserves-bauxite",
+     "measure": "reserves",
+     "year": 2025,
+     "product": "bauxite"
+    }
+   ],
+   "rows": [
+    {
+     "name": "United States",
+     "cells": {
+      "refinery-alumina:2024": {
+       "raw": "700",
+       "value": 700,
+       "estimated": true
+      },
+      "refinery-alumina:2025": {
+       "raw": "710",
+       "value": 710,
+       "estimated": true
+      },
+      "mine-bauxite:2024": {
+       "raw": "W",
+       "withheld": true
+      },
+      "mine-bauxite:2025": {
+       "raw": "W",
+       "withheld": true,
+       "estimated": true
+      },
+      "reserves-bauxite": {
+       "raw": "20,000",
+       "value": 20000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "us"
+    },
+    {
+     "name": "Australia",
+     "cells": {
+      "refinery-alumina:2024": {
+       "raw": "17,100",
+       "value": 17100
+      },
+      "refinery-alumina:2025": {
+       "raw": "17,000",
+       "value": 17000,
+       "estimated": true
+      },
+      "mine-bauxite:2024": {
+       "raw": "100,000",
+       "value": 100000
+      },
+      "mine-bauxite:2025": {
+       "raw": "97,000",
+       "value": 97000,
+       "estimated": true
+      },
+      "reserves-bauxite": {
+       "raw": "3,700,000",
+       "value": 3700000,
+       "footnotes": [
+        "7"
+       ]
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "au"
+    },
+    {
+     "name": "Brazil",
+     "cells": {
+      "refinery-alumina:2024": {
+       "raw": "10,600",
+       "value": 10600,
+       "estimated": true
+      },
+      "refinery-alumina:2025": {
+       "raw": "11,000",
+       "value": 11000,
+       "estimated": true
+      },
+      "mine-bauxite:2024": {
+       "raw": "33,000",
+       "value": 33000,
+       "estimated": true
+      },
+      "mine-bauxite:2025": {
+       "raw": "33,000",
+       "value": 33000,
+       "estimated": true
+      },
+      "reserves-bauxite": {
+       "raw": "1,700,000",
+       "value": 1700000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "br"
+    },
+    {
+     "name": "Canada",
+     "cells": {
+      "refinery-alumina:2024": {
+       "raw": "1,460",
+       "value": 1460
+      },
+      "refinery-alumina:2025": {
+       "raw": "1,500",
+       "value": 1500,
+       "estimated": true
+      },
+      "mine-bauxite:2024": {
+       "raw": "—",
+       "value": 0,
+       "zero": true
+      },
+      "mine-bauxite:2025": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "reserves-bauxite": {
+       "raw": "—",
+       "value": 0,
+       "zero": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ca"
+    },
+    {
+     "name": "China",
+     "cells": {
+      "refinery-alumina:2024": {
+       "raw": "85,500",
+       "value": 85500
+      },
+      "refinery-alumina:2025": {
+       "raw": "93,000",
+       "value": 93000,
+       "estimated": true
+      },
+      "mine-bauxite:2024": {
+       "raw": "80,500",
+       "value": 80500,
+       "estimated": true
+      },
+      "mine-bauxite:2025": {
+       "raw": "87,000",
+       "value": 87000,
+       "estimated": true
+      },
+      "reserves-bauxite": {
+       "raw": "710,000",
+       "value": 710000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "cn"
+    },
+    {
+     "name": "Germany",
+     "cells": {
+      "refinery-alumina:2024": {
+       "raw": "450",
+       "value": 450,
+       "estimated": true
+      },
+      "refinery-alumina:2025": {
+       "raw": "460",
+       "value": 460,
+       "estimated": true
+      },
+      "mine-bauxite:2024": {
+       "raw": "—",
+       "value": 0,
+       "zero": true
+      },
+      "mine-bauxite:2025": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "reserves-bauxite": {
+       "raw": "—",
+       "value": 0,
+       "zero": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "de"
+    },
+    {
+     "name": "Greece",
+     "cells": {
+      "refinery-alumina:2024": {
+       "raw": "865",
+       "value": 865
+      },
+      "refinery-alumina:2025": {
+       "raw": "850",
+       "value": 850,
+       "estimated": true
+      },
+      "mine-bauxite:2024": {
+       "raw": "970",
+       "value": 970,
+       "estimated": true
+      },
+      "mine-bauxite:2025": {
+       "raw": "960",
+       "value": 960,
+       "estimated": true
+      },
+      "reserves-bauxite": {
+       "raw": "—",
+       "value": 0,
+       "zero": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "gr"
+    },
+    {
+     "name": "Guinea",
+     "cells": {
+      "refinery-alumina:2024": {
+       "raw": "351",
+       "value": 351
+      },
+      "refinery-alumina:2025": {
+       "raw": "360",
+       "value": 360,
+       "estimated": true
+      },
+      "mine-bauxite:2024": {
+       "raw": "142,000",
+       "value": 142000
+      },
+      "mine-bauxite:2025": {
+       "raw": "150,000",
+       "value": 150000,
+       "estimated": true
+      },
+      "reserves-bauxite": {
+       "raw": "7,400,000",
+       "value": 7400000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "gn"
+    },
+    {
+     "name": "India",
+     "cells": {
+      "refinery-alumina:2024": {
+       "raw": "8,000",
+       "value": 8000,
+       "estimated": true
+      },
+      "refinery-alumina:2025": {
+       "raw": "8,200",
+       "value": 8200,
+       "estimated": true
+      },
+      "mine-bauxite:2024": {
+       "raw": "25,000",
+       "value": 25000
+      },
+      "mine-bauxite:2025": {
+       "raw": "25,000",
+       "value": 25000,
+       "estimated": true
+      },
+      "reserves-bauxite": {
+       "raw": "650,000",
+       "value": 650000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "in"
+    },
+    {
+     "name": "Indonesia",
+     "cells": {
+      "refinery-alumina:2024": {
+       "raw": "1,200",
+       "value": 1200,
+       "estimated": true
+      },
+      "refinery-alumina:2025": {
+       "raw": "1,500",
+       "value": 1500,
+       "estimated": true
+      },
+      "mine-bauxite:2024": {
+       "raw": "9,900",
+       "value": 9900,
+       "estimated": true
+      },
+      "mine-bauxite:2025": {
+       "raw": "10,000",
+       "value": 10000,
+       "estimated": true
+      },
+      "reserves-bauxite": {
+       "raw": "2,900,000",
+       "value": 2900000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "id"
+    },
+    {
+     "name": "Ireland",
+     "cells": {
+      "refinery-alumina:2024": {
+       "raw": "1,720",
+       "value": 1720
+      },
+      "refinery-alumina:2025": {
+       "raw": "1,700",
+       "value": 1700,
+       "estimated": true
+      },
+      "mine-bauxite:2024": {
+       "raw": "—",
+       "value": 0,
+       "zero": true
+      },
+      "mine-bauxite:2025": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "reserves-bauxite": {
+       "raw": "—",
+       "value": 0,
+       "zero": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ie"
+    },
+    {
+     "name": "Jamaica",
+     "cells": {
+      "refinery-alumina:2024": {
+       "raw": "1,480",
+       "value": 1480
+      },
+      "refinery-alumina:2025": {
+       "raw": "1,500",
+       "value": 1500,
+       "estimated": true
+      },
+      "mine-bauxite:2024": {
+       "raw": "5,890",
+       "value": 5890
+      },
+      "mine-bauxite:2025": {
+       "raw": "6,200",
+       "value": 6200,
+       "estimated": true
+      },
+      "reserves-bauxite": {
+       "raw": "2,000,000",
+       "value": 2000000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "jm"
+    },
+    {
+     "name": "Kazakhstan",
+     "cells": {
+      "refinery-alumina:2024": {
+       "raw": "1,400",
+       "value": 1400,
+       "estimated": true
+      },
+      "refinery-alumina:2025": {
+       "raw": "1,500",
+       "value": 1500,
+       "estimated": true
+      },
+      "mine-bauxite:2024": {
+       "raw": "4,780",
+       "value": 4780
+      },
+      "mine-bauxite:2025": {
+       "raw": "4,800",
+       "value": 4800,
+       "estimated": true
+      },
+      "reserves-bauxite": {
+       "raw": "160,000",
+       "value": 160000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "kz"
+    },
+    {
+     "name": "Russia",
+     "cells": {
+      "refinery-alumina:2024": {
+       "raw": "2,840",
+       "value": 2840
+      },
+      "refinery-alumina:2025": {
+       "raw": "2,900",
+       "value": 2900,
+       "estimated": true
+      },
+      "mine-bauxite:2024": {
+       "raw": "5,470",
+       "value": 5470
+      },
+      "mine-bauxite:2025": {
+       "raw": "5,700",
+       "value": 5700,
+       "estimated": true
+      },
+      "reserves-bauxite": {
+       "raw": "650,000",
+       "value": 650000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ru"
+    },
+    {
+     "name": "Saudi Arabia",
+     "cells": {
+      "refinery-alumina:2024": {
+       "raw": "1,870",
+       "value": 1870
+      },
+      "refinery-alumina:2025": {
+       "raw": "1,900",
+       "value": 1900,
+       "estimated": true
+      },
+      "mine-bauxite:2024": {
+       "raw": "5,500",
+       "value": 5500,
+       "estimated": true
+      },
+      "mine-bauxite:2025": {
+       "raw": "5,700",
+       "value": 5700,
+       "estimated": true
+      },
+      "reserves-bauxite": {
+       "raw": "180,000",
+       "value": 180000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "sa"
+    },
+    {
+     "name": "Spain",
+     "cells": {
+      "refinery-alumina:2024": {
+       "raw": "800",
+       "value": 800,
+       "estimated": true
+      },
+      "refinery-alumina:2025": {
+       "raw": "810",
+       "value": 810,
+       "estimated": true
+      },
+      "mine-bauxite:2024": {
+       "raw": "—",
+       "value": 0,
+       "zero": true
+      },
+      "mine-bauxite:2025": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "reserves-bauxite": {
+       "raw": "—",
+       "value": 0,
+       "zero": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "es"
+    },
+    {
+     "name": "Turkey",
+     "cells": {
+      "refinery-alumina:2024": {
+       "raw": "300",
+       "value": 300,
+       "estimated": true
+      },
+      "refinery-alumina:2025": {
+       "raw": "310",
+       "value": 310,
+       "estimated": true
+      },
+      "mine-bauxite:2024": {
+       "raw": "3,660",
+       "value": 3660
+      },
+      "mine-bauxite:2025": {
+       "raw": "3,800",
+       "value": 3800,
+       "estimated": true
+      },
+      "reserves-bauxite": {
+       "raw": "69,000",
+       "value": 69000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "tr"
+    },
+    {
+     "name": "United Arab Emirates",
+     "cells": {
+      "refinery-alumina:2024": {
+       "raw": "2,540",
+       "value": 2540
+      },
+      "refinery-alumina:2025": {
+       "raw": "2,300",
+       "value": 2300,
+       "estimated": true
+      },
+      "mine-bauxite:2024": {
+       "raw": "—",
+       "value": 0,
+       "zero": true
+      },
+      "mine-bauxite:2025": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "reserves-bauxite": {
+       "raw": "—",
+       "value": 0,
+       "zero": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ae"
+    },
+    {
+     "name": "Vietnam",
+     "cells": {
+      "refinery-alumina:2024": {
+       "raw": "1,410",
+       "value": 1410
+      },
+      "refinery-alumina:2025": {
+       "raw": "1,500",
+       "value": 1500,
+       "estimated": true
+      },
+      "mine-bauxite:2024": {
+       "raw": "3,710",
+       "value": 3710,
+       "estimated": true
+      },
+      "mine-bauxite:2025": {
+       "raw": "3,800",
+       "value": 3800,
+       "estimated": true
+      },
+      "reserves-bauxite": {
+       "raw": "3,100,000",
+       "value": 3100000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "vn"
+    },
+    {
+     "name": "Other countries",
+     "cells": {
+      "refinery-alumina:2024": {
+       "raw": "1,260",
+       "value": 1260
+      },
+      "refinery-alumina:2025": {
+       "raw": "1,300",
+       "value": 1300,
+       "estimated": true
+      },
+      "mine-bauxite:2024": {
+       "raw": "7,780",
+       "value": 7780
+      },
+      "mine-bauxite:2025": {
+       "raw": "8,000",
+       "value": 8000,
+       "estimated": true
+      },
+      "reserves-bauxite": {
+       "raw": "5,300,000",
+       "value": 5300000
+      }
+     },
+     "footnotes": [],
+     "kind": "other"
+    },
+    {
+     "name": "World total (rounded)",
+     "cells": {
+      "refinery-alumina:2024": {
+       "raw": "142,000",
+       "value": 142000
+      },
+      "refinery-alumina:2025": {
+       "raw": "150,000",
+       "value": 150000,
+       "estimated": true
+      },
+      "mine-bauxite:2024": {
+       "raw": "428,000",
+       "value": 428000,
+       "footnotes": [
+        "8"
+       ]
+      },
+      "mine-bauxite:2025": {
+       "raw": "440,000",
+       "value": 440000,
+       "footnotes": [
+        "8"
+       ],
+       "estimated": true
+      },
+      "reserves-bauxite": {
+       "raw": "29,000,000",
+       "value": 29000000
+      }
+     },
+     "footnotes": [],
+     "kind": "world"
+    }
+   ],
+   "footnotes": {
+    "7": "For Australia, Joint Ore Reserves Committee-compliant or equivalent reserves were 1.7 billion tons.",
+    "8": "Excludes U.S. production."
+   },
+   "events": "In 2025, one domestic alumina refinery produced alumina from imported bauxite. A 1.2-million-ton-per-year alumina refinery in Gramercy, LA, produced alumina for aluminum smelting and specialty-grade alumina. A 500,000-ton-per-year alumina refinery in Burnside, LA, was temporarily shut down in August 2020 and remained idle in 2025. No plans were announced regarding its reopening. The average prices, f.a.s., for U.S. imports for consumption of crude dry bauxite and metallurgical-grade alumina during the first 8 months of 2025 were $31 per ton and $595 per ton, respectively, 4% and 9% more than those in the same period in 2024. In January, an Austrian multinational aluminum refractories producer acquired full control of a United States manufacturer of monolithic alumina refractories serving the aluminum, cement, petrochemical, and steel industries. In April, a 1-million-ton-per-year alumina refinery in Mempawah, Indonesia, shipped its first alumina to an aluminum smelter in North Sumatra, Indonesia. The additional capacity may support an increase in bauxite production, which declined sharply following Indonesia’s 2023 ban on bauxite exports. Mining began in June within expanded boundaries at a bauxite mine near Boddington, Australia, to supply feedstock to a 4.7-million-ton-per-year alumina refinery near Collie, Australia. In August, the Guinean Government, following a dispute over the construction of an alumina refinery, revoked bauxite mining licenses from a subsidiary of a United Arab Emirates-based aluminum producer and reallocated the concessions to a state-backed mining company."
+  },
+  {
+   "slug": "tin",
+   "commodity": "Tin",
+   "resource": "tin",
+   "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-tin.pdf",
+   "table": "World Mine Production and Reserves",
+   "unit": "t",
+   "unitQuote": "Data in metric tons, tin content",
+   "primary": "mine",
+   "columns": [
+    {
+     "key": "mine:2024",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2024
+    },
+    {
+     "key": "mine:2025",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2025,
+     "estimated": true
+    },
+    {
+     "key": "reserves",
+     "measure": "reserves",
+     "year": 2025
+    }
+   ],
+   "rows": [
+    {
+     "name": "United States",
+     "cells": {
+      "mine:2024": {
+       "raw": "—",
+       "value": 0,
+       "zero": true
+      },
+      "mine:2025": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "—",
+       "value": 0,
+       "zero": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "us"
+    },
+    {
+     "name": "Australia",
+     "cells": {
+      "mine:2024": {
+       "raw": "11,300",
+       "value": 11300
+      },
+      "mine:2025": {
+       "raw": "12,000",
+       "value": 12000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "570,000",
+       "value": 570000,
+       "footnotes": [
+        "7"
+       ]
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "au"
+    },
+    {
+     "name": "Bolivia",
+     "cells": {
+      "mine:2024": {
+       "raw": "21,200",
+       "value": 21200
+      },
+      "mine:2025": {
+       "raw": "15,000",
+       "value": 15000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "400,000",
+       "value": 400000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "bo"
+    },
+    {
+     "name": "Brazil",
+     "cells": {
+      "mine:2024": {
+       "raw": "27,600",
+       "value": 27600
+      },
+      "mine:2025": {
+       "raw": "28,000",
+       "value": 28000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "700,000",
+       "value": 700000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "br"
+    },
+    {
+     "name": "Burma",
+     "cells": {
+      "mine:2024": {
+       "raw": "20,000",
+       "value": 20000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "12,000",
+       "value": 12000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "700,000",
+       "value": 700000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "mm"
+    },
+    {
+     "name": "China",
+     "cells": {
+      "mine:2024": {
+       "raw": "71,000",
+       "value": 71000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "71,000",
+       "value": 71000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "1,200,000",
+       "value": 1200000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "cn"
+    },
+    {
+     "name": "Congo (Kinshasa)",
+     "cells": {
+      "mine:2024": {
+       "raw": "26,000",
+       "value": 26000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "27,000",
+       "value": 27000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "91,000",
+       "value": 91000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "cd"
+    },
+    {
+     "name": "Indonesia",
+     "cells": {
+      "mine:2024": {
+       "raw": "55,000",
+       "value": 55000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "61,000",
+       "value": 61000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "1,400,000",
+       "value": 1400000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "id"
+    },
+    {
+     "name": "Laos",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,860",
+       "value": 1860
+      },
+      "mine:2025": {
+       "raw": "1,800",
+       "value": 1800,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "NA",
+       "notAvailable": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "la"
+    },
+    {
+     "name": "Malaysia",
+     "cells": {
+      "mine:2024": {
+       "raw": "5,460",
+       "value": 5460
+      },
+      "mine:2025": {
+       "raw": "5,000",
+       "value": 5000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "NA",
+       "notAvailable": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "my"
+    },
+    {
+     "name": "Nigeria",
+     "cells": {
+      "mine:2024": {
+       "raw": "3,100",
+       "value": 3100,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "3,500",
+       "value": 3500,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "NA",
+       "notAvailable": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ng"
+    },
+    {
+     "name": "Peru",
+     "cells": {
+      "mine:2024": {
+       "raw": "32,300",
+       "value": 32300
+      },
+      "mine:2025": {
+       "raw": "33,000",
+       "value": 33000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "150,000",
+       "value": 150000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "pe"
+    },
+    {
+     "name": "Russia",
+     "cells": {
+      "mine:2024": {
+       "raw": "3,260",
+       "value": 3260
+      },
+      "mine:2025": {
+       "raw": "4,500",
+       "value": 4500,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "460,000",
+       "value": 460000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ru"
+    },
+    {
+     "name": "Rwanda",
+     "cells": {
+      "mine:2024": {
+       "raw": "4,100",
+       "value": 4100,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "4,600",
+       "value": 4600,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "NA",
+       "notAvailable": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "rw"
+    },
+    {
+     "name": "Vietnam",
+     "cells": {
+      "mine:2024": {
+       "raw": "11,000",
+       "value": 11000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "11,000",
+       "value": 11000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "23,000",
+       "value": 23000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "vn"
+    },
+    {
+     "name": "Other countries",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,570",
+       "value": 1570
+      },
+      "mine:2025": {
+       "raw": "1,700",
+       "value": 1700,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "310,000",
+       "value": 310000
+      }
+     },
+     "footnotes": [],
+     "kind": "other"
+    },
+    {
+     "name": "World total (rounded)",
+     "cells": {
+      "mine:2024": {
+       "raw": "294,000",
+       "value": 294000
+      },
+      "mine:2025": {
+       "raw": "290,000",
+       "value": 290000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": ">6,000,000",
+       "moreThan": true,
+       "value": 6000000
+      }
+     },
+     "footnotes": [],
+     "kind": "world"
+    }
+   ],
+   "footnotes": {
+    "7": "For Australia, Joint Ore Reserves Committee-compliant or equivalent reserves were 220,000 tons."
+   },
+   "events": "The estimated amount of new and old scrap tin recycled domestically in 2025 increased by 3% compared with that in 2024. The estimated annual average New York dealer price for refined tin in 2025 was 1,600 cents per pound, a 13% increase compared with that in 2024. The estimated annual average LME cash price for refined tin in 2025 was 1,500 cents per pound, a 10% increase compared with that in 2024. In March 2025, under section 232 of the Trade Expansion Act, the United States increased tariffs on imported aluminum products to 25%, aligning with existing 25% tariffs on steel products, and ended all previously existing country-specific exemptions. In June, the tariffs on both aluminum and steel products were raised to 50% for most countries, except for the United Kingdom, which remained at 25%. Steel products affected by these tariffs included varieties of tinplate with Harmonized Tariff Schedule of the United States codes 7210.11.0000, 7210.12.0000, and 7212.10.0000. In 2025, a U.S. company with existing tin operations based in Coatesville, PA, advanced plans to establish a vertically integrated tin supply chain. In late 2024, the company was awarded $19 million from the U.S. Department of War under the Defense Production Act, Title III, to support the development of a domestic tin smelting, refining, and recycling facility. In May, the company signed a letter of intent with a Rwandan tin miner to secure feedstock supply, and in September began construction of a $65 million tin metal production and processing facility in Martinsville, VA. The Martinsville facility was expected to be operational by late 2026."
+  },
+  {
+   "slug": "platinum-group",
+   "commodity": "Platinum-group metals",
+   "resource": "pgms",
+   "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-platinum-group.pdf",
+   "table": "World Mine Production and Reserves",
+   "unit": "kg",
+   "unitQuote": "Data in kilograms, platinum-group-metal (PGM) content",
+   "primary": "mine-platinum",
+   "columns": [
+    {
+     "key": "mine-palladium:2024",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2024,
+     "product": "palladium"
+    },
+    {
+     "key": "mine-palladium:2025",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2025,
+     "product": "palladium",
+     "estimated": true
+    },
+    {
+     "key": "mine-platinum:2024",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2024,
+     "product": "platinum"
+    },
+    {
+     "key": "mine-platinum:2025",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2025,
+     "product": "platinum",
+     "estimated": true
+    },
+    {
+     "key": "reserves-PGM",
+     "measure": "reserves",
+     "year": 2025,
+     "product": "PGM"
+    }
+   ],
+   "rows": [
+    {
+     "name": "United States",
+     "cells": {
+      "mine-palladium:2024": {
+       "raw": "10,200",
+       "value": 10200
+      },
+      "mine-palladium:2025": {
+       "raw": "6,200",
+       "value": 6200,
+       "estimated": true
+      },
+      "mine-platinum:2024": {
+       "raw": "3,010",
+       "value": 3010
+      },
+      "mine-platinum:2025": {
+       "raw": "1,800",
+       "value": 1800,
+       "estimated": true
+      },
+      "reserves-PGM": {
+       "raw": "590,000",
+       "value": 590000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "us"
+    },
+    {
+     "name": "Canada",
+     "cells": {
+      "mine-palladium:2024": {
+       "raw": "17,000",
+       "value": 17000
+      },
+      "mine-palladium:2025": {
+       "raw": "16,000",
+       "value": 16000,
+       "estimated": true
+      },
+      "mine-platinum:2024": {
+       "raw": "5,700",
+       "value": 5700
+      },
+      "mine-platinum:2025": {
+       "raw": "5,000",
+       "value": 5000,
+       "estimated": true
+      },
+      "reserves-PGM": {
+       "raw": "310,000",
+       "value": 310000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ca"
+    },
+    {
+     "name": "Russia",
+     "cells": {
+      "mine-palladium:2024": {
+       "raw": "89,000",
+       "value": 89000,
+       "estimated": true
+      },
+      "mine-palladium:2025": {
+       "raw": "84,000",
+       "value": 84000,
+       "estimated": true
+      },
+      "mine-platinum:2024": {
+       "raw": "22,000",
+       "value": 22000,
+       "estimated": true
+      },
+      "mine-platinum:2025": {
+       "raw": "20,000",
+       "value": 20000,
+       "estimated": true
+      },
+      "reserves-PGM": {
+       "raw": "11,000,000",
+       "value": 11000000,
+       "footnotes": [
+        "10"
+       ],
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "estimatedRow": true,
+     "kind": "country",
+     "iso2": "ru"
+    },
+    {
+     "name": "South Africa",
+     "cells": {
+      "mine-palladium:2024": {
+       "raw": "82,600",
+       "value": 82600
+      },
+      "mine-palladium:2025": {
+       "raw": "70,000",
+       "value": 70000,
+       "estimated": true
+      },
+      "mine-platinum:2024": {
+       "raw": "126,000",
+       "value": 126000
+      },
+      "mine-platinum:2025": {
+       "raw": "120,000",
+       "value": 120000,
+       "estimated": true
+      },
+      "reserves-PGM": {
+       "raw": "63,000,000",
+       "value": 63000000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "za"
+    },
+    {
+     "name": "Zimbabwe",
+     "cells": {
+      "mine-palladium:2024": {
+       "raw": "15,200",
+       "value": 15200
+      },
+      "mine-palladium:2025": {
+       "raw": "15,000",
+       "value": 15000,
+       "estimated": true
+      },
+      "mine-platinum:2024": {
+       "raw": "18,400",
+       "value": 18400
+      },
+      "mine-platinum:2025": {
+       "raw": "18,000",
+       "value": 18000,
+       "estimated": true
+      },
+      "reserves-PGM": {
+       "raw": "1,300,000",
+       "value": 1300000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "zw"
+    },
+    {
+     "name": "Other countries",
+     "cells": {
+      "mine-palladium:2024": {
+       "raw": "2,870",
+       "value": 2870
+      },
+      "mine-palladium:2025": {
+       "raw": "2,900",
+       "value": 2900,
+       "estimated": true
+      },
+      "mine-platinum:2024": {
+       "raw": "3,860",
+       "value": 3860
+      },
+      "mine-platinum:2025": {
+       "raw": "3,900",
+       "value": 3900,
+       "estimated": true
+      },
+      "reserves-PGM": {
+       "raw": "NA",
+       "notAvailable": true
+      }
+     },
+     "footnotes": [],
+     "kind": "other"
+    },
+    {
+     "name": "World total (rounded)",
+     "cells": {
+      "mine-palladium:2024": {
+       "raw": "217,000",
+       "value": 217000
+      },
+      "mine-palladium:2025": {
+       "raw": "190,000",
+       "value": 190000,
+       "estimated": true
+      },
+      "mine-platinum:2024": {
+       "raw": "179,000",
+       "value": 179000
+      },
+      "mine-platinum:2025": {
+       "raw": "170,000",
+       "value": 170000,
+       "estimated": true
+      },
+      "reserves-PGM": {
+       "raw": ">76,000,000",
+       "moreThan": true,
+       "value": 76000000
+      }
+     },
+     "footnotes": [],
+     "kind": "world"
+    }
+   ],
+   "footnotes": {
+    "10": "Reserves for Russia are based on the State Committee of Reserves of the Russian Federation (GKZ) classification system A+B+C1+C2, where C2 are reserves in deposits that are indicated but not being developed or prepared for development. C2 reserves were excluded here."
+   },
+   "events": "In 2025, production of PGMs in South Africa, the world’s leading producer of PGMcontaining mined material, decreased by an estimated 9% compared with that in 2024 owing to declining palladium prices, higher costs associated with deep-level mining, and ongoing disruptions to the supply of electricity. Estimated production in Russia, the world’s leading producer of mined palladium, decreased by 6% owing to lower metal grades and ore recovery, geopolitical and investor uncertainty related to the Russia-Ukraine conflict, and the introduction of new mining equipment at one operation. The estimated annual average price in 2025 increased by 53% for ruthenium, by 25% for platinum, by 24% for rhodium, and by 11% for palladium compared with the average prices in 2024. The estimated annual price of iridium decreased by 9% compared with annual average price in 2024. Price increases were attributed to decreased production and increased demand, particularly for rhodium in the hard disk and chemical catalyst industries and owing to the substitution of platinum in automobile catalysts. Investment uncertainty and volatility may have also contributed to price increases. The price decrease for iridium may have been affected by increased production and the waning of investor enthusiasm in the hydrogen power market."
+  },
+  {
+   "slug": "helium",
+   "commodity": "Helium",
+   "resource": "helium",
+   "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-helium.pdf",
+   "table": "World Production and Reserves",
+   "unit": "Mcm",
+   "unitQuote": "Data in million cubic meters",
+   "primary": "plant",
+   "columns": [
+    {
+     "key": "plant:2024",
+     "measure": "production",
+     "stage": "plant",
+     "year": 2024
+    },
+    {
+     "key": "plant:2025",
+     "measure": "production",
+     "stage": "plant",
+     "year": 2025,
+     "estimated": true
+    },
+    {
+     "key": "reserves",
+     "measure": "reserves",
+     "year": 2025
+    }
+   ],
+   "rows": [
+    {
+     "name": "United States",
+     "cells": {
+      "plant:2024": {
+       "raw": "80",
+       "value": 80,
+       "footnotes": [
+        "3"
+       ]
+      },
+      "plant:2025": {
+       "raw": "81",
+       "value": 81,
+       "footnotes": [
+        "3"
+       ],
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "8,500",
+       "value": 8500
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "us"
+    },
+    {
+     "name": "Algeria",
+     "cells": {
+      "plant:2024": {
+       "raw": "11",
+       "value": 11,
+       "estimated": true
+      },
+      "plant:2025": {
+       "raw": "11",
+       "value": 11,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "1,800",
+       "value": 1800,
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "dz"
+    },
+    {
+     "name": "Canada",
+     "cells": {
+      "plant:2024": {
+       "raw": "6",
+       "value": 6
+      },
+      "plant:2025": {
+       "raw": "6",
+       "value": 6,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "NA",
+       "notAvailable": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ca"
+    },
+    {
+     "name": "China",
+     "cells": {
+      "plant:2024": {
+       "raw": "3",
+       "value": 3
+      },
+      "plant:2025": {
+       "raw": "3",
+       "value": 3,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "NA",
+       "notAvailable": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "cn"
+    },
+    {
+     "name": "Poland",
+     "cells": {
+      "plant:2024": {
+       "raw": "3",
+       "value": 3
+      },
+      "plant:2025": {
+       "raw": "3",
+       "value": 3,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "24",
+       "value": 24
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "pl"
+    },
+    {
+     "name": "Qatar",
+     "cells": {
+      "plant:2024": {
+       "raw": "64",
+       "value": 64,
+       "estimated": true
+      },
+      "plant:2025": {
+       "raw": "63",
+       "value": 63,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "Large",
+       "qualitative": "Large",
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "qa"
+    },
+    {
+     "name": "Russia",
+     "cells": {
+      "plant:2024": {
+       "raw": "17",
+       "value": 17,
+       "estimated": true
+      },
+      "plant:2025": {
+       "raw": "18",
+       "value": 18,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "1,700",
+       "value": 1700,
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ru"
+    },
+    {
+     "name": "South Africa",
+     "cells": {
+      "plant:2024": {
+       "raw": "—",
+       "value": 0,
+       "zero": true
+      },
+      "reserves": {
+       "raw": "400",
+       "value": 400
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "za"
+    },
+    {
+     "name": "World total (rounded)",
+     "cells": {
+      "plant:2024": {
+       "raw": "183",
+       "value": 183,
+       "estimated": true
+      },
+      "plant:2025": {
+       "raw": "190",
+       "value": 190,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "NA",
+       "notAvailable": true
+      }
+     },
+     "footnotes": [],
+     "kind": "world"
+    }
+   ],
+   "footnotes": {
+    "3": "Includes helium extracted from Canada and purified to Grade-A helium in the United States."
+   },
+   "events": "In 2025, six new helium operations (three in New Mexico and one each in Colorado, Kansas, and Montana) began producing helium in the United States. A helium storage cavern was brought online in Beaumont, TX, which was able to store excess helium production. A new helium facility began operations in Canada, and another began operations in South Africa. Multiple companies explored for and developed helium deposits throughout the world. Some of these helium deposits are nonhydrocarbon sourced. The European Union and the United States sanctions that imposed an import ban on helium from Russia continued into 2025. In 2025, four air separation units (one each in Louisiana, Ohio, Tennessee, and Texas) capable of producing argon began operations. Several new air separation units capable of producing rare gases began operations or entered development globally, with most of these projects concentrated in Asia. Rare gas supply from Russia and Ukraine continued to be limited owing to the conflict between Russia and Ukraine."
+  },
+  {
+   "slug": "gallium",
+   "commodity": "Gallium (low-purity, primary)",
+   "resource": "gallium",
+   "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-gallium.pdf",
+   "table": "World Low-Purity Production and Production Capacity",
+   "unit": "kg",
+   "unitQuote": "Data in kilograms, gallium content",
+   "primary": "primary",
+   "columns": [
+    {
+     "key": "primary:2024",
+     "measure": "production",
+     "stage": "primary",
+     "year": 2024
+    },
+    {
+     "key": "primary:2025",
+     "measure": "production",
+     "stage": "primary",
+     "year": 2025,
+     "estimated": true
+    },
+    {
+     "key": "capacity:2025",
+     "measure": "capacity",
+     "stage": "plant",
+     "year": 2025
+    }
+   ],
+   "rows": [
+    {
+     "name": "United States",
+     "cells": {
+      "primary:2024": {
+       "raw": "—",
+       "value": 0,
+       "zero": true
+      },
+      "primary:2025": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "capacity:2025": {
+       "raw": "—",
+       "value": 0,
+       "zero": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "us"
+    },
+    {
+     "name": "China",
+     "cells": {
+      "primary:2024": {
+       "raw": "839,000",
+       "value": 839000,
+       "footnotes": [
+        "4"
+       ]
+      },
+      "primary:2025": {
+       "raw": "900,000",
+       "value": 900000,
+       "footnotes": [
+        "5"
+       ],
+       "estimated": true
+      },
+      "capacity:2025": {
+       "raw": "1,600,000",
+       "value": 1600000,
+       "footnotes": [
+        "5"
+       ]
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "cn"
+    },
+    {
+     "name": "Japan",
+     "cells": {
+      "primary:2024": {
+       "raw": "3,000",
+       "value": 3000,
+       "estimated": true
+      },
+      "primary:2025": {
+       "raw": "3,000",
+       "value": 3000,
+       "estimated": true
+      },
+      "capacity:2025": {
+       "raw": "10,000",
+       "value": 10000,
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "estimatedRow": true,
+     "kind": "country",
+     "iso2": "jp"
+    },
+    {
+     "name": "Russia",
+     "cells": {
+      "primary:2024": {
+       "raw": "6,000",
+       "value": 6000,
+       "estimated": true
+      },
+      "primary:2025": {
+       "raw": "6,000",
+       "value": 6000,
+       "estimated": true
+      },
+      "capacity:2025": {
+       "raw": "10,000",
+       "value": 10000,
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "estimatedRow": true,
+     "kind": "country",
+     "iso2": "ru"
+    },
+    {
+     "name": "Other countries",
+     "cells": {
+      "primary:2024": {
+       "raw": "—",
+       "value": 0,
+       "zero": true
+      },
+      "primary:2025": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "capacity:2025": {
+       "raw": "100,000",
+       "value": 100000,
+       "estimated": true
+      }
+     },
+     "footnotes": [
+      "6"
+     ],
+     "kind": "other"
+    },
+    {
+     "name": "World total (rounded)",
+     "cells": {
+      "primary:2024": {
+       "raw": "848,000",
+       "value": 848000
+      },
+      "primary:2025": {
+       "raw": "900,000",
+       "value": 900000,
+       "estimated": true
+      },
+      "capacity:2025": {
+       "raw": "1,700,000",
+       "value": 1700000,
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "kind": "world"
+    }
+   ],
+   "footnotes": {
+    "4": "Source: Asian Metal Ltd.",
+    "5": "Estimated from Asian Metal Ltd.",
+    "6": "Other countries estimated to still have primary low-purity gallium production capacity include Germany, Hungary, Kazakhstan, the Republic of Korea, and Ukraine."
+   },
+   "events": "Imports of gallium metal, GaAs wafers, and domestic production of GaAs and GaN wafers continued to account for all U.S. consumption of gallium. In 2025, imports of gallium metal were estimated to be more than double those in 2024, and the average unit value of imported gallium metal was estimated to be $580 per kilogram, about 30% more than that in 2024. Imports of gallium arsenide wafers were estimated to be 24% less than those in 2024. In November 2025, China lifted its ban on gallium exports to the United States for 1 year. This followed the Government of China’s gallium export controls implemented in August 2023 and China’s ban of all gallium exports to the United States in December 2024. China accounted for 99% of worldwide primary low-purity gallium production. The remaining primary low-purity gallium producers outside of China included Japan and Russia. Germany, Hungary, and Kazakhstan ceased primary production in 2016, 2015, and 2013, respectively. Ukraine most likely ceased primary production in 2022. Several new gallium production projects were announced including those in Australia, Canada, Greece, Kazakhstan, and the Republic of Korea. In September, the U.S. Department of Energy announced as much as $6 million in funding for domestic research and development projects to help establish a domestic supply chain for gallium. This initiative was expected to be used to support technologies to recover gallium from alumina refining or primary zinc smelting with the goal of restarting domestic primary gallium recovery for the first time in almost 40 years. In November, the U.S. Department of War, under the Defense Production Act, Title III, granted a $29. million award to a U.S. company to develop a demonstration facility in Louisiana that will recover gallium and scandium from industrial waste. Initial development work was expected to take place at a facility in Texas."
+  },
+  {
+   "slug": "gold",
+   "commodity": "Gold",
+   "resource": "gold",
+   "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-gold.pdf",
+   "table": "World Mine Production and Reserves",
+   "unit": "t",
+   "unitQuote": "Data in metric tons, gold content",
+   "primary": "mine",
+   "columns": [
+    {
+     "key": "mine:2024",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2024
+    },
+    {
+     "key": "mine:2025",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2025,
+     "estimated": true
+    },
+    {
+     "key": "reserves",
+     "measure": "reserves",
+     "year": 2025
+    }
+   ],
+   "rows": [
+    {
+     "name": "United States",
+     "cells": {
+      "mine:2024": {
+       "raw": "163",
+       "value": 163
+      },
+      "mine:2025": {
+       "raw": "160",
+       "value": 160,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "3,000",
+       "value": 3000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "us"
+    },
+    {
+     "name": "Australia",
+     "cells": {
+      "mine:2024": {
+       "raw": "284",
+       "value": 284
+      },
+      "mine:2025": {
+       "raw": "280",
+       "value": 280,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "13,000",
+       "value": 13000,
+       "footnotes": [
+        "11"
+       ]
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "au"
+    },
+    {
+     "name": "Brazil",
+     "cells": {
+      "mine:2024": {
+       "raw": "82",
+       "value": 82,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "80",
+       "value": 80,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "2,500",
+       "value": 2500
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "br"
+    },
+    {
+     "name": "Canada",
+     "cells": {
+      "mine:2024": {
+       "raw": "200",
+       "value": 200,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "200",
+       "value": 200,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "3,200",
+       "value": 3200
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ca"
+    },
+    {
+     "name": "China",
+     "cells": {
+      "mine:2024": {
+       "raw": "377",
+       "value": 377
+      },
+      "mine:2025": {
+       "raw": "380",
+       "value": 380,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "3,200",
+       "value": 3200
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "cn"
+    },
+    {
+     "name": "Ghana",
+     "cells": {
+      "mine:2024": {
+       "raw": "149",
+       "value": 149
+      },
+      "mine:2025": {
+       "raw": "150",
+       "value": 150,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "1,000",
+       "value": 1000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "gh"
+    },
+    {
+     "name": "Indonesia",
+     "cells": {
+      "mine:2024": {
+       "raw": "94",
+       "value": 94,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "90",
+       "value": 90,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "3,600",
+       "value": 3600
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "id"
+    },
+    {
+     "name": "Kazakhstan",
+     "cells": {
+      "mine:2024": {
+       "raw": "130",
+       "value": 130,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "130",
+       "value": 130,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "2,300",
+       "value": 2300
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "kz"
+    },
+    {
+     "name": "Mexico",
+     "cells": {
+      "mine:2024": {
+       "raw": "140",
+       "value": 140
+      },
+      "mine:2025": {
+       "raw": "140",
+       "value": 140,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "1,400",
+       "value": 1400
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "mx"
+    },
+    {
+     "name": "Peru",
+     "cells": {
+      "mine:2024": {
+       "raw": "108",
+       "value": 108
+      },
+      "mine:2025": {
+       "raw": "110",
+       "value": 110,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "2,200",
+       "value": 2200
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "pe"
+    },
+    {
+     "name": "Russia",
+     "cells": {
+      "mine:2024": {
+       "raw": "310",
+       "value": 310,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "310",
+       "value": 310,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "12,000",
+       "value": 12000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ru"
+    },
+    {
+     "name": "South Africa",
+     "cells": {
+      "mine:2024": {
+       "raw": "90",
+       "value": 90
+      },
+      "mine:2025": {
+       "raw": "90",
+       "value": 90,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "5,000",
+       "value": 5000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "za"
+    },
+    {
+     "name": "Uzbekistan",
+     "cells": {
+      "mine:2024": {
+       "raw": "129",
+       "value": 129
+      },
+      "mine:2025": {
+       "raw": "130",
+       "value": 130,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "2,200",
+       "value": 2200
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "uz"
+    },
+    {
+     "name": "Other countries",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,020",
+       "value": 1020
+      },
+      "mine:2025": {
+       "raw": "1,000",
+       "value": 1000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "11,000",
+       "value": 11000
+      }
+     },
+     "footnotes": [],
+     "kind": "other"
+    },
+    {
+     "name": "World total (rounded)",
+     "cells": {
+      "mine:2024": {
+       "raw": "3,280",
+       "value": 3280
+      },
+      "mine:2025": {
+       "raw": "3,300",
+       "value": 3300,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "66,000",
+       "value": 66000
+      }
+     },
+     "footnotes": [],
+     "kind": "world"
+    }
+   ],
+   "footnotes": {
+    "11": "For Australia, Joint Ore Reserves Committee-compliant or equivalent reserves were 4,500 tons."
+   },
+   "events": "The estimated gold price in 2025 increased by 38% and reached a new record-high annual price compared with the previous record-high annual price in 2024. The Engelhard daily price for gold in 2025 fluctuated, increasing in the first and second quarters, decreasing at the beginning of the third quarter, and increasing into the beginning of the fourth quarter. In 2025, worldwide gold mine production was an estimated 3,300 tons compared with 3,280 tons in 2024. China, Russia, Australia, Canada, and the United States were the leading gold producers, in descending order of production, and together accounted for 41% of estimated global production in 2025. Estimated global gold consumption, excluding exchange-traded funds and other similar investments, was in jewelry, 40%; physical bars, 24%; central banks and other institutions, 21%; official coins and medals and imitation coins, 7%; electrical and electronics, 7%; and other, 1%. In the first 9 months of 2025, global consumption of gold in physical bars increased by 18%, electronics were unchanged, other industrial applications decreased by 4%, dentistry decreased by 8%, coins and medals decreased by 11%, and jewelry decreased by 20% compared with those in the first 9 months of 2024. During the first 9 months of 2025, gold holdings in central banks decreased by 13%, and global investments in gold-based exchange-traded funds and similar investments were 619 tons in the first 9 months of 2025, an increase by more than 25 times compared with the first 9 months of 2024. Total global consumption in the first 9 months of 2025 increased by 10% compared with that in the first 9 months of 2024."
+  },
+  {
+   "slug": "silver",
+   "commodity": "Silver",
+   "resource": "silver",
+   "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-silver.pdf",
+   "table": "World Mine Production and Reserves",
+   "unit": "t",
+   "unitQuote": "Data in metric tons, silver content",
+   "primary": "mine",
+   "columns": [
+    {
+     "key": "mine:2024",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2024
+    },
+    {
+     "key": "mine:2025",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2025,
+     "estimated": true
+    },
+    {
+     "key": "reserves",
+     "measure": "reserves",
+     "year": 2025
+    }
+   ],
+   "rows": [
+    {
+     "name": "United States",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,050",
+       "value": 1050
+      },
+      "mine:2025": {
+       "raw": "1,100",
+       "value": 1100,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "23,000",
+       "value": 23000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "us"
+    },
+    {
+     "name": "Argentina",
+     "cells": {
+      "mine:2024": {
+       "raw": "774",
+       "value": 774
+      },
+      "mine:2025": {
+       "raw": "800",
+       "value": 800,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "6,500",
+       "value": 6500
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ar"
+    },
+    {
+     "name": "Australia",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,050",
+       "value": 1050
+      },
+      "mine:2025": {
+       "raw": "1,000",
+       "value": 1000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "91,000",
+       "value": 91000,
+       "footnotes": [
+        "10"
+       ]
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "au"
+    },
+    {
+     "name": "Bolivia",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,490",
+       "value": 1490
+      },
+      "mine:2025": {
+       "raw": "1,500",
+       "value": 1500,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "22,000",
+       "value": 22000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "bo"
+    },
+    {
+     "name": "Canada",
+     "cells": {
+      "mine:2024": {
+       "raw": "366",
+       "value": 366,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "400",
+       "value": 400,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "4,900",
+       "value": 4900
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ca"
+    },
+    {
+     "name": "Chile",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,200",
+       "value": 1200,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "1,400",
+       "value": 1400,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "33,000",
+       "value": 33000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "cl"
+    },
+    {
+     "name": "China",
+     "cells": {
+      "mine:2024": {
+       "raw": "3,430",
+       "value": 3430
+      },
+      "mine:2025": {
+       "raw": "3,400",
+       "value": 3400,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "67,000",
+       "value": 67000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "cn"
+    },
+    {
+     "name": "India",
+     "cells": {
+      "mine:2024": {
+       "raw": "700",
+       "value": 700
+      },
+      "mine:2025": {
+       "raw": "800",
+       "value": 800,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "8,000",
+       "value": 8000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "in"
+    },
+    {
+     "name": "Kazakhstan",
+     "cells": {
+      "mine:2024": {
+       "raw": "850",
+       "value": 850,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "630",
+       "value": 630,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "NA",
+       "notAvailable": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "kz"
+    },
+    {
+     "name": "Mexico",
+     "cells": {
+      "mine:2024": {
+       "raw": "5,780",
+       "value": 5780
+      },
+      "mine:2025": {
+       "raw": "6,300",
+       "value": 6300,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "37,000",
+       "value": 37000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "mx"
+    },
+    {
+     "name": "Peru",
+     "cells": {
+      "mine:2024": {
+       "raw": "3,510",
+       "value": 3510
+      },
+      "mine:2025": {
+       "raw": "3,600",
+       "value": 3600,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "110,000",
+       "value": 110000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "pe"
+    },
+    {
+     "name": "Poland",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,320",
+       "value": 1320
+      },
+      "mine:2025": {
+       "raw": "1,300",
+       "value": 1300,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "59,000",
+       "value": 59000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "pl"
+    },
+    {
+     "name": "Russia",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,280",
+       "value": 1280
+      },
+      "mine:2025": {
+       "raw": "1,200",
+       "value": 1200,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "92,000",
+       "value": 92000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ru"
+    },
+    {
+     "name": "Sweden",
+     "cells": {
+      "mine:2024": {
+       "raw": "432",
+       "value": 432
+      },
+      "mine:2025": {
+       "raw": "400",
+       "value": 400,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "NA",
+       "notAvailable": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "se"
+    },
+    {
+     "name": "Other countries",
+     "cells": {
+      "mine:2024": {
+       "raw": "2,110",
+       "value": 2110
+      },
+      "mine:2025": {
+       "raw": "2,100",
+       "value": 2100,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "57,000",
+       "value": 57000
+      }
+     },
+     "footnotes": [],
+     "kind": "other"
+    },
+    {
+     "name": "World total (rounded)",
+     "cells": {
+      "mine:2024": {
+       "raw": "25,300",
+       "value": 25300
+      },
+      "mine:2025": {
+       "raw": "26,000",
+       "value": 26000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "610,000",
+       "value": 610000
+      }
+     },
+     "footnotes": [],
+     "kind": "world"
+    }
+   ],
+   "footnotes": {
+    "10": "For Australia, Joint Ore Reserves Committee-compliant or equivalent reserves were 22,000 tons."
+   },
+   "events": "The estimated average silver price in 2025 was $38 per troy ounce, 34% higher than the average price in 2024. The price began the year at $29. per troy ounce, which was the yearly low. The price increased for 11 months in 2025 and reached a high of $53. per troy ounce on November 13. The continued supply deficit was cited as a reason for price increases in 2025. In 2025, global consumption of silver was an estimated 35,700 tons, compared with 36,100 tons in 2024. Coin and bar consumption increased by 7% in 2025, but consumption of silver for industrial use was estimated to be unchanged from that in 2024, owing to slower ethylene oxide capacity growth and a decline in silver loadings in the PV sector, which was expected to offset continued growth in automotive, consumer electronics, and power grid uses. Consumption of silver in jewelry and silverware was estimated to have decreased by 6% and 15%, respectively. World silver mine production increased slightly in 2025 to an estimated 26,000 tons compared with 25,300 tons in 2024. Domestic silver production was estimated to have increased by 4% in 2025. One company in Idaho produced from higher silver grade ore than that in 2024 and implemented operational improvements and efficiencies. On November 7, 2025, the U.S. Final 2025 List of Critical Minerals was published in the Federal Register (90 FR 50494). The changes in the 2025 list from the prior list published in 2022 (87 FR 10381) were the addition of copper, lead, potash, rhenium, silicon, and silver, based on the U.S. Geological Survey updated methodology for the 2025 list. As required by the Energy Act, public comment and interagency input were requested in response to the draft U.S. list of critical minerals published in the Federal Register (90 FR 41591). Based on that input, boron, metallurgical coal, phosphate rock, and uranium were also added."
+  },
+  {
+   "slug": "diamond",
+   "commodity": "Diamond (natural industrial)",
+   "resource": "diamonds",
+   "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-diamond.pdf",
+   "table": "World Natural Industrial Diamond Mine Production and Reserves",
+   "unit": "Mct",
+   "unitQuote": "Data in million carats",
+   "primary": "mine",
+   "columns": [
+    {
+     "key": "mine:2024",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2024
+    },
+    {
+     "key": "mine:2025",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2025,
+     "estimated": true
+    },
+    {
+     "key": "reserves",
+     "measure": "reserves",
+     "year": 2025
+    }
+   ],
+   "rows": [
+    {
+     "name": "United States",
+     "cells": {
+      "mine:2024": {
+       "raw": "—",
+       "value": 0,
+       "zero": true
+      },
+      "mine:2025": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "NA",
+       "notAvailable": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "us"
+    },
+    {
+     "name": "Angola",
+     "cells": {
+      "mine:2024": {
+       "raw": "1",
+       "value": 1
+      },
+      "mine:2025": {
+       "raw": "1",
+       "value": 1,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "150",
+       "value": 150
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ao"
+    },
+    {
+     "name": "Botswana",
+     "cells": {
+      "mine:2024": {
+       "raw": "5",
+       "value": 5
+      },
+      "mine:2025": {
+       "raw": "5",
+       "value": 5,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "250",
+       "value": 250
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "bw"
+    },
+    {
+     "name": "Congo (Kinshasa)",
+     "cells": {
+      "mine:2024": {
+       "raw": "7",
+       "value": 7
+      },
+      "mine:2025": {
+       "raw": "7",
+       "value": 7,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "150",
+       "value": 150
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "cd"
+    },
+    {
+     "name": "Russia",
+     "cells": {
+      "mine:2024": {
+       "raw": "16",
+       "value": 16
+      },
+      "mine:2025": {
+       "raw": "16",
+       "value": 16,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "750",
+       "value": 750
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ru"
+    },
+    {
+     "name": "South Africa",
+     "cells": {
+      "mine:2024": {
+       "raw": "3",
+       "value": 3
+      },
+      "mine:2025": {
+       "raw": "3",
+       "value": 3,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "87",
+       "value": 87
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "za"
+    },
+    {
+     "name": "Zimbabwe",
+     "cells": {
+      "mine:2024": {
+       "raw": "5",
+       "value": 5
+      },
+      "mine:2025": {
+       "raw": "5",
+       "value": 5,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "56",
+       "value": 56
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "zw"
+    },
+    {
+     "name": "Other countries",
+     "cells": {
+      "mine:2024": {
+       "raw": "1",
+       "value": 1
+      },
+      "mine:2025": {
+       "raw": "1",
+       "value": 1,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "250",
+       "value": 250
+      }
+     },
+     "footnotes": [],
+     "kind": "other"
+    },
+    {
+     "name": "World total (rounded)",
+     "cells": {
+      "mine:2024": {
+       "raw": "38",
+       "value": 38
+      },
+      "mine:2025": {
+       "raw": "38",
+       "value": 38,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "1,700",
+       "value": 1700
+      }
+     },
+     "footnotes": [],
+     "kind": "world"
+    }
+   ],
+   "footnotes": {},
+   "events": "Most natural industrial diamond is produced as a byproduct of mining gem-quality diamond. Global natural industrial diamond production was essentially the same in 2025 as in 2024. Russia, the leading country in the production of natural industrial diamond, produced 16 million carats or 42% of total world production, followed by Congo (Kinshasa), 7 million carats (18%); Botswana, 5 million carats (14%); Zimbabwe, 5 million carats (13%); and South Africa, 3 million carats (8%). These five countries produced 95% of the world’s natural industrial diamond. In recent years, mines have closed, and output has been lower as mines approach the ends of their lives. The world’s largest diamond mines have matured and are past their peak production levels, and several of the largest diamond mines are expected to close in the near future. As these mines are depleted, global production is expected to continue declining in quantity. In 2025, U.S. synthetic-industrial-diamond producers did not manufacture any diamond stone. The combined apparent consumption of all types of industrial diamond decreased by about 20% in quantity and by 17% in value from that in 2024. During 2025, imports of all types of natural and synthetic industrial diamond imports decreased by 30% from that in 2024. In 2025, China was the leading producing country of synthetic industrial diamond, followed by the United States and Russia, in descending order of quantity. These three countries produced about 99% of the world’s synthetic industrial diamond. Synthetic diamond accounted for more than 99% of global industrial diamond production and consumption. Worldwide production of manufactured industrial diamond totaled more than 15 billion carats. The United States is likely to continue to be one of the world’s leading markets for industrial diamond into the next decade and is expected to remain a significant producer of synthetic industrial diamond as well. U.S. demand for industrial diamond is likely to be strong in the construction sector as the United States continues building, milling, and repairing the Nation’s highway system. Industrial diamond is impregnated in or coats the cutting edge of saws used to cut concrete in highway construction and repair work."
+  },
+  {
+   "slug": "phosphate",
+   "commodity": "Phosphate rock",
+   "resource": "phosphates",
+   "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-phosphate.pdf",
+   "table": "World Mine Production and Reserves",
+   "unit": "kt",
+   "unitQuote": "Data in thousand metric tons, marketable phosphate rock",
+   "primary": "mine",
+   "columns": [
+    {
+     "key": "mine:2024",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2024,
+     "estimated": true
+    },
+    {
+     "key": "mine:2025",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2025,
+     "estimated": true
+    },
+    {
+     "key": "reserves",
+     "measure": "reserves",
+     "year": 2025
+    }
+   ],
+   "rows": [
+    {
+     "name": "United States",
+     "cells": {
+      "mine:2024": {
+       "raw": "19,400",
+       "value": 19400,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "20,000",
+       "value": 20000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "1,000,000",
+       "value": 1000000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "us"
+    },
+    {
+     "name": "Algeria",
+     "cells": {
+      "mine:2024": {
+       "raw": "2,000",
+       "value": 2000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "2,000",
+       "value": 2000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "2,200,000",
+       "value": 2200000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "dz"
+    },
+    {
+     "name": "Australia",
+     "cells": {
+      "mine:2024": {
+       "raw": "2,500",
+       "value": 2500,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "2,500",
+       "value": 2500,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "800,000",
+       "value": 800000,
+       "footnotes": [
+        "5"
+       ]
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "au"
+    },
+    {
+     "name": "Brazil",
+     "cells": {
+      "mine:2024": {
+       "raw": "5,300",
+       "value": 5300,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "5,000",
+       "value": 5000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "1,600,000",
+       "value": 1600000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "br"
+    },
+    {
+     "name": "China",
+     "cells": {
+      "mine:2024": {
+       "raw": "105,000",
+       "value": 105000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "110,000",
+       "value": 110000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "3,400,000",
+       "value": 3400000
+      }
+     },
+     "footnotes": [
+      "6"
+     ],
+     "kind": "country",
+     "iso2": "cn"
+    },
+    {
+     "name": "Egypt",
+     "cells": {
+      "mine:2024": {
+       "raw": "5,300",
+       "value": 5300,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "5,500",
+       "value": 5500,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "2,800,000",
+       "value": 2800000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "eg"
+    },
+    {
+     "name": "Finland",
+     "cells": {
+      "mine:2024": {
+       "raw": "974",
+       "value": 974,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "980",
+       "value": 980,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "1,000,000",
+       "value": 1000000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "fi"
+    },
+    {
+     "name": "India",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,700",
+       "value": 1700,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "1,500",
+       "value": 1500,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "31,000",
+       "value": 31000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "in"
+    },
+    {
+     "name": "Israel",
+     "cells": {
+      "mine:2024": {
+       "raw": "2,380",
+       "value": 2380,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "2,400",
+       "value": 2400,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "60,000",
+       "value": 60000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "il"
+    },
+    {
+     "name": "Jordan",
+     "cells": {
+      "mine:2024": {
+       "raw": "11,500",
+       "value": 11500,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "12,000",
+       "value": 12000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "820,000",
+       "value": 820000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "jo"
+    },
+    {
+     "name": "Kazakhstan",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,700",
+       "value": 1700,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "1,900",
+       "value": 1900,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "260,000",
+       "value": 260000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "kz"
+    },
+    {
+     "name": "Mexico",
+     "cells": {
+      "mine:2024": {
+       "raw": "365",
+       "value": 365,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "450",
+       "value": 450,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "30,000",
+       "value": 30000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "mx"
+    },
+    {
+     "name": "Morocco",
+     "cells": {
+      "mine:2024": {
+       "raw": "35,300",
+       "value": 35300,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "36,000",
+       "value": 36000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "50,000,000",
+       "value": 50000000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ma"
+    },
+    {
+     "name": "Peru",
+     "cells": {
+      "mine:2024": {
+       "raw": "4,800",
+       "value": 4800,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "4,800",
+       "value": 4800,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "210,000",
+       "value": 210000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "pe"
+    },
+    {
+     "name": "Russia",
+     "cells": {
+      "mine:2024": {
+       "raw": "14,400",
+       "value": 14400,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "14,000",
+       "value": 14000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "2,400,000",
+       "value": 2400000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ru"
+    },
+    {
+     "name": "Saudi Arabia",
+     "cells": {
+      "mine:2024": {
+       "raw": "10,000",
+       "value": 10000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "10,000",
+       "value": 10000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "1,000,000",
+       "value": 1000000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "sa"
+    },
+    {
+     "name": "Senegal",
+     "cells": {
+      "mine:2024": {
+       "raw": "2,800",
+       "value": 2800,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "2,800",
+       "value": 2800,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "50,000",
+       "value": 50000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "sn"
+    },
+    {
+     "name": "South Africa",
+     "cells": {
+      "mine:2024": {
+       "raw": "2,220",
+       "value": 2220,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "2,200",
+       "value": 2200,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "1,500,000",
+       "value": 1500000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "za"
+    },
+    {
+     "name": "Syria",
+     "cells": {
+      "mine:2024": {
+       "raw": "800",
+       "value": 800,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "800",
+       "value": 800,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "250,000",
+       "value": 250000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "sy"
+    },
+    {
+     "name": "Togo",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,560",
+       "value": 1560,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "1,600",
+       "value": 1600,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "30,000",
+       "value": 30000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "tg"
+    },
+    {
+     "name": "Tunisia",
+     "cells": {
+      "mine:2024": {
+       "raw": "3,280",
+       "value": 3280,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "3,300",
+       "value": 3300,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "2,500,000",
+       "value": 2500000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "tn"
+    },
+    {
+     "name": "Turkey",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,220",
+       "value": 1220,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "1,200",
+       "value": 1200,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "71,000",
+       "value": 71000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "tr"
+    },
+    {
+     "name": "Uzbekistan",
+     "cells": {
+      "mine:2024": {
+       "raw": "950",
+       "value": 950,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "950",
+       "value": 950,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "100,000",
+       "value": 100000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "uz"
+    },
+    {
+     "name": "Vietnam",
+     "cells": {
+      "mine:2024": {
+       "raw": "3,000",
+       "value": 3000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "3,000",
+       "value": 3000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "30,000",
+       "value": 30000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "vn"
+    },
+    {
+     "name": "Other countries",
+     "cells": {
+      "mine:2024": {
+       "raw": "769",
+       "value": 769,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "770",
+       "value": 770,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "800,000",
+       "value": 800000
+      }
+     },
+     "footnotes": [],
+     "kind": "other"
+    },
+    {
+     "name": "World total (rounded)",
+     "cells": {
+      "mine:2024": {
+       "raw": "239,000",
+       "value": 239000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "250,000",
+       "value": 250000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "73,000,000",
+       "value": 73000000
+      }
+     },
+     "footnotes": [],
+     "kind": "world"
+    }
+   ],
+   "footnotes": {
+    "5": "For Australia, Joint Ore Reserves Committee-compliant or equivalent reserves were 120 million tons.",
+    "6": "Production data for large mines only, as reported by the National Bureau of Statistics of China."
+   },
+   "events": "U.S. apparent consumption of phosphate rock in 2025 was estimated to be 7% lower than that in 2024, owing to a decrease in the production of phosphoric acid. Phosphate rock production has been about 20 million tons over the past several years as producers in Florida contend with decreasing reserves and lower P2O5 content. This has resulted in an increase in imports over the same period. Global production of phosphate rock was estimated to be 5% higher than that in 2024, with China, Morocco, the United States, and Russia, in descending order of production, remaining the leading producers. World consumption of P2O5 contained in fertilizers was estimated to have been 47. million tons in 2025 compared with 47. million tons in 2024. World consumption of P2O5 in fertilizers was projected to increase to 51. million tons by 2029. The leading regions for growth were expected to be Asia and South America. In October 2025, the U.S. Bureau of Land Management approved a new phosphate rock mine in Caribou County, ID. The new mine will replace an existing mine when that mine is depleted within the next decade. Global phosphate production capacity, in terms of P2O5 content, was projected to increase to 71. million tons by 2029 compared with 63. million tons in 2025. Capacity expansions to phosphate rock production that were expected to be completed by 2028 were ongoing in Brazil, Kazakhstan, Mexico, Morocco, and Russia. Significant new mining projects that were planned to be completed after 2028 were under development in Canada, Congo (Brazzaville), Guinea-Bissau, and Senegal. On November 7, 2025, the U.S. Final 2025 List of Critical Minerals was published in the Federal Register (90 FR 50494). The changes in the 2025 list from the prior list published in 2022 (87 FR 10381) were the addition of copper, lead, potash, rhenium, silicon, and silver, based on the U.S. Geological Survey updated methodology for the 2025 list. As required by the Energy Act, public comment and interagency input were requested in response to the draft U.S. list of critical minerals published in the Federal Register (90 FR 41591). Based on that input, boron, metallurgical coal, phosphate rock, and uranium were also added."
+  },
+  {
+   "slug": "tungsten",
+   "commodity": "Tungsten",
+   "resource": "tungsten",
+   "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-tungsten.pdf",
+   "table": "World Mine Production and Reserves",
+   "unit": "t",
+   "unitQuote": "Data in metric tons, tungsten content",
+   "primary": "mine",
+   "columns": [
+    {
+     "key": "mine:2024",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2024,
+     "estimated": true
+    },
+    {
+     "key": "mine:2025",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2025,
+     "estimated": true
+    },
+    {
+     "key": "reserves",
+     "measure": "reserves",
+     "year": 2025
+    }
+   ],
+   "rows": [
+    {
+     "name": "United States",
+     "cells": {
+      "mine:2024": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "NA",
+       "notAvailable": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "us"
+    },
+    {
+     "name": "Australia",
+     "cells": {
+      "mine:2024": {
+       "raw": "920",
+       "value": 920,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "1,000",
+       "value": 1000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "570,000",
+       "value": 570000,
+       "footnotes": [
+        "11"
+       ]
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "au"
+    },
+    {
+     "name": "Austria",
+     "cells": {
+      "mine:2024": {
+       "raw": "840",
+       "value": 840,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "840",
+       "value": 840,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "10,000",
+       "value": 10000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "at"
+    },
+    {
+     "name": "Bolivia",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,700",
+       "value": 1700,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "1,700",
+       "value": 1700,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "NA",
+       "notAvailable": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "bo"
+    },
+    {
+     "name": "China",
+     "cells": {
+      "mine:2024": {
+       "raw": "67,000",
+       "value": 67000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "67,000",
+       "value": 67000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "2,500,000",
+       "value": 2500000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "cn"
+    },
+    {
+     "name": "Kazakhstan",
+     "cells": {
+      "mine:2024": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "2,400",
+       "value": 2400,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "NA",
+       "notAvailable": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "kz"
+    },
+    {
+     "name": "Korea, North",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,900",
+       "value": 1900,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "2,000",
+       "value": 2000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "29,000",
+       "value": 29000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "kp"
+    },
+    {
+     "name": "Portugal",
+     "cells": {
+      "mine:2024": {
+       "raw": "650",
+       "value": 650,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "700",
+       "value": 700,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "3,400",
+       "value": 3400
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "pt"
+    },
+    {
+     "name": "Russia",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,500",
+       "value": 1500,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "2,000",
+       "value": 2000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "400,000",
+       "value": 400000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ru"
+    },
+    {
+     "name": "Rwanda",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,300",
+       "value": 1300,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "1,300",
+       "value": 1300,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "NA",
+       "notAvailable": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "rw"
+    },
+    {
+     "name": "Spain",
+     "cells": {
+      "mine:2024": {
+       "raw": "700",
+       "value": 700,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "800",
+       "value": 800,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "66,000",
+       "value": 66000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "es"
+    },
+    {
+     "name": "Vietnam",
+     "cells": {
+      "mine:2024": {
+       "raw": "3,400",
+       "value": 3400,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "3,000",
+       "value": 3000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "170,000",
+       "value": 170000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "vn"
+    },
+    {
+     "name": "Other countries",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,700",
+       "value": 1700,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "2,400",
+       "value": 2400,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "950,000",
+       "value": 950000
+      }
+     },
+     "footnotes": [],
+     "kind": "other"
+    },
+    {
+     "name": "World total (rounded)",
+     "cells": {
+      "mine:2024": {
+       "raw": "82,000",
+       "value": 82000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "85,000",
+       "value": 85000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": ">4,700,000",
+       "moreThan": true,
+       "value": 4700000
+      }
+     },
+     "footnotes": [],
+     "kind": "world"
+    }
+   ],
+   "footnotes": {
+    "11": "For Australia, Joint Ore Reserves Committee-compliant or equivalent reserves were 220,000 tons."
+   },
+   "events": "China continued to be the world’s leading producer, importer, and consumer of tungsten concentrates. China’s consumption and imports increased significantly in 2025. At the end of 2024, the United States, under section 301(b) of the Trade Act of 1974, increased tariffs to 50% on several tungsten products from China, and in February 2025 China implemented new export controls on selected tungsten items. As a result, prices rose sharply throughout 2025. Rotterdam prices increased from $266 to $551 per metric ton unit for 65% concentrate and from $331 to $675 per metric ton unit for APT. World mine production increased, especially from the start of production at the Boguty deposit in Kazakhstan. In Canada and the United States, multiple projects received awards under the Defense Production Act, Title III, including projects in Nevada, New Brunswick, and Yukon. In October, a joint venture between Kazakhstan and the United States to develop tungsten resources was announced."
+  },
+  {
+   "slug": "antimony",
+   "commodity": "Antimony",
+   "resource": "antimony",
+   "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-antimony.pdf",
+   "table": "World Mine Production and Reserves",
+   "unit": "t",
+   "unitQuote": "Data in metric tons, antimony content",
+   "primary": "mine",
+   "columns": [
+    {
+     "key": "mine:2024",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2024
+    },
+    {
+     "key": "mine:2025",
+     "measure": "production",
+     "stage": "mine",
+     "year": 2025,
+     "estimated": true
+    },
+    {
+     "key": "reserves",
+     "measure": "reserves",
+     "year": 2025
+    }
+   ],
+   "rows": [
+    {
+     "name": "United States",
+     "cells": {
+      "mine:2024": {
+       "raw": "—",
+       "value": 0,
+       "zero": true
+      },
+      "mine:2025": {
+       "raw": "W",
+       "withheld": true,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "60,000",
+       "value": 60000,
+       "footnotes": [
+        "7"
+       ]
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "us"
+    },
+    {
+     "name": "Australia",
+     "cells": {
+      "mine:2024": {
+       "raw": "1,270",
+       "value": 1270
+      },
+      "mine:2025": {
+       "raw": "1,300",
+       "value": 1300,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "110,000",
+       "value": 110000,
+       "footnotes": [
+        "8"
+       ]
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "au"
+    },
+    {
+     "name": "Bolivia",
+     "cells": {
+      "mine:2024": {
+       "raw": "5,300",
+       "value": 5300
+      },
+      "mine:2025": {
+       "raw": "5,000",
+       "value": 5000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "310,000",
+       "value": 310000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "bo"
+    },
+    {
+     "name": "Burma",
+     "cells": {
+      "mine:2024": {
+       "raw": "4,500",
+       "value": 4500,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "4,500",
+       "value": 4500,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "140,000",
+       "value": 140000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "mm"
+    },
+    {
+     "name": "Canada",
+     "cells": {
+      "mine:2024": {
+       "raw": "—",
+       "value": 0,
+       "zero": true
+      },
+      "mine:2025": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "78,000",
+       "value": 78000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ca"
+    },
+    {
+     "name": "China",
+     "cells": {
+      "mine:2024": {
+       "raw": "40,000",
+       "value": 40000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "40,000",
+       "value": 40000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "830,000",
+       "value": 830000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "cn"
+    },
+    {
+     "name": "Guatemala",
+     "cells": {
+      "mine:2024": {
+       "raw": "50",
+       "value": 50,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "50",
+       "value": 50,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "NA",
+       "notAvailable": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "gt"
+    },
+    {
+     "name": "Iran",
+     "cells": {
+      "mine:2024": {
+       "raw": "90",
+       "value": 90,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "90",
+       "value": 90,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "NA",
+       "notAvailable": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ir"
+    },
+    {
+     "name": "Kazakhstan",
+     "cells": {
+      "mine:2024": {
+       "raw": "800",
+       "value": 800,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "800",
+       "value": 800,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "NA",
+       "notAvailable": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "kz"
+    },
+    {
+     "name": "Kyrgyzstan",
+     "cells": {
+      "mine:2024": {
+       "raw": "700",
+       "value": 700,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "700",
+       "value": 700,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "260,000",
+       "value": 260000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "kg"
+    },
+    {
+     "name": "Laos",
+     "cells": {
+      "mine:2024": {
+       "raw": "200",
+       "value": 200,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "200",
+       "value": 200,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "NA",
+       "notAvailable": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "la"
+    },
+    {
+     "name": "Mexico",
+     "cells": {
+      "mine:2024": {
+       "raw": "600",
+       "value": 600
+      },
+      "mine:2025": {
+       "raw": "600",
+       "value": 600,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "18,000",
+       "value": 18000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "mx"
+    },
+    {
+     "name": "Pakistan",
+     "cells": {
+      "mine:2024": {
+       "raw": "260",
+       "value": 260
+      },
+      "mine:2025": {
+       "raw": "260",
+       "value": 260,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "26,000",
+       "value": 26000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "pk"
+    },
+    {
+     "name": "Russia",
+     "cells": {
+      "mine:2024": {
+       "raw": "40,000",
+       "value": 40000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "32,000",
+       "value": 32000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "350,000",
+       "value": 350000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ru"
+    },
+    {
+     "name": "Tajikistan",
+     "cells": {
+      "mine:2024": {
+       "raw": "22,000",
+       "value": 22000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "22,000",
+       "value": 22000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "60,000",
+       "value": 60000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "tj"
+    },
+    {
+     "name": "Turkey",
+     "cells": {
+      "mine:2024": {
+       "raw": "3,000",
+       "value": 3000,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "3,000",
+       "value": 3000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "99,000",
+       "value": 99000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "tr"
+    },
+    {
+     "name": "Vietnam",
+     "cells": {
+      "mine:2024": {
+       "raw": "220",
+       "value": 220,
+       "estimated": true
+      },
+      "mine:2025": {
+       "raw": "220",
+       "value": 220,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": "54,000",
+       "value": 54000
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "vn"
+    },
+    {
+     "name": "World total (rounded)",
+     "cells": {
+      "mine:2024": {
+       "raw": "119,000",
+       "value": 119000
+      },
+      "mine:2025": {
+       "raw": "110,000",
+       "value": 110000,
+       "estimated": true
+      },
+      "reserves": {
+       "raw": ">2,000,000",
+       "moreThan": true,
+       "value": 2000000
+      }
+     },
+     "footnotes": [
+      "9"
+     ],
+     "kind": "world"
+    }
+   ],
+   "footnotes": {
+    "7": "Company-reported probable reserves for the Stibnite Gold Project in Idaho.",
+    "8": "For Australia, Joint Ore Reserves Committee-compliant or equivalent reserves were 11,000 tons.",
+    "9": "In addition to the countries listed, antimony may have been produced in other countries, but available information was inadequate to make reliable estimates of output. Does not include production in the United States."
+   },
+   "events": "The average antimony price in 2025 was $25 per pound, more than double of that in 2024. In 2024, the average monthly antimony price nearly doubled from $9. per pound in August to $18. per pound in December after China announced export restrictions on antimony in August and then banned all exports of antimony to the United States in December. The prices increased an additional 52% to $27. per pound by June 2025 followed by a decrease to $20. per pound in November. In October, a mining company in Idaho broke ground for construction of an antimony mine. The company was conditionally awarded $80 million of funding from the U.S. Department of War to reestablish a domestic source of antimony. According to the company, the project has total proven and probable mineral reserves of 14 million tons of antimony with an ore cutoff grade of 0.42% contained antimony. In November, another company announced that mining started at the Stibnite Hill Mine in Montana."
+  },
+  {
+   "slug": "silicon",
+   "commodity": "Silicon (ferrosilicon and silicon metal)",
+   "resource": "silicon",
+   "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-silicon.pdf",
+   "table": "World Production",
+   "unit": "kt",
+   "unitQuote": "Data in thousand metric tons, silicon content",
+   "primary": "plant-silicon-metal",
+   "columns": [
+    {
+     "key": "plant-ferrosilicon:2024",
+     "measure": "production",
+     "stage": "plant",
+     "year": 2024,
+     "product": "ferrosilicon",
+     "estimated": true
+    },
+    {
+     "key": "plant-ferrosilicon:2025",
+     "measure": "production",
+     "stage": "plant",
+     "year": 2025,
+     "product": "ferrosilicon",
+     "estimated": true
+    },
+    {
+     "key": "plant-silicon-metal:2024",
+     "measure": "production",
+     "stage": "plant",
+     "year": 2024,
+     "product": "silicon metal",
+     "estimated": true
+    },
+    {
+     "key": "plant-silicon-metal:2025",
+     "measure": "production",
+     "stage": "plant",
+     "year": 2025,
+     "product": "silicon metal",
+     "estimated": true
+    }
+   ],
+   "rows": [
+    {
+     "name": "United States",
+     "cells": {
+      "plant-ferrosilicon:2024": {
+       "raw": "W",
+       "withheld": true,
+       "estimated": true
+      },
+      "plant-ferrosilicon:2025": {
+       "raw": "W",
+       "withheld": true,
+       "estimated": true
+      },
+      "plant-silicon-metal:2024": {
+       "raw": "W",
+       "withheld": true,
+       "estimated": true
+      },
+      "plant-silicon-metal:2025": {
+       "raw": "W",
+       "withheld": true,
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "us"
+    },
+    {
+     "name": "Australia",
+     "cells": {
+      "plant-ferrosilicon:2024": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "plant-ferrosilicon:2025": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "plant-silicon-metal:2024": {
+       "raw": "47",
+       "value": 47,
+       "estimated": true
+      },
+      "plant-silicon-metal:2025": {
+       "raw": "47",
+       "value": 47,
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "au"
+    },
+    {
+     "name": "Bhutan",
+     "cells": {
+      "plant-ferrosilicon:2024": {
+       "raw": "98",
+       "value": 98,
+       "estimated": true
+      },
+      "plant-ferrosilicon:2025": {
+       "raw": "98",
+       "value": 98,
+       "estimated": true
+      },
+      "plant-silicon-metal:2024": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "plant-silicon-metal:2025": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "bt"
+    },
+    {
+     "name": "Brazil",
+     "cells": {
+      "plant-ferrosilicon:2024": {
+       "raw": "160",
+       "value": 160,
+       "estimated": true
+      },
+      "plant-ferrosilicon:2025": {
+       "raw": "170",
+       "value": 170,
+       "estimated": true
+      },
+      "plant-silicon-metal:2024": {
+       "raw": "190",
+       "value": 190,
+       "estimated": true
+      },
+      "plant-silicon-metal:2025": {
+       "raw": "180",
+       "value": 180,
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "br"
+    },
+    {
+     "name": "Canada",
+     "cells": {
+      "plant-ferrosilicon:2024": {
+       "raw": "23",
+       "value": 23,
+       "estimated": true
+      },
+      "plant-ferrosilicon:2025": {
+       "raw": "23",
+       "value": 23,
+       "estimated": true
+      },
+      "plant-silicon-metal:2024": {
+       "raw": "34",
+       "value": 34,
+       "estimated": true
+      },
+      "plant-silicon-metal:2025": {
+       "raw": "34",
+       "value": 34,
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ca"
+    },
+    {
+     "name": "China",
+     "cells": {
+      "plant-ferrosilicon:2024": {
+       "raw": "3,100",
+       "value": 3100,
+       "estimated": true
+      },
+      "plant-ferrosilicon:2025": {
+       "raw": "3,500",
+       "value": 3500,
+       "estimated": true
+      },
+      "plant-silicon-metal:2024": {
+       "raw": "4,800",
+       "value": 4800,
+       "estimated": true
+      },
+      "plant-silicon-metal:2025": {
+       "raw": "4,000",
+       "value": 4000,
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "cn"
+    },
+    {
+     "name": "France",
+     "cells": {
+      "plant-ferrosilicon:2024": {
+       "raw": "21",
+       "value": 21,
+       "estimated": true
+      },
+      "plant-ferrosilicon:2025": {
+       "raw": "21",
+       "value": 21,
+       "estimated": true
+      },
+      "plant-silicon-metal:2024": {
+       "raw": "90",
+       "value": 90,
+       "estimated": true
+      },
+      "plant-silicon-metal:2025": {
+       "raw": "68",
+       "value": 68,
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "fr"
+    },
+    {
+     "name": "Germany",
+     "cells": {
+      "plant-ferrosilicon:2024": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "plant-ferrosilicon:2025": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "plant-silicon-metal:2024": {
+       "raw": "29",
+       "value": 29,
+       "estimated": true
+      },
+      "plant-silicon-metal:2025": {
+       "raw": "13",
+       "value": 13,
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "de"
+    },
+    {
+     "name": "Iceland",
+     "cells": {
+      "plant-ferrosilicon:2024": {
+       "raw": "90",
+       "value": 90,
+       "estimated": true
+      },
+      "plant-ferrosilicon:2025": {
+       "raw": "72",
+       "value": 72,
+       "estimated": true
+      },
+      "plant-silicon-metal:2024": {
+       "raw": "28",
+       "value": 28,
+       "estimated": true
+      },
+      "plant-silicon-metal:2025": {
+       "raw": "16",
+       "value": 16,
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "is"
+    },
+    {
+     "name": "India",
+     "cells": {
+      "plant-ferrosilicon:2024": {
+       "raw": "59",
+       "value": 59,
+       "estimated": true
+      },
+      "plant-ferrosilicon:2025": {
+       "raw": "59",
+       "value": 59,
+       "estimated": true
+      },
+      "plant-silicon-metal:2024": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "plant-silicon-metal:2025": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "in"
+    },
+    {
+     "name": "Kazakhstan",
+     "cells": {
+      "plant-ferrosilicon:2024": {
+       "raw": "120",
+       "value": 120,
+       "estimated": true
+      },
+      "plant-ferrosilicon:2025": {
+       "raw": "120",
+       "value": 120,
+       "estimated": true
+      },
+      "plant-silicon-metal:2024": {
+       "raw": "7",
+       "value": 7,
+       "estimated": true
+      },
+      "plant-silicon-metal:2025": {
+       "raw": "7",
+       "value": 7,
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "kz"
+    },
+    {
+     "name": "Malaysia",
+     "cells": {
+      "plant-ferrosilicon:2024": {
+       "raw": "120",
+       "value": 120,
+       "estimated": true
+      },
+      "plant-ferrosilicon:2025": {
+       "raw": "120",
+       "value": 120,
+       "estimated": true
+      },
+      "plant-silicon-metal:2024": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      },
+      "plant-silicon-metal:2025": {
+       "raw": "—",
+       "value": 0,
+       "zero": true,
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "my"
+    },
+    {
+     "name": "Norway",
+     "cells": {
+      "plant-ferrosilicon:2024": {
+       "raw": "160",
+       "value": 160,
+       "estimated": true
+      },
+      "plant-ferrosilicon:2025": {
+       "raw": "150",
+       "value": 150,
+       "estimated": true
+      },
+      "plant-silicon-metal:2024": {
+       "raw": "140",
+       "value": 140,
+       "estimated": true
+      },
+      "plant-silicon-metal:2025": {
+       "raw": "130",
+       "value": 130,
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "no"
+    },
+    {
+     "name": "Russia",
+     "cells": {
+      "plant-ferrosilicon:2024": {
+       "raw": "420",
+       "value": 420,
+       "estimated": true
+      },
+      "plant-ferrosilicon:2025": {
+       "raw": "420",
+       "value": 420,
+       "estimated": true
+      },
+      "plant-silicon-metal:2024": {
+       "raw": "59",
+       "value": 59,
+       "estimated": true
+      },
+      "plant-silicon-metal:2025": {
+       "raw": "35",
+       "value": 35,
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "ru"
+    },
+    {
+     "name": "South Africa",
+     "cells": {
+      "plant-ferrosilicon:2024": {
+       "raw": "36",
+       "value": 36,
+       "estimated": true
+      },
+      "plant-ferrosilicon:2025": {
+       "raw": "35",
+       "value": 35,
+       "estimated": true
+      },
+      "plant-silicon-metal:2024": {
+       "raw": "15",
+       "value": 15,
+       "estimated": true
+      },
+      "plant-silicon-metal:2025": {
+       "raw": "10",
+       "value": 10,
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "za"
+    },
+    {
+     "name": "Spain",
+     "cells": {
+      "plant-ferrosilicon:2024": {
+       "raw": "41",
+       "value": 41,
+       "estimated": true
+      },
+      "plant-ferrosilicon:2025": {
+       "raw": "40",
+       "value": 40,
+       "estimated": true
+      },
+      "plant-silicon-metal:2024": {
+       "raw": "6",
+       "value": 6,
+       "estimated": true
+      },
+      "plant-silicon-metal:2025": {
+       "raw": "4",
+       "value": 4,
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "kind": "country",
+     "iso2": "es"
+    },
+    {
+     "name": "Other countries",
+     "cells": {
+      "plant-ferrosilicon:2024": {
+       "raw": "120",
+       "value": 120,
+       "estimated": true
+      },
+      "plant-ferrosilicon:2025": {
+       "raw": "40",
+       "value": 40,
+       "estimated": true
+      },
+      "plant-silicon-metal:2024": {
+       "raw": "42",
+       "value": 42,
+       "estimated": true
+      },
+      "plant-silicon-metal:2025": {
+       "raw": "46",
+       "value": 46,
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "kind": "other"
+    },
+    {
+     "name": "World total (rounded)",
+     "cells": {
+      "plant-ferrosilicon:2024": {
+       "raw": "4,600",
+       "value": 4600,
+       "footnotes": [
+        "7"
+       ],
+       "estimated": true
+      },
+      "plant-ferrosilicon:2025": {
+       "raw": "5,000",
+       "value": 5000,
+       "footnotes": [
+        "7"
+       ],
+       "estimated": true
+      },
+      "plant-silicon-metal:2024": {
+       "raw": "5,500",
+       "value": 5500,
+       "footnotes": [
+        "7"
+       ],
+       "estimated": true
+      },
+      "plant-silicon-metal:2025": {
+       "raw": "4,600",
+       "value": 4600,
+       "footnotes": [
+        "7"
+       ],
+       "estimated": true
+      }
+     },
+     "footnotes": [],
+     "kind": "world"
+    }
+   ],
+   "footnotes": {
+    "7": "Excludes U.S. production."
+   },
+   "events": "Combined domestic ferrosilicon and silicon metal production in 2025 was withheld to avoid disclosing proprietary information but was estimated to be less than that in 2024. China accounted for almost 80% of total global estimated production of silicon materials in 2025. Global production of silicon materials, on a silicon-content basis, was estimated to have decreased compared with 2024 production. According to industry publications, the January through October 2025 average U.S. price for silicon metal was about 21% less than the annual average price in 2024, and the average U.S. price for 75%-grade ferrosilicon was about 3% more than the annual average price in 2024. The decrease in the average price of silicon metal in 2025 was attributed to oversupply, weak demand from the aluminum and silicon industries, and the availability of polysilicon stocks. In April 2025, prices of silicon metal from China were the lowest since November 2016. In 2025, total silicon metal imports were estimated to be about 50% more than those in 2024. Uncertainty regarding tariffs and concerns over possible future export restrictions from other countries may have contributed to the increase in silicon metal imports. In April, the U.S. International Trade Commission determined that a United States industry was materially injured by imports of ferrosilicon (subheadings 7202. and 7202. of the Harmonized Tariff Schedule of the United States) from Brazil, Kazakhstan, and Malaysia and issued countervailing and antidumping duty orders on imports of ferrosilicon from those countries. This followed the U.S. Department of Commerce’s determination that ferrosilicon had been sold at less than fair value and was subsidized by the Governments of Brazil, Kazakhstan, and Malaysia. On November 7, 2025, the U.S. Final 2025 List of Critical Minerals was published in the Federal Register (90 FR 50494). The changes in the 2025 list from the prior list published in 2022 (87 FR 10381) were the addition of copper, lead, potash, rhenium, silicon, and silver, based on the U.S. Geological Survey updated methodology for the 2025 list. As required by the Energy Act, public comment and interagency input were requested in response to the draft U.S. list of critical minerals published in the Federal Register (90 FR 41591). Based on that input, boron, metallurgical coal, phosphate rock, and uranium were also added."
+  }
+ ]
+}

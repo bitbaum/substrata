@@ -35,7 +35,10 @@ export type ResourceId =
   | 'diamonds'
   | 'neon'
   | 'boron'
-  | 'silver';
+  | 'silver'
+  | 'tungsten'
+  | 'antimony'
+  | 'silicon';
 
 export const RESOURCE_KINDS: readonly { id: ResourceId; label: string; why: string }[] = [
   { id: 'uranium', label: 'Uranium', why: 'Fuel for fission. Without it, nuclear is a drawing.' },
@@ -130,6 +133,17 @@ export const RESOURCE_KINDS: readonly { id: ResourceId; label: string; why: stri
   },
   { id: 'boron', label: 'Boron', why: 'Glasses, magnets, and some nuclear uses.' },
   { id: 'silver', label: 'Silver', why: 'The most conductive metal. PV paste and electronics.' },
+  { id: 'tungsten', label: 'Tungsten', why: 'Cutting tools, hard alloys and armour.' },
+  {
+    id: 'antimony',
+    label: 'Antimony',
+    why: 'Flame retardants, lead-acid batteries and munitions.',
+  },
+  {
+    id: 'silicon',
+    label: 'Silicon metal',
+    why: 'Smelted from quartz. The feed for polysilicon and every wafer after it.',
+  },
 ];
 
 export interface CountryResource {
