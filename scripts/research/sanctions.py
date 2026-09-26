@@ -17,6 +17,7 @@ without a machine-readable index of measures per regime.
 """
 import html
 import json
+from zoneinfo import ZoneInfo
 import re
 import sys
 import time
@@ -29,6 +30,7 @@ ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "research" / "sanctions.json"
 EU_API = "https://www.sanctionsmap.eu/api/v1/regime"
 EU_MAP = "https://www.sanctionsmap.eu/#/main/details/{id}/"
+BRUSSELS = ZoneInfo("Europe/Brussels")
 OFAC_LIST = "https://ofac.treasury.gov/sanctions-programs-and-country-information"
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) substrata-research"}
 
@@ -88,7 +90,8 @@ def eu_regimes() -> list[dict]:
                 "iso2": country["code"].lower(),
                 "adoptedBy": detail["adopted_by"]["data"]["title"],
                 "title": detail["specification"].strip(),
-                "amended": datetime.fromtimestamp(amended, timezone.utc).date().isoformat() if amended else None,
+                # The map stamps an amendment at midnight Brussels time; read in UTC it lands a day early.
+                "amended": datetime.fromtimestamp(amended, BRUSSELS).date().isoformat() if amended else None,
                 "url": EU_MAP.format(id=detail["id"]),
                 "legalActs": [
                     {"title": a["title"], "number": a.get("number"), "url": a.get("url")}
@@ -109,7 +112,8 @@ def ofac_programs() -> list[dict]:
     found = re.findall(r'href="/sanctions-programs-and-country-information/([a-z0-9-]+)"[^>]*>([^<]+)<', page)
     out, seen = [], set()
     for slug, title in found:
-        if slug in OFAC_COUNTRY and slug not in seen:
+        # The page links each programme twice; the first is a menu link with no text.
+        if slug in OFAC_COUNTRY and slug not in seen and title.strip():
             seen.add(slug)
             out.append(
                 {

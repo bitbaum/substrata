@@ -3126,6 +3126,7 @@
           "value": 60.0,
           "source": "https://www.cameco.com/sites/default/files/documents/CCO-2024-Q2-MDA-FS-Notes_0.pdf",
           "publisher": "Cameco 2024 Q2 MD&A",
+          "published": "2024-07-30",
           "quote": "the end of the second quarter, the average reported spot price for conversion reached a record high of $60.00 (US) per kilogram uranium (kgU) as UF6, up $2.00 (US) from the previous quarter.",
           "primary": true,
           "note": "Cameco average of UxC and TradeTech reported prices; 2025-12-31 value omitted (only derivable by subtraction)"
@@ -3135,6 +3136,7 @@
           "value": 72.0,
           "source": "https://www.cameco.com/sites/default/files/documents/CCO%202024%20Q3%20MDA%20FS%20Notes.pdf",
           "publisher": "Cameco 2024 Q3 MD&A",
+          "published": "2024-11-06",
           "quote": "the end of the third quarter, the average reported spot price for conversion reached a record high of $72.00 (US) per kilogram uranium (kgU) as UF6, up $12.00 (US) from the previous quarter.",
           "primary": true,
           "note": "Cameco average of UxC and TradeTech reported prices; 2025-12-31 value omitted (only derivable by subtraction)"
@@ -3144,6 +3146,7 @@
           "value": 97.0,
           "source": "https://www.cameco.com/sites/default/files/documents/CCO%202024%20Q4%20MDA%20FS%20Notes.pdf",
           "publisher": "Cameco 2024 annual MD&A",
+          "published": "2025-02-20",
           "quote": "At the end of 2024, the average reported spot price for North American delivery reached a record high of $97.00 (US) per kilogram uranium as UF6 (US/kgU as UF6), up $51.00 (US) from the end of 2023.",
           "primary": true,
           "note": "Cameco average of UxC and TradeTech reported prices; 2025-12-31 value omitted (only derivable by subtraction)"
@@ -3153,6 +3156,7 @@
           "value": 81.0,
           "source": "https://www.cameco.com/sites/default/files/documents/CCO-2025-Q1-MDA-FS-Notes_0.pdf",
           "publisher": "Cameco 2025 Q1 MD&A",
+          "published": "2025-04-30",
           "quote": "the end of the first quarter, the average reported spot price for conversion was $81.00 (US) per kilogram uranium (kgU) as UF6, down $16.00 (US) from the previous quarter.",
           "primary": true,
           "note": "Cameco average of UxC and TradeTech reported prices; 2025-12-31 value omitted (only derivable by subtraction)"
@@ -3162,6 +3166,7 @@
           "value": 69.0,
           "source": "https://www.cameco.com/sites/default/files/documents/2025-Q2-MD&A-FS.pdf",
           "publisher": "Cameco 2025 Q2 MD&A",
+          "published": "2025-07-30",
           "quote": "At the end of the second quarter, the average reported spot price for conversion was $69.00 (US) per kilogram uranium (kgU) as UF6, down $12.00 (US) from the previous quarter.",
           "primary": true,
           "note": "Cameco average of UxC and TradeTech reported prices; 2025-12-31 value omitted (only derivable by subtraction)"
@@ -3171,6 +3176,7 @@
           "value": 63.5,
           "source": "https://www.cameco.com/sites/default/files/documents/2025%20Q3%20MDA%20FS%20and%20Notes.pdf",
           "publisher": "Cameco 2025 Q3 MD&A",
+          "published": "2025-11-04",
           "quote": "At the end of the third quarter, the average reported spot price for conversion was $63.50 (US) per kilogram uranium (kgU) as UF6, down $5.50 (US) from the previous quarter.",
           "primary": true,
           "note": "Cameco average of UxC and TradeTech reported prices; 2025-12-31 value omitted (only derivable by subtraction)"
@@ -3180,6 +3186,7 @@
           "value": 62.5,
           "source": "https://www.cameco.com/sites/default/files/documents/2026-Q1-MD&A-FS-Notes.pdf",
           "publisher": "Cameco 2026 Q1 MD&A",
+          "published": "2026-05-04",
           "quote": "At the end of the first quarter, the average reported spot price for conversion was US$62.50 per kgU as UF6, up US$1.00 from the previous quarter.",
           "primary": true,
           "note": "Cameco average of UxC and TradeTech reported prices; 2025-12-31 value omitted (only derivable by subtraction)"
@@ -3189,6 +3196,7 @@
           "value": 64.5,
           "source": "https://www.cameco.com/sites/default/files/documents/2026-Q2-MDA-FS-Notes_0.pdf",
           "publisher": "Cameco 2026 Q2 MD&A",
+          "published": "2026-07-30",
           "quote": "At the end of the second quarter, the average reported spot price for conversion was US$64.50 per kilogram uranium (kgU) as UF6, up US$2.00 from the previous quarter.",
           "primary": true,
           "note": "Cameco average of UxC and TradeTech reported prices; 2025-12-31 value omitted (only derivable by subtraction)"
@@ -3211,6 +3219,7 @@
           "value": 38.0,
           "source": "https://www.cameco.com/sites/default/files/documents/CCO-2024-Q2-MDA-FS-Notes_0.pdf",
           "publisher": "Cameco 2024 Q2 MD&A",
+          "published": "2024-07-30",
           "quote": "Long-term UF6 conversion prices for North America and Europe finished the quarter at $38.00 (US) per kgU, up $2.50 (US) from the previous quarter.",
           "primary": true,
           "note": "2024-Q2..2025-Q1 quotes say \"North America and Europe\""
@@ -3220,6 +3229,7 @@
           "value": 43.25,
           "source": "https://www.cameco.com/sites/default/files/documents/CCO%202024%20Q3%20MDA%20FS%20Notes.pdf",
           "publisher": "Cameco 2024 Q3 MD&A",
+          "published": "2024-11-06",
           "quote": "Long-term UF6 conversion prices for North America and Europe finished the quarter at $43.25 (US) per kgU, up $5.25 (US) from the previous quarter.",
           "primary": true,
           "note": "2024-Q2..2025-Q1 quotes say \"North America and Europe\""
@@ -3229,6 +3239,7 @@
           "value": 50.0,
           "source": "https://www.cameco.com/sites/default/files/documents/CCO%202024%20Q4%20MDA%20FS%20Notes.pdf",
           "publisher": "Cameco 2024 annual MD&A",
+          "published": "2025-02-20",
           "quote": "Long-term UF6 conversion prices for North American delivery also reached a record high and finished 2024 at $50.00 (US/kgU as UF6), up $15.75 (US) from the end of 2023.",
           "primary": true,
           "note": "2024-Q2..2025-Q1 quotes say \"North America and Europe\""
@@ -3238,6 +3249,7 @@
           "value": 49.75,
           "source": "https://www.cameco.com/sites/default/files/documents/CCO-2025-Q1-MDA-FS-Notes_0.pdf",
           "publisher": "Cameco 2025 Q1 MD&A",
+          "published": "2025-04-30",
           "quote": "The average long-term UF6 conversion prices for North America and Europe finished the quarter at $49.75 (US) per kgU as UF6, remaining unchanged from the previous quarter.",
           "primary": true,
           "note": "2024-Q2..2025-Q1 quotes say \"North America and Europe\""
@@ -3247,6 +3259,7 @@
           "value": 50.5,
           "source": "https://www.cameco.com/sites/default/files/documents/2025-Q2-MD&A-FS.pdf",
           "publisher": "Cameco 2025 Q2 MD&A",
+          "published": "2025-07-30",
           "quote": "The average long-term UF6 conversion price for North America finished the quarter at $50.50 (US) per kgU as UF6, an increase of $0.50 (US) from the previous quarter.",
           "primary": true,
           "note": "2024-Q2..2025-Q1 quotes say \"North America and Europe\""
@@ -3256,6 +3269,7 @@
           "value": 52.25,
           "source": "https://www.cameco.com/sites/default/files/documents/2025%20Q3%20MDA%20FS%20and%20Notes.pdf",
           "publisher": "Cameco 2025 Q3 MD&A",
+          "published": "2025-11-04",
           "quote": "The average long-term UF6 conversion price for North America finished the quarter at $52.25 (US) per kgU as UF6, up $1.75 (US) from the previous quarter.",
           "primary": true,
           "note": "2024-Q2..2025-Q1 quotes say \"North America and Europe\""
@@ -3265,6 +3279,7 @@
           "value": 53.63,
           "source": "https://www.cameco.com/sites/default/files/documents/CCO-2025-Q4-MDA-FS-Notes.pdf",
           "publisher": "Cameco 2025 annual MD&A",
+          "published": "2026-02-13",
           "quote": "Long term UF6 conversion prices for North American delivery strengthened notably in 2025, reaching a record high of US$53.63 (per kgU as UF6) by year end",
           "primary": true,
           "note": "2024-Q2..2025-Q1 quotes say \"North America and Europe\""
@@ -3274,6 +3289,7 @@
           "value": 55.25,
           "source": "https://www.cameco.com/sites/default/files/documents/2026-Q1-MD&A-FS-Notes.pdf",
           "publisher": "Cameco 2026 Q1 MD&A",
+          "published": "2026-05-04",
           "quote": "The average long-term UF6 conversion price for North America finished the quarter at US$55.25 per kgU as UF6, up US$1.62 from the previous quarter.",
           "primary": true,
           "note": "2024-Q2..2025-Q1 quotes say \"North America and Europe\""
@@ -3283,6 +3299,7 @@
           "value": 55.5,
           "source": "https://www.cameco.com/sites/default/files/documents/2026-Q2-MDA-FS-Notes_0.pdf",
           "publisher": "Cameco 2026 Q2 MD&A",
+          "published": "2026-07-30",
           "quote": "The average long-term UF6 conversion price for North America finished the quarter at US$55.50 per kgU as UF6, up US$0.25 per kgU from the previous quarter.",
           "primary": true,
           "note": "2024-Q2..2025-Q1 quotes say \"North America and Europe\""
@@ -3305,6 +3322,7 @@
           "value": 70.79,
           "source": "https://www.cameco.com/sites/default/files/documents/CCO-2025-Q4-MDA-FS-Notes.pdf",
           "publisher": "Cameco 2025 annual MD&A",
+          "published": "2026-02-13",
           "quote": "In 2025, the reported North American spot price for UF6 ranged from a month end price of US$92.00 to a low of US$61.50 (per kgU as UF6), averaging US$70.79 for the year, which was US$2.50 or 4%, higher than the 2024 annual average.",
           "primary": true
         }

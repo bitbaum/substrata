@@ -94,7 +94,7 @@ export const EVENTS: readonly CoverageEvent[] = [
     kind: 'capacity',
     effect: 'tightens',
     bottlenecks: ['Silicon carbide substrate, 200 mm semi-insulating'],
-    participants: ['SK Siltron CSS'],
+    participants: ['SK Siltron'],
     jurisdictions: ['US', 'KR'],
     source: 'https://www.thelec.net/news/articleView.html?idxno=12315',
     primary: true,
@@ -162,7 +162,7 @@ export const EVENTS: readonly CoverageEvent[] = [
       'https://aslgate.com/european-union-officially-initiates-safeguard-investigation-on-grain-oriented-electrical-steel-goes/',
     primary: true,
     quote:
-      'On March 27, 2026, the European Commission issued a notice initiating a safeguard investigation on grain-oriented electrical steel.',
+      'on March 27, 2026, the European Commission issued a notice initiating a safeguard investigation on certain Grain-Oriented Electrical Steel (GOES) products.',
     acceptedOn: '2026-09-15',
   },
   {
@@ -245,7 +245,7 @@ export const EVENTS: readonly CoverageEvent[] = [
       'https://www.prnewswire.com/news-releases/shanghai-electric-secures-first-overseas-heavy-duty-gas-turbine-order-for-500-mw-malaysian-project-302876154.html',
     primary: true,
     quote:
-      'Shanghai Electric has achieved a milestone in the high-end equipment sector, securing its first overseas heavy-duty gas turbine order.',
+      'Shanghai Electric Secures First Overseas Heavy-Duty Gas Turbine Order for 500 MW Malaysian Project / Shanghai Electric (SEHK: 02727, SSE: 601727) has achieved a milestone in the high-end overseas energy sector by securing the contract for Unit 3 of the Sarawak Samalaju Combined Cycle Gas Turbine (CCGT) project in Malaysia.',
     acceptedOn: '2026-09-15',
   },
   {
@@ -262,7 +262,7 @@ export const EVENTS: readonly CoverageEvent[] = [
       'https://policy.trade.ec.europa.eu/news/2026-update-eu-control-list-dual-use-items-2026-09-14_en',
     primary: true,
     quote:
-      'The EU control list provides for the addition of new dual-use items, including semiconductor manufacturing and testing equipment and materials (e.g. Atomic Layer Deposition equipment for molybdenum and Ruthenium).',
+      'Specifically, this update of the EU control list provides for the addition of new dual-use items, including: Semiconductor manufacturing and testing equipment and materials (e.g. Atomic Layer Deposition equipment for molybdenum and Ruthenium, equipment for the development and the inspection of Extreme Ultra-Violet masks and reticles, and single wafer cleaning equipment)',
     acceptedOn: '2026-09-15',
   },
   {
@@ -382,7 +382,7 @@ export const EVENTS: readonly CoverageEvent[] = [
       'https://www.boerse-global.de/energy-fuels-aktie-dysprosium-produktion-ab-juli-2026/797298',
     primary: false,
     quote:
-      'Energy Fuels startet im Juli die Umstellung auf die Produktion von Dysprosium und Terbium. (Energy Fuels begins the switch to production of dysprosium and terbium in July.)',
+      'Energy Fuels startet im Juli die Umstellung auf die Produktion von Dysprosium und Terbium, während die Uranförderung am unteren Ende der Prognose bleibt.',
     acceptedOn: '2026-09-15',
   },
   {
@@ -431,7 +431,7 @@ export const EVENTS: readonly CoverageEvent[] = [
     source: 'https://www.nabtesco.com/en/news/20251202-17329/',
     primary: true,
     quote:
-      'Nabtesco will add two new products to its lineup: the RVmini Series, a compact and lightweight high-precision strain wave generator, and the Monocrank Series.',
+      'will add two new products to its lineup: the “RVmini® Series,” a compact and lightweight high-precision strain wave generators, and the “Monocrank™ Series,” which achieves high precision and high rigidity despite its compact size.',
     acceptedOn: '2026-09-15',
   },
   {
