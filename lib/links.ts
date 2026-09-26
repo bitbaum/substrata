@@ -176,6 +176,7 @@ export const ROUTES = [
   '/data',
   '/data/series',
   '/data/freshness',
+  '/data/quality',
   '/for/equities',
   '/for/commodities',
   '/for/industry',

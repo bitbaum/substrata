@@ -81,6 +81,20 @@ scheduled feed (run tables `research_*_runs`) and committed dataset (its own
 committed dataset is past its maximum age, so stale data cannot be deployed as
 current; the endpoint returns 503 when anything is stale or failing.
 
+**Data quality** (`/data/quality`, footer link, palette "Quality scores"): every
+dataset held to six written criteria — completeness, correctness, provenance,
+freshness, link health, consistency — declared in `config/substrata-quality.ts`
+(a criterion is a rule or `na` with a reason). Pure checks (`lib/quality/checks-*.ts`:
+USGS sums, quote carries the value, names resolve, cross-dataset agreement) run
+in `verify` via `test/quality.test.ts`, which ratchets each check's failure count.
+Network checks (links with 3 tries, quotes still on the page, SEC ticker file,
+OpenFIGI mapping, USGS values on the chapter PDF) run every six hours on a
+rotation (`/api/cron/quality`, timer `appcron-substrata-quality`) into
+`research_quality_checks`; each run's scorecard goes to `research_quality_runs`
+for the trend (`scripts/db/014-quality.sql`). On demand: `pnpm run quality`
+(pure), `-- --network` (one slice), `-- --all` (everything), `-- --json out.json`.
+No AI anywhere in it.
+
 This table went stale once and cost a redesign: `Megamenu.tsx` was deleted in
 7f59e09 and nothing noticed, and what shipped instead hid the whole nav below
 1100px — a tablet got a lone "MENU", and a signed-in reader at 834px got no

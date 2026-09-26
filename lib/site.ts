@@ -18,17 +18,20 @@ export const SITE = {
  * stated reason the research is free, so the route to tell us has to be one
  * click and cannot ask for anything first.
  */
-export function correctionUrl(about: string): string {
+export function correctionUrl(
+  about: string,
+  known?: { problem?: string; source?: string },
+): string {
   const params = new URLSearchParams({
     title: `Correction: ${about}`,
     labels: 'correction',
     body: [
       '**Which row** (material and company, or the page and section):',
-      '',
+      known ? about : '',
       '**What is wrong**:',
-      '',
+      known?.problem ?? '',
       '**Source** (a link that shows it — the row cannot change without one):',
-      '',
+      known?.source ?? '',
     ].join('\n'),
   });
   return `${SITE.repo}/issues/new?${params.toString()}`;

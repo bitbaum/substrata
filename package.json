@@ -21,6 +21,7 @@
     "research:producers": "python3 scripts/research/usgs-myb-producers.py",
     "research:restrictions": "python3 scripts/research/oecd-export-restrictions.py",
     "research:sanctions": "python3 scripts/research/sanctions.py",
+    "quality": "tsx scripts/quality/run.ts",
     "verify": "pnpm run format:check && pnpm run type-check && pnpm run lint && pnpm run test",
     "format": "prettier --write .",
     "format:check": "prettier --check ."

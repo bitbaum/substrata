@@ -21,6 +21,7 @@ import { CAREER_METHODS } from './methods-careers';
 import { AI_METHODS } from './methods-ai';
 import { FRESHNESS_METHODS } from './methods-freshness';
 import { RESOURCE_METHODS } from './methods-resources';
+import { QUALITY_METHODS } from './methods-quality';
 
 export interface Method {
   /** Short name, as a heading on /data. */
@@ -35,6 +36,7 @@ export interface Method {
 
 export const METHODS = {
   ...GRAPH_METHODS,
+  ...QUALITY_METHODS,
   ...AI_METHODS,
   'bottleneck-count': {
     title: 'Bottlenecks mapped',
