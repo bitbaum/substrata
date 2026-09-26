@@ -95,19 +95,46 @@ export async function railFreshness(
  * `days` is the reader's own window and may reach past LEAD_EXPIRY_DAYS, so
  * each lead says whether it expired unread — never shown as awaiting review.
  */
+export interface LeadRow {
+  id: string;
+  bottleneck: string;
+  term: string;
+  url: string;
+  title: string;
+  published: string | null;
+  found_at: Date;
+  reviewed_at: Date | null;
+  verdict: string | null;
+  effect_guess: string;
+}
+
+/**
+ * One stored lead as the desk reads it. The verdict travels with it: an
+ * accepted lead has been read and judged worth filing, so it must never be
+ * labelled "not yet reviewed" (and a reviewed lead is never "expired").
+ */
+export function leadFromRow(row: LeadRow, now: Date = new Date()): Lead {
+  return {
+    id: row.id,
+    bottleneck: row.bottleneck,
+    term: row.term,
+    url: row.url,
+    title: row.title,
+    published: row.published,
+    foundAt: row.found_at.toISOString(),
+    expired: leadState({ foundAt: row.found_at, reviewedAt: row.reviewed_at }, now) === 'expired',
+    accepted: row.verdict === 'accepted',
+    effectGuess:
+      row.effect_guess === 'tightens' || row.effect_guess === 'loosens'
+        ? row.effect_guess
+        : 'neutral',
+  };
+}
+
 export async function leadsFor(names: readonly string[], days = 45): Promise<Lead[]> {
-  const result = await database().query<{
-    id: string;
-    bottleneck: string;
-    term: string;
-    url: string;
-    title: string;
-    published: string | null;
-    found_at: Date;
-    reviewed_at: Date | null;
-    effect_guess: string;
-  }>(
-    `SELECT id, bottleneck, term, url, title, published, found_at, reviewed_at, effect_guess
+  const result = await database().query<LeadRow>(
+    `SELECT id, bottleneck, term, url, title, published, found_at, reviewed_at, verdict,
+            effect_guess
        FROM research_sweep_candidates
       WHERE bottleneck = ANY($1::text[])
         AND verdict IS DISTINCT FROM 'rejected'
@@ -116,20 +143,7 @@ export async function leadsFor(names: readonly string[], days = 45): Promise<Lea
       LIMIT 200`,
     [names, days],
   );
-  return result.rows.map((row) => ({
-    id: row.id,
-    bottleneck: row.bottleneck,
-    term: row.term,
-    url: row.url,
-    title: row.title,
-    published: row.published,
-    foundAt: row.found_at.toISOString(),
-    expired: leadState({ foundAt: row.found_at, reviewedAt: row.reviewed_at }) === 'expired',
-    effectGuess:
-      row.effect_guess === 'tightens' || row.effect_guess === 'loosens'
-        ? row.effect_guess
-        : 'neutral',
-  }));
+  return result.rows.map((row) => leadFromRow(row));
 }
 
 /** The window the settings table counts leads over. */

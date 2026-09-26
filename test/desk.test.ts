@@ -278,3 +278,37 @@ test('a headline must name its rail as a whole word, not a fragment', () => {
     true,
   );
 });
+
+test('an accepted lead carries its verdict to the desk and is never "not yet reviewed"', async () => {
+  const { leadFromRow } = await import('../lib/sweep-queue');
+  const row = {
+    id: 'l1',
+    bottleneck: 'Large power transformer slots',
+    term: 'transformer',
+    url: 'https://a.example/accepted',
+    title: 'Hitachi opens a transformer factory in Virginia',
+    published: null,
+    found_at: new Date('2026-08-01T10:00:00.000Z'),
+    reviewed_at: new Date('2026-08-02T10:00:00.000Z'),
+    verdict: 'accepted',
+    effect_guess: 'loosens',
+  };
+  const accepted = leadFromRow(row, NOW);
+  assert.equal(accepted.accepted, true);
+  assert.equal(accepted.expired, false, 'a reviewed lead is never expired, however old');
+  const unread = leadFromRow({ ...row, verdict: null, reviewed_at: null }, NOW);
+  assert.equal(unread.accepted, false);
+
+  const feed = buildFeed([], [{ ...accepted, foundAt: '2026-09-23T20:00:00.000Z' }], NOW);
+  const item = feed.find((i) => i.source === 'lead');
+  assert.ok(item && item.source === 'lead' && item.accepted, 'the verdict reaches the feed row');
+
+  // The label: the accepted branch must come before the unread fallback.
+  const view = readFileSync(new URL('../components/desk/FeedItem.tsx', import.meta.url), 'utf8');
+  const acceptedAt = view.indexOf('Web lead · accepted, awaiting filing');
+  assert.ok(acceptedAt > 0, 'accepted leads have their own label');
+  assert.ok(
+    acceptedAt < view.indexOf('Web lead · not yet reviewed'),
+    'checked before the fallback',
+  );
+});

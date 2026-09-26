@@ -28,6 +28,8 @@ export interface Lead {
   foundAt: string;
   /** Nobody reviewed it within LEAD_EXPIRY_DAYS — it is no longer awaiting review. */
   expired?: boolean;
+  /** A reviewer accepted it: read and judged worth filing, not yet filed as an event. */
+  accepted?: boolean;
   effectGuess: EventEffect;
 }
 
@@ -60,6 +62,8 @@ export type DeskItem =
       dated: boolean;
       /** Expired unread (see lib/lead-expiry.ts): labelled so, never "not yet reviewed". */
       expired: boolean;
+      /** Accepted by a reviewer, awaiting filing: labelled so, never "not yet reviewed". */
+      accepted: boolean;
       dateOnly: false;
     }
   | {
@@ -277,6 +281,7 @@ export function buildFeed(
       alsoAt: [],
       dated,
       expired: lead.expired ?? false,
+      accepted: lead.accepted ?? false,
       dateOnly: false,
     });
   }
