@@ -6,7 +6,8 @@
  */
 import { geoGraticule10, geoPath, type GeoProjection } from 'd3-geo';
 
-import type { CountryFeature, World } from './globe-geo';
+import { centreOf, horizonOf, visible } from './globe-cull';
+import type { CountryFeature, Shapes } from './globe-geo';
 
 /** Bin 6: USGS printed a word, not a number — hatched, never on the ramp. */
 export const HATCHED = 6;
@@ -86,8 +87,13 @@ function hatch(ctx: CanvasRenderingContext2D, p: Palette): CanvasPattern | strin
 
 export interface Paint {
   palette: Palette;
-  /** One entry per colour, lowest bin first: a path per colour, not per country. */
-  groups: [string | CanvasPattern, CountryFeature[]][];
+  /**
+   * One entry per colour, lowest bin first — a path per colour, not per
+   * country — as indexes, so the full and the coarse world share it.
+   */
+  groups: [string | CanvasPattern, number[]][];
+  /** The layers that do not turn with the Earth, rendered once per disc. */
+  backdrop?: { key: string; under: HTMLCanvasElement; over: HTMLCanvasElement };
 }
 
 export function paintFor(
@@ -97,11 +103,11 @@ export function paintFor(
   bins: Record<string, number>,
 ): Paint {
   const palette = readPalette(el);
-  const fills = new Map<number, CountryFeature[]>();
-  for (const c of countries) {
+  const fills = new Map<number, number[]>();
+  countries.forEach((c, i) => {
     const bin = bins[c.properties.iso] ?? 0;
-    fills.set(bin, [...(fills.get(bin) ?? []), c]);
-  }
+    fills.set(bin, [...(fills.get(bin) ?? []), i]);
+  });
   const colour = (bin: number) =>
     bin === HATCHED
       ? hatch(ctx, palette)
@@ -110,69 +116,123 @@ export function paintFor(
         : palette.land;
   return {
     palette,
-    groups: [...fills.entries()].sort(([a], [b]) => a - b).map(([bin, fs]) => [colour(bin), fs]),
+    groups: [...fills.entries()].sort(([a], [b]) => a - b).map(([bin, is]) => [colour(bin), is]),
   };
 }
 
 const FULL = Math.PI * 2;
+const GRATICULE = geoGraticule10();
+
+function blit(ctx: CanvasRenderingContext2D, layer: HTMLCanvasElement) {
+  ctx.save();
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.drawImage(layer, 0, 0);
+  ctx.restore();
+}
+
+/**
+ * Atmosphere and lit sphere (under the land) and the limb shade (over it) do
+ * not turn with the Earth: render them once per disc and blit them, instead
+ * of three full-disc gradients every frame.
+ */
+function backdrop(
+  paint: Paint,
+  target: HTMLCanvasElement,
+  cx: number,
+  cy: number,
+  r: number,
+  size: { w: number; h: number },
+) {
+  const key = [target.width, target.height, cx, cy, r].map((n) => n.toFixed(1)).join();
+  if (paint.backdrop?.key === key) return paint.backdrop;
+  const { palette } = paint;
+  const scale = target.width / size.w;
+  const layer = (draw: (c: CanvasRenderingContext2D) => void) => {
+    const canvas = document.createElement('canvas');
+    canvas.width = target.width;
+    canvas.height = target.height;
+    const c = canvas.getContext('2d');
+    if (c) {
+      c.setTransform(scale, 0, 0, scale, 0, 0);
+      draw(c);
+    }
+    return canvas;
+  };
+  const disc = (c: CanvasRenderingContext2D, radius: number, fill: CanvasGradient) => {
+    c.fillStyle = fill;
+    c.beginPath();
+    c.arc(cx, cy, radius, 0, FULL);
+    c.fill();
+  };
+  const under = layer((c) => {
+    // Atmosphere: a thin glow past the limb, only while the limb is on screen.
+    if (r < Math.hypot(size.w, size.h)) {
+      const glow = c.createRadialGradient(cx, cy, r * 0.97, cx, cy, r * 1.12);
+      glow.addColorStop(0, palette.glow[0]);
+      glow.addColorStop(1, palette.glow[1]);
+      disc(c, r * 1.12, glow);
+    }
+    // The sphere, lit from the upper left.
+    const sea = c.createRadialGradient(cx - r * 0.4, cy - r * 0.45, r * 0.05, cx, cy, r);
+    sea.addColorStop(0, palette.sphereLight);
+    sea.addColorStop(1, palette.sphere);
+    disc(c, r, sea);
+  });
+  // Shade toward the limb so it reads as a ball, not a disc.
+  const over = layer((c) => {
+    const limb = c.createRadialGradient(cx, cy, r * 0.55, cx, cy, r);
+    limb.addColorStop(0, palette.limb[0]);
+    limb.addColorStop(1, palette.limb[1]);
+    disc(c, r, limb);
+  });
+  paint.backdrop = { key, under, over };
+  return paint.backdrop;
+}
 
 /** One frame, in CSS pixels (the caller has set the device-pixel transform). */
 export function paintGlobe(
   ctx: CanvasRenderingContext2D,
   size: { w: number; h: number },
   proj: GeoProjection,
-  world: World,
-  { palette, groups }: Paint,
+  world: Shapes,
+  paint: Paint,
   marks: { hover?: CountryFeature; selected?: CountryFeature },
 ) {
+  const { palette, groups } = paint;
   const path = geoPath(proj, ctx);
   const [cx, cy] = proj.translate();
   const r = proj.scale();
-  const disc = (radius: number, fill: string | CanvasGradient) => {
-    ctx.fillStyle = fill;
-    ctx.beginPath();
-    ctx.arc(cx, cy, radius, 0, FULL);
-    ctx.fill();
-  };
   ctx.clearRect(0, 0, size.w, size.h);
-
-  // Atmosphere: a thin glow past the limb, only while the limb is on screen.
-  if (r < Math.hypot(size.w, size.h)) {
-    const glow = ctx.createRadialGradient(cx, cy, r * 0.97, cx, cy, r * 1.12);
-    glow.addColorStop(0, palette.glow[0]);
-    glow.addColorStop(1, palette.glow[1]);
-    disc(r * 1.12, glow);
-  }
-  // The sphere, lit from the upper left.
-  const sea = ctx.createRadialGradient(cx - r * 0.4, cy - r * 0.45, r * 0.05, cx, cy, r);
-  sea.addColorStop(0, palette.sphereLight);
-  sea.addColorStop(1, palette.sphere);
-  disc(r, sea);
+  const { under, over } = backdrop(paint, ctx.canvas, cx, cy, r, size);
+  blit(ctx, under);
 
   ctx.beginPath();
-  path(geoGraticule10());
+  path(GRATICULE);
   ctx.strokeStyle = palette.graticule;
   ctx.lineWidth = 0.5;
   ctx.stroke();
 
-  for (const [fill, features] of groups) {
+  const centre = centreOf(proj);
+  const horizon = horizonOf(proj, size);
+  for (const [fill, members] of groups) {
     ctx.beginPath();
-    for (const f of features) path(f);
+    for (const i of members) if (visible(world.caps[i], centre, horizon)) path(world.countries[i]);
     ctx.fillStyle = fill;
     ctx.fill();
   }
   ctx.beginPath();
-  path(world.borders);
+  path({
+    type: 'MultiLineString',
+    coordinates: world.borders.coordinates.filter((_, i) =>
+      visible(world.lineCaps[i], centre, horizon),
+    ),
+  });
   ctx.strokeStyle = palette.border;
   ctx.lineWidth = 0.6;
   ctx.lineJoin = 'round';
   ctx.stroke();
 
-  // Shade toward the limb so it reads as a ball, not a disc.
-  const limb = ctx.createRadialGradient(cx, cy, r * 0.55, cx, cy, r);
-  limb.addColorStop(0, palette.limb[0]);
-  limb.addColorStop(1, palette.limb[1]);
-  disc(r, limb);
+  blit(ctx, over);
 
   const outline = (f: CountryFeature | undefined, width: number, colour: string) => {
     if (!f) return;

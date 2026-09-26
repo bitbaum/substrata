@@ -15,8 +15,10 @@ import { useEffect, useRef, type RefObject } from 'react';
 import type { Spin } from './globe-motion';
 
 export interface GlobeControl {
-  /** A gestureRef began: stop any flight or coast, and hold the idle turn. */
+  /** A gesture began: stop any flight or coast, and hold the idle turn. */
   grab(): void;
+  /** A finger or button is down (true) or every one has lifted (false). */
+  hold(down: boolean): void;
   /** Turn by a drag of (dx, dy) CSS pixels. */
   drag(dx: number, dy: number): void;
   /** Multiply the zoom (pinch, wheel). */
@@ -75,7 +77,11 @@ export function useGlobeInput(
       },
       pointerdown(e: PointerEvent) {
         if (e.pointerType === 'mouse' && e.button !== 0) return;
-        canvasRef.current?.setPointerCapture(e.pointerId);
+        try {
+          canvasRef.current?.setPointerCapture(e.pointerId);
+        } catch {
+          // An untrusted or already-lifted pointer cannot be captured; the drag works without.
+        }
         const at = local(e);
         pointersRef.current.set(e.pointerId, at);
         if (pointersRef.current.size === 1)
@@ -89,6 +95,7 @@ export function useGlobeInput(
           };
         else gestureRef.current.moved = true; // a second finger is never a tap
         controlRef.current?.grab();
+        controlRef.current?.hold(true);
       },
       pointermove(e: PointerEvent) {
         const c = controlRef.current;
@@ -125,6 +132,7 @@ export function useGlobeInput(
       pointerup(e: PointerEvent) {
         const c = controlRef.current;
         if (!pointersRef.current.delete(e.pointerId) || pointersRef.current.size > 0 || !c) return;
+        c.hold(false);
         const g = gestureRef.current;
         if (!g.moved) {
           const at = local(e);
@@ -137,6 +145,7 @@ export function useGlobeInput(
       },
       pointercancel(e: PointerEvent) {
         pointersRef.current.delete(e.pointerId);
+        if (pointersRef.current.size === 0) controlRef.current?.hold(false);
       },
       pointerleave(e: PointerEvent) {
         if (e.pointerType === 'mouse') controlRef.current?.hoverOff();

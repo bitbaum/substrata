@@ -11,18 +11,39 @@
  */
 import { geoArea, geoCentroid, geoDistance, geoOrthographic, type GeoProjection } from 'd3-geo';
 import { feature, mesh } from 'topojson-client';
-import type { Feature, FeatureCollection, Geometry, MultiLineString, Position } from 'geojson';
+import type {
+  Feature,
+  FeatureCollection,
+  Geometry,
+  MultiLineString,
+  MultiPolygon,
+  Position,
+} from 'geojson';
 import type { GeometryCollection, Topology } from 'topojson-specification';
+
+import { capOf, type Cap } from './globe-cull';
 
 /** Natural Earth 1:50m, built by scripts/geo/build-world-50m.mjs. */
 const GEO_URL = '/geo/countries-50m.json';
 
 export type CountryFeature = Feature<Geometry, { name: string; iso: string }>;
 
-export interface World {
+export interface Shapes {
   countries: CountryFeature[];
   /** Every border and coast once, so the outline is one stroke, not 240. */
   borders: MultiLineString;
+  /** For culling the far side (globe-cull.ts): one per country, one per border line. */
+  caps: Cap[];
+  lineCaps: Cap[];
+}
+
+/**
+ * The world at full detail, and a coarse copy — same countries, same order —
+ * painted while the globe moves, so a drag stays inside a phone's frame
+ * budget; the frame after it stops is full detail again.
+ */
+export interface World extends Shapes {
+  coarse: Shapes;
 }
 
 /**
@@ -71,15 +92,45 @@ export function rewound(f: CountryFeature): CountryFeature {
 
 type WorldTopology = Topology<{ countries: GeometryCollection }>;
 
-export function worldFrom(topo: WorldTopology): World {
+function shapesOf(topo: WorldTopology): Shapes {
   const fc = feature(topo, topo.objects.countries) as FeatureCollection<
     Geometry,
     { name: string; iso: string }
   >;
+  const countries = fc.features.map((f) => rewound(f as CountryFeature));
+  const borders = mesh(topo, topo.objects.countries);
   return {
-    countries: fc.features.map((f) => rewound(f as CountryFeature)),
-    borders: mesh(topo, topo.objects.countries),
+    countries,
+    borders,
+    caps: countries.map((c) => capOf(c.geometry as MultiPolygon)),
+    lineCaps: borders.coordinates.map((line) => capOf({ type: 'LineString', coordinates: line })),
   };
+}
+
+/**
+ * Every `every`-th vertex of each arc, ends kept. Thinning the topology's arcs
+ * rather than each country's rings keeps a shared border shared: neighbours
+ * still meet exactly, with no slivers of sea between them.
+ */
+export function coarsened(topo: WorldTopology, every: number): WorldTopology {
+  const t = topo.transform;
+  const arcs = topo.arcs.map((arc) => {
+    let x = 0;
+    let y = 0;
+    const absolute = t
+      ? arc.map(([dx, dy]) => {
+          x += dx;
+          y += dy;
+          return [x * t.scale[0] + t.translate[0], y * t.scale[1] + t.translate[1]];
+        })
+      : arc;
+    return absolute.filter((_, i) => i % every === 0 || i === absolute.length - 1);
+  });
+  return { ...topo, transform: undefined, arcs };
+}
+
+export function worldFrom(topo: WorldTopology): World {
+  return { ...shapesOf(topo), coarse: shapesOf(coarsened(topo, 3)) };
 }
 
 let loading: Promise<World> | null = null;
@@ -126,12 +177,15 @@ export function rotationOf(center: [number, number]): [number, number, number] {
 
 export function projectionFor(view: View, camera: Camera): GeoProjection {
   const d = disc(view);
-  return geoOrthographic()
-    .clipAngle(90)
-    .precision(0.6)
-    .translate([d.cx, d.cy])
-    .scale(d.radius * camera.k)
-    .rotate(rotationOf(camera.center));
+  return (
+    geoOrthographic()
+      .clipAngle(90)
+      // No adaptive resampling: 50m vertices are already closer than it would add.
+      .precision(0)
+      .translate([d.cx, d.cy])
+      .scale(d.radius * camera.k)
+      .rotate(rotationOf(camera.center))
+  );
 }
 
 /* ------------------------------------------------------- facing a country */

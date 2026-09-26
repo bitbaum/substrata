@@ -10,6 +10,8 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import type { GeometryCollection, Topology } from 'topojson-specification';
 
+import { geoDistance } from 'd3-geo';
+
 import {
   HOME,
   MAX_TILT,
@@ -22,6 +24,7 @@ import {
   zoomFor,
   type View,
 } from '../components/portal/globe-geo';
+import { centreOf, horizonOf, visible } from '../components/portal/globe-cull';
 import { coast, dragged, flight } from '../components/portal/globe-motion';
 import { pickAt, pickIndex } from '../components/portal/globe-pick';
 import { NOT_A_NUMBER, mapLayer, shareBin } from '../app/atlas/map-layer';
@@ -144,6 +147,85 @@ test('a tap picks the country under it, and nothing off the disc or on the far s
   // Australia is on the far side from [0, 0]: behind the globe, not pickable.
   const behind = proj([135, -25]);
   assert.ok(!behind || pickAt(index, proj, behind[0], behind[1])?.properties.iso !== 'au');
+});
+
+test('the coarse world painted in motion is the same countries, lighter, still meeting at borders', () => {
+  const count = (g: unknown): number =>
+    Array.isArray(g) ? (typeof g[0] === 'number' ? 1 : g.reduce((n, x) => n + count(x), 0)) : 0;
+  const full = world.countries.reduce(
+    (n, c) => n + count((c.geometry as { coordinates: unknown }).coordinates),
+    0,
+  );
+  const coarse = world.coarse.countries.reduce(
+    (n, c) => n + count((c.geometry as { coordinates: unknown }).coordinates),
+    0,
+  );
+  assert.deepEqual(
+    world.coarse.countries.map((c) => c.properties.iso),
+    world.countries.map((c) => c.properties.iso),
+    'same countries in the same order, so one paint serves both',
+  );
+  assert.ok(coarse < full * 0.45, `${coarse} of ${full} vertices`);
+  // Russia's coarse outline still covers its mainland, not the whole ocean.
+  const ru = world.coarse.countries.find((c) => c.properties.iso === 'ru')!;
+  assert.ok(focusOf(ru).reach < 45);
+  // A shared border stays shared: every Swiss vertex in the coarse world lies
+  // on the full-detail outline of Switzerland or one of its neighbours.
+  const ch = world.coarse.countries.find((c) => c.properties.iso === 'ch')!;
+  const fullPoints = new Set(
+    world.countries
+      .filter((c) => ['ch', 'fr', 'de', 'at', 'it', 'li'].includes(c.properties.iso))
+      .flatMap(
+        (c) =>
+          JSON.stringify((c.geometry as { coordinates: unknown }).coordinates).match(
+            /-?[\d.]+,-?[\d.]+/g,
+          ) ?? [],
+      ),
+  );
+  const chPoints =
+    JSON.stringify((ch.geometry as { coordinates: unknown }).coordinates).match(
+      /-?[\d.]+,-?[\d.]+/g,
+    ) ?? [];
+  assert.ok(chPoints.length > 10 && chPoints.every((p) => fullPoints.has(p)));
+});
+
+test('the far side is culled, and nothing with a vertex in view ever is', () => {
+  const canvas = { w: 390, h: 724 };
+  const cameras = [
+    { center: [0, 0] as [number, number], k: 1 },
+    { center: [178, -17] as [number, number], k: 1 },
+    { center: [100, 60] as [number, number], k: 1.5 },
+    { center: [-100, 40] as [number, number], k: 4 },
+    { center: [8, 47] as [number, number], k: 7 },
+  ];
+  for (const cam of cameras) {
+    const proj = projectionFor(phone, cam);
+    const horizon = horizonOf(proj, canvas);
+    const centre = centreOf(proj);
+    assert.ok(
+      Math.abs(centre[0] - cam.center[0]) < 1e-6 && Math.abs(centre[1] - cam.center[1]) < 1e-6,
+    );
+    let culled = 0;
+    world.countries.forEach((c, i) => {
+      const shown = visible(world.caps[i], centre, horizon);
+      if (!shown) culled++;
+      // In view, decided without horizonOf: on the front hemisphere and
+      // projected inside the canvas rectangle.
+      const inView = JSON.stringify(c.geometry)
+        .match(/-?[\d.e-]+,-?[\d.e-]+/g)!
+        .some((p) => {
+          const point = p.split(',').map(Number) as [number, number];
+          if (geoDistance(centre, point) >= Math.PI / 2) return false;
+          const [x, y] = proj(point)!;
+          return x >= 0 && x <= canvas.w && y >= 0 && y <= canvas.h;
+        });
+      if (inView) assert.ok(shown, `${c.properties.name} is in view from ${cam.center} but culled`);
+    });
+    assert.ok(culled > world.countries.length * 0.15, `only ${culled} culled from ${cam.center}`);
+  }
+  // The whole disc fits at rest: the horizon is the hemisphere. Zoomed in, it shrinks.
+  assert.equal(horizonOf(projectionFor(phone, HOME), canvas), 90);
+  assert.ok(horizonOf(projectionFor(phone, { center: [8, 47], k: 7 }), canvas) < 60);
 });
 
 test('shares fall into five steps; the boundaries go up, never down', () => {

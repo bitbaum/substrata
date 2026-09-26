@@ -56,7 +56,8 @@ export default function Globe({ selected, keep, bins, labels, otherwise, summary
 
   const frame = useMapView(wrap);
   const loop = useGlobeLoop({ canvasRef, world, frame, bins, selected });
-  const { cameraRef, motionRef, touchedRef, hoverRef, projection, radius, invalidate, fly } = loop;
+  const { cameraRef, motionRef, touchedRef, hoverRef, grabbedRef } = loop;
+  const { projection, radius, invalidate, fly } = loop;
 
   const index = useRef<Pickable[]>([]);
   const byIso = useRef(new Map<string, CountryFeature>());
@@ -113,6 +114,10 @@ export default function Globe({ selected, keep, bins, labels, otherwise, summary
         motionRef.current = {};
         touchedRef.current = performance.now();
       },
+      hold(down) {
+        grabbedRef.current = down;
+        if (!down) invalidate(); // the frame after the gesture is full detail
+      },
       drag(dx, dy) {
         cameraRef.current = dragged(cameraRef.current, dx, dy, radius());
         moved();
@@ -157,6 +162,7 @@ export default function Globe({ selected, keep, bins, labels, otherwise, summary
   }, [
     cameraRef,
     fly,
+    grabbedRef,
     hoverRef,
     invalidate,
     keep,

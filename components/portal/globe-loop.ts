@@ -50,6 +50,8 @@ export function useGlobeLoop({
   /** When the reader last touchedRef the globe; the idle turn waits for it. */
   const touchedRef = useRef(0);
   const hoverRef = useRef('');
+  /** A finger or button is down: paint coarse until it lifts. */
+  const grabbed = useRef(false);
   const selectedRef = useRef(selected);
   const paint = useRef<Paint | null>(null);
   const byIso = useRef(new Map<string, CountryFeature>());
@@ -130,7 +132,8 @@ export function useGlobeLoop({
       raf.current = 0;
       const dt = Math.min(now - (last.current || now), 64);
       last.current = now;
-      let again = advance(now, dt);
+      const moving = advance(now, dt) || grabbed.current;
+      let again = moving;
       if (shown.current && now - shown.current.start < FOLLOW_MS) again = true;
       const el = canvasRef.current;
       const ctx = el?.getContext('2d');
@@ -138,7 +141,8 @@ export function useGlobeLoop({
       if (el && ctx && proj && world && paint.current) {
         const dpr = pixelRatio();
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        paintGlobe(ctx, { w: el.width / dpr, h: el.height / dpr }, proj, world, paint.current, {
+        const shapes = moving ? world.coarse : world;
+        paintGlobe(ctx, { w: el.width / dpr, h: el.height / dpr }, proj, shapes, paint.current, {
           hover: byIso.current.get(hoverRef.current),
           selected: selectedRef.current ? byIso.current.get(selectedRef.current) : undefined,
         });
@@ -231,5 +235,15 @@ export function useGlobeLoop({
     [invalidate],
   );
 
-  return { cameraRef, motionRef, touchedRef, hoverRef, projection, radius, invalidate, fly };
+  return {
+    cameraRef,
+    motionRef,
+    touchedRef,
+    hoverRef,
+    grabbedRef: grabbed,
+    projection,
+    radius,
+    invalidate,
+    fly,
+  };
 }
