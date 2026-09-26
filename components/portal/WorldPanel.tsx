@@ -128,7 +128,7 @@ export function WorldPanel({ country, resource }: { country?: string; resource?:
             {insights.onMap} countries on the map. {insights.withFigures} have USGS or EIA
             production or reserves figures. {insights.withCorpus} appear in the research corpus.{' '}
             {insights.withDirectory} have a directory row. {insights.gaps} have none of these yet.
-            Paint shows the picked resource, or coverage when none is picked — not importance.
+            Pick a resource to shade the globe by its share of world output.
           </p>
           <h3>Directory minerals</h3>
           <ul className="resource-chips">

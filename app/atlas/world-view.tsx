@@ -1,5 +1,5 @@
 /**
- * The world view of /atlas: the map on the canvas painted by one resource,
+ * The world view of /atlas: the globe on the canvas shaded by one resource,
  * the resource picker in the bar, the legend on the map, and the country —
  * or the way to find one — in the panel.
  */
@@ -16,6 +16,19 @@ import { countryDossier } from '@/lib/geo';
 import type { ChoroplethMeasure } from '@/lib/resources/choropleth';
 import { MAP_COUNTRIES, MAP_ISOS } from './countries';
 import { mapLayer, quantified } from './map-layer';
+
+const NAMES = new Map(MAP_COUNTRIES.map((c) => [c.iso, c.name]));
+
+/** The globe in words: what shades it and who is in the top band. */
+function globeSummary(title: string, bins: Record<string, number>): string {
+  const top = Object.entries(bins)
+    .filter(([, bin]) => bin === 5)
+    .map(([iso]) => NAMES.get(iso) ?? iso.toUpperCase());
+  if (Object.keys(bins).length === 0) return `${title}. No country is shaded.`;
+  return top.length
+    ? `${title}. In the top band: ${top.slice(0, 8).join(', ')}${top.length > 8 ? ` and ${top.length - 8} more` : ''}.`
+    : `${title}.`;
+}
 
 export function WorldView({
   country,
@@ -35,6 +48,7 @@ export function WorldView({
   const layer = mapLayer(resource, measure, MAP_ISOS);
   const withData = quantified();
   const kind = RESOURCE_KINDS.find((r) => r.id === resource);
+  const summary = globeSummary(layer.legend.title, layer.bins);
   const measureHref = (m: string) => {
     const params = new URLSearchParams({ view: 'world', ...keep });
     if (m === 'reserves') params.set('measure', m);
@@ -51,16 +65,17 @@ export function WorldView({
           bins={layer.bins}
           labels={layer.labels}
           otherwise={layer.otherwise}
+          summary={summary}
         />
       </div>
       <AtlasBar view="world" worldHref={worldHref}>
         <AtlasPick
-          label="Paint the map by"
+          label="Shade the globe by"
           name="resource"
           value={resource ?? ''}
           hidden={{ view: 'world', measure: keep.measure, country: dossier ? selected : undefined }}
         >
-          <option value="">What is on record</option>
+          <option value="">Pick a resource</option>
           <optgroup label="Production and reserves (USGS)">
             {RESOURCE_KINDS.filter((r) => withData.has(r.id)).map((r) => (
               <option key={r.id} value={r.id}>
@@ -77,7 +92,8 @@ export function WorldView({
           </optgroup>
         </AtlasPick>
       </AtlasBar>
-      <MapLegend legend={layer.legend} measureHref={measureHref} />
+      {/* Nothing picked, nothing shaded: the picker and the panel say how. */}
+      {kind && <MapLegend legend={layer.legend} measureHref={measureHref} />}
       <AtlasSheet
         label={dossier ? `About ${dossier.name}` : 'Countries'}
         openKey={dossier ? selected : undefined}

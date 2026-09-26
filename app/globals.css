@@ -52,20 +52,30 @@
   --color-status-warning: var(--primitive-amber-500);
   --color-status-negative: var(--primitive-red);
 
-  /* The world map (app/styles/world.css): one sequential ramp, used only to
-     mean "more of it", and the ink accent for the selected country. */
-  --map-ocean: #000000;
-  --map-land: #1b1b1b;
-  --map-border: #000000;
-  --map-edge: #262626;
-  --map-seq-1: #2e2618;
-  --map-seq-2: #4d3c1e;
-  --map-seq-3: #7a5a24;
-  --map-seq-4: #b07f2c;
-  --map-seq-5: #e8b04a;
-
   --shadow-overlay: 0 16px 48px color-mix(in srgb, var(--primitive-black) 35%, transparent);
   --color-scrim: color-mix(in srgb, var(--primitive-black) 55%, transparent);
+}
+
+:root {
+  /* The globe (components/portal/Globe.tsx reads these from script, so they
+     live outside @theme, which Tailwind prunes to what CSS uses; hex, since
+     the globe fades them to alpha): one sequential ramp, used only to mean "more of it", the
+     ink accent for the selected country, and everything else neutral. The
+     ramp's first step is clearly off the land grey, so a small share still
+     reads as "some", never as "not listed". */
+  --map-ocean: #000000;
+  --map-sphere: #07090c;
+  --map-sphere-light: #161b22;
+  --map-atmosphere: #7d9cc0;
+  --map-graticule: #ffffff0d;
+  --map-limb: #000000;
+  --map-land: #2a2c30;
+  --map-border: #0b0c0e;
+  --map-seq-1: #4d3b1a;
+  --map-seq-2: #735520;
+  --map-seq-3: #9c7026;
+  --map-seq-4: #cb8f2e;
+  --map-seq-5: #f2b74e;
 }
 
 /*
@@ -101,9 +111,13 @@ html[data-theme='light'] {
   --color-border-strong: #bdbdbd;
   --color-accent: #000000;
   --map-ocean: #ffffff;
-  --map-land: #e4e4e4;
-  --map-border: #ffffff;
-  --map-edge: #d6d6d6;
+  --map-sphere: #dfe5ec;
+  --map-sphere-light: #f7f9fb;
+  --map-atmosphere: #9db3cc;
+  --map-graticule: #0000000d;
+  --map-limb: #6d7c8c;
+  --map-land: #c9ccd1;
+  --map-border: #f7f9fb;
   --map-seq-1: #f3e6cc;
   --map-seq-2: #e6c88f;
   --map-seq-3: #cf9c4c;
