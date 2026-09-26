@@ -26,7 +26,9 @@ import type { UsgsChapter } from '../lib/resources/usgs';
 /** Failing rows per pure check on 2026-09-26, after the fixes in that PR. Absent = 0. */
 const FAILURE_BASELINE: Record<string, number> = {
   'producers/sourced-maker': 8,
-  'producers/row-source': 12,
+  // 12 → 14 on 2026-09-26: Shin-Etsu Quartz and MetOx demoted to unverified
+  // after a hand check found their sources do not state the claimed step.
+  'producers/row-source': 14,
   'producers/chokepoint-source': 18,
   'producers/in-usgs-yearbook': 1,
   'dependencies/binding-now-joined': 3,
