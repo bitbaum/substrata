@@ -44,7 +44,10 @@ export default async function NotePage({ params }: RouteParams) {
   return (
     <Shell>
       <Page>
-        <nav className="mb-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary">
+        <nav
+          aria-label="Breadcrumb"
+          className="crumbs mb-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary"
+        >
           <Link href="/notes" className="hover:text-fg-primary">
             Notes
           </Link>

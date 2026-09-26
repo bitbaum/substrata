@@ -462,7 +462,7 @@ export const PARTICIPANTS: readonly Participant[] = [
     '300 mm prime silicon wafers',
     'chokepoint',
     'One of the five prime 300 mm wafer producers tracked in this corpus. Global market share and customer qualification timelines are not established by the linked product source.',
-    'https://www.shinetsu.co.jp/en/products/semiconductor-silicon-business/',
+    'https://www.sehe.com/products/',
   ),
   s(
     'SUMCO',

@@ -11,3 +11,6 @@ export const XRAY_SAMPLE = [
   'MU US',
   'GEV US',
 ].join('\n');
+
+/** The empty box's hint: three forms, not a portfolio (a placeholder that looks filled reads as filled). */
+export const XRAY_PLACEHOLDER = ['NVDA US', 'ASML NA 20%', '8035.T'].join('\n');

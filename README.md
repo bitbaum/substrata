@@ -79,7 +79,25 @@ scheduled feed (run tables `research_*_runs`) and committed dataset (its own
 `checkedOn`/`generatedAt` date) against the cadence or maximum age declared in
 `config/substrata-freshness.ts`. `test/freshness.test.ts` fails the build when a
 committed dataset is past its maximum age, so stale data cannot be deployed as
-current; the endpoint returns 503 when anything is stale or failing.
+current; the endpoint returns 503 when anything is stale or failing. The review
+queue is judged on OPEN leads only: a sweep lead nobody reviews within 30 days
+(`LEAD_EXPIRY_DAYS`, `lib/lead-expiry.ts`) expires at read time — kept in the
+table, listed at `/data/freshness/expired`, out of the queue — so a stale queue
+means the expiry or the queue is broken, not that nobody reviewed.
+
+**Data quality** (`/data/quality`, footer link, palette "Quality scores"): every
+dataset held to six written criteria — completeness, correctness, provenance,
+freshness, link health, consistency — declared in `config/substrata-quality.ts`
+(a criterion is a rule or `na` with a reason). Pure checks (`lib/quality/checks-*.ts`:
+USGS sums, quote carries the value, names resolve, cross-dataset agreement) run
+in `verify` via `test/quality.test.ts`, which ratchets each check's failure count.
+Network checks (links with 3 tries, quotes still on the page, SEC ticker file,
+OpenFIGI mapping, USGS values on the chapter PDF) run every six hours on a
+rotation (`/api/cron/quality`, timer `appcron-substrata-quality`) into
+`research_quality_checks`; each run's scorecard goes to `research_quality_runs`
+for the trend (`scripts/db/014-quality.sql`). On demand: `pnpm run quality`
+(pure), `-- --network` (one slice), `-- --all` (everything), `-- --json out.json`.
+No AI anywhere in it.
 
 This table went stale once and cost a redesign: `Megamenu.tsx` was deleted in
 7f59e09 and nothing noticed, and what shipped instead hid the whole nav below

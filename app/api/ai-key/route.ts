@@ -1,7 +1,9 @@
 import { currentSession } from '@/lib/auth';
 import { isByokConfig } from '@/lib/byok';
+import { vetKey } from '@/lib/byok-check';
 import {
   deleteStoredKey,
+  openStoredKey,
   saveStoredKey,
   setStoredModel,
   storedKey,
@@ -15,6 +17,10 @@ export const dynamic = 'force-dynamic';
  * A signed-in reader's saved AI key: what is saved (never the key itself),
  * save, change the model, remove. Signed out, this says so and the UI keeps
  * the key in the browser instead.
+ *
+ * Saving and changing the model both ask the vendor again (`vetKey`) before
+ * anything is written: a dead key is never sealed, and a model the key cannot
+ * use is never stored — whatever the browser claimed its check said.
  */
 export async function GET() {
   const session = await currentSession();
@@ -52,10 +58,12 @@ export async function PUT(request: Request) {
   try {
     if (!(await allowRequest(request, 'ai-key', 20)))
       return Response.json({ error: 'Too many changes. Try again later.' }, { status: 429 });
+    const vetted = await vetKey(input.vendor, input.apiKey, input.model);
+    if (!vetted.ok) return Response.json({ error: vetted.error }, { status: 422 });
     await saveStoredKey(g.actorId, {
       vendor: input.vendor,
       apiKey: input.apiKey,
-      model: input.model,
+      model: vetted.model,
     });
     return Response.json({ stored: await storedKey(g.actorId) });
   } catch {
@@ -75,7 +83,13 @@ export async function PATCH(request: Request) {
   if (typeof model !== 'string' || !model.trim() || model.length > 200 || /[\r\n]/.test(model))
     return Response.json({ error: 'Choose a model.' }, { status: 400 });
   try {
-    if (!(await setStoredModel(g.actorId, model.trim())))
+    if (!(await allowRequest(request, 'ai-key', 20)))
+      return Response.json({ error: 'Too many changes. Try again later.' }, { status: 429 });
+    const saved = await openStoredKey(g.actorId);
+    if (!saved) return Response.json({ error: 'No saved key to change.' }, { status: 404 });
+    const vetted = await vetKey(saved.vendor, saved.apiKey, model);
+    if (!vetted.ok) return Response.json({ error: vetted.error }, { status: 422 });
+    if (!(await setStoredModel(g.actorId, vetted.model)))
       return Response.json({ error: 'No saved key to change.' }, { status: 404 });
     return Response.json({ stored: await storedKey(g.actorId) });
   } catch {

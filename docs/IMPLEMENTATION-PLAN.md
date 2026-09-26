@@ -63,8 +63,20 @@ not a second client:
 - no streaming/`onToken` on `complete()` — Substrata waits for the full
   answer, then paints the turn. Fake token drip would be dishonest.
 - no RAG helper — retrieval stays app-side (the corpus is ours).
-- no chat UI package — `SHARED.md`: do not centralise markup. OrangeCat's
-  ModernChatPanel is Cat-specific (tools, memory, quota). Do not copy it.
+- ~~no chat UI package~~ — superseded 2026-09-26: the fleet rule is now that
+  every chat, assistant or composer is `@bitbaum/chatkit` (`fleet/SHARED.md`
+  → "Chat — the standard"). chatkit is not published yet (npm 404), so Ask
+  stays on its own `components/portal/chat/` for now. **When chatkit is
+  published, Ask moves to it** — `Composer`/`ChatThread` with Substrata's
+  tools, verdicts and key panel in its slots; a missing slot goes into
+  chatkit, not here.
+
+**Your own key** (`components/portal/ai-key/`): a pasted key is checked with
+its vendor on the spot through `@bitbaum/ai-kit/byok-probe` (`/api/ai-key/models`),
+the model is a select of what that key can use with the strongest preselected,
+and one rule (`lib/byok-admit.ts`) decides whether it may be kept — in the
+browser by the panel, on the account by the server after probing again
+(`lib/byok-check.ts`). Same flow as Loki's Settings → AI (loki#921).
 
 ## Graph, institutions, and what is not faked
 

@@ -5,6 +5,7 @@ import { evidenceTotals } from '@/lib/atlas';
 import { sourceFreshness } from '@/lib/source-store';
 import { freshness } from '@/lib/sweep-queue';
 import { ageLabel, reviewQueue } from '@/lib/event-draft-store';
+import { EXPIRED_LEADS_HREF, LEAD_EXPIRY_DAYS } from '@/lib/lead-expiry';
 import { Figure } from '@/components/portal/Figure';
 import { AiSpend } from '@/components/data/AiSpend';
 import { spendReport } from '@/lib/ai-budget';
@@ -55,6 +56,11 @@ export default async function DataPage() {
           ]}
         />
         <div className="research-prose">
+          <p>
+            <Link href="/data/quality">Data quality</Link>: every dataset scored against written
+            criteria, with each failing row and its source.{' '}
+            <Link href="/data/freshness">Freshness</Link>: when each feed and file was last checked.
+          </p>
           <h2>How fresh is this</h2>
           {/* Two different questions that a single "updated" date conflates: what
               is the newest thing we hold, and when did we last go looking. A
@@ -85,12 +91,15 @@ export default async function DataPage() {
                 : ''}
               . <Figure method="sweep-candidates">{sweep.openCandidates}</Figure> lead
               {sweep.openCandidates === 1 ? '' : 's'} {sweep.openCandidates === 1 ? 'is' : 'are'}{' '}
-              waiting to be read by a person.
+              waiting to be read by a person;{' '}
+              <Figure method="lead-expiry">{sweep.expiredCandidates}</Figure>{' '}
+              <Link href={EXPIRED_LEADS_HREF}>expired, never reviewed</Link> — nobody read them
+              within {LEAD_EXPIRY_DAYS} days, so they left the queue but were kept.
             </p>
           )}
           {queue && queue.waiting > 0 && (
             <p>
-              The oldest waiting lead was found{' '}
+              The oldest open lead was found{' '}
               <Figure method="review-queue">
                 {queue.oldestFoundAt ? ageLabel(queue.oldestFoundAt) : 'no time'}
               </Figure>{' '}

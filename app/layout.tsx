@@ -22,6 +22,7 @@ import './styles/resources.css';
 import './styles/ticker.css';
 import './styles/screen.css';
 import './styles/freshness.css';
+import './styles/quality.css';
 import './styles/updates.css';
 import './styles/roles.css';
 import './styles/science-pipeline.css';

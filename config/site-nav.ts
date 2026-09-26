@@ -151,6 +151,11 @@ const LINK = {
     href: '/data',
     hint: 'What has a source, what is still a lead, and what is a dated judgement.',
   },
+  quality: {
+    label: 'Quality scores',
+    href: '/data/quality',
+    hint: 'Every dataset scored against written criteria, with each failing row, its source and a way to report it.',
+  },
   freshness: {
     label: 'Freshness',
     href: '/data/freshness',
@@ -271,6 +276,7 @@ export const PALETTE_EXTRA: readonly NavLink[] = [
   LINK.calls,
   LINK.talent,
   LINK.data,
+  LINK.quality,
   LINK.freshness,
 ];
 

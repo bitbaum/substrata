@@ -18,6 +18,7 @@ import { claimsFor } from '@/lib/claims';
 import { resolveIn } from '@/lib/entities/registry';
 import { SeverityBar, Status, rowLabel } from '@/components/portal/Status';
 import { FollowButton } from '@/components/portal/FollowButton';
+import { SignInToFollow } from '@/components/portal/SignInToFollow';
 import { currentSession } from '@/lib/auth';
 import { readFollows } from '@/lib/desk-store';
 import { pipelineSection } from '@/components/science/BottleneckPipeline';
@@ -83,7 +84,10 @@ export default async function BottleneckPage({ params }: RouteParams) {
   return (
     <Shell>
       <Page>
-        <nav className="mb-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary">
+        <nav
+          aria-label="Breadcrumb"
+          className="crumbs mb-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary"
+        >
           <Link href="/bottlenecks" className="hover:text-fg-primary">
             Bottlenecks
           </Link>
@@ -103,7 +107,7 @@ export default async function BottleneckPage({ params }: RouteParams) {
             {b.name}
           </h1>
           <p className="mt-4 max-w-prose text-lg leading-relaxed text-fg-secondary">{b.plain}</p>
-          {follows && (
+          {follows ? (
             // Signed in: put this row on the desk, or keep it off, from where it is read.
             <div className="mt-5 flex flex-wrap gap-3">
               <FollowButton
@@ -118,6 +122,10 @@ export default async function BottleneckPage({ params }: RouteParams) {
                 following={follows.muted.includes(b.slug)}
                 label="on my desk"
               />
+            </div>
+          ) : (
+            <div className="mt-5">
+              <SignInToFollow returnTo={`/bottlenecks/${b.slug}`} what="this bottleneck" />
             </div>
           )}
 

@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { ROLE_FAMILIES } from '@/config/careers-roles';
 import { SENIORITIES, SENIORITY_LABEL } from '@/lib/careers';
 import { countryName } from '@/lib/careers-geo';
+import { REGIONS, regionCounts } from '@/lib/careers-regions';
 import {
   facetCounts,
   lastJobRun,
@@ -16,7 +17,7 @@ import { participantBySlug } from '@/lib/participants';
 import { currentSession } from '@/lib/auth';
 import { readFollows } from '@/lib/desk-store';
 import { whenLabel } from '@/lib/desk';
-import { Page, Shell } from '@/components/portal/Shell';
+import { Empty, Page, Shell } from '@/components/portal/Shell';
 import { Figure } from '@/components/portal/Figure';
 import { PageHeader } from '@/components/portal/PageHeader';
 import { AutoSubmitForm } from '@/components/portal/AutoSubmitForm';
@@ -41,7 +42,7 @@ async function load(filter: JobFilter, shown: number) {
       openJobs(filter, shown),
       facetCounts('bottleneck', { ...filter, bottleneck: undefined }),
       facetCounts('family', { ...filter, family: undefined }),
-      facetCounts('country', { ...filter, country: undefined }),
+      facetCounts('country', { ...filter, country: undefined, region: undefined }),
       lastJobRun(),
     ]);
     return { ...page, byBottleneck, byFamily, byCountry, run };
@@ -59,6 +60,7 @@ export default async function CareersPage({ searchParams }: { searchParams: Prom
   const session = await currentSession();
   const follows = session?.actorId ? await readFollows(session.actorId).catch(() => null) : null;
   const company = filter.company ? participantBySlug(filter.company) : undefined;
+  const regions = regionCounts(data?.byCountry ?? new Map());
   const more = new URLSearchParams(
     Object.entries({ ...params, n: String(shown + PAGE) }).flatMap(([k, v]) =>
       typeof v === 'string' && v ? [[k, v]] : [],
@@ -97,11 +99,6 @@ export default async function CareersPage({ searchParams }: { searchParams: Prom
         />
 
         <div className="careers-layout">
-          <aside className="careers-aside">
-            {data && data.byBottleneck.size > 0 && (
-              <HiringByBottleneck counts={data.byBottleneck} filter={filter} />
-            )}
-          </aside>
           <div className="careers-main">
             <AutoSubmitForm action="/careers" className="desk-filters">
               <label className="desk-filter desk-filter-q">
@@ -138,14 +135,24 @@ export default async function CareersPage({ searchParams }: { searchParams: Prom
                 </select>
               </label>
               <label className="desk-filter">
-                <span className="sr-only">Country</span>
-                <select name="country" defaultValue={filter.country ?? ''}>
-                  <option value="">All countries</option>
-                  {[...(data?.byCountry ?? new Map<string, number>())].map(([code, n]) => (
-                    <option key={code} value={code}>
-                      {countryName(code)} ({n})
-                    </option>
-                  ))}
+                <span className="sr-only">Country or region</span>
+                <select name="country" defaultValue={filter.region ?? filter.country ?? ''}>
+                  <option value="">Anywhere</option>
+                  <optgroup label="Regions">
+                    {REGIONS.map((r) => (
+                      <option key={r.id} value={r.id}>
+                        {r.label}
+                        {regions.get(r.id) ? ` (${regions.get(r.id)})` : ''}
+                      </option>
+                    ))}
+                  </optgroup>
+                  <optgroup label="Countries">
+                    {[...(data?.byCountry ?? new Map<string, number>())].map(([code, n]) => (
+                      <option key={code} value={code}>
+                        {countryName(code)} ({n})
+                      </option>
+                    ))}
+                  </optgroup>
                 </select>
               </label>
               <label className="desk-filter">
@@ -181,13 +188,18 @@ export default async function CareersPage({ searchParams }: { searchParams: Prom
 
             {data &&
               (data.jobs.length === 0 ? (
-                <p className="desk-empty">
-                  No open roles match. <Link href="/careers">Clear the filters</Link>, or see{' '}
-                  <Link href="/careers/companies">
-                    companies whose roles live on their own site
-                  </Link>
-                  .
-                </p>
+                <Empty
+                  what="No open roles match these filters."
+                  next="Fewer filters, or a wider place, usually finds some."
+                  action={
+                    <>
+                      <Link href="/careers">Clear the filters</Link>
+                      <Link href="/careers/companies">
+                        Companies whose roles live on their own site
+                      </Link>
+                    </>
+                  }
+                />
               ) : (
                 <>
                   <p className="desk-showing">
@@ -202,7 +214,7 @@ export default async function CareersPage({ searchParams }: { searchParams: Prom
                   </p>
                   <JobList jobs={data.jobs} showCompany={!filter.company} />
                   {data.total > data.jobs.length && (
-                    <p className="careers-more">
+                    <p className="list-more">
                       <Link href={`/careers?${more}`} scroll={false}>
                         Show more
                       </Link>
@@ -211,6 +223,11 @@ export default async function CareersPage({ searchParams }: { searchParams: Prom
                 </>
               ))}
           </div>
+          <aside className="careers-aside">
+            {data && data.byBottleneck.size > 0 && (
+              <HiringByBottleneck counts={data.byBottleneck} filter={filter} />
+            )}
+          </aside>
         </div>
       </Page>
     </Shell>

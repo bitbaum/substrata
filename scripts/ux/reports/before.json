@@ -1,0 +1,421 @@
+{
+  "label": "before",
+  "base": "https://substrata.orangecat.ch",
+  "at": "2026-09-26T06:01:30.217Z",
+  "tasks": [
+    {
+      "id": "xray-top-risk",
+      "audience": "Fund analyst",
+      "task": "Pastes 10 tickers and finds their biggest single-source risk.",
+      "success": "The result names ONE biggest single-source risk (company, bottleneck, share of weight).",
+      "maxSteps": 3,
+      "maxSeconds": 8,
+      "runs": [
+        {
+          "viewport": 390,
+          "answered": false,
+          "steps": 3,
+          "seconds": null,
+          "pass": false,
+          "why": "locator.waitFor: Timeout 20000ms exceeded.",
+          "answer": null,
+          "log": [
+            "type the holdings box",
+            "scroll ×1 to the X-ray button",
+            "click the X-ray button"
+          ]
+        },
+        {
+          "viewport": 1440,
+          "answered": false,
+          "steps": 2,
+          "seconds": null,
+          "pass": false,
+          "why": "locator.waitFor: Timeout 20000ms exceeded.",
+          "answer": null,
+          "log": ["type the holdings box", "click the X-ray button"]
+        }
+      ]
+    },
+    {
+      "id": "xray-first-run",
+      "audience": "Fund analyst, first visit",
+      "task": "Has no list to hand and wants to see what the X-ray does.",
+      "success": "One click on an example produces a full result.",
+      "maxSteps": 2,
+      "maxSeconds": 8,
+      "runs": [
+        {
+          "viewport": 390,
+          "answered": true,
+          "steps": 2,
+          "seconds": 6.7,
+          "pass": true,
+          "why": null,
+          "answer": "7 holdings read · 13 bottleneck rails touched · 0 not read · equal weights",
+          "log": ["scroll ×1 to the example", "click the example"]
+        },
+        {
+          "viewport": 1440,
+          "answered": true,
+          "steps": 2,
+          "seconds": 5.9,
+          "pass": true,
+          "why": null,
+          "answer": "7 holdings read · 13 bottleneck rails touched · 0 not read · equal weights",
+          "log": ["click the example", "scroll ×1 to the result summary"]
+        }
+      ]
+    },
+    {
+      "id": "scenario-taiwan",
+      "audience": "Risk manager",
+      "task": "Asks what breaks if Taiwan is cut off, and sends the answer to a colleague.",
+      "success": "The count of bottlenecks hit is on screen and the link copies in one click.",
+      "maxSteps": 3,
+      "maxSeconds": 6,
+      "runs": [
+        {
+          "viewport": 390,
+          "answered": false,
+          "steps": 2,
+          "seconds": null,
+          "pass": false,
+          "why": "No one-click way to share: the URL is printed as text.",
+          "answer": null,
+          "log": ["click the Taiwan preset", "scroll ×1 to bottlenecks hit"]
+        },
+        {
+          "viewport": 1440,
+          "answered": false,
+          "steps": 1,
+          "seconds": null,
+          "pass": false,
+          "why": "No one-click way to share: the URL is printed as text.",
+          "answer": null,
+          "log": ["click the Taiwan preset"]
+        }
+      ]
+    },
+    {
+      "id": "gallium-moves",
+      "audience": "Commodity trader",
+      "task": "Sees what moved in gallium this month.",
+      "success": "A gallium series with its latest change is on screen.",
+      "maxSteps": 3,
+      "maxSeconds": 6,
+      "runs": [
+        {
+          "viewport": 390,
+          "answered": true,
+          "steps": 3,
+          "seconds": 5.8,
+          "pass": true,
+          "why": null,
+          "answer": "TRADE VOLUME · CHINA · GALLIUM, REFINED China gallium exports (customs) 6,200 kg May 2026 +206567% vs Apr 2026 · loosens CSV",
+          "log": [
+            "type the search box",
+            "press Enter to search",
+            "scroll ×1 to the first gallium move"
+          ]
+        },
+        {
+          "viewport": 1440,
+          "answered": true,
+          "steps": 2,
+          "seconds": 3.8,
+          "pass": true,
+          "why": null,
+          "answer": "TRADE VOLUME · CHINA · GALLIUM, REFINED China gallium exports (customs) 6,200 kg May 2026 +206567% vs Apr 2026 · loosens CSV",
+          "log": ["type the search box", "press Enter to search"]
+        }
+      ]
+    },
+    {
+      "id": "gallium-producers-csv",
+      "audience": "Commodity trader",
+      "task": "Gets who produces gallium, as a CSV.",
+      "success": "The top producer and the CSV link are both on the first screen.",
+      "maxSteps": 1,
+      "maxSeconds": 4,
+      "runs": [
+        {
+          "viewport": 390,
+          "answered": true,
+          "steps": 0,
+          "seconds": 1.5,
+          "pass": true,
+          "why": null,
+          "answer": "China 900,000e 839,000 ~100% 1st 3",
+          "log": []
+        },
+        {
+          "viewport": 1440,
+          "answered": true,
+          "steps": 0,
+          "seconds": 1.2,
+          "pass": true,
+          "why": null,
+          "answer": "China 900,000e 839,000 ~100% 1st 3",
+          "log": []
+        }
+      ]
+    },
+    {
+      "id": "jobs-europe",
+      "audience": "Job seeker",
+      "task": "Finds process-engineer roles in Europe.",
+      "success": "Process-engineering roles filtered to Europe, at least one listed.",
+      "maxSteps": 3,
+      "maxSeconds": 8,
+      "runs": [
+        {
+          "viewport": 390,
+          "answered": false,
+          "steps": 2,
+          "seconds": null,
+          "pass": false,
+          "why": "No Europe option: 2 European countries to pick one at a time.",
+          "answer": null,
+          "log": ["scroll ×1 to role family", "choose role family"]
+        },
+        {
+          "viewport": 1440,
+          "answered": false,
+          "steps": 1,
+          "seconds": null,
+          "pass": false,
+          "why": "No Europe option: 2 European countries to pick one at a time.",
+          "answer": null,
+          "log": ["choose role family"]
+        }
+      ]
+    },
+    {
+      "id": "exposure-sole-listed",
+      "audience": "Fund analyst",
+      "task": "Lists the listed companies that are the only recorded maker of a bottleneck, as a CSV.",
+      "success": "The filtered table and its CSV link are on screen.",
+      "maxSteps": 4,
+      "maxSeconds": 8,
+      "runs": [
+        {
+          "viewport": 390,
+          "answered": true,
+          "steps": 3,
+          "seconds": 3,
+          "pass": true,
+          "why": null,
+          "answer": "EUV lithography scanners Compute · Binding now 12/12 0 net ASML Makes it only recorded maker ASML NA ASML US Sourced",
+          "log": ["tick Listed only", "tick sole maker", "scroll ×1 to the first row"]
+        },
+        {
+          "viewport": 1440,
+          "answered": true,
+          "steps": 2,
+          "seconds": 3.8,
+          "pass": true,
+          "why": null,
+          "answer": "EUV lithography scanners Compute · Binding now 12/12 0 net ASML Makes it only recorded maker ASML NA ASML US Sourced",
+          "log": ["tick Listed only", "tick sole maker"]
+        }
+      ]
+    },
+    {
+      "id": "pipeline-new",
+      "audience": "Researcher",
+      "task": "Sees what is new in the science pipeline for advanced packaging.",
+      "success": "The collected items for advanced packaging are on screen.",
+      "maxSteps": 3,
+      "maxSeconds": 6,
+      "runs": [
+        {
+          "viewport": 390,
+          "answered": true,
+          "steps": 3,
+          "seconds": 8.3,
+          "pass": false,
+          "why": "over time",
+          "answer": "Collected by the feeds",
+          "log": [
+            "scroll ×1 to advanced packaging",
+            "click advanced packaging",
+            "scroll ×1 to the collected items"
+          ]
+        },
+        {
+          "viewport": 1440,
+          "answered": true,
+          "steps": 2,
+          "seconds": 5.8,
+          "pass": true,
+          "why": null,
+          "answer": "Collected by the feeds",
+          "log": ["click advanced packaging", "scroll ×1 to the collected items"]
+        }
+      ]
+    },
+    {
+      "id": "follow-signed-out",
+      "audience": "Reader",
+      "task": "Wants to follow a bottleneck (then two more) and see what is new on them.",
+      "success": "A follow action is on the bottleneck page, and signed out it says what to do.",
+      "maxSteps": 2,
+      "maxSeconds": 5,
+      "runs": [
+        {
+          "viewport": 390,
+          "answered": false,
+          "steps": 0,
+          "seconds": null,
+          "pass": false,
+          "why": "Signed out there is no follow action at all: a dead end.",
+          "answer": null,
+          "log": []
+        },
+        {
+          "viewport": 1440,
+          "answered": false,
+          "steps": 0,
+          "seconds": null,
+          "pass": false,
+          "why": "Signed out there is no follow action at all: a dead end.",
+          "answer": null,
+          "log": []
+        }
+      ]
+    },
+    {
+      "id": "update-news",
+      "audience": "Reader",
+      "task": "On a bottleneck page, gets the latest news now.",
+      "success": "\"Update news now\" is reachable within one screen of scrolling.",
+      "maxSteps": 1,
+      "maxSeconds": 5,
+      "runs": [
+        {
+          "viewport": 390,
+          "answered": true,
+          "steps": 0,
+          "seconds": 2,
+          "pass": true,
+          "why": null,
+          "answer": "↻ Update news now",
+          "log": []
+        },
+        {
+          "viewport": 1440,
+          "answered": true,
+          "steps": 0,
+          "seconds": 1.8,
+          "pass": true,
+          "why": null,
+          "answer": "↻ Update news now",
+          "log": []
+        }
+      ]
+    }
+  ],
+  "deadEnds": [
+    {
+      "id": "exposure-no-match",
+      "path": "/exposure?q=zzqxv",
+      "runs": [
+        {
+          "viewport": 390,
+          "found": true,
+          "message": "No rows match these filters.",
+          "actions": [],
+          "pass": false
+        },
+        {
+          "viewport": 1440,
+          "found": true,
+          "message": "No rows match these filters.",
+          "actions": [],
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "careers-no-match",
+      "path": "/careers?q=zzqxv",
+      "runs": [
+        {
+          "viewport": 390,
+          "found": true,
+          "message": "No open roles match. Clear the filters, or see companies whose roles live on their own site.",
+          "actions": ["Clear the filters", "companies whose roles live on their own site"],
+          "pass": true
+        },
+        {
+          "viewport": 1440,
+          "found": true,
+          "message": "No open roles match. Clear the filters, or see companies whose roles live on their own site.",
+          "actions": ["Clear the filters", "companies whose roles live on their own site"],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "series-no-match",
+      "path": "/data/series?q=zzqxv",
+      "runs": [
+        {
+          "viewport": 390,
+          "found": true,
+          "message": "No series match. Clear the filters.",
+          "actions": ["Clear the filters"],
+          "pass": true
+        },
+        {
+          "viewport": 1440,
+          "found": true,
+          "message": "No series match. Clear the filters.",
+          "actions": ["Clear the filters"],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "xray-nothing-read",
+      "path": "/xray",
+      "runs": [
+        {
+          "viewport": 390,
+          "found": false,
+          "message": null,
+          "actions": [],
+          "pass": false
+        },
+        {
+          "viewport": 1440,
+          "found": false,
+          "message": null,
+          "actions": [],
+          "pass": false
+        }
+      ]
+    },
+    {
+      "id": "resource-unknown",
+      "path": "/resources/unobtainium",
+      "runs": [
+        {
+          "viewport": 390,
+          "found": true,
+          "message": "404",
+          "actions": [],
+          "pass": false
+        },
+        {
+          "viewport": 1440,
+          "found": true,
+          "message": "404",
+          "actions": [],
+          "pass": false
+        }
+      ]
+    }
+  ]
+}

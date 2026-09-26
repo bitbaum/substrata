@@ -506,8 +506,8 @@
         "ticker": "RIO",
         "exchange": "LN",
         "name": "RIO TINTO PLC",
-        "figi": "BBG000DZG349",
-        "source": "https://www.openfigi.com/id/BBG000DZG349"
+        "figi": "BBG000DZG3K1",
+        "source": "https://www.openfigi.com/id/BBG000DZG3K1"
       },
       "us": {
         "ticker": "RIO",
@@ -670,8 +670,8 @@
         "ticker": "6488",
         "exchange": "TT",
         "name": "GLOBALWAFERS CO LTD",
-        "figi": "BBG007D2WSF2",
-        "source": "https://www.openfigi.com/id/BBG007D2WSF2"
+        "figi": "BBG007D2WSJ8",
+        "source": "https://www.openfigi.com/id/BBG007D2WSJ8"
       },
       "us": null,
       "checkedOn": "2026-09-24"
@@ -1099,8 +1099,8 @@
         "ticker": "2330",
         "exchange": "TT",
         "name": "TAIWAN SEMICONDUCTOR MANUFAC",
-        "figi": "BBG000BN2HR7",
-        "source": "https://www.openfigi.com/id/BBG000BN2HR7"
+        "figi": "BBG000BN2JD8",
+        "source": "https://www.openfigi.com/id/BBG000BN2JD8"
       },
       "us": {
         "ticker": "TSM",
@@ -1151,8 +1151,8 @@
         "ticker": "981",
         "exchange": "HK",
         "name": "SEMICONDUCTOR MANUFACTURI-H",
-        "figi": "BBG000LB4MP1",
-        "source": "https://www.openfigi.com/id/BBG000LB4MP1"
+        "figi": "BBG000LB4NH8",
+        "source": "https://www.openfigi.com/id/BBG000LB4NH8"
       },
       "us": null,
       "checkedOn": "2026-09-24"
@@ -1181,8 +1181,8 @@
         "ticker": "2303",
         "exchange": "TT",
         "name": "UNITED MICROELECTRONICS CORP",
-        "figi": "BBG000BCWSN8",
-        "source": "https://www.openfigi.com/id/BBG000BCWSN8"
+        "figi": "BBG000BCWT65",
+        "source": "https://www.openfigi.com/id/BBG000BCWT65"
       },
       "us": {
         "ticker": "UMC",
@@ -1219,8 +1219,8 @@
         "ticker": "2330",
         "exchange": "TT",
         "name": "TAIWAN SEMICONDUCTOR MANUFAC",
-        "figi": "BBG000BN2HR7",
-        "source": "https://www.openfigi.com/id/BBG000BN2HR7"
+        "figi": "BBG000BN2JD8",
+        "source": "https://www.openfigi.com/id/BBG000BN2JD8"
       },
       "us": {
         "ticker": "TSM",
@@ -1287,8 +1287,8 @@
         "ticker": "3711",
         "exchange": "TT",
         "name": "ASE TECHNOLOGY HOLDING CO LT",
-        "figi": "BBG00JNDLLW9",
-        "source": "https://www.openfigi.com/id/BBG00JNDLLW9"
+        "figi": "BBG00JVDCH13",
+        "source": "https://www.openfigi.com/id/BBG00JVDCH13"
       },
       "us": {
         "ticker": "ASX",
@@ -1479,8 +1479,8 @@
         "ticker": "NKT",
         "exchange": "DC",
         "name": "NKT A/S",
-        "figi": "BBG000BSCY61",
-        "source": "https://www.openfigi.com/id/BBG000BSCY61"
+        "figi": "BBG000BSCYF1",
+        "source": "https://www.openfigi.com/id/BBG000BSCYF1"
       },
       "us": null,
       "checkedOn": "2026-09-24"

@@ -26,6 +26,10 @@ export interface Lead {
   title: string;
   published: string | null;
   foundAt: string;
+  /** Nobody reviewed it within LEAD_EXPIRY_DAYS — it is no longer awaiting review. */
+  expired?: boolean;
+  /** A reviewer accepted it: read and judged worth filing, not yet filed as an event. */
+  accepted?: boolean;
   effectGuess: EventEffect;
 }
 
@@ -56,6 +60,10 @@ export type DeskItem =
       alsoAt: string[];
       /** True when `at` is the publisher's own date rather than when we found it. */
       dated: boolean;
+      /** Expired unread (see lib/lead-expiry.ts): labelled so, never "not yet reviewed". */
+      expired: boolean;
+      /** Accepted by a reviewer, awaiting filing: labelled so, never "not yet reviewed". */
+      accepted: boolean;
       dateOnly: false;
     }
   | {
@@ -272,6 +280,8 @@ export function buildFeed(
       effect: lead.effectGuess,
       alsoAt: [],
       dated,
+      expired: lead.expired ?? false,
+      accepted: lead.accepted ?? false,
       dateOnly: false,
     });
   }
@@ -279,15 +289,4 @@ export function buildFeed(
   return [...items, ...byStory.values()].sort((a, b) => b.at.localeCompare(a.at));
 }
 
-export { whenLabel } from './when';
-
-/** The day-group a row falls in: Today, Yesterday, This week, This month, Earlier. */
-export function bucketOf(item: DeskItem, now: Date): string {
-  const day = (iso: string) => Date.parse(iso.slice(0, 10));
-  const days = Math.round((day(now.toISOString()) - day(item.at)) / 86_400_000);
-  if (days <= 0) return 'Today';
-  if (days === 1) return 'Yesterday';
-  if (days < 7) return 'This week';
-  if (days < 31) return 'This month';
-  return 'Earlier';
-}
+export { whenLabel, bucketOf } from './when';

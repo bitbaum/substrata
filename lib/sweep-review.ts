@@ -3,6 +3,7 @@
  * Reading leads for a desk or for Ask is `sweep-queue.ts`.
  */
 import { database } from './db';
+import { expiredLeadSql, openLeadSql } from './lead-expiry';
 
 export interface QueuedCandidate {
   id: string;
@@ -22,9 +23,25 @@ export interface QueuedCandidate {
  * Newest first, because a sweep that has just run is the reason someone opens
  * this page. Reviewed rows stay in the table as the record of a decision —
  * re-finding a URL must never resurrect something already rejected — but they
- * are not work, so they are not listed.
+ * are not work, so they are not listed. Nor are expired leads (see
+ * `lead-expiry.ts`): nobody decided on them in time, and they are listed by
+ * `expiredCandidates` instead.
  */
 export async function openCandidates(limit = 100): Promise<QueuedCandidate[]> {
+  return candidates(openLeadSql(), limit);
+}
+
+/**
+ * Leads nobody decided on within LEAD_EXPIRY_DAYS, newest first. They are
+ * still in the table — expiry is a reading, not a deletion — so they can be
+ * read — and still decided on, since a verdict only needs `reviewed_at IS NULL`.
+ */
+export async function expiredCandidates(limit = 200): Promise<QueuedCandidate[]> {
+  return candidates(expiredLeadSql(), limit);
+}
+
+/** `where` is one of the constant predicates from lead-expiry.ts, never input. */
+async function candidates(where: string, limit: number): Promise<QueuedCandidate[]> {
   const result = await database().query<{
     id: string;
     bottleneck: string;
@@ -38,7 +55,7 @@ export async function openCandidates(limit = 100): Promise<QueuedCandidate[]> {
   }>(
     `SELECT id, bottleneck, term, url, title, published, excerpt, effect_guess, found_at
        FROM research_sweep_candidates
-      WHERE reviewed_at IS NULL
+      WHERE ${where}
       ORDER BY found_at DESC, bottleneck
       LIMIT $1`,
     [limit],

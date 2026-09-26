@@ -1,5 +1,5 @@
 {
- "retrieved": "2026-09-25",
+ "retrieved": "2026-09-26",
  "eu": {
   "source": "EU Sanctions Map",
   "api": "https://www.sanctionsmap.eu/api/v1/regime",
@@ -9,7 +9,7 @@
     "iso2": "af",
     "adoptedBy": "UN",
     "title": "Restrictive measures imposed with respect to the Taliban",
-    "amended": "2024-09-12",
+    "amended": "2024-09-13",
     "url": "https://www.sanctionsmap.eu/#/main/details/1/",
     "legalActs": [
      {
@@ -88,7 +88,7 @@
     "iso2": "by",
     "adoptedBy": "EU",
     "title": "Restrictive measures in view of the situation in Belarus and the involvement of Belarus in the Russian aggression against Ukraine",
-    "amended": "2026-04-22",
+    "amended": "2026-04-23",
     "url": "https://www.sanctionsmap.eu/#/main/details/2/",
     "legalActs": [
      {
@@ -287,7 +287,7 @@
     "iso2": "ba",
     "adoptedBy": "EU",
     "title": "Restrictive measures in view of the situation in Bosnia and Herzegovina",
-    "amended": "2026-03-30",
+    "amended": "2026-03-31",
     "url": "https://www.sanctionsmap.eu/#/main/details/4/",
     "legalActs": [
      {
@@ -312,7 +312,7 @@
     "iso2": "bi",
     "adoptedBy": "EU",
     "title": "Restrictive measures in view of the situation in Burundi",
-    "amended": "2025-09-23",
+    "amended": "2025-09-24",
     "url": "https://www.sanctionsmap.eu/#/main/details/7/",
     "legalActs": [
      {
@@ -346,7 +346,7 @@
     "iso2": "cf",
     "adoptedBy": "UN",
     "title": "Restrictive measures in view of the situation in the Central African Republic",
-    "amended": "2025-03-25",
+    "amended": "2025-03-26",
     "url": "https://www.sanctionsmap.eu/#/main/details/9/",
     "legalActs": [
      {
@@ -449,7 +449,7 @@
     "iso2": "cn",
     "adoptedBy": "EU",
     "title": "Specific restrictive measures in relation to the events at the Tiananmen Square protests of 1989",
-    "amended": "1989-06-26",
+    "amended": "1989-06-27",
     "url": "https://www.sanctionsmap.eu/#/main/details/10/",
     "legalActs": [],
     "measures": [
@@ -464,7 +464,7 @@
     "iso2": "kp",
     "adoptedBy": "UN and EU",
     "title": "Restrictive measures in relation to the non-proliferation of the weapons of mass destruction",
-    "amended": "2025-12-15",
+    "amended": "2025-12-16",
     "url": "https://www.sanctionsmap.eu/#/main/details/20/",
     "legalActs": [
      {
@@ -739,7 +739,7 @@
     "iso2": "cd",
     "adoptedBy": "UN and EU",
     "title": "Restrictive measures in view of the situation in the Democratic Republic of the Congo",
-    "amended": "2025-12-09",
+    "amended": "2025-12-10",
     "url": "https://www.sanctionsmap.eu/#/main/details/11/",
     "legalActs": [
      {
@@ -857,7 +857,7 @@
     "iso2": "gt",
     "adoptedBy": "EU",
     "title": "Restrictive measures in view of the situation in Guatemala",
-    "amended": "2026-01-12",
+    "amended": "2026-01-13",
     "url": "https://www.sanctionsmap.eu/#/main/details/59/",
     "legalActs": [
      {
@@ -887,7 +887,7 @@
     "iso2": "gn",
     "adoptedBy": "EU",
     "title": "Restrictive measures in view of the situation in Guinea",
-    "amended": "2025-10-12",
+    "amended": "2025-10-13",
     "url": "https://www.sanctionsmap.eu/#/main/details/14/",
     "legalActs": [
      {
@@ -917,7 +917,7 @@
     "iso2": "gw",
     "adoptedBy": "UN and EU",
     "title": "Restrictive measures in view of the situation in Guinea-Bissau",
-    "amended": "2025-09-23",
+    "amended": "2025-09-24",
     "url": "https://www.sanctionsmap.eu/#/main/details/15/",
     "legalActs": [
      {
@@ -952,7 +952,7 @@
     "iso2": "ht",
     "adoptedBy": "UN and EU",
     "title": "Restrictive measures in view of the situation in Haiti",
-    "amended": "2025-12-14",
+    "amended": "2025-12-15",
     "url": "https://www.sanctionsmap.eu/#/main/details/54/",
     "legalActs": [
      {
@@ -1001,7 +1001,7 @@
     "iso2": "ht",
     "adoptedBy": "EU",
     "title": "Prohibiting the satisfying of certain claims by the Haitian authorities",
-    "amended": "1994-05-29",
+    "amended": "1994-05-30",
     "url": "https://www.sanctionsmap.eu/#/main/details/16/",
     "legalActs": [
      {
@@ -1047,7 +1047,7 @@
     "iso2": "ir",
     "adoptedBy": "EU",
     "title": "Restrictive measures in relation to serious human rights violations in Iran",
-    "amended": "2026-03-31",
+    "amended": "2026-04-01",
     "url": "https://www.sanctionsmap.eu/#/main/details/17/",
     "legalActs": [
      {
@@ -1095,7 +1095,7 @@
     "iso2": "ir",
     "adoptedBy": "UN and EU",
     "title": "Restrictive measures in relation to the non-proliferation of weapons of mass destruction",
-    "amended": "2026-03-31",
+    "amended": "2026-04-01",
     "url": "https://www.sanctionsmap.eu/#/main/details/18/",
     "legalActs": [
      {
@@ -1166,7 +1166,7 @@
     "iso2": "ir",
     "adoptedBy": "EU",
     "title": "Restrictive measures in view of Iran’s military support to Russia’s war of aggression against Ukraine and to armed groups and entities in the Middle East and the Red Sea region",
-    "amended": "2026-06-07",
+    "amended": "2026-06-08",
     "url": "https://www.sanctionsmap.eu/#/main/details/56/",
     "legalActs": [
      {
@@ -1204,7 +1204,7 @@
     "iso2": "iq",
     "adoptedBy": "UN",
     "title": "Restrictive measures on Iraq",
-    "amended": "2025-12-22",
+    "amended": "2025-12-23",
     "url": "https://www.sanctionsmap.eu/#/main/details/19/",
     "legalActs": [
      {
@@ -1248,7 +1248,7 @@
     "iso2": "lb",
     "adoptedBy": "UN",
     "title": "Restrictive measures in relation to the UN Security Council Resolution 1701 (2006) on Lebanon",
-    "amended": "2024-09-12",
+    "amended": "2024-09-13",
     "url": "https://www.sanctionsmap.eu/#/main/details/21/",
     "legalActs": [
      {
@@ -1279,7 +1279,7 @@
     "iso2": "lb",
     "adoptedBy": "UN",
     "title": "Restrictive measures in relation to the 14 February 2005 terrorist bombing in Beirut, Lebanon",
-    "amended": "2024-09-12",
+    "amended": "2024-09-13",
     "url": "https://www.sanctionsmap.eu/#/main/details/22/",
     "legalActs": [
      {
@@ -1314,7 +1314,7 @@
     "iso2": "lb",
     "adoptedBy": "EU",
     "title": "Restrictive measures in view of the situation in Lebanon",
-    "amended": "2025-07-24",
+    "amended": "2025-07-25",
     "url": "https://www.sanctionsmap.eu/#/main/details/51/",
     "legalActs": [
      {
@@ -1344,7 +1344,7 @@
     "iso2": "ly",
     "adoptedBy": "EU",
     "title": "Prohibiting the satisfying of certain claims in relation to transactions that have been prohibited by the UN Security Council Resolution 883 (1993) and related resolutions",
-    "amended": "2025-07-30",
+    "amended": "2025-07-31",
     "url": "https://www.sanctionsmap.eu/#/main/details/43/",
     "legalActs": [
      {
@@ -1385,7 +1385,7 @@
     "iso2": "ly",
     "adoptedBy": "UN and EU",
     "title": "Restrictive measures in view of the situation in Libya",
-    "amended": "2025-07-30",
+    "amended": "2025-07-31",
     "url": "https://www.sanctionsmap.eu/#/main/details/23/",
     "legalActs": [
      {
@@ -1519,7 +1519,7 @@
     "iso2": "ml",
     "adoptedBy": "EU",
     "title": "Restrictive measures in view of the situation in Mali",
-    "amended": "2025-12-02",
+    "amended": "2025-12-03",
     "url": "https://www.sanctionsmap.eu/#/main/details/42/",
     "legalActs": [
      {
@@ -1574,7 +1574,7 @@
     "iso2": "md",
     "adoptedBy": "EU",
     "title": "Restrictive measures in view of actions destabilising the Republic of Moldova",
-    "amended": "2026-04-22",
+    "amended": "2026-04-23",
     "url": "https://www.sanctionsmap.eu/#/main/details/55/",
     "legalActs": [
      {
@@ -1604,7 +1604,7 @@
     "iso2": "md",
     "adoptedBy": "EU",
     "title": "Restrictive measures in relation to the campaign against Latinscript schools in the Transnistrian region",
-    "amended": "2025-10-28",
+    "amended": "2025-10-29",
     "url": "https://www.sanctionsmap.eu/#/main/details/25/",
     "legalActs": [
      {
@@ -1625,7 +1625,7 @@
     "iso2": "me",
     "adoptedBy": "UN and EU",
     "title": "Prohibiting the satisfying of certain claims in relation to transactions that have been prohibited by the UN Security Council Resolution  757(1992) and related resolutions",
-    "amended": "1994-07-10",
+    "amended": "1994-07-11",
     "url": "https://www.sanctionsmap.eu/#/main/details/28/",
     "legalActs": [
      {
@@ -1656,7 +1656,7 @@
     "iso2": "mm",
     "adoptedBy": "EU",
     "title": "Restrictive measures in view of the situation in Myanmar/Burma",
-    "amended": "2026-04-28",
+    "amended": "2026-04-29",
     "url": "https://www.sanctionsmap.eu/#/main/details/8/",
     "legalActs": [
      {
@@ -1706,7 +1706,7 @@
     "iso2": "ni",
     "adoptedBy": "EU",
     "title": "Restrictive measures in view of the situation in Nicaragua",
-    "amended": "2025-09-29",
+    "amended": "2025-09-30",
     "url": "https://www.sanctionsmap.eu/#/main/details/48/",
     "legalActs": [
      {
@@ -1736,7 +1736,7 @@
     "iso2": "ne",
     "adoptedBy": "EU",
     "title": "Restrictive measures in view of the situation in Niger",
-    "amended": "2025-10-19",
+    "amended": "2025-10-20",
     "url": "https://www.sanctionsmap.eu/#/main/details/58/",
     "legalActs": [
      {
@@ -1766,7 +1766,7 @@
     "iso2": "ru",
     "adoptedBy": "EU",
     "title": "Restrictive measures in view of the situation in Russia",
-    "amended": "2026-06-14",
+    "amended": "2026-06-15",
     "url": "https://www.sanctionsmap.eu/#/main/details/61/",
     "legalActs": [
      {
@@ -1809,7 +1809,7 @@
     "iso2": "ru",
     "adoptedBy": "EU",
     "title": "Restrictive measures in view of Russia's destabilising activities",
-    "amended": "2026-06-14",
+    "amended": "2026-06-15",
     "url": "https://www.sanctionsmap.eu/#/main/details/63/",
     "legalActs": [
      {
@@ -1839,7 +1839,7 @@
     "iso2": "ru",
     "adoptedBy": "EU",
     "title": "Restrictive measures in view of Russia's actions destabilising the situation in Ukraine (sectoral restrictive measures)",
-    "amended": "2026-04-22",
+    "amended": "2026-04-23",
     "url": "https://www.sanctionsmap.eu/#/main/details/26/",
     "legalActs": [
      {
@@ -2145,7 +2145,7 @@
     "iso2": "rs",
     "adoptedBy": "UN and EU",
     "title": "Prohibiting the satisfying of certain claims in relation to transactions that have been prohibited by the UN Security Council Resolution 757(1992) and related resolutions",
-    "amended": "1994-07-15",
+    "amended": "1994-07-16",
     "url": "https://www.sanctionsmap.eu/#/main/details/27/",
     "legalActs": [
      {
@@ -2171,7 +2171,7 @@
     "iso2": "so",
     "adoptedBy": "UN",
     "title": "Restrictive measures in view of the situation in Somalia",
-    "amended": "2024-09-12",
+    "amended": "2024-09-13",
     "url": "https://www.sanctionsmap.eu/#/main/details/29/",
     "legalActs": [
      {
@@ -2272,7 +2272,7 @@
     "iso2": "ss",
     "adoptedBy": "UN and EU",
     "title": "Restrictive measures in view of the situation in South Sudan",
-    "amended": "2025-07-09",
+    "amended": "2025-07-10",
     "url": "https://www.sanctionsmap.eu/#/main/details/30/",
     "legalActs": [
      {
@@ -2346,7 +2346,7 @@
     "iso2": "sd",
     "adoptedBy": "UN and EU",
     "title": "Restrictive measures in view of the situation in Sudan",
-    "amended": "2026-05-06",
+    "amended": "2026-05-07",
     "url": "https://www.sanctionsmap.eu/#/main/details/31/",
     "legalActs": [
      {
@@ -2430,7 +2430,7 @@
     "iso2": "sd",
     "adoptedBy": "EU",
     "title": "Restrictive measures in view of activities undermining the stability and the political transition of Sudan",
-    "amended": "2026-04-21",
+    "amended": "2026-04-22",
     "url": "https://www.sanctionsmap.eu/#/main/details/57/",
     "legalActs": [
      {
@@ -2460,7 +2460,7 @@
     "iso2": "sy",
     "adoptedBy": "EU",
     "title": "Restrictive measures against Syria",
-    "amended": "2025-09-23",
+    "amended": "2025-09-24",
     "url": "https://www.sanctionsmap.eu/#/main/details/32/",
     "legalActs": [
      {
@@ -2542,7 +2542,7 @@
     "iso2": "sy",
     "adoptedBy": "UN",
     "title": "Restrictive measures in relation to the 14 February 2005 terrorist bombing in Beirut, Lebanon",
-    "amended": "2024-09-12",
+    "amended": "2024-09-13",
     "url": "https://www.sanctionsmap.eu/#/main/details/34/",
     "legalActs": [
      {
@@ -2577,7 +2577,7 @@
     "iso2": "tn",
     "adoptedBy": "EU",
     "title": "Misappropriation of state funds of Tunisia",
-    "amended": "2026-01-29",
+    "amended": "2026-01-30",
     "url": "https://www.sanctionsmap.eu/#/main/details/33/",
     "legalActs": [
      {
@@ -2603,7 +2603,7 @@
     "iso2": "tr",
     "adoptedBy": "EU",
     "title": "Restrictive measures in view of Türkiye’s  unauthorised drilling activities in the Eastern Mediterranean",
-    "amended": "2025-11-24",
+    "amended": "2025-11-25",
     "url": "https://www.sanctionsmap.eu/#/main/details/49/",
     "legalActs": [
      {
@@ -2633,7 +2633,7 @@
     "iso2": "ua",
     "adoptedBy": "EU",
     "title": "Restrictive measures in response to the illegal recognition, occupation or annexation by the Russian Federation of certain non-government controlled areas of Ukraine",
-    "amended": "2026-02-23",
+    "amended": "2026-02-24",
     "url": "https://www.sanctionsmap.eu/#/main/details/52/",
     "legalActs": [
      {
@@ -2695,7 +2695,7 @@
     "iso2": "ua",
     "adoptedBy": "EU",
     "title": "Misappropriation of state funds of Ukraine",
-    "amended": "2026-03-02",
+    "amended": "2026-03-03",
     "url": "https://www.sanctionsmap.eu/#/main/details/35/",
     "legalActs": [
      {
@@ -2721,7 +2721,7 @@
     "iso2": "ua",
     "adoptedBy": "EU",
     "title": "Restrictive measures in respect of actions undermining or threatening the territorial integrity, sovereignty and independence of Ukraine",
-    "amended": "2026-06-14",
+    "amended": "2026-06-15",
     "url": "https://www.sanctionsmap.eu/#/main/details/36/",
     "legalActs": [
      {
@@ -2751,7 +2751,7 @@
     "iso2": "ua",
     "adoptedBy": "EU",
     "title": "Restrictive measures in response to the illegal annexation of Crimea and Sevastopol",
-    "amended": "2026-06-16",
+    "amended": "2026-06-17",
     "url": "https://www.sanctionsmap.eu/#/main/details/37/",
     "legalActs": [
      {
@@ -2813,7 +2813,7 @@
     "iso2": "us",
     "adoptedBy": "EU",
     "title": "Measures protecting against the effects of the extra-territorial application of certain legislation adopted by the US",
-    "amended": "2018-08-06",
+    "amended": "2018-08-07",
     "url": "https://www.sanctionsmap.eu/#/main/details/38/",
     "legalActs": [
      {
@@ -2844,7 +2844,7 @@
     "iso2": "ve",
     "adoptedBy": "EU",
     "title": "Restrictive measures in view of the situation in Venezuela",
-    "amended": "2025-12-14",
+    "amended": "2025-12-15",
     "url": "https://www.sanctionsmap.eu/#/main/details/44/",
     "legalActs": [
      {
@@ -2886,7 +2886,7 @@
     "iso2": "ye",
     "adoptedBy": "UN",
     "title": "Restrictive measures in view of the situation in Yemen",
-    "amended": "2024-09-12",
+    "amended": "2024-09-13",
     "url": "https://www.sanctionsmap.eu/#/main/details/39/",
     "legalActs": [
      {
@@ -2969,7 +2969,7 @@
     "iso2": "zw",
     "adoptedBy": "EU",
     "title": "Restrictive measures concerning an arms embargo in view of the situation in Zimbabwe",
-    "amended": "2026-02-16",
+    "amended": "2026-02-17",
     "url": "https://www.sanctionsmap.eu/#/main/details/40/",
     "legalActs": [
      {
@@ -3001,26 +3001,6 @@
   "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information",
   "programs": [
    {
-    "iso2": "ir",
-    "title": "",
-    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/iran-sanctions"
-   },
-   {
-    "iso2": "kp",
-    "title": "",
-    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/north-korea-sanctions"
-   },
-   {
-    "iso2": "cu",
-    "title": "",
-    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/cuba-sanctions"
-   },
-   {
-    "iso2": "ve",
-    "title": "",
-    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/venezuela-related-sanctions"
-   },
-   {
     "iso2": "af",
     "title": "Afghanistan-Related Sanctions",
     "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/afghanistan-related-sanctions"
@@ -3046,6 +3026,11 @@
     "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/chinese-military-companies-sanctions"
    },
    {
+    "iso2": "cu",
+    "title": "Cuba Sanctions",
+    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/cuba-sanctions"
+   },
+   {
     "iso2": "cd",
     "title": "Democratic Republic of the Congo-Related Sanctions",
     "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/democratic-republic-of-the-congo-related-sanctions"
@@ -3054,6 +3039,11 @@
     "iso2": "cn",
     "title": "Hong Kong-Related Sanctions",
     "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/hong-kong-related-sanctions"
+   },
+   {
+    "iso2": "ir",
+    "title": "Iran Sanctions",
+    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/iran-sanctions"
    },
    {
     "iso2": "iq",
@@ -3079,6 +3069,11 @@
     "iso2": "ni",
     "title": "Nicaragua-related Sanctions",
     "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/nicaragua-related-sanctions"
+   },
+   {
+    "iso2": "kp",
+    "title": "North Korea Sanctions",
+    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/north-korea-sanctions"
    },
    {
     "iso2": "sy",
@@ -3109,6 +3104,11 @@
     "iso2": "ru",
     "title": "Ukraine-/Russia-related Sanctions",
     "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/ukraine-russia-related-sanctions"
+   },
+   {
+    "iso2": "ve",
+    "title": "Venezuela-Related Sanctions",
+    "url": "https://ofac.treasury.gov/sanctions-programs-and-country-information/venezuela-related-sanctions"
    },
    {
     "iso2": "ye",

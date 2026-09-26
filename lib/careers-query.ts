@@ -9,6 +9,7 @@
 import { database } from './db';
 import { SENIORITIES, type Seniority } from './careers';
 import { ROLE_FAMILY_IDS, type RoleFamilyId } from '@/config/careers-roles';
+import { regionById, type RegionId } from './careers-regions';
 
 export interface JobRow {
   id: string;
@@ -31,6 +32,8 @@ export interface JobFilter {
   bottleneck?: string;
   company?: string;
   country?: string;
+  /** A region (lib/careers-regions.ts): any of its countries. Arrives in the same `country` parameter. */
+  region?: RegionId;
   family?: RoleFamilyId;
   seniority?: Seniority;
   remote?: boolean;
@@ -54,6 +57,7 @@ export function parseJobFilter(params: Params): JobFilter {
     bottleneck: one(params.bottleneck)?.slice(0, 120) || undefined,
     company: one(params.company)?.slice(0, 120) || undefined,
     country: country && /^[A-Z]{2}$/.test(country) ? country : undefined,
+    region: regionById(country)?.id,
     family: ROLE_FAMILY_IDS.includes(family as RoleFamilyId) ? (family as RoleFamilyId) : undefined,
     seniority: SENIORITIES.includes(seniority as Seniority) ? (seniority as Seniority) : undefined,
     remote: one(params.remote) === '1' || undefined,
@@ -72,6 +76,8 @@ function where(f: JobFilter): { sql: string; args: unknown[] } {
   if (f.bottleneck) add('? = ANY(bottlenecks)', f.bottleneck);
   if (f.company) add('company_slug = ?', f.company);
   if (f.country) add('? = ANY(countries)', f.country);
+  const region = regionById(f.region);
+  if (region) add('countries && ?::text[]', [...region.countries]);
   if (f.family) add('family = ?', f.family);
   if (f.seniority) add('seniority = ?', f.seniority);
   if (f.remote) clauses.push('remote');

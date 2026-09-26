@@ -1,6 +1,7 @@
 /**
- * Pick what fails. A plain GET form, so the resulting URL is the scenario and
- * works without JavaScript; presets are links to the same URLs.
+ * Pick what fails. Presets first — one click each, taken from the record —
+ * then a plain GET form to build your own, so the resulting URL is the
+ * scenario and works without JavaScript.
  */
 import Link from 'next/link';
 
@@ -20,6 +21,23 @@ export function ScenarioPicker({ current }: { current: Scenario | null }) {
   const only = current?.only.length === 1 ? current.only[0] : '';
   return (
     <>
+      <h2 className="scenario-label">On the record</h2>
+      <ul className="scenario-presets" aria-label="Scenarios from the record">
+        {PRESETS.map((p) => {
+          const target = parseTarget(p.at);
+          if (!target) return null;
+          const href = scenarioHref({ at: target, only: p.only });
+          const active = current && scenarioHref(current) === href;
+          return (
+            <li key={p.id}>
+              <Link href={href} className={`scenario-preset${active ? ' is-active' : ''}`}>
+                {p.title}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+      <h2 className="scenario-label scenario-own">Or build your own</h2>
       <form action="/scenarios" method="get" className="scenario-form">
         <label className="desk-filter">
           <span className="scenario-label">What fails</span>
@@ -65,21 +83,6 @@ export function ScenarioPicker({ current }: { current: Scenario | null }) {
           Run the scenario
         </button>
       </form>
-      <ul className="scenario-presets" aria-label="Scenarios from the record">
-        {PRESETS.map((p) => {
-          const target = parseTarget(p.at);
-          if (!target) return null;
-          const href = scenarioHref({ at: target, only: p.only });
-          const active = current && scenarioHref(current) === href;
-          return (
-            <li key={p.id}>
-              <Link href={href} className={`scenario-preset${active ? ' is-active' : ''}`}>
-                {p.title}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
     </>
   );
 }

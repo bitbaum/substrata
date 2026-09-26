@@ -285,3 +285,23 @@ a.sci-title:hover {
     display: none;
   }
 }
+
+/* Jump from the header to what a visitor came for. */
+.pipe-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+}
+.pipe-jump a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+#new,
+#collected,
+#judged,
+#active {
+  scroll-margin-top: 4.5rem;
+}

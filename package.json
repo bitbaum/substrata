@@ -21,12 +21,13 @@
     "research:producers": "python3 scripts/research/usgs-myb-producers.py",
     "research:restrictions": "python3 scripts/research/oecd-export-restrictions.py",
     "research:sanctions": "python3 scripts/research/sanctions.py",
+    "quality": "tsx scripts/quality/run.ts",
     "verify": "pnpm run format:check && pnpm run type-check && pnpm run lint && pnpm run test",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
   "dependencies": {
-    "@bitbaum/ai-kit": "^1.15.0",
+    "@bitbaum/ai-kit": "^1.17.0",
     "bip-kit": "^0.3.1",
     "d3-geo": "^3.1.1",
     "listkit": "github:bitbaum/listkit#v0.1.0",

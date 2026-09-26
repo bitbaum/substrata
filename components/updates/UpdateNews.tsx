@@ -67,6 +67,7 @@ export function UpdateNews({
   const [message, setMessage] = useState('');
   const [askForKey, setAskForKey] = useState(false);
   const [panel, setPanel] = useState(false);
+  const [failed, setFailed] = useState(false);
 
   useEffect(() => {
     if (!sweeping) return;
@@ -81,6 +82,7 @@ export function UpdateNews({
       () => null,
     );
     setBusy(null);
+    setFailed(!r?.ok);
     if (!r?.ok) return setMessage(r?.data.error ?? 'The update could not run just now.');
     setResult(r.data);
     setMessage(sweepLine(r.data));
@@ -146,6 +148,14 @@ export function UpdateNews({
       </p>
       <p role="status" className="update-status">
         {message}
+        {failed && (
+          <>
+            {' '}
+            <button type="button" className="update-retry" onClick={update}>
+              Try again
+            </button>
+          </>
+        )}
       </p>
 
       {askForKey && !keys.active && (
@@ -173,7 +183,9 @@ export function UpdateNews({
         (result.leads.length > 0 ? (
           <UpdateLeads leads={result.leads} now={new Date()} />
         ) : (
-          <p className="update-note">No open web leads here right now.</p>
+          <p className="update-note">
+            No open web leads here right now. <Link href="/events">Read the verified events</Link>.
+          </p>
         ))}
     </section>
   );

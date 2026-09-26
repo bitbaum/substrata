@@ -80,7 +80,10 @@ export default async function BottleneckPipelinePage({ params, searchParams }: P
   return (
     <Shell>
       <Page>
-        <nav className="mb-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary">
+        <nav
+          aria-label="Breadcrumb"
+          className="crumbs mb-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary"
+        >
           <Link href="/science" className="hover:text-fg-primary">
             Science
           </Link>
@@ -115,6 +118,15 @@ export default async function BottleneckPipelinePage({ params, searchParams }: P
               Searched for {q.phrases.map((p) => `“${p}”`).join(', ')} in titles and abstracts.
             </p>
           )}
+          <p className="pipe-jump">
+            <a href="#collected">
+              {items.length > 0
+                ? `${items.length} collected items, newest first ↓`
+                : 'Collected items ↓'}
+            </a>
+            {judgements.length > 0 && <a href="#judged">Judged by hand ↓</a>}
+            {orgs.length > 0 && <a href="#active">Who is active ↓</a>}
+          </p>
         </header>
 
         <p className="pipe-filter">
@@ -142,10 +154,12 @@ export default async function BottleneckPipelinePage({ params, searchParams }: P
           </p>
         )}
 
-        <CompaniesActive orgs={orgs} />
+        <div id="active">
+          <CompaniesActive orgs={orgs} />
+        </div>
 
         {judgements.length > 0 && (
-          <section className="mb-12">
+          <section className="mb-12" id="judged">
             <Heading
               title="Judged by hand"
               aside="Readiness and substitute status, with reasoning"
@@ -154,13 +168,16 @@ export default async function BottleneckPipelinePage({ params, searchParams }: P
           </section>
         )}
 
-        <section>
+        <section id="collected">
           <Heading
             title="Collected by the feeds"
             aside={order === 'cited' ? 'Most cited first' : 'Newest first'}
           />
           {counts === null ? (
-            <Empty what="The science feed could not be read just now." />
+            <Empty
+              what="The science feed could not be read just now."
+              action={<Link href={bottleneckHref(b.slug)}>Read the bottleneck itself</Link>}
+            />
           ) : items.length > 0 ? (
             <ItemList items={items} />
           ) : (
@@ -169,6 +186,12 @@ export default async function BottleneckPipelinePage({ params, searchParams }: P
                 stage === 'early' || stage === 'scale'
                   ? 'The feeds never place a paper or grant here: neither shows a product is on sale.'
                   : 'Nothing collected at this stage yet.'
+              }
+              action={
+                <>
+                  {stage && <Link href={href({ stage: null })}>Every stage</Link>}
+                  <Link href={pipelineHref()}>Other bottlenecks</Link>
+                </>
               }
             />
           )}

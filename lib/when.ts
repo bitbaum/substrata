@@ -30,3 +30,14 @@ export function whenLabel(iso: string, now: Date = new Date(), dateOnly = false)
   if (minutes < 48 * 60) return 'yesterday';
   return calendar;
 }
+
+/** The day-group a row falls in: Today, Yesterday, This week, This month, Earlier. */
+export function bucketOf(item: { at: string }, now: Date): string {
+  const day = (iso: string) => Date.parse(iso.slice(0, 10));
+  const days = Math.round((day(now.toISOString()) - day(item.at)) / 86_400_000);
+  if (days <= 0) return 'Today';
+  if (days === 1) return 'Yesterday';
+  if (days < 7) return 'This week';
+  if (days < 31) return 'This month';
+  return 'Earlier';
+}

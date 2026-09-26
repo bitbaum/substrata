@@ -116,3 +116,13 @@
   line-height: 1.5;
   color: var(--color-fg-secondary);
 }
+.update-retry {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  color: var(--color-fg-primary);
+  cursor: pointer;
+}
+.update-note a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}

@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useTransition } from 'react';
 import { useRouter } from 'next/navigation';
 
 /**
@@ -19,6 +19,8 @@ export function AutoSubmitForm({
 }) {
   const router = useRouter();
   const timer = useRef<number | undefined>(undefined);
+  // The one loading state for filter bars: the results stay, dimmed, until the new ones arrive.
+  const [pending, startTransition] = useTransition();
 
   function apply(form: HTMLFormElement) {
     const params = new URLSearchParams();
@@ -26,7 +28,7 @@ export function AutoSubmitForm({
       if (typeof value === 'string' && value !== '') params.append(key, value);
     }
     const qs = params.toString();
-    router.replace(qs ? `${action}?${qs}` : action, { scroll: false });
+    startTransition(() => router.replace(qs ? `${action}?${qs}` : action, { scroll: false }));
   }
 
   return (
@@ -34,6 +36,8 @@ export function AutoSubmitForm({
       action={action}
       method="get"
       className={className}
+      data-pending={pending || undefined}
+      aria-busy={pending || undefined}
       onChange={(event) => {
         const form = event.currentTarget;
         const target = event.target as unknown as HTMLInputElement;
@@ -50,6 +54,9 @@ export function AutoSubmitForm({
       }}
     >
       {children}
+      <span role="status" className="filter-pending">
+        {pending ? 'Updating…' : ''}
+      </span>
     </form>
   );
 }

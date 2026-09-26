@@ -21,6 +21,7 @@ import { CAREER_METHODS } from './methods-careers';
 import { AI_METHODS } from './methods-ai';
 import { FRESHNESS_METHODS } from './methods-freshness';
 import { RESOURCE_METHODS } from './methods-resources';
+import { QUALITY_METHODS } from './methods-quality';
 
 export interface Method {
   /** Short name, as a heading on /data. */
@@ -35,6 +36,7 @@ export interface Method {
 
 export const METHODS = {
   ...GRAPH_METHODS,
+  ...QUALITY_METHODS,
   ...AI_METHODS,
   'bottleneck-count': {
     title: 'Bottlenecks mapped',
@@ -127,7 +129,7 @@ export const METHODS = {
   'sweep-candidates': {
     title: 'Leads awaiting review',
     formula:
-      'Leads in the research sweep\u2019s queue that no person has read yet, counted live from the database.',
+      'Leads in the research sweep\u2019s queue that no person has read yet and that have not expired, counted live from the database.',
     explanation:
       'The automated sweep proposes leads; this counts the ones nobody has read. They are never shown as findings. The database queue is the only one; there is no committed copy.',
     code: ['lib/sweep-store.ts'],
@@ -135,7 +137,7 @@ export const METHODS = {
   'review-queue': {
     title: 'Review queue: waiting, oldest, drafts ready',
     formula:
-      'Waiting: sweep leads with no reviewer decision. Oldest: whole days since the earliest of them was found. Drafts ready: waiting leads whose AI draft suggests an event and passed the checks.',
+      'Waiting: open sweep leads — no reviewer decision, not expired. Oldest: whole days since the earliest open one was found. Drafts ready: waiting leads whose AI draft suggests an event and passed the checks.',
     explanation:
       'A draft passes only if its quote occurs word for word on the fetched page and it names bottlenecks and participants the site already has. A ready draft is still unreviewed: it reaches a page only after a person accepts it and the row is committed to the corpus file.',
     code: ['lib/event-draft-store.ts', 'lib/event-draft.ts', 'lib/event-rules.ts'],
