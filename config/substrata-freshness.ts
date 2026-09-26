@@ -239,5 +239,7 @@ export const DATASETS: readonly Dataset[] = [
   },
 ];
 
-/** The review queue: leads a person has not read yet. Declared, like the rest. */
-export const REVIEW_QUEUE_MAX_DAYS = 7;
+/**
+ * The review queue's thresholds live with the lead expiry they depend on:
+ * REVIEW_QUEUE_LATE_DAYS and REVIEW_QUEUE_STALE_DAYS in lib/lead-expiry.ts.
+ */

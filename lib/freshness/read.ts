@@ -6,14 +6,13 @@
  * page. The report is memoised for a minute per process: the footer badge on
  * every page asks for it, and a minute is well inside the shortest cadence.
  */
-import {
-  DATASETS,
-  FEEDS,
-  REVIEW_QUEUE_MAX_DAYS,
-  type Dataset,
-  type Feed,
-} from '@/config/substrata-freshness';
+import { DATASETS, FEEDS, type Dataset, type Feed } from '@/config/substrata-freshness';
 import { database } from '@/lib/db';
+import {
+  LEAD_EXPIRY_DAYS,
+  REVIEW_QUEUE_LATE_DAYS,
+  REVIEW_QUEUE_STALE_DAYS,
+} from '@/lib/lead-expiry';
 import { reviewQueue } from '@/lib/event-draft-store';
 import { sweepSettings } from '@/lib/sweep-store';
 import {
@@ -47,9 +46,15 @@ export interface DatasetRow {
 }
 
 export interface QueueRow {
+  /** Open leads: unreviewed and not expired. */
   waiting: number;
+  /** The oldest OPEN lead; expired ones never count. */
   oldestFoundAt: string | null;
-  maxDays: number;
+  /** Unreviewed leads past `expiryDays`: kept and listed, not in the queue. */
+  expired: number;
+  expiryDays: number;
+  lateDays: number;
+  staleDays: number;
   state: FreshState;
 }
 
@@ -114,11 +119,14 @@ async function readFeed(feed: Feed, sweepEvery: number): Promise<FeedRow> {
 async function readQueue(): Promise<QueueRow | null> {
   try {
     const q = await reviewQueue();
+    const limits = { lateDays: REVIEW_QUEUE_LATE_DAYS, staleDays: REVIEW_QUEUE_STALE_DAYS };
     return {
       waiting: q.waiting,
       oldestFoundAt: q.oldestFoundAt,
-      maxDays: REVIEW_QUEUE_MAX_DAYS,
-      state: queueState(q.oldestFoundAt, REVIEW_QUEUE_MAX_DAYS),
+      expired: q.expired,
+      expiryDays: LEAD_EXPIRY_DAYS,
+      ...limits,
+      state: queueState(q.oldestFoundAt, limits),
     };
   } catch {
     return null;

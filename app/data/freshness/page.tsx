@@ -10,6 +10,7 @@ import { StateBadge } from '@/components/freshness/StateBadge';
 import { freshnessReport } from '@/lib/freshness/read';
 import { STATE_LABEL, type FreshState } from '@/lib/freshness/status';
 import { ageLabel } from '@/lib/event-draft-store';
+import { EXPIRED_LEADS_HREF } from '@/lib/lead-expiry';
 import { methodHref } from '@/lib/methods';
 
 export const dynamic = 'force-dynamic';
@@ -83,7 +84,11 @@ export default async function FreshnessPage() {
         </section>
 
         <section className="mb-12">
-          <Heading index="02" title="Review queue" aside="Leads found, not yet read by a person" />
+          <Heading
+            index="02"
+            title="Review queue"
+            aside="Open leads: found, not yet read, not expired"
+          />
           {report.queue === null ? (
             <p className="fresh-what">The queue could not be read just now.</p>
           ) : (
@@ -101,8 +106,15 @@ export default async function FreshnessPage() {
                     ago
                   </>
                 )}
-                . Leads should be read within {report.queue.maxDays} days.{' '}
+                . Leads should be read within {report.queue.lateDays} days; one nobody reviews
+                within <Link href={methodHref('lead-expiry')}>{report.queue.expiryDays} days</Link>{' '}
+                expires and leaves the queue, so a stale queue means the expiry itself is broken.{' '}
                 <Link href="/review">Open the review inbox →</Link>
+              </p>
+              <p>
+                <Figure method="lead-expiry">{String(report.queue.expired)}</Figure> lead
+                {report.queue.expired === 1 ? '' : 's'} expired, never reviewed — kept, not deleted.{' '}
+                <Link href={EXPIRED_LEADS_HREF}>See the expired leads →</Link>
               </p>
             </div>
           )}

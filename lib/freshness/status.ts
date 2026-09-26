@@ -79,16 +79,20 @@ export function datasetState(
   return 'fresh';
 }
 
-/** The review queue: the oldest unread lead against the declared wait. */
+/**
+ * The review queue, judged on the oldest OPEN lead (expired leads never reach
+ * here): late past `lateDays`, stale past `staleDays` — which only a broken
+ * expiry or queue can produce, see config/substrata-freshness.ts.
+ */
 export function queueState(
-  oldestFoundAt: string | null,
-  maxDays: number,
+  oldestOpenFoundAt: string | null,
+  { lateDays, staleDays }: { lateDays: number; staleDays: number },
   now = new Date(),
 ): FreshState {
-  if (oldestFoundAt === null) return 'fresh';
-  const days = (now.getTime() - Date.parse(oldestFoundAt)) / DAY;
-  if (days > maxDays) return 'stale';
-  if (days > maxDays / 2) return 'late';
+  if (oldestOpenFoundAt === null) return 'fresh';
+  const days = (now.getTime() - Date.parse(oldestOpenFoundAt)) / DAY;
+  if (days > staleDays) return 'stale';
+  if (days > lateDays) return 'late';
   return 'fresh';
 }
 

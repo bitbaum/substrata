@@ -7,6 +7,7 @@ import { EVENTS, type CoverageEvent } from '@/config/substrata-events';
 import { database } from './db';
 import type { DraftEvent } from './event-draft';
 import { contextAround, eventProblems, similarEvent, verbatimIn } from './event-rules';
+import { expiredLeadSql, openLeadSql } from './lead-expiry';
 
 type DraftStatus = 'drafted' | 'unusable' | 'could_not_read' | 'duplicate';
 
@@ -38,7 +39,7 @@ function duplicateNote(draft: DraftEvent | null): string[] {
 }
 
 /**
- * Open leads with their drafts. Drafts that suggest an event come first: they
+ * Open leads with their drafts — unreviewed and not yet expired. Drafts that suggest an event come first: they
  * are where a reviewer's minute buys a row. Then newest first, as before.
  */
 export async function openLeadsWithDrafts(limit = 100): Promise<LeadWithDraft[]> {
@@ -63,7 +64,7 @@ export async function openLeadsWithDrafts(limit = 100): Promise<LeadWithDraft[]>
             d.status, d.suggestion, d.reason, d.draft, d.notes, d.page_text, d.model, d.attempts
        FROM research_sweep_candidates c
        LEFT JOIN research_event_drafts d ON d.candidate_id = c.id
-      WHERE c.reviewed_at IS NULL
+      WHERE ${openLeadSql('c')}
       ORDER BY (d.suggestion = 'event') IS TRUE DESC, c.found_at DESC, c.bottleneck
       LIMIT $1`,
     [limit],
@@ -169,10 +170,12 @@ export async function acceptedAwaitingCommit(): Promise<CoverageEvent[]> {
 }
 
 export interface ReviewQueue {
-  /** Leads nobody has decided on. */
+  /** Open leads: nobody has decided on them and they have not expired. */
   waiting: number;
-  /** When the oldest of them was found; null when none wait. */
+  /** When the oldest OPEN lead was found; null when none wait. Expired leads never count. */
   oldestFoundAt: string | null;
+  /** Leads nobody decided on within LEAD_EXPIRY_DAYS: kept, listed, not work. */
+  expired: number;
   /** Waiting leads whose draft suggests an event and passed the checks. */
   draftsReady: number;
   /** Waiting leads the drafter suggests are not events. */
@@ -193,10 +196,14 @@ export async function reviewQueue(): Promise<ReviewQueue> {
       oldest: Date | null;
       ready: string;
       not_event: string;
+      expired: string;
     }>(
-      `SELECT count(*) AS waiting, min(c.found_at) AS oldest,
-              count(*) FILTER (WHERE d.status = 'drafted' AND d.suggestion = 'event') AS ready,
-              count(*) FILTER (WHERE d.suggestion = 'not_an_event') AS not_event
+      `SELECT count(*) FILTER (WHERE ${openLeadSql('c')}) AS waiting,
+              min(c.found_at) FILTER (WHERE ${openLeadSql('c')}) AS oldest,
+              count(*) FILTER (WHERE ${openLeadSql('c')}
+                               AND d.status = 'drafted' AND d.suggestion = 'event') AS ready,
+              count(*) FILTER (WHERE ${openLeadSql('c')} AND d.suggestion = 'not_an_event') AS not_event,
+              count(*) FILTER (WHERE ${expiredLeadSql('c')}) AS expired
          FROM research_sweep_candidates c
          LEFT JOIN research_event_drafts d ON d.candidate_id = c.id
         WHERE c.reviewed_at IS NULL`,
@@ -213,6 +220,7 @@ export async function reviewQueue(): Promise<ReviewQueue> {
   return {
     waiting,
     oldestFoundAt: row?.oldest?.toISOString() ?? null,
+    expired: Number(row?.expired ?? 0),
     draftsReady: ready,
     suggestedNot: notEvent,
     undrafted: waiting - ready - notEvent,

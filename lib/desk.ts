@@ -26,6 +26,8 @@ export interface Lead {
   title: string;
   published: string | null;
   foundAt: string;
+  /** Nobody reviewed it within LEAD_EXPIRY_DAYS — it is no longer awaiting review. */
+  expired?: boolean;
   effectGuess: EventEffect;
 }
 
@@ -56,6 +58,8 @@ export type DeskItem =
       alsoAt: string[];
       /** True when `at` is the publisher's own date rather than when we found it. */
       dated: boolean;
+      /** Expired unread (see lib/lead-expiry.ts): labelled so, never "not yet reviewed". */
+      expired: boolean;
       dateOnly: false;
     }
   | {
@@ -272,6 +276,7 @@ export function buildFeed(
       effect: lead.effectGuess,
       alsoAt: [],
       dated,
+      expired: lead.expired ?? false,
       dateOnly: false,
     });
   }
