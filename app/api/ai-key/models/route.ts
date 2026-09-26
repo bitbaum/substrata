@@ -1,4 +1,4 @@
-import { fetchCatalog } from '@bitbaum/ai-kit';
+import { probeByokKey } from '@bitbaum/ai-kit/byok-probe';
 import { currentSession } from '@/lib/auth';
 import { byokVendor } from '@/lib/byok';
 import { openStoredKey } from '@/lib/byok-vault';
@@ -7,13 +7,18 @@ import { allowRequest, boundedJson, sameOrigin } from '@/lib/request-guards';
 export const dynamic = 'force-dynamic';
 
 /**
- * The models a reader's key can reach, read live from that vendor's own
- * catalogue — so the picker never offers an id the vendor retired, and a
- * wrong key is caught here rather than on the first question.
+ * "Does this key work, and what can it use?" — asked the moment a reader
+ * pastes a key, signed in or not. Nothing is stored.
+ *
+ * `@bitbaum/ai-kit/byok-probe` answers it: the key is checked where the
+ * vendor actually checks keys (OpenRouter's `/models` is public and says 200
+ * to a dead key, so it is `/key` there), a refusal comes back in the vendor's
+ * own words with the key redacted, and the models are the ones this key can
+ * use, strongest first. A refusal is a 200 with `ok: false` — it is an answer
+ * for the reader, not a failure of this route.
  *
  * The host is the vendor's, from the shared closed list; the key is the one
- * in the body, or (signed in, `stored: true`) the sealed one. It is used for
- * this one request and not kept.
+ * in the body, or (signed in, `stored: true`) the sealed one.
  */
 export async function POST(request: Request) {
   if (!sameOrigin(request)) return Response.json({ error: 'Origin not allowed' }, { status: 403 });
@@ -25,33 +30,33 @@ export async function POST(request: Request) {
   }
   let vendor = typeof input.vendor === 'string' ? byokVendor(input.vendor) : undefined;
   let apiKey =
-    typeof input.apiKey === 'string' && input.apiKey.length <= 400 && !/\s/.test(input.apiKey)
-      ? input.apiKey
+    typeof input.apiKey === 'string' && input.apiKey.length <= 400
+      ? input.apiKey.trim()
       : undefined;
   try {
     if (!(await allowRequest(request, 'ai-models', 30)))
-      return Response.json({ error: 'Too many lookups. Try again later.' }, { status: 429 });
+      return Response.json(
+        { error: 'Too many checks — wait a few minutes and try again.' },
+        { status: 429 },
+      );
     if (input.stored === true) {
       const session = await currentSession();
       const saved = session?.actorId ? await openStoredKey(session.actorId) : null;
-      if (!saved) return Response.json({ error: 'No saved key.' }, { status: 404 });
+      if (!saved)
+        return Response.json({ error: 'No saved key — paste it again.' }, { status: 404 });
       vendor = byokVendor(saved.vendor);
       apiKey = saved.apiKey;
     }
     if (!vendor || !apiKey || apiKey.length < 8)
       return Response.json({ error: 'Choose a provider and paste a key.' }, { status: 400 });
-    const catalogue = await fetchCatalog(vendor.baseUrl, apiKey, { timeoutMs: 10_000 });
-    if (!catalogue)
-      return Response.json(
-        { error: `${vendor.label} did not accept that key (or did not answer).` },
-        { status: 422 },
-      );
-    const models = catalogue
-      .filter((m) => !m.outputModalities || m.outputModalities.includes('text'))
-      .map((m) => ({ id: m.id, tools: m.tools, free: m.costsNothing }))
-      .sort((a, b) => a.id.localeCompare(b.id))
-      .slice(0, 500);
-    return Response.json({ vendor: vendor.id, models });
+    const probe = await probeByokKey(vendor.id, apiKey, { timeoutMs: 10_000 });
+    return Response.json({
+      vendor: vendor.id,
+      ok: probe.ok,
+      message: probe.message,
+      models: probe.models.slice(0, 500),
+      suggested: probe.suggested,
+    });
   } catch {
     return Response.json({ error: 'Could not reach the provider.' }, { status: 503 });
   }
