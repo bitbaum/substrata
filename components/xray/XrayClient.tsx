@@ -22,6 +22,13 @@ export function XrayClient({ sample, signedIn }: { sample: string; signedIn: boo
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<XrayResponse | null>(null);
   const answer = useRef<HTMLDivElement>(null);
+  const box = useRef<HTMLTextAreaElement>(null);
+
+  // A list pasted before the page finished loading is in the box but not in
+  // state, which left the button grey with holdings on screen. Adopt it.
+  useEffect(() => {
+    if (box.current?.value) setText(box.current.value);
+  }, []);
 
   // The answer replaces the form as the thing to read: bring it into view.
   useEffect(() => {
@@ -76,6 +83,7 @@ export function XrayClient({ sample, signedIn }: { sample: string; signedIn: boo
         </label>
         <textarea
           id="xray-input"
+          ref={box}
           className="xray-input"
           value={text}
           onChange={(e) => setText(e.target.value)}
