@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation';
 import { currentSession, isReviewer, signOut } from '@/lib/auth';
 import { MARKET_PARTICIPANTS } from '@/lib/participants';
 import { Page, Shell } from '@/components/portal/Shell';
+import { PageHeader } from '@/components/portal/PageHeader';
 import { RailsSettings } from '@/components/desk/settings/RailsSettings';
 import { FeedSettings } from '@/components/desk/settings/FeedSettings';
 import { SweepSettings } from '@/components/desk/settings/SweepSettings';
@@ -59,20 +60,16 @@ export default async function DeskSettingsPage({
   return (
     <Shell>
       <Page>
-        <header className="desk-hero">
-          <div>
-            <p className="desk-kicker">
+        <PageHeader
+          kicker={
+            <>
               <Link href="/account">Desk</Link> · Settings
-            </p>
-            <h1 className="desk-title">Make the desk yours.</h1>
-            <p className="desk-status">
-              What reaches your desk, how it is shown, and how often the web is checked.
-            </p>
-          </div>
-          <Link href="/account" className="research-button-ghost">
-            ← Back to desk
-          </Link>
-        </header>
+            </>
+          }
+          title="Make the desk yours."
+          status="What reaches your desk, how it is shown, and how often the web is checked."
+          actions={<Link href="/account">← Back to desk</Link>}
+        />
         {saved && (
           <p role="status" className="desk-notice">
             {SAVED[saved] ?? SAVED['1']}

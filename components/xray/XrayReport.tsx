@@ -16,6 +16,7 @@ import { methodHref } from '@/lib/methods';
 import { xrayCsv } from '@/lib/xray/csv';
 import type { PortfolioXray, PortfolioRail, RailRelation } from '@/lib/xray/portfolio';
 import { XrayHolding, RISK_LABEL, countryLabel } from './XrayHolding';
+import { XrayHeadline } from './XrayHeadline';
 
 export interface Filing {
   title: string;
@@ -96,6 +97,7 @@ export function XrayReport({
   const single = countries.filter((c) => c.allRails.length > 0);
   return (
     <section className="xray-report" aria-label="X-ray result">
+      <XrayHeadline data={data} />
       <div className="xray-summary">
         <p>
           <strong>{holdings.length}</strong> holding{holdings.length === 1 ? '' : 's'} read ·{' '}

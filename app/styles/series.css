@@ -339,40 +339,7 @@
   color: var(--color-fg-primary);
 }
 
-/* Index: filters in one row above, then one line per series. */
-.series-filters {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  gap: 0.75rem 1rem;
-  margin-bottom: 1.5rem;
-}
-.series-filters label {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: var(--tracking-caps);
-  text-transform: uppercase;
-  color: var(--color-fg-tertiary);
-}
-.series-filters select,
-.series-filters input {
-  min-width: 10rem;
-  max-width: 100%;
-  padding: 0.45rem 0.6rem;
-  border: 1px solid var(--color-border-strong);
-  background: var(--color-surface-page);
-  color: var(--color-fg-primary);
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-  letter-spacing: normal;
-  text-transform: none;
-}
-.series-filter-q {
-  flex: 1 1 12rem;
-}
+/* Index: the shared filter bar (.desk-filters) above, then one line per series. */
 .series-index {
   border-top: 1px solid var(--color-border-subtle);
 }

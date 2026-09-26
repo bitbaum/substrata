@@ -204,14 +204,6 @@
 .careers-chip:hover {
   color: var(--color-fg-primary);
 }
-.careers-more {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-}
-.careers-more a {
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-}
 .careers-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));

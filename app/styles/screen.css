@@ -6,6 +6,9 @@
   text-transform: uppercase;
   color: var(--color-fg-tertiary);
 }
+.desk-kicker a:hover {
+  color: var(--color-fg-primary);
+}
 .desk-title {
   margin-top: 0.75rem;
   font: 600 clamp(2rem, 4.5vw, 3.4rem) / 1.02 var(--font-heading);
@@ -71,6 +74,14 @@
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
+.list-more {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+.list-more a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
 .desk-empty {
   margin-top: 2rem;
   color: var(--color-fg-secondary);
@@ -112,4 +123,58 @@
 .page-head-note a {
   text-decoration: underline;
   text-underline-offset: 0.2em;
+}
+
+/* ── The one empty state (Empty in components/portal/Shell.tsx) ── */
+.empty-state {
+  margin-top: 1.5rem;
+}
+.empty-state-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.25rem;
+  margin-top: 0.9rem;
+  font-size: 0.85rem;
+}
+.empty-state-actions a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.empty-state-actions button {
+  cursor: pointer;
+}
+
+/* ── Copy a shareable link (components/portal/CopyLink.tsx) ── */
+.copy-link {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  color: var(--color-fg-muted);
+}
+.copy-link code {
+  overflow-wrap: anywhere;
+}
+
+/* ── The one loading state for filter bars (AutoSubmitForm) ── */
+.filter-pending {
+  display: none;
+}
+.desk-filters .filter-pending:not(:empty) {
+  display: inline;
+  align-self: center;
+  font-size: 0.8rem;
+  color: var(--color-fg-muted);
+}
+.desk-filters[data-pending] ~ * {
+  opacity: 0.55;
+  transition: opacity 150ms ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .desk-filters[data-pending] ~ * {
+    transition: none;
+  }
 }

@@ -46,7 +46,9 @@ export const TASKS = [
       await ctx.go('/xray');
       await ctx.fill(page.getByRole('textbox').first(), TICKERS, 'the holdings box');
       await ctx.click(page.getByRole('button', { name: /x-ray/i }), 'the X-ray button');
-      return ctx.answer(page.getByText(/biggest single-source risk/i), 'the biggest risk');
+      // Inside the result, not the page's own description of what you get.
+      const result = page.getByRole('region', { name: /x-ray result/i });
+      return ctx.answer(result.getByText(/biggest single-source risk/i), 'the biggest risk');
     },
   },
   {
@@ -60,7 +62,8 @@ export const TASKS = [
       const { page } = ctx;
       await ctx.go('/xray');
       await ctx.click(page.getByRole('button', { name: /sample|example/i }), 'the example');
-      return ctx.answer(page.getByText(/holdings? read/i), 'the result summary');
+      const result = page.getByRole('region', { name: /x-ray result/i });
+      return ctx.answer(result.getByText(/holdings? read/i), 'the result summary');
     },
   },
   {
@@ -222,7 +225,11 @@ export const DEAD_ENDS = [
       await page.getByRole('button', { name: /x-ray/i }).first().click();
     },
   },
-  { id: 'resource-unknown', path: '/resources/unobtainium', message: /not found|could not|404/i },
+  {
+    id: 'resource-unknown',
+    path: '/resources/unobtainium',
+    message: /could not be found|nothing lives at this address/i,
+  },
 ];
 
 async function optionLabel(select, pattern) {

@@ -3,7 +3,8 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 import { NOT_SEARCHED_WHY, SCIENCE_QUERIES } from '@/config/substrata-pipeline';
-import { Empty, Heading, Page, SectionHeader, Shell } from '@/components/portal/Shell';
+import { Empty, Heading, Page, Shell } from '@/components/portal/Shell';
+import { PageHeader } from '@/components/portal/PageHeader';
 import { Figure } from '@/components/portal/Figure';
 import { StageBar, StageLegend } from '@/components/science/StageBar';
 import { ItemList } from '@/components/science/ItemList';
@@ -48,47 +49,28 @@ export default async function PipelinePage() {
   return (
     <Shell>
       <Page>
-        <nav className="mb-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary">
-          <Link href="/science" className="hover:text-fg-primary">
-            Science
-          </Link>
-          <span className="mx-2">/</span>
-          Pipeline
-        </nav>
-        <SectionHeader
+        <PageHeader
+          kicker={
+            <>
+              <Link href="/science">Science</Link> / Pipeline
+            </>
+          }
           title="Science pipeline"
-          lede="From fundamental research to production at scale, for every bottleneck: what is being worked on, by whom, and how far along it is. Papers, preprints and grants arrive from open databases every day; the hand-written judgements sit beside them, never added to them."
-          stats={[
-            {
-              label: 'Items collected',
-              value: <Figure method="science-pipeline">{total}</Figure>,
-              note: 'papers, preprints and grants — unreviewed',
-            },
-            {
-              label: 'New this week',
-              value: <Figure method="science-new">{newCount}</Figure>,
-              note: 'found this week, published this month',
-            },
-            {
-              label: 'Bottlenecks searched',
-              value: (
-                <Figure method="science-pipeline">{`${run?.bottlenecks ?? 0}/${Object.keys(SCIENCE_QUERIES).length}`}</Figure>
-              ),
-              note: 'each searched about once a day',
-            },
-            {
-              label: 'Last fetch',
-              value: run ? whenLabel(run.finishedAt, now) : '—',
-              note: 'OpenAlex, arXiv, NSF, OpenAIRE, USAspending',
-            },
-          ]}
-          action={
-            <Link
-              href={pipelineOrgHref()}
-              className="text-accent underline-offset-4 hover:underline"
-            >
-              Who is doing it →
-            </Link>
+          status={
+            <>
+              <Figure method="science-pipeline">{total}</Figure> papers, preprints and grants
+              collected (unreviewed) · <Figure method="science-new">{newCount}</Figure> new this
+              week ·{' '}
+              <Figure method="science-pipeline">{`${run?.bottlenecks ?? 0}/${Object.keys(SCIENCE_QUERIES).length}`}</Figure>{' '}
+              bottlenecks searched · last fetch {run ? whenLabel(run.finishedAt, now) : 'not yet'}
+            </>
+          }
+          note="From fundamental research to production at scale, for every bottleneck: what is being worked on, by whom, and how far along. Items arrive daily from OpenAlex, arXiv, NSF, OpenAIRE and USAspending; the hand-written judgements sit beside them, never added to them. Pick a bottleneck to see its items."
+          actions={
+            <>
+              <a href="#new">New this week ↓</a>
+              <Link href={pipelineOrgHref()}>Who is doing it →</Link>
+            </>
           }
         />
 
@@ -99,6 +81,7 @@ export default async function PipelinePage() {
             <Empty
               what="The science feed could not be read just now."
               next="Judgements still show on each bottleneck's page."
+              action={<Link href="/bottlenecks">Every bottleneck</Link>}
             />
           ) : (
             <ul className="pipe-rows">
@@ -120,12 +103,15 @@ export default async function PipelinePage() {
           )}
         </section>
 
-        <section>
+        <section id="new">
           <Heading index="02" title="New this week" aside="Newest first, every bottleneck" />
           {fresh.length > 0 ? (
             <ItemList items={fresh} showBottleneck />
           ) : (
-            <Empty what="Nothing new has been collected this week yet." />
+            <Empty
+              what="Nothing new has been collected this week yet."
+              action={<Link href={pipelineOrgHref()}>See who is active</Link>}
+            />
           )}
         </section>
       </Page>

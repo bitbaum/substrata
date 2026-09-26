@@ -226,3 +226,8 @@
 .role-section-body > .careers-hiring > .careers-section-head {
   display: none;
 }
+.role-empty a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}

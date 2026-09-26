@@ -131,3 +131,30 @@ test('the portfolio: weights normalise over resolved lines; unresolved lines are
   assert.ok(csv.startsWith(XRAY_CSV_HEADER.join(',')));
   assert.match(csv, /FOO 10,.*unresolved/);
 });
+
+test('the headline names the sole-maker risk carrying the most weight, and only sole makers', async () => {
+  const { topSingleSourceRisk, topCountry } = await import('../lib/xray/headline');
+  const { XRAY_SAMPLE } = await import('../lib/xray/examples');
+  const x = xrayPortfolio(XRAY_SAMPLE);
+  const top = topSingleSourceRisk(x);
+  const weightOf = (name: string) => x.rails.find((r) => r.bottleneck === name)?.weight ?? 0;
+  const sole = x.risks.filter((r) => r.kind === 'sole-maker' && r.company);
+  if (sole.length === 0) {
+    assert.equal(top, null);
+  } else {
+    assert.ok(top, 'a portfolio with a sole maker under it gets a headline');
+    assert.ok(
+      sole.every((r) => weightOf(r.bottleneck) <= top.weight),
+      'no heavier sole maker',
+    );
+    assert.equal(top.weight, weightOf(top.bottleneck), 'the weight is the rail weight, not new');
+  }
+  // A "no recorded maker" gap is never presented as a single source.
+  const gapOnly = {
+    rails: x.rails,
+    risks: x.risks.filter((r) => r.kind !== 'sole-maker'),
+  };
+  assert.equal(topSingleSourceRisk(gapOnly), null);
+  const c = topCountry(x);
+  if (c) assert.equal(c.weight, Math.max(...x.countries.map((k) => k.allWeight)));
+});

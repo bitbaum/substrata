@@ -4,7 +4,7 @@ import { after } from 'next/server';
 import { authEnabled, currentSession, signIn, isReviewer } from '@/lib/auth';
 import { EVENTS } from '@/config/substrata-events';
 import { MARKET_PARTICIPANTS } from '@/lib/participants';
-import { Page, Shell, SectionHeader } from '@/components/portal/Shell';
+import { Empty, Page, Shell, SectionHeader } from '@/components/portal/Shell';
 import { DeskHeader } from '@/components/desk/DeskHeader';
 import { MovedStrip } from '@/components/desk/MovedStrip';
 import { FeedControls } from '@/components/desk/FeedControls';
@@ -27,6 +27,12 @@ import { newItems, type StoredItem } from '@/lib/science-read';
 import { scienceItems } from '@/lib/desk-science';
 import { railSeriesItems } from '@/lib/series-store';
 import { UpdateNews } from '@/components/updates/UpdateNews';
+
+const EMPTY_FEED: Record<string, string> = {
+  unread: 'Nothing unread here. Widen the time window, or see everything.',
+  saved: 'Nothing saved yet. Use ☆ Save on an item to keep it here.',
+  hidden: 'Nothing hidden.',
+};
 
 export const dynamic = 'force-dynamic';
 export const metadata = { title: 'Desk' };
@@ -221,21 +227,16 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
             />
 
             {shown.length === 0 ? (
-              <div className="desk-empty">
-                {query.view === 'unread' ? (
-                  <p>
-                    Nothing unread here.{' '}
-                    <Link href={query.href({ view: 'all' })}>See everything</Link> or widen the time
-                    window.
-                  </p>
-                ) : query.view === 'saved' ? (
-                  <p>Nothing saved yet. Use ☆ Save on an item to keep it here.</p>
-                ) : query.view === 'hidden' ? (
-                  <p>Nothing hidden.</p>
-                ) : (
-                  <p>Nothing matches these filters.</p>
-                )}
-              </div>
+              <Empty
+                what={EMPTY_FEED[query.view] ?? 'Nothing matches these filters.'}
+                action={
+                  query.view === 'all' ? (
+                    <Link href="/account">Clear the filters</Link>
+                  ) : (
+                    <Link href={query.href({ view: 'all' })}>See everything</Link>
+                  )
+                }
+              />
             ) : (
               group(shown, query.grouping, now, railHref).map((g) => (
                 <div key={g.label} className="desk-bucket">

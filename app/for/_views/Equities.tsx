@@ -90,7 +90,10 @@ export async function EquitiesView({
         status={<FeedStatus row={feed('filings')} />}
       >
         {filings === null ? (
-          <p className="role-empty">Filings could not be read just now.</p>
+          <p className="role-empty">
+            Filings could not be read just now. <Link href="/exposure">Exposure</Link> still lists
+            every holder and ticker.
+          </p>
         ) : (
           <Rows rows={filings} empty="No filings by listed holders in the window." />
         )}
