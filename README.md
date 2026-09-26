@@ -79,7 +79,11 @@ scheduled feed (run tables `research_*_runs`) and committed dataset (its own
 `checkedOn`/`generatedAt` date) against the cadence or maximum age declared in
 `config/substrata-freshness.ts`. `test/freshness.test.ts` fails the build when a
 committed dataset is past its maximum age, so stale data cannot be deployed as
-current; the endpoint returns 503 when anything is stale or failing.
+current; the endpoint returns 503 when anything is stale or failing. The review
+queue is judged on OPEN leads only: a sweep lead nobody reviews within 30 days
+(`LEAD_EXPIRY_DAYS`, `lib/lead-expiry.ts`) expires at read time — kept in the
+table, listed at `/data/freshness/expired`, out of the queue — so a stale queue
+means the expiry or the queue is broken, not that nobody reviewed.
 
 **Data quality** (`/data/quality`, footer link, palette "Quality scores"): every
 dataset held to six written criteria — completeness, correctness, provenance,

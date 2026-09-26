@@ -88,10 +88,11 @@ test('a failure newer than the last good run is failing, an older one is history
 
 test('the review queue and the summary', () => {
   const now = new Date('2026-09-25T12:00:00Z');
-  assert.equal(queueState(null, 7, now), 'fresh');
-  assert.equal(queueState('2026-09-23T12:00:00Z', 7, now), 'fresh');
-  assert.equal(queueState('2026-09-20T12:00:00Z', 7, now), 'late');
-  assert.equal(queueState('2026-09-10T12:00:00Z', 7, now), 'stale');
+  const limits = { lateDays: 7, staleDays: 31 };
+  assert.equal(queueState(null, limits, now), 'fresh');
+  assert.equal(queueState('2026-09-23T12:00:00Z', limits, now), 'fresh');
+  assert.equal(queueState('2026-09-10T12:00:00Z', limits, now), 'late');
+  assert.equal(queueState('2026-08-20T12:00:00Z', limits, now), 'stale');
   assert.equal(worstOf(['fresh', 'late', 'off']), 'late');
   assert.equal(worstOf(['fresh', 'failing', 'stale']), 'failing');
   assert.equal(worstOf(['off']), 'off');
