@@ -37,12 +37,18 @@ export function LeadList({ leads }: { leads: Lead[] }) {
               <span
                 className="rounded border border-strong px-1.5 font-mono text-xs uppercase tracking-caps text-fg-tertiary"
                 title={
-                  lead.expired
-                    ? `Found by the sweep on the open web. Nobody here read it within ${LEAD_EXPIRY_DAYS} days.`
-                    : 'Found by the sweep on the open web. Not yet read by anyone here.'
+                  lead.accepted
+                    ? 'Found by the sweep on the open web and accepted by a reviewer; not yet filed as an event.'
+                    : lead.expired
+                      ? `Found by the sweep on the open web. Nobody here read it within ${LEAD_EXPIRY_DAYS} days.`
+                      : 'Found by the sweep on the open web. Not yet read by anyone here.'
                 }
               >
-                {lead.expired ? 'Expired lead · never reviewed' : 'Unread lead'}
+                {lead.accepted
+                  ? 'Accepted lead · awaiting filing'
+                  : lead.expired
+                    ? 'Expired lead · never reviewed'
+                    : 'Unread lead'}
               </span>
               <span className="font-mono text-xs tabular-nums text-fg-tertiary">
                 {whenLabel(lead.at, now)}

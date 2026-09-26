@@ -130,6 +130,13 @@ export function FeedItem({
               {item.official ? 'Official data' : 'Data point'}
               {item.moved ? ` · moved, ${item.effect}` : ''}
             </span>
+          ) : item.accepted ? (
+            <span
+              className="desk-badge"
+              title="Found by the sweep on the open web and accepted by a reviewer. It becomes a verified event once it is filed with its source sentence."
+            >
+              Web lead · accepted, awaiting filing
+            </span>
           ) : item.expired ? (
             <span
               className="desk-badge"
