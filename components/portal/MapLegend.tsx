@@ -1,5 +1,5 @@
 /**
- * What the colour on the world map means: the measure and year in the title,
+ * What the colour on the globe means: the measure and year in the title,
  * the scale's steps, the categorical keys (hatched, not listed), the unit or
  * caveat, and the source — edition and table — it came from.
  */
@@ -41,14 +41,16 @@ export function MapLegend({
           ))}
         </ul>
       )}
-      <ul className="map-keys">
-        {legend.keys.map((key) => (
-          <li key={key.bin}>
-            <span className="map-swatch" data-bin={key.bin} aria-hidden />
-            {key.label}
-          </li>
-        ))}
-      </ul>
+      {legend.keys.length > 0 && (
+        <ul className="map-keys">
+          {legend.keys.map((key) => (
+            <li key={key.bin}>
+              <span className="map-swatch" data-bin={key.bin} aria-hidden />
+              {key.label}
+            </li>
+          ))}
+        </ul>
+      )}
       {legend.note && (
         <p className="map-note" data-caveat={legend.caveat || undefined}>
           {legend.note}

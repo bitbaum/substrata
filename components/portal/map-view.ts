@@ -10,7 +10,7 @@
  */
 import { useLayoutEffect, useState, type RefObject } from 'react';
 
-import type { View } from './world-map-geo';
+import type { View } from './globe-geo';
 
 /** Breathing room between the map and whatever covers it. */
 const GAP = 8;

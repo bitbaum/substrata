@@ -7,16 +7,17 @@
  * printed "withheld", "none", "not available" or a word, which is not a
  * point on the scale); absent is plain land (not listed — never zero).
  *
- * Three layers, in order of what the data supports:
+ * Colour is spent on one thing only — how much of a resource a country
+ * holds. Three layers, in order of what the data supports:
  *   quantity  — a resource USGS tabulates by country (lib/resources/choropleth):
  *               share of the world total, or of the largest producer when the
- *               world total is only a lower bound.
+ *               world total is only a lower bound. The one shaded layer.
  *   presence  — a resource USGS does not tabulate (oil, gas, uranium, …):
- *               which countries the geology directory lists. No shading.
- *   coverage  — nothing picked: what the research corpus has on record.
+ *               no quantity, so no shading; the hover line still says which
+ *               countries the geology directory lists.
+ *   none      — nothing picked: plain land, and the legend says how to shade.
  */
 import { RESOURCE_KINDS, resourcesFor, type ResourceId } from '@/config/substrata-resources';
-import { countryFacts } from '@/lib/geo';
 import {
   choropleth,
   choroplethOptions,
@@ -124,52 +125,31 @@ function quantityLayer(label: string, c: Choropleth, measures: ChoroplethMeasure
 }
 
 function presenceLayer(id: ResourceId, label: string, isos: string[]): MapLayerData {
-  const bins: Record<string, number> = {};
+  // A categorical fill here once made "listed" look like "a lot of it".
   const labels: Record<string, string> = {};
-  for (const iso of isos) {
-    if (!resourcesFor(iso)?.resources.includes(id)) continue;
-    bins[iso] = 4;
-    labels[iso] = 'Listed in the geology directory';
-  }
+  for (const iso of isos)
+    if (resourcesFor(iso)?.resources.includes(id)) labels[iso] = 'Listed in the geology directory';
   return {
-    bins,
+    bins: {},
     labels,
+    otherwise: 'Not listed in the geology directory',
     legend: {
       title: label,
-      keys: [
-        { bin: 4, label: 'Listed in the geology directory' },
-        { bin: 0, label: 'Not listed' },
-      ],
-      note: 'USGS publishes no country table for this resource, so there is no quantity to shade — only where it is known to occur.',
+      keys: [],
+      note: 'No quantity to shade: USGS publishes no country table for this resource. Hover or open a country to see whether the geology directory lists it.',
+      caveat: true,
     },
   };
 }
 
-function coverageLayer(isos: string[]): MapLayerData {
-  const facts = countryFacts();
-  const bins: Record<string, number> = {};
-  const labels: Record<string, string> = {};
-  for (const iso of isos) {
-    if (facts.get(iso)?.hasRecord) {
-      bins[iso] = 4;
-      labels[iso] = 'In the research corpus';
-    } else if (resourcesFor(iso)?.resources.length) {
-      bins[iso] = 2;
-      labels[iso] = 'Geology directory only';
-    }
-  }
+function plainLayer(): MapLayerData {
   return {
-    bins,
-    labels,
-    otherwise: 'Nothing on record yet',
+    bins: {},
+    labels: {},
     legend: {
-      title: 'What is on record',
-      keys: [
-        { bin: 4, label: 'Research corpus' },
-        { bin: 2, label: 'Geology directory' },
-        { bin: 0, label: 'Nothing yet' },
-      ],
-      note: 'Coverage, not importance. Pick a resource to see production or reserves.',
+      title: 'Pick a resource to shade the globe',
+      keys: [],
+      note: 'Shading is a share of world production or reserves, from USGS. Nothing is shaded until a resource is picked.',
     },
   };
 }
@@ -181,7 +161,7 @@ export function mapLayer(
   isos: string[],
 ): MapLayerData {
   const kind = RESOURCE_KINDS.find((r) => r.id === resource);
-  if (!kind) return coverageLayer(isos);
+  if (!kind) return plainLayer();
   const measures = quantified().get(kind.id) ?? [];
   // Gallium has production and no reserves table: fall back rather than go blank.
   const chosen = measures.includes(measure) ? measure : measures[0];
