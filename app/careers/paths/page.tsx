@@ -39,7 +39,10 @@ export default async function PathsPage() {
   return (
     <Shell>
       <Page>
-        <nav className="mb-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary">
+        <nav
+          aria-label="Breadcrumb"
+          className="crumbs mb-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary"
+        >
           <Link href="/careers" className="hover:text-fg-primary">
             Careers
           </Link>

@@ -67,7 +67,10 @@ export default async function OrganisationsPage({
   return (
     <Shell>
       <Page>
-        <nav className="mb-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary">
+        <nav
+          aria-label="Breadcrumb"
+          className="crumbs mb-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary"
+        >
           <Link href="/science" className="hover:text-fg-primary">
             Science
           </Link>

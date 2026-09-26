@@ -178,3 +178,8 @@
     transition: none;
   }
 }
+
+/* ── Breadcrumbs: a 44px tap target without changing the line (inline padding) ── */
+.crumbs a {
+  padding-block: 0.95rem;
+}
