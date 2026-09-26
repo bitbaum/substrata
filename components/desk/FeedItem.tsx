@@ -4,6 +4,7 @@ import { EVENT_EFFECT_LABEL } from '@/config/substrata-events';
 import { FORM_LABEL } from '@/lib/filings';
 import { whenLabel, type DeskItem } from '@/lib/desk';
 import { itemKey } from '@/lib/desk-filter';
+import { LEAD_EXPIRY_DAYS } from '@/lib/lead-expiry';
 import { muteHost, toggleMark, verdict } from '@/app/account/actions';
 
 function ActionButton({
@@ -128,6 +129,13 @@ export function FeedItem({
             >
               {item.official ? 'Official data' : 'Data point'}
               {item.moved ? ` · moved, ${item.effect}` : ''}
+            </span>
+          ) : item.expired ? (
+            <span
+              className="desk-badge"
+              title={`Found by the sweep on the open web. Nobody reviewed it within ${LEAD_EXPIRY_DAYS} days, so it left the review queue; it is not a finding.`}
+            >
+              Web lead · expired, never reviewed
             </span>
           ) : (
             <span

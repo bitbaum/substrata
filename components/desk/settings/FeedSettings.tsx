@@ -3,6 +3,7 @@ import type { Follows } from '@/lib/follows';
 import { WINDOWS, WINDOW_LABEL } from '@/lib/follows';
 import { ON_DEMAND_NODES } from '@/lib/sweep-store';
 import { FORMS } from '@/lib/filings';
+import { LEAD_EXPIRY_DAYS } from '@/lib/lead-expiry';
 
 /** Feed defaults, freshness and profile: the rest of the reader's own settings form. */
 export function FeedSettings({ follows }: { follows: Follows }) {
@@ -96,7 +97,11 @@ export function FeedSettings({ follows }: { follows: Follows }) {
             </select>
           </label>
           <label className="settings-field">
-            <span>Drop leads older than (days)</span>
+            <span
+              title={`Unreviewed leads older than ${LEAD_EXPIRY_DAYS} days leave the review queue; within your window they are shown as expired, never reviewed.`}
+            >
+              Drop leads older than (days)
+            </span>
             <input
               type="number"
               name="leadMaxAgeDays"

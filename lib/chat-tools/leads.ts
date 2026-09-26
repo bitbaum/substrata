@@ -47,7 +47,9 @@ export const LEAD_TOOLS: readonly ChatTool[] = [
           status:
             h.verdict === 'accepted'
               ? 'Sweep lead a reviewer marked worth writing up — still not a published finding'
-              : 'UNREVIEWED sweep lead — not a finding',
+              : h.verdict === 'expired'
+                ? 'EXPIRED sweep lead — nobody reviewed it in time; not a finding'
+                : 'UNREVIEWED sweep lead — not a finding',
         })),
         note: hits.length ? undefined : 'The sweep has found nothing matching in that window.',
       };

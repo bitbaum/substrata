@@ -3,6 +3,7 @@ import Link from 'next/link';
 import type { CompanyProfile } from '@/lib/company-profile';
 import { buildFeed, whenLabel, type DeskItem } from '@/lib/desk';
 import { bottleneckHref } from '@/lib/links';
+import { LEAD_EXPIRY_DAYS } from '@/lib/lead-expiry';
 import { leadsFor } from '@/lib/sweep-queue';
 
 export type Lead = Extract<DeskItem, { source: 'lead' }>;
@@ -35,9 +36,13 @@ export function LeadList({ leads }: { leads: Lead[] }) {
             <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
               <span
                 className="rounded border border-strong px-1.5 font-mono text-xs uppercase tracking-caps text-fg-tertiary"
-                title="Found by the sweep on the open web. Not yet read by anyone here."
+                title={
+                  lead.expired
+                    ? `Found by the sweep on the open web. Nobody here read it within ${LEAD_EXPIRY_DAYS} days.`
+                    : 'Found by the sweep on the open web. Not yet read by anyone here.'
+                }
               >
-                Unread lead
+                {lead.expired ? 'Expired lead · never reviewed' : 'Unread lead'}
               </span>
               <span className="font-mono text-xs tabular-nums text-fg-tertiary">
                 {whenLabel(lead.at, now)}

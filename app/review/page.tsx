@@ -1,9 +1,11 @@
+import Link from 'next/link';
 import { revalidatePath } from 'next/cache';
 import { notFound } from 'next/navigation';
 
 import { auth, isReviewer } from '@/lib/auth';
 import { database } from '@/lib/db';
 import { freshness } from '@/lib/sweep-queue';
+import { EXPIRED_LEADS_HREF, LEAD_EXPIRY_DAYS } from '@/lib/lead-expiry';
 import { ageLabel, openLeadsWithDrafts, reviewQueue } from '@/lib/event-draft-store';
 import { openSourceCandidates, recordSourceVerdict, sourceFreshness } from '@/lib/source-store';
 import { Page, Shell, SectionHeader, Empty, Heading } from '@/components/portal/Shell';
@@ -80,6 +82,7 @@ export default async function ReviewPage({
           lede="Private. Three feeds arrive here: event leads from the scheduled sweep, with an AI draft to check against its source where a reader has had one written on their own AI key (“Summarise with AI”, or automatic updates they switched on — the site’s free AI never drafts), candidate sources from the scheduled producer-sourcing run, and contributions people sent in. Deciding something here does not publish it — the corpus is files in git, and a row reaches a page when a person commits it."
           stats={[
             { label: 'Open event leads', value: queue?.waiting ?? '—' },
+            { label: 'Expired, never reviewed', value: queue?.expired ?? '—' },
             { label: 'Drafts ready', value: queue?.draftsReady ?? '—' },
             {
               label: 'Nodes swept',
@@ -105,7 +108,14 @@ export default async function ReviewPage({
 
         {queue && (
           <p className="research-kicker">
-            {queue.oldestFoundAt ? `Oldest waiting lead: ${ageLabel(queue.oldestFoundAt)}. ` : ''}
+            {queue.oldestFoundAt ? `Oldest open lead: ${ageLabel(queue.oldestFoundAt)}. ` : ''}
+            {queue.expired > 0 && (
+              <>
+                {queue.expired} more expired, never reviewed: a lead nobody decides on within{' '}
+                {LEAD_EXPIRY_DAYS} days leaves this queue but is kept —{' '}
+                <Link href={EXPIRED_LEADS_HREF}>see the expired leads</Link>.{' '}
+              </>
+            )}
             {queue.lastDraftRunAt
               ? `Drafts are written on demand, on readers’ own keys; the last at ${queue.lastDraftRunAt.slice(0, 16).replace('T', ' ')} UTC. ${queue.undrafted} not drafted yet, ${queue.suggestedNot} suggested not an event.`
               : 'No draft has been written yet — drafts are written on demand, on readers’ own AI keys.'}
@@ -136,7 +146,10 @@ export default async function ReviewPage({
             next="The sweep database is unreachable."
           />
         ) : leads.length === 0 ? (
-          <Empty what="No leads waiting." next="The sweep files new candidates four times a day." />
+          <Empty
+            what="No open leads waiting."
+            next="The sweep files new candidates on its schedule; expired ones are counted above."
+          />
         ) : (
           <ol className="research-results review-leads">
             {leads.map((lead) => (

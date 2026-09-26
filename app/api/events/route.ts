@@ -33,6 +33,7 @@ export async function GET() {
             readable: true,
             lastRunAt: sweep.lastRunAt,
             openCandidates: sweep.openCandidates,
+            expiredCandidates: sweep.expiredCandidates,
             nodesCovered: sweep.nodesCovered,
             nodesTotal: sweep.nodesTotal,
             blind: sweep.blind,

@@ -5,6 +5,7 @@
  */
 import { database } from './db';
 import type { Lead } from './desk';
+import { expiredLeadSql, leadState, openLeadSql } from './lead-expiry';
 import { nodes } from './sweep';
 import { ON_DEMAND_COOLDOWN_HOURS } from './sweep-store';
 
@@ -12,7 +13,10 @@ export interface Freshness {
   lastRunAt: string | null;
   nodesCovered: number;
   nodesTotal: number;
+  /** Unreviewed leads still in the queue (not expired). */
   openCandidates: number;
+  /** Unreviewed leads past LEAD_EXPIRY_DAYS: kept and listed, not waiting. */
+  expiredCandidates: number;
   /** Nodes the sweep could not look at last time it tried — blindness, not absence. */
   blind: number;
 }
@@ -41,8 +45,10 @@ export async function freshness(): Promise<Freshness> {
               count(*) FILTER (WHERE last_status = 'could_not_look') AS blind
          FROM research_sweep_state`,
     ),
-    db.query<{ open: string }>(
-      'SELECT count(*) AS open FROM research_sweep_candidates WHERE reviewed_at IS NULL',
+    db.query<{ open: string; expired: string }>(
+      `SELECT count(*) FILTER (WHERE ${openLeadSql()}) AS open,
+              count(*) FILTER (WHERE ${expiredLeadSql()}) AS expired
+         FROM research_sweep_candidates WHERE reviewed_at IS NULL`,
     ),
   ]);
   return {
@@ -50,6 +56,7 @@ export async function freshness(): Promise<Freshness> {
     nodesCovered: Number(state.rows[0]?.covered ?? 0),
     nodesTotal: nodes().length,
     openCandidates: Number(open.rows[0]?.open ?? 0),
+    expiredCandidates: Number(open.rows[0]?.expired ?? 0),
     blind: Number(state.rows[0]?.blind ?? 0),
   };
 }
@@ -85,6 +92,8 @@ export async function railFreshness(
  *
  * Unreviewed and accepted leads both; a rejected one is gone for good. Read
  * newest first and bounded, because the desk shows a feed, not the queue.
+ * `days` is the reader's own window and may reach past LEAD_EXPIRY_DAYS, so
+ * each lead says whether it expired unread — never shown as awaiting review.
  */
 export async function leadsFor(names: readonly string[], days = 45): Promise<Lead[]> {
   const result = await database().query<{
@@ -95,9 +104,10 @@ export async function leadsFor(names: readonly string[], days = 45): Promise<Lea
     title: string;
     published: string | null;
     found_at: Date;
+    reviewed_at: Date | null;
     effect_guess: string;
   }>(
-    `SELECT id, bottleneck, term, url, title, published, found_at, effect_guess
+    `SELECT id, bottleneck, term, url, title, published, found_at, reviewed_at, effect_guess
        FROM research_sweep_candidates
       WHERE bottleneck = ANY($1::text[])
         AND verdict IS DISTINCT FROM 'rejected'
@@ -114,6 +124,7 @@ export async function leadsFor(names: readonly string[], days = 45): Promise<Lea
     title: row.title,
     published: row.published,
     foundAt: row.found_at.toISOString(),
+    expired: leadState({ foundAt: row.found_at, reviewedAt: row.reviewed_at }) === 'expired',
     effectGuess:
       row.effect_guess === 'tightens' || row.effect_guess === 'loosens'
         ? row.effect_guess
@@ -171,7 +182,10 @@ export interface LeadHit {
   excerpt: string;
   effectGuess: string;
   foundAt: string;
-  /** `null` while nobody has read it; `accepted` means worth writing up, not published. */
+  /**
+   * `null` while nobody has read it; `accepted` means worth writing up, not
+   * published; `expired` means nobody read it within LEAD_EXPIRY_DAYS.
+   */
   verdict: string | null;
 }
 
@@ -208,7 +222,8 @@ export async function searchLeads({
     found_at: Date;
     verdict: string | null;
   }>(
-    `SELECT bottleneck, url, title, published, excerpt, effect_guess, found_at, verdict
+    `SELECT bottleneck, url, title, published, excerpt, effect_guess, found_at,
+            CASE WHEN ${expiredLeadSql()} THEN 'expired' ELSE verdict END AS verdict
        FROM research_sweep_candidates
       WHERE verdict IS DISTINCT FROM 'rejected'
         AND found_at > now() - ($1::float8 * interval '1 day')
