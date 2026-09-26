@@ -315,12 +315,10 @@ export const COVERAGE: readonly MaterialCoverage[] = [
         'convert',
         'https://www.momentivetech.com/products/quartz',
       ),
-      sourced(
-        'Shin-Etsu Quartz',
-        ['JP'],
-        'convert',
-        'https://www.shinetsu.co.jp/en/products/electronics-materials/quartz-glass-products-materials-for-quartz-glass-products/',
-      ),
+      // Unverified again 2026-09-26: the cited page sells quartz glass products
+      // and never names crucibles or crucible-grade sand, so it does not show
+      // this step. Re-promote with a page that does.
+      lead('Shin-Etsu Quartz', ['JP'], 'convert'),
       sourced(
         'Ferrotec',
         ['JP', 'CN'],
@@ -525,7 +523,9 @@ export const COVERAGE: readonly MaterialCoverage[] = [
       ),
       sourced('Faraday Factory Japan', ['JP'], 'convert', 'https://www.faradaygroup.com/en/'),
       sourced('SuperPower', ['US'], 'convert', 'https://www.superpower-inc.com/specification.aspx'),
-      sourced('MetOx', ['US'], 'convert', 'https://www.metoxtech.com/technology'),
+      // Unverified again 2026-09-26: the cited page describes "HTS wire" and
+      // never says REBCO or coated conductor, so it does not show this row.
+      lead('MetOx', ['US'], 'convert'),
       sourced('THEVA', ['DE'], 'convert', 'https://www.theva.com/products/'),
       sourced(
         'Shanghai Superconductor',
