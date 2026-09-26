@@ -22,6 +22,7 @@ import type {
 import type { GeometryCollection, Topology } from 'topojson-specification';
 
 import { capOf, type Cap } from './globe-cull';
+import { pack, type Packed } from './globe-trace';
 
 /** Natural Earth 1:50m, built by scripts/geo/build-world-50m.mjs. */
 const GEO_URL = '/geo/countries-50m.json';
@@ -35,6 +36,9 @@ export interface Shapes {
   /** For culling the far side (globe-cull.ts): one per country, one per border line. */
   caps: Cap[];
   lineCaps: Cap[];
+  /** The same geometry as unit vectors, for painting (globe-trace.ts). */
+  rings: Packed[][];
+  lines: Packed[];
 }
 
 /**
@@ -104,6 +108,8 @@ function shapesOf(topo: WorldTopology): Shapes {
     borders,
     caps: countries.map((c) => capOf(c.geometry as MultiPolygon)),
     lineCaps: borders.coordinates.map((line) => capOf({ type: 'LineString', coordinates: line })),
+    rings: countries.map((c) => polygonsOf(c.geometry).flat().map(pack)),
+    lines: borders.coordinates.map(pack),
   };
 }
 
@@ -250,7 +256,7 @@ export function focusOf(f: CountryFeature): Focus {
  * the country fills `sin(reach)` of the radius at k = 1. Small countries stop
  * at a readable zoom rather than filling the screen with one island.
  */
-export function zoomFor(reach: number, fill = 0.72): number {
+export function zoomFor(reach: number, fill = 0.6): number {
   const r = Math.min(Math.max(reach, 0.1), 90);
   const k = fill / Math.sin((r * Math.PI) / 180);
   return Math.min(Math.max(k, 1), 7);

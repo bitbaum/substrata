@@ -26,6 +26,7 @@ import {
 } from '../components/portal/globe-geo';
 import { centreOf, horizonOf, visible } from '../components/portal/globe-cull';
 import { coast, dragged, flight } from '../components/portal/globe-motion';
+import { basisOf, pack, project, traceLine, traceRing } from '../components/portal/globe-trace';
 import { pickAt, pickIndex } from '../components/portal/globe-pick';
 import { NOT_A_NUMBER, mapLayer, shareBin } from '../app/atlas/map-layer';
 import { MAP_ISOS } from '../app/atlas/countries';
@@ -82,7 +83,7 @@ test('Fiji, astride the date line, is faced at the date line and zoomed in close
 
 test('zoom fits the country: large ones stay near the whole globe, small ones stop at a limit', () => {
   assert.equal(zoomFor(90), 1);
-  assert.ok(zoomFor(30) > 1.3 && zoomFor(30) < 1.6);
+  assert.ok(zoomFor(30) > 1.1 && zoomFor(30) < 1.3);
   assert.equal(zoomFor(0.01), 7);
   assert.ok(cameraFor(country('ru')).k < cameraFor(country('in')).k);
 });
@@ -226,6 +227,74 @@ test('the far side is culled, and nothing with a vertex in view ever is', () => 
   // The whole disc fits at rest: the horizon is the hemisphere. Zoomed in, it shrinks.
   assert.equal(horizonOf(projectionFor(phone, HOME), canvas), 90);
   assert.ok(horizonOf(projectionFor(phone, { center: [8, 47], k: 7 }), canvas) < 60);
+});
+
+test('the fast projection draws exactly what d3 draws, on the front of the globe', () => {
+  for (const cam of [
+    HOME,
+    { center: [178, -17] as [number, number], k: 3 },
+    { center: [-100, 60] as [number, number], k: 1.4 },
+  ]) {
+    const proj = projectionFor(phone, cam);
+    const [cx, cy] = proj.translate();
+    const b = basisOf(cam.center, cx, cy, proj.scale());
+    for (const [lon, lat] of [
+      [0, 0],
+      [30, 18],
+      [179.9, -16.5],
+      [-179.9, -16.9],
+      [-100, 40],
+      [100, 62],
+      [8, 47],
+    ]) {
+      const [x, y, depth] = project(b, lon, lat);
+      if (depth <= 0) continue;
+      const [dx, dy] = proj([lon, lat])!;
+      assert.ok(
+        Math.abs(x - dx) < 1e-6 && Math.abs(y - dy) < 1e-6,
+        `${lon},${lat} from ${cam.center}`,
+      );
+    }
+  }
+});
+
+test('behind the globe a ring is pulled onto the limb and a line breaks', () => {
+  const b = basisOf([0, 0], 100, 100, 50);
+  const calls: string[] = [];
+  const at: [number, number][] = [];
+  const pen = {
+    moveTo: (x: number, y: number) => (calls.push('M'), at.push([x, y])),
+    lineTo: (x: number, y: number) => (calls.push('L'), at.push([x, y])),
+    closePath: () => calls.push('Z'),
+  };
+  // A ring from the front (lon 60) round the back (lon 150) and back again.
+  traceRing(
+    pen,
+    pack([
+      [60, 0],
+      [150, 0],
+      [150, 10],
+      [60, 10],
+    ]),
+    b,
+  );
+  assert.deepEqual(calls, ['M', 'L', 'L', 'L', 'Z']);
+  for (const [x, y] of at.slice(1, 3))
+    assert.ok(Math.abs(Math.hypot(x - 100, y - 100) - 50) < 1e-9, 'a back vertex sits on the limb');
+  calls.length = 0;
+  traceLine(
+    pen,
+    pack([
+      [60, 0],
+      [80, 0],
+      [150, 0],
+      [170, 0],
+      [-80, 0],
+      [-60, 0],
+    ]),
+    b,
+  );
+  assert.deepEqual(calls, ['M', 'L', 'M', 'L'], 'the line lifts behind the globe and resumes');
 });
 
 test('shares fall into five steps; the boundaries go up, never down', () => {

@@ -5,9 +5,11 @@
  * then the hover and selection outlines.
  */
 import { geoGraticule10, geoPath, type GeoProjection } from 'd3-geo';
+import type { MultiLineString } from 'geojson';
 
 import { centreOf, horizonOf, visible } from './globe-cull';
 import type { CountryFeature, Shapes } from './globe-geo';
+import { basisOf, pack, traceLine, traceRing } from './globe-trace';
 
 /** Bin 6: USGS printed a word, not a number — hatched, never on the ramp. */
 export const HATCHED = 6;
@@ -121,7 +123,7 @@ export function paintFor(
 }
 
 const FULL = Math.PI * 2;
-const GRATICULE = geoGraticule10();
+const GRATICULE = (geoGraticule10() as MultiLineString).coordinates.map(pack);
 
 function blit(ctx: CanvasRenderingContext2D, layer: HTMLCanvasElement) {
   ctx.save();
@@ -206,26 +208,27 @@ export function paintGlobe(
   const { under, over } = backdrop(paint, ctx.canvas, cx, cy, r, size);
   blit(ctx, under);
 
+  const centre = centreOf(proj);
+  const horizon = horizonOf(proj, size);
+  const basis = basisOf(centre, cx, cy, r);
+
   ctx.beginPath();
-  path(GRATICULE);
+  for (const line of GRATICULE) traceLine(ctx, line, basis);
   ctx.strokeStyle = palette.graticule;
   ctx.lineWidth = 0.5;
   ctx.stroke();
 
-  const centre = centreOf(proj);
-  const horizon = horizonOf(proj, size);
   for (const [fill, members] of groups) {
     ctx.beginPath();
-    for (const i of members) if (visible(world.caps[i], centre, horizon)) path(world.countries[i]);
+    for (const i of members)
+      if (visible(world.caps[i], centre, horizon))
+        for (const ring of world.rings[i]) traceRing(ctx, ring, basis);
     ctx.fillStyle = fill;
-    ctx.fill();
+    ctx.fill('evenodd');
   }
   ctx.beginPath();
-  path({
-    type: 'MultiLineString',
-    coordinates: world.borders.coordinates.filter((_, i) =>
-      visible(world.lineCaps[i], centre, horizon),
-    ),
+  world.lines.forEach((line, i) => {
+    if (visible(world.lineCaps[i], centre, horizon)) traceLine(ctx, line, basis);
   });
   ctx.strokeStyle = palette.border;
   ctx.lineWidth = 0.6;
