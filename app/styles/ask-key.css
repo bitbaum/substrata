@@ -90,6 +90,21 @@
 .aikey-error {
   color: var(--color-status-negative);
 }
+/* The live answer from the provider: checking, works, or its refusal. */
+.aikey-check {
+  min-height: 1.3rem;
+  overflow-wrap: anywhere;
+}
+.aikey-ok {
+  color: var(--color-status-positive);
+}
+.aikey-hint {
+  color: var(--color-fg-tertiary);
+  font-size: 0.78rem;
+}
+.aikey-field > small {
+  text-transform: none;
+}
 /* ── "Check this": claim → Ask verdict (components/portal/CheckThis.tsx) ── */
 .check-this {
   font: 0.72rem/1.4 var(--font-mono);

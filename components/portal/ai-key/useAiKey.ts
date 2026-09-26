@@ -2,12 +2,12 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import { byokLabel, type ByokConfig, type ByokVendorId } from '@bitbaum/ai-kit/byok';
+import { admitKey, type KeyCheck } from '@/lib/byok-admit';
 import { clearByok, loadByok, saveByok } from '@/lib/byok-store';
 
 /** What the account holds — never the key. Mirrors `StoredKey` in lib/byok-vault.ts. */
 export type StoredKey = { vendor: ByokVendorId; model: string; hint: string; updatedAt: string };
 type Account = { signedIn: boolean; canStore: boolean; stored: StoredKey | null };
-export type ModelOption = { id: string; tools: boolean | null; free: boolean | null };
 
 /** Every mounted panel (the Ask dock, the settings page) re-reads on this. */
 const EVENT = 'substrata-ai-key';
@@ -21,6 +21,23 @@ async function call<T>(url: string, method: string, body?: unknown): Promise<T> 
   const result = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(result.error || 'Request failed.');
   return result as T;
+}
+
+/**
+ * Ask the vendor whether a key works and what it can use — a pasted key, or
+ * with none the one sealed on the account. A plain function, not hook state,
+ * so a debounced effect can depend on it without re-firing every render.
+ */
+export async function checkKey(vendor: ByokVendorId, apiKey?: string): Promise<KeyCheck> {
+  const body = apiKey ? { vendor, apiKey } : { vendor, stored: true };
+  return call<KeyCheck>('/api/ai-key/models', 'POST', body);
+}
+
+/** Refuse locally what the server would refuse: the browser path has no server to ask. */
+function admitted(check: KeyCheck | null, model: string): string {
+  const admission = admitKey(check, model);
+  if (!admission.ok) throw new Error(admission.error);
+  return admission.model;
 }
 
 /**
@@ -65,22 +82,22 @@ export function useAiKey() {
       if (stored) return { byokStored: true };
       return browser ? { byok: browser } : {};
     },
-    async listModels(vendor: ByokVendorId, apiKey?: string): Promise<ModelOption[]> {
-      const body = apiKey ? { vendor, apiKey } : { stored: true };
-      return (await call<{ models: ModelOption[] }>('/api/ai-key/models', 'POST', body)).models;
-    },
-    async save(config: ByokConfig, where: 'account' | 'browser') {
+    /**
+     * Keep a key that passed its check. The account path is checked again by
+     * the server before it seals; the browser path is admitted here.
+     */
+    async save(config: ByokConfig, where: 'account' | 'browser', check: KeyCheck | null) {
       if (where === 'account') {
         await call('/api/ai-key', 'PUT', config);
         clearByok();
       } else {
-        saveByok(config);
+        saveByok({ ...config, model: admitted(check, config.model) });
       }
       changed();
     },
-    async setModel(model: string) {
+    async setModel(model: string, check: KeyCheck | null) {
       if (stored) await call('/api/ai-key', 'PATCH', { model });
-      else if (browser) saveByok({ ...browser, model });
+      else if (browser) saveByok({ ...browser, model: admitted(check, model) });
       changed();
     },
     async remove() {

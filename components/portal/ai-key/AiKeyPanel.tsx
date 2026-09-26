@@ -1,113 +1,167 @@
 'use client';
 
-import { useId, useState } from 'react';
+import { useEffect, useId, useState } from 'react';
 import { BYOK_VENDORS, byokVendor, type ByokVendorId } from '@bitbaum/ai-kit/byok';
-import type { AiKey, ModelOption } from './useAiKey';
+import { admitKey } from '@/lib/byok-admit';
+import { KeyStatus, ModelPicker } from './KeyCheckParts';
+import type { AiKey } from './useAiKey';
+import { useKeyCheck } from './useKeyCheck';
 
 /**
  * Use any AI you have a key for — in the Ask panel and on /account/settings.
  *
- * Three steps, each one check: pick the provider, paste the key and let the
- * provider list the models it grants (a wrong key fails here, not on the
- * first question), pick a model. Signed in, the key can be sealed on the
- * account; otherwise it stays in this browser. Without a key, Ask uses the
- * free models this site runs.
+ * One paste: pick the provider, paste the key, and it is checked with that
+ * provider on the spot. If it works, the models it can use appear with the
+ * strongest preselected; if not, the provider's own refusal is shown. "Use
+ * this key" stays off until a check passed — a dead key is never kept, in the
+ * browser or on the account. Without a key, Ask uses the free models this
+ * site runs.
  */
 export function AiKeyPanel({ keys, onDone }: { keys: AiKey; onDone?: () => void }) {
-  const id = useId();
-  const [vendor, setVendor] = useState<ByokVendorId>('openrouter');
-  const [apiKey, setApiKey] = useState('');
-  const [model, setModel] = useState('');
-  const [models, setModels] = useState<ModelOption[] | null>(null);
-  const [where, setWhere] = useState<'account' | 'browser'>('account');
-  const [busy, setBusy] = useState(false);
-  const [message, setMessage] = useState('');
-  const info = byokVendor(vendor);
-  const canStore = Boolean(keys.account?.signedIn && keys.account.canStore);
-  const target = canStore ? where : 'browser';
+  const [mode, setMode] = useState<'view' | 'model' | 'replace'>('view');
+  if (!keys.active) return <AddKey keys={keys} onDone={onDone} />;
+  if (mode === 'replace')
+    return <AddKey keys={keys} onDone={() => setMode('view')} onCancel={() => setMode('view')} />;
+  if (mode === 'model') return <ChangeModel keys={keys} onDone={() => setMode('view')} />;
+  return <ActiveKey keys={keys} onDone={onDone} onChange={setMode} />;
+}
 
+function useRun() {
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState('');
   async function run(step: () => Promise<void>) {
     setBusy(true);
-    setMessage('');
+    setError('');
     try {
       await step();
     } catch (e) {
-      setMessage(e instanceof Error ? e.message : 'That did not work.');
+      setError(e instanceof Error ? e.message : 'That did not work.');
     } finally {
       setBusy(false);
     }
   }
+  return { busy, error, run };
+}
 
-  if (keys.active) {
-    const stored = keys.account?.stored;
-    const current = stored ?? keys.browser;
-    return (
-      <div className="aikey" role="group" aria-label="Your AI key">
-        <p className="aikey-status">
-          Answering with <strong>{keys.active.label}</strong>
-          {keys.active.where === 'account'
-            ? ` — key ${stored?.hint ?? ''} sealed on your account.`
-            : ' — key held in this browser only.'}
-        </p>
-        {current && (
-          <div className="aikey-row">
-            <label className="aikey-field">
-              <span>Model</span>
-              <input
-                list={`${id}-models`}
-                defaultValue={current.model}
-                onBlur={(e) => {
-                  const next = e.target.value.trim();
-                  if (next && next !== current.model) void run(() => keys.setModel(next));
-                }}
-              />
-            </label>
-            <button
-              type="button"
-              className="aikey-quiet"
-              disabled={busy}
-              onClick={() =>
-                void run(async () =>
-                  setModels(
-                    await keys.listModels(
-                      current.vendor,
-                      stored ? undefined : keys.browser?.apiKey,
-                    ),
-                  ),
-                )
-              }
-            >
-              List its models
-            </button>
-          </div>
-        )}
-        <ModelList id={`${id}-models`} models={models} />
-        <div className="aikey-actions">
-          <button
-            type="button"
-            className="aikey-quiet"
-            disabled={busy}
-            onClick={() => void run(async () => (await keys.remove(), onDone?.()))}
-          >
-            Remove key — use the free models
-          </button>
-        </div>
-        {message && <p className="aikey-error">{message}</p>}
+function ActiveKey({
+  keys,
+  onDone,
+  onChange,
+}: {
+  keys: AiKey;
+  onDone?: () => void;
+  onChange: (mode: 'model' | 'replace') => void;
+}) {
+  const { busy, error, run } = useRun();
+  const stored = keys.account?.stored;
+  return (
+    <div className="aikey" role="group" aria-label="Your AI key">
+      <p className="aikey-status">
+        Answering with <strong>{keys.active?.label}</strong>
+        {stored
+          ? ` — key ${stored.hint} sealed on your account.`
+          : ' — key held in this browser only.'}
+      </p>
+      <div className="aikey-actions">
+        <button type="button" className="aikey-quiet" onClick={() => onChange('model')}>
+          Change model
+        </button>
+        <button type="button" className="aikey-quiet" onClick={() => onChange('replace')}>
+          Replace key
+        </button>
+        <button
+          type="button"
+          className="aikey-quiet"
+          disabled={busy}
+          onClick={() => void run(async () => (await keys.remove(), onDone?.()))}
+        >
+          Remove key — use the free models
+        </button>
       </div>
-    );
-  }
+      {error && <p className="aikey-error">{error}</p>}
+    </div>
+  );
+}
+
+/** Pick another model for the key already kept — no paste needed, the kept key is checked. */
+function ChangeModel({ keys, onDone }: { keys: AiKey; onDone: () => void }) {
+  const id = useId();
+  const { busy, error, run } = useRun();
+  const stored = keys.account?.stored;
+  const current = stored ?? keys.browser;
+  const vendor = (current?.vendor ?? 'openrouter') as ByokVendorId;
+  const kc = useKeyCheck(vendor, '', current?.model);
+  const { run: check } = kc;
+  const browserKey = stored ? undefined : keys.browser?.apiKey;
+
+  useEffect(() => {
+    // One check of the kept key when this opens — an external system.
+    void check(vendor, browserKey);
+  }, [check, vendor, browserKey]);
+
+  const admission = admitKey(kc.check, kc.model);
+  const label = byokVendor(vendor)?.label ?? vendor;
+  return (
+    <div className="aikey" role="group" aria-label="Change model">
+      <KeyStatus status={kc.status} label={label} />
+      {kc.check?.ok && (
+        <ModelPicker
+          id={`${id}-model`}
+          check={kc.check}
+          model={kc.model}
+          onChange={kc.setModel}
+          example={byokVendor(vendor)?.modelExample}
+        />
+      )}
+      <div className="aikey-actions">
+        <button
+          type="button"
+          disabled={busy || !admission.ok}
+          onClick={() => void run(async () => (await keys.setModel(kc.model, kc.check), onDone()))}
+        >
+          Use this model
+        </button>
+        <button type="button" className="aikey-quiet" onClick={onDone}>
+          Cancel
+        </button>
+      </div>
+      {error && <p className="aikey-error">{error}</p>}
+    </div>
+  );
+}
+
+function AddKey({
+  keys,
+  onDone,
+  onCancel,
+}: {
+  keys: AiKey;
+  onDone?: () => void;
+  onCancel?: () => void;
+}) {
+  const id = useId();
+  const { busy, error, run } = useRun();
+  const [vendor, setVendor] = useState<ByokVendorId>('openrouter');
+  const [apiKey, setApiKey] = useState('');
+  const [where, setWhere] = useState<'account' | 'browser'>('account');
+  const kc = useKeyCheck(vendor, apiKey);
+  const info = byokVendor(vendor);
+  const label = info?.label ?? vendor;
+  const canStore = Boolean(keys.account?.signedIn && keys.account.canStore);
+  const target = canStore ? where : 'browser';
+  const admission = admitKey(kc.check, kc.model);
 
   return (
     <div className="aikey" role="group" aria-label="Add your AI key">
       <div className="aikey-row">
-        <label className="aikey-field">
+        <label className="aikey-field" htmlFor={`${id}-vendor`}>
           <span>Provider</span>
           <select
+            id={`${id}-vendor`}
             value={vendor}
             onChange={(e) => {
               setVendor(e.target.value as ByokVendorId);
-              setModels(null);
-              setModel('');
+              kc.reset();
             }}
           >
             {BYOK_VENDORS.map((v) => (
@@ -117,54 +171,44 @@ export function AiKeyPanel({ keys, onDone }: { keys: AiKey; onDone?: () => void 
             ))}
           </select>
         </label>
-        <label className="aikey-field aikey-grow">
+        <label className="aikey-field aikey-grow" htmlFor={`${id}-key`}>
           <span>
             API key{' '}
             {info && (
               <a href={info.keyUrl} target="_blank" rel="noreferrer">
-                get one ↗
+                get one from {label} ↗
               </a>
             )}
           </span>
           <input
+            id={`${id}-key`}
             type="password"
             autoComplete="off"
-            placeholder={info?.keyHint || 'API key'}
+            spellCheck={false}
+            placeholder={`Paste your ${label} key${info?.keyHint ? ` (${info.keyHint})` : ''}`}
             value={apiKey}
             onChange={(e) => {
               setApiKey(e.target.value.trim());
-              setModels(null);
+              kc.reset();
             }}
           />
         </label>
       </div>
-      <div className="aikey-row">
-        <button
-          type="button"
-          className="aikey-quiet"
-          disabled={busy || apiKey.length < 8}
-          onClick={() =>
-            void run(async () => {
-              const list = await keys.listModels(vendor, apiKey);
-              setModels(list);
-              if (!model && list[0]) setModel(pick(list, info?.modelExample));
-            })
-          }
-        >
-          {busy && !models ? 'Checking…' : 'Check key'}
-        </button>
-        <label className="aikey-field aikey-grow">
-          <span>Model{models ? ` · ${models.length} available` : ''}</span>
-          <input
-            list={`${id}-models`}
-            placeholder={info ? `e.g. ${info.modelExample}` : 'model id'}
-            value={model}
-            onChange={(e) => setModel(e.target.value)}
-          />
-        </label>
-      </div>
-      <ModelList id={`${id}-models`} models={models} />
-      {canStore ? (
+      <KeyStatus
+        status={kc.status}
+        label={label}
+        idle={`Checked with ${label} as soon as you paste it.`}
+      />
+      {kc.check?.ok && (
+        <ModelPicker
+          id={`${id}-model`}
+          check={kc.check}
+          model={kc.model}
+          onChange={kc.setModel}
+          example={info?.modelExample}
+        />
+      )}
+      {canStore && (
         <fieldset className="aikey-where">
           <legend className="sr-only">Where to keep the key</legend>
           <label>
@@ -184,49 +228,36 @@ export function AiKeyPanel({ keys, onDone }: { keys: AiKey; onDone?: () => void 
             This browser only
           </label>
         </fieldset>
-      ) : null}
+      )}
       <div className="aikey-actions">
         <button
           type="button"
-          disabled={busy || apiKey.length < 8 || !model.trim()}
+          disabled={busy || !admission.ok}
           onClick={() =>
             void run(async () => {
-              await keys.save({ vendor, apiKey, model: model.trim() }, target);
+              await keys.save({ vendor, apiKey, model: kc.model.trim() }, target, kc.check);
               setApiKey('');
               onDone?.();
             })
           }
         >
-          Use this key
+          {busy ? 'Saving…' : 'Use this key'}
         </button>
+        {onCancel && (
+          <button type="button" className="aikey-quiet" onClick={onCancel}>
+            Cancel
+          </button>
+        )}
       </div>
-      {message && <p className="aikey-error">{message}</p>}
+      {error && <p className="aikey-error">{error}</p>}
       <p className="aikey-note">
         {target === 'account'
           ? 'Sealed (encrypted) on your Substrata account; the database alone cannot read it. '
           : `Kept in this browser only${keys.account?.signedIn ? '' : ' — sign in to keep it on your account'}. `}
-        Each question sends it to {info?.label ?? 'the provider'} and nowhere else; your account
-        there is billed, not Substrata&apos;s. The citation rules are the same with any model.
-        Without a key, Ask uses the free models this site runs.
+        Each question sends it to {label} and nowhere else; your account there is billed, not
+        Substrata&apos;s. The citation rules are the same with any model. Without a key, Ask uses
+        the free models this site runs.
       </p>
     </div>
   );
-}
-
-function ModelList({ id, models }: { id: string; models: ModelOption[] | null }) {
-  return (
-    <datalist id={id}>
-      {(models ?? []).map((m) => (
-        <option key={m.id} value={m.id}>
-          {m.tools === false ? 'no tool calls' : ''}
-        </option>
-      ))}
-    </datalist>
-  );
-}
-
-/** The vendor's example if it is on the list, otherwise the first model that declares tools. */
-function pick(models: ModelOption[], example?: string): string {
-  if (example && models.some((m) => m.id === example)) return example;
-  return (models.find((m) => m.tools) ?? models[0]).id;
 }
