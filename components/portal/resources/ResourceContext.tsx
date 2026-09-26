@@ -45,16 +45,18 @@ function Producers({ iso2, resource }: { iso2: string; resource: string }) {
                 <span className="resource-strong">{f.companies}</span> — {f.commodity.toLowerCase()}
                 , {f.location}
                 {f.capacity && f.capacity !== 'NA' && (
-                  <span className="resource-unit"> capacity {f.capacity}</span>
+                  <span className="resource-unit">
+                    {' '}
+                    capacity {f.capacity} {f.unit}
+                  </span>
                 )}
               </li>
             ))}
           </ul>
           <p className="resource-source">
             USGS Minerals Yearbook {usgs.year}, {usgs.table}
-            {usgs.rows.length > SHOW && `, ${usgs.rows.length - SHOW} more rows`}. Capacity as
-            printed: the table says “{usgs.unit.toLowerCase()}”, and names other units line by line
-            — read the unit in the table.{' '}
+            {usgs.rows.length > SHOW && `, ${usgs.rows.length - SHOW} more rows`}. Annual capacity
+            in the unit USGS prints for each commodity.{' '}
             <a href={usgs.pdf} rel="noopener noreferrer" target="_blank">
               Chapter ↗
             </a>{' '}
