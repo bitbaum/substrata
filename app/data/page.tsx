@@ -56,6 +56,11 @@ export default async function DataPage() {
           ]}
         />
         <div className="research-prose">
+          <p>
+            <Link href="/data/quality">Data quality</Link>: every dataset scored against written
+            criteria, with each failing row and its source.{' '}
+            <Link href="/data/freshness">Freshness</Link>: when each feed and file was last checked.
+          </p>
           <h2>How fresh is this</h2>
           {/* Two different questions that a single "updated" date conflates: what
               is the newest thing we hold, and when did we last go looking. A

@@ -39,6 +39,11 @@
 .fresh-footer {
   min-height: 2.75rem;
 }
+.fresh-footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1.25rem;
+}
 .fresh-footer:hover {
   color: var(--color-fg-primary);
   text-decoration: underline;

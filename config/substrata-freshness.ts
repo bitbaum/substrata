@@ -24,7 +24,8 @@ import sanctions from '../research/sanctions.json';
 import producers from '../research/usgs-producers.json';
 import { ASSESSMENTS } from './substrata-assessment';
 
-export type FeedId = 'sweep' | 'source' | 'filings' | 'science' | 'series' | 'drafts' | 'jobs';
+export type FeedId =
+  'sweep' | 'source' | 'filings' | 'science' | 'series' | 'drafts' | 'jobs' | 'quality';
 
 export interface Feed {
   id: FeedId;
@@ -120,6 +121,16 @@ export const FEEDS: readonly Feed[] = [
     // Every six hours at :52 (appcron-substrata-source, loki install-app-crons.sh).
     everyHours: 6,
     failedWhen: 'rows_examined > 0 AND could_not_look >= rows_examined',
+  },
+  {
+    id: 'quality',
+    label: 'Data-quality checks',
+    what: 'Re-opens a rotating slice of source links, quotes, tickers (SEC, OpenFIGI) and USGS table rows, and scores every dataset. No AI.',
+    shows: { label: 'Data quality', href: '/data/quality' },
+    table: 'research_quality_runs',
+    // Every six hours at :41 (appcron-substrata-quality, loki install-app-crons.sh).
+    everyHours: 6,
+    failedWhen: 'looked > 0 AND failed >= looked',
   },
 ];
 

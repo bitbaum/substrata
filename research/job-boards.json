@@ -311,10 +311,10 @@
       "checkedOn": "2026-09-24"
     },
     "zhuhai-fangyuan": {
-      "careersUrl": "https://www.fangyuan.com.cn/",
+      "careersUrl": null,
       "ats": "unknown",
       "board": null,
-      "evidence": "Could not identify/reach an official site (fangyuan.com.cn no response) or careers page; not guessed",
+      "evidence": "Could not identify/reach an official site (fangyuan.com.cn does not resolve, 2026-09-26) or careers page; not guessed",
       "checkedOn": "2026-09-24"
     },
     "less-common-metals": {

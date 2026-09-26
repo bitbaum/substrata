@@ -1,7 +1,7 @@
 {
  "source": "USGS Minerals Yearbook, volume III (Area Reports: International), country chapters",
  "licence": "US Government work, public domain",
- "retrieved": "2026-09-25",
+ "retrieved": "2026-09-26",
  "note": "Companies, facilities and capacities as USGS prints them for the chapter year. Capacity is in the table's unit unless the commodity line names another.",
  "gaps": [
   "korea-south: no Minerals Yearbook country workbook for 2023, 2022, 2020-21, 2019"
@@ -76,17 +76,9 @@
      "resource": "bauxite",
      "group": "Aluminum",
      "commodity": "Alumina",
-     "companies": "East Hope (Sanmenxia) Aluminium Co. Ltd. (East Hope",
-     "location": "Henan, Sanmenxia, Mianchi;",
-     "capacity": "2200"
-    },
-    {
-     "resource": "bauxite",
-     "group": "Aluminum",
-     "commodity": "Alumina",
-     "companies": "Group Co. Ltd.)",
-     "location": "Shanxi, Jinzhong, Zuoquan",
-     "capacity": "2400"
+     "companies": "East Hope (Sanmenxia) Aluminium Co. Ltd. (East Hope Group Co. Ltd.)",
+     "location": "Henan, Sanmenxia, Mianchi; Shanxi, Jinzhong, Zuoquan",
+     "capacity": "2200 2400"
     },
     {
      "resource": "bauxite",
@@ -2162,7 +2154,7 @@
     },
     {
      "resource": "pgms",
-     "group": "concentrate, gross weight",
+     "group": "Refined",
      "commodity": "Palladium, mine, Pd content",
      "companies": "Danba County Yangliuping Mining Co. Ltd.",
      "location": "Sichuan, Yangliuping",
@@ -2170,7 +2162,7 @@
     },
     {
      "resource": "pgms",
-     "group": "concentrate, gross weight",
+     "group": "Refined",
      "commodity": "Palladium, mine, Pd content",
      "companies": "Jinchuan Group Co. Ltd.",
      "location": "Gansu, Jinchang",
@@ -3246,54 +3238,78 @@
     {
      "resource": "pgms",
      "group": "Platinum-group metals",
-     "commodity": "Ore, platinum-group",
+     "commodity": "Ore, platinum-group metal content",
      "companies": "AO Koryakgeoldobycha, Amur Prospectors",
-     "location": "Placer deposits (mostly platinum) in the",
+     "location": "Placer deposits (mostly platinum) in the Urals; Siberia; Russian Far East",
      "capacity": "10"
     },
     {
      "resource": "pgms",
-     "group": "metal content",
-     "commodity": "Ore, platinum-group",
+     "group": "Platinum-group metals",
+     "commodity": "Ore, platinum-group metal content",
      "companies": "Lopatino and Yegor'yevsk deposits",
      "location": "Mines in Moscow Oblast",
      "capacity": "NA"
     },
     {
      "resource": "pgms",
-     "group": "metal content",
-     "commodity": "Ore, platinum-group",
+     "group": "Platinum-group metals",
+     "commodity": "Ore, platinum-group metal content",
      "companies": "OAO AS Amur (Russian Platinum Co.)",
      "location": "Placer deposits (mostly platinum) in the Urals; Siberia; Russian Far East",
      "capacity": "10"
     },
     {
      "resource": "pgms",
-     "group": "metal content",
-     "commodity": "Ore, platinum-group",
+     "group": "Platinum-group metals",
+     "commodity": "Ore, platinum-group metal content",
      "companies": "PAO GMK Norilskiy Nickel (Nornickel)",
      "location": "Mines in Norilsk region and Kola Peninsula",
      "capacity": "150"
     },
     {
      "resource": "pgms",
-     "group": "metal content",
-     "commodity": "Ore, platinum-group",
+     "group": "Platinum-group metals",
+     "commodity": "Ore, platinum-group metal content",
      "companies": "Polpinskoye deposit",
      "location": "Mines in Bryansk Oblast",
      "capacity": "NA"
     },
     {
      "resource": "pgms",
-     "group": "metal content",
-     "commodity": "Ore, platinum-group",
+     "group": "Platinum-group metals",
+     "commodity": "Ore, platinum-group metal content",
      "companies": "Verkhnekamskiy deposit",
      "location": "Mines in the Urals",
      "capacity": "NA"
     },
     {
+     "resource": "pgms",
+     "group": "Platinum-group metals",
+     "commodity": "Metals, refined",
+     "companies": "AO Priokskiy plant (PAO Gazpromneft')",
+     "location": "Khanty-Mansi Autonomous Okrug-Yugra",
+     "capacity": "NA"
+    },
+    {
+     "resource": "pgms",
+     "group": "Platinum-group metals",
+     "commodity": "Metals, refined",
+     "companies": "Ekaterinburgskiy plant (EZOTsM)",
+     "location": "Sverdlovsk Oblast",
+     "capacity": "NA"
+    },
+    {
+     "resource": "pgms",
+     "group": "Platinum-group metals",
+     "commodity": "Metals, refined",
+     "companies": "Krasnoyarskiy Nonferrous Metals Plant (Krastsvetmet)",
+     "location": "Krasnoyarsk Kray",
+     "capacity": "NA"
+    },
+    {
      "resource": "rare-earths",
-     "group": "metal content",
+     "group": "Platinum-group metals",
      "commodity": "Rare earths",
      "companies": "OAO Apatit",
      "location": "Mines at Lovozerskoye deposit, Kola Peninsula",
@@ -4140,9 +4156,9 @@
     {
      "resource": "rare-earths",
      "group": "",
-     "commodity": "Rare earths, refined, rare-earth-oxide",
+     "commodity": "Rare earths, refined, rare-earth-oxide equivalent",
      "companies": "Indian Rare Earths Ltd. (Government, 100%)",
-     "location": "Orissa Sands Complex in Ganjam District,",
+     "location": "Orissa Sands Complex in Ganjam District, Odisha",
      "capacity": "5"
     },
     {
@@ -4931,9 +4947,129 @@
      "resource": "copper",
      "group": "",
      "commodity": "Copper, Cu content:—",
-     "companies": "Corporación Nacional del Cobre (CODELCO)",
-     "location": "El Teniente Mine and SX-EW1 plant, Machali,",
+     "companies": "Corporación Nacional del Cobre (CODELCO) (Government, 100%)",
+     "location": "El Teniente Mine and SX-EW1 plant, Machali, Libertador General Bernardo O'Higgins Region",
      "capacity": "2"
+    },
+    {
+     "resource": "copper",
+     "group": "",
+     "commodity": "Copper, Cu content:—",
+     "companies": "Corporación Nacional del Cobre (CODELCO) (Government, 100%)",
+     "location": "Caletones smelter, Machali, Libertador General Bernardo O'Higgins Region",
+     "capacity": "400"
+    },
+    {
+     "resource": "copper",
+     "group": "",
+     "commodity": "Copper, Cu content:—",
+     "companies": "Corporación Nacional del Cobre (CODELCO) (Government, 100%)",
+     "location": "Ministro Hales Mine, Calama, Antofagasta Region",
+     "capacity": "180"
+    },
+    {
+     "resource": "copper",
+     "group": "",
+     "commodity": "Copper, Cu content:—",
+     "companies": "Corporación Nacional del Cobre (CODELCO) (Government, 100%)",
+     "location": "Ventanas refinery, Valparaiso Region",
+     "capacity": "410"
+    },
+    {
+     "resource": "copper",
+     "group": "",
+     "commodity": "Copper, Cu content:—",
+     "companies": "Corporación Nacional del Cobre (CODELCO) (Government, 100%)",
+     "location": "Ventanas smelter, Valparaiso Region",
+     "capacity": "120"
+    },
+    {
+     "resource": "copper",
+     "group": "",
+     "commodity": "Copper, Cu content:—",
+     "companies": "Corporación Nacional del Cobre (CODELCO) (Government, 100%)",
+     "location": "Andina Mine, Valparaiso Region",
+     "capacity": "200"
+    },
+    {
+     "resource": "copper",
+     "group": "",
+     "commodity": "Copper, Cu content:—",
+     "companies": "Corporación Nacional del Cobre (CODELCO) (Government, 100%)",
+     "location": "Salvador Mine and SX-EW1plant, Chañaral, Atacama Region",
+     "capacity": "20"
+    },
+    {
+     "resource": "copper",
+     "group": "",
+     "commodity": "Copper, Cu content:—",
+     "companies": "Corporación Nacional del Cobre (CODELCO) (Government, 100%)",
+     "location": "Potrerillos smelter, Chañaral, Atacama Region",
+     "capacity": "140"
+    },
+    {
+     "resource": "copper",
+     "group": "",
+     "commodity": "Copper, Cu content:—",
+     "companies": "Empresa Minera de Mantos Blancos S.A. (Consortium led by Audley Capital Advisors LLP)",
+     "location": "Mantos Blancos Mine and SX-EW1 plant, Antofagasta Region",
+     "capacity": "25"
+    },
+    {
+     "resource": "copper",
+     "group": "",
+     "commodity": "Copper, Cu content:—",
+     "companies": "Empresa Minera de Mantos Blancos S.A. (Consortium led by Audley Capital Advisors LLP)",
+     "location": "Mantoverde Mine and SX-EW1 plant, Atacama Region",
+     "capacity": "45"
+    },
+    {
+     "resource": "copper",
+     "group": "",
+     "commodity": "Copper, Cu content:—",
+     "companies": "Empresa Nacional de Minería (ENAMI) (Government, 100%)",
+     "location": "Hernán Videla Lira smelter, Atacama Region",
+     "capacity": "80"
+    },
+    {
+     "resource": "copper",
+     "group": "",
+     "commodity": "Copper, Cu content:—",
+     "companies": "Lundin Mining Corp., 80%, and Sumitomo Corp., 20%",
+     "location": "Ojos del Salado Mine, Atacama Region",
+     "capacity": "20"
+    },
+    {
+     "resource": "copper",
+     "group": "",
+     "commodity": "Copper, Cu content:—",
+     "companies": "Minera Escondida Ltda. (BHP Billiton Ltd., 57.5%; Rio Tinto plc, 30%; JECO Corp., 12.5%;",
+     "location": "Escondida Mine and SX-EW1 plant, Antofagasta Region",
+     "capacity": "250"
+    },
+    {
+     "resource": "copper",
+     "group": "",
+     "commodity": "Copper, Cu content:—",
+     "companies": "Minera Spence S.A. (BHP Billiton Ltd., 100%)",
+     "location": "Spence Mine and SX-EW1 plant, Antofagasta Region",
+     "capacity": "180"
+    },
+    {
+     "resource": "copper",
+     "group": "",
+     "commodity": "Copper, Cu content:—",
+     "companies": "Sociedad Contractual Minera El Abra [Freeport-McMoRan Inc., 51%, and Corporación Nacional del Cobre (CODELCO) (Government, 100%), 49%]",
+     "location": "El Abra SX-EW1 plant, Antofagasta Region",
+     "capacity": "120"
+    },
+    {
+     "resource": "copper",
+     "group": "",
+     "commodity": "Copper, Cu content:—",
+     "companies": "Sierra Gorda S.C.M. (KGHM International Ltd., 55%; Sumitomo Metal Mining Co. Ltd., 31.5%; Sumitomo Corp., 13.5%)",
+     "location": "Sierra Gorda Mine, Antofagasta Region",
+     "capacity": "100"
     },
     {
      "resource": "copper",
@@ -5014,33 +5150,17 @@
      "resource": "cobalt",
      "group": "Copper and cobalt",
      "commodity": "Mine",
-     "companies": "Katanga Mining Ltd. [Glencore International",
-     "location": "KOV, KTO, and Mashamba East",
-     "capacity": "300,000 copper;"
+     "companies": "Katanga Mining Ltd. [Glencore International AG, 75%, and Générale des Carrières et des Mines (Gécamines), 25%]",
+     "location": "KOV, KTO, and Mashamba East Mines near Kolwezi",
+     "capacity": "300,000 copper; 30,000 cobalt"
     },
     {
      "resource": "copper",
      "group": "Copper and cobalt",
      "commodity": "Mine",
-     "companies": "Katanga Mining Ltd. [Glencore International",
-     "location": "KOV, KTO, and Mashamba East",
-     "capacity": "300,000 copper;"
-    },
-    {
-     "resource": "cobalt",
-     "group": "Copper and cobalt",
-     "commodity": "Mine",
-     "companies": "AG, 75%, and Générale des Carrières et des Mines (Gécamines), 25%]",
-     "location": "Mines near Kolwezi",
-     "capacity": "30,000 cobalt"
-    },
-    {
-     "resource": "copper",
-     "group": "Copper and cobalt",
-     "commodity": "Mine",
-     "companies": "AG, 75%, and Générale des Carrières et des Mines (Gécamines), 25%]",
-     "location": "Mines near Kolwezi",
-     "capacity": "30,000 cobalt"
+     "companies": "Katanga Mining Ltd. [Glencore International AG, 75%, and Générale des Carrières et des Mines (Gécamines), 25%]",
+     "location": "KOV, KTO, and Mashamba East Mines near Kolwezi",
+     "capacity": "300,000 copper; 30,000 cobalt"
     },
     {
      "resource": "cobalt",
@@ -5048,7 +5168,7 @@
      "commodity": "Mine",
      "companies": "Mutanda Mining SPRL (Glencore plc, 100%)",
      "location": "Mutanda Mine in Lualaba Province",
-     "capacity": "200,000 copper;"
+     "capacity": "200,000 copper; 28,000e cobalt"
     },
     {
      "resource": "copper",
@@ -5056,7 +5176,7 @@
      "commodity": "Mine",
      "companies": "Mutanda Mining SPRL (Glencore plc, 100%)",
      "location": "Mutanda Mine in Lualaba Province",
-     "capacity": "200,000 copper;"
+     "capacity": "200,000 copper; 28,000e cobalt"
     },
     {
      "resource": "cobalt",
@@ -5078,97 +5198,49 @@
      "resource": "cobalt",
      "group": "Copper and cobalt",
      "commodity": "Mine",
-     "companies": "Tenke Fungurume Mining SARL [China",
-     "location": "Tenke Fungurume Mine in Lualaba",
-     "capacity": "314,000 copper;"
+     "companies": "Tenke Fungurume Mining SARL [China Molybdenum Co. Ltd., 80%, and Générale des Carrières et des Mines (Gécamines), 20%]",
+     "location": "Tenke Fungurume Mine in Lualaba Province",
+     "capacity": "314,000 copper; 25,000e cobalt"
     },
     {
      "resource": "copper",
      "group": "Copper and cobalt",
      "commodity": "Mine",
-     "companies": "Tenke Fungurume Mining SARL [China",
-     "location": "Tenke Fungurume Mine in Lualaba",
-     "capacity": "314,000 copper;"
+     "companies": "Tenke Fungurume Mining SARL [China Molybdenum Co. Ltd., 80%, and Générale des Carrières et des Mines (Gécamines), 20%]",
+     "location": "Tenke Fungurume Mine in Lualaba Province",
+     "capacity": "314,000 copper; 25,000e cobalt"
     },
     {
      "resource": "cobalt",
      "group": "Copper and cobalt",
      "commodity": "Mine",
-     "companies": "Molybdenum Co. Ltd., 80%, and Générale des Carrières et des Mines (Gécamines), 20%]",
-     "location": "Province",
-     "capacity": "25,000e cobalt"
+     "companies": "Sicomines [China Railway Group Ltd. and Sinohydro Corp., 68%; La Générale des Carrières et des Mines SA (Gecamines), 20%; and Société Immobilière du Congo (SIMCO), 12%]",
+     "location": "Mashamba West Mine in Lualaba Province",
+     "capacity": "254,000 copper; 5,180 cobalt"
     },
     {
      "resource": "copper",
      "group": "Copper and cobalt",
      "commodity": "Mine",
-     "companies": "Molybdenum Co. Ltd., 80%, and Générale des Carrières et des Mines (Gécamines), 20%]",
-     "location": "Province",
-     "capacity": "25,000e cobalt"
+     "companies": "Sicomines [China Railway Group Ltd. and Sinohydro Corp., 68%; La Générale des Carrières et des Mines SA (Gecamines), 20%; and Société Immobilière du Congo (SIMCO), 12%]",
+     "location": "Mashamba West Mine in Lualaba Province",
+     "capacity": "254,000 copper; 5,180 cobalt"
     },
     {
      "resource": "cobalt",
      "group": "Copper and cobalt",
      "commodity": "Mine",
-     "companies": "Sicomines [China Railway Group Ltd. and",
-     "location": "Mashamba West Mine in Lualaba",
-     "capacity": "254,000 copper;"
-    },
-    {
-     "resource": "copper",
-     "group": "Copper and cobalt",
-     "commodity": "Mine",
-     "companies": "Sicomines [China Railway Group Ltd. and",
-     "location": "Mashamba West Mine in Lualaba",
-     "capacity": "254,000 copper;"
-    },
-    {
-     "resource": "cobalt",
-     "group": "Copper and cobalt",
-     "commodity": "Mine",
-     "companies": "Sinohydro Corp., 68%; La Générale des Carrières et des Mines SA (Gecamines), 20%; and Société Immobilière du Congo (SIMCO), 12%]",
-     "location": "Province",
-     "capacity": "5,180 cobalt"
-    },
-    {
-     "resource": "copper",
-     "group": "Copper and cobalt",
-     "commodity": "Mine",
-     "companies": "Sinohydro Corp., 68%; La Générale des Carrières et des Mines SA (Gecamines), 20%; and Société Immobilière du Congo (SIMCO), 12%]",
-     "location": "Province",
-     "capacity": "5,180 cobalt"
-    },
-    {
-     "resource": "cobalt",
-     "group": "Copper and cobalt",
-     "commodity": "Mine",
-     "companies": "La Minière de Kalumbwe Myunga (MKM)",
+     "companies": "La Minière de Kalumbwe Myunga (MKM) (Chiina Railway Group Ltd., 80.2%)",
      "location": "Mine near Kolwezi",
-     "capacity": "29,000e copper;"
+     "capacity": "29,000e copper; 2,200e cobalt"
     },
     {
      "resource": "copper",
      "group": "Copper and cobalt",
      "commodity": "Mine",
-     "companies": "La Minière de Kalumbwe Myunga (MKM)",
+     "companies": "La Minière de Kalumbwe Myunga (MKM) (Chiina Railway Group Ltd., 80.2%)",
      "location": "Mine near Kolwezi",
-     "capacity": "29,000e copper;"
-    },
-    {
-     "resource": "cobalt",
-     "group": "Copper and cobalt",
-     "commodity": "Mine",
-     "companies": "(Chiina Railway Group Ltd., 80.2%)",
-     "location": "",
-     "capacity": "2,200e cobalt"
-    },
-    {
-     "resource": "copper",
-     "group": "Copper and cobalt",
-     "commodity": "Mine",
-     "companies": "(Chiina Railway Group Ltd., 80.2%)",
-     "location": "",
-     "capacity": "2,200e cobalt"
+     "capacity": "29,000e copper; 2,200e cobalt"
     },
     {
      "resource": "cobalt",
@@ -5176,7 +5248,7 @@
      "commodity": "Mine",
      "companies": "Eurasian Resources Group (ERG), 100%",
      "location": "Roan Tailings Retreatment project near Kolwezi",
-     "capacity": "120,000 copper;"
+     "capacity": "120,000 copper; 24,000 cobalt"
     },
     {
      "resource": "copper",
@@ -5184,7 +5256,7 @@
      "commodity": "Mine",
      "companies": "Eurasian Resources Group (ERG), 100%",
      "location": "Roan Tailings Retreatment project near Kolwezi",
-     "capacity": "120,000 copper;"
+     "capacity": "120,000 copper; 24,000 cobalt"
     },
     {
      "resource": "cobalt",
@@ -5206,33 +5278,17 @@
      "resource": "cobalt",
      "group": "Copper and cobalt",
      "commodity": "Mine",
-     "companies": "Boss Mining SPRL [Eurasian Resources Group",
-     "location": "Mukondo Mountain Mine near",
-     "capacity": "22,000 copper;"
+     "companies": "Boss Mining SPRL [Eurasian Resources Group plc, 51%, and Générale des Carrières et des Mines SA (Gécamines), 49%]",
+     "location": "Mukondo Mountain Mine near Kakanda",
+     "capacity": "22,000 copper; 3,600 cobalt"
     },
     {
      "resource": "copper",
      "group": "Copper and cobalt",
      "commodity": "Mine",
-     "companies": "Boss Mining SPRL [Eurasian Resources Group",
-     "location": "Mukondo Mountain Mine near",
-     "capacity": "22,000 copper;"
-    },
-    {
-     "resource": "cobalt",
-     "group": "Copper and cobalt",
-     "commodity": "Mine",
-     "companies": "plc, 51%, and Générale des Carrières et des Mines SA (Gécamines), 49%]",
-     "location": "Kakanda",
-     "capacity": "3,600 cobalt"
-    },
-    {
-     "resource": "copper",
-     "group": "Copper and cobalt",
-     "commodity": "Mine",
-     "companies": "plc, 51%, and Générale des Carrières et des Mines SA (Gécamines), 49%]",
-     "location": "Kakanda",
-     "capacity": "3,600 cobalt"
+     "companies": "Boss Mining SPRL [Eurasian Resources Group plc, 51%, and Générale des Carrières et des Mines SA (Gécamines), 49%]",
+     "location": "Mukondo Mountain Mine near Kakanda",
+     "capacity": "22,000 copper; 3,600 cobalt"
     },
     {
      "resource": "cobalt",
@@ -5302,33 +5358,17 @@
      "resource": "cobalt",
      "group": "Copper and cobalt",
      "commodity": "Mine",
-     "companies": "La Compagnie Minière de Musonoie Global SAS",
+     "companies": "La Compagnie Minière de Musonoie Global SAS (Zijin Mining Group Company Ltd., 72%)",
      "location": "Kolwezi Mine in Lualaba Province",
-     "capacity": "130,000e copper;"
+     "capacity": "130,000e copper; 3,000 cobalt"
     },
     {
      "resource": "copper",
      "group": "Copper and cobalt",
      "commodity": "Mine",
-     "companies": "La Compagnie Minière de Musonoie Global SAS",
+     "companies": "La Compagnie Minière de Musonoie Global SAS (Zijin Mining Group Company Ltd., 72%)",
      "location": "Kolwezi Mine in Lualaba Province",
-     "capacity": "130,000e copper;"
-    },
-    {
-     "resource": "cobalt",
-     "group": "Copper and cobalt",
-     "commodity": "Mine",
-     "companies": "(Zijin Mining Group Company Ltd., 72%)",
-     "location": "",
-     "capacity": "3,000 cobalt"
-    },
-    {
-     "resource": "copper",
-     "group": "Copper and cobalt",
-     "commodity": "Mine",
-     "companies": "(Zijin Mining Group Company Ltd., 72%)",
-     "location": "",
-     "capacity": "3,000 cobalt"
+     "capacity": "130,000e copper; 3,000 cobalt"
     },
     {
      "resource": "cobalt",
@@ -5350,33 +5390,17 @@
      "resource": "cobalt",
      "group": "Copper and cobalt",
      "commodity": "Mine",
-     "companies": "Ruashi Mining SPRL (Jinchuan Group",
+     "companies": "Ruashi Mining SPRL (Jinchuan Group International Resources Co. Ltd., 75%)",
      "location": "Ruashi Mine near Lubumbashi",
-     "capacity": "38,000 copper;"
+     "capacity": "38,000 copper; 5,000 cobalt"
     },
     {
      "resource": "copper",
      "group": "Copper and cobalt",
      "commodity": "Mine",
-     "companies": "Ruashi Mining SPRL (Jinchuan Group",
+     "companies": "Ruashi Mining SPRL (Jinchuan Group International Resources Co. Ltd., 75%)",
      "location": "Ruashi Mine near Lubumbashi",
-     "capacity": "38,000 copper;"
-    },
-    {
-     "resource": "cobalt",
-     "group": "Copper and cobalt",
-     "commodity": "Mine",
-     "companies": "International Resources Co. Ltd., 75%)",
-     "location": "",
-     "capacity": "5,000 cobalt"
-    },
-    {
-     "resource": "copper",
-     "group": "Copper and cobalt",
-     "commodity": "Mine",
-     "companies": "International Resources Co. Ltd., 75%)",
-     "location": "",
-     "capacity": "5,000 cobalt"
+     "capacity": "38,000 copper; 5,000 cobalt"
     },
     {
      "resource": "cobalt",
@@ -5398,33 +5422,17 @@
      "resource": "cobalt",
      "group": "Copper and cobalt",
      "commodity": "Mine",
-     "companies": "Congo Dongfang International Mining SPRL2",
+     "companies": "Congo Dongfang International Mining SPRL2 (Zhejiang Huayou Cobalt Co. Ltd., 98%)",
      "location": "Plants in former Katanga Province",
-     "capacity": "73,000e copper;"
+     "capacity": "73,000e copper; 8,700e cobalt"
     },
     {
      "resource": "copper",
      "group": "Copper and cobalt",
      "commodity": "Mine",
-     "companies": "Congo Dongfang International Mining SPRL2",
+     "companies": "Congo Dongfang International Mining SPRL2 (Zhejiang Huayou Cobalt Co. Ltd., 98%)",
      "location": "Plants in former Katanga Province",
-     "capacity": "73,000e copper;"
-    },
-    {
-     "resource": "cobalt",
-     "group": "Copper and cobalt",
-     "commodity": "Mine",
-     "companies": "(Zhejiang Huayou Cobalt Co. Ltd., 98%)",
-     "location": "",
-     "capacity": "8,700e cobalt"
-    },
-    {
-     "resource": "copper",
-     "group": "Copper and cobalt",
-     "commodity": "Mine",
-     "companies": "(Zhejiang Huayou Cobalt Co. Ltd., 98%)",
-     "location": "",
-     "capacity": "8,700e cobalt"
+     "capacity": "73,000e copper; 8,700e cobalt"
     },
     {
      "resource": "cobalt",
@@ -5432,7 +5440,7 @@
      "commodity": "Mine",
      "companies": "Chemaf SPRL (Shalina Resources Ltd., 99.68%)",
      "location": "Etoile Mine near Lubumbashi",
-     "capacity": "51,500 copper;"
+     "capacity": "51,500 copper; 8,700e cobalt"
     },
     {
      "resource": "copper",
@@ -5440,39 +5448,23 @@
      "commodity": "Mine",
      "companies": "Chemaf SPRL (Shalina Resources Ltd., 99.68%)",
      "location": "Etoile Mine near Lubumbashi",
-     "capacity": "51,500 copper;"
+     "capacity": "51,500 copper; 8,700e cobalt"
     },
     {
      "resource": "cobalt",
      "group": "Copper and cobalt",
      "commodity": "Mine",
-     "companies": "La Miniere de Kalukundi (Wanbao Kingco Ltd.,",
+     "companies": "La Miniere de Kalukundi (Wanbao Kingco Ltd., 75%, and Managem S.A., 20%).",
      "location": "Pumpi Mine in Lualaba Province",
-     "capacity": "40,000 copper;"
+     "capacity": "40,000 copper; 5,000 cobalt"
     },
     {
      "resource": "copper",
      "group": "Copper and cobalt",
      "commodity": "Mine",
-     "companies": "La Miniere de Kalukundi (Wanbao Kingco Ltd.,",
+     "companies": "La Miniere de Kalukundi (Wanbao Kingco Ltd., 75%, and Managem S.A., 20%).",
      "location": "Pumpi Mine in Lualaba Province",
-     "capacity": "40,000 copper;"
-    },
-    {
-     "resource": "cobalt",
-     "group": "Copper and cobalt",
-     "commodity": "Mine",
-     "companies": "75%, and Managem S.A., 20%).",
-     "location": "",
-     "capacity": "5,000 cobalt"
-    },
-    {
-     "resource": "copper",
-     "group": "Copper and cobalt",
-     "commodity": "Mine",
-     "companies": "75%, and Managem S.A., 20%).",
-     "location": "",
-     "capacity": "5,000 cobalt"
+     "capacity": "40,000 copper; 5,000 cobalt"
     },
     {
      "resource": "cobalt",
@@ -5494,97 +5486,49 @@
      "resource": "cobalt",
      "group": "Copper and cobalt",
      "commodity": "Mine",
-     "companies": "La Générale des Carrières et des Mines SA",
-     "location": "Kamfundwa and Kilamusembu Mines",
-     "capacity": "20,000e copper;"
+     "companies": "La Générale des Carrières et des Mines SA (Gécamines) (Government, 100%)",
+     "location": "Kamfundwa and Kilamusembu Mines in Haut-Katanga Province",
+     "capacity": "20,000e copper; 900e cobalt.1"
     },
     {
      "resource": "copper",
      "group": "Copper and cobalt",
      "commodity": "Mine",
-     "companies": "La Générale des Carrières et des Mines SA",
-     "location": "Kamfundwa and Kilamusembu Mines",
-     "capacity": "20,000e copper;"
+     "companies": "La Générale des Carrières et des Mines SA (Gécamines) (Government, 100%)",
+     "location": "Kamfundwa and Kilamusembu Mines in Haut-Katanga Province",
+     "capacity": "20,000e copper; 900e cobalt.1"
     },
     {
      "resource": "cobalt",
      "group": "Copper and cobalt",
      "commodity": "Mine",
-     "companies": "(Gécamines) (Government, 100%)",
-     "location": "in Haut-Katanga Province",
-     "capacity": "900e cobalt.1"
-    },
-    {
-     "resource": "copper",
-     "group": "Copper and cobalt",
-     "commodity": "Mine",
-     "companies": "(Gécamines) (Government, 100%)",
-     "location": "in Haut-Katanga Province",
-     "capacity": "900e cobalt.1"
-    },
-    {
-     "resource": "cobalt",
-     "group": "Copper and cobalt",
-     "commodity": "Mine",
-     "companies": "Société Minière du Katanga SPRL (Somika)",
+     "companies": "Société Minière du Katanga SPRL (Somika) (Kalyan Ltd., 50%, and Shukrana Ltd., 50%)",
      "location": "Mine near Lubumbashi",
-     "capacity": "20,000e copper;"
+     "capacity": "20,000e copper; 3,500e cobalt"
     },
     {
      "resource": "copper",
      "group": "Copper and cobalt",
      "commodity": "Mine",
-     "companies": "Société Minière du Katanga SPRL (Somika)",
+     "companies": "Société Minière du Katanga SPRL (Somika) (Kalyan Ltd., 50%, and Shukrana Ltd., 50%)",
      "location": "Mine near Lubumbashi",
-     "capacity": "20,000e copper;"
+     "capacity": "20,000e copper; 3,500e cobalt"
     },
     {
      "resource": "cobalt",
      "group": "Copper and cobalt",
      "commodity": "Mine",
-     "companies": "(Kalyan Ltd., 50%, and Shukrana Ltd., 50%)",
-     "location": "",
-     "capacity": "3,500e cobalt"
+     "companies": "La Société pour le Traitement du Terril de Lubumbashi (STL) [La Générale des Carrières et des Mines SA (Gécamines), 100%]",
+     "location": "Big Hill tailings treatment plant at Lubumbashi",
+     "capacity": "3,500 copper; 5,500 cobalt"
     },
     {
      "resource": "copper",
      "group": "Copper and cobalt",
      "commodity": "Mine",
-     "companies": "(Kalyan Ltd., 50%, and Shukrana Ltd., 50%)",
-     "location": "",
-     "capacity": "3,500e cobalt"
-    },
-    {
-     "resource": "cobalt",
-     "group": "Copper and cobalt",
-     "commodity": "Mine",
-     "companies": "La Société pour le Traitement du Terril de",
-     "location": "Big Hill tailings treatment plant at",
-     "capacity": "3,500 copper;"
-    },
-    {
-     "resource": "copper",
-     "group": "Copper and cobalt",
-     "commodity": "Mine",
-     "companies": "La Société pour le Traitement du Terril de",
-     "location": "Big Hill tailings treatment plant at",
-     "capacity": "3,500 copper;"
-    },
-    {
-     "resource": "cobalt",
-     "group": "Copper and cobalt",
-     "commodity": "Mine",
-     "companies": "Lubumbashi (STL) [La Générale des Carrières et des Mines SA (Gécamines), 100%]",
-     "location": "Lubumbashi",
-     "capacity": "5,500 cobalt"
-    },
-    {
-     "resource": "copper",
-     "group": "Copper and cobalt",
-     "commodity": "Mine",
-     "companies": "Lubumbashi (STL) [La Générale des Carrières et des Mines SA (Gécamines), 100%]",
-     "location": "Lubumbashi",
-     "capacity": "5,500 cobalt"
+     "companies": "La Société pour le Traitement du Terril de Lubumbashi (STL) [La Générale des Carrières et des Mines SA (Gécamines), 100%]",
+     "location": "Big Hill tailings treatment plant at Lubumbashi",
+     "capacity": "3,500 copper; 5,500 cobalt"
     },
     {
      "resource": "cobalt",
@@ -5623,7 +5567,7 @@
      "group": "Copper and cobalt",
      "commodity": "Mine",
      "companies": "Macrolink Jiayuan Mining SARL (Jiayuan Cobalt Holding Ltd., 99%)",
-     "location": "do.1",
+     "location": "Mines in Haut-Katanga Province",
      "capacity": "3,800e cobalt"
     },
     {
@@ -5631,7 +5575,7 @@
      "group": "Copper and cobalt",
      "commodity": "Mine",
      "companies": "Macrolink Jiayuan Mining SARL (Jiayuan Cobalt Holding Ltd., 99%)",
-     "location": "do.1",
+     "location": "Mines in Haut-Katanga Province",
      "capacity": "3,800e cobalt"
     },
     {
@@ -5639,7 +5583,7 @@
      "group": "Copper and cobalt",
      "commodity": "Mine",
      "companies": "Minière de Kasombo (Zhejiang Huayou Cobalt Co. Ltd., 72%)",
-     "location": "do.1",
+     "location": "Mines in Haut-Katanga Province",
      "capacity": "2,600e cobalt"
     },
     {
@@ -5647,7 +5591,7 @@
      "group": "Copper and cobalt",
      "commodity": "Mine",
      "companies": "Minière de Kasombo (Zhejiang Huayou Cobalt Co. Ltd., 72%)",
-     "location": "do.1",
+     "location": "Mines in Haut-Katanga Province",
      "capacity": "2,600e cobalt"
     },
     {
@@ -5671,7 +5615,7 @@
      "group": "Copper and cobalt",
      "commodity": "Mine",
      "companies": "Feza Mining SPRL",
-     "location": "do.1",
+     "location": "Mines in former Katanga Province",
      "capacity": "1,000e cobalt"
     },
     {
@@ -5679,7 +5623,7 @@
      "group": "Copper and cobalt",
      "commodity": "Mine",
      "companies": "Feza Mining SPRL",
-     "location": "do.1",
+     "location": "Mines in former Katanga Province",
      "capacity": "1,000e cobalt"
     },
     {
@@ -6076,7 +6020,7 @@
     },
     {
      "resource": "tin",
-     "group": "crude",
+     "group": "and tantalum",
      "commodity": "Tin, mine",
      "companies": "Artisanal and small-scale miners",
      "location": "Congo, Djibende, G24, Makonde, Mile Beches, and other mines in Tanganyika Province",
@@ -6084,7 +6028,7 @@
     },
     {
      "resource": "tin",
-     "group": "crude",
+     "group": "and tantalum",
      "commodity": "Tin, mine",
      "companies": "Artisanal and small-scale miners",
      "location": "Malenge, Musafiri, and other mines in Haut-Lomani Province",
@@ -6092,7 +6036,7 @@
     },
     {
      "resource": "tin",
-     "group": "crude",
+     "group": "and tantalum",
      "commodity": "Tin, mine",
      "companies": "Artisanal and small-scale miners",
      "location": "Camp Tembo, Mukuku, and other mines in Maniema Province Maniema Province",
@@ -6100,7 +6044,7 @@
     },
     {
      "resource": "tin",
-     "group": "crude",
+     "group": "and tantalum",
      "commodity": "Tin, mine",
      "companies": "Artisanal and small-scale miners",
      "location": "Lula, Mitwaba, and other mines in Haut-Katanga Province",
@@ -6108,7 +6052,7 @@
     },
     {
      "resource": "tin",
-     "group": "crude",
+     "group": "and tantalum",
      "commodity": "Tin, mine",
      "companies": "Artisanal and small-scale miners",
      "location": "Kalimbi/T20, Kasenge, Kibuye, Nzombe, and other mines in Sud-Kivu Province",
@@ -6116,7 +6060,7 @@
     },
     {
      "resource": "tin",
-     "group": "crude",
+     "group": "and tantalum",
      "commodity": "Tin, mine",
      "companies": "Artisanal and small-scale miners",
      "location": "Mines in Nord-Kivu Province",
@@ -6124,7 +6068,7 @@
     },
     {
      "resource": "tin",
-     "group": "crude",
+     "group": "and tantalum",
      "commodity": "Tin, mine",
      "companies": "Artisanal and small-scale miners",
      "location": "Busanga and other mines in Lualaba Province",
@@ -6132,15 +6076,15 @@
     },
     {
      "resource": "tin",
-     "group": "crude",
+     "group": "and tantalum",
      "commodity": "Tin, mine",
      "companies": "Alphamin Resources Corp., 84.14%",
      "location": "Mpama North Mine in Nord-Kivu Province",
-     "capacity": "12,000 tin in"
+     "capacity": "12,000 tin in concentrate"
     },
     {
      "resource": "tungsten",
-     "group": "crude",
+     "group": "and tantalum",
      "commodity": "Tungsten",
      "companies": "Artisanal and small-scale miners",
      "location": "Mines in Sud-Kivu Province",
@@ -6148,7 +6092,7 @@
     },
     {
      "resource": "tungsten",
-     "group": "crude",
+     "group": "and tantalum",
      "commodity": "Tungsten",
      "companies": "Artisanal and small-scale miners",
      "location": "Mines in Maniema Province",
@@ -6156,7 +6100,7 @@
     },
     {
      "resource": "tungsten",
-     "group": "crude",
+     "group": "and tantalum",
      "commodity": "Tungsten",
      "companies": "Artisanal and small-scale miners",
      "location": "Mines in Nord-Kivu Province",
@@ -6531,7 +6475,7 @@
      "commodity": "Nickel",
      "companies": "Vale S.A. (private 100%)",
      "location": "Onca Puma Nickel Mine,2 Ourilandiado Norte, Para State",
-     "capacity": "27 (iron-nickel"
+     "capacity": "27 (iron-nickel alloy)"
     },
     {
      "resource": "silicon",
@@ -6599,7 +6543,7 @@
     },
     {
      "resource": "graphite",
-     "group": "Continued",
+     "group": "",
      "commodity": "Graphite",
      "companies": "Extrativa Metalquimica S/A (private, 100%)",
      "location": "Maiquinique Mine, Bahia State",
@@ -6607,7 +6551,7 @@
     },
     {
      "resource": "graphite",
-     "group": "Continued",
+     "group": "",
      "commodity": "Graphite",
      "companies": "JMN Mineração S/A (private, 100%)",
      "location": "Plant at Mateus Leme, Minas Gerais State",
@@ -6615,7 +6559,7 @@
     },
     {
      "resource": "graphite",
-     "group": "Continued",
+     "group": "",
      "commodity": "Graphite",
      "companies": "Nacional de Grafite Ltda. (private, 100%)",
      "location": "Itapecerica, Pedra Azul, Salto da Divisa (3 mines and 3 beneficiation plants), Minas Gerais State",
@@ -6900,89 +6844,41 @@
      "resource": "pgms",
      "group": "Platinum-group metals",
      "commodity": "Mine",
-     "companies": "Anglo American Platinum Ltd. (Anglo American",
+     "companies": "Anglo American Platinum Ltd. (Anglo American plc, 78%) (Amplats)",
      "location": "Mogalakwena Mine at Ga-Masenya",
-     "capacity": "16,000 platinum;"
+     "capacity": "16,000 platinum; 17,500 palladium; 1,200 rhodium; 1,000 ruthenium; 260 iridium"
     },
     {
      "resource": "pgms",
      "group": "Platinum-group metals",
      "commodity": "Mine",
-     "companies": "plc, 78%) (Amplats)",
-     "location": "",
-     "capacity": "17,500 palladium;"
-    },
-    {
-     "resource": "pgms",
-     "group": "Platinum-group metals",
-     "commodity": "Mine",
-     "companies": "plc, 78%) (Amplats)",
+     "companies": "Anglo American Platinum Ltd. (Anglo American plc, 78%) (Amplats)",
      "location": "Amandelbult Mine near Northam",
-     "capacity": "16,000 platinum;"
+     "capacity": "16,000 platinum; 7,300 palladium; 3,600e ruthenium; 2,600e rhodium; 950e iridium"
     },
     {
      "resource": "pgms",
      "group": "Platinum-group metals",
      "commodity": "Mine",
-     "companies": "Kroondal Platinum Mines (Anglo American",
+     "companies": "Kroondal Platinum Mines (Anglo American Platinum Ltd., 50%, and Sibanye-Stillwater Ltd., 50%)",
      "location": "Kroondal Mine near Rustenburg",
-     "capacity": "11,000 platinum;"
+     "capacity": "11,000 platinum; 6,000 palladium; 3,500 ruthenium; 2,200 rhodium; 800 iridium"
     },
     {
      "resource": "pgms",
      "group": "Platinum-group metals",
      "commodity": "Mine",
-     "companies": "Platinum Ltd., 50%, and Sibanye-Stillwater",
-     "location": "",
-     "capacity": "6,000 palladium;"
-    },
-    {
-     "resource": "pgms",
-     "group": "Platinum-group metals",
-     "commodity": "Mine",
-     "companies": "Ltd., 50%)",
-     "location": "",
-     "capacity": "3,500 ruthenium;"
-    },
-    {
-     "resource": "pgms",
-     "group": "Platinum-group metals",
-     "commodity": "Mine",
-     "companies": "Modikwa Platinum Mine (African Rainbow",
+     "companies": "Modikwa Platinum Mine (African Rainbow Minerals Ltd., 50%, and Anglo American Platinum Ltd., 50%)",
      "location": "Modikwa Mine at Makgemeng",
-     "capacity": "4,200 platinum;"
+     "capacity": "4,200 platinum; 4,000 palladium; 1,200 ruthenium; 820 rhodium; 310 iridium"
     },
     {
      "resource": "pgms",
      "group": "Platinum-group metals",
      "commodity": "Mine",
-     "companies": "Minerals Ltd., 50%, and Anglo American",
-     "location": "",
-     "capacity": "4,000 palladium;"
-    },
-    {
-     "resource": "pgms",
-     "group": "Platinum-group metals",
-     "commodity": "Mine",
-     "companies": "Platinum Ltd., 50%)",
-     "location": "",
-     "capacity": "1,200 ruthenium;"
-    },
-    {
-     "resource": "pgms",
-     "group": "Platinum-group metals",
-     "commodity": "Mine",
-     "companies": "Anglo American Platinum Ltd. (Anglo American",
+     "companies": "Anglo American Platinum Ltd. (Anglo American plc, 78%) (Amplats)",
      "location": "Mototolo Mine at Steelpoort",
-     "capacity": "3,300 platinum;"
-    },
-    {
-     "resource": "pgms",
-     "group": "Platinum-group metals",
-     "commodity": "Mine",
-     "companies": "plc, 78%) (Amplats)",
-     "location": "",
-     "capacity": "2,100 palladium;"
+     "capacity": "3,300 platinum; 2,100 palladium; 990 ruthenium; 570 rhodium; 220 iridium"
     },
     {
      "resource": "pgms",
@@ -6990,7 +6886,7 @@
      "commodity": "Mine",
      "companies": "Sibanye-Stillwater Ltd.",
      "location": "Marikana and Pandora Mines near Marikana",
-     "capacity": "24,900 platinum;"
+     "capacity": "24,900 platinum; 11,600 palladium; 5,300 ruthenium; 3,400 rhodium;"
     },
     {
      "resource": "pgms",
@@ -6998,7 +6894,7 @@
      "commodity": "Mine",
      "companies": "Sibanye-Stillwater Ltd.",
      "location": "Rustenburg Mine near Rustenburg",
-     "capacity": "24,000 platinum;"
+     "capacity": "24,000 platinum; 11,900 palladium; 3,100 rhodium; 5,500 iridium and ruthenium"
     },
     {
      "resource": "pgms",
@@ -7006,7 +6902,7 @@
      "commodity": "Mine",
      "companies": "Impala Platinum Holdings Ltd. (Implats)",
      "location": "Impala Rustenburg Mine near Phokeng",
-     "capacity": "29,500 platinum;"
+     "capacity": "29,500 platinum; 16,000 palladium; 6,600 ruthenium; 4,000 rhodium; 1,600 iridium"
     },
     {
      "resource": "pgms",
@@ -7014,47 +6910,31 @@
      "commodity": "Mine",
      "companies": "Impala Platinum Holdings Ltd. (Implats)",
      "location": "Marula Mine at Bothashoek",
-     "capacity": "3,000 platinum;"
+     "capacity": "3,000 platinum; 3,100 palladium; 730 ruthenium; 620 rhodium; 220 iridium"
     },
     {
      "resource": "pgms",
      "group": "Platinum-group metals",
      "commodity": "Mine",
-     "companies": "Northam Platinum Ltd. [Zambezi Platinum (RF)",
+     "companies": "Northam Platinum Ltd. [Zambezi Platinum (RF) Ltd., 31.37%, and Coronation Asset Management Management (Pty) Ltd., 27.71%]",
      "location": "Booysendal Mine near Roossenekal",
-     "capacity": "6,200e platinum;"
+     "capacity": "6,200e platinum; 3,000e palladium; 1,800e ruthenium; 1,000e rhodium; 360e iridium"
     },
     {
      "resource": "pgms",
      "group": "Platinum-group metals",
      "commodity": "Mine",
-     "companies": "Ltd., 31.37%, and Coronation Asset Management",
-     "location": "",
-     "capacity": "3,000e palladium;"
-    },
-    {
-     "resource": "pgms",
-     "group": "Platinum-group metals",
-     "commodity": "Mine",
-     "companies": "Management (Pty) Ltd., 27.71%]",
-     "location": "",
-     "capacity": "1,800e ruthenium;"
-    },
-    {
-     "resource": "pgms",
-     "group": "Platinum-group metals",
-     "commodity": "Mine",
-     "companies": "Management (Pty) Ltd., 27.71%]",
+     "companies": "Northam Platinum Ltd. [Zambezi Platinum (RF) Ltd., 31.37%, and Coronation Asset Management Management (Pty) Ltd., 27.71%]",
      "location": "Zondereinde Mine near Northam",
-     "capacity": "6,100 platinum;"
+     "capacity": "6,100 platinum; 2,900 palladium; 1,400 ruthenium; 850 rhodium; 330 iridium"
     },
     {
      "resource": "pgms",
      "group": "Platinum-group metals",
      "commodity": "Mine",
-     "companies": "Management (Pty) Ltd., 27.71%]",
+     "companies": "Northam Platinum Ltd. [Zambezi Platinum (RF) Ltd., 31.37%, and Coronation Asset Management Management (Pty) Ltd., 27.71%]",
      "location": "Eland Mine near Brits",
-     "capacity": "1,400e platinum-group"
+     "capacity": "1,400e platinum-group metals"
     },
     {
      "resource": "pgms",
@@ -7062,71 +6942,39 @@
      "commodity": "Mine",
      "companies": "Siyanda Resources (Pty) Ltd.",
      "location": "Union Mine near Northam",
-     "capacity": "10,700 platinum;"
+     "capacity": "10,700 platinum; 4,600 palladium; 1,800 rhodium; 3,100 iridium and ruthenium"
     },
     {
      "resource": "pgms",
      "group": "Platinum-group metals",
      "commodity": "Mine",
-     "companies": "Royal Bafokeng Platinum Ltd. (RBPlat)",
+     "companies": "Royal Bafokeng Platinum Ltd. (RBPlat) (Royal Bafokeng Nation, 100%)",
      "location": "Styldrift Mine near Phokeng",
-     "capacity": "6,900 platinum;"
+     "capacity": "6,900 platinum; 3,100 palladium, rhodium, and gold"
     },
     {
      "resource": "pgms",
      "group": "Platinum-group metals",
      "commodity": "Mine",
-     "companies": "(Royal Bafokeng Nation, 100%)",
-     "location": "",
-     "capacity": "3,100 palladium,"
-    },
-    {
-     "resource": "pgms",
-     "group": "Platinum-group metals",
-     "commodity": "Mine",
-     "companies": "(Royal Bafokeng Nation, 100%)",
+     "companies": "Royal Bafokeng Platinum Ltd. (RBPlat) (Royal Bafokeng Nation, 100%)",
      "location": "Bafokeng Rasimone Platinum Mine near Phokeng",
-     "capacity": "5,900 platinum;"
+     "capacity": "5,900 platinum; 2,400 palladium; 790 ruthenium; 460 rhodium; 150 iridium"
     },
     {
      "resource": "pgms",
      "group": "Platinum-group metals",
      "commodity": "Mine",
-     "companies": "Two Rivers Platinum Mine (Pty) Ltd. (African",
-     "location": "Two Rivers Platinum Mine near Steelpoort",
-     "capacity": "5,500 platinum;"
+     "companies": "Two Rivers Platinum Mine (Pty) Ltd. (African Rainbow Minerals Ltd., 55%, and Impala Platinum Holdings Ltd., 45%)",
+     "location": "Two Rivers Platinum Mine near Steelpoort in Limpopo Province",
+     "capacity": "5,500 platinum; 3,200 palladium; 1,600 ruthenium; 930 rhodium; 350 iridium"
     },
     {
      "resource": "pgms",
      "group": "Platinum-group metals",
      "commodity": "Mine",
-     "companies": "Rainbow Minerals Ltd., 55%, and Impala",
-     "location": "in Limpopo Province",
-     "capacity": "3,200 palladium;"
-    },
-    {
-     "resource": "pgms",
-     "group": "Platinum-group metals",
-     "commodity": "Mine",
-     "companies": "Platinum Holdings Ltd., 45%)",
-     "location": "",
-     "capacity": "1,600 ruthenium;"
-    },
-    {
-     "resource": "pgms",
-     "group": "Platinum-group metals",
-     "commodity": "Mine",
-     "companies": "Nkomati Joint Venture (African Rainbow Minerals",
+     "companies": "Nkomati Joint Venture (African Rainbow Minerals Ltd., 50%, and MMC Norilsk Nickel, 50%)",
      "location": "Nkomati Mine in Mpumalanga Province1",
-     "capacity": "2,900e palladium;"
-    },
-    {
-     "resource": "pgms",
-     "group": "Platinum-group metals",
-     "commodity": "Mine",
-     "companies": "Ltd., 50%, and MMC Norilsk Nickel, 50%)",
-     "location": "",
-     "capacity": "1,200e platinum;"
+     "capacity": "2,900e palladium; 1,200e platinum; 200e rhodium"
     },
     {
      "resource": "pgms",
@@ -7134,7 +6982,7 @@
      "commodity": "Mine",
      "companies": "Sedibelo Resources Ltd",
      "location": "Pilanesberg Mine in North West Province",
-     "capacity": "5,400 platinum;"
+     "capacity": "5,400 platinum; 1,700 palladium; 490 rhodium"
     },
     {
      "resource": "pgms",
@@ -7142,7 +6990,7 @@
      "commodity": "Mine",
      "companies": "African Rainbow Minerals Ltd.",
      "location": "Bokoni Mine at Sefateng1",
-     "capacity": "4,100 platinum;"
+     "capacity": "4,100 platinum; 2,700 palladium; 470 rhodium"
     },
     {
      "resource": "pgms",
@@ -7150,7 +6998,7 @@
      "commodity": "Mine",
      "companies": "Tharisa Minerals (Pty) Ltd.",
      "location": "Tharisa Mine in North West Province",
-     "capacity": "2,800 platinum;"
+     "capacity": "2,800 platinum; 860 palladium; 720 ruthenium; 490 rhodium; 220 iridium"
     },
     {
      "resource": "pgms",
@@ -7158,23 +7006,15 @@
      "commodity": "Mine",
      "companies": "Sylvania Platinum Ltd.",
      "location": "Sylvania Dump Operations",
-     "capacity": "1,100e platinum;"
+     "capacity": "1,100e platinum; 520e palladium; 290e rhodium"
     },
     {
      "resource": "pgms",
      "group": "Platinum-group metals",
      "commodity": "Smelter",
-     "companies": "Anglo American Platinum Ltd. (Anglo American",
-     "location": "Polokwane smelter at Polokwane, Mortimer",
-     "capacity": "85,000 platinum;"
-    },
-    {
-     "resource": "pgms",
-     "group": "Platinum-group metals",
-     "commodity": "Smelter",
-     "companies": "plc, 78%) (Amplats)",
-     "location": "smelter at Swartklip, and Waterval smelter",
-     "capacity": "55,000 palladium;"
+     "companies": "Anglo American Platinum Ltd. (Anglo American plc, 78%) (Amplats)",
+     "location": "Polokwane smelter at Polokwane, Mortimer smelter at Swartklip, and Waterval smelter",
+     "capacity": "85,000 platinum; 55,000 palladium; 12,000 rhodium"
     },
     {
      "resource": "pgms",
@@ -7182,23 +7022,15 @@
      "commodity": "Smelter",
      "companies": "Impala Platinum Holdings Ltd. (Implats)",
      "location": "Smelter near Phokeng",
-     "capacity": "81,000 platinum;"
+     "capacity": "81,000 platinum; 52,600 palladium; 11,600 rhodium; 17,000 gold, iridium, and ruthenium"
     },
     {
      "resource": "pgms",
      "group": "Platinum-group metals",
      "commodity": "Refinery",
-     "companies": "Anglo American Platinum Ltd. (Anglo American",
+     "companies": "Anglo American Platinum Ltd. (Anglo American plc, 78%) (Amplats)",
      "location": "Precious metals refinery near Rustenburg",
-     "capacity": "81,000 platinum;"
-    },
-    {
-     "resource": "pgms",
-     "group": "Platinum-group metals",
-     "commodity": "Refinery",
-     "companies": "plc, 78%) (Amplats)",
-     "location": "",
-     "capacity": "54,000 palladium;"
+     "capacity": "81,000 platinum; 54,000 palladium; 11,000 rhodium; 18,800 iridium and ruthenium"
     },
     {
      "resource": "pgms",
@@ -7206,7 +7038,7 @@
      "commodity": "Refinery",
      "companies": "Impala Platinum Holdings Ltd. (Implats)",
      "location": "Refinery near Springs",
-     "capacity": "71,500 platinum metal;"
+     "capacity": "71,500 platinum metal; 46,400 palladium metal; 10,200 rhodium metal; 15,000 gold, iridium, and ruthenium"
     },
     {
      "resource": "pgms",
@@ -7214,7 +7046,7 @@
      "commodity": "Refinery",
      "companies": "Sibanye-Stillwater Ltd.",
      "location": "Refinery at Brakpan",
-     "capacity": "31,000 platinum metal;"
+     "capacity": "31,000 platinum metal; 14,600 palladium metal; 7,000 ruthenium metal; 4,300 rhodium metal; 1,400 iridium metal"
     },
     {
      "resource": "pgms",
@@ -7222,7 +7054,7 @@
      "commodity": "Refinery",
      "companies": "Heraeus South Africa (Pty) Ltd.",
      "location": "Refinery at Port Elizabeth",
-     "capacity": "20,000e platinum metal;"
+     "capacity": "20,000e platinum metal; 10,000e palladium metal"
     },
     {
      "resource": "silicon",
@@ -7777,14 +7609,14 @@
     {
      "resource": "rare-earths",
      "group": "Petroleum",
-     "commodity": "Rare earths, scandium",
-     "companies": "Taganito HPAL Nickel Corp. (Sumitomo Metal",
-     "location": "Taganito nickel high-pressure acid-leach",
+     "commodity": "Rare earths, scandium oxalate",
+     "companies": "Taganito HPAL Nickel Corp. (Sumitomo Metal Mining Co. Ltd. (operator), 75%; Mitsui Co. Ltd., 15%; Nickel Asia Corp., 10%)",
+     "location": "Taganito nickel high-pressure acid-leach (HPAL) plant, Surigao del Norte Province",
      "capacity": "21000"
     },
     {
      "resource": "tin",
-     "group": "Continued",
+     "group": "Stone",
      "commodity": "Tin, refined, secondary",
      "companies": "O.M. Manufacturing Philippines Inc. (O.M. Co. Ltd., 100%)",
      "location": "Plant in Rosario, Cavite Province",
@@ -7792,7 +7624,7 @@
     },
     {
      "resource": "tungsten",
-     "group": "Continued",
+     "group": "Stone",
      "commodity": "Tungsten, refinery, secondary",
      "companies": "Philippine Chuangxin Industrial Co. Inc.",
      "location": "Plant in Marilao, Bulacan Province",
@@ -8040,23 +7872,15 @@
      "resource": "copper",
      "group": "Copper",
      "commodity": "Ore, recoverable, Cu content",
-     "companies": "Kazzinc Ltd. [Glencore plc, 69.7%, and NMC Tau-Ken",
-     "location": "Ridder GOK,2 Shyghys Qazaqstan Province:",
-     "capacity": ""
-    },
-    {
-     "resource": "copper",
-     "group": "Copper",
-     "commodity": "Ore, recoverable, Cu content",
-     "companies": "Samruk JSC, 29.82% (National Wealth Fund Samruk-Kazyna JSC, 100%)]",
-     "location": "Ridder-Sokolny Mine4",
+     "companies": "Kazzinc Ltd. [Glencore plc, 69.7%, and NMC Tau-Ken Samruk JSC, 29.82% (National Wealth Fund Samruk-Kazyna JSC, 100%)]",
+     "location": "Ridder GOK,2 Shyghys Qazaqstan Province: Ridder-Sokolny Mine4",
      "capacity": "NA"
     },
     {
      "resource": "copper",
      "group": "Copper",
      "commodity": "Ore, recoverable, Cu content",
-     "companies": "Samruk JSC, 29.82% (National Wealth Fund Samruk-Kazyna JSC, 100%)]",
+     "companies": "Kazzinc Ltd. [Glencore plc, 69.7%, and NMC Tau-Ken Samruk JSC, 29.82% (National Wealth Fund Samruk-Kazyna JSC, 100%)]",
      "location": "Shubinsky Mine5",
      "capacity": "2800"
     },
@@ -8064,7 +7888,7 @@
      "resource": "copper",
      "group": "Copper",
      "commodity": "Ore, recoverable, Cu content",
-     "companies": "Samruk JSC, 29.82% (National Wealth Fund Samruk-Kazyna JSC, 100%)]",
+     "companies": "Kazzinc Ltd. [Glencore plc, 69.7%, and NMC Tau-Ken Samruk JSC, 29.82% (National Wealth Fund Samruk-Kazyna JSC, 100%)]",
      "location": "Tishinsky Mine",
      "capacity": "15000"
     },
@@ -8072,7 +7896,7 @@
      "resource": "copper",
      "group": "Copper",
      "commodity": "Ore, recoverable, Cu content",
-     "companies": "Samruk JSC, 29.82% (National Wealth Fund Samruk-Kazyna JSC, 100%)]",
+     "companies": "Kazzinc Ltd. [Glencore plc, 69.7%, and NMC Tau-Ken Samruk JSC, 29.82% (National Wealth Fund Samruk-Kazyna JSC, 100%)]",
      "location": "Maleevsky Mine in Altay GOK,2 Shyghys Qazaqstan Province",
      "capacity": "40000"
     },
@@ -8127,18 +7951,18 @@
     {
      "resource": "rare-earths",
      "group": "Petroleum",
-     "commodity": "Rare earth elements, recovered from",
-     "companies": "Summit Atom Rare Earth Co. LLP (SARECO LLP)",
+     "commodity": "Rare earth elements, recovered from uranium-ore residue",
+     "companies": "Summit Atom Rare Earth Co. LLP (SARECO LLP) [ATEK LLC, 100% (Depannez Properties Ltd., 74.34%, and private investors, 25.66%)]",
      "location": "Plant in Stepnogorsk, Aqmola Province",
      "capacity": "1500"
     },
     {
      "resource": "uranium",
      "group": "Petroleum",
-     "commodity": "uranium-ore residue",
-     "companies": "[ATEK LLC, 100% (Depannez Properties Ltd., 74.34%, and private investors, 25.66%)]",
-     "location": "",
-     "capacity": ""
+     "commodity": "Rare earth elements, recovered from uranium-ore residue",
+     "companies": "Summit Atom Rare Earth Co. LLP (SARECO LLP) [ATEK LLC, 100% (Depannez Properties Ltd., 74.34%, and private investors, 25.66%)]",
+     "location": "Plant in Stepnogorsk, Aqmola Province",
+     "capacity": "1500"
     },
     {
      "resource": "copper",
@@ -8723,25 +8547,9 @@
      "resource": "nickel",
      "group": "Nickel",
      "commodity": "Refinery",
-     "companies": "The Cobalt Refinery Company Inc. (Moa joint",
-     "location": "Fort Saskatchewan refinery, Fort",
-     "capacity": "35 (Ni briquets"
-    },
-    {
-     "resource": "nickel",
-     "group": "Nickel",
-     "commodity": "Refinery",
-     "companies": "venture of General Nickel S.A., 50%, and",
-     "location": "Saskatchewan, Alberta",
-     "capacity": "and powder);"
-    },
-    {
-     "resource": "nickel",
-     "group": "Nickel",
-     "commodity": "Refinery",
-     "companies": "Sherritt International Corp., 50%)",
-     "location": "",
-     "capacity": "4 (Co briquets"
+     "companies": "The Cobalt Refinery Company Inc. (Moa joint venture of General Nickel S.A., 50%, and Sherritt International Corp., 50%)",
+     "location": "Fort Saskatchewan refinery, Fort Saskatchewan, Alberta",
+     "capacity": "35 (Ni briquets and powder); 4 (Co briquets and powder)"
     },
     {
      "resource": "nickel",
@@ -9246,23 +9054,15 @@
     {
      "resource": "copper",
      "group": "Copper",
-     "commodity": "Refined",
+     "commodity": "Refined do.",
      "companies": "Lao Cai Copper Refining Co. [VINACOMIN - Minerals Holding Corp. (VIMICO), 100%]",
-     "location": "Lao Cai copper refining factory, Tang Loong Industrial Park, Bao Thang, Lao Cai",
-     "capacity": "10"
+     "location": "Lao Cai copper refining factory, Tang Loong Industrial Park, Bao Thang, Lao Cai Lao Cai copper refining factory 2, Ban Qua, Bat Xat, Lao Cai",
+     "capacity": "10 20"
     },
     {
      "resource": "copper",
      "group": "Copper",
-     "commodity": "Refined",
-     "companies": "Lao Cai Copper Refining Co. [VINACOMIN - Minerals Holding Corp. (VIMICO), 100%]",
-     "location": "Lao Cai copper refining factory 2, Ban Qua, Bat Xat, Lao Cai",
-     "capacity": "20"
-    },
-    {
-     "resource": "copper",
-     "group": "Copper",
-     "commodity": "Refined",
+     "commodity": "Refined do.",
      "companies": "LiOA Electrical Equipment Co. Ltd.",
      "location": "Factory in Van Lam, Hung Yen; Factory in Bien Hoa, Dong Nai",
      "capacity": "40"
@@ -9528,7 +9328,7 @@
     },
     {
      "resource": "tin",
-     "group": "Continued",
+     "group": "",
      "commodity": "Tin",
      "companies": "Empresa Minera Barrosquira Ltda. (private, 100%)",
      "location": "Caracoles Mine, Inquisivi Province, La Paz Department",
@@ -9536,7 +9336,7 @@
     },
     {
      "resource": "tin",
-     "group": "Continued",
+     "group": "",
      "commodity": "Tin",
      "companies": "Empresa Minera Colquiri [Corporación Minera de Bolivia (COMIBOL) (Government, 100%), 100%]",
      "location": "Colquiri tin and zinc mine, Inquisivi Province, La Paz Department",
@@ -9544,7 +9344,7 @@
     },
     {
      "resource": "tin",
-     "group": "Continued",
+     "group": "",
      "commodity": "Tin",
      "companies": "Empresa Minera Huanuni [Corporación Minera de Bolivia (COMIBOL) (Government, 100%), 100%]",
      "location": "Huanuni Mine, Dalence Province, Oruro Department",
@@ -9552,7 +9352,7 @@
     },
     {
      "resource": "tin",
-     "group": "Continued",
+     "group": "",
      "commodity": "Tin, smelter",
      "companies": "Empresa Metalúrgica Vinto S.A. (Government, 100%)",
      "location": "Vinto smelting complex, Carretera Vinto, Oruro Department",
@@ -9560,7 +9360,7 @@
     },
     {
      "resource": "tin",
-     "group": "Continued",
+     "group": "",
      "commodity": "Tin, smelter",
      "companies": "Operaciones Metalúrgicas S.A. (private, 100%)",
      "location": "Huajara Industrial Park, east Oruro, Oruro Department",
@@ -9568,7 +9368,7 @@
     },
     {
      "resource": "tin",
-     "group": "Continued",
+     "group": "",
      "commodity": "Tin-lead alloys",
      "companies": "Empresa Metalúrgica Vinto S.A. (Government, 100%)",
      "location": "Vinto smelting complex, Carretera Vinto, Oruro Department",
@@ -9576,7 +9376,7 @@
     },
     {
      "resource": "tungsten",
-     "group": "Continued",
+     "group": "",
      "commodity": "Tungsten, W content",
      "companies": "Empresa Minera Himalaya [Corporación Minera de Bolivia (COMIBOL) (Government, 100%), 100%]",
      "location": "Himalaya Mine, Murillo Province, La Paz Department",
@@ -9584,7 +9384,7 @@
     },
     {
      "resource": "tungsten",
-     "group": "Continued",
+     "group": "",
      "commodity": "Tungsten, W content",
      "companies": "Small-scale mining operations and cooperatives (private, 100%)",
      "location": "Bolsa Negra, Enramada, Reconquistada Mines, near the former International Mining Co.'s Chojilla Mine, Sud Yungas Province; Chambilaya and Chicote Grande Mines, Inquisivi Province; Mercedes, San Antonio, Ucumarini Mines, Larecaja Province, La Paz Department",
@@ -10749,33 +10549,17 @@
      "resource": "copper",
      "group": "",
      "commodity": "Copper",
-     "companies": "Mexicana de Cananea, S.A. de C.V. (Grupo",
-     "location": "Buenavista del Cobre Mine and SX–EW2 plant",
-     "capacity": "340 concentrates"
+     "companies": "Mexicana de Cananea, S.A. de C.V. (Grupo México, S.A.B. de C.V., 90%)",
+     "location": "Buenavista del Cobre Mine and SX–EW2 plant at Cananea, Son.",
+     "capacity": "340 concentrates 150 SX–EW.2"
     },
     {
      "resource": "copper",
      "group": "",
      "commodity": "Copper",
-     "companies": "México, S.A.B. de C.V., 90%)",
-     "location": "at Cananea, Son.",
-     "capacity": "150 SX–EW.2"
-    },
-    {
-     "resource": "copper",
-     "group": "",
-     "commodity": "Copper",
-     "companies": "Mexicana de Cobre, S.A. de C.V. (Grupo México,",
-     "location": "La Caridad Mine, Pilares Mine, smelter, refinery,",
-     "capacity": "170 concentrates"
-    },
-    {
-     "resource": "copper",
-     "group": "",
-     "commodity": "Copper",
-     "companies": "S.A.B. de C.V., 90%)",
-     "location": "SX–EW2 plant at La Caridad, Son.",
-     "capacity": "300 smelter,"
+     "companies": "Mexicana de Cobre, S.A. de C.V. (Grupo México, S.A.B. de C.V., 90%)",
+     "location": "La Caridad Mine, Pilares Mine, smelter, refinery, SX–EW2 plant at La Caridad, Son.",
+     "capacity": "170 concentrates 300 smelter, 25 SX–EW,2"
     },
     {
      "resource": "copper",
@@ -10805,17 +10589,9 @@
      "resource": "copper",
      "group": "",
      "commodity": "Copper",
-     "companies": "Cobre del Mayo S.A. de C.V. (Invecture Group S.A.",
+     "companies": "Cobre del Mayo S.A. de C.V. (Invecture Group S.A. de C.V., 100%)",
      "location": "Piedras Verdes Mine and SX–EW2 plant, Son.",
-     "capacity": "20 concentrates"
-    },
-    {
-     "resource": "copper",
-     "group": "",
-     "commodity": "Copper",
-     "companies": "de C.V., 100%)",
-     "location": "",
-     "capacity": "32 SX–EW.2"
+     "capacity": "20 concentrates 32 SX–EW.2"
     },
     {
      "resource": "copper",
@@ -10839,7 +10615,7 @@
      "commodity": "Copper",
      "companies": "Grupo México, S.A.B. de C.V. (100%)",
      "location": "Santa Bárbara Mine, in Santa Bárbara, Chih.; San Martin Mine, in San Martin, Zac.; Charcas Mine, in Charcas, S.L.P.",
-     "capacity": "5"
+     "capacity": "5. 4. 4"
     },
     {
      "resource": "copper",
@@ -10847,7 +10623,7 @@
      "commodity": "Copper",
      "companies": "Industrias Peñoles, S.A.B. de C.V. (100%)",
      "location": "Sabinas Mine, in Sabinas, Zac. and Capela Mine, in Teleolapan, Gro.",
-     "capacity": "4"
+     "capacity": "4. NA"
     },
     {
      "resource": "copper",
@@ -10960,49 +10736,17 @@
      "resource": "cobalt",
      "group": "Copper and cobalt",
      "commodity": "Ore and concentrate",
-     "companies": "Chibuluma Mines Plc [Metorex Ltd.(Jinchuan Group",
-     "location": "Chibuluma South Mine, about",
-     "capacity": "600,000 ore, which"
+     "companies": "Chibuluma Mines Plc [Metorex Ltd.(Jinchuan Group International Resources Co. Ltd., 100%), 85%, and Zambia Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH), 15%]",
+     "location": "Chibuluma South Mine, about 12 km west of Kitwe, Copperbelt Province",
+     "capacity": "600,000 ore, which yields about 19,000 copper in concentrate"
     },
     {
      "resource": "copper",
      "group": "Copper and cobalt",
      "commodity": "Ore and concentrate",
-     "companies": "Chibuluma Mines Plc [Metorex Ltd.(Jinchuan Group",
-     "location": "Chibuluma South Mine, about",
-     "capacity": "600,000 ore, which"
-    },
-    {
-     "resource": "cobalt",
-     "group": "Copper and cobalt",
-     "commodity": "Ore and concentrate",
-     "companies": "International Resources Co. Ltd., 100%), 85%, and",
-     "location": "12 km west of Kitwe,",
-     "capacity": "yields about 19,000"
-    },
-    {
-     "resource": "copper",
-     "group": "Copper and cobalt",
-     "commodity": "Ore and concentrate",
-     "companies": "International Resources Co. Ltd., 100%), 85%, and",
-     "location": "12 km west of Kitwe,",
-     "capacity": "yields about 19,000"
-    },
-    {
-     "resource": "cobalt",
-     "group": "Copper and cobalt",
-     "commodity": "Ore and concentrate",
-     "companies": "Zambia Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH), 15%]",
-     "location": "Copperbelt Province",
-     "capacity": "copper in concentrate"
-    },
-    {
-     "resource": "copper",
-     "group": "Copper and cobalt",
-     "commodity": "Ore and concentrate",
-     "companies": "Zambia Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH), 15%]",
-     "location": "Copperbelt Province",
-     "capacity": "copper in concentrate"
+     "companies": "Chibuluma Mines Plc [Metorex Ltd.(Jinchuan Group International Resources Co. Ltd., 100%), 85%, and Zambia Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH), 15%]",
+     "location": "Chibuluma South Mine, about 12 km west of Kitwe, Copperbelt Province",
+     "capacity": "600,000 ore, which yields about 19,000 copper in concentrate"
     },
     {
      "resource": "cobalt",
@@ -11042,7 +10786,7 @@
      "commodity": "Ore and concentrate",
      "companies": "CNMC Luanshya Copper Mines Plc [NFC Africa Mining Plc, 80%, and Zambia Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH), 20%]",
      "location": "Luanshya slag recovery from tailings, Luanshya, Copperbelt Province",
-     "capacity": "500,000 slag, which"
+     "capacity": "500,000 slag, which yeilds 3,500 copper in concentrate"
     },
     {
      "resource": "copper",
@@ -11050,7 +10794,7 @@
      "commodity": "Ore and concentrate",
      "companies": "CNMC Luanshya Copper Mines Plc [NFC Africa Mining Plc, 80%, and Zambia Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH), 20%]",
      "location": "Luanshya slag recovery from tailings, Luanshya, Copperbelt Province",
-     "capacity": "500,000 slag, which"
+     "capacity": "500,000 slag, which yeilds 3,500 copper in concentrate"
     },
     {
      "resource": "cobalt",
@@ -11072,49 +10816,17 @@
      "resource": "cobalt",
      "group": "Copper and cobalt",
      "commodity": "Ore and concentrate",
-     "companies": "Kansanshi Mining Plc [First Quantum Minerals Ltd.,",
-     "location": "Kansanshi Mine, north of Solwezi,",
-     "capacity": "14,000,000 sulfide ore,"
+     "companies": "Kansanshi Mining Plc [First Quantum Minerals Ltd., 80%, and Zambia Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH), 20%]",
+     "location": "Kansanshi Mine, north of Solwezi, Northwestern Province",
+     "capacity": "14,000,000 sulfide ore, 8,800,000 oxide ore, 8,600,000 mixed ore"
     },
     {
      "resource": "copper",
      "group": "Copper and cobalt",
      "commodity": "Ore and concentrate",
-     "companies": "Kansanshi Mining Plc [First Quantum Minerals Ltd.,",
-     "location": "Kansanshi Mine, north of Solwezi,",
-     "capacity": "14,000,000 sulfide ore,"
-    },
-    {
-     "resource": "cobalt",
-     "group": "Copper and cobalt",
-     "commodity": "Ore and concentrate",
-     "companies": "80%, and Zambia Consolidated Copper Mines",
-     "location": "Northwestern Province",
-     "capacity": "8,800,000 oxide ore,"
-    },
-    {
-     "resource": "copper",
-     "group": "Copper and cobalt",
-     "commodity": "Ore and concentrate",
-     "companies": "80%, and Zambia Consolidated Copper Mines",
-     "location": "Northwestern Province",
-     "capacity": "8,800,000 oxide ore,"
-    },
-    {
-     "resource": "cobalt",
-     "group": "Copper and cobalt",
-     "commodity": "Ore and concentrate",
-     "companies": "Investments Holdings Plc (ZCCM–IH), 20%]",
-     "location": "",
-     "capacity": "8,600,000 mixed ore"
-    },
-    {
-     "resource": "copper",
-     "group": "Copper and cobalt",
-     "commodity": "Ore and concentrate",
-     "companies": "Investments Holdings Plc (ZCCM–IH), 20%]",
-     "location": "",
-     "capacity": "8,600,000 mixed ore"
+     "companies": "Kansanshi Mining Plc [First Quantum Minerals Ltd., 80%, and Zambia Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH), 20%]",
+     "location": "Kansanshi Mine, north of Solwezi, Northwestern Province",
+     "capacity": "14,000,000 sulfide ore, 8,800,000 oxide ore, 8,600,000 mixed ore"
     },
     {
      "resource": "cobalt",
@@ -11183,87 +10895,39 @@
     {
      "resource": "cobalt",
      "group": "Copper and cobalt",
-     "commodity": "Ore and",
-     "companies": "Konkola Copper Mines Plc (KCM) [Vedanta Resources",
-     "location": "Reprocessing material from the",
+     "commodity": "Ore and concentrate—Continued",
+     "companies": "Konkola Copper Mines Plc (KCM) [Vedanta Resources Plc, 79.4%, and Zambia Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH), 20.6%]",
+     "location": "Reprocessing material from the TD3a,2 the TD3b,2 TD5,2 and the TD7,2 tailings dams, Chingola, Copperbelt Province",
      "capacity": "NA"
     },
     {
      "resource": "copper",
      "group": "Copper and cobalt",
-     "commodity": "Ore and",
-     "companies": "Konkola Copper Mines Plc (KCM) [Vedanta Resources",
-     "location": "Reprocessing material from the",
+     "commodity": "Ore and concentrate—Continued",
+     "companies": "Konkola Copper Mines Plc (KCM) [Vedanta Resources Plc, 79.4%, and Zambia Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH), 20.6%]",
+     "location": "Reprocessing material from the TD3a,2 the TD3b,2 TD5,2 and the TD7,2 tailings dams, Chingola, Copperbelt Province",
      "capacity": "NA"
     },
     {
      "resource": "cobalt",
      "group": "Copper and cobalt",
-     "commodity": "concentrate",
-     "companies": "Plc, 79.4%, and Zambia Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH), 20.6%]",
-     "location": "TD3a,2 the TD3b,2 TD5,2 and the TD7,2 tailings dams, Chingola, Copperbelt Province",
-     "capacity": ""
+     "commodity": "Ore and concentrate—Continued",
+     "companies": "Lubambe Copper Mine Ltd. [EMR Capital, 80%, and Zambia Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH), 20%]",
+     "location": "Lubambe copper mine, near Chililabombwe, Copperbelt Province",
+     "capacity": "2,400,000 ore, which yields about 45,000 copper in concentrate"
     },
     {
      "resource": "copper",
      "group": "Copper and cobalt",
-     "commodity": "concentrate",
-     "companies": "Plc, 79.4%, and Zambia Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH), 20.6%]",
-     "location": "TD3a,2 the TD3b,2 TD5,2 and the TD7,2 tailings dams, Chingola, Copperbelt Province",
-     "capacity": ""
+     "commodity": "Ore and concentrate—Continued",
+     "companies": "Lubambe Copper Mine Ltd. [EMR Capital, 80%, and Zambia Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH), 20%]",
+     "location": "Lubambe copper mine, near Chililabombwe, Copperbelt Province",
+     "capacity": "2,400,000 ore, which yields about 45,000 copper in concentrate"
     },
     {
      "resource": "cobalt",
      "group": "Copper and cobalt",
-     "commodity": "concentrate",
-     "companies": "Lubambe Copper Mine Ltd. [EMR Capital, 80%, and",
-     "location": "Lubambe copper mine,",
-     "capacity": "2,400,000 ore, which"
-    },
-    {
-     "resource": "copper",
-     "group": "Copper and cobalt",
-     "commodity": "concentrate",
-     "companies": "Lubambe Copper Mine Ltd. [EMR Capital, 80%, and",
-     "location": "Lubambe copper mine,",
-     "capacity": "2,400,000 ore, which"
-    },
-    {
-     "resource": "cobalt",
-     "group": "Copper and cobalt",
-     "commodity": "concentrate",
-     "companies": "Zambia Consolidated Copper Mines Investments",
-     "location": "near Chililabombwe,",
-     "capacity": "yields about 45,000"
-    },
-    {
-     "resource": "copper",
-     "group": "Copper and cobalt",
-     "commodity": "concentrate",
-     "companies": "Zambia Consolidated Copper Mines Investments",
-     "location": "near Chililabombwe,",
-     "capacity": "yields about 45,000"
-    },
-    {
-     "resource": "cobalt",
-     "group": "Copper and cobalt",
-     "commodity": "concentrate",
-     "companies": "Holdings Plc (ZCCM–IH), 20%]",
-     "location": "Copperbelt Province",
-     "capacity": "copper in concentrate"
-    },
-    {
-     "resource": "copper",
-     "group": "Copper and cobalt",
-     "commodity": "concentrate",
-     "companies": "Holdings Plc (ZCCM–IH), 20%]",
-     "location": "Copperbelt Province",
-     "capacity": "copper in concentrate"
-    },
-    {
-     "resource": "cobalt",
-     "group": "Copper and cobalt",
-     "commodity": "concentrate",
+     "commodity": "Ore and concentrate—Continued",
      "companies": "Lumwana Mining Co. Ltd. (Barrick Gold Corp., 100%)",
      "location": "Lumwana Mine (Chimiwungo and Malundwe pits), 20 km west of Chingola, Copperbelt Province",
      "capacity": "40,000,000 ore"
@@ -11271,7 +10935,7 @@
     {
      "resource": "copper",
      "group": "Copper and cobalt",
-     "commodity": "concentrate",
+     "commodity": "Ore and concentrate—Continued",
      "companies": "Lumwana Mining Co. Ltd. (Barrick Gold Corp., 100%)",
      "location": "Lumwana Mine (Chimiwungo and Malundwe pits), 20 km west of Chingola, Copperbelt Province",
      "capacity": "40,000,000 ore"
@@ -11279,7 +10943,7 @@
     {
      "resource": "cobalt",
      "group": "Copper and cobalt",
-     "commodity": "concentrate",
+     "commodity": "Ore and concentrate—Continued",
      "companies": "Mkushi Copper Joint Venture Ltd. (Seringa Mining Ltd., 51%, and Katanga Resources Ltd., 49%)",
      "location": "Mkushi heap leach facility, Central Province",
      "capacity": "NA"
@@ -11287,7 +10951,7 @@
     {
      "resource": "copper",
      "group": "Copper and cobalt",
-     "commodity": "concentrate",
+     "commodity": "Ore and concentrate—Continued",
      "companies": "Mkushi Copper Joint Venture Ltd. (Seringa Mining Ltd., 51%, and Katanga Resources Ltd., 49%)",
      "location": "Mkushi heap leach facility, Central Province",
      "capacity": "NA"
@@ -11295,71 +10959,39 @@
     {
      "resource": "cobalt",
      "group": "Copper and cobalt",
-     "commodity": "concentrate",
-     "companies": "NFC Africa Mining Plc [China Nonferrous Metal",
-     "location": "Chambishi Main Mine, 75 km",
-     "capacity": "2,145,000 ore, which"
+     "commodity": "Ore and concentrate—Continued",
+     "companies": "NFC Africa Mining Plc [China Nonferrous Metal Mining (Group) Co. Ltd., 85%, and Zambia Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH), 15%]",
+     "location": "Chambishi Main Mine, 75 km northwest of Ndola, Copperbelt Province",
+     "capacity": "2,145,000 ore, which yields about 50,000 copper in concentrate"
     },
     {
      "resource": "copper",
      "group": "Copper and cobalt",
-     "commodity": "concentrate",
-     "companies": "NFC Africa Mining Plc [China Nonferrous Metal",
-     "location": "Chambishi Main Mine, 75 km",
-     "capacity": "2,145,000 ore, which"
+     "commodity": "Ore and concentrate—Continued",
+     "companies": "NFC Africa Mining Plc [China Nonferrous Metal Mining (Group) Co. Ltd., 85%, and Zambia Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH), 15%]",
+     "location": "Chambishi Main Mine, 75 km northwest of Ndola, Copperbelt Province",
+     "capacity": "2,145,000 ore, which yields about 50,000 copper in concentrate"
     },
     {
      "resource": "cobalt",
      "group": "Copper and cobalt",
-     "commodity": "concentrate",
-     "companies": "Mining (Group) Co. Ltd., 85%, and Zambia",
-     "location": "northwest of Ndola, Copperbelt",
-     "capacity": "yields about 50,000"
-    },
-    {
-     "resource": "copper",
-     "group": "Copper and cobalt",
-     "commodity": "concentrate",
-     "companies": "Mining (Group) Co. Ltd., 85%, and Zambia",
-     "location": "northwest of Ndola, Copperbelt",
-     "capacity": "yields about 50,000"
-    },
-    {
-     "resource": "cobalt",
-     "group": "Copper and cobalt",
-     "commodity": "concentrate",
-     "companies": "Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH), 15%]",
-     "location": "Province",
-     "capacity": "copper in concentrate"
-    },
-    {
-     "resource": "copper",
-     "group": "Copper and cobalt",
-     "commodity": "concentrate",
-     "companies": "Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH), 15%]",
-     "location": "Province",
-     "capacity": "copper in concentrate"
-    },
-    {
-     "resource": "cobalt",
-     "group": "Copper and cobalt",
-     "commodity": "concentrate",
-     "companies": "Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH), 15%]",
+     "commodity": "Ore and concentrate—Continued",
+     "companies": "NFC Africa Mining Plc [China Nonferrous Metal Mining (Group) Co. Ltd., 85%, and Zambia Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH), 15%]",
      "location": "Chambishi West Mine, 75 km northwest of Ndola, Copperbelt Province",
      "capacity": "990,000 ore"
     },
     {
      "resource": "copper",
      "group": "Copper and cobalt",
-     "commodity": "concentrate",
-     "companies": "Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH), 15%]",
+     "commodity": "Ore and concentrate—Continued",
+     "companies": "NFC Africa Mining Plc [China Nonferrous Metal Mining (Group) Co. Ltd., 85%, and Zambia Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH), 15%]",
      "location": "Chambishi West Mine, 75 km northwest of Ndola, Copperbelt Province",
      "capacity": "990,000 ore"
     },
     {
      "resource": "cobalt",
      "group": "Copper and cobalt",
-     "commodity": "concentrate",
+     "commodity": "Ore and concentrate—Continued",
      "companies": "Zambia Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH)",
      "location": "Nkana Mine, includes the Central the Mindola North, the Mindola Sub-Vertical, and the South Ore Body shafts for underground operations, and the Area A, the Area E, and the Mindola open pits, southwest of Kitwe, Copperbelt Province",
      "capacity": "5,500,000 ore"
@@ -11367,7 +10999,7 @@
     {
      "resource": "copper",
      "group": "Copper and cobalt",
-     "commodity": "concentrate",
+     "commodity": "Ore and concentrate—Continued",
      "companies": "Zambia Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH)",
      "location": "Nkana Mine, includes the Central the Mindola North, the Mindola Sub-Vertical, and the South Ore Body shafts for underground operations, and the Area A, the Area E, and the Mindola open pits, southwest of Kitwe, Copperbelt Province",
      "capacity": "5,500,000 ore"
@@ -11375,7 +11007,7 @@
     {
      "resource": "cobalt",
      "group": "Copper and cobalt",
-     "commodity": "concentrate",
+     "commodity": "Ore and concentrate—Continued",
      "companies": "Zambia Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH)",
      "location": "Mufulira Mine, Mufulira, Copperbelt Province",
      "capacity": "2,500,000 ore"
@@ -11383,7 +11015,7 @@
     {
      "resource": "copper",
      "group": "Copper and cobalt",
-     "commodity": "concentrate",
+     "commodity": "Ore and concentrate—Continued",
      "companies": "Zambia Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH)",
      "location": "Mufulira Mine, Mufulira, Copperbelt Province",
      "capacity": "2,500,000 ore"
@@ -11392,65 +11024,33 @@
      "resource": "cobalt",
      "group": "Copper and cobalt",
      "commodity": "Metal",
-     "companies": "Chambishi Metals Plc [Eurasian Resources Group, S.a.r.l.",
-     "location": "Chambishi cobalt plant, 75 km",
-     "capacity": "55,000 copper cathode,"
+     "companies": "Chambishi Metals Plc [Eurasian Resources Group, S.a.r.l. (ERG), 90%, and Zambia Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH), 10%]",
+     "location": "Chambishi cobalt plant, 75 km northwest of Ndola, Copperbelt Province",
+     "capacity": "55,000 copper cathode, 6,800 cobalt metal"
     },
     {
      "resource": "copper",
      "group": "Copper and cobalt",
      "commodity": "Metal",
-     "companies": "Chambishi Metals Plc [Eurasian Resources Group, S.a.r.l.",
-     "location": "Chambishi cobalt plant, 75 km",
-     "capacity": "55,000 copper cathode,"
+     "companies": "Chambishi Metals Plc [Eurasian Resources Group, S.a.r.l. (ERG), 90%, and Zambia Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH), 10%]",
+     "location": "Chambishi cobalt plant, 75 km northwest of Ndola, Copperbelt Province",
+     "capacity": "55,000 copper cathode, 6,800 cobalt metal"
     },
     {
      "resource": "cobalt",
      "group": "Copper and cobalt",
      "commodity": "Metal",
-     "companies": "(ERG), 90%, and Zambia Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH), 10%]",
-     "location": "northwest of Ndola, Copperbelt Province",
-     "capacity": "6,800 cobalt metal"
+     "companies": "Chambishi Copper Smelter Co. Ltd. [China Nonferrous Metal Mining (Group) Co. Ltd., 60%, and Yunnan Copper Industry (Group) Co. Ltd., 40%]",
+     "location": "Chambishi copper smelter, 75 km northwest of Ndola, Copperbelt Province",
+     "capacity": "250,000 copper anode (blister copper)"
     },
     {
      "resource": "copper",
      "group": "Copper and cobalt",
      "commodity": "Metal",
-     "companies": "(ERG), 90%, and Zambia Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH), 10%]",
-     "location": "northwest of Ndola, Copperbelt Province",
-     "capacity": "6,800 cobalt metal"
-    },
-    {
-     "resource": "cobalt",
-     "group": "Copper and cobalt",
-     "commodity": "Metal",
-     "companies": "Chambishi Copper Smelter Co. Ltd. [China",
-     "location": "Chambishi copper smelter,",
-     "capacity": "250,000 copper anode"
-    },
-    {
-     "resource": "copper",
-     "group": "Copper and cobalt",
-     "commodity": "Metal",
-     "companies": "Chambishi Copper Smelter Co. Ltd. [China",
-     "location": "Chambishi copper smelter,",
-     "capacity": "250,000 copper anode"
-    },
-    {
-     "resource": "cobalt",
-     "group": "Copper and cobalt",
-     "commodity": "Metal",
-     "companies": "Nonferrous Metal Mining (Group) Co. Ltd., 60%, and Yunnan Copper Industry (Group) Co. Ltd., 40%]",
-     "location": "75 km northwest of Ndola, Copperbelt Province",
-     "capacity": "(blister copper)"
-    },
-    {
-     "resource": "copper",
-     "group": "Copper and cobalt",
-     "commodity": "Metal",
-     "companies": "Nonferrous Metal Mining (Group) Co. Ltd., 60%, and Yunnan Copper Industry (Group) Co. Ltd., 40%]",
-     "location": "75 km northwest of Ndola, Copperbelt Province",
-     "capacity": "(blister copper)"
+     "companies": "Chambishi Copper Smelter Co. Ltd. [China Nonferrous Metal Mining (Group) Co. Ltd., 60%, and Yunnan Copper Industry (Group) Co. Ltd., 40%]",
+     "location": "Chambishi copper smelter, 75 km northwest of Ndola, Copperbelt Province",
+     "capacity": "250,000 copper anode (blister copper)"
     },
     {
      "resource": "cobalt",
@@ -11474,7 +11074,7 @@
      "commodity": "Metal",
      "companies": "Jubilee Metals Group Plc",
      "location": "Sable copper leach and electrowinning plant at Kabwe, Copperbelt Province",
-     "capacity": "14,000 copper cathode,"
+     "capacity": "14,000 copper cathode, 600 cobalt carbonate"
     },
     {
      "resource": "copper",
@@ -11482,7 +11082,7 @@
      "commodity": "Metal",
      "companies": "Jubilee Metals Group Plc",
      "location": "Sable copper leach and electrowinning plant at Kabwe, Copperbelt Province",
-     "capacity": "14,000 copper cathode,"
+     "capacity": "14,000 copper cathode, 600 cobalt carbonate"
     },
     {
      "resource": "cobalt",
@@ -11522,7 +11122,7 @@
      "commodity": "Metal",
      "companies": "Konkola Copper Mines Plc (KCM) [Vedanta Resources Plc, 79.4%, and Zambia Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH), 20.6%]",
      "location": "Nchanga copper smelter,2 Chingola, Copperbelt Province",
-     "capacity": "311,000 copper anode"
+     "capacity": "311,000 copper anode (blister copper), 3,000 copper-cobalt alloy"
     },
     {
      "resource": "copper",
@@ -11530,7 +11130,7 @@
      "commodity": "Metal",
      "companies": "Konkola Copper Mines Plc (KCM) [Vedanta Resources Plc, 79.4%, and Zambia Consolidated Copper Mines Investments Holdings Plc (ZCCM–IH), 20.6%]",
      "location": "Nchanga copper smelter,2 Chingola, Copperbelt Province",
-     "capacity": "311,000 copper anode"
+     "capacity": "311,000 copper anode (blister copper), 3,000 copper-cobalt alloy"
     },
     {
      "resource": "cobalt",
@@ -11836,9 +11436,9 @@
     {
      "resource": "rare-earths",
      "group": "Petroleum",
-     "commodity": "Rare-earth compounds,",
+     "commodity": "Rare-earth compounds, rare-earth-oxide equivalent",
      "companies": "Lynas Malaysia Sdn. Bhd. (Lynas Corp. Ltd., 100%)",
-     "location": "Lynas Advanced Materials Plant",
+     "location": "Lynas Advanced Materials Plant (LAMP) at Gebeng, Kuantan, Pahang",
      "capacity": "22"
     },
     {
@@ -12416,7 +12016,7 @@
     {
      "resource": "lithium",
      "group": "",
-     "commodity": "Cesium, lithium,",
+     "commodity": "Cesium, lithium, rubidium",
      "companies": "Shava-Say deposit",
      "location": "Toshkent Viloyati",
      "capacity": "NA"
@@ -12523,9 +12123,9 @@
     {
      "resource": "lithium",
      "group": "",
-     "commodity": "Lithium, Li2O content of",
-     "companies": "Lepidico Ltd, 80%, and Huni-Urib Holdings",
-     "location": "Rubicon and Helikon mines near Karibib,1",
+     "commodity": "Lithium, Li2O content of concentrate",
+     "companies": "Lepidico Ltd, 80%, and Huni-Urib Holdings (Pty) Ltd., 20%",
+     "location": "Rubicon and Helikon mines near Karibib,1 Erongo Region",
      "capacity": "65000"
     },
     {
@@ -12539,10 +12139,26 @@
     {
      "resource": "uranium",
      "group": "Silver",
-     "commodity": "Uranium, uranium",
-     "companies": "Langer Heinrich Uranium (Pty.) Ltd. [Paladin Energy",
-     "location": "Langer Heinrich Mine,1 Namib Desert,",
+     "commodity": "Uranium, uranium oxide",
+     "companies": "Langer Heinrich Uranium (Pty.) Ltd. [Paladin Energy Ltd., 75%, and China National Nuclear Corp. (CNNC) Overseas Uranium Holdings Ltd., 25%]",
+     "location": "Langer Heinrich Mine,1 Namib Desert, 80 kilometers east of Walvis Bay, Erongo Region",
      "capacity": "1500"
+    },
+    {
+     "resource": "uranium",
+     "group": "Silver",
+     "commodity": "Uranium, uranium oxide",
+     "companies": "Rössing Uranium Ltd. (China National Uranium Co. Ltd., 69%; Iranian Foreign Investment Co., 15%; Industrial Development Corp. of South Africa Ltd., 10%; Government of Namibia, 3%; other minority shareholders, 3%)",
+     "location": "Rössing Mine, 65 kilometers northeast of Swakopmund, Erongo Region",
+     "capacity": "4800"
+    },
+    {
+     "resource": "uranium",
+     "group": "Silver",
+     "commodity": "Uranium, uranium oxide",
+     "companies": "Swakop Uranium (Pty) Ltd. (China General Nuclear Power Group, 90%, and Epangelo Mining, 10%)",
+     "location": "Husab Mine, 45 kilometers northeast of Walvis Bay Port, Erongo Region",
+     "capacity": "5500"
     }
    ]
   },
@@ -12557,7 +12173,7 @@
    "facilities": [
     {
      "resource": "uranium",
-     "group": "products",
+     "group": "",
      "commodity": "Uranium",
      "companies": "Compagnie Minière d'Akouta (COMINAK) [Areva Group, 34%; Société de Patrimoine des Mines du Niger S.A. (SOPAMIN), 31%; Overseas Uranium Resources Development Co., 25%; ENUSA Industrias Avanzadas S.A., 10%]",
      "location": "Akouta underground mine, northern Niger",
@@ -12565,7 +12181,7 @@
     },
     {
      "resource": "uranium",
-     "group": "products",
+     "group": "",
      "commodity": "Uranium",
      "companies": "Société des Mines de l'Aïr (SOMAIR) [Areva Group, 63.4%, and Société de Patrimoine des Mines du Niger S.A. (SOPAMIN), 36.6%]",
      "location": "Arlit open pit mine, 6 kilometers northwest of Arlit, Agadez Region",
@@ -12573,7 +12189,7 @@
     },
     {
      "resource": "uranium",
-     "group": "products",
+     "group": "",
      "commodity": "Uranium",
      "companies": "Société des Mines d'Azelik S.A.",
      "location": "Azelik Mine,1 (Ingal), Agadez Region",

@@ -38,8 +38,8 @@ test('a pin takes only the exact ticker and name it names', () => {
     ticker: '2330',
     exchange: 'TT',
     name: 'TAIWAN SEMICONDUCTOR MANUFAC',
-    figi: 'BBG000BN2HR7',
-    source: 'https://www.openfigi.com/id/BBG000BN2HR7',
+    figi: 'BBG000BN2JD8',
+    source: 'https://www.openfigi.com/id/BBG000BN2JD8',
   });
   assert.equal(pinnedLine([{ ...row, name: 'TAIWAN SEMICONDUCTOR MFG' }], TSMC_PIN), null);
   assert.equal(pinnedLine([{ ...row, ticker: '2303' }], TSMC_PIN), null);

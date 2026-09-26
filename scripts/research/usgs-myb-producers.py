@@ -128,6 +128,33 @@ def columns(rows: list[dict]) -> tuple[str, str, str, str] | None:
     return None
 
 
+OPEN_END = re.compile(r"(,|;|\band|\bof|\babout|\bnear|\bin|\bwhich|\bfrom|\bthe)$", re.I)
+
+
+def unfinished(text: str) -> bool:
+    """A cell the workbook wrapped: ends mid-phrase, or leaves a bracket open."""
+    t = text.strip()
+    return bool(t) and (bool(OPEN_END.search(t)) or t.count("[") > t.count("]") or t.count("(") > t.count(")"))
+
+
+def continues(text: str) -> bool:
+    """A cell that is the rest of the one above: starts lower-case, or closes a bracket it never opened."""
+    t = text.strip()
+    return bool(t) and (bool(re.match(r"^[a-z(](?![A-Z])", t)) or bool(re.match(r"^[^\[(]*[\])]", t)))
+
+
+def is_ditto(text: str) -> bool:
+    """"do." (ditto), sometimes with a footnote number stuck to it ("do.1")."""
+    return bool(re.fullmatch(r"do\.\d*", text.strip().lower()))
+
+
+def wraps_into(prev: dict, row: dict, c_comp: str, c_loc: str, c_cap: str) -> bool:
+    """Whether a row with no commodity cell is the previous facility's wrapped text, not a new company."""
+    before = (prev["companies"], prev["location"], prev["capacity"])
+    now = (row.get(c_comp, ""), row.get(c_loc, ""), row.get(c_cap, "") if c_cap else "")
+    return any(unfinished(b) for b in before) or any(continues(n) for n in now)
+
+
 def parse(rows: list[dict]) -> tuple[str, list[dict]]:
     cols = columns(rows)
     if cols is None:
@@ -149,19 +176,36 @@ def parse(rows: list[dict]) -> tuple[str, list[dict]]:
             continue
         if re.search(r"major operating compan|equity owners|location of main", r.get(c_comp, "") + r.get(c_loc, ""), re.I):
             continue  # a header repeated on a continuation page
+        if a and out and (
+            a == "Continued"
+            or (continues(a) and (unfinished(last_commodity) or wraps_into(out[-1], r, c_comp, c_loc, c_cap)))
+        ):
+            # The commodity cell wrapped too ("Ore and" / "concentrate", "Ore, platinum-group" /
+            # "metal content"), or reads "Continued": the rest of the row belongs to the facility above.
+            if a != "Continued":
+                last_commodity = f"{last_commodity} {a}"
+                out[-1]["commodity"] = last_commodity
+            a = ""
         if a and r.get(c_comp):
-            commodity = last_commodity if a.lower() == "do." else a.replace("—Continued", "").strip()
-            company = last_company if r[c_comp].lower() == "do." else r[c_comp]
+            commodity = last_commodity if is_ditto(a) else a.replace("—Continued", "").strip()
+            company = last_company if is_ditto(r[c_comp]) else r[c_comp]
             location = r.get(c_loc, "")
-            if location.lower() == "do." and out:
+            if is_ditto(location) and out:
                 location = out[-1]["location"]
             out.append({"group": group, "commodity": commodity, "companies": company, "location": location, "capacity": r.get(c_cap, "")})
             last_commodity, last_company = commodity, company
+        elif out and not a and any(r.get(c) for c in (c_comp, c_loc, c_cap) if c) and wraps_into(out[-1], r, c_comp, c_loc, c_cap):
+            # The workbook wrapped the previous facility's cells onto this row.
+            prev = out[-1]
+            for key, col in (("companies", c_comp), ("location", c_loc), ("capacity", c_cap)):
+                if col and r.get(col) and not is_ditto(r[col]):
+                    prev[key] = f"{prev[key]} {r[col]}".strip()
+            last_company = prev["companies"]
         elif out and not a and r.get(c_comp) and c_cap and r.get(c_cap):
             # No commodity cell but its own capacity: another company on the same commodity.
-            company = last_company if r[c_comp].lower() == "do." else r[c_comp]
+            company = last_company if is_ditto(r[c_comp]) else r[c_comp]
             location = r.get(c_loc, "")
-            if location.lower() == "do.":
+            if is_ditto(location):
                 location = out[-1]["location"]
             out.append({"group": group, "commodity": last_commodity, "companies": company, "location": location, "capacity": r[c_cap]})
             last_company = company

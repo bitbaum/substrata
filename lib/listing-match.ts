@@ -134,7 +134,11 @@ export interface FigiMapped {
 export function pinnedLine(rows: readonly FigiMapped[], pin: PinnedLine): SecurityRef | null {
   const row = rows.find((r) => r.ticker === pin.ticker && r.name === pin.figiName);
   if (!row) return null;
-  const figi = row.compositeFIGI ?? row.figi;
+  // The row's own FIGI, not its composite: for these lines OpenFIGI has no
+  // record of the composite (openfigi.com/id/<composite> is a 404 and an
+  // ID_BB_GLOBAL mapping of it finds nothing), found by the quality run
+  // 2026-09-26. The exchange line is the one a reader can open and re-map.
+  const figi = row.figi;
   return {
     ticker: row.ticker,
     exchange: pin.exchange,

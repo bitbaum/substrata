@@ -35,13 +35,18 @@ export function FreshnessBadge() {
         : `${STATE_LABEL[summary.state]}: ${summary.attention.length} need${summary.attention.length === 1 ? 's' : ''} attention`;
 
   return (
-    <Link
-      href="/data/freshness"
-      className={`fresh-footer fresh-badge is-${summary?.state ?? 'pending'}`}
-      title={summary?.attention.join(' · ') || undefined}
-    >
-      <span aria-hidden="true" className="fresh-dot" />
-      {words}
-    </Link>
+    <span className="fresh-footer-row">
+      <Link
+        href="/data/freshness"
+        className={`fresh-footer fresh-badge is-${summary?.state ?? 'pending'}`}
+        title={summary?.attention.join(' · ') || undefined}
+      >
+        <span aria-hidden="true" className="fresh-dot" />
+        {words}
+      </Link>
+      <Link href="/data/quality" className="fresh-footer fresh-badge">
+        Data quality →
+      </Link>
+    </span>
   );
 }
