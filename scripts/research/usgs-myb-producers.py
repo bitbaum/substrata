@@ -11,8 +11,12 @@ exactly as USGS prints them, with the chapter file and year each row came from.
 
 Public domain (US Government work). Countries are the producers that matter for
 the binding-now resources; add a slug to COUNTRIES to read another chapter.
-The capacity unit is the table's default ("thousand metric tons unless
-otherwise specified") unless the commodity line names its own, so both are kept.
+Every row carries its capacity unit. USGS prints a table default ("thousand
+metric tons unless otherwise specified") and overrides it per commodity in an
+unheaded column between Commodity and the companies ("metric tons",
+"kilograms", "million carats", "do." for ditto). That column was once dropped,
+so a Chinese gallium plant read as "capacity 150" against a table unit of
+thousand metric tons — 150,000 t, for a metal whose world output is ~900 t.
 """
 import html
 import io
@@ -143,6 +147,27 @@ def continues(text: str) -> bool:
     return bool(t) and (bool(re.match(r"^[a-z(](?![A-Z])", t)) or bool(re.match(r"^[^\[(]*[\])]", t)))
 
 
+UNIT = re.compile(
+    r"^(do\.\d*|(thousand |million |billion )?(metric tons|kilograms|carats|cubic meters|barrels|"
+    r"troy ounces|tons|liters|megawatts|square meters)\b.*|.*\bper (day|year)$)",
+    re.I,
+)
+
+
+# A unit cell cut off by the workbook's wrapping; the next row holds the rest.
+UNIT_HEAD = re.compile(r"\b(metric|cubic|thousand|million|billion|troy)$", re.I)
+
+
+def unit_column(rows: list[dict], taken: set[str]) -> str:
+    """The unheaded column USGS uses to override the table's unit for a commodity."""
+    counts: dict[str, int] = {}
+    for r in rows:
+        for k, v in r.items():
+            if k not in taken and UNIT.match(v) and not is_ditto(v):
+                counts[k] = counts.get(k, 0) + 1
+    return max(counts, key=counts.get) if counts else ""
+
+
 def is_ditto(text: str) -> bool:
     """"do." (ditto), sometimes with a footnote number stuck to it ("do.1")."""
     return bool(re.fullmatch(r"do\.\d*", text.strip().lower()))
@@ -161,6 +186,9 @@ def parse(rows: list[dict]) -> tuple[str, list[dict]]:
         raise ValueError("no Commodity header row")
     c_com, c_comp, c_loc, c_cap = cols
     unit = next((r["A"] for r in rows if r.get("A", "").startswith("(") and "unless" in r["A"]), "")
+    default_unit = re.sub(r"\s*unless otherwise specified", "", unit.strip("()"), flags=re.I).lower()
+    c_unit = unit_column(rows, {c_com, c_comp, c_loc, c_cap})
+    last_unit = default_unit
     out: list[dict] = []
     group = ""
     last_commodity = ""
@@ -176,6 +204,10 @@ def parse(rows: list[dict]) -> tuple[str, list[dict]]:
             continue
         if re.search(r"major operating compan|equity owners|location of main", r.get(c_comp, "") + r.get(c_loc, ""), re.I):
             continue  # a header repeated on a continuation page
+        if (not a or not r.get(c_comp) or continues(a)) and c_unit and out and UNIT_HEAD.search(out[-1]["unit"]) and r.get(c_unit):
+            # The unit cell wrapped ("metric" / "tons", "million cubic" / "meters").
+            out[-1]["unit"] = f'{out[-1]["unit"]} {r[c_unit].lower()}'
+            last_unit = out[-1]["unit"]
         if a and out and (
             a == "Continued"
             or (continues(a) and (unfinished(last_commodity) or wraps_into(out[-1], r, c_comp, c_loc, c_cap)))
@@ -192,8 +224,15 @@ def parse(rows: list[dict]) -> tuple[str, list[dict]]:
             location = r.get(c_loc, "")
             if is_ditto(location) and out:
                 location = out[-1]["location"]
-            out.append({"group": group, "commodity": commodity, "companies": company, "location": location, "capacity": r.get(c_cap, "")})
-            last_commodity, last_company = commodity, company
+            own = r.get(c_unit, "") if c_unit else ""
+            # "do." (or a ditto commodity with the unit cell left blank) repeats the row above;
+            # a new commodity with no unit of its own is in the table's default unit.
+            if is_ditto(own) or (not own and is_ditto(a)):
+                row_unit = last_unit
+            else:
+                row_unit = own.lower() or default_unit
+            out.append({"group": group, "commodity": commodity, "companies": company, "location": location, "capacity": r.get(c_cap, ""), "unit": row_unit})
+            last_commodity, last_company, last_unit = commodity, company, row_unit
         elif out and not a and any(r.get(c) for c in (c_comp, c_loc, c_cap) if c) and wraps_into(out[-1], r, c_comp, c_loc, c_cap):
             # The workbook wrapped the previous facility's cells onto this row.
             prev = out[-1]
@@ -207,7 +246,7 @@ def parse(rows: list[dict]) -> tuple[str, list[dict]]:
             location = r.get(c_loc, "")
             if is_ditto(location):
                 location = out[-1]["location"]
-            out.append({"group": group, "commodity": last_commodity, "companies": company, "location": location, "capacity": r[c_cap]})
+            out.append({"group": group, "commodity": last_commodity, "companies": company, "location": location, "capacity": r[c_cap], "unit": last_unit})
             last_company = company
         elif out and not a and (r.get(c_comp) or r.get(c_loc)):
             if r.get(c_comp):
@@ -221,6 +260,7 @@ def parse(rows: list[dict]) -> tuple[str, list[dict]]:
         if "STRUCTURE OF THE" in row["group"].upper():
             row["group"] = ""  # the table title, not a commodity heading
         row["capacity"] = row["capacity"].rstrip(".")
+        row["unit"] = row["unit"].rstrip(".")
         row["companies"] = re.sub(r"\s+", " ", row["companies"]).strip()
         row["location"] = re.sub(r"\s+", " ", row["location"]).strip()
     return unit, out
@@ -282,7 +322,7 @@ def main() -> None:
         "source": "USGS Minerals Yearbook, volume III (Area Reports: International), country chapters",
         "licence": "US Government work, public domain",
         "retrieved": date.today().isoformat(),
-        "note": "Companies, facilities and capacities as USGS prints them for the chapter year. Capacity is in the table's unit unless the commodity line names another.",
+        "note": "Companies, facilities and capacities as USGS prints them for the chapter year. Each row carries its capacity unit: the commodity's own where USGS prints one, else the table's default.",
         "gaps": gaps,
         "countries": chapters,
     }

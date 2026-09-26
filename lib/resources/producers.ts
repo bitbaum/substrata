@@ -21,6 +21,8 @@ export interface Facility {
   companies: string;
   location: string;
   capacity: string;
+  /** The unit this row's capacity is in: the commodity's own where USGS prints one, else the table default. */
+  unit: string;
 }
 
 interface CountryChapter {
