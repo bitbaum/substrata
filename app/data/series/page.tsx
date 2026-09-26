@@ -2,7 +2,9 @@ import React from 'react';
 import Link from 'next/link';
 
 import { Figure } from '@/components/portal/Figure';
-import { Page, Shell, SectionHeader } from '@/components/portal/Shell';
+import { Empty, Page, Shell } from '@/components/portal/Shell';
+import { PageHeader } from '@/components/portal/PageHeader';
+import { AutoSubmitForm } from '@/components/portal/AutoSubmitForm';
 import { Sparkline } from '@/components/series/SeriesChart';
 import { ChangeBadge } from '@/components/series/SeriesParts';
 import { BOTTLENECKS } from '@/lib/bottlenecks';
@@ -25,6 +27,8 @@ export const metadata = {
 export const dynamic = 'force-dynamic';
 
 type Params = Record<string, string | undefined>;
+/** Rows drawn at once. Each carries a sparkline; all 145 made a 1 MB page. */
+const PAGE = 40;
 
 export default async function SeriesIndex({ searchParams }: { searchParams: Promise<Params> }) {
   const params = await searchParams;
@@ -33,39 +37,57 @@ export default async function SeriesIndex({ searchParams }: { searchParams: Prom
   const origin = params.origin === 'official' || params.origin === 'corpus' ? params.origin : '';
   const q = (params.q ?? '').trim().toLowerCase().slice(0, 80);
   const rail = BOTTLENECKS.find((b) => b.slug === params.b);
+  const names = new Map(BOTTLENECKS.map((b) => [b.slug, b.name]));
+  const limit = Math.min(Math.max(Number(params.n) || PAGE, PAGE), 400);
   const shown = all
     .filter(
       (s) =>
         (!rail || s.bottleneck === rail.slug) &&
         (!kind || s.kind === kind) &&
         (!origin || s.origin === origin) &&
-        (!q || `${s.metric} ${s.geography} ${s.unit}`.toLowerCase().includes(q)),
+        (!q ||
+          `${s.metric} ${s.geography} ${s.unit} ${names.get(s.bottleneck) ?? ''}`
+            .toLowerCase()
+            .includes(q)),
     )
     .sort(byRelevance);
-  const names = new Map(BOTTLENECKS.map((b) => [b.slug, b.name]));
   const withSeries = BOTTLENECKS.filter((b) => all.some((s) => s.bottleneck === b.slug));
   const points = shown.reduce((n, s) => n + s.points.length, 0);
+  const more = new URLSearchParams(
+    Object.entries({ ...params, n: String(limit + PAGE) }).flatMap(([k, v]) => (v ? [[k, v]] : [])),
+  ).toString();
 
   return (
     <Shell>
       <Page>
-        <SectionHeader
+        <PageHeader
+          kicker="Data"
           title="Data series"
-          lede="Dated numbers on each bottleneck: lead times, prices, capacity, output, backlogs and trade volumes. Every value links the page it came from; official statistics say which agency published them."
-          stats={[
-            { label: 'Series', value: <Figure method="series-points">{shown.length}</Figure> },
-            { label: 'Points', value: <Figure method="series-points">{points}</Figure> },
-            {
-              label: 'Bottlenecks covered',
-              value: <Figure method="series-points">{withSeries.length}</Figure>,
-            },
-          ]}
+          status={
+            <>
+              <Figure method="series-points">{String(shown.length)}</Figure> series ·{' '}
+              <Figure method="series-points">{String(points)}</Figure> dated points ·{' '}
+              <Figure method="series-points">{String(withSeries.length)}</Figure> bottlenecks
+              covered · newest change first within each measure
+            </>
+          }
+          note="Lead times, prices, capacity, output, backlogs and trade volumes. Every value links the page it came from; official statistics say which agency published them. Each series downloads as CSV."
         />
-        <form className="series-filters" method="get">
-          <label>
-            <span>Bottleneck</span>
+        <AutoSubmitForm action="/data/series" className="desk-filters">
+          <label className="desk-filter desk-filter-q">
+            <span className="sr-only">Search series</span>
+            <input
+              type="search"
+              name="q"
+              defaultValue={params.q ?? ''}
+              placeholder="Search: gallium, backlog, US…"
+              maxLength={80}
+            />
+          </label>
+          <label className="desk-filter">
+            <span className="sr-only">Bottleneck</span>
             <select name="b" defaultValue={rail?.slug ?? ''}>
-              <option value="">All</option>
+              <option value="">All bottlenecks</option>
               {withSeries.map((b) => (
                 <option key={b.slug} value={b.slug}>
                   {b.name}
@@ -73,10 +95,10 @@ export default async function SeriesIndex({ searchParams }: { searchParams: Prom
               ))}
             </select>
           </label>
-          <label>
-            <span>Measure</span>
+          <label className="desk-filter">
+            <span className="sr-only">Measure</span>
             <select name="kind" defaultValue={kind ?? ''}>
-              <option value="">All</option>
+              <option value="">All measures</option>
               {Object.entries(KIND_LABEL)
                 .filter(([k]) => all.some((s) => s.kind === k))
                 .map(([k, label]) => (
@@ -86,20 +108,15 @@ export default async function SeriesIndex({ searchParams }: { searchParams: Prom
                 ))}
             </select>
           </label>
-          <label>
-            <span>Origin</span>
+          <label className="desk-filter">
+            <span className="sr-only">Origin</span>
             <select name="origin" defaultValue={origin}>
-              <option value="">All</option>
+              <option value="">Any origin</option>
               <option value="corpus">Read from sources</option>
               <option value="official">Official statistics (API)</option>
             </select>
           </label>
-          <label className="series-filter-q">
-            <span>Search</span>
-            <input name="q" defaultValue={params.q ?? ''} placeholder="gallium, backlog, US…" />
-          </label>
-          <button className="research-button-ghost">Filter</button>
-        </form>
+        </AutoSubmitForm>
         {!officialOk && (
           <p className="series-origin">
             Official statistics could not be read just now; only series read from sources are
@@ -107,12 +124,19 @@ export default async function SeriesIndex({ searchParams }: { searchParams: Prom
           </p>
         )}
         {shown.length === 0 ? (
-          <p className="series-origin">
-            No series match. <Link href="/data/series">Clear the filters</Link>.
-          </p>
+          <Empty
+            what="No series match these filters."
+            next="Search reads the measure, the place, the unit and the bottleneck's name."
+            action={
+              <>
+                <Link href="/data/series">Clear the filters</Link>
+                <Link href="/bottlenecks">Browse the bottlenecks</Link>
+              </>
+            }
+          />
         ) : (
           <ul className="series-index">
-            {shown.map((s) => {
+            {shown.slice(0, limit).map((s) => {
               const last = s.points[s.points.length - 1];
               return (
                 <li key={s.id} className="series-row">
@@ -147,6 +171,13 @@ export default async function SeriesIndex({ searchParams }: { searchParams: Prom
               );
             })}
           </ul>
+        )}
+        {shown.length > limit && (
+          <p className="list-more">
+            <Link href={`/data/series?${more}`} scroll={false}>
+              Show more ({shown.length - limit} left)
+            </Link>
+          </p>
         )}
       </Page>
     </Shell>

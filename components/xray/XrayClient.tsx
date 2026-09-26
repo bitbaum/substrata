@@ -6,8 +6,11 @@
  * /api/xray, and the answer is kept in this component's state only — no
  * URL, no storage, gone on reload.
  */
-import { useState } from 'react';
+import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 
+import { Empty } from '@/components/portal/Empty';
+import { XRAY_PLACEHOLDER } from '@/lib/xray/examples';
 import type { PortfolioXray } from '@/lib/xray/portfolio';
 import { XrayReport, type Filing } from './XrayReport';
 
@@ -18,6 +21,20 @@ export function XrayClient({ sample, signedIn }: { sample: string; signedIn: boo
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<XrayResponse | null>(null);
+  const answer = useRef<HTMLDivElement>(null);
+
+  // The answer replaces the form as the thing to read: bring it into view.
+  useEffect(() => {
+    if (!result || !answer.current) return;
+    const smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    answer.current.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
+    answer.current.focus({ preventScroll: true });
+  }, [result]);
+
+  function trySample() {
+    setText(sample);
+    void run(sample);
+  }
 
   async function run(input: string) {
     setBusy(true);
@@ -62,8 +79,11 @@ export function XrayClient({ sample, signedIn }: { sample: string; signedIn: boo
           className="xray-input"
           value={text}
           onChange={(e) => setText(e.target.value)}
-          placeholder={sample}
-          rows={9}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' && (e.metaKey || e.ctrlKey) && text.trim()) void run(text);
+          }}
+          placeholder={XRAY_PLACEHOLDER}
+          rows={6}
           spellCheck={false}
           autoComplete="off"
         />
@@ -74,13 +94,10 @@ export function XrayClient({ sample, signedIn }: { sample: string; signedIn: boo
           <button
             type="button"
             className="research-button-ghost"
-            onClick={() => {
-              setText(sample);
-              void run(sample);
-            }}
+            onClick={trySample}
             disabled={busy}
           >
-            Try the sample
+            Try a sample portfolio
           </button>
           <label className="research-button-ghost xray-file">
             Read a CSV
@@ -97,7 +114,28 @@ export function XrayClient({ sample, signedIn }: { sample: string; signedIn: boo
           {error}
         </p>
       )}
-      {result && <XrayReport data={result} signedIn={signedIn} />}
+      <div ref={answer} tabIndex={-1} className="xray-answer">
+        {result && result.holdings.length === 0 ? (
+          <Empty
+            what="None of these lines could be read as a holding."
+            next={result.unresolved
+              .slice(0, 3)
+              .map((u) => `${u.input}: ${u.reason}`)
+              .join(' · ')}
+            action={
+              <>
+                <button type="button" className="research-button-ghost" onClick={trySample}>
+                  Try a sample portfolio
+                </button>
+                <a href="#xray-input">Edit the list</a>
+                <Link href="/exposure">Look tickers up on Exposure</Link>
+              </>
+            }
+          />
+        ) : (
+          result && <XrayReport data={result} signedIn={signedIn} />
+        )}
+      </div>
     </>
   );
 }

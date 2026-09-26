@@ -1,3 +1,4 @@
+import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 
@@ -7,6 +8,7 @@ import { LISTINGS } from '@/lib/listings';
 import { methodHref } from '@/lib/methods';
 import { Page, Shell } from '@/components/portal/Shell';
 import { Figure } from '@/components/portal/Figure';
+import { PageHeader } from '@/components/portal/PageHeader';
 import { XrayClient } from '@/components/xray/XrayClient';
 import { XRAY_FORMS as FORMS, XRAY_SAMPLE as SAMPLE } from '@/lib/xray/examples';
 import './xray.css';
@@ -23,30 +25,36 @@ export default async function XrayPage() {
   return (
     <Shell>
       <Page>
-        <header className="xray-head">
-          <p className="desk-kicker">Portfolio X-ray</p>
-          <h1 className="desk-title">What your holdings rest on.</h1>
-          <p className="desk-status">
-            Paste tickers as a terminal or broker writes them —{' '}
-            {FORMS.map((f, i) => (
-              <span key={f}>
-                {i > 0 ? ', ' : ''}
-                <code>{f}</code>
-              </span>
-            ))}{' '}
-            — with or without weights, or read a CSV with a ticker column. Each holding is matched
-            against the directory&rsquo;s listings (checked {LISTINGS.checkedOn}), then traced
-            through <Figure method="xray-rails">{String(DEPENDENCIES.length)}</Figure> sourced
-            dependency rows to the bottlenecks it holds and the ones it needs.
-          </p>
-          <p className="xray-privacy">
-            <strong>Nothing you paste is kept.</strong> Holdings are sent once in the body of a
-            request, analysed in memory and discarded: no database write, no log line, no URL that
-            carries them, no cookie. The CSV is built in your browser from the answer already on
-            screen. Signed-in readers can copy the resulting bottlenecks — not the holdings — to
-            their desk.
-          </p>
-        </header>
+        <PageHeader
+          kicker="Portfolio X-ray"
+          title="What your holdings rest on."
+          status={
+            <>
+              Paste tickers as a terminal or broker writes them —{' '}
+              {FORMS.map((f, i) => (
+                <React.Fragment key={f}>
+                  {i > 0 ? ', ' : ''}
+                  <code>{f}</code>
+                </React.Fragment>
+              ))}{' '}
+              — or read a CSV. You get the biggest single-source risk, the countries your weight
+              rests on, and every holding traced through{' '}
+              <Figure method="xray-rails">{String(DEPENDENCIES.length)}</Figure> sourced dependency
+              rows (listings checked {LISTINGS.checkedOn}).
+            </>
+          }
+          note={
+            <details className="xray-privacy">
+              <summary>
+                <strong>Nothing you paste is kept.</strong> How
+              </summary>
+              Holdings are sent once in the body of a request, analysed in memory and discarded: no
+              database write, no log line, no URL that carries them, no cookie. The CSV is built in
+              your browser from the answer already on screen. Signed-in readers can copy the
+              resulting bottlenecks — not the holdings — to their desk.
+            </details>
+          }
+        />
 
         <XrayClient sample={SAMPLE} signedIn={Boolean(session?.actorId)} />
 

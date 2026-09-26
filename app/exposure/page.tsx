@@ -14,7 +14,7 @@ import {
   SORTS,
   type Params,
 } from '@/lib/exposure-query';
-import { Page, Shell } from '@/components/portal/Shell';
+import { Empty, Page, Shell } from '@/components/portal/Shell';
 import { Figure } from '@/components/portal/Figure';
 import { PageHeader } from '@/components/portal/PageHeader';
 import { AutoSubmitForm } from '@/components/portal/AutoSubmitForm';
@@ -142,7 +142,16 @@ export default async function ExposurePage({ searchParams }: { searchParams: Pro
         </p>
 
         {rows.length === 0 ? (
-          <p className="desk-empty">No rows match these filters.</p>
+          <Empty
+            what="No rows match these filters."
+            next="The search reads company, bottleneck and ticker; a private company has no ticker."
+            action={
+              <>
+                <Link href="/exposure">Clear the filters</Link>
+                <Link href="/search">Search the whole directory</Link>
+              </>
+            }
+          />
         ) : (
           <ExposureTable rows={rows} />
         )}

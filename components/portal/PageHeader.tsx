@@ -35,7 +35,7 @@ export function PageHeader({
       </div>
       <h1 className="desk-title">{title}</h1>
       {status && <p className="desk-status">{status}</p>}
-      {note && <p className="page-head-note">{note}</p>}
+      {note && <div className="page-head-note">{note}</div>}
       {children}
     </header>
   );

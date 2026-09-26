@@ -196,3 +196,28 @@ test('job follows parse defensively and survive the follows round trip', () => {
   assert.deepEqual(round.jobs.companies, ['asml']);
   assert.equal(parseFollows(['ai']).jobs.families.length, 0);
 });
+
+test('a region is one filter: "europe" selects any European country, never a guessed code', async () => {
+  const { parseJobFilter } = await import('../lib/careers-query');
+  const { REGIONS, regionCounts } = await import('../lib/careers-regions');
+  assert.deepEqual(
+    [parseJobFilter({ country: 'europe' }).region, parseJobFilter({ country: 'europe' }).country],
+    ['europe', undefined],
+  );
+  assert.equal(parseJobFilter({ country: 'DE' }).country, 'DE');
+  assert.equal(parseJobFilter({ country: 'DE' }).region, undefined);
+  assert.equal(parseJobFilter({ country: 'atlantis' }).region, undefined);
+  const counts = regionCounts(
+    new Map([
+      ['DE', 3],
+      ['NL', 2],
+      ['US', 5],
+    ]),
+  );
+  assert.equal(counts.get('europe'), 5);
+  assert.equal(counts.get('north-america'), 5);
+  assert.equal(counts.has('asia-pacific'), false, 'an empty region is not offered with a zero');
+  const codes = REGIONS.flatMap((r) => [...r.countries]);
+  assert.equal(new Set(codes).size, codes.length, 'no country sits in two regions');
+  assert.ok(codes.every((c) => /^[A-Z]{2}$/.test(c)));
+});

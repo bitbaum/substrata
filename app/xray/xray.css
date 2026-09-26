@@ -1,14 +1,5 @@
 /* Portfolio X-ray and Scenarios: working screens. Tokens only. */
-.xray-head {
-  padding-bottom: 1.5rem;
-  margin-bottom: 1.25rem;
-  border-bottom: 1px solid var(--color-border-subtle);
-}
-.xray-head .desk-status {
-  max-width: 72ch;
-  line-height: 1.6;
-}
-.xray-head code,
+.page-head code,
 .xray-unresolved code,
 .xray-report code {
   font-family: var(--font-mono);
@@ -19,17 +10,26 @@
   overflow-wrap: anywhere;
 }
 .xray-privacy {
-  margin-top: 1rem;
   max-width: 72ch;
-  padding: 0.8rem 1rem;
+  padding: 0.5rem 0.8rem;
   border-left: 3px solid var(--color-status-positive);
   background: var(--color-surface-raised);
-  font-size: 0.85rem;
-  line-height: 1.55;
   color: var(--color-fg-secondary);
+}
+.xray-privacy summary {
+  cursor: pointer;
 }
 .xray-privacy strong {
   color: var(--color-fg-primary);
+}
+.xray-privacy[open] summary {
+  margin-bottom: 0.4rem;
+}
+.xray-answer {
+  scroll-margin-top: 4.5rem;
+}
+.xray-answer:focus {
+  outline: none;
 }
 
 /* ---- Form ---- */
@@ -63,7 +63,7 @@
 }
 .xray-input {
   width: 100%;
-  min-height: 11rem;
+  min-height: 8rem;
   padding: 0.8rem;
   border: 1px solid var(--color-border-strong);
   border-radius: 0.5rem;
@@ -102,7 +102,21 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+}
+.scenario-own {
+  margin: 1.5rem 0 0.5rem;
+}
+.scenario-change {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border-subtle);
+}
+.scenario-change summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--color-fg-primary);
+  margin-bottom: 0.75rem;
 }
 .scenario-preset {
   display: inline-flex;
@@ -398,5 +412,45 @@
   }
   .xray-chip {
     white-space: normal;
+  }
+}
+
+/* ---- The first answer (components/xray/XrayHeadline.tsx) ---- */
+.xray-headline {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 1rem;
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-border-subtle);
+}
+.xray-headline > div {
+  padding: 0.9rem 1rem;
+  background: var(--color-surface-raised);
+}
+.xray-headline dt {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--color-fg-tertiary);
+}
+.xray-headline dd {
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--color-fg-secondary);
+}
+.xray-headline strong {
+  color: var(--color-fg-primary);
+}
+.xray-headline a {
+  color: var(--color-fg-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+@media (max-width: 900px) {
+  .xray-headline {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

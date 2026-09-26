@@ -18,7 +18,6 @@ import { SITE, correctionUrl } from '@/lib/site';
 import { AppFrame } from '@/components/shell/AppFrame';
 import { AccountMenu } from './AccountMenu';
 import { FreshnessBadge } from './FreshnessBadge';
-import { Inquire } from './Inquire';
 
 function Footer({ note }: { note: string }) {
   return (
@@ -155,16 +154,4 @@ export function FilterRow({ label, children }: { label: string; children: React.
   );
 }
 
-export function Empty({ what, next, topic }: { what: string; next?: string; topic?: string }) {
-  return (
-    <div className="border border-dashed border-strong px-5 py-8 text-center">
-      <p className="text-sm text-fg-secondary">{what}</p>
-      {next && <p className="mt-1 text-xs text-fg-muted">{next}</p>}
-      {topic && (
-        <div className="mt-4">
-          <Inquire topic={topic} />
-        </div>
-      )}
-    </div>
-  );
-}
+export { Empty } from './Empty';

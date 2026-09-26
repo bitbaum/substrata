@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { facetCounts, openJobs, parseJobFilter, type JobRow } from '@/lib/careers-query';
 import { LEARNING_PATHS } from '@/lib/learning-paths';
 import type { FreshnessReport } from '@/lib/freshness/read';
@@ -46,7 +47,11 @@ export async function JobsView({ report }: { report: FreshnessReport }) {
         wide
       >
         {data === null ? (
-          <p className="role-empty">The job boards could not be read just now.</p>
+          <p className="role-empty">
+            The job boards could not be read just now.{' '}
+            <Link href="/careers/companies">Every company&rsquo;s own careers page</Link> still
+            works.
+          </p>
         ) : (
           <JobList jobs={data.jobs} />
         )}
@@ -61,7 +66,9 @@ export async function JobsView({ report }: { report: FreshnessReport }) {
         {data && data.counts.size > 0 ? (
           <HiringByBottleneck counts={data.counts} filter={{}} />
         ) : (
-          <p className="role-empty">No roles filed under a bottleneck yet.</p>
+          <p className="role-empty">
+            No roles filed under a bottleneck yet. <Link href="/careers">Browse every role</Link>.
+          </p>
         )}
       </RoleSection>
       <RoleSection

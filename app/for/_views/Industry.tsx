@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { eventsNewestFirst } from '@/config/substrata-events';
 import { portalTotals } from '@/lib/bottlenecks';
 import { byRelevance } from '@/lib/series';
@@ -68,9 +69,16 @@ export async function IndustryView({ report }: { report: FreshnessReport }) {
         status={<FeedStatus row={feed('science')} />}
       >
         {science === null ? (
-          <p className="role-empty">The science feed could not be read just now.</p>
+          <p className="role-empty">
+            The science feed could not be read just now.{' '}
+            <Link href="/science/pipeline">Open the pipeline</Link> for the judgements, which do not
+            depend on it.
+          </p>
         ) : science.length === 0 ? (
-          <p className="role-empty">Nothing new collected this week yet.</p>
+          <p className="role-empty">
+            Nothing new collected this week yet.{' '}
+            <Link href="/science/pipeline/organisations">See who is working on what</Link>.
+          </p>
         ) : (
           <ItemList items={science} showBottleneck />
         )}
