@@ -15,7 +15,8 @@ export interface DevelopmentProfile {
     status: string | null;
     progress: number | null;
     targetDate: string | null;
-    milestones: string[];
+    /** Legacy string rows and the fleet map's checked milestone records. */
+    milestones: (string | { title: string; done: boolean })[];
   }[];
   changelog: { date: string; done: string }[];
   urls: {
