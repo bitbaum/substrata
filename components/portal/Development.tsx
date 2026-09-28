@@ -86,11 +86,22 @@ export async function Development({
                           </>
                         )}
                       </p>
+                      {/* Milestones arrive as { title, done } from the fleet map
+                          (ROADMAP.md checkboxes); a bare string is the legacy
+                          shape. Rendering the object as a child threw a 500 on
+                          2026-09-28, the day the record was first filled. */}
                       {r.milestones.length > 0 && (
                         <ul>
-                          {r.milestones.map((m) => (
-                            <li key={m}>{m}</li>
-                          ))}
+                          {r.milestones.map((m) => {
+                            const title = typeof m === 'string' ? m : m.title;
+                            const done = typeof m === 'string' ? false : m.done;
+                            return (
+                              <li key={title}>
+                                {done ? '✓ ' : ''}
+                                {title}
+                              </li>
+                            );
+                          })}
                         </ul>
                       )}
                     </section>
