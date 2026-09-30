@@ -2,9 +2,11 @@
  * Notes: written pieces, from markdown files in `content/notes/`.
  *
  * bip-kit owns the hard half — markdown to typed blocks, with no raw HTML
- * anywhere, which is the security model rather than a style choice. It
- * deliberately ships no filesystem layer, so this module is the listing half:
- * find the files, read the frontmatter, sort, and hand blocks to the renderer.
+ * anywhere, which is the security model rather than a style choice — and,
+ * since 0.5, the folder reader too (`readCollection` from `bip-kit/node`:
+ * frontmatter, normalization, sort, reading time). This module adds what is
+ * Substrata's own: every field below is required, and a missing one fails
+ * the build instead of shipping a half-labelled note.
  *
  * A note is a file. Publishing one is adding a markdown file and committing
  * it, which is the same way every other fact on this site arrives.
@@ -13,11 +15,12 @@
  *   title, summary, publishedAt (YYYY-MM-DD), author, tags
  *
  * Created: 2026-09-15
+ * Last modified: 2026-09-30 — reads through bip-kit's collection reader.
  */
 
-import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import path from 'node:path';
-import { parseContentBlocks, parseFrontmatter, readingTime, type ContentBlock } from 'bip-kit';
+import type { ContentBlock } from 'bip-kit';
+import { readCollection, readEntry, type CollectionEntry } from 'bip-kit/node';
 
 const NOTES_DIR = path.join(process.cwd(), 'content', 'notes');
 
@@ -51,10 +54,6 @@ export interface Note extends NoteMeta {
   blocks: ContentBlock[];
 }
 
-function fileFor(collection: Collection, slug: string): string {
-  return path.join(collection.dir, `${slug}.md`);
-}
-
 /** A field the frontmatter must carry, or the file is a bug rather than a draft. */
 function required(
   collection: Collection,
@@ -69,53 +68,34 @@ function required(
   return value.trim();
 }
 
-function read(collection: Collection, slug: string): Note {
-  const raw = readFileSync(fileFor(collection, slug), 'utf8');
-  const { meta, body } = parseFrontmatter(raw);
-  const blocks = parseContentBlocks(body);
-  const tags = Array.isArray(meta.tags)
-    ? meta.tags.map(String)
-    : typeof meta.tags === 'string'
-      ? meta.tags.split(',').map((t) => t.trim())
-      : [];
-
-  const publishedAt = required(collection, meta as Record<string, unknown>, 'publishedAt', slug);
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(publishedAt)) {
-    throw new Error(`content/${collection.label}/${slug}.md: publishedAt must be YYYY-MM-DD`);
-  }
-
+function toNote(collection: Collection, entry: CollectionEntry): Note {
+  const field = (key: string) => required(collection, entry.meta, key, entry.slug);
+  // bip-kit has already refused a publishedAt that is not YYYY-MM-DD.
+  field('publishedAt');
   return {
-    slug,
-    title: required(collection, meta as Record<string, unknown>, 'title', slug),
-    summary: required(collection, meta as Record<string, unknown>, 'summary', slug),
-    author: required(collection, meta as Record<string, unknown>, 'author', slug),
-    publishedAt,
-    tags,
-    readingMinutes: readingTime(blocks).minutes,
-    blocks,
+    slug: entry.slug,
+    title: field('title'),
+    summary: field('summary'),
+    author: field('author'),
+    publishedAt: entry.date,
+    tags: entry.tags,
+    readingMinutes: entry.readingMinutes,
+    blocks: entry.blocks,
   };
-}
-
-function slugs(collection: Collection): string[] {
-  if (!existsSync(collection.dir)) return [];
-  return readdirSync(collection.dir)
-    .filter((name) => name.endsWith('.md'))
-    .map((name) => name.replace(/\.md$/, ''));
 }
 
 /** Every file in a collection, newest first. Throws on a malformed one rather than hiding it. */
 export function allIn(collection: Collection): Note[] {
-  return slugs(collection)
-    .map((slug) => read(collection, slug))
-    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt) || a.title.localeCompare(b.title));
+  return readCollection(collection.dir).map((entry) => toNote(collection, entry));
 }
 
 export function bySlugIn(collection: Collection, slug: string): Note | undefined {
-  return slugs(collection).includes(slug) ? read(collection, slug) : undefined;
+  const entry = readEntry(collection.dir, slug);
+  return entry && toNote(collection, entry);
 }
 
 export function countIn(collection: Collection): number {
-  return slugs(collection).length;
+  return readCollection(collection.dir).length;
 }
 
 export const allNotes = (): Note[] => allIn(NOTES);
