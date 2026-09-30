@@ -11,6 +11,12 @@ import { readFileSync } from 'node:fs';
 import type { GeometryCollection, Topology } from 'topojson-specification';
 
 import { geoDistance } from 'd3-geo';
+import {
+  validateGeographyManifest,
+  verifyGeographyResource,
+  type GeographyManifest,
+  type LicenseRule,
+} from '@bitbaum/geo-kit';
 
 import {
   HOME,
@@ -34,6 +40,7 @@ import { MAP_ISOS } from '../app/atlas/countries';
 const topo = JSON.parse(readFileSync('public/geo/countries-50m.json', 'utf8')) as Topology<{
   countries: GeometryCollection;
 }>;
+const manifest = JSON.parse(readFileSync('public/geo/manifest.json', 'utf8')) as GeographyManifest;
 const world = worldFrom(topo);
 const country = (iso: string) => {
   const f = world.countries.find((c) => c.properties.iso === iso);
@@ -43,6 +50,44 @@ const country = (iso: string) => {
 
 // A 390px phone: the strip between the bar and the half sheet.
 const phone: View = { x0: 0, y0: 66, x1: 390, y1: 318 };
+
+test('the on-demand map resource has explicit sources, viewpoint, and matching integrity metadata', async () => {
+  const licensePolicy: readonly LicenseRule[] = [
+    { spdx: 'LicenseRef-Natural-Earth-Public-Domain', requiresAttribution: false },
+    { spdx: 'ODbL-1.0', requiresAttribution: true },
+  ];
+  assert.deepEqual(
+    validateGeographyManifest(manifest, {
+      licensePolicy,
+      maxResources: 4,
+      maxByteSize: 512 * 1024,
+    }),
+    [],
+  );
+  const [resource] = manifest.resources;
+  assert.ok(resource);
+  assert.equal(resource.viewpointKey, 'natural-earth-de-facto');
+  assert.deepEqual(resource.sourceIds, ['natural-earth-50m', 'world-countries-5-1-0']);
+  const data = await verifyGeographyResource(
+    resource,
+    new Uint8Array(readFileSync('public/geo/countries-50m.json')),
+  );
+  assert.equal(
+    (data as unknown as typeof topo).objects.countries.geometries.length,
+    resource.featureCount,
+  );
+
+  const index = JSON.parse(readFileSync('public/geo/countries-index.json', 'utf8')) as {
+    iso: string;
+    name: string;
+  }[];
+  assert.deepEqual(
+    index.map((country) => country.iso).sort(),
+    [...MAP_ISOS].sort(),
+    'small finder index agrees with the map features',
+  );
+  assert.equal(new Set(MAP_ISOS).size, MAP_ISOS.length, 'country codes are unique');
+});
 
 test('the globe sits centred in the visible part, with room for its glow', () => {
   const d = disc(phone);

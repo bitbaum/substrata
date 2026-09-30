@@ -191,6 +191,29 @@ export default function Globe({ selected, keep, bins, labels, otherwise, summary
       <p id="wm-summary" className="sr-only">
         {summary}
       </p>
+      <p className="wm-attribution">
+        Map view:{' '}
+        <a
+          href="https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Natural Earth
+        </a>{' '}
+        (de facto). Contains identifier data from{' '}
+        <a href="https://github.com/mledoze/countries" target="_blank" rel="noopener noreferrer">
+          world-countries
+        </a>
+        ; the <a href="/geo/countries-50m.json">map data</a> is available under{' '}
+        <a
+          href="https://opendatacommons.org/licenses/odbl/1-0/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ODbL-1.0
+        </a>
+        . <a href="/geo/ATTRIBUTION.txt">Details</a>.
+      </p>
       <p className="sr-only" aria-live="polite">
         {facing && `Facing ${facing}`}
       </p>
