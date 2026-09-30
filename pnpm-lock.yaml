@@ -11,6 +11,9 @@ importers:
       '@bitbaum/ai-kit':
         specifier: ^1.17.0
         version: 1.17.0(react@19.3.0)
+      '@bitbaum/geo-kit':
+        specifier: github:bitbaum/geo-kit#599e5685da512f16b361e6b124129961c6f56d4e
+        version: https://codeload.github.com/bitbaum/geo-kit/tar.gz/599e5685da512f16b361e6b124129961c6f56d4e
       bip-kit:
         specifier: ^0.3.1
         version: 0.3.1(react@19.3.0)
@@ -195,6 +198,11 @@ packages:
     peerDependenciesMeta:
       react:
         optional: true
+
+  '@bitbaum/geo-kit@https://codeload.github.com/bitbaum/geo-kit/tar.gz/599e5685da512f16b361e6b124129961c6f56d4e':
+    resolution: {gitHosted: true, integrity: sha512-4iCqYfQjTp6+wjkjrsKEtZh+K1ZbEET2KwoKph3J6n1OX+ehbYmreBOZ0p0PHRTYC+h79/8Q+5p6WsTzwU5www==, tarball: https://codeload.github.com/bitbaum/geo-kit/tar.gz/599e5685da512f16b361e6b124129961c6f56d4e}
+    version: 0.1.0
+    engines: {node: '>=20'}
 
   '@bitbaum/sitekit@0.3.0':
     resolution: {integrity: sha512-DnIwW3F92PEXFW4h9VSW2q+HS4fYSlEX/TnjIUjQ+Pcjja38hRN5eo45B1c6nDOiXl2/8v9V7yRYjtLQ1zG6pQ==}
@@ -2803,6 +2811,8 @@ snapshots:
       ai-forms: 0.1.2(react@19.3.0)
     optionalDependencies:
       react: 19.3.0
+
+  '@bitbaum/geo-kit@https://codeload.github.com/bitbaum/geo-kit/tar.gz/599e5685da512f16b361e6b124129961c6f56d4e': {}
 
   '@bitbaum/sitekit@0.3.0(react@19.3.0)':
     dependencies:

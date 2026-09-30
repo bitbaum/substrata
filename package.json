@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@bitbaum/ai-kit": "^1.17.0",
+    "@bitbaum/geo-kit": "github:bitbaum/geo-kit#599e5685da512f16b361e6b124129961c6f56d4e",
     "bip-kit": "^0.3.1",
     "d3-geo": "^3.1.1",
     "listkit": "github:bitbaum/listkit#v0.1.0",

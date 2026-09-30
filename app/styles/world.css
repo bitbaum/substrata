@@ -12,6 +12,28 @@
   background: var(--map-ocean);
   touch-action: none;
 }
+.wm-attribution {
+  position: absolute;
+  z-index: 2;
+  top: calc(var(--atlas-bar-h) + var(--atlas-gutter) * 1.75);
+  left: var(--atlas-gutter);
+  max-width: min(27rem, calc(100% - var(--atlas-gutter) * 2));
+  margin: 0;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 0.5rem;
+  background: var(--atlas-glass);
+  backdrop-filter: blur(12px);
+  color: var(--color-fg-tertiary);
+  font-size: 0.6875rem;
+  line-height: 1.4;
+  pointer-events: auto;
+}
+.wm-attribution a {
+  color: var(--color-fg-secondary);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
 .wm-globe {
   display: block;
   cursor: grab;

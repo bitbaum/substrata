@@ -22,10 +22,8 @@ import type {
 import type { GeometryCollection, Topology } from 'topojson-specification';
 
 import { capOf, type Cap } from './globe-cull';
+import { fetchWorldTopology } from './globe-resource';
 import { pack, type Packed } from './globe-trace';
-
-/** Natural Earth 1:50m, built by scripts/geo/build-world-50m.mjs. */
-const GEO_URL = '/geo/countries-50m.json';
 
 export type CountryFeature = Feature<Geometry, { name: string; iso: string }>;
 
@@ -142,11 +140,7 @@ export function worldFrom(topo: WorldTopology): World {
 let loading: Promise<World> | null = null;
 
 export function loadWorld(): Promise<World> {
-  loading ??= fetch(GEO_URL)
-    .then((r) => {
-      if (!r.ok) throw new Error(`map data: ${r.status}`);
-      return r.json() as Promise<WorldTopology>;
-    })
+  loading ??= fetchWorldTopology()
     .then(worldFrom)
     .catch((error: unknown) => {
       loading = null; // let the next mount retry

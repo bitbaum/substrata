@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "datasetVersion": "substrata-world-50m-ac1985a75b961129",
+  "generatedAt": "2026-09-30T02:43:39.626Z",
+  "sources": [
+    {
+      "id": "natural-earth-50m",
+      "publisher": "Natural Earth, packaged by world-atlas maintainers",
+      "dataset": "Natural Earth 1:50m Admin-0 countries, world-atlas@2.0.2",
+      "url": "https://github.com/topojson/world-atlas/tree/v2.0.2",
+      "licenseSPDX": "LicenseRef-Natural-Earth-Public-Domain",
+      "retrievedAt": "2026-09-30T02:43:39.551Z",
+      "attribution": "Natural Earth data; the default country layer depicts de facto control."
+    },
+    {
+      "id": "world-countries-5-1-0",
+      "publisher": "Mohammed Le Doze",
+      "dataset": "world-countries@5.1.0 ISO 3166-1 alpha-2 lookup",
+      "url": "https://github.com/mledoze/countries",
+      "licenseSPDX": "ODbL-1.0",
+      "retrievedAt": "2026-09-30T02:43:39.599Z",
+      "attribution": "Contains information from world-countries@5.1.0 by Mohammed Le Doze, available under Open Database License (ODbL) 1.0: https://opendatacommons.org/licenses/odbl/1-0/."
+    }
+  ],
+  "viewpoints": [
+    {
+      "key": "natural-earth-de-facto",
+      "label": "Natural Earth de facto",
+      "description": "Natural Earth’s default Admin-0 country layer depicts de facto control. This is one sourced map viewpoint, not a legal conclusion.",
+      "sourceIds": [
+        "natural-earth-50m"
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "world-admin0-50m",
+      "sourceIds": [
+        "natural-earth-50m",
+        "world-countries-5-1-0"
+      ],
+      "kindKey": "administrative",
+      "geographyId": "world",
+      "levelKey": "admin0",
+      "format": "topojson",
+      "href": "/geo/countries-50m.json",
+      "sha256": "ac1985a75b9611293ac62808ef6f60823d0f71df2f4d03164094126d5f5dcc3a",
+      "byteSize": 268724,
+      "featureCount": 241,
+      "validFrom": null,
+      "validTo": null,
+      "viewpointKey": "natural-earth-de-facto"
+    }
+  ]
+}
