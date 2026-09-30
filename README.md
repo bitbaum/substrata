@@ -114,7 +114,7 @@ config/substrata-join.ts        what expertise this project is short of
 content/notes/*.md              the notes, one file each
 lib/bottlenecks.ts              the bottleneck join and its list spec
 lib/participants.ts             the markets join
-lib/notes.ts                    the listing layer over bip-kit
+lib/notes.ts                    notes and learn, over bip-kit's folder reader
 lib/contribute.ts               a join page as a model — portable, see below
 lib/labels.ts                   the words the interface uses
 components/portal/PublicNav.tsx  the grouped nav, both breakpoints
@@ -125,8 +125,10 @@ components/portal/PublicNav.tsx  the grouped nav, both breakpoints
 `content/notes/<slug>.md`, with frontmatter `title`, `summary`, `publishedAt`,
 `author`, `tags`. [bip-kit](https://github.com/bitbaum/bip-kit) parses markdown
 into typed blocks and renders them with no raw HTML anywhere, which is what
-makes a plain file in the repository safe to publish. It ships no filesystem
-layer on purpose, so `lib/notes.ts` is the listing half. The `bp-*` classes are
+makes a plain file in the repository safe to publish. Its folder reader
+(`readCollection` from `bip-kit/node`) finds, reads and sorts the files;
+`lib/notes.ts` adds Substrata's rule that every field is required, so a note
+missing one fails the build. `content/learn/*.md` works the same way. The `bp-*` classes are
 dressed in this site's tokens in `app/globals.css` — the package owns the
 parsing, this repo owns every visual decision.
 

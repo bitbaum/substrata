@@ -15,8 +15,8 @@ importers:
         specifier: github:bitbaum/geo-kit#a337aec928cf7804fecf459c308d366b90f4b2fa
         version: https://codeload.github.com/bitbaum/geo-kit/tar.gz/a337aec928cf7804fecf459c308d366b90f4b2fa
       bip-kit:
-        specifier: ^0.3.1
-        version: 0.3.1(react@19.3.0)
+        specifier: ^0.5.1
+        version: 0.5.1(react@19.3.0)
       d3-geo:
         specifier: ^3.1.1
         version: 3.1.1
@@ -1145,8 +1145,8 @@ packages:
     engines: {node: '>=6.0.0'}
     hasBin: true
 
-  bip-kit@0.3.1:
-    resolution: {integrity: sha512-OnkaJiDCRz0UeMifgI8NHnHoaBWyvpYOgdDIfOcxMiIWDWliVyHU+jg5aYX6zccIH15G5uze1vaGJV1XdRDDJg==}
+  bip-kit@0.5.1:
+    resolution: {integrity: sha512-0+AbK4rrnz+RZbrDCD/i2bbroja4rQcS77ntfrQCF9cZd8tfvxawI5ObJrgiN1se3+JmVeMJGPptMRCQBTIVaw==}
     engines: {node: '>=20'}
     peerDependencies:
       katex: '>=0.16'
@@ -3583,7 +3583,7 @@ snapshots:
 
   baseline-browser-mapping@2.11.19: {}
 
-  bip-kit@0.3.1(react@19.3.0):
+  bip-kit@0.5.1(react@19.3.0):
     dependencies:
       react: 19.3.0
 
