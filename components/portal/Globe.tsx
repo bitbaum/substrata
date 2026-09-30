@@ -45,14 +45,26 @@ export default function Globe({ selected, keep, bins, labels, otherwise, summary
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [world, setWorld] = useState<World | null>(null);
   const [failed, setFailed] = useState(false);
+  const [loadAttempt, setLoadAttempt] = useState(0);
   const [hover, setHover] = useState<{ iso: string; name: string; x: number; y: number } | null>(
     null,
   );
   const [facing, setFacing] = useState('');
 
   useEffect(() => {
-    loadWorld().then(setWorld, () => setFailed(true));
-  }, []);
+    let active = true;
+    loadWorld().then(
+      (loaded) => {
+        if (active) setWorld(loaded);
+      },
+      () => {
+        if (active) setFailed(true);
+      },
+    );
+    return () => {
+      active = false;
+    };
+  }, [loadAttempt]);
 
   const frame = useMapView(wrap);
   const loop = useGlobeLoop({ canvasRef, world, frame, bins, selected });
@@ -224,7 +236,19 @@ export default function Globe({ selected, keep, bins, labels, otherwise, summary
         </div>
       )}
       {failed && (
-        <p className="wm-failed">The globe could not load. The country list still works.</p>
+        <div className="wm-failed" role="alert">
+          <p>The globe could not load. The country list still works.</p>
+          <button
+            type="button"
+            className="wm-retry"
+            onClick={() => {
+              setFailed(false);
+              setLoadAttempt((attempt) => attempt + 1);
+            }}
+          >
+            Retry globe
+          </button>
+        </div>
       )}
       <div className="wm-zoom" role="group" aria-label="Zoom">
         <button type="button" onClick={() => controlRef.current?.zoomBy(1.5)} aria-label="Zoom in">
