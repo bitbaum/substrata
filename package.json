@@ -27,9 +27,9 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
-    "@bitbaum/ai-kit": "^1.17.0",
+    "@bitbaum/ai-kit": "^1.18.0",
     "@bitbaum/geo-kit": "github:bitbaum/geo-kit#a337aec928cf7804fecf459c308d366b90f4b2fa",
-    "bip-kit": "^0.3.1",
+    "bip-kit": "^0.4.0",
     "d3-geo": "^3.1.1",
     "listkit": "github:bitbaum/listkit#v0.1.0",
     "next": "16.3.6",
@@ -56,9 +56,9 @@
     "eslint": "^10",
     "eslint-config-next": "^16.3.6",
     "espree": "^11.2.0",
-    "prettier": "3.9.8",
+    "prettier": "3.9.9",
     "tailwindcss": "^4",
-    "tsx": "^4.23.13",
+    "tsx": "^4.23.15",
     "typescript": "^6.0.3"
   }
 }
