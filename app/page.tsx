@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 
 import { COMPANY } from '@/config/substrata';
-import { eventsNewestFirst, eventsSince } from '@/config/substrata-events';
 import { instrumentsNewestFirst, policyTotals } from '@/config/substrata-policy';
-import { BOTTLENECKS, portalTotals } from '@/lib/bottlenecks';
+import { portalTotals } from '@/lib/bottlenecks';
+import { homeFeed } from '@/lib/home-feed';
 import { marketTotals } from '@/lib/participants';
-import { WINDOW_DAYS, worstNow } from '@/lib/worst-now';
+import { worstNow } from '@/lib/worst-now';
 import { Page, Shell } from '@/components/portal/Shell';
 import { ChooseRole } from './_home/ChooseRole';
 import { HomeHero } from './_home/HomeHero';
@@ -29,25 +29,27 @@ export const metadata: Metadata = {
  * in a menu was the hierarchy fault. The corpus counts come last: they are
  * evidence for a reader already interested, not a way in.
  */
-export default function TodayPage() {
+// The front page reads the sweep's store on every request: "what changed"
+// is the one thing on it that must not be as old as the last deploy.
+export const dynamic = 'force-dynamic';
+
+export default async function TodayPage() {
+  const now = new Date();
   const totals = portalTotals();
   const board = worstNow(8);
-  const latestEvent = eventsNewestFirst()[0];
   const latestRule = instrumentsNewestFirst()[0];
-  const featured =
-    board.worst.find((b) => b.producers.length > 0) ??
-    BOTTLENECKS.find((b) => b.producers.length > 0);
+  const feed = await homeFeed(now);
 
   return (
     <Shell>
       <Page>
-        <HomeHero newest={latestEvent ? latestEvent.date : latestRule?.date} featured={featured} />
+        <HomeHero freshness={feed.freshness} now={now} />
 
         <ChooseRole />
 
         <div className="mb-14 grid gap-12 lg:grid-cols-[3fr_2fr]">
           <div>
-            <WhatChanged recent={eventsSince(WINDOW_DAYS)} />
+            <WhatChanged feed={feed} now={now} />
           </div>
           <div>
             <WorstNow {...board} bindingNow={totals.bindingNow} />
