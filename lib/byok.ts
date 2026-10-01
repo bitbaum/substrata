@@ -13,11 +13,12 @@
  * to the reader is built from the vendor's answer, not from the request.
  */
 import { byokVendor, isByokConfig, type ByokConfig } from '@bitbaum/ai-kit/byok';
+import { SITE } from './site';
 
 export * from '@bitbaum/ai-kit/byok';
 
 /** Attribution OpenRouter shows on its app pages; free to send. */
-export const BYOK_SITE = { url: 'https://substrata.orangecat.ch', title: 'Substrata' };
+export const BYOK_SITE = { url: SITE.url, title: SITE.name };
 
 export class ByokError extends Error {
   constructor(

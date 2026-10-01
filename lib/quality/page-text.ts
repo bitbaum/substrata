@@ -10,11 +10,12 @@ import { execFile } from 'node:child_process';
 import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { SITE } from '../site';
 
 /** Some publishers serve a different page per user agent, so a miss is retried with the other. */
 export const AGENTS = [
   'Mozilla/5.0 (X11; Linux x86_64)',
-  'Mozilla/5.0 (compatible; Substrata research; https://substrata.orangecat.ch)',
+  `Mozilla/5.0 (compatible; Substrata research; ${SITE.url})`,
 ];
 
 const NAMED: Record<string, string> = {

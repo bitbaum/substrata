@@ -2,6 +2,7 @@ import { BOTTLENECKS } from './bottlenecks';
 import { TECHNOLOGIES } from '@/config/substrata-taxonomy';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { SITE } from './site';
 
 const css = readFileSync(join(process.cwd(), 'app/globals.css'), 'utf8');
 function colour(name: string) {
@@ -49,5 +50,5 @@ export function chainDiagram(slug: string) {
    })
    .join('')}
  ${!producers.length ? '<text x="28" y="155" font-size="13">No producer list for this kind of constraint.</text>' : ''}
- <text x="28" y="${height - 34}" font-size="11">${b.producers.length > 6 ? `Showing 6 of ${b.producers.length} producers. ` : ''}Solid: sourced producer row. Dashed: candidate or unverified. Dotted: judged classification.</text><text x="28" y="${height - 15}" font-size="11">Source: substrata.orangecat.ch/bottlenecks/${xml(b.slug)} · No customer contracts or material quantities are implied.</text></g></svg>`;
+ <text x="28" y="${height - 34}" font-size="11">${b.producers.length > 6 ? `Showing 6 of ${b.producers.length} producers. ` : ''}Solid: sourced producer row. Dashed: candidate or unverified. Dotted: judged classification.</text><text x="28" y="${height - 15}" font-size="11">Source: ${SITE.host}/bottlenecks/${xml(b.slug)} · No customer contracts or material quantities are implied.</text></g></svg>`;
 }
