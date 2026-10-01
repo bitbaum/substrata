@@ -32,5 +32,5 @@ test('every nav item resolves to a page that exists', () => {
 });
 
 test('the chrome carries the canonical host for the footer', () => {
-  assert.equal(siteChrome().host, 'substrata.orangecat.ch');
+  assert.equal(siteChrome().host, 'substrata.ch');
 });
