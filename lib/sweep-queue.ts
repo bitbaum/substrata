@@ -146,6 +146,21 @@ export async function leadsFor(names: readonly string[], days = 45): Promise<Lea
   return result.rows.map((row) => leadFromRow(row));
 }
 
+/** Every bottleneck's leads from the last `days` days — the front page's read. */
+export async function recentLeads(days: number): Promise<Lead[]> {
+  const result = await database().query<LeadRow>(
+    `SELECT id, bottleneck, term, url, title, published, found_at, reviewed_at, verdict,
+            effect_guess
+       FROM research_sweep_candidates
+      WHERE verdict IS DISTINCT FROM 'rejected'
+        AND found_at > now() - ($1::float8 * interval '1 day')
+      ORDER BY found_at DESC
+      LIMIT 200`,
+    [days],
+  );
+  return result.rows.map((row) => leadFromRow(row));
+}
+
 /** The window the settings table counts leads over. */
 export const STATUS_WINDOW_DAYS = 30;
 
