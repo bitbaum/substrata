@@ -9,6 +9,8 @@
 export const SITE = {
   name: 'Substrata',
   host: 'substrata.orangecat.ch',
+  /** Absolute origin, for anything that leaves the site (user agents, exports, referers). */
+  url: 'https://substrata.orangecat.ch',
   repo: 'https://github.com/bitbaum/substrata',
 } as const;
 

@@ -11,8 +11,9 @@ import { database } from './db';
 import { classify, type Posting } from './careers';
 import { boardUrl, parseBoard } from './careers-ats';
 import { liveBoards } from './job-boards';
+import { SITE } from './site';
 
-const USER_AGENT = 'Substrata research (https://substrata.orangecat.ch; cato@orangecat.ch)';
+const USER_AGENT = `Substrata research (${SITE.url}; cato@orangecat.ch)`;
 const GAP_MS = 1_000;
 
 export interface JobRun {

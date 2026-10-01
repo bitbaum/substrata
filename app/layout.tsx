@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   title: { default: SITE.name, template: `%s · ${SITE.name}` },
   description:
     'Open-source research on the bottlenecks on the path to transformative technology: compute, energy, materials, actuation, talent, capital and permission.',
-  metadataBase: new URL(`https://${SITE.host}`),
+  metadataBase: new URL(SITE.url),
   // siteName and type alone render no og:title and no og:description, so a
   // shared link previewed with whatever the scraper could infer. Naming them
   // explicitly is the difference between a card and a bare URL.

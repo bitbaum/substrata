@@ -13,6 +13,7 @@ import { recordAskTiming, timingOf } from '@/lib/ask-timing';
 import { database } from '@/lib/db';
 import { parseFollows, type Follows } from '@/lib/follows';
 import { searchLeads } from '@/lib/sweep-queue';
+import { SITE } from '@/lib/site';
 
 export const dynamic = 'force-dynamic';
 
@@ -129,7 +130,7 @@ export async function POST(request: Request) {
           onSpend: (tokens) => void record('interactive', tokens),
           ...limits,
           extraHeaders: {
-            'HTTP-Referer': 'https://substrata.orangecat.ch',
+            'HTTP-Referer': SITE.url,
             'X-Title': 'Substrata',
           },
         });
