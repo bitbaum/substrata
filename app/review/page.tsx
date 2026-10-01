@@ -79,7 +79,7 @@ export default async function ReviewPage({
       <Page>
         <SectionHeader
           title="Review"
-          lede="Private. Three feeds arrive here: event leads from the scheduled sweep, with an AI draft to check against its source where a reader has had one written on their own AI key (“Summarise with AI”, or automatic updates they switched on — the site’s free AI never drafts), candidate sources from the scheduled producer-sourcing run, and contributions people sent in. Deciding something here does not publish it — the corpus is files in git, and a row reaches a page when a person commits it."
+          lede="Private. Three feeds arrive here: event leads from the scheduled sweep, with an AI draft to check against its source where a reader has had one written on their own AI key (“Summarise with AI”, or automatic updates they switched on — the site’s free AI never drafts), candidate sources from the scheduled producer-sourcing run, and contributions people sent in. Accepting an event publishes it at once, with the source and quote checked against the page; rejecting takes it out of the queue for good. Producer sources and contributions still reach a page only when a person commits them."
           stats={[
             { label: 'Open event leads', value: queue?.waiting ?? '—' },
             { label: 'Expired, never reviewed', value: queue?.expired ?? '—' },
@@ -123,14 +123,14 @@ export default async function ReviewPage({
         )}
         {params.accepted && (
           <p role="status" className="review-note">
-            Accepted. It reaches the site when the accepted rows are committed — see below.
+            Accepted and published — it is on the front page, its bottlenecks and /events now.
           </p>
         )}
         {queue && queue.awaitingCommit > 0 && (
           <div className="review-commit">
             <p>
-              {queue.awaitingCommit} accepted event{queue.awaitingCommit === 1 ? '' : 's'} not in
-              the corpus yet. In a checkout, run{' '}
+              {queue.awaitingCommit} accepted event{queue.awaitingCommit === 1 ? '' : 's'} live on
+              the site but not in the git file yet. In a checkout, run{' '}
               <code>pnpm run research:accept-events file.json</code> with{' '}
               <a href="/review/accepted" download>
                 the accepted rows (JSON)

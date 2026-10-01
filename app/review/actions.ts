@@ -7,6 +7,7 @@ import type { CoverageEvent, EventEffect, EventKind } from '@/config/substrata-e
 import { auth, isReviewer } from '@/lib/auth';
 import { acceptDraft } from '@/lib/event-draft-store';
 import { eventIdFor } from '@/lib/event-rules';
+import { syncAcceptedEvents } from '@/lib/events-live';
 import { recordVerdict } from '@/lib/sweep-review';
 
 async function reviewerId(): Promise<string> {
@@ -50,11 +51,12 @@ function eventFrom(form: FormData, today: string): CoverageEvent {
 }
 
 /**
- * Accept a lead as the event its (edited) draft describes.
+ * Accept a lead as the event its (edited) draft describes — and publish it.
  *
  * On a problem the reviewer lands back on the same lead with the reasons,
- * and nothing is written. On success the row waits for
- * `pnpm run research:accept-events`; it is not published by this.
+ * and nothing is written. On success the event is on the site at once:
+ * merged into the corpus (lib/events-live.ts) and every page re-rendered.
+ * `pnpm run research:accept-events` later carries it into the git file.
  */
 export async function acceptLead(form: FormData) {
   const actorId = await reviewerId();
@@ -65,6 +67,10 @@ export async function acceptLead(form: FormData) {
     eventFrom(form, new Date().toISOString().slice(0, 10)),
     actorId,
   );
+  if (problems.length === 0) {
+    await syncAcceptedEvents({ force: true });
+    revalidatePath('/', 'layout');
+  }
   revalidatePath('/review');
   if (problems.length) {
     redirect(
