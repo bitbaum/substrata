@@ -33,6 +33,7 @@ import { SITE } from '@/lib/site';
 import { AskDock } from '@/components/portal/AskDock';
 import { FigureDefinitions } from '@/components/portal/Figure';
 import { RAIL_BOOT } from '@/components/shell/shell-state';
+import { syncAcceptedEvents } from '@/lib/events-live';
 
 export const metadata: Metadata = {
   title: { default: SITE.name, template: `%s · ${SITE.name}` },
@@ -63,7 +64,14 @@ export const metadata: Metadata = {
  */
 const THEME_BOOT = `(function(){try{var t=localStorage.getItem('substrata-theme')||'auto';var d=t==='dark'||(t==='auto'&&matchMedia('(prefers-color-scheme: dark)').matches);var mode=d?'dark':'light';document.documentElement.dataset.theme=mode;document.documentElement.style.colorScheme=mode;}catch(e){}})();`;
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+// Static pages are rebuilt at most every 10 minutes, and at once when an event
+// is accepted at /review (revalidatePath('/', 'layout')). Without this, a page
+// prerendered at build would never show an event accepted after the deploy.
+export const revalidate = 600;
+
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  // Events accepted at /review join the corpus here, for every page below.
+  await syncAcceptedEvents();
   return (
     // The locale is fixed to the default until translations exist, but it is
     // read from one place and carries `dir`, so Arabic flips the layout rather

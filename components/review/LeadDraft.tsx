@@ -1,5 +1,6 @@
 import { EVENT_EFFECT_LABEL, EVENT_KIND_LABEL } from '@/config/substrata-events';
 import { acceptLead, rejectLead } from '@/app/review/actions';
+import type { DraftEvent } from '@/lib/event-draft';
 import type { LeadWithDraft } from '@/lib/event-draft-store';
 import { BOTTLENECK_NAMES } from '@/lib/event-rules';
 
@@ -15,16 +16,38 @@ const STATUS_LINE: Record<string, string> = {
   unusable: 'The model’s quote was not on the page word for word, so its draft was refused.',
   could_not_read: 'The page could not be fetched, so there is no draft.',
   duplicate: 'This page is already the source of an accepted event.',
+  fetched: 'No AI draft. Fill it in from the page; the quote is checked against it.',
 };
+
+/**
+ * With no AI draft the reviewer still gets the form, filled from the lead
+ * itself. The quote is left empty on purpose: it must be copied from the page,
+ * and Accept reads the page to check it word for word.
+ */
+function fromLead(lead: LeadWithDraft): DraftEvent {
+  return {
+    id: '',
+    date: (lead.published ?? lead.foundAt).slice(0, 10),
+    headline: lead.title.slice(0, 120),
+    kind: Object.keys(EVENT_KIND_LABEL)[0] as DraftEvent['kind'],
+    effect: 'neutral',
+    bottlenecks: [lead.bottleneck],
+    participants: [],
+    jurisdictions: [],
+    source: lead.url,
+    primary: false,
+    quote: '',
+  };
+}
 
 /**
  * One lead: the AI draft as an editable form on the left, the source page
  * around the quote on the right. Accept validates the edited row against the
- * same rules as the corpus tests; nothing is published by it.
+ * same rules as the corpus tests and publishes the event at once.
  */
 export function LeadDraft({ lead, problem }: { lead: LeadWithDraft; problem?: string }) {
   const draft = lead.draft;
-  const event = draft?.event ?? null;
+  const event = draft?.event ?? (draft?.status === 'duplicate' ? null : fromLead(lead));
   const suggestsEvent = draft?.status === 'drafted' && draft.suggestion === 'event';
 
   return (
@@ -41,9 +64,9 @@ export function LeadDraft({ lead, problem }: { lead: LeadWithDraft; problem?: st
 
       {draft === null ? (
         <p className="review-note">
-          Not drafted yet. Drafts are written only on a reader’s own AI key: “Summarise with AI”
-          under “Update news now” on its bottleneck page, or automatic updates for a reader who
-          switched them on.
+          No AI draft (drafts are written only on a reader’s own key). Fill the row in from the
+          page: copy one sentence that shows the event as the quote; Accept reads the page and
+          checks it word for word.
         </p>
       ) : draft.status !== 'drafted' ? (
         <p className="review-note">{STATUS_LINE[draft.status]}</p>

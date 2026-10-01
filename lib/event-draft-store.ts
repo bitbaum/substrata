@@ -3,13 +3,15 @@
  * queue's own freshness numbers. The run that writes drafts is
  * `event-draft-run.ts`.
  */
-import { EVENTS, type CoverageEvent } from '@/config/substrata-events';
+import { EVENTS, IN_CORPUS_FILE, type CoverageEvent } from '@/config/substrata-events';
+import { readPage } from '@bitbaum/ai-kit/web';
+
 import { database } from './db';
 import type { DraftEvent } from './event-draft';
 import { contextAround, eventProblems, similarEvent, verbatimIn } from './event-rules';
 import { expiredLeadSql, openLeadSql } from './lead-expiry';
 
-type DraftStatus = 'drafted' | 'unusable' | 'could_not_read' | 'duplicate';
+type DraftStatus = 'drafted' | 'unusable' | 'could_not_read' | 'duplicate' | 'fetched';
 
 export interface LeadWithDraft {
   id: string;
@@ -94,13 +96,39 @@ export async function openLeadsWithDrafts(limit = 100): Promise<LeadWithDraft[]>
 }
 
 /**
- * Accept an edited draft. Returns the problems if it is not acceptable.
+ * Accept an edited draft — or a row the reviewer filled in from the lead,
+ * when no AI draft exists. Returns the problems if it is not acceptable.
  *
- * The quote is re-verified against the page text the draft was made from, so
+ * The quote is verified against the page: the text the draft was made from,
+ * or, with no draft, the page read now (no AI is involved in reading it). So
  * an edit can shorten a quote but cannot put words on the page. Accepting
- * marks the lead reviewed and parks the row in `accepted_event`; it reaches
- * the corpus file only through `pnpm run research:accept-events` and a commit.
+ * marks the lead reviewed and stores the row in `accepted_event`, which the
+ * site publishes at once (events-live.ts); the git file catches up through
+ * `pnpm run research:accept-events`.
  */
+/**
+ * Read a lead's page for a reviewer who is accepting it without an AI draft,
+ * and keep the text, so the check is repeatable and the context shows next time.
+ */
+async function readLeadPage(candidateId: string): Promise<string | null> {
+  const db = database();
+  const lead = await db.query<{ url: string }>(
+    'SELECT url FROM research_sweep_candidates WHERE id = $1',
+    [candidateId],
+  );
+  const url = lead.rows[0]?.url;
+  if (!url) return null;
+  const page = await readPage(url, { timeoutMs: 15_000, maxChars: 60_000 });
+  if (!page.ok) return null;
+  await db.query(
+    `INSERT INTO research_event_drafts (candidate_id, status, reason, notes, page_text)
+     VALUES ($1, 'fetched', 'Page read when a reviewer accepted it; no AI draft.', '{}', $2)
+     ON CONFLICT (candidate_id) DO UPDATE SET page_text = $2`,
+    [candidateId, page.text],
+  );
+  return page.text;
+}
+
 export async function acceptDraft(
   candidateId: string,
   event: CoverageEvent,
@@ -111,8 +139,10 @@ export async function acceptDraft(
     'SELECT page_text FROM research_event_drafts WHERE candidate_id = $1',
     [candidateId],
   );
-  const pageText = row.rows[0]?.page_text;
-  if (!pageText) return ['This lead has no fetched page to check the quote against.'];
+  const pageText = row.rows[0]?.page_text ?? (await readLeadPage(candidateId));
+  if (!pageText) {
+    return ['The page could not be fetched to check the quote against. Try again, or reject it.'];
+  }
   const problems = eventProblems(event, pageText);
   if (EVENTS.some((e) => e.id === event.id)) problems.push(`The id ${event.id} is already taken.`);
   if (problems.length) {
@@ -152,21 +182,25 @@ export async function acceptDraft(
   return [];
 }
 
-/**
- * Accepted events that are not in the corpus file yet — the work
- * `research:accept-events` does. "In the corpus" is read from the deployed
- * EVENTS, so once the commit ships a row drops off this list by itself.
- */
-export async function acceptedAwaitingCommit(): Promise<CoverageEvent[]> {
+/** Every event accepted at /review, oldest first — what the site merges in live. */
+export async function acceptedEvents(): Promise<CoverageEvent[]> {
   const result = await database().query<{ accepted_event: CoverageEvent }>(
     `SELECT accepted_event FROM research_event_drafts
       WHERE accepted_event IS NOT NULL ORDER BY accepted_at`,
   );
-  const ids = new Set(EVENTS.map((e) => e.id));
-  const sources = new Set(EVENTS.map((e) => e.source));
-  return result.rows
-    .map((row) => row.accepted_event)
-    .filter((e) => !ids.has(e.id) && !sources.has(e.source));
+  return result.rows.map((row) => row.accepted_event);
+}
+
+/**
+ * Accepted events that are not in the corpus FILE yet — the work
+ * `research:accept-events` does. They are already on the site (events-live);
+ * this is the git record catching up. Measured against the file snapshot, so
+ * the live merge does not make them look committed.
+ */
+export async function acceptedAwaitingCommit(): Promise<CoverageEvent[]> {
+  return (await acceptedEvents()).filter(
+    (e) => !IN_CORPUS_FILE.ids.has(e.id) && !IN_CORPUS_FILE.sources.has(e.source),
+  );
 }
 
 export interface ReviewQueue {

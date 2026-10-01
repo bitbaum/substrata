@@ -453,6 +453,16 @@ export const EVENTS: readonly CoverageEvent[] = [
   ...(reviewedEvents as CoverageEvent[]),
 ];
 
+/**
+ * What the corpus FILE holds, captured before anything is merged in at run
+ * time (lib/events-live.ts adds rows accepted at /review to EVENTS). "Accepted
+ * but not committed yet" is measured against this, never against EVENTS.
+ */
+export const IN_CORPUS_FILE = {
+  ids: new Set(EVENTS.map((e) => e.id)),
+  sources: new Set(EVENTS.map((e) => e.source)),
+};
+
 /** Newest first. */
 export function eventsNewestFirst(): CoverageEvent[] {
   return [...EVENTS].sort((x, y) => y.date.localeCompare(x.date));
