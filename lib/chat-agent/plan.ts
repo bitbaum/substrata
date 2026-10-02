@@ -22,6 +22,7 @@ import type { ReaderContext } from '../chat-context';
 import { norm } from '../chat-tools/resolve';
 import type { ToolEnv } from '../chat-tools/ledger';
 import { CHAT_TOOLS, runTool } from '../chat-tools/registry';
+import { familyIn } from '../chat-tools/jobs';
 import { resourceIn } from '../chat-tools/resources';
 import { entitiesOfKind } from '../entities/registry';
 import { withAliases } from '../chat-tools/tool';
@@ -169,9 +170,13 @@ export function planLookups(
 
   if (JOBS.test(q)) {
     intent = true;
+    const family = familyIn(question);
     calls.push(
       call('open_roles', {
-        ...(bottleneck ? { bottleneck } : {}),
+        // A bottleneck only when the question names one outright; "electrical
+        // engineer" is a job, not the electrical-steel rail.
+        ...(bottleneck && !family ? { bottleneck } : {}),
+        ...(family ? { family } : {}),
         ...(countries[0] ? { country: countries[0].iso2 } : {}),
       }),
     );

@@ -62,8 +62,13 @@ export function listingLine(listing: Listing | null | undefined): string {
   if (listing.status === 'none-found') return 'No listing found';
   const lines = [listing.primary, listing.us]
     .filter((ref): ref is NonNullable<typeof ref> => Boolean(ref))
-    .map(terminalTicker)
-    .map(withExchange);
+    // A US line from EDGAR names its exchange (Nasdaq, NYSE): say that, not
+    // "US" — the model guessed "NYSE" for ASML's Nasdaq listing.
+    .map((ref) =>
+      !ref.figi && /^(nasdaq|nyse)/i.test(ref.exchange ?? '')
+        ? `${ref.ticker} US (${ref.exchange})`
+        : withExchange(terminalTicker(ref)),
+    );
   const tickers = [...new Set(lines)].join(', ') || 'ticker not recorded';
   return listing.status === 'parent'
     ? `NOT listed itself — its parent ${listing.parent ?? 'company'} is listed: ${tickers}`

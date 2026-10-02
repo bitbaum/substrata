@@ -13,6 +13,34 @@ import { num, str, type ChatTool } from './tool';
 
 const FAMILY_IDS = ROLE_FAMILIES.map((f) => f.id);
 
+/**
+ * The role family a person's own words point at ("electrical engineer",
+ * "power engineering"). Measured: "electrical engineer" was read as the
+ * electrical-STEEL bottleneck and found nothing, while eleven US
+ * power-engineering roles were open.
+ */
+const FAMILY_WORDS: [RegExp, RoleFamilyId][] = [
+  [
+    /\b(power|grid|transformers?|high[- ]voltage|substation|electrical engineer)/i,
+    'power-engineering',
+  ],
+  [/\b(electricians?|electrical trades?|wiring)/i, 'electrical-trades'],
+  [/\b(process engineer|fab|etch|lithography|deposition|yield)/i, 'process-engineering'],
+  [/\b(field service|equipment engineer|service engineer)/i, 'equipment-service'],
+  [/\btechnicians?\b/i, 'technicians'],
+  [/\b(optics?|optical|photonics?|lasers?)\b/i, 'optics-photonics'],
+  [/\b(materials?|metallurg|chemist|ceramics?)/i, 'materials'],
+  [/\bnuclear\b/i, 'nuclear'],
+  [/\b(cryogenic|industrial gas|helium|neon)/i, 'gases-cryogenics'],
+  [/\b(mechatronic|robot|automation|controls engineer)/i, 'mechatronics'],
+  [/\bdata ?cent(re|er)/i, 'data-centre'],
+  [/\b(software|machine learning|ml engineer|ai engineer)/i, 'software-ai'],
+];
+
+export function familyIn(text: string): RoleFamilyId | undefined {
+  return FAMILY_WORDS.find(([re]) => re.test(text))?.[1];
+}
+
 function boardHref(f: JobFilter): string {
   const p = new URLSearchParams();
   if (f.bottleneck) p.set('bottleneck', f.bottleneck);
@@ -65,8 +93,21 @@ export const JOB_TOOLS: ChatTool[] = [
         family,
         q: str(a.query) || undefined,
       };
-      const { jobs, total } = await env.jobs(filter, num(a.limit, 8, 1, 15));
+      const limit = num(a.limit, 8, 1, 15);
+      // Nothing under every filter: loosen one at a time and say which went,
+      // rather than tell a job seeker "0 open roles" while roles exist.
+      let { jobs, total } = await env.jobs(filter, limit);
+      const relaxed: string[] = [];
+      for (const key of ['bottleneck', 'family', 'q'] as const) {
+        if (total > 0 || !filter[key]) continue;
+        delete filter[key];
+        relaxed.push(key === 'q' ? 'title words' : key);
+        ({ jobs, total } = await env.jobs(filter, limit));
+      }
       return {
+        ...(relaxed.length
+          ? { relaxed: `Nothing matched every filter, so these drop: ${relaxed.join(', ')}.` }
+          : {}),
         filter: {
           bottleneck: b?.name ?? null,
           country: country ? countryName(country) : null,

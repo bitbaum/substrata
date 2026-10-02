@@ -106,3 +106,32 @@ test('the planner sends job, resource and country questions to the right tables'
       plan('What is new on gallium export controls?').includes('recent_leads'),
   );
 });
+
+test('quantities arrive in human units, so a model cannot turn 900,000 kg into "900 kt"', async () => {
+  const { withUnit } = await import('../lib/chat-tools/resources');
+  assert.equal(withUnit('900,000', 'kilograms'), '900,000 kg (= 900 t)');
+  assert.equal(withUnit('270,000', 'metric tons'), '270,000 t (= 270 thousand t)');
+  assert.equal(withUnit('642.041', 'billion m³'), '642.041 billion m³');
+  const out = await json('resource_production', { resource: 'gallium' });
+  assert.match(out.top_producers[0].value, /= 900 t/);
+});
+
+test('job words pick a role family, and an empty filter is loosened, never a bare zero', async () => {
+  const { familyIn } = await import('../lib/chat-tools/jobs');
+  assert.equal(familyIn('I am an electrical engineer in Germany'), 'power-engineering');
+  assert.equal(familyIn('power engineering jobs in the US'), 'power-engineering');
+  const seen: unknown[] = [];
+  const out = await json(
+    'open_roles',
+    { bottleneck: 'large-power-transformer-slots', family: 'power-engineering', country: 'US' },
+    env({
+      jobs: async (filter) => {
+        seen.push({ ...filter });
+        return filter.bottleneck ? { jobs: [], total: 0 } : { jobs: [], total: 11 };
+      },
+    }),
+  );
+  assert.equal(out.total_open, 11);
+  assert.match(out.relaxed, /bottleneck/);
+  assert.equal(seen.length, 2, 'one retry, without the bottleneck');
+});
