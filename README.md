@@ -7,7 +7,7 @@ Live at **https://substrata.orangecat.ch** — that is an address, not an
 affiliation. Substrata is its own repository and its own deployment, like the
 other sites built here. The subdomain is used
 because that apex domain is already owned; it moves to its own domain the day
-one is bought, and nothing in this repository changes when it does.
+one is bought.
 
 ## Shape
 
@@ -29,8 +29,7 @@ Nothing on the site is authored twice: the mandate, the coverage universe and
 the directory exist once, and the pages are those objects rendered.
 
 Every producer row starts unsourced and renders as unverified, never as a
-finding. There is no trading desk and nothing here implies one. Substrata is
-built by one person with AI agents; the site says so.
+finding. There is no trading desk and nothing here implies one.
 
 ## The portal
 
@@ -182,8 +181,12 @@ with the matching excerpt. Bottleneck pages show those open rows live as
 deliberate edit to the coverage file by someone who read the excerpt.
 
 The sweep does the same per bottleneck for words of change. `/api/events`
-reports its last run and open-lead count from the queue; the site lists only
-accepted events (`config/substrata-events.ts`).
+reports its last run and open-lead count from the queue. The event record
+lists only accepted events: accepting at `/review` publishes the row at once,
+and `pnpm run research:accept-events` carries it into
+`config/substrata-events-accepted.json` for a commit. The front page also shows
+up to four recent unchecked finds that report a change, labelled as not yet
+checked.
 
 There is no hand-run CLI and no committed worklist any more (removed
 2026-09-25): SearXNG is only reachable from the box, and a second queue in git
@@ -191,14 +194,13 @@ went stale while the timers ran. To force a run, start the unit on the box:
 `sudo systemctl start appcron-substrata-source.service` (or `-sweep`).
 
 Accepting an event means reading the page, taking the date from the page
-(search engines rarely supply one), writing the headline, and adding the row
-to the accepted file. `config/substrata-assessment.ts` holds each bottleneck's
+(search engines rarely supply one) and writing the headline. `config/substrata-assessment.ts` holds each bottleneck's
 stage, binding score and horizon; events are what should move them.
 
 ## Programmes
 
-`config/substrata-programmes.ts` holds the questions the firm has been
-commissioned to answer, each layer of a question cross-referenced to rows in
+`config/substrata-programmes.ts` holds the questions Substrata has set
+itself, each layer of a question cross-referenced to rows in
 the coverage universe (a test enforces that every cited row exists), and an
 open question is only open if it names what would settle it.
 

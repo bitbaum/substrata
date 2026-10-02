@@ -33,8 +33,8 @@ itself. This matters more than anything else here.
 - **Unverified.** Neither. Usually a lead from trade knowledge that is probably
   right and has not been checked.
 
-Roughly half of the maker rows are verified today, and the front page prints
-that fraction rather than rounding it up. A site like this is only worth
+The front page prints how many maker rows are sourced as a fraction rather
+than rounding it up. A site like this is only worth
 reading if it is honest about what it has not checked.
 
 ## Which numbers are judgements

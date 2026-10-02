@@ -50,9 +50,8 @@ often the thing that binds.
 Every row here answers four questions and refuses the rest: why it holds
 things up, who makes it, what has happened to it lately, and what would remove
 it. Each answer is either backed by a source you can open or marked as
-unverified, and the site shows which. Roughly half of the maker rows are
-verified today. The site says that number on its front page rather than
-rounding it up.
+unverified, and the site shows which. The front page prints how many maker
+rows are sourced as a fraction rather than rounding it up.
 
 > A map of this kind is only worth reading if it is honest about what it has
 > not checked.
