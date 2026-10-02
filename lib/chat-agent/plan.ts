@@ -48,6 +48,19 @@ const RESOURCE_ASK =
   /\b(produc(e|es|er|ers|tion)|suppl(y|ies|ier|iers)|reserves?|mines?|mining|who else|output|country|countries)\b/;
 const SCENARIO =
   /\b(blockades?|blockaded|embargo(es|ed)?|invad(e|es|ed)|invasion|war|cut off|shuts? down|halts?|halted|bans?|banned|what if|what would happen|disrupt(s|ed|ion)?|sanction(s|ed)?|earthquakes?|outages?|loses|lost|without)\b/;
+const SCIENCE_ASK =
+  /\b(technolog(y|ies)|readiness|relieve|relief|alternatives?|substitutes?|breakthroughs?|prototypes?|could (fix|solve|replace)|innovations?)\b/;
+const RESEARCH = /\b(papers?|preprints?|grants?|research|studies|publications?|arxiv|patents?)\b/;
+const POLICY_ASK =
+  /\b(rules?|laws?|regulat\w*|polic(y|ies)|export controls?|tariffs?|subsid\w*|permit\w*|lobb\w*|asked for|legislation|sanctions?)\b/;
+const FILINGS = /\b(filings?|filed|sec|8-k|6-k|10-k|10-q|edgar|disclos\w*)\b/;
+const PRICE = /\b(prices?|costs?|trend|index|spot|how much does)\b/;
+const JURISDICTION: [RegExp, string][] = [
+  [/\b(eu|europe|european)\b/, 'EU'],
+  [/\b(us|u\.s\.|united states|america|american)\b/, 'US'],
+  [/\b(china|chinese|prc)\b/, 'CN'],
+  [/\b(japan|japanese)\b/, 'JP'],
+];
 const HOLDINGS = /\b(i hold|my (portfolio|holdings|positions|stocks)|i own|tickers?)\b/;
 
 const call = (name: string, args: Record<string, unknown>): ToolRequest => ({
@@ -122,6 +135,45 @@ export function planLookups(
     );
   }
 
+  // What the section the reader is on is about, and what the words ask for.
+  const section = context.path ?? '';
+  if (SCIENCE_ASK.test(q) || (/^\/science(\/|$)/.test(section) && !RESEARCH.test(q))) {
+    intent = true;
+    calls.push(call('relief_technologies', bottleneck ? { bottleneck } : {}));
+  }
+  if (RESEARCH.test(q) && bottleneck) {
+    intent = true;
+    calls.push(call('research_pipeline', { bottleneck }));
+  }
+  if (POLICY_ASK.test(q) || /^\/policy(\/|$)/.test(section)) {
+    intent = true;
+    const where = JURISDICTION.find(([re]) => re.test(q))?.[1];
+    calls.push(
+      call('policy_rules', {
+        ...(bottleneck ? { bottleneck } : {}),
+        ...(where ? { jurisdiction: where } : {}),
+      }),
+    );
+  }
+  if (FILINGS.test(q)) {
+    intent = true;
+    calls.push(call('recent_filings', company ? { company } : {}));
+  }
+  if (PRICE.test(q) && !bottleneck) {
+    intent = true;
+    // The measuring words only ("tin price"), not the whole sentence.
+    const words = q
+      .split(/[^a-z0-9-]+/)
+      .filter(
+        (w) =>
+          w.length > 2 &&
+          !/^(what|which|the|and|for|with|are|has|have|how|does|did|show|tell|give|numbers?|trend|this|that|from|over|into|about|its|their|current|currently|now)$/.test(
+            w,
+          ),
+      );
+    calls.push(call('find_numbers', { query: words.join(' ') || question }));
+  }
+
   if (JOBS.test(q)) {
     intent = true;
     const family = familyIn(question);
@@ -140,6 +192,7 @@ export function planLookups(
     calls.push(
       call('resource_production', {
         resource: resource.term,
+        ...(/\breserves?\b/.test(q) ? { measure: 'reserves' } : {}),
         ...(countries[0] ? { country: countries[0].name } : {}),
       }),
     );

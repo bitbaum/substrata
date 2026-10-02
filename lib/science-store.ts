@@ -200,3 +200,24 @@ export async function fetchScience(now: Date = new Date(), only?: string): Promi
   );
   return outcome;
 }
+
+/**
+ * "Update now" on a bottleneck page reaches its research too: the open
+ * databases are searched for this one bottleneck, unless that happened within
+ * `cooldownHours` (one search serves every reader who presses after it). No
+ * model is involved — this is internet fetching only.
+ */
+export async function refreshResearch(
+  name: string,
+  cooldownHours: number,
+): Promise<{ searched: boolean; itemsNew: number }> {
+  if (!(name in SCIENCE_QUERIES)) return { searched: false, itemsNew: 0 };
+  const last = await database().query<{ searched_at: Date }>(
+    'SELECT searched_at FROM research_science_cursor WHERE bottleneck = $1',
+    [name],
+  );
+  const at = last.rows[0]?.searched_at?.getTime() ?? 0;
+  if (Date.now() - at < cooldownHours * 3_600_000) return { searched: false, itemsNew: 0 };
+  const run = await fetchScience(new Date(), name);
+  return { searched: true, itemsNew: run.itemsNew };
+}

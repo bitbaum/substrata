@@ -111,6 +111,11 @@ export const RESOURCE_TOOLS: ChatTool[] = [
       properties: {
         resource: { type: 'string', description: 'e.g. gallium, palladium, helium, natural gas' },
         country: { type: 'string', description: 'Country name, e.g. Russia, China' },
+        measure: {
+          type: 'string',
+          description:
+            '"production" (default) or "reserves" — what is in the ground, where USGS publishes it',
+        },
       },
     },
     label: (a) =>
@@ -136,7 +141,12 @@ export const RESOURCE_TOOLS: ChatTool[] = [
                 .some((w) => w.length > 4 && asked.split(' ').includes(w)),
             )
           : undefined;
-        const map = choropleth(resource.resource, named ? { series: named.id } : {});
+        const reserves = /reserve/i.test(str(a.measure));
+        const map = reserves
+          ? choropleth(resource.resource, { measure: 'reserves' })
+          : choropleth(resource.resource, named ? { series: named.id } : {});
+        if (reserves && !map)
+          return { error: `USGS publishes no reserves table for ${resource.commodity}.` };
         if (!map) return { error: `No production table for ${resource.commodity}.` };
         remember(env.ledger, {
           title: `${map.commodity}: ${map.label}`,

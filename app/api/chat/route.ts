@@ -14,6 +14,8 @@ import { database } from '@/lib/db';
 import { parseFollows, type Follows } from '@/lib/follows';
 import { searchLeads } from '@/lib/sweep-queue';
 import { openJobs } from '@/lib/careers-query';
+import { filingsFor } from '@/lib/filings-store';
+import { itemsFor } from '@/lib/science-read';
 import { SITE } from '@/lib/site';
 
 export const dynamic = 'force-dynamic';
@@ -115,7 +117,8 @@ export async function POST(request: Request) {
     // key is metered by nobody but them, so it gets room to think.
     const limits = byok
       ? { maxTokens: 4096, timeoutMs: 60_000, signal: request.signal }
-      : { maxTokens: 1800, timeoutMs: 25_000, signal: request.signal };
+      : // 1800 cut answers mid-word once reasoning took its share (2026-10-02).
+        { maxTokens: 2400, timeoutMs: 25_000, signal: request.signal };
     const turn = byok
       ? byokTurn(byok, limits)
       : streamedTurn({
@@ -171,6 +174,12 @@ export async function POST(request: Request) {
                 context.reader && !context.reader.everything ? context.reader.rails : undefined,
               leads: process.env.DATABASE_URL ? (q) => searchLeads(q) : undefined,
               jobs: process.env.DATABASE_URL ? (f, limit) => openJobs(f, limit) : undefined,
+              science: process.env.DATABASE_URL
+                ? (b, limit) => itemsFor(b, null, limit)
+                : undefined,
+              filings: process.env.DATABASE_URL
+                ? (ciks, days) => filingsFor(ciks, days)
+                : undefined,
               web: webLookupEnabled() ? (query, signal) => lookUp(query, signal) : undefined,
               read: (url, claim, signal) => readSource(url, claim, signal),
             },

@@ -1,6 +1,8 @@
 /** What the tools touched during one answer, and the environment they run in. */
 import type { LeadHit } from '../sweep-queue';
 import type { JobFilter, JobRow } from '../careers-query';
+import type { Filing } from '../filings';
+import type { StoredItem } from '../science-read';
 import type { WebFinding, WebLookup } from '../chat-web';
 
 /** A corpus row the answer read, for the "records read" list under it. */
@@ -40,6 +42,10 @@ export interface ToolEnv {
   read?: (url: string, claim: string, signal?: AbortSignal) => Promise<WebFinding | null>;
   /** Open roles from the job board (careers-query `openJobs`). */
   jobs?: (filter: JobFilter, limit: number) => Promise<{ jobs: JobRow[]; total: number }>;
+  /** Collected papers and grants on one bottleneck (science-read `itemsFor`). */
+  science?: (bottleneck: string, limit: number) => Promise<StoredItem[]>;
+  /** SEC filings by these registrants (filings-store `filingsFor`). */
+  filings?: (ciks: readonly number[], days: number) => Promise<Filing[]>;
 }
 
 export function remember(ledger: Ledger, ref: RecordRef) {

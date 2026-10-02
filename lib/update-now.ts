@@ -12,6 +12,7 @@ import { database } from './db';
 import { readFollows } from './desk-store';
 import { railsOf } from './follows';
 import type { UpdateLead, UpdateScope } from './update-shared';
+import { canonicalUrl } from './sweep';
 
 export { SUMMARISE_AT_ONCE } from './update-shared';
 
@@ -90,7 +91,22 @@ export async function openLeads(
     [names, limit, ids],
   );
   const slugOf = new Map(BOTTLENECKS.map((b) => [b.name, b.slug]));
-  return rows.map((r) => ({
+  // Rows stored before addresses were made canonical: one per page, newest kept.
+  // The same story republished elsewhere (same title, another site) is one too.
+  const seen = new Set<string>();
+  const unique = rows.filter((r) => {
+    const keys = [
+      `${r.bottleneck}|${canonicalUrl(r.url)}`,
+      `${r.bottleneck}|${r.title
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, ' ')
+        .trim()}`,
+    ];
+    if (keys.some((k) => seen.has(k))) return false;
+    for (const k of keys) seen.add(k);
+    return true;
+  });
+  return unique.map((r) => ({
     id: r.id,
     title: r.title,
     url: r.url,

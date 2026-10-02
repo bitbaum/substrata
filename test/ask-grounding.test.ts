@@ -52,3 +52,35 @@ test('an answer with an invented figure is sent back once and the revision is wh
   assert.equal(done.data.answer, 'Supply would be lost; the rows give no share.');
   assert.equal(calls, 2, 'one answer, one revision — never a loop');
 });
+
+test('an answer cut off at the output limit is finished, once, not shown cut', async () => {
+  const events: AgentEvent[] = [];
+  let calls = 0;
+  await runAgent({
+    question: 'Tell me something useful about chokepoints please',
+    history: [],
+    context: readerContext({}),
+    env: {},
+    emit: (e) => events.push(e),
+    turn: async ({ tools }) => {
+      calls++;
+      if (tools)
+        return { text: 'ASML is listed as ASML NA and AS', calls: [], model: 'm', truncated: true };
+      return { text: 'ML US.', calls: [], model: 'm' };
+    },
+  });
+  const done = events.find((e) => e.type === 'done') as Extract<AgentEvent, { type: 'done' }>;
+  assert.equal(done.data.answer, 'ASML is listed as ASML NA and ASML US.');
+  assert.equal(calls, 2);
+});
+
+test('a revision that fails leaves the answer without the unsupported sentences', async () => {
+  const { withoutSentencesHolding } = await import('../lib/chat-agent/grounding');
+  assert.equal(
+    withoutSentencesHolding(
+      'Lead times are 128 weeks. About 70% is lost.\n- Taiwan holds 80% of it.\n- TSMC is listed.',
+      ['70%', '80%'],
+    ),
+    'Lead times are 128 weeks.\n- TSMC is listed.',
+  );
+});

@@ -199,6 +199,26 @@ function excerptAround(text: string, term: string): string | null {
   return text.slice(start, end).replace(/\s+/g, ' ').trim();
 }
 
+/**
+ * A page's address without what a search engine or campaign appended. Google
+ * adds `?srsltid=…` with a new value on every result, so the same blog post
+ * was stored eight times as eight "new" leads (Liquid helium, 2026-10-02).
+ */
+const TRACKING =
+  /^(srsltid|utm_[a-z]+|gclid|fbclid|msclkid|mc_cid|mc_eid|igshid|ref_src|_hs(enc|mi))$/i;
+
+export function canonicalUrl(url: string): string {
+  try {
+    const u = new URL(url);
+    for (const key of [...u.searchParams.keys()])
+      if (TRACKING.test(key)) u.searchParams.delete(key);
+    u.hash = '';
+    return u.toString();
+  } catch {
+    return url;
+  }
+}
+
 function idFor(url: string): string {
   return createHash('sha1').update(url).digest('hex').slice(0, 12);
 }
@@ -243,11 +263,12 @@ export async function sweep(
     // Checked here, not on the search result, because the reader often returns
     // a truer title than the snippet did.
     if (looksLikeAReference(title)) continue;
+    const url = canonicalUrl(page.url);
     out.push({
-      id: idFor(page.url),
+      id: idFor(url),
       bottleneck: node.name,
       term: node.term,
-      url: page.url,
+      url,
       title,
       published: result.published ?? null,
       excerpt,

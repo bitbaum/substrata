@@ -31,6 +31,8 @@ export interface ModelTurnResult {
   model: string;
   /** Links that refused before it, as `provider/model: kind` — for the timing log. */
   skipped?: string[];
+  /** The model stopped at its output limit, mid-answer. */
+  truncated?: boolean;
   /** Tool calls written in text on a turn that offered no tools (see `readTurn`). */
   stray?: ToolRequest[];
 }
@@ -69,7 +71,14 @@ export function streamedTurn(opts: {
   return async ({ messages, tools, onText }) => {
     const gate = new StreamGate();
     const skipped: string[] = [];
-    let end: { text: string; toolCalls: { name: string; args: string }[]; id: string } | undefined;
+    let end:
+      | {
+          text: string;
+          toolCalls: { name: string; args: string }[];
+          id: string;
+          finish: string | null;
+        }
+      | undefined;
     for await (const delta of completeStream({
       chain: opts.cooldown ? opts.cooldown.filter(opts.chain) : opts.chain,
       onLinkFailure: (link, error) => {
@@ -93,7 +102,12 @@ export function streamedTurn(opts: {
         const shown = gate.feed(delta.text);
         if (shown) onText(shown);
       } else if (delta.type === 'end') {
-        end = { text: delta.text, toolCalls: delta.toolCalls, id: delta.id };
+        end = {
+          text: delta.text,
+          toolCalls: delta.toolCalls,
+          id: delta.id,
+          finish: delta.finishReason ?? null,
+        };
       }
     }
     const tail = gate.flush();
@@ -103,7 +117,9 @@ export function streamedTurn(opts: {
       estimateTokens(JSON.stringify(messages), tools ? JSON.stringify(tools) : '', end.text),
     );
     const read = readTurn(end.text, end.toolCalls, Boolean(tools?.length));
-    return { ...read, model: end.id, skipped };
+    // `length`: the model ran out of output budget mid-answer (seen live as an
+    // answer ending "Listed: AS"). The loop decides what to do with it.
+    return { ...read, model: end.id, skipped, truncated: end.finish === 'length' };
   };
 }
 

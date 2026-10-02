@@ -41,6 +41,8 @@ export interface UpdateResult {
   couldNotLook: number;
   cooldownMinutes: number;
   leads: UpdateLead[];
+  /** On a bottleneck page: its research databases were searched too. */
+  research?: { searched: boolean; itemsNew: number };
 }
 
 /** A lead a summary would still add something to. */
