@@ -25,6 +25,7 @@ import { JOB_TOOLS } from './jobs';
 import { NUMBER_TOOLS } from './numbers';
 import { POLICY_TOOLS } from './policy';
 import { SCIENCE_TOOLS } from './science';
+import { WRITING_TOOLS } from './writing';
 import { LEAD_TOOLS } from './leads';
 import type { ToolEnv } from './ledger';
 import { LIST_TOOLS } from './lists';
@@ -46,6 +47,7 @@ export const CHAT_TOOLS: readonly ChatTool[] = [
   ...SCIENCE_TOOLS,
   ...POLICY_TOOLS,
   ...FILING_TOOLS,
+  ...WRITING_TOOLS,
   ...LEAD_TOOLS,
   ...JOB_TOOLS,
   ...WEB_TOOLS,

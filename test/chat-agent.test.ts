@@ -378,3 +378,23 @@ test('an oversized tool result stays valid JSON and says it was cut', () => {
   assert.ok(parsed.rows.length >= 2 && parsed.rows.length < 400);
   assert.match(parsed.truncated, /left out/);
 });
+
+test('a tool the planner already ran unfiltered is not offered again', async () => {
+  const offered: string[][] = [];
+  const turn: ModelTurn = async (input) => {
+    offered.push(
+      ((input.tools ?? []) as { function: { name: string } }[]).map((t) => t.function.name),
+    );
+    return { text: 'Amorphous-metal cores are the most ready.', calls: [], model: 'groq/m' };
+  };
+  await runAgent({
+    question: 'Which technology is closest to relieving a bottleneck?',
+    history: [],
+    context: readerContext({ path: '/science' }),
+    turn,
+    env: {},
+    emit: () => {},
+  });
+  assert.ok(offered[0].length > 0, 'tools are offered');
+  assert.ok(!offered[0].includes('relief_technologies'), 'its whole list is already in hand');
+});

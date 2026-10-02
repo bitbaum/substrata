@@ -144,3 +144,16 @@ test('a page found again with a new tracking parameter is the same page', async 
   assert.equal(a, b);
   assert.equal(canonicalUrl('https://x.example/p?id=7&utm_medium=y'), 'https://x.example/p?id=7');
 });
+
+test("Substrata's own writing is one listing, reached by its words or from /notes", async () => {
+  const out = await json('site_writing', {});
+  assert.ok(out.notes.length > 0 && out.guides.length > 0);
+  assert.match(out.notes[0].link, /^\[.+\]\(\/notes\/[a-z0-9-]+\)$/);
+  assert.ok(
+    plan('What has Substrata itself written or published about its methods?').includes(
+      'site_writing',
+    ),
+  );
+  assert.ok(plan('Summarise this', '/notes/what-this-map-does-not-know').includes('site_writing'));
+  assert.ok(!plan('Can you explain refining methods for gallium?').includes('site_writing'));
+});
