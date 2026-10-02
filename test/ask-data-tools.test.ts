@@ -135,3 +135,10 @@ test('job words pick a role family, and an empty filter is loosened, never a bar
   assert.match(out.relaxed, /bottleneck/);
   assert.equal(seen.length, 2, 'one retry, without the bottleneck');
 });
+
+test('a change is stated as up or down in words, never as a bare sign', () => {
+  const rows = keyNumbers('large-power-transformer-slots');
+  const changed = rows.find((r) => r.change);
+  assert.ok(changed, 'some series has a previous point');
+  assert.match(changed!.change!, /^(up|down) \d/);
+});

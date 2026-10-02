@@ -27,9 +27,11 @@ function row(s: Series) {
   return {
     metric: s.metric,
     figure: last ? `${formatPoint(last)} ${s.unit}, ${s.geography}, ${last.date}` : null,
+    // In words, not a signed percentage: "+83.5% from 352.8" was read back as a
+    // fall (2026-10-02). The direction is stated, so it cannot be reversed.
     change:
       change && change.pct !== undefined
-        ? `${formatPct(change.pct)} from ${formatPoint(change.from)} (${change.from.date})`
+        ? `${change.pct >= 0 ? 'up' : 'down'} ${formatPct(Math.abs(change.pct)).replace(/^[+−-]/, '')} from ${formatPoint(change.from)} ${s.unit} (${change.from.date}) to the latest figure`
         : undefined,
     planned: planned ? `${formatPoint(planned)} ${s.unit} planned for ${planned.date}` : undefined,
     source: last ? `${last.publisher}${last.primary ? ' (primary)' : ''}: ${last.source}` : null,
