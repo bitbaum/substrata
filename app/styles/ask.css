@@ -41,6 +41,12 @@
 }
 
 .ask-dock-head {
+  /* Stays at the top while the panel scrolls, so Close is always in reach. */
+  position: sticky;
+  top: -1rem;
+  z-index: 1;
+  padding-top: 1rem;
+  background: var(--color-surface-page);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -82,11 +88,15 @@
 .companion .ck-thread-wrap {
   flex: 1;
 }
-.companion-page .companion .ck-composer-wrap {
+.companion-page .companion .ck-composer-wrap,
+.ask-dock-panel .companion .ck-composer-wrap {
   position: sticky;
   bottom: var(--shell-offset-bottom);
   background: var(--color-surface-page);
   padding-bottom: 0.5rem;
+}
+.ask-dock-panel .companion .ck-composer-wrap {
+  bottom: 0;
 }
 
 .ask-empty {
@@ -119,8 +129,12 @@
   color: var(--color-fg-primary);
   background: var(--color-surface-raised);
 }
+/* A native select is as wide as its longest option (a full model id), which
+   wrapped the composer's tools onto three rows on a phone. The chosen label is
+   short ("Auto"); the list still shows every name when opened. */
 .ask-model select {
-  max-width: 11rem;
+  width: 5.5rem;
+  text-overflow: ellipsis;
   background: transparent;
   color: inherit;
   font: inherit;

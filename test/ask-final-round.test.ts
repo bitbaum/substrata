@@ -120,4 +120,12 @@ test('links nested inside links are mended to one link', async () => {
     'see [Sourced](/exposure?q=EUV%20x).',
   );
   assert.equal(unnestLinks('[ASML](/markets/asml) stays'), '[ASML](/markets/asml) stays');
+  assert.equal(
+    unnestLinks('rank 1 [Russia](/atlas?view=world&country=ru].'),
+    'rank 1 [Russia](/atlas?view=world&country=ru).',
+  );
+  assert.equal(
+    unnestLinks('see [ASML sales] (https://example.com/a) now'),
+    'see [ASML sales](https://example.com/a) now',
+  );
 });
