@@ -2,6 +2,27 @@
 
 What changed on substrata.orangecat.ch, newest first, in the words of someone using it. Every entry corresponds to a merged pull request and the numbers are the ones in the commits; fixes are listed with the same weight as features. This file is what the fleet map (`loki.orangecat.ch/api/fleet/map`) reads, and `/changelog` on the site renders from the map.
 
+## 2026-10-02
+
+### Fixed
+- **Ask answers in words, not tool calls.** It no longer replies with a raw tool call, reads the site's own numbers, production tables and open roles, converts units correctly, answers in the language of the question, gives links you can copy, loosens a job search instead of returning nothing, and says whether a change went up or down in words. (#136, #137, #138)
+
+## 2026-10-01
+
+### Added
+- **The front page is live.** Checked events first, then what the sweep found in the last 14 days, each labelled as not yet checked with a way to check it. (#134)
+- **Accepting an event publishes it at once.** An event accepted at `/review` is on the site immediately, with its quote checked against the page at the moment of acceptance. (#135)
+
+## 2026-09-30
+
+### Fixed
+- **The world map loads only when you open it**, from a manifest that records each dataset's source and licence; a failed load offers a retry instead of a stuck globe. (#126, #127)
+
+## 2026-09-28
+
+### Fixed
+- **`/roadmap` renders again.** It had returned an error since the roadmap started coming from the fleet map. (#125)
+
 ## 2026-09-26
 
 ### Added
