@@ -10,7 +10,7 @@ What changed on substrata.orangecat.ch, newest first, in the words of someone us
 ## 2026-10-01
 
 ### Added
-- **The front page is live.** Checked events first, then what the sweep found in the last 14 days, each labelled as not yet checked with a way to check it. (#134)
+- **The front page is live.** Checked events first, then up to four recent sweep finds that report a change and are not yet filed, each labelled as not yet checked with a way to check it. (#134)
 - **Accepting an event publishes it at once.** An event accepted at `/review` is on the site immediately, with its quote checked against the page at the moment of acceptance. (#135)
 
 ## 2026-09-30

@@ -185,7 +185,8 @@ reports its last run and open-lead count from the queue. The event record
 lists only accepted events: accepting at `/review` publishes the row at once,
 and `pnpm run research:accept-events` carries it into
 `config/substrata-events-accepted.json` for a commit. The front page also shows
-the latest unchecked finds, labelled as not yet checked.
+up to four recent unchecked finds that report a change, labelled as not yet
+checked.
 
 There is no hand-run CLI and no committed worklist any more (removed
 2026-09-25): SearXNG is only reachable from the box, and a second queue in git

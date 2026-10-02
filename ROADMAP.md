@@ -54,7 +54,7 @@ The seams for eight languages exist and every non-English locale reports 0% cove
 ## Later
 
 ### Its own domain
-`substrata.orangecat.ch` is an address, not an affiliation. The site moves to its own domain the day one is bought; the move is one script (`scripts/ops/move-to-substrata-ch.sh`) and the old address redirects.
+`substrata.orangecat.ch` is an address, not an affiliation. The site moves to its own domain the day one is bought; the move is a box script (`scripts/ops/move-to-substrata-ch.sh`) plus a change to `lib/site.ts` that waits as an open pull request (#133), and the old address redirects.
 
 ### The join page as a package
 `lib/contribute.ts` is a portable model for an invitation to contribute that is not an offer of employment. It lifts into sitekit unchanged when a third project wants it; until then it stays a file.
