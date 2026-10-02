@@ -30,7 +30,11 @@ const someCompany = MARKET_PARTICIPANTS[0];
 
 test('every tool is a well-formed OpenAI function with a unique name', () => {
   const defs = toolDefinitions(
-    envWith({ leads: async () => [], web: async () => ({ status: 'off' }) }),
+    envWith({
+      leads: async () => [],
+      web: async () => ({ status: 'off' }),
+      jobs: async () => ({ jobs: [], total: 0 }),
+    }),
   );
   const names = defs.map((d) => d.function.name);
   assert.equal(new Set(names).size, names.length, 'tool names must be unique');

@@ -22,6 +22,9 @@ import type { ReaderContext } from '../chat-context';
 import { norm } from '../chat-tools/resolve';
 import type { ToolEnv } from '../chat-tools/ledger';
 import { CHAT_TOOLS, runTool } from '../chat-tools/registry';
+import { resourceIn } from '../chat-tools/resources';
+import { entitiesOfKind } from '../entities/registry';
+import { withAliases } from '../chat-tools/tool';
 import { isPageRecord, type AgentEvent } from './answer';
 import { safeArgs, type ToolRequest } from './parse';
 
@@ -39,7 +42,31 @@ const MAKERS = /\b(who makes|makers?|producers?|suppliers?|who (supplies|produce
 const DEPENDS =
   /\b(depends?|depending|dependen(t|ts|cy|cies)|rests? on|downstream|upstream|supply chain)\b/;
 
-const STOP = new Set(['and', 'the', 'for', 'with', 'from', 'slots', 'grade', 'high', 'large']);
+// Words too generic to name a bottleneck on their own: "EUV machines" once
+// pulled the laser powder-bed fusion MACHINES record before the EUV one.
+const STOP = new Set([
+  'and',
+  'the',
+  'for',
+  'with',
+  'from',
+  'slots',
+  'grade',
+  'high',
+  'large',
+  'machines',
+  'capacity',
+  'supply',
+  'equipment',
+  'materials',
+  'tools',
+  'production',
+]);
+const JOBS =
+  /\b(jobs?|roles?|hiring|hire|careers?|vacanc(y|ies)|openings?|positions?|retrain(ing)?|employers?|work (for|in|at))\b/;
+const RESOURCE_ASK =
+  /\b(produc(e|es|er|ers|tion)|suppl(y|ies|ier|iers)|reserves?|mines?|mining|who else|output|country|countries)\b/;
+const HOLDINGS = /\b(i hold|my (portfolio|holdings|positions|stocks)|i own|tickers?)\b/;
 
 /** The bottleneck a question names, by its most distinctive words — or none when two tie. */
 export function bottleneckIn(question: string): Bottleneck | undefined {
@@ -61,15 +88,24 @@ export function bottleneckIn(question: string): Bottleneck | undefined {
   return best && !tied ? best.b : undefined;
 }
 
-/** Companies a question names as whole words, longest names first, at most two. */
-export function companiesIn(question: string): MarketParticipant[] {
+/** Countries a question names as whole words ("Germany", "Russia"), at most two. */
+export function countriesIn(question: string): { iso2: string; name: string }[] {
+  const q = ` ${norm(question)} `;
+  return entitiesOfKind('country')
+    .filter((c) => q.includes(` ${norm(c.name)} `))
+    .slice(0, 2)
+    .map((c) => ({ iso2: c.key, name: c.name }));
+}
+
+/** Companies a question names as whole words, longest names first, at most `max`. */
+export function companiesIn(question: string, max = 2): MarketParticipant[] {
   const q = ` ${norm(question)} `;
   return MARKET_PARTICIPANTS.filter((p) => {
     const n = norm(p.name);
     return n.length >= 3 && q.includes(` ${n} `);
   })
     .sort((a, b) => b.name.length - a.name.length)
-    .slice(0, 2);
+    .slice(0, max);
 }
 
 const call = (name: string, args: Record<string, unknown>): ToolRequest => ({
@@ -93,7 +129,10 @@ export function planLookups(
   const pageCompany = page?.kind === 'company' ? page.key : undefined;
   const named = bottleneckIn(question);
   const bottleneck = named?.slug ?? pageBottleneck;
-  const companies = companiesIn(question).filter((c) => c.slug !== pageCompany);
+  const holdings = HOLDINGS.test(q);
+  const companies = companiesIn(question, holdings ? 4 : 2).filter((c) => c.slug !== pageCompany);
+  const countries = countriesIn(question);
+  const resource = resourceIn(question);
   const company = companies[0]?.slug ?? pageCompany;
 
   const calls: ToolRequest[] = [];
@@ -128,9 +167,30 @@ export function planLookups(
   }
   if (MAKERS.test(q) && (bottleneck || company)) intent = true;
 
+  if (JOBS.test(q)) {
+    intent = true;
+    calls.push(
+      call('open_roles', {
+        ...(bottleneck ? { bottleneck } : {}),
+        ...(countries[0] ? { country: countries[0].iso2 } : {}),
+      }),
+    );
+  }
+  if (resource && (RESOURCE_ASK.test(q) || countries.length || !bottleneck)) {
+    intent = true;
+    calls.push(
+      call('resource_production', {
+        resource: resource.term,
+        ...(countries[0] ? { country: countries[0].name } : {}),
+      }),
+    );
+  } else if (countries.length && !JOBS.test(q)) {
+    calls.push(call('resource_production', { country: countries[0].name }));
+  }
+
   // Nothing recognised: no guess. A corpus search here would list its eight
   // hits among the records read whether or not the answer used them.
-  return { calls: calls.slice(0, 4), confident: Boolean(bottleneck || company) && intent };
+  return { calls: calls.slice(0, 5), confident: Boolean(bottleneck || company) && intent };
 }
 
 /**
@@ -145,7 +205,8 @@ export async function runLookups(
   emit: (event: AgentEvent) => void,
 ): Promise<string[]> {
   for (const c of calls) {
-    const label = CHAT_TOOLS.find((t) => t.name === c.name)?.label(safeArgs(c.args));
+    const tool = CHAT_TOOLS.find((t) => t.name === c.name);
+    const label = tool?.label(withAliases(tool.parameters, safeArgs(c.args)));
     emit({ type: 'tool', label: label ?? c.name });
   }
   const outs = await Promise.all(

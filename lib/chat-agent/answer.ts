@@ -1,5 +1,6 @@
 /** What the loop streams, what a finished answer carries, and the honest fallbacks. */
 import { ChainExhaustedError } from '@bitbaum/ai-kit';
+import { ByokError } from '../byok';
 import type { Ledger } from '../chat-tools/ledger';
 import { findBottleneck, findCompany } from '../chat-tools/resolve';
 import type { ReaderContext } from '../chat-context';
@@ -98,4 +99,56 @@ export function answerableFromPage(question: string, hasRecord: boolean): boolea
   return !/\b(news|latest|today|this week|recent|lead|web|compare|versus|vs\.?|other|else|alternative|who else|competitor|price|stock|share)\b/.test(
     q,
   );
+}
+
+/**
+ * What the reader sees when the turn failed: the budget note (with what was
+ * read), a reader's-own-key error, or a plain "could not reach a model".
+ */
+export function failureEvent(
+  error: unknown,
+  ledger: Ledger,
+  timing: NonNullable<AgentAnswer['timing']>,
+): AgentEvent {
+  const budget = budgetMessage(error);
+  if (budget)
+    return {
+      type: 'done',
+      data: {
+        answer: budget,
+        sources: sourcesOf(ledger),
+        web: ledger.web,
+        leads: ledger.leads,
+        followUps: [],
+        trail: ledger.trail,
+        outside: ledger.web.length > 0,
+        degraded: true,
+        timing,
+      },
+    };
+  if (error instanceof ByokError) return { type: 'error', error: error.message, kind: 'byok' };
+  console.error(
+    'Substrata ask failed',
+    error instanceof ChainExhaustedError
+      ? error.failures.map((f) => f.message.slice(0, 120)).join(' | ')
+      : error instanceof Error
+        ? error.name
+        : 'unknown',
+  );
+  return {
+    type: 'error',
+    kind: 'unavailable',
+    error:
+      'The assistant could not reach a model just now. You can still search the research or send a contribution.',
+  };
+}
+
+/** No prose came back: never a blank — the records it read are still worth opening. */
+export function unwrittenAnswer(ledger: Ledger): string | undefined {
+  const read = sourcesOf(ledger);
+  if (!read.length) return undefined;
+  return `The model looked these up but did not write an answer. Ask again, or open them:\n\n${read
+    .slice(0, 8)
+    .map((s) => `- [${s.title}](${s.href})`)
+    .join('\n')}`;
 }

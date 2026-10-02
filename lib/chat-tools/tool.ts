@@ -17,4 +17,35 @@ export interface ChatTool {
   /** Whether this deployment can run it at all; a tool that cannot is not offered. */
   available?: (env: ToolEnv) => boolean;
   run: (args: Args, env: ToolEnv) => Promise<unknown>;
+  /** Characters its result may take; the registry default when absent. */
+  budget?: number;
+}
+
+/**
+ * The names small models actually use for a tool's arguments, observed live
+ * (2026-10-02): Gemini asked `get_bottleneck {"id": …}` and `search_corpus
+ * {"kind": …, "query": …}`; others write `q`, `slug`, `term`. Refusing them
+ * ran the tool empty ("Reading the  record"). A declared parameter that is
+ * missing takes its value from the first alias present; nothing else changes.
+ */
+const ALIASES: Record<string, readonly string[]> = {
+  name: ['id', 'slug', 'bottleneck', 'company', 'entity', 'title', 'record', 'key'],
+  query: ['q', 'search', 'term', 'terms', 'keywords', 'text', 'topic', 'name'],
+  bottleneck: ['name', 'id', 'slug'],
+  company: ['name', 'id', 'slug', 'ticker'],
+};
+
+export function withAliases(parameters: Record<string, unknown>, args: Args): Args {
+  const declared = Object.keys(
+    ((parameters as { properties?: Record<string, unknown> }).properties ?? {}) as object,
+  );
+  const out: Args = { ...args };
+  for (const key of declared) {
+    if (str(out[key])) continue;
+    const from = (ALIASES[key] ?? []).find(
+      (alias) => !declared.includes(alias) && str(args[alias]),
+    );
+    if (from) out[key] = args[from];
+  }
+  return out;
 }

@@ -31,6 +31,8 @@ export interface ModelTurnResult {
   model: string;
   /** Links that refused before it, as `provider/model: kind` — for the timing log. */
   skipped?: string[];
+  /** Tool calls written in text on a turn that offered no tools (see `readTurn`). */
+  stray?: ToolRequest[];
 }
 
 export type ModelTurn = (input: {

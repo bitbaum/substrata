@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@bitbaum/ai-kit':
-        specifier: ^1.18.0
-        version: 1.18.0(react@19.3.0)
+        specifier: ^1.19.1
+        version: 1.19.1(react@19.3.0)
       '@bitbaum/geo-kit':
         specifier: github:bitbaum/geo-kit#a337aec928cf7804fecf459c308d366b90f4b2fa
         version: https://codeload.github.com/bitbaum/geo-kit/tar.gz/a337aec928cf7804fecf459c308d366b90f4b2fa
@@ -190,8 +190,8 @@ packages:
     resolution: {integrity: sha512-Vj1jF3cPfxg7OAfoI7QnVKLoILlm2JF9pnVHrX8qx7AHMiYWT+NDAA7jChlNgRS4WTLc/fD1lXLmPixluj+3Gg==}
     engines: {node: '>=6.9.0'}
 
-  '@bitbaum/ai-kit@1.18.0':
-    resolution: {integrity: sha512-zY7QN6FEGaSg5FeZs0/ElsztxbV5/TM9IPK78vOh62V/T4PblRQJxEim6me2HP/yySWxlGvu+obPptywdWuT+A==}
+  '@bitbaum/ai-kit@1.19.1':
+    resolution: {integrity: sha512-iGAr9tCExfBmPkKvHuqLUh4jni1A/TEDxHYwEg7nJ7UsseFUcXm1q2JzjCdO9udmMT41f5JesgFFHBomGaeKgA==}
     engines: {node: '>=20'}
     peerDependencies:
       react: '>=18'
@@ -2806,7 +2806,7 @@ snapshots:
       '@babel/helper-string-parser': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
 
-  '@bitbaum/ai-kit@1.18.0(react@19.3.0)':
+  '@bitbaum/ai-kit@1.19.1(react@19.3.0)':
     dependencies:
       ai-forms: 0.1.2(react@19.3.0)
     optionalDependencies:

@@ -1,5 +1,6 @@
 /** What the tools touched during one answer, and the environment they run in. */
 import type { LeadHit } from '../sweep-queue';
+import type { JobFilter, JobRow } from '../careers-query';
 import type { WebFinding, WebLookup } from '../chat-web';
 
 /** A corpus row the answer read, for the "records read" list under it. */
@@ -37,6 +38,8 @@ export interface ToolEnv {
   web?: (query: string, signal?: AbortSignal) => Promise<WebLookup>;
   /** Read one cited source for the passage bearing on a claim (verify mode). */
   read?: (url: string, claim: string, signal?: AbortSignal) => Promise<WebFinding | null>;
+  /** Open roles from the job board (careers-query `openJobs`). */
+  jobs?: (filter: JobFilter, limit: number) => Promise<{ jobs: JobRow[]; total: number }>;
 }
 
 export function remember(ledger: Ledger, ref: RecordRef) {

@@ -12,7 +12,9 @@ import { resolveByPath } from '../entities/registry';
  * rather than argued with in the prompt.
  */
 export function tidyAnswer(text: string): string {
-  return citationLinks(text.replace(/[\u2010\u2011]/g, '-')).replace(
+  // A `TOOL:`/`ARGS:` line is never prose for a reader, whatever round wrote it.
+  const prose = stripToolCallLines(text).trim();
+  return citationLinks(prose.replace(/[\u2010\u2011]/g, '-')).replace(
     /\[(\/[a-z0-9/_-]+)\](?!\()/gi,
     '[$1]($1)',
   );
@@ -59,9 +61,20 @@ export function readTurn(
   text: string,
   native: { name: string; args: string }[],
   offered: boolean,
-): { text: string; calls: ToolRequest[] } {
+): { text: string; calls: ToolRequest[]; stray?: ToolRequest[] } {
   const bare = stripThinking(text);
-  if (!offered) return { text: bare, calls: [] };
+  if (!offered) {
+    // Tools were withheld and the model asked for one anyway, in text. Seen
+    // live: the whole "answer" was `TOOL: list_bottlenecks / ARGS: {}`. Report
+    // it so the loop can answer the request instead of showing it.
+    const stray = parseTextToolCalls(bare, toolNames()).map((c) => ({
+      name: c.name,
+      args: c.args,
+    }));
+    return stray.length
+      ? { text: stripToolCallLines(bare).trim(), calls: [], stray }
+      : { text: bare, calls: [] };
+  }
   if (native.length) return { text: stripToolCallLines(bare).trim(), calls: native };
   const fromText = parseTextToolCalls(bare, toolNames()).map((c) => ({
     name: c.name,

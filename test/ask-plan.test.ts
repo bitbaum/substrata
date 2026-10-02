@@ -122,7 +122,7 @@ test('the exposure tool says Hitachi Energy trades only through its parent, with
   const mitsubishi = data.holders.find(
     (h: { company: string }) => h.company === 'Mitsubishi Electric',
   );
-  assert.equal(mitsubishi?.listing, 'Listed: 6503 JP');
+  assert.equal(mitsubishi?.listing, 'Listed: 6503 JP (Tokyo)');
   assert.ok(Array.isArray(data.companies_resting_on_it));
 });
 
