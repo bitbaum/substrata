@@ -37,6 +37,25 @@ export function numbersIn(text: string): Set<string> {
   return out;
 }
 
+/**
+ * The answer without the sentences that carry unsupported figures — the
+ * fallback when a revision fails, so a figure from nowhere is never shown.
+ */
+export function withoutSentencesHolding(answer: string, figures: string[]): string {
+  return answer
+    .split('\n')
+    .flatMap((line) => {
+      const kept = line
+        .split(/(?<=[.!?])\s+/)
+        .filter((sentence) => !figures.some((f) => sentence.includes(f)))
+        .join(' ');
+      // A line emptied by the removal goes; a blank line the answer had stays.
+      return line.trim() && !kept.trim() ? [] : [kept];
+    })
+    .join('\n')
+    .trim();
+}
+
 /** Figures in the answer that appear in none of the evidence. */
 export function unsupportedFigures(answer: string, evidence: string): string[] {
   const known = numbersIn(evidence);
@@ -85,7 +104,8 @@ export async function reviseUnsupported(opts: {
       ],
       onText,
     });
-    return result.text.trim() ? result.text : null;
+    // A revision cut off at the length limit is worse than the original.
+    return result.text.trim() && !result.truncated ? result.text : null;
   } catch {
     return null;
   }

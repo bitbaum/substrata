@@ -17,6 +17,7 @@ import {
   seriesFor,
   type Series,
 } from '../series';
+import { str, type ChatTool } from './tool';
 
 const KEY_NUMBERS = 3;
 
@@ -46,3 +47,48 @@ export function keyNumbers(slug: string, limit = KEY_NUMBERS) {
     .slice(0, limit)
     .map(row);
 }
+
+/**
+ * Series found by what they measure, across every bottleneck: "tin price"
+ * finds the tin price series. Asked for the tin price trend, the assistant
+ * read a production table and said prices were not tracked (2026-10-02).
+ */
+export function findSeries(query: string, limit = 5) {
+  const words = query
+    .toLowerCase()
+    .split(/[^a-z0-9]+/)
+    .filter((w) => w.length > 2 && !['the', 'and', 'for', 'with', 'trend', 'what'].includes(w));
+  if (!words.length) return [];
+  return corpusSeries()
+    .filter((s) => lastActual(s))
+    .map((s) => {
+      const hay = `${s.metric} ${s.bottleneck} ${s.kind} ${s.unit} ${s.geography}`.toLowerCase();
+      return { s, score: words.filter((w) => hay.includes(w)).length };
+    })
+    .filter((x) => x.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit)
+    .map(({ s }) => ({ bottleneck: s.bottleneck, ...row(s) }));
+}
+
+export const NUMBER_TOOLS: ChatTool[] = [
+  {
+    name: 'find_numbers',
+    description:
+      'Dated, sourced number series found by what they measure — prices, lead times, capacity, output, backlogs, trade volumes — across all bottlenecks. Use for "price of X", "trend", "how much", when no single bottleneck record answers it.',
+    parameters: {
+      type: 'object',
+      properties: {
+        query: { type: 'string', description: 'e.g. "tin price", "transformer lead time"' },
+      },
+      required: ['query'],
+    },
+    label: (a) => `Looking up the numbers for "${str(a.query)}"`,
+    async run(a) {
+      const rows = findSeries(str(a.query));
+      return rows.length
+        ? { series: rows, note: 'Each row: latest figure with date, the change, and its source.' }
+        : { note: `No number series matches "${str(a.query)}".` };
+    },
+  },
+];

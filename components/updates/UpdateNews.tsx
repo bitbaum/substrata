@@ -38,7 +38,10 @@ function sweepLine(r: UpdateResult): string {
   if (r.swept === 0)
     return `Searched within the last ${r.cooldownMinutes} minutes already — showing what that found.`;
   const blind = r.couldNotLook > 0 ? `; ${r.couldNotLook} could not be reached` : '';
-  return `Searched the web for ${plural(r.swept, 'bottleneck')}: ${plural(r.found, 'new lead')}${blind}.`;
+  const papers = r.research?.searched
+    ? ` Research databases searched: ${plural(r.research.itemsNew, 'new paper or grant')}.`
+    : '';
+  return `Searched the web for ${plural(r.swept, 'bottleneck')}: ${plural(r.found, 'new lead')}${blind}.${papers}`;
 }
 
 /**

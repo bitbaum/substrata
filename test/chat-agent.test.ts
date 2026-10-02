@@ -34,6 +34,8 @@ test('every tool is a well-formed OpenAI function with a unique name', () => {
       leads: async () => [],
       web: async () => ({ status: 'off' }),
       jobs: async () => ({ jobs: [], total: 0 }),
+      science: async () => [],
+      filings: async () => [],
     }),
   );
   const names = defs.map((d) => d.function.name);

@@ -1,5 +1,6 @@
 import { currentSession } from '@/lib/auth';
 import { allowRequest, boundedJson, sameOrigin } from '@/lib/request-guards';
+import { refreshResearch } from '@/lib/science-store';
 import { UPDATE_NOW_COOLDOWN_HOURS, sweepStaleNow } from '@/lib/sweep-store';
 import { UPDATES_PER_HOUR, openLeads, parseScope, scopeNames } from '@/lib/update-now';
 
@@ -8,8 +9,9 @@ export const dynamic = 'force-dynamic';
 export const maxDuration = 60;
 
 /**
- * "Update news now", step one: sweep the web for this page's bottlenecks and
- * return the open leads. No model is called, so it is open to every reader,
+ * "Update news now", step one: sweep the web for this page's bottlenecks (and,
+ * on a bottleneck page, search the research databases for it) and return the
+ * open leads. No model is called, so it is open to every reader,
  * signed out too — rate-limited per visitor, and each bottleneck is swept at
  * most once per cooldown however many people press it.
  */
@@ -32,7 +34,14 @@ export async function POST(request: Request) {
         { error: 'You have updated a lot this hour. The news will still be here shortly.' },
         { status: 429, headers: { 'Retry-After': '900' } },
       );
-    const sweep = await sweepStaleNow(names, { cooldownHours: UPDATE_NOW_COOLDOWN_HOURS });
+    // A bottleneck page refreshes its research too, side by side with the news;
+    // a failed research search never costs the reader the news.
+    const [sweep, research] = await Promise.all([
+      sweepStaleNow(names, { cooldownHours: UPDATE_NOW_COOLDOWN_HOURS }),
+      scope.kind === 'bottleneck' && names.length === 1
+        ? refreshResearch(names[0], UPDATE_NOW_COOLDOWN_HOURS).catch(() => undefined)
+        : Promise.resolve(undefined),
+    ]);
     const leads = await openLeads({ names });
     return Response.json({
       covered: names.length,
@@ -41,6 +50,7 @@ export async function POST(request: Request) {
       couldNotLook: sweep.couldNotLook,
       cooldownMinutes: UPDATE_NOW_COOLDOWN_HOURS * 60,
       leads,
+      ...(research ? { research } : {}),
     });
   } catch (error) {
     console.error('update-now failed', error instanceof Error ? error.message : 'unknown');

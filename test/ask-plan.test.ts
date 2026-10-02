@@ -89,9 +89,10 @@ test('the planner looks up leads for news and exposure for listings, never the w
     readerContext({ path: '/bottlenecks/gallium-refined' }),
     { leads },
   );
+  // Export controls are rules as well as news: the rule record answers half of it.
   assert.deepEqual(
     gallium.calls.map((c) => c.name),
-    ['recent_leads'],
+    ['recent_leads', 'policy_rules'],
   );
   const exposure = planLookups(
     'Which listed companies are exposed to transformer lead times?',
@@ -143,7 +144,7 @@ test('a news question on a page gets its lookups, not the page-only shortcut', a
     'What is new on gallium export controls?',
     '/bottlenecks/gallium-refined',
   );
-  assert.equal(data.timing?.planned, 1, 'recent_leads was looked up');
+  assert.equal(data.timing?.planned, 2, 'recent_leads and the rules were looked up');
 });
 
 test('training-format citation markers become markdown links, or go', () => {
