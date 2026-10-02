@@ -10,32 +10,31 @@ Research sites tend to show their finished edges. This one is three weeks old
 and mostly unfinished, so here is the inventory of what it does not know, kept
 in one place and meant to shrink.
 
-## About half the maker rows are unverified
+## Some maker rows are still unverified
 
-Ninety-two organisations are listed as making something under coverage. About
-half of those rows carry a source a person has opened and read. Eleven more
-have a page an automated search found that nobody has checked yet, and the
-rest have nothing at all. Every row shows which of the three it is.
+Most of the rows listing who makes something under coverage now carry a source
+a person has opened and read. The rest do not, and the front page prints the
+fraction rather than rounding it up. Every row shows whether it is sourced.
 
 The unverified ones are not guesses in the sense of being invented. They come
 from trade knowledge and are very likely correct. They are simply not findings,
 and the difference matters enough to render it on every row.
 
-## The directory of organisations is entirely unsourced
+## The directory grades are judgements
 
 Separately from the maker rows, about a hundred organisations are graded by how
-hard they would be to replace. Not one of those grades has a citation. They are
-informed judgements and they are labelled as such at the top of the page. If
-you work in one of these chains, that page is the easiest place to make this map
-better in five minutes.
+hard they would be to replace. Each row cites a source for who the organisation
+is and what it does; the grade itself has no citation and is an informed
+judgement. If you work in one of these chains, that page is the easiest place to
+make this map better in five minutes.
 
-## Readiness scores are arguments, not evidence
+## Readiness scores are single judgements
 
 Every entry in the science section carries a readiness number from one to nine
-with a sentence explaining it. None of them is cited yet. The section says so in
-a box at the top rather than in a footnote.
+with a sentence explaining it. Each now cites a source, but the number is still
+one judgement, not yet checked by anyone who works in the field.
 
-## Policy coverage is twelve rules across six jurisdictions
+## Policy coverage is twelve rules across three jurisdictions
 
 Twelve instruments were fetched and read from government sources. That is enough
 to show the shape and nowhere near enough to be a reference. Several
