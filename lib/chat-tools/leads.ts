@@ -39,6 +39,9 @@ export const LEAD_TOOLS: readonly ChatTool[] = [
         leads: hits.map((h) => ({
           title: clip(h.title, 140),
           url: h.url,
+          // Copy this as it is: a model told to link "[title](url)" still
+          // wrote "[Unreviewed lead]" with no address (2026-10-02).
+          link: `[${clip(h.title, 90).replace(/[[\]]/g, '')}](${h.url})`,
           bottleneck: h.bottleneck,
           found: h.foundAt.slice(0, 10),
           published: h.published,

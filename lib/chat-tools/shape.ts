@@ -36,6 +36,7 @@ export function eventRow(event: CoverageEvent) {
     bottlenecks: event.bottlenecks,
     participants: event.participants,
     source: event.source,
+    link: `[${clip(event.headline, 90).replace(/[[\]]/g, '')}](${event.source})`,
     source_kind: event.primary ? 'primary source' : 'secondary source',
     quote: clip(event.quote, 220),
     status: 'Accepted event (read and committed by an analyst)',

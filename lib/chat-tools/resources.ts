@@ -14,6 +14,26 @@ import { remember } from './ledger';
 import { str, type ChatTool } from './tool';
 
 const TOP = 8;
+
+/**
+ * The value with its unit, and a human-scale reading beside it. Handed
+ * "900,000" and "kilograms", gpt-oss wrote "900 kt" (it is 900 t) in two
+ * answers on 2026-10-02 — so the conversion is done here, not by the model.
+ */
+export function withUnit(text: string, unit: string): string {
+  const n = Number(text.replace(/,/g, ''));
+  if (!Number.isFinite(n)) return `${text} ${unit}`;
+  const fmt = (v: number) => v.toLocaleString('en', { maximumFractionDigits: v < 10 ? 1 : 0 });
+  if (/^kilograms?$/i.test(unit)) {
+    return n >= 1000 ? `${text} kg (= ${fmt(n / 1000)} t)` : `${text} kg`;
+  }
+  if (/^(metric )?tons?$|^tonnes?$/i.test(unit)) {
+    if (n >= 1e6) return `${text} t (= ${fmt(n / 1e6)} million t)`;
+    if (n >= 1000) return `${text} t (= ${fmt(n / 1000)} thousand t)`;
+    return `${text} t`;
+  }
+  return `${text} ${unit}`;
+}
 const pct = (share: number | null) =>
   share === null ? null : `${(share * 100).toFixed(share < 0.01 ? 2 : 1)}%`;
 
@@ -134,10 +154,10 @@ export const RESOURCE_TOOLS: ChatTool[] = [
           measure: map.label,
           year: map.year,
           unit: map.unitLabel,
-          world_total: map.world.text,
+          world_total: withUnit(map.world.text, map.unitLabel),
           top_producers: ranked.slice(0, TOP).map((v) => ({
             country: v.name,
-            value: v.text,
+            value: withUnit(v.text, map.unitLabel),
             world_share: pct(v.share),
             rank: v.rank,
             estimated: v.estimated || undefined,
@@ -145,7 +165,11 @@ export const RESOURCE_TOOLS: ChatTool[] = [
           ...(country
             ? {
                 [country.name]: one
-                  ? { value: one.text, world_share: pct(one.share), rank: one.rank }
+                  ? {
+                      value: withUnit(one.text, map.unitLabel),
+                      world_share: pct(one.share),
+                      rank: one.rank,
+                    }
                   : 'Not listed in this table (not a measured producer).',
               }
             : {}),
@@ -166,7 +190,7 @@ export const RESOURCE_TOOLS: ChatTool[] = [
               resource: f.label,
               measure: lead?.label,
               year: lead?.year,
-              value: lead?.current.text,
+              value: lead ? withUnit(lead.current.text, lead.unit) : undefined,
               world_share: lead ? pct(lead.current.share) : null,
               rank: lead?.current.rank ?? null,
               source: f.source.url,

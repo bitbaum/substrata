@@ -52,7 +52,9 @@ export function systemPrompt(opts: {
     ].join('\n'),
     '## What a good answer does',
     [
+      '- Write in the language the question is asked in (a German question gets a German answer); names, tickers and quotes stay as the tools give them.',
       '- First sentence: the direct answer. Then the evidence.',
+      '- Where a row has a `link` field, copy it as it is for that item.',
       '- "How long / how much / how many": give the figure with unit, date and link from key_numbers or a production table, not a horizon word.',
       '- "What is new / what changed": lead with the newest items by date, checked events AND unreviewed sweep leads (each labelled "unreviewed lead", with its link). Never say nothing changed while leads are listed.',
       '- Jobs: name real open roles from open_roles with their apply links and the board link.',
