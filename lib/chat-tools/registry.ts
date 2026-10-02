@@ -26,6 +26,7 @@ import type { ToolEnv } from './ledger';
 import { LIST_TOOLS } from './lists';
 import { RECORD_TOOLS } from './records';
 import { RESOURCE_TOOLS } from './resources';
+import { SCENARIO_TOOLS } from './scenario';
 import { withAliases, type Args, type ChatTool } from './tool';
 import { WEB_TOOLS } from './web';
 
@@ -35,6 +36,7 @@ export const CHAT_TOOLS: readonly ChatTool[] = [
   ...DEPENDENCY_TOOLS,
   ...EXPOSURE_TOOLS,
   ...RESOURCE_TOOLS,
+  ...SCENARIO_TOOLS,
   ...LIST_TOOLS,
   ...LEAD_TOOLS,
   ...JOB_TOOLS,

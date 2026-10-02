@@ -43,6 +43,7 @@ import {
   type AgentEvent,
 } from './answer';
 import { renderCalls, tidyAnswer } from './parse';
+import { reviseUnsupported, unsupportedFigures } from './grounding';
 import { planLookups, runLookups } from './plan';
 import { systemPrompt } from './prompt';
 import type { ModelTurn, ModelTurnResult } from './turn';
@@ -241,17 +242,31 @@ export async function runAgent(input: {
     return;
   }
 
-  if (!answer.trim()) {
-    const fallback = unwrittenAnswer(ledger);
-    if (!fallback) {
-      emit({
-        type: 'error',
-        kind: 'unavailable',
-        error: 'The model returned no answer. Please ask again.',
-      });
-      return;
-    }
-    answer = fallback;
+  // Figures from nowhere go back once (grounding.ts); the evidence is all it read.
+  const figures = input.verify
+    ? []
+    : unsupportedFigures(answer, messages.map((m) => String(m.content)).join('\n'));
+  if (answer.trim() && figures.length) {
+    emit({ type: 'reset' });
+    emit({ type: 'status', text: 'Checking the figures against the sources…' });
+    modelCalls++;
+    const revised = await reviseUnsupported({
+      messages,
+      answer,
+      figures,
+      turn: input.turn,
+      onText: (text) => emit({ type: 'delta', text }),
+    });
+    if (revised) answer = tidyAnswer(revised);
+  }
+  answer = answer.trim() ? answer : (unwrittenAnswer(ledger) ?? '');
+  if (!answer) {
+    emit({
+      type: 'error',
+      kind: 'unavailable',
+      error: 'The model returned no answer. Please ask again.',
+    });
+    return;
   }
   const sources = sourcesOf(ledger);
   const data: AgentAnswer = {
@@ -273,21 +288,4 @@ export async function runAgent(input: {
   };
   if (input.verify) data.verdict = verdictOf(answer);
   emit({ type: 'done', data });
-}
-
-/** Run to completion and return the final answer — for callers that do not stream. */
-export async function runAgentToAnswer(
-  input: Omit<Parameters<typeof runAgent>[0], 'emit'>,
-): Promise<AgentAnswer> {
-  let done: AgentAnswer | undefined;
-  let failure = 'The assistant is unavailable.';
-  await runAgent({
-    ...input,
-    emit: (e) => {
-      if (e.type === 'done') done = e.data;
-      if (e.type === 'error') failure = e.error;
-    },
-  });
-  if (!done) throw new Error(failure);
-  return done;
 }

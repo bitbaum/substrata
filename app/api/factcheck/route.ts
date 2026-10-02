@@ -1,6 +1,6 @@
 import { currentSession } from '@/lib/auth';
 import { record, FREE_QUESTIONS_PER_DAY } from '@/lib/ai-budget';
-import { runAgentToAnswer } from '@/lib/chat-agent/loop';
+import { runAgentToAnswer } from '@/lib/chat-agent/run-to-answer';
 import { freeCooldown, freeLinks, streamedTurn } from '@/lib/chat-agent/turn';
 import { readerContext } from '@/lib/chat-context';
 import { lookUp, readSource, webLookupEnabled } from '@/lib/chat-web';
