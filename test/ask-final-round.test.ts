@@ -108,3 +108,16 @@ test('tools take the argument names models use', async () => {
   assert.match(label, new RegExp(slug));
   assert.equal(JSON.parse(result).error, undefined);
 });
+
+test('links nested inside links are mended to one link', async () => {
+  const { unnestLinks } = await import('../lib/chat-agent/parse');
+  assert.equal(
+    unnestLinks('maker [Sourced]([/markets/asml](/markets/asml)).'),
+    'maker [Sourced](/markets/asml).',
+  );
+  assert.equal(
+    unnestLinks('see [Sourced]([/exposure?q=EUV%20x]).'),
+    'see [Sourced](/exposure?q=EUV%20x).',
+  );
+  assert.equal(unnestLinks('[ASML](/markets/asml) stays'), '[ASML](/markets/asml) stays');
+});

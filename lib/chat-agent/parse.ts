@@ -11,9 +11,20 @@ import { resolveByPath } from '../entities/registry';
  * page as a bare `[/markets/asml]` rather than a link. Both are repaired here
  * rather than argued with in the prompt.
  */
+/**
+ * Links a small model nests inside links: `[Sourced]([/markets/asml](/markets/asml))`
+ * and `[Sourced]([/exposure?q=x])` (gpt-oss, seen live 2026-10-02) render as
+ * literal brackets. Keep the outer label, point it at the inner target.
+ */
+export function unnestLinks(text: string): string {
+  return text
+    .replace(/\[([^\]\n]+)\]\(\[[^\]\n]*\]\(([^)\s]+)\)\)/g, '[$1]($2)')
+    .replace(/\[([^\]\n]+)\]\(\[(\/[^\]\s]*)\]\)/g, '[$1]($2)');
+}
+
 export function tidyAnswer(text: string): string {
   // A `TOOL:`/`ARGS:` line is never prose for a reader, whatever round wrote it.
-  const prose = stripToolCallLines(text).trim();
+  const prose = unnestLinks(stripToolCallLines(text).trim());
   return citationLinks(prose.replace(/[\u2010\u2011]/g, '-')).replace(
     /\[(\/[a-z0-9/_-]+)\](?!\()/gi,
     '[$1]($1)',
