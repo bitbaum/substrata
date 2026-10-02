@@ -16,18 +16,17 @@
  * The web is never pre-fetched: it is the slowest lookup and only the model can
  * judge that the corpus is not enough.
  */
-import { BOTTLENECKS, type Bottleneck } from '../bottlenecks';
-import { MARKET_PARTICIPANTS, type MarketParticipant } from '../participants';
 import type { ReaderContext } from '../chat-context';
-import { norm } from '../chat-tools/resolve';
 import type { ToolEnv } from '../chat-tools/ledger';
 import { CHAT_TOOLS, runTool } from '../chat-tools/registry';
 import { familyIn } from '../chat-tools/jobs';
 import { resourceIn } from '../chat-tools/resources';
-import { entitiesOfKind } from '../entities/registry';
 import { withAliases } from '../chat-tools/tool';
 import { isPageRecord, type AgentEvent } from './answer';
 import { safeArgs, type ToolRequest } from './parse';
+import { bottleneckIn, bottlenecksIn, companiesIn, countriesIn } from './question';
+
+export { bottleneckIn, bottlenecksIn, companiesIn, countriesIn } from './question';
 
 export interface Plan {
   calls: ToolRequest[];
@@ -43,71 +42,13 @@ const MAKERS = /\b(who makes|makers?|producers?|suppliers?|who (supplies|produce
 const DEPENDS =
   /\b(depends?|depending|dependen(t|ts|cy|cies)|rests? on|downstream|upstream|supply chain)\b/;
 
-// Words too generic to name a bottleneck on their own: "EUV machines" once
-// pulled the laser powder-bed fusion MACHINES record before the EUV one.
-const STOP = new Set([
-  'and',
-  'the',
-  'for',
-  'with',
-  'from',
-  'slots',
-  'grade',
-  'high',
-  'large',
-  'machines',
-  'capacity',
-  'supply',
-  'equipment',
-  'materials',
-  'tools',
-  'production',
-]);
 const JOBS =
   /\b(jobs?|roles?|hiring|hire|careers?|vacanc(y|ies)|openings?|positions?|retrain(ing)?|employers?|work (for|in|at))\b/;
 const RESOURCE_ASK =
   /\b(produc(e|es|er|ers|tion)|suppl(y|ies|ier|iers)|reserves?|mines?|mining|who else|output|country|countries)\b/;
+const SCENARIO =
+  /\b(blockades?|blockaded|embargo(es|ed)?|invad(e|es|ed)|invasion|war|cut off|shuts? down|halts?|halted|bans?|banned|what if|what would happen|disrupt(s|ed|ion)?|sanction(s|ed)?|earthquakes?|outages?|loses|lost|without)\b/;
 const HOLDINGS = /\b(i hold|my (portfolio|holdings|positions|stocks)|i own|tickers?)\b/;
-
-/** The bottleneck a question names, by its most distinctive words — or none when two tie. */
-export function bottleneckIn(question: string): Bottleneck | undefined {
-  const q = ` ${norm(question)} `;
-  let best: { b: Bottleneck; score: number } | undefined;
-  let tied = false;
-  for (const b of BOTTLENECKS) {
-    const words = norm(b.name)
-      .split(' ')
-      .filter((w) => w.length > 3 && !STOP.has(w));
-    // "transformer" should meet "transformers": match a word or its plural.
-    const score = words.filter((w) => q.includes(` ${w} `) || q.includes(` ${w}s `)).length;
-    if (!score) continue;
-    if (!best || score > best.score) {
-      best = { b, score };
-      tied = false;
-    } else if (score === best.score) tied = true;
-  }
-  return best && !tied ? best.b : undefined;
-}
-
-/** Countries a question names as whole words ("Germany", "Russia"), at most two. */
-export function countriesIn(question: string): { iso2: string; name: string }[] {
-  const q = ` ${norm(question)} `;
-  return entitiesOfKind('country')
-    .filter((c) => q.includes(` ${norm(c.name)} `))
-    .slice(0, 2)
-    .map((c) => ({ iso2: c.key, name: c.name }));
-}
-
-/** Companies a question names as whole words, longest names first, at most `max`. */
-export function companiesIn(question: string, max = 2): MarketParticipant[] {
-  const q = ` ${norm(question)} `;
-  return MARKET_PARTICIPANTS.filter((p) => {
-    const n = norm(p.name);
-    return n.length >= 3 && q.includes(` ${n} `);
-  })
-    .sort((a, b) => b.name.length - a.name.length)
-    .slice(0, max);
-}
 
 const call = (name: string, args: Record<string, unknown>): ToolRequest => ({
   name,
@@ -140,6 +81,9 @@ export function planLookups(
   let intent = false;
   if (named && named.slug !== pageBottleneck)
     calls.push(call('get_bottleneck', { name: named.slug }));
+  else if (!named)
+    for (const b of bottlenecksIn(question).filter((x) => x.slug !== pageBottleneck))
+      calls.push(call('get_bottleneck', { name: b.slug }));
   for (const c of companies) calls.push(call('get_company', { name: c.slug }));
 
   if (EXPOSURE.test(q) || onExposure) {
@@ -168,6 +112,16 @@ export function planLookups(
   }
   if (MAKERS.test(q) && (bottleneck || company)) intent = true;
 
+  if (SCENARIO.test(q) && (countries[0] || company || bottleneck)) {
+    intent = true;
+    calls.push(
+      call(
+        'scenario_impact',
+        countries[0] ? { country: countries[0].name } : company ? { company } : { bottleneck },
+      ),
+    );
+  }
+
   if (JOBS.test(q)) {
     intent = true;
     const family = familyIn(question);
@@ -189,7 +143,7 @@ export function planLookups(
         ...(countries[0] ? { country: countries[0].name } : {}),
       }),
     );
-  } else if (countries.length && !JOBS.test(q)) {
+  } else if (countries.length && !JOBS.test(q) && !SCENARIO.test(q)) {
     calls.push(call('resource_production', { country: countries[0].name }));
   }
 
