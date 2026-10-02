@@ -20,11 +20,13 @@
  */
 import { DEPENDENCY_TOOLS } from './dependencies';
 import { EXPOSURE_TOOLS } from './exposure';
+import { JOB_TOOLS } from './jobs';
 import { LEAD_TOOLS } from './leads';
 import type { ToolEnv } from './ledger';
 import { LIST_TOOLS } from './lists';
 import { RECORD_TOOLS } from './records';
-import type { Args, ChatTool } from './tool';
+import { RESOURCE_TOOLS } from './resources';
+import { withAliases, type Args, type ChatTool } from './tool';
 import { WEB_TOOLS } from './web';
 
 /** Every tool, in the order the model is offered them. */
@@ -32,8 +34,10 @@ export const CHAT_TOOLS: readonly ChatTool[] = [
   ...RECORD_TOOLS,
   ...DEPENDENCY_TOOLS,
   ...EXPOSURE_TOOLS,
+  ...RESOURCE_TOOLS,
   ...LIST_TOOLS,
   ...LEAD_TOOLS,
+  ...JOB_TOOLS,
   ...WEB_TOOLS,
 ];
 
@@ -57,7 +61,9 @@ export function parseArgs(raw: string | Record<string, unknown> | undefined): Ar
   }
 }
 
-const MAX_RESULT_CHARS = 3500;
+// Two results plus the prompt stay well under a free model's per-minute token
+// window. A tool whose rows are the answer (get_bottleneck) sets its own.
+const MAX_RESULT_CHARS = 4500;
 
 /**
  * Run one call and return what the model reads back.
@@ -72,7 +78,7 @@ export async function runTool(
 ): Promise<{ label: string; result: string }> {
   const tool = CHAT_TOOLS.find((t) => t.name === name && (!t.available || t.available(env)));
   if (!tool) return { label: name, result: JSON.stringify({ error: `No tool called ${name}.` }) };
-  const args = parseArgs(rawArgs);
+  const args = withAliases(tool.parameters, parseArgs(rawArgs));
   const label = tool.label(args);
   env.ledger.trail.push(label);
   let out: unknown;
@@ -81,7 +87,7 @@ export async function runTool(
   } catch {
     out = { error: `${name} failed.` };
   }
-  return { label, result: fitResult(out) };
+  return { label, result: fitResult(out, tool.budget) };
 }
 
 /** Halve every long list, deep. */

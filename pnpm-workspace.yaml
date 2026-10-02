@@ -7,9 +7,12 @@ allowBuilds:
   # same shape loki uses). If the listkit pin moves, pnpm prints the new key.
   listkit@https://codeload.github.com/bitbaum/listkit/tar.gz/69cb4f4ef12d6a2a56b56db1bb4d4ac14aced525: true
 
-# Own package published to npm <24h ago; exempt from the minimum-release-age
-# supply-chain window. Redundant once the release ages past the window.
+# Our own packages, exempt from the minimum-release-age supply-chain window BY
+# NAME. A version-pinned entry refuses every release not listed in it, so a
+# fix shipped upstream could not be installed until someone edited this file
+# (the fleet-wide trap of 2026-09-11). Third-party packages keep the window.
 minimumReleaseAgeExclude:
   - '@bitbaum/sitekit'
-  - '@bitbaum/ai-kit@1.7.0 || 1.11.0 || 1.12.0 || 1.13.0 || 1.14.0 || 1.14.1 || 1.15.0 || 1.17.0'
-  - bip-kit@0.2.8 || 0.3.1 || 0.5.1
+  - '@bitbaum/ai-kit'
+  - '@bitbaum/geo-kit'
+  - bip-kit

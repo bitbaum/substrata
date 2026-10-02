@@ -58,6 +58,9 @@ export const RECORD_TOOLS: readonly ChatTool[] = [
       properties: { name: { type: 'string', description: 'Bottleneck name or slug' } },
       required: ['name'],
     },
+    // The record most answers start from; with its key numbers, producers,
+    // events and dependencies the busiest one measured ~5,100 chars (2026-10-02).
+    budget: 5600,
     label: (a) => `Reading the ${str(a.name)} record`,
     async run(args, env) {
       const b = findBottleneck(str(args.name));

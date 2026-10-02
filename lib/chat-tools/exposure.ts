@@ -11,12 +11,49 @@
  * travel together, in words a model repeats rather than reinterprets.
  */
 import { VERIFICATION_LABEL } from '@/config/substrata-evidence';
-import { companiesOn } from '../dependencies';
+import { companiesOn, dependentsOf } from '../dependencies';
 import { exposureRows, isListed, PRESSURE_WINDOW_DAYS, type ExposureRow } from '../exposure';
 import { listingFor, listingForName, terminalTicker, type Listing } from '../listings';
 import { remember } from './ledger';
 import { findBottleneck, findCompany } from './resolve';
 import { str, type ChatTool } from './tool';
+
+/**
+ * The exchange behind a terminal-style suffix, so "ASML NA, ASML US" is never
+ * read back as "NA = NASDAQ" (seen live 2026-10-02: the model swapped them).
+ */
+const EXCHANGE: Record<string, string> = {
+  US: 'US',
+  NA: 'Euronext Amsterdam',
+  FP: 'Euronext Paris',
+  BB: 'Euronext Brussels',
+  GR: 'Xetra, Germany',
+  GY: 'Xetra, Germany',
+  LN: 'London',
+  SW: 'SIX Swiss',
+  SE: 'SIX Swiss',
+  IM: 'Milan',
+  SM: 'Madrid',
+  SS: 'Stockholm',
+  NO: 'Oslo',
+  FH: 'Helsinki',
+  DC: 'Copenhagen',
+  JP: 'Tokyo',
+  JT: 'Tokyo',
+  KS: 'Korea',
+  TT: 'Taiwan',
+  HK: 'Hong Kong',
+  CH: 'Shanghai/Shenzhen',
+  AU: 'ASX',
+  CN: 'Toronto',
+  RU: 'Moscow',
+  IN: 'India',
+  SP: 'Singapore',
+};
+const withExchange = (line: string) => {
+  const code = line.split(' ').at(-1) ?? '';
+  return EXCHANGE[code] ? `${line} (${EXCHANGE[code]})` : line;
+};
 
 /** One listing, as a sentence a model can repeat verbatim. */
 export function listingLine(listing: Listing | null | undefined): string {
@@ -25,7 +62,8 @@ export function listingLine(listing: Listing | null | undefined): string {
   if (listing.status === 'none-found') return 'No listing found';
   const lines = [listing.primary, listing.us]
     .filter((ref): ref is NonNullable<typeof ref> => Boolean(ref))
-    .map(terminalTicker);
+    .map(terminalTicker)
+    .map(withExchange);
   const tickers = [...new Set(lines)].join(', ') || 'ticker not recorded';
   return listing.status === 'parent'
     ? `NOT listed itself — its parent ${listing.parent ?? 'company'} is listed: ${tickers}`
@@ -80,6 +118,16 @@ export const EXPOSURE_TOOLS: readonly ChatTool[] = [
           listing: listingLine(listingForName(d.from)),
           source: d.source,
         }));
+        // One hop down the sourced dependency rows: the listed makers of what
+        // rests on this bottleneck (EUV scanners → leading-edge foundry →
+        // TSMC, Samsung, Intel). Asked who is exposed to EUV, the model named
+        // only ASML because only holders were in hand.
+        const downstream = dependentsOf(b.name).flatMap((d) =>
+          rows
+            .filter((r) => r.bottleneck === d.from && isListed(r))
+            .map((r) => ({ company: r.company, via: d.from, listing: listingLine(r.listing) })),
+        );
+        const seenDownstream = new Set<string>();
         return {
           bottleneck: b.name,
           page: `/bottlenecks/${b.slug}`,
@@ -90,6 +138,11 @@ export const EXPOSURE_TOOLS: readonly ChatTool[] = [
           companies_resting_on_it: dependents.filter(
             (d) => !listedOnly || !/^(Private|No listing|Listing not)/.test(d.listing),
           ),
+          listed_makers_downstream: downstream
+            .filter((d) => !seenDownstream.has(d.company) && seenDownstream.add(d.company))
+            .slice(0, 10),
+          downstream_note:
+            'Listed makers of bottlenecks recorded (sourced dependency rows) as resting on this one: exposed as buyers, one step removed.',
           note: NOTE,
         };
       }

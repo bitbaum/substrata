@@ -13,6 +13,7 @@ import { recordAskTiming, timingOf } from '@/lib/ask-timing';
 import { database } from '@/lib/db';
 import { parseFollows, type Follows } from '@/lib/follows';
 import { searchLeads } from '@/lib/sweep-queue';
+import { openJobs } from '@/lib/careers-query';
 import { SITE } from '@/lib/site';
 
 export const dynamic = 'force-dynamic';
@@ -169,6 +170,7 @@ export async function POST(request: Request) {
               rails:
                 context.reader && !context.reader.everything ? context.reader.rails : undefined,
               leads: process.env.DATABASE_URL ? (q) => searchLeads(q) : undefined,
+              jobs: process.env.DATABASE_URL ? (f, limit) => openJobs(f, limit) : undefined,
               web: webLookupEnabled() ? (query, signal) => lookUp(query, signal) : undefined,
               read: (url, claim, signal) => readSource(url, claim, signal),
             },

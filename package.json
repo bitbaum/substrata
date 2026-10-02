@@ -27,7 +27,7 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
-    "@bitbaum/ai-kit": "^1.18.0",
+    "@bitbaum/ai-kit": "^1.19.1",
     "@bitbaum/geo-kit": "github:bitbaum/geo-kit#a337aec928cf7804fecf459c308d366b90f4b2fa",
     "bip-kit": "^0.5.1",
     "d3-geo": "^3.1.1",

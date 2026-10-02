@@ -15,6 +15,7 @@ import {
   type Dependency,
 } from '../dependencies';
 import { remember, type Ledger } from './ledger';
+import { keyNumbers } from './numbers';
 import { listingFor } from '../listings';
 import { listingLine } from './exposure';
 
@@ -94,6 +95,9 @@ export function bottleneckDetail(b: Bottleneck, ledger: Ledger) {
       judged_on: b.judgedOn,
       status: 'Analyst judgement, not a sourced fact',
     },
+    key_numbers: keyNumbers(b.slug),
+    key_numbers_note:
+      'Sourced, dated figures: quote value, unit, date and link for how long / how much.',
     producers: b.producers.slice(0, 12).map((p) => ({
       name: p.name,
       page: `/markets/${slugify(p.name)}`,
