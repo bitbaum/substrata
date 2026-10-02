@@ -9,7 +9,7 @@ This file is what the fleet map (`loki.orangecat.ch/api/fleet/map`) reads, and `
 ### Every producer row sourced or gone
 A producer row starts unsourced and renders as unverified, never as a finding. The sourcing engine runs every six hours and files candidate pages into a review queue; a person promotes a row only after reading the excerpt. The directory is a finding only when every row is one.
 - [x] Producer-sourcing engine on a box timer, one Postgres queue, `/review` to decide
-- [x] 48 of 92 producer rows sourced from the engine's candidates
+- [x] All but 14 producer rows sourced
 - [x] Every capacity figure names its own unit
 - [ ] Every remaining row sourced, or removed from the coverage universe
 
@@ -54,7 +54,7 @@ The seams for eight languages exist and every non-English locale reports 0% cove
 ## Later
 
 ### Its own domain
-`substrata.orangecat.ch` is an address, not an affiliation. The site moves to its own domain the day one is bought, and nothing in the repository changes when it does.
+`substrata.orangecat.ch` is an address, not an affiliation. The site moves to its own domain the day one is bought; the move is one script (`scripts/ops/move-to-substrata-ch.sh`) and the old address redirects.
 
 ### The join page as a package
 `lib/contribute.ts` is a portable model for an invitation to contribute that is not an offer of employment. It lifts into sitekit unchanged when a third project wants it; until then it stays a file.
@@ -71,7 +71,7 @@ Paste a portfolio and see which bottlenecks it depends on; screen listed compani
 A context-aware assistant over the corpus that plans the obvious lookups before calling a model, cites what it reads, and runs on a reader's own key with any of ten vendors.
 
 ### Reader views and a shell for every page
-Five reader views — for equity investors, policy, science, careers, learning — under one grouped sidebar, rail, phone tabs and a ⌘K palette, with every number linking to its source, rule or estimate.
+Five reader views — for equity investors, commodity traders, industry teams, job seekers and learners — under one grouped sidebar, rail, phone tabs and a ⌘K palette, with every number linking to its source, rule or estimate.
 
 ### Self-updating research, reviewed by a person
 Two engines on box timers fill one queue each; nothing publishes without a person reading the excerpt. Unreviewed leads expire after 30 days so a stale queue is a broken queue, not an unread one.

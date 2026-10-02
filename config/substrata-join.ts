@@ -83,7 +83,7 @@ export const JOIN: ContributeModel = {
       what:
         'Correct the transformer, interconnection and switchgear rows: real lead times, what a ' +
         'queue position actually means, and which reforms have changed anything on the ground.',
-      why: 'Energy is where this research thinks the binding constraint sits, and most of its rows still lack primary evidence.',
+      why: 'Energy is where this research thinks the binding constraint sits.',
       commitment: 'occasional',
       example: '/bottlenecks?stage=energy',
     },
@@ -108,9 +108,9 @@ export const JOIN: ContributeModel = {
     {
       title: 'Materials scientists and process engineers',
       what:
-        'Attach sources to the readiness judgements in the science section, or argue a number ' +
-        'down with a reason.',
-      why: 'Not one readiness score is cited yet. Every one of them is currently an argument rather than evidence.',
+        'Check the readiness judgements in the science section against their sources, or argue a ' +
+        'number down with a reason.',
+      why: 'Every readiness score cites a source, and each is still a single judgement of what that source shows.',
       commitment: 'one-off',
       example: '/science',
     },
@@ -119,7 +119,7 @@ export const JOIN: ContributeModel = {
       what:
         'Write a note: what one part of the map implies, where the research is weak, or what a ' +
         'recent event actually changed.',
-      why: 'The map states facts; the notes are where the reasoning gets argued with in public, and there are two of them.',
+      why: 'The map states facts; the notes are where the reasoning gets argued with in public.',
       commitment: 'occasional',
       example: '/notes',
     },
