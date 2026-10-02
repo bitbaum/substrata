@@ -102,7 +102,7 @@ export const SCENARIO_TOOLS: ChatTool[] = [
             ...new Set(c.exposures.map((e) => `${EXPOSURE_LABEL[e.kind]}: ${e.bottleneck}`)),
           ].slice(0, 3),
         })),
-        note: 'Computed from the recorded makers and sourced dependency rows only: it says which supply is lost and what rests on it, not how much output falls. Do not add percentages the rows do not carry.',
+        note: 'Computed from the recorded makers and sourced dependency rows only: it says which supply is lost and what rests on it, not how much output falls. "NO recorded maker left" means none in Substrata\'s coverage — not none in the world; say so, and do not turn it into "output drops to zero". Do not add percentages the rows do not carry.',
       };
     },
   },
