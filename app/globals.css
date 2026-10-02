@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import '@bitbaum/chatkit/styles.css';
 /* The renderers live in the sitekit package now; Tailwind must scan them or
    their semantic classes are never emitted. */
 @source '../node_modules/sitekit/dist';
@@ -91,6 +92,29 @@
   :root {
     --shell-offset-bottom: calc(var(--spacing-tabbar) + env(safe-area-inset-bottom, 0px));
   }
+}
+
+/* Ask is @bitbaum/chatkit; it takes its look from these. Each points at a
+   token, so the light and dark themes flip it with nothing else to keep in
+   sync. The send button is the ink colour, like every primary button here. */
+:root {
+  --ck-bg: var(--color-surface-page);
+  --ck-raised: var(--color-surface-raised);
+  --ck-overlay: var(--color-surface-raised);
+  --ck-fg: var(--color-fg-primary);
+  --ck-fg-2: var(--color-fg-secondary);
+  --ck-fg-3: var(--color-fg-tertiary);
+  --ck-muted: var(--color-fg-muted);
+  --ck-line: var(--color-border-subtle);
+  --ck-line-2: var(--color-border-strong);
+  --ck-accent: var(--color-fg-primary);
+  --ck-on-accent: var(--color-surface-page);
+  --ck-danger: var(--color-status-negative);
+  --ck-warning: var(--color-status-warning);
+  --ck-radius: 0.75rem;
+  --ck-radius-sm: 0.4rem;
+  --ck-font: var(--font-sans);
+  --ck-mono: var(--font-mono);
 }
 
 html[data-theme='light'] {

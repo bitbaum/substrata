@@ -35,7 +35,7 @@ export function useChatSession({
    * Ask a question — or, with `verify`, check a claim: the server reads the
    * cited source and searches the web before the model answers with a verdict.
    */
-  async function ask(question: string, verify?: VerifyInput) {
+  async function ask(question: string, verify?: VerifyInput, before: Turn[] = turns) {
     const text = question.trim();
     if (text.length < 3 || busy) return;
     abortRef.current?.abort();
@@ -44,7 +44,7 @@ export function useChatSession({
     setBusy(true);
     setError('');
     setReceipt('');
-    setTurns((prev) => [...prev, { role: 'user', content: text }]);
+    setTurns([...before, { role: 'user', content: text }]);
     setDraft('');
     setLive({
       steps: [],
@@ -55,7 +55,7 @@ export function useChatSession({
           : 'Checking the claim…'
         : 'Reading the question…',
     });
-    const history = [...turns, { role: 'user' as const, content: text }].slice(-8);
+    const history = [...before, { role: 'user' as const, content: text }].slice(-8);
     try {
       const response = await fetch('/api/chat', {
         method: 'POST',
@@ -133,6 +133,14 @@ export function useChatSession({
     abortRef.current?.abort();
   }
 
+  /** Ask the last question again, replacing its failed or unwanted answer. */
+  function retry() {
+    const lastUser = [...turns].reverse().find((t) => t.role === 'user');
+    if (!lastUser || busy) return;
+    // Everything before that question stays; its answer (or failure) goes.
+    void ask(lastUser.content, undefined, turns.slice(0, turns.lastIndexOf(lastUser)));
+  }
+
   async function sendContribution(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
@@ -175,6 +183,7 @@ export function useChatSession({
     setContribute,
     ask,
     stop,
+    retry,
     sendContribution,
   };
 }

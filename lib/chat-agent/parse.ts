@@ -17,9 +17,16 @@ import { resolveByPath } from '../entities/registry';
  * literal brackets. Keep the outer label, point it at the inner target.
  */
 export function unnestLinks(text: string): string {
-  return text
-    .replace(/\[([^\]\n]+)\]\(\[[^\]\n]*\]\(([^)\s]+)\)\)/g, '[$1]($2)')
-    .replace(/\[([^\]\n]+)\]\(\[(\/[^\]\s]*)\]\)/g, '[$1]($2)');
+  return (
+    text
+      .replace(/\[([^\]\n]+)\]\(\[[^\]\n]*\]\(([^)\s]+)\)\)/g, '[$1]($2)')
+      .replace(/\[([^\]\n]+)\]\(\[(\/[^\]\s]*)\]\)/g, '[$1]($2)')
+      // Closed with the wrong bracket: `[Russia](/atlas?view=world&country=ru]`
+      // (Gemini Flash, seen live 2026-10-02) renders as raw text.
+      .replace(/\[([^\]\n]+)\]\((\/[^\s)\]]*)\](?!\()/g, '[$1]($2)')
+      // A space or line break between the two halves: `[Title] (https://…)`.
+      .replace(/\[([^\]\n]+)\][ \t]*\n?[ \t]*\((https?:\/\/[^\s)]+)\)/g, '[$1]($2)')
+  );
 }
 
 export function tidyAnswer(text: string): string {
