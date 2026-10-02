@@ -107,7 +107,12 @@ export async function runAgent(input: {
     plan.calls.length ? runLookups(plan.calls, input.context, env, emit) : Promise.resolve([]),
   ]);
   const noTools = pageOnly || plan.confident;
-  const tools = toolDefinitions(env);
+  // A tool the planner already ran unfiltered has given its whole list; offered
+  // again, models re-asked for it or a subset of it (2 of 12 questions,
+  // 2026-10-02), a full round each.
+  const tools = toolDefinitions(env).filter(
+    (t) => !plan.calls.some((c) => c.name === t.function.name && c.args === '{}'),
+  );
   const system = systemPrompt({
     context: input.context,
     preloaded: preload?.text,

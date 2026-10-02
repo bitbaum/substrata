@@ -54,6 +54,8 @@ const RESEARCH = /\b(papers?|preprints?|grants?|research|studies|publications?|a
 const POLICY_ASK =
   /\b(rules?|laws?|regulat\w*|polic(y|ies)|export controls?|tariffs?|subsid\w*|permit\w*|lobb\w*|asked for|legislation|sanctions?)\b/;
 const FILINGS = /\b(filings?|filed|sec|8-k|6-k|10-k|10-q|edgar|disclos\w*)\b/;
+const OWN_WRITING =
+  /\b(substrata|your|this site)\b.*\b(wr[io]tt?en?|published|notes?|articles?|guides?|methods?|methodology|approach)\b|\b(methodology|editorial notes?)\b/;
 const PRICE = /\b(prices?|costs?|trend|index|spot|how much does)\b/;
 const JURISDICTION: [RegExp, string][] = [
   [/\b(eu|europe|european)\b/, 'EU'],
@@ -154,6 +156,10 @@ export function planLookups(
         ...(where ? { jurisdiction: where } : {}),
       }),
     );
+  }
+  if (OWN_WRITING.test(q) || /^\/(notes|learn)(\/|$)/.test(section)) {
+    intent = true;
+    calls.push(call('site_writing', {}));
   }
   if (FILINGS.test(q)) {
     intent = true;

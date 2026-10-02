@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@bitbaum/ai-kit':
-        specifier: ^1.20.0
-        version: 1.20.0(react@19.3.0)
+        specifier: ^1.20.1
+        version: 1.20.1(react@19.3.0)
       '@bitbaum/chatkit':
         specifier: github:bitbaum/chatkit#v0.2.1
         version: https://codeload.github.com/bitbaum/chatkit/tar.gz/f2bc87db05f5bde7a09968278f0af5b5856b0156(react@19.3.0)
@@ -193,8 +193,8 @@ packages:
     resolution: {integrity: sha512-Vj1jF3cPfxg7OAfoI7QnVKLoILlm2JF9pnVHrX8qx7AHMiYWT+NDAA7jChlNgRS4WTLc/fD1lXLmPixluj+3Gg==}
     engines: {node: '>=6.9.0'}
 
-  '@bitbaum/ai-kit@1.20.0':
-    resolution: {integrity: sha512-bbfAuBrnr3ruqPbnnwjYd/2Dp64zGEy/6utfox3Ol99fkKp3zo6hRdOgWHR4Uj7K8g+hqq7ehnrHwyosYT6Ylg==}
+  '@bitbaum/ai-kit@1.20.1':
+    resolution: {integrity: sha512-mdYcA562q7eWbaWd2jwPlYZTTbWwSTK/XrexiIkG3mW2OiNDihMG8DmnFFlRf7lRcHiBOXHey1E28XCGb43Fsg==}
     engines: {node: '>=20'}
     peerDependencies:
       react: '>=18'
@@ -2816,7 +2816,7 @@ snapshots:
       '@babel/helper-string-parser': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
 
-  '@bitbaum/ai-kit@1.20.0(react@19.3.0)':
+  '@bitbaum/ai-kit@1.20.1(react@19.3.0)':
     dependencies:
       ai-forms: 0.1.2(react@19.3.0)
     optionalDependencies:
