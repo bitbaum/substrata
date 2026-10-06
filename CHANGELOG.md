@@ -2,9 +2,24 @@
 
 What changed on substrata.orangecat.ch, newest first, in the words of someone using it. Every entry corresponds to a merged pull request and the numbers are the ones in the commits; fixes are listed with the same weight as features. This file is what the fleet map (`loki.orangecat.ch/api/fleet/map`) reads, and `/changelog` on the site renders from the map.
 
+## 2026-10-06
+
+### Added
+- **News leads with what was just found.** `/events` is now News: the newest sweep finds of the last 14 days first, each marked not yet checked, then the checked events grouped by month with their source named. (#153)
+- **Anyone can pull fresh news.** "Update news now" on News searches the web for the bottlenecks searched longest ago — signed out, no AI — and says plainly when the last search is more than a day old. (#153)
+- **"On this page" for long pages.** A list of the page's own sections beside the content, or a strip under the top bar on a phone, marking where you are. (#153)
+### Fixed
+- **No more tenders or kitchen worktops in the news.** A government scanner contract and "quartz surface products" no longer pass as news about high-purity quartz. (#153, #154)
+- **Ask no longer rewrites a correct answer.** A figure written into a field name (`net_pressure_90d`) counts as evidence, saving a model call. The chat components now come from npm. (#150)
+
 ## 2026-10-02
 
+### Added
+- **Ask has a tool behind every section** — technologies and their readiness, research papers, policy rules and who asked for them, SEC filings, price series, reserves and Substrata's own notes — so it no longer says the site does not hold what the page it is on shows. (#145, #146)
+- **Update now reaches research too.** On a bottleneck page it also searches the open research databases, with no AI. (#145)
 ### Fixed
+- **Ask is faster and finishes its answers.** On the same twelve questions: 29 → 20 model calls, about 30% fewer tokens, 121 s → 54 s; an answer cut off at the length limit is completed once. (#145, #146)
+- **One article is one lead.** A search engine's tracking parameter no longer turns the same page into a new lead every day. (#145)
 - **Ask answers in words, not tool calls.** It no longer replies with a raw tool call, reads the site's own numbers, production tables and open roles, converts units correctly, answers in the language of the question, gives links you can copy, loosens a job search instead of returning nothing, and says whether a change went up or down in words. (#136, #137, #138)
 
 ## 2026-10-01
