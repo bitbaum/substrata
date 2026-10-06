@@ -16,3 +16,4 @@ minimumReleaseAgeExclude:
   - '@bitbaum/ai-kit'
   - '@bitbaum/geo-kit'
   - bip-kit
+  - '@bitbaum/chatkit'
