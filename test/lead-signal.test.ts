@@ -10,6 +10,10 @@ import { dateInUrl, reportsAChange } from '../lib/lead-signal';
 
 const KEEP: [string, string][] = [
   [
+    'Amkor Technology Announces Phase 2 of Arizona Advanced Packaging and Test Campus; Expands Investment to $12 Billion',
+    'https://ir.amkor.com/news-releases/news-release-details/amkor-phase-2-arizona',
+  ],
+  [
     'China Eases U.S. Export Controls on Gallium, Germanium, Ultra-Hard Materials',
     'https://www.cirs-group.com/en/chemicals/us-export-controls-eased',
   ],
@@ -36,6 +40,10 @@ const KEEP: [string, string][] = [
 ];
 
 const DROP: [string, string][] = [
+  [
+    'Contract Agreement with QUARTZ BUSINESS PRODUCTS CORPORATION for PB 2026-001: “Public Bidding for the Supply, Delivery, Installation and Configuration of Heavy-Duty Scanners”.',
+    'https://ombudsman.gov.ph/contract-agreement-with-quartz-business-products-corporation/',
+  ],
   [
     '2026 U.S. Quartz Tariff & Sintered Stone',
     'https://stonefuntek.com/blogs/knowledge/2026-us-quartz-tariff',

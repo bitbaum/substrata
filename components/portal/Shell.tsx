@@ -18,6 +18,7 @@ import { SITE, correctionUrl } from '@/lib/site';
 import { AppFrame } from '@/components/shell/AppFrame';
 import { AccountMenu } from './AccountMenu';
 import { FreshnessBadge } from './FreshnessBadge';
+import { SectionNav } from './SectionNav';
 
 function Footer({ note }: { note: string }) {
   return (
@@ -58,9 +59,37 @@ export async function Shell({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function Page({ children }: { children: React.ReactNode }) {
-  return <div className="mx-auto max-w-shell px-4 py-10 sm:px-6 sm:py-12 lg:px-8">{children}</div>;
+/**
+ * The page column. `sections` adds "On this page" (SectionNav), built from the
+ * page's own <Heading>s — for long pages, where a reader needs to jump.
+ */
+export function Page({
+  children,
+  sections = false,
+}: {
+  children: React.ReactNode;
+  sections?: boolean;
+}) {
+  return (
+    <div className="mx-auto max-w-shell px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
+      {sections ? (
+        <div className="section-nav-scope">
+          <SectionNav />
+          <div className="min-w-0">{children}</div>
+        </div>
+      ) : (
+        children
+      )}
+    </div>
+  );
 }
+
+/** "Checked events" → "checked-events": a heading's anchor, stable across renders. */
+export const sectionId = (title: string) =>
+  title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
 
 export function SectionHeader({
   title,
@@ -107,14 +136,21 @@ export function Heading({
   index,
   title,
   aside,
+  id = sectionId(title),
 }: {
   index?: string;
   title: string;
   aside?: React.ReactNode;
+  /** Anchor for links and "On this page"; derived from the title unless given. */
+  id?: string;
 }) {
   return (
     <div className="mb-4 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-      <h2 className="flex items-baseline gap-3 font-heading text-xl font-semibold tracking-display text-fg-primary sm:text-2xl">
+      <h2
+        id={id}
+        data-section={title}
+        className="flex items-baseline gap-3 font-heading text-xl font-semibold tracking-display text-fg-primary sm:text-2xl"
+      >
         {index && <span className="font-mono text-xs text-fg-muted">{index}</span>}
         {title}
       </h2>

@@ -27,6 +27,7 @@ export function parseScope(raw: unknown): UpdateScope | null {
   const o = raw && typeof raw === 'object' ? (raw as Record<string, unknown>) : {};
   const slug = typeof o.slug === 'string' && /^[a-z0-9-]{1,80}$/.test(o.slug) ? o.slug : null;
   if (o.kind === 'desk') return { kind: 'desk' };
+  if (o.kind === 'all') return { kind: 'all' };
   if ((o.kind === 'bottleneck' || o.kind === 'company') && slug) return { kind: o.kind, slug };
   return null;
 }
@@ -40,6 +41,9 @@ export async function scopeNames(
     const b = bottleneckBySlug(scope.slug);
     return b ? [b.name] : null;
   }
+  // Every bottleneck; the sweep takes the few searched longest ago, so each
+  // press — by anyone — moves the whole map forward a step.
+  if (scope.kind === 'all') return BOTTLENECKS.map((b) => b.name);
   if (scope.kind === 'company') {
     const profile = companyProfile(scope.slug);
     return profile ? profile.held.map((h) => h.bottleneck.name) : null;
