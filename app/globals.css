@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import '@bitbaum/chatkit/styles.css';
+@import '@bitbaum/accountkit/styles.css';
 /* The renderers live in the sitekit package now; Tailwind must scan them or
    their semantic classes are never emitted. */
 @source '../node_modules/sitekit/dist';
@@ -115,6 +116,20 @@
   --ck-radius-sm: 0.4rem;
   --ck-font: var(--font-sans);
   --ck-mono: var(--font-mono);
+}
+
+:root {
+  /* @bitbaum/accountkit's sign-in error screen, on the same tokens as the chat. */
+  --acct-fg: var(--color-fg-primary);
+  --acct-fg-2: var(--color-fg-secondary);
+  --acct-fg-3: var(--color-fg-tertiary);
+  --acct-line: var(--color-border-subtle);
+  --acct-line-2: var(--color-border-strong);
+  --acct-action: var(--color-fg-primary);
+  --acct-on-action: var(--color-surface-page);
+  --acct-focus: var(--color-accent);
+  --acct-radius-sm: 0.4rem;
+  --acct-font: var(--font-sans);
 }
 
 html[data-theme='light'] {
