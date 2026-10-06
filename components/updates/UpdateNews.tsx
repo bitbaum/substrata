@@ -36,7 +36,7 @@ async function post<T>(
 
 function sweepLine(r: UpdateResult): string {
   if (r.swept === 0)
-    return `Searched within the last ${r.cooldownMinutes} minutes already — showing what that found.`;
+    return `Searched within the last ${r.cooldownMinutes} minutes already; the newest finds are below.`;
   const blind = r.couldNotLook > 0 ? `; ${r.couldNotLook} could not be reached` : '';
   const papers = r.research?.searched
     ? ` Research databases searched: ${plural(r.research.itemsNew, 'new paper or grant')}.`
@@ -56,12 +56,15 @@ export function UpdateNews({
   scope,
   sweeping = false,
   refreshPage = false,
+  showLeads = true,
 }: {
   scope: UpdateScope;
   /** A background sweep is running (the desk): reload once, a minute on. */
   sweeping?: boolean;
   /** Re-render the server page after an update (the desk's feed shows the leads itself). */
   refreshPage?: boolean;
+  /** List the leads under the button; off where the page lists them itself (the news page). */
+  showLeads?: boolean;
 }) {
   const router = useRouter();
   const keys = useAiKey();
@@ -88,7 +91,11 @@ export function UpdateNews({
     setFailed(!r?.ok);
     if (!r?.ok) return setMessage(r?.data.error ?? 'The update could not run just now.');
     setResult(r.data);
-    setMessage(sweepLine(r.data));
+    setMessage(
+      showLeads || r.data.found === 0
+        ? sweepLine(r.data)
+        : `${sweepLine(r.data)} Those that report a change now lead Just found; the rest stay on each bottleneck's page.`,
+    );
     if (refreshPage) router.refresh();
   }
 
@@ -131,7 +138,7 @@ export function UpdateNews({
           </span>
           {busy === 'update' ? 'Searching the web…' : 'Update news now'}
         </button>
-        {result && waiting.length > 0 && (
+        {showLeads && result && waiting.length > 0 && (
           <button
             type="button"
             className="research-button-ghost"
@@ -182,7 +189,8 @@ export function UpdateNews({
         </div>
       )}
 
-      {result &&
+      {showLeads &&
+        result &&
         (result.leads.length > 0 ? (
           <UpdateLeads leads={result.leads} now={new Date()} />
         ) : (

@@ -19,6 +19,7 @@ import { FeedRow } from '@/components/portal/FeedRow';
 import { Heading, Page, Shell } from '@/components/portal/Shell';
 import { whenLabel } from '@/lib/desk';
 import { HOME_LEAD_DAYS, recentFinds } from '@/lib/home-feed';
+import { UpdateNews } from '@/components/updates/UpdateNews';
 
 export const metadata: Metadata = {
   title: 'News',
@@ -28,6 +29,8 @@ export const metadata: Metadata = {
 
 /** Finds shown above the checked events: enough to read as a feed, few enough to scan. */
 const FINDS_SHOWN = 10;
+/** A web sweep older than this and the page says the news may be stale. */
+const STALE_HOURS = 24;
 
 type SearchParams = Record<string, string | string[] | undefined>;
 
@@ -63,6 +66,8 @@ export default async function EventsPage({
   const query = parseQuery(params, EVENT_SPEC);
   const { found, leadsRead, freshness } = await recentFinds(now, { limit: FINDS_SHOWN });
   const newest = eventsNewestFirst()[0];
+  const sweptAt = freshness?.lastRunAt ? new Date(freshness.lastRunAt).getTime() : 0;
+  const stale = now.getTime() - sweptAt > STALE_HOURS * 3_600_000;
 
   const result = applyQuery(eventsNewestFirst(), EVENT_SPEC, query);
 
@@ -107,7 +112,7 @@ export default async function EventsPage({
 
   return (
     <Shell>
-      <Page>
+      <Page sections>
         <header className="mb-8 max-w-2xl">
           <h1 className="font-heading text-3xl font-semibold tracking-display text-fg-primary sm:text-4xl">
             News
@@ -132,6 +137,15 @@ export default async function EventsPage({
               how fresh is this?
             </Link>
           </p>
+          {stale && (
+            <p className="mt-3 text-sm text-fg-primary">
+              The web has not been searched for {STALE_HOURS} hours or more, so these may be out of
+              date. Anyone can search now; it takes under a minute and uses no AI.
+            </p>
+          )}
+          <div className="mt-4">
+            <UpdateNews scope={{ kind: 'all' }} refreshPage showLeads={false} />
+          </div>
         </header>
 
         <Heading

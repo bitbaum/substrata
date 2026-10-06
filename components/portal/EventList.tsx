@@ -57,7 +57,11 @@ export function EventList({
       {events.map((event, i) => (
         <React.Fragment key={event.id}>
           {byMonth && monthOf(event.date) !== (i > 0 ? monthOf(events[i - 1].date) : '') && (
-            <li className="pb-2 pt-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary">
+            <li
+              id={`m-${event.date.slice(0, 7)}`}
+              data-section-sub={monthOf(event.date)}
+              className="pb-2 pt-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary"
+            >
               {monthOf(event.date)}
             </li>
           )}

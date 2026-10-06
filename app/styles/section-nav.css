@@ -1,0 +1,117 @@
+/* "On this page" (components/portal/SectionNav.tsx). Tokens only. */
+.section-nav-scope {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+[data-section],
+[data-section-sub] {
+  /* Clear the top bar and, on narrow screens, the strip itself. */
+  scroll-margin-top: calc(var(--spacing-topbar) + 3.5rem);
+}
+
+/* Narrow: a strip under the top bar, scrolling sideways. */
+.section-nav {
+  position: sticky;
+  top: var(--spacing-topbar);
+  z-index: 20;
+  margin: 0 -1rem 1.5rem;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+  background: color-mix(in srgb, var(--color-surface-page) 94%, transparent);
+  backdrop-filter: blur(8px);
+}
+.section-nav[hidden] {
+  display: none;
+}
+.section-nav-title {
+  display: none;
+}
+.section-nav ol {
+  display: flex;
+  gap: 0.25rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.section-nav li.is-sub {
+  display: none;
+}
+.section-nav a {
+  display: block;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  white-space: nowrap;
+  color: var(--color-fg-secondary);
+}
+.section-nav a:hover {
+  color: var(--color-fg-primary);
+}
+.section-nav a[aria-current],
+.section-nav a[data-within] {
+  background: var(--color-fg-primary);
+  color: var(--color-surface-page);
+}
+
+/* Wide: a rail left of the content, below the top bar as the page scrolls. */
+@media (min-width: 1280px) {
+  /* Only with a nav showing: a hidden one must not leave its column behind. */
+  .section-nav-scope:has(> .section-nav:not([hidden])) {
+    grid-template-columns: 11rem minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+  [data-section],
+  [data-section-sub] {
+    scroll-margin-top: calc(var(--spacing-topbar) + 1rem);
+  }
+  .section-nav {
+    top: calc(var(--spacing-topbar) + 1.5rem);
+    align-self: start;
+    max-height: calc(100vh - var(--spacing-topbar) - 3rem);
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    backdrop-filter: none;
+  }
+  .section-nav-title {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: var(--tracking-caps);
+    text-transform: uppercase;
+    color: var(--color-fg-tertiary);
+  }
+  .section-nav ol {
+    display: block;
+    overflow: visible;
+    border-left: 1px solid var(--color-border-subtle);
+  }
+  .section-nav li.is-sub {
+    display: block;
+  }
+  .section-nav a {
+    margin-left: -1px;
+    padding: 0.3rem 0 0.3rem 0.85rem;
+    border-left: 2px solid transparent;
+    border-radius: 0;
+    white-space: normal;
+    font-size: 0.875rem;
+  }
+  .section-nav li.is-sub a {
+    padding-left: 1.6rem;
+    font-size: 0.8125rem;
+    color: var(--color-fg-tertiary);
+  }
+  .section-nav a[data-within] {
+    background: none;
+    color: var(--color-fg-primary);
+  }
+  .section-nav a[aria-current] {
+    background: none;
+    border-left-color: var(--color-fg-primary);
+    color: var(--color-fg-primary);
+    font-weight: 600;
+  }
+}

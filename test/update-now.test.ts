@@ -55,3 +55,11 @@ test('a summary is offered only for leads it would add something to', () => {
   assert.equal(needsDraft(lead(d('drafted'))), false);
   assert.equal(needsDraft(lead(d('duplicate'))), false);
 });
+
+test('the news page scope covers every bottleneck, so any reader can refresh the news', async () => {
+  const { scopeNames } = await import('../lib/update-now');
+  const { BOTTLENECKS } = await import('../lib/bottlenecks');
+  assert.deepEqual(parseScope({ kind: 'all' }), { kind: 'all' });
+  // Signed out (no actor) still gets every name: no sign-in stands between a reader and fresh news.
+  assert.equal((await scopeNames({ kind: 'all' }, null))?.length, BOTTLENECKS.length);
+});

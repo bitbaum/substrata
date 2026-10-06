@@ -30,7 +30,7 @@ export function WhatChanged({ feed, now }: { feed: HomeFeed; now: Date }) {
           next="The sweep's newest finds are below, unchecked."
         />
       ) : (
-        <ol className="home-feed" id="what-changed">
+        <ol className="home-feed">
           {checked.map((item) => (
             <FeedRow key={`${item.source}:${item.id}`} item={item} now={now} />
           ))}

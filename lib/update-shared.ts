@@ -3,7 +3,11 @@
  * routes answer with, and the numbers the buttons state. No database here.
  */
 export type UpdateScope =
-  { kind: 'bottleneck'; slug: string } | { kind: 'company'; slug: string } | { kind: 'desk' };
+  | { kind: 'bottleneck'; slug: string }
+  | { kind: 'company'; slug: string }
+  | { kind: 'desk' }
+  /** The news page: every bottleneck, the stalest few searched per press. */
+  | { kind: 'all' };
 
 /** Leads one "Summarise with AI" drafts: a page read and up to two calls each, on the reader's key. */
 export const SUMMARISE_AT_ONCE = 3;

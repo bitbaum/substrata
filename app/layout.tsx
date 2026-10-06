@@ -26,6 +26,7 @@ import './styles/quality.css';
 import './styles/updates.css';
 import './styles/roles.css';
 import './styles/home.css';
+import './styles/section-nav.css';
 import './styles/science-pipeline.css';
 import './styles/shell.css';
 import './styles/shell-overlays.css';
