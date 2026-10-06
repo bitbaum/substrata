@@ -84,3 +84,13 @@ test('a revision that fails leaves the answer without the unsupported sentences'
     'Lead times are 128 weeks.\n- TSMC is listed.',
   );
 });
+
+test('a number fused into a field name is evidence: net_pressure_90d allows "90-day"', () => {
+  const evidence = '{"bottleneck":"HBM","net_pressure_90d":-1,"score_12":10}';
+  assert.deepEqual(
+    unsupportedFigures('A net 90-day pressure of -1, binding score 10/12.', evidence),
+    [],
+  );
+  // The answer side stays strict: a figure from nowhere is still caught.
+  assert.deepEqual(unsupportedFigures('Prices rose 45% this year.', evidence), ['45%']);
+});

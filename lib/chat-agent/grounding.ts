@@ -34,6 +34,11 @@ export function numbersIn(text: string): Set<string> {
     out.add(c);
     if (m[2]) out.add(canonical(m[1]));
   }
+  // A number fused into a field name — `net_pressure_90d` — is still a number
+  // the reader was given: the model writes it as "90-day pressure". Missed,
+  // it sent a correct answer back for a rewrite, a full extra call (2026-10-02).
+  for (const m of text.matchAll(/(?<=[A-Za-z_])(\d+)(?=[A-Za-z_])|(?<=_)(\d+)(?![\d.,])/g))
+    out.add(m[1] ?? m[2]);
   return out;
 }
 
