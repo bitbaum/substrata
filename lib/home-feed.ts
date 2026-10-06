@@ -13,6 +13,7 @@
 import { EVENTS, eventsSince } from '@/config/substrata-events';
 import { buildFeed, type DeskItem } from '@/lib/desk';
 import { dateInUrl, reportsAChange } from '@/lib/lead-signal';
+import { isOffTopic } from '@/lib/sweep';
 import { freshness, recentLeads, type Freshness } from '@/lib/sweep-queue';
 
 export const HOME_EVENT_DAYS = 30;
@@ -46,7 +47,11 @@ export async function recentFinds(
   const cutoff = new Date(now.getTime() - days * 86_400_000).toISOString().slice(0, 10);
   const news = (leads ?? []).filter((lead) => {
     const written = dateInUrl(lead.url);
-    return reportsAChange(lead.title, lead.url) && (written === null || written >= cutoff);
+    return (
+      reportsAChange(lead.title, lead.url) &&
+      !isOffTopic(lead.bottleneck, lead.title) &&
+      (written === null || written >= cutoff)
+    );
   });
   const filed = new Set(EVENTS.map((event) => event.source));
   return {

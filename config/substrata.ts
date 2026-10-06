@@ -248,6 +248,13 @@ export interface MaterialListing {
    * never reaches them.
    */
   searchAlso?: string[];
+  /**
+   * The same word in another market. "quartz" is also kitchen worktops: a US
+   * safeguard on quartz surface products reached the news page as high-purity
+   * quartz sand (2026-10-06), as a countertop blog had on 2026-10-01. A find
+   * whose title matches is not about this material.
+   */
+  offTopic?: RegExp;
   tags: string[];
 }
 
@@ -302,6 +309,8 @@ export const MATERIALS: readonly MaterialListing[] = [
     why: 'Czochralski crucibles need a quartz purity that comes, in practice, from a very small number of deposits. A genuine single point of failure for the whole industry.',
     spec: 'Inner-layer crucible grade, ≤ 20 ppm total impurities.',
     search: 'quartz',
+    offTopic:
+      /countertops?|worktops?|quartz surfaces?|surface products?|engineered stone|sintered stone|kitchen|bathroom|vanit(y|ies)|quartz (watch|clock|crystal)/i,
     tags: ['quartz', 'crucible', 'czochralski', 'feedstock'],
   },
   {

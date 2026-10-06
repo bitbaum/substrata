@@ -163,6 +163,11 @@ const TIGHTENS =
 const LOOSENS =
   /expan|new plant|new facilit|capacity|open(s|ed|ing)|commission|ramp|second source|agreement|approv|granted|breakthrough|recycl|ease|resum/i;
 
+/** A find whose title is about another market that shares the material's word. */
+export function isOffTopic(bottleneck: string, title: string): boolean {
+  return MATERIALS.find((m) => m.title === bottleneck)?.offTopic?.test(title) ?? false;
+}
+
 export function nodes(): Array<{ name: string; term: string }> {
   return [
     ...MATERIALS.map((m) => ({ name: m.title, term: m.search })),
@@ -253,13 +258,14 @@ export async function sweep(
 
   const out: CandidateEvent[] = [];
   for (const result of search.results
-    .filter((r) => !isNeverAnEvent(r.url, settings.blockedHosts))
+    .filter((r) => !isNeverAnEvent(r.url, settings.blockedHosts) && !isOffTopic(node.name, r.title))
     .slice(0, settings.pagesPerNode)) {
     const page = await readPage(result.url, { timeoutMs: 15_000, maxChars: 60_000 });
     if (!page.ok) continue;
     const excerpt = excerptAround(page.text, node.term);
     if (!excerpt) continue;
     const title = page.title || result.title;
+    if (isOffTopic(node.name, title)) continue;
     // Checked here, not on the search result, because the reader often returns
     // a truer title than the snippet did.
     if (looksLikeAReference(title)) continue;

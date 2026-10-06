@@ -89,3 +89,16 @@ test('reads the date a URL was written on, in both common shapes', () => {
   // A long numeric id is not a date.
   assert.equal(dateInUrl('https://news.metal.com/newscontent/104139397-chinas'), null);
 });
+
+test('a find about another market that shares the word is off topic (quartz worktops)', async () => {
+  const { isOffTopic } = await import('../lib/sweep');
+  const hpq = 'Crucible-grade high-purity quartz sand';
+  assert.equal(
+    isOffTopic(hpq, 'U.S. Imposes Four-Year Safeguard Measures on Quartz Surface Product Imports'),
+    true,
+  );
+  assert.equal(isOffTopic(hpq, '2026 U.S. Quartz Tariff & Sintered Stone'), true);
+  assert.equal(isOffTopic(hpq, 'The Quartz Corp indefinitely closes a Spruce Pine plant'), false);
+  // Only the material that declares it: another bottleneck is untouched.
+  assert.equal(isOffTopic('Gallium, refined', 'Kitchen worktop prices rise'), false);
+});
