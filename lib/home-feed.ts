@@ -10,7 +10,7 @@
  * headline names the bottleneck AND reports a change (lib/lead-signal.ts),
  * and never a page whose URL dates it before the window.
  */
-import { eventsSince } from '@/config/substrata-events';
+import { EVENTS, eventsSince } from '@/config/substrata-events';
 import { buildFeed, type DeskItem } from '@/lib/desk';
 import { dateInUrl, reportsAChange } from '@/lib/lead-signal';
 import { freshness, recentLeads, type Freshness } from '@/lib/sweep-queue';
@@ -30,24 +30,38 @@ export interface HomeFeed {
   freshness: Freshness | null;
 }
 
-export async function homeFeed(now: Date = new Date()): Promise<HomeFeed> {
-  const events = eventsSince(HOME_EVENT_DAYS, now);
+/**
+ * The sweep's newest finds that report a change: unread, labelled unchecked,
+ * never a page already filed as an event or dated before the window. Shared
+ * by the front page and /events, so the two cannot disagree on what counts.
+ */
+export async function recentFinds(
+  now: Date = new Date(),
+  { days = HOME_LEAD_DAYS, limit = HOME_FOUND }: { days?: number; limit?: number } = {},
+): Promise<Pick<HomeFeed, 'found' | 'leadsRead' | 'freshness'>> {
   const [leads, fresh] = await Promise.all([
-    recentLeads(HOME_LEAD_DAYS).catch(() => null),
+    recentLeads(days).catch(() => null),
     freshness().catch(() => null),
   ]);
-  const cutoff = new Date(now.getTime() - HOME_LEAD_DAYS * 86_400_000).toISOString().slice(0, 10);
+  const cutoff = new Date(now.getTime() - days * 86_400_000).toISOString().slice(0, 10);
   const news = (leads ?? []).filter((lead) => {
     const written = dateInUrl(lead.url);
     return reportsAChange(lead.title, lead.url) && (written === null || written >= cutoff);
   });
-  const filed = new Set(events.map((event) => event.source));
+  const filed = new Set(EVENTS.map((event) => event.source));
   return {
-    checked: buildFeed(events, [], now).slice(0, HOME_CHECKED),
-    found: buildFeed([], news, now, HOME_LEAD_DAYS, true)
+    found: buildFeed([], news, now, days, true)
       .filter((item) => !filed.has(item.url))
-      .slice(0, HOME_FOUND),
+      .slice(0, limit),
     leadsRead: leads !== null,
     freshness: fresh,
+  };
+}
+
+export async function homeFeed(now: Date = new Date()): Promise<HomeFeed> {
+  const events = eventsSince(HOME_EVENT_DAYS, now);
+  return {
+    checked: buildFeed(events, [], now).slice(0, HOME_CHECKED),
+    ...(await recentFinds(now)),
   };
 }

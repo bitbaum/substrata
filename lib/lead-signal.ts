@@ -35,11 +35,23 @@ const OPINION =
 const NOT_NEWS_PATH =
   /\/blogs?\/|\/knowledge\/|springerprofessional|\/industries\/|\/solutions?\/|\/products?\/|wikipedia\.org|\/glossary|\/learn\/|\/guide/i;
 
+/**
+ * A buyer's tender or award notice is about the buyer, not the market: the
+ * Philippine Ombudsman's contract with "Quartz Business Products" for document
+ * scanners reached the news page as high-purity quartz (2026-10-06).
+ */
+const PROCUREMENT =
+  /\b(public bidding|invitation to bid|bid bulletin|request for (quotation|proposals?)|notice of award|tender (notice|for)|procurement of|contract agreement with)\b/i;
+
 const SOCIAL = /(^|\.|\/\/)(facebook|linkedin|reddit|x|twitter|instagram|youtube)\.com(\/|$)/i;
 
 export function reportsAChange(title: string, url: string): boolean {
   return (
-    CHANGE.test(title) && !OPINION.test(title) && !NOT_NEWS_PATH.test(url) && !SOCIAL.test(url)
+    CHANGE.test(title) &&
+    !OPINION.test(title) &&
+    !PROCUREMENT.test(title) &&
+    !NOT_NEWS_PATH.test(url) &&
+    !SOCIAL.test(url)
   );
 }
 
