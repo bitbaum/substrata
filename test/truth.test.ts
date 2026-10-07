@@ -44,6 +44,7 @@ import { SCIENCE } from '../config/substrata-science';
 import { STAGES } from '../config/substrata-stages';
 import { CLASSIFICATION } from '../config/substrata-taxonomy';
 import { siteChrome, sitePages } from '../config/site-content';
+import { PROBLEM_SCALES, WHAT_IT_SOLVES } from '../config/what-it-solves';
 import * as labels from '../lib/labels';
 
 /**
@@ -124,6 +125,7 @@ const RENDERED = [
   ...stringsIn(labels, 'labels'),
   ...stringsIn(JOIN, 'join'),
   ...stringsIn(CALLS, 'calls'),
+  ...stringsIn([WHAT_IT_SOLVES, PROBLEM_SCALES], 'whatItSolves'),
   ...stringsIn(CAPITAL_KINDS, 'capitalKinds'),
   ...stringsIn(CAPITAL_PROVIDERS, 'capitalProviders'),
   ...stringsIn(FUNDING_ASSESSMENTS, 'funding'),
