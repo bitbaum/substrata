@@ -16,6 +16,10 @@ updates:
       interval: weekly
     open-pull-requests-limit: 5
     groups:
+      # The fleet's own packages get their own PR, so a fix made once in a kit
+      # is not stuck behind a third-party bump. First matching group wins.
+      bitbaum:
+        patterns: ['@bitbaum/*']
       minor-and-patch:
         update-types: [minor, patch]
 
