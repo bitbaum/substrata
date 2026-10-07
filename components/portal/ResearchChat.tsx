@@ -8,6 +8,7 @@ import {
   Composer,
   type ChatMessageData,
   type RenderLink,
+  useViewportHeight,
 } from '@bitbaum/chatkit/react';
 import type { Attachment } from '@bitbaum/chatkit';
 import { CHAT_STARTERS } from '@/config/substrata-chat';
@@ -65,6 +66,10 @@ export function ResearchChat({
   const chat = useChatSession({ topic, onPath, model, keyFields: keys.requestFields });
   const [keyOpen, setKeyOpen] = useState(false);
   const ran = useRef<number | null>(null);
+  // The visible height, which shrinks when a phone keyboard opens; on /chat
+  // the column is sized to it so the composer stays above the keyboard.
+  const root = useRef<HTMLDivElement>(null);
+  useViewportHeight(root);
 
   useEffect(() => {
     if (!pending || ran.current === pending.id) return;
@@ -98,7 +103,7 @@ export function ResearchChat({
       : 'Free models, shared · add your own AI key for more';
 
   return (
-    <div className={compact ? 'companion is-compact' : 'companion'}>
+    <div ref={root} className={compact ? 'companion is-compact' : 'companion'}>
       <ChatThread
         messages={messages}
         live={live}
