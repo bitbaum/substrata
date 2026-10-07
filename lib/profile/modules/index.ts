@@ -6,6 +6,7 @@ import { timeline } from './timeline';
 import { chokepoints, companyEvents } from './company';
 import { relief, sameLayer, sources } from './company-context';
 import { relieves, readiness, milestone } from './science';
+import { around } from './science-around';
 import { mandate, canMove, source } from './capital';
 import { why, severity, producers } from './bottleneck';
 import { rules, removes, calls, funding } from './bottleneck-levers';
@@ -54,6 +55,7 @@ export const PROFILE_MODULES: AnyProfileModule[] = [
   relieves,
   readiness,
   milestone,
+  around,
   // Capital
   mandate,
   canMove,

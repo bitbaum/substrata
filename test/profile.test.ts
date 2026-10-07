@@ -16,6 +16,8 @@ import { ENTITY_KINDS, type EntityKind } from '../lib/entities/types';
 import { PROFILE_MODULES, modulesFor } from '../lib/profile/modules';
 import { defineModule } from '../lib/profile/define';
 import { connectionsFor } from '../lib/profile/modules/shared';
+import { AROUND_GROUPS, aroundFor } from '../lib/profile/modules/science-around';
+import { neighbors } from '../lib/graph';
 
 test('module ids are unique and ordering is deterministic', () => {
   const ids = PROFILE_MODULES.map((m) => m.id);
@@ -211,4 +213,43 @@ test('connections never repeat a section the profile already has', () => {
   assert.ok(!companyRels.includes('makes'), 'what it makes already has a section');
   // And it still says the thing nothing else does.
   assert.ok(companyRels.includes('located in'), 'jurisdiction is not shown anywhere else');
+});
+
+test('every science page says who and what its bottleneck touches', () => {
+  // Visitor feedback on a science page: which companies would be affected,
+  // where the research is, and how it joins policy, capital and markets — on
+  // every such page, not one. So the module is selected by kind, and the
+  // questions with a stated empty line are always asked, even when the answer
+  // is "nothing on record yet".
+  const asked = AROUND_GROUPS.filter((g) => g.empty).map((g) => g.id);
+  for (const ask of ['companies', 'markets', 'science', 'policy', 'capital']) {
+    assert.ok(asked.includes(ask), `"${ask}" must always be asked`);
+  }
+  for (const science of entitiesOfKind('science')) {
+    assert.ok(
+      modulesFor(science).some((m) => m.id === 'around'),
+      `${science.key}: no around`,
+    );
+    for (const { groups } of aroundFor(science)) {
+      const ids = groups.map((g) => g.id);
+      for (const ask of asked) assert.ok(ids.includes(ask), `${science.key}: lost "${ask}"`);
+    }
+  }
+});
+
+test('around reads the same joins as the bottleneck page, never the page itself', () => {
+  const science = entitiesOfKind('science').find((e) => e.key === 'synthetic-crucible-quartz');
+  assert.ok(science, 'the crucible entry should be in the corpus');
+  const [first] = aroundFor(science);
+  assert.ok(first, 'it relieves a bottleneck');
+  const makers = first.groups.find((g) => g.id === 'companies')?.rows.map((r) => r.entity.name);
+  const fromGraph = neighbors('bottleneck', first.bottleneck.key)
+    .filter((e) => e.rel === 'produced by')
+    .map((e) => e.to.label);
+  assert.deepEqual(makers, fromGraph, 'makers differ from the bottleneck graph');
+  const others = first.groups.find((g) => g.id === 'science')?.rows ?? [];
+  assert.ok(
+    !others.some((r) => r.entity.id === science.id),
+    'a page is not its own "other science"',
+  );
 });
