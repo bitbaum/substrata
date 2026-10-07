@@ -16,7 +16,9 @@ import {
   bottleneckBySlug,
   portalTotals,
   slugOf,
+  tightestNow,
 } from '../lib/bottlenecks';
+import { TIGHTEST_COUNT } from '../lib/bottlenecks-board';
 
 test('every material and every chokepoint is on the board exactly once', () => {
   assert.equal(BOTTLENECKS.length, MATERIALS.length + CHOKEPOINTS.length);
@@ -78,4 +80,22 @@ test('every bottleneck carries its stage, score, horizon and events', () => {
     const b = BOTTLENECKS[i];
     if (a.stage === b.stage) assert.ok(a.binding >= b.binding, `${a.name} before ${b.name}`);
   }
+});
+
+test('the board leads with the tightest few: binding now, hardest first, never unverified', () => {
+  // Visitor feedback: the board was a 33-row table with nothing to say what it
+  // is for. It now opens with the constraints that matter most today, so the
+  // rule that picks them is the claim and is held here.
+  const lead = tightestNow(BOTTLENECKS);
+  assert.equal(lead.length, TIGHTEST_COUNT);
+  for (const b of lead) {
+    assert.equal(b.horizon, 'now', `${b.name} is not binding now`);
+    assert.notEqual(b.state, 'unverified', `${b.name} is unverified but leads the board`);
+  }
+  const eligible = BOTTLENECKS.filter((b) => b.horizon === 'now' && b.state !== 'unverified');
+  const hardest = Math.max(...eligible.map((b) => b.binding));
+  assert.equal(lead[0].binding, hardest, 'the first is not the hardest-binding');
+  for (let i = 1; i < lead.length; i++)
+    assert.ok(lead[i - 1].binding >= lead[i].binding, 'not hardest first');
+  assert.deepEqual(tightestNow([]), [], 'an empty board leads with nothing');
 });

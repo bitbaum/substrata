@@ -19,11 +19,21 @@ import type { Horizon } from '@/config/substrata-assessment';
 import { RELIEF_TIME_ESTIMATE, STAGES, type StageId } from '@/config/substrata-stages';
 import { INDUSTRIES, TECHNOLOGIES } from '@/config/substrata-taxonomy';
 import { BOARD_SPEC, type Bottleneck } from '@/lib/bottlenecks';
-import { EVIDENCE, EVIDENCE_LABEL, SEVERITY, WHEN, WHEN_LABEL } from '@/lib/labels';
+import {
+  EVIDENCE,
+  EVIDENCE_LABEL,
+  LOOP_IN_ONE_LINE,
+  SEVERITY,
+  WHEN,
+  WHEN_LABEL,
+} from '@/lib/labels';
 import { Chip } from './Chip';
 import { FilterRow, Legend } from './Shell';
 import { Figure } from './Figure';
 import { Progress, SeverityBar, Status, rowLabel } from './Status';
+
+/** The anchor a stage's group row carries, so the jump links can reach it. */
+const stageAnchor = (id: StageId) => `stage-${id}`;
 
 function groupByStage(rows: readonly Bottleneck[]): Array<[StageId, Bottleneck[]]> {
   return STAGES.map(
@@ -73,6 +83,7 @@ export function Board({ params, query, result, basePath = '/bottlenecks' }: Prop
   });
   const selected = (key: string) => query.facets[key] ?? [];
   const counts = (key: string) => result.counts[key] ?? {};
+  const groups = groupByStage(result.rows);
 
   const chips = (
     key: string,
@@ -160,6 +171,25 @@ export function Board({ params, query, result, basePath = '/bottlenecks' }: Prop
           </FilterRow>
         </div>
       </details>
+      {groups.length > 1 && (
+        <nav aria-label="Jump to a stage" className="mb-6">
+          <p className="max-w-prose text-sm leading-relaxed text-fg-tertiary">
+            Grouped by which part of the process they hold up. {LOOP_IN_ONE_LINE}
+          </p>
+          <ul className="mt-3 flex flex-wrap gap-2">
+            {groups.map(([stageId, rows]) => (
+              <li key={stageId}>
+                <Chip
+                  href={`#${stageAnchor(stageId)}`}
+                  active={false}
+                  label={STAGES.find((s) => s.id === stageId)?.name ?? stageId}
+                  count={rows.length}
+                />
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
       <div className="overflow-x-auto">
         <table className="w-full border-collapse text-left">
           <thead>
@@ -176,10 +206,14 @@ export function Board({ params, query, result, basePath = '/bottlenecks' }: Prop
             </tr>
           </thead>
           <tbody className="divide-y divide-subtle">
-            {groupByStage(result.rows).flatMap(([stageId, rows]) => {
+            {groups.flatMap(([stageId, rows]) => {
               const stage = STAGES.find((s) => s.id === stageId);
               return [
-                <tr key={`stage-${stageId}`} className="bg-surface-raised">
+                <tr
+                  key={`stage-${stageId}`}
+                  id={stageAnchor(stageId)}
+                  className="scroll-mt-24 bg-surface-raised"
+                >
                   <th
                     scope="rowgroup"
                     colSpan={COLUMNS.length}

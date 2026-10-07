@@ -20,7 +20,7 @@ import { chokepointBottlenecks, materialBottlenecks, type Bottleneck } from './b
 import { compareBottlenecks } from './bottlenecks-board';
 
 export { slugOf, type Bottleneck, type BottleneckProducer } from './bottlenecks-build';
-export { BOARD_SPEC, compareBottlenecks } from './bottlenecks-board';
+export { BOARD_SPEC, compareBottlenecks, tightestNow } from './bottlenecks-board';
 
 export const BOTTLENECKS: readonly Bottleneck[] = [
   ...materialBottlenecks(),

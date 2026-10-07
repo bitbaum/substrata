@@ -81,3 +81,24 @@ export const BOARD_SPEC: ListSpec<Bottleneck> = {
   defaultSort: 'stage',
   defaultPageSize: 100,
 };
+
+/** How many the board leads with: enough to show the pattern, few enough to read. */
+export const TIGHTEST_COUNT = 3;
+
+/**
+ * The few a first-time reader should see before the full table: binding today,
+ * hardest first, then the fewest makers — concentration is what makes a
+ * constraint hard to route around. A row nobody has verified is never put
+ * forward as the headline, and a single node (no maker list) ranks after a
+ * row whose makers are counted.
+ */
+export function tightestNow(
+  rows: readonly Bottleneck[],
+  count: number = TIGHTEST_COUNT,
+): Bottleneck[] {
+  const makers = (b: Bottleneck) => (b.counts.total > 0 ? b.counts.total : Infinity);
+  return rows
+    .filter((b) => b.horizon === 'now' && b.state !== 'unverified')
+    .sort((a, b) => b.binding - a.binding || makers(a) - makers(b) || a.name.localeCompare(b.name))
+    .slice(0, count);
+}
