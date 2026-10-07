@@ -13,6 +13,7 @@ import { HomeStats } from './_home/HomeStats';
 import { LatestRule } from './_home/LatestRule';
 import { StartHere } from './_home/StartHere';
 import { WhatChanged } from './_home/WhatChanged';
+import { WhatItSolves } from './_home/WhatItSolves';
 import { WorstNow } from './_home/WorstNow';
 
 export const metadata: Metadata = {
@@ -23,10 +24,12 @@ export const metadata: Metadata = {
 
 /**
  * The front page answers, in order: what is this, which part of it is for
- * me, what changed, and what is worst right now. The reader's own door comes
- * straight after the hero because every audience — traders, industry teams,
- * job seekers, learners — needs a different slice, and making them find it
- * in a menu was the hierarchy fault. The corpus counts come last: they are
+ * me, what problems it solves, what changed, and what is worst right now.
+ * The reader's own door comes straight after the hero because every
+ * audience — traders, industry teams, job seekers, learners — needs a
+ * different slice, and making them find it in a menu was the hierarchy
+ * fault. "What it solves" follows it, because a door named "X-ray" does not
+ * say what problem it settles. The corpus counts come last: they are
  * evidence for a reader already interested, not a way in.
  */
 // The front page reads the sweep's store on every request: "what changed"
@@ -46,6 +49,8 @@ export default async function TodayPage() {
         <HomeHero freshness={feed.freshness} now={now} />
 
         <ChooseRole />
+
+        <WhatItSolves />
 
         <div className="mb-14 grid gap-12 lg:grid-cols-[3fr_2fr]">
           <div>
