@@ -4,11 +4,11 @@ import type { Metadata } from 'next';
 import { applyQuery, parseQuery } from 'listkit';
 
 import { STAGES } from '@/config/substrata-stages';
-import { BOARD_SPEC, BOTTLENECKS, portalTotals } from '@/lib/bottlenecks';
-import { LOOP_IN_ONE_LINE } from '@/lib/labels';
+import { BOARD_SPEC, BOTTLENECKS, portalTotals, tightestNow } from '@/lib/bottlenecks';
 import { Board } from '@/components/portal/Board';
 import { Figure } from '@/components/portal/Figure';
 import { Page, SectionHeader, Shell } from '@/components/portal/Shell';
+import { TightestNow } from '@/components/portal/TightestNow';
 
 export const metadata: Metadata = {
   title: 'Bottlenecks',
@@ -28,13 +28,15 @@ export default async function BottlenecksPage({
   const result = applyQuery(BOTTLENECKS, BOARD_SPEC, query);
   const totals = portalTotals();
   const covered = new Set(BOTTLENECKS.map((b) => b.stage)).size;
+  // The opening is for the whole board; once a reader narrows it, the table is the answer.
+  const narrowed = Boolean(query.q) || Object.values(query.facets).some((v) => v.length > 0);
 
   return (
     <Shell>
       <Page>
         <SectionHeader
           title="Bottlenecks"
-          lede="Everything that has to exist before more compute, more power or more machines can be built — and how hard each one is holding things up."
+          lede="The machines, materials, power, permits and people that decide how fast AI, energy and robots can grow — each in one plain sentence, with how hard it binds, who makes it and how well that is sourced. Start with the tightest, or jump to a stage."
           stats={[
             {
               label: 'Mapped',
@@ -83,9 +85,7 @@ export default async function BottlenecksPage({
             </Link>
           }
         />
-        <p className="mb-6 max-w-prose text-sm leading-relaxed text-fg-tertiary">
-          Rows are grouped by which part of the process they hold up. {LOOP_IN_ONE_LINE}
-        </p>
+        {!narrowed && <TightestNow rows={tightestNow(BOTTLENECKS)} />}
         <Board params={params} query={query} result={result} />
       </Page>
     </Shell>
