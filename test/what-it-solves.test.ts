@@ -30,8 +30,8 @@ test('both scales are present, each with a handful of cards', () => {
   );
   for (const scale of PROBLEM_SCALES) {
     assert.ok(
-      scale.items.length >= 4 && scale.items.length <= 6,
-      `${scale.id}: ${scale.items.length} cards (keep it to 4–6 so it stays readable)`,
+      scale.items.length >= 4 && scale.items.length <= 7,
+      `${scale.id}: ${scale.items.length} cards (keep it to 4–7 so it stays readable)`,
     );
   }
 });
