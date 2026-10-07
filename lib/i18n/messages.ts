@@ -21,6 +21,7 @@ export const EN = {
   'profile.companyEvents.title': 'What has happened',
   'profile.leads.title': 'Unread leads',
   'profile.filings.title': 'SEC filings',
+  'profile.takePart.title': 'Ways to take part',
   'profile.relief.title': 'What could loosen its grip',
   'profile.sameLayer.title': 'Others at the same step of the chain',
   'profile.sources.title': 'Sources',

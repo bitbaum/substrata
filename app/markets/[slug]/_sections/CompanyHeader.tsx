@@ -58,7 +58,10 @@ export function CompanyHeader({
         )}
       </div>
       <p className="mt-2 text-sm">
-        <Ticker listing={listingFor(p.slug) ?? null} />
+        <Ticker listing={listingFor(p.slug) ?? null} />{' '}
+        <a href="#take-part" className="ml-2 text-xs text-accent hover:underline">
+          Work there, own it, buy from it ↓
+        </a>
       </p>
       <p className="mt-3 max-w-prose text-lg leading-relaxed text-fg-secondary">
         <Lede profile={profile} />

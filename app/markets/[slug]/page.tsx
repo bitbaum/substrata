@@ -18,6 +18,9 @@ import { LeadList, leadsOn } from './_sections/leads';
 import { UpdateNews } from '@/components/updates/UpdateNews';
 import { FilingList, filingsOf } from './_sections/filings';
 import { HiringSection, hiringOf } from './_sections/hiring';
+import { TakePartSection } from './_sections/take-part';
+import { takePartRoutes } from '@/lib/take-part';
+import { listingFor } from '@/lib/listings';
 
 interface RouteParams {
   params: Promise<{ slug: string }>;
@@ -71,7 +74,23 @@ export default async function ParticipantPage({ params }: RouteParams) {
     filingsOf(p.slug),
     hiringOf(p.slug),
   ]);
+  const routes = takePartRoutes({
+    slug: p.slug,
+    name: p.name,
+    role: p.role,
+    listing: listingFor(p.slug) ?? null,
+    ownPage: p.directorySource,
+    hiring,
+    hasFilings: filings.length > 0,
+  });
   const extra: ExtraSection[] = [
+    {
+      id: 'take-part',
+      title: t('profile.takePart.title'),
+      importance: 75,
+      evidence: 'how to reach it, not whether to',
+      node: <TakePartSection routes={routes} />,
+    },
     ...(hiring
       ? [
           {
