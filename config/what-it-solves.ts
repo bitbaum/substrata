@@ -77,6 +77,16 @@ export const PROBLEM_SCALES: readonly ProblemScale[] = [
         cta: 'Open the industry view',
       },
       {
+        id: 'counterparts',
+        who: 'Companies',
+        problem:
+          '“We need another source for a part, or a buyer for what we make, and we don’t know who else is in the chain.”',
+        gives:
+          'A profile for each company on the map: the bottlenecks it holds, the other makers of each, the suppliers that feed in, who else works at the same step, its plants and countries on record, and the source each role is cited from, so you know who to approach.',
+        href: '/markets',
+        cta: 'Find a company',
+      },
+      {
         id: 'work',
         who: 'Job seekers',
         problem: '“I want work that unblocks progress, but I don’t know which jobs those are.”',

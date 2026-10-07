@@ -165,10 +165,20 @@
   .solves-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  /* A card left alone on the last row takes the whole row, not one column. */
+  .solves-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
 }
 @media (min-width: 1100px) {
   .solves-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .solves-card:last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+  .solves-card:last-child:nth-child(3n + 1) {
+    grid-column: 1 / -1;
   }
 }
 .solves-card {
