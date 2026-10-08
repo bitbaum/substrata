@@ -3,6 +3,7 @@ import { acceptLead, rejectLead } from '@/app/review/actions';
 import type { DraftEvent } from '@/lib/event-draft';
 import type { LeadWithDraft } from '@/lib/event-draft-store';
 import { BOTTLENECK_NAMES } from '@/lib/event-rules';
+import { DateInput } from '@/components/ui/date-input';
 
 function hostOf(url: string): string {
   try {
@@ -88,7 +89,7 @@ export function LeadDraft({ lead, problem }: { lead: LeadWithDraft; problem?: st
             <input type="hidden" name="source" value={event.source} />
             <label>
               Date it happened
-              <input type="date" name="date" defaultValue={event.date} required />
+              <DateInput type="date" name="date" defaultValue={event.date} required />
             </label>
             <label>
               Headline
