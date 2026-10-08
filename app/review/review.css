@@ -31,7 +31,12 @@
   font-size: 0.85rem;
   color: var(--color-fg-tertiary);
 }
-.review-form input:not([type='checkbox']),
+/* A date is a whenkit DateInput: the VISIBLE box (.wk-input) gets the field look,
+   and the real input hidden on top of it (.wk-input-native) must not — it is
+   transparent and fills the box, so padding or a border on it would grow the
+   tap target past the box. */
+.review-form input:not([type='checkbox']):not(.wk-input-native),
+.review-form .wk-input,
 .review-form select,
 .review-form textarea {
   width: 100%;

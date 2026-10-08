@@ -20,6 +20,9 @@ importers:
       '@bitbaum/geo-kit':
         specifier: github:bitbaum/geo-kit#a337aec928cf7804fecf459c308d366b90f4b2fa
         version: https://codeload.github.com/bitbaum/geo-kit/tar.gz/a337aec928cf7804fecf459c308d366b90f4b2fa
+      '@bitbaum/whenkit':
+        specifier: github:bitbaum/whenkit#v0.3.2
+        version: https://codeload.github.com/bitbaum/whenkit/tar.gz/f5e0a24208187091c2ca792008cdd7695a19910f(react@19.3.0)
       bip-kit:
         specifier: ^0.5.2
         version: 0.5.2(react@19.3.0)
@@ -227,6 +230,13 @@ packages:
 
   '@bitbaum/sitekit@0.3.0':
     resolution: {integrity: sha512-DnIwW3F92PEXFW4h9VSW2q+HS4fYSlEX/TnjIUjQ+Pcjja38hRN5eo45B1c6nDOiXl2/8v9V7yRYjtLQ1zG6pQ==}
+    engines: {node: '>=20'}
+    peerDependencies:
+      react: '>=18'
+
+  '@bitbaum/whenkit@https://codeload.github.com/bitbaum/whenkit/tar.gz/f5e0a24208187091c2ca792008cdd7695a19910f':
+    resolution: {gitHosted: true, tarball: https://codeload.github.com/bitbaum/whenkit/tar.gz/f5e0a24208187091c2ca792008cdd7695a19910f}
+    version: 0.3.2
     engines: {node: '>=20'}
     peerDependencies:
       react: '>=18'
@@ -2850,6 +2860,10 @@ snapshots:
     dependencies:
       react: 19.3.0
       zod: 4.5.4
+
+  '@bitbaum/whenkit@https://codeload.github.com/bitbaum/whenkit/tar.gz/f5e0a24208187091c2ca792008cdd7695a19910f(react@19.3.0)':
+    dependencies:
+      react: 19.3.0
 
   '@cacheable/memory@2.2.0':
     dependencies:
