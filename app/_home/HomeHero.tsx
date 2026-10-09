@@ -1,44 +1,26 @@
 import Link from 'next/link';
 
-import { whenLabel } from '@/lib/desk';
-import type { Freshness } from '@/lib/sweep-queue';
-
 /**
- * The front page's opening: what the site is, and how live it is right now.
+ * The front page's opening, and the only part of it a first visit must read:
+ * what this is, in one line and one sentence, and the one thing to do.
  *
- * The status line used to read "Newest record 2026-09-14" — true, and on
- * 2026-10-01 it told every reader the site had stopped. What a reader needs
- * is whether anyone is still looking: when the sweep last ran, and how much
- * it is holding that nobody has checked yet. Both link to the page that
- * measures them.
+ * It used to be a two-clause title, a three-sentence lede, two buttons and a
+ * status line about the sweep — a phone's whole first screen of reading
+ * before the page had shown anything. The sweep's status now sits at the
+ * foot (HomeFoot), where a reader who already cares will look for it, and
+ * the floating Ask pill is the one Ask on the page.
  */
-export function HomeHero({ freshness, now }: { freshness: Freshness | null; now: Date }) {
+export function HomeHero() {
   return (
     <header className="home-hero">
-      <p className="home-hero-status">
-        {freshness?.lastRunAt ? (
-          <>
-            <span className="home-hero-live" aria-hidden />
-            Sweep ran {whenLabel(freshness.lastRunAt, now)} · {freshness.openCandidates} finds
-            waiting to be checked ·{' '}
-          </>
-        ) : null}
-        <Link href="/data/freshness" className="link-target">
-          How fresh is this?
-        </Link>
-      </p>
-      <h1 className="home-hero-title">What is holding technology back, and what is changing.</h1>
+      <h1 className="home-hero-title">What is holding technology back.</h1>
       <p className="home-hero-lede">
-        Substrata maps the constraints on building more compute, more power, better materials and
-        better machines. Every row says how well it is evidenced, every sourced claim links to its
-        source, and every number opens to show where it came from.
+        The physical bottlenecks under faster compute, power, materials and machines — who makes
+        each, which rule governs it, how sure we are — written down in public.
       </p>
       <div className="home-hero-actions">
         <Link href="/atlas" className="research-button">
           Open the map
-        </Link>
-        <Link href="/chat" className="research-button-ghost">
-          Ask
         </Link>
       </div>
     </header>

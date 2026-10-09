@@ -29,7 +29,6 @@ export function WorstNow({
     <section>
       {!bare && (
         <Heading
-          index="02"
           title="Worst right now"
           aside={
             <Link

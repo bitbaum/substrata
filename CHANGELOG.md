@@ -7,6 +7,7 @@ What changed on substrata.orangecat.ch, newest first, in the words of someone us
 ### Added
 - **Answer Ask in one tap.** When an answer asks you something back, or the next step is obvious, two to four replies appear under it; tapping one sends it as your next question. (#167)
 ### Changed
+- **The front page says what it is, then shows it.** One line, one sentence, one button; the three worst constraints right now; five doors as rows; the three newest checked events; the counts; a line for anyone who can fix a row; how live the sweep is. On a phone it was twenty screens (18,686px) — thirteen problem cards, two chip clouds, two event lists, the latest rule — every piece true and nothing said first. What left it is still on the site: the chips are the filters on Bottlenecks, the latest rule tops Policy, unchecked finds lead News, and the problem cards' copy stays for the role views.
 - **One row of buttons under an answer.** The suggested replies and the questions built from the records Ask read now sit in a single row, replies first, nothing offered twice, at most five — instead of two rows under the same answer.
 ### Fixed
 - **A short reply is a question.** "No" or "OK" used to vanish from the Ask box without being sent; two characters now send, and anything not sent stays in the box. (#167)
