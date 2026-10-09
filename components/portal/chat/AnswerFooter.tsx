@@ -14,29 +14,21 @@ function hostOf(url: string): string {
 /**
  * What sits under an answer, in chatkit's `renderFooter` slot: Substrata's
  * evidence, which no generic chat has. Three registers that are never merged —
- * corpus records, unreviewed sweep leads, unchecked web pages — then where to
- * go next. The look is chatkit's; only the content is Substrata's.
+ * corpus records, unreviewed sweep leads, unchecked web pages. The look is
+ * chatkit's; only the content is Substrata's.
+ *
+ * Where to go next is NOT here: the follow-up questions join the suggested
+ * replies in chatkit's one row under the latest answer (`lib/ask-row.ts`), so
+ * an answer never carries two rows of buttons.
  */
-export function AnswerFooter({
-  turn,
-  isLast,
-  busy,
-  onAsk,
-}: {
-  turn: Turn;
-  isLast: boolean;
-  busy: boolean;
-  onAsk: (question: string) => void;
-}) {
+export function AnswerFooter({ turn }: { turn: Turn }) {
   const sources = turn.sources ?? [];
   const leads = turn.leads ?? [];
   const web = turn.web ?? [];
-  const next = isLast ? (turn.followUps ?? []) : [];
   if (
     !sources.length &&
     !leads.length &&
     !web.length &&
-    !next.length &&
     !turn.verdict &&
     !turn.outside &&
     !turn.degraded
@@ -124,16 +116,6 @@ export function AnswerFooter({
             ))}
           </ul>
         </details>
-      )}
-
-      {next.length > 0 && (
-        <div className="answer-next" aria-label="Ask next">
-          {next.map((question) => (
-            <button key={question} type="button" disabled={busy} onClick={() => onAsk(question)}>
-              {question}
-            </button>
-          ))}
-        </div>
       )}
     </div>
   );
