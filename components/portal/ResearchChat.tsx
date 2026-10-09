@@ -88,6 +88,7 @@ export function ResearchChat({
     id: String(i),
     role: t.role,
     content: t.content,
+    replies: t.replies,
   }));
   if (chat.error && !chat.busy)
     messages.push({ id: 'failed', role: 'assistant', content: chat.error, failed: true });
@@ -109,6 +110,8 @@ export function ResearchChat({
         live={live}
         onStop={chat.stop}
         onRetry={chat.retry}
+        // A suggested reply goes exactly where a typed question goes.
+        onReply={ask}
         renderLink={renderLink}
         renderFooter={(m) => {
           const turn = chat.turns[Number(m.id)];
@@ -136,9 +139,8 @@ export function ResearchChat({
         }
       />
       <Composer
-        onSend={(text, attachments) => {
-          ask(withAttachments(text, attachments));
-        }}
+        // Returned, not dropped: a question that was not sent stays in the box.
+        onSend={(text, attachments) => chat.ask(withAttachments(text, attachments))}
         placeholder="Ask about a bottleneck, a company, a country, a rule…"
         sending={chat.busy}
         onStop={chat.stop}

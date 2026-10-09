@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
+import { QUESTION_LENGTH } from '@/config/substrata-chat';
 import type { LiveAnswer, StreamEvent, Turn, VerifyInput } from './types';
 
 /**
@@ -35,9 +36,22 @@ export function useChatSession({
    * Ask a question — or, with `verify`, check a claim: the server reads the
    * cited source and searches the web before the model answers with a verdict.
    */
-  async function ask(question: string, verify?: VerifyInput, before: Turn[] = turns) {
+  /**
+   * Resolves false when the question was not sent, so the composer keeps the
+   * draft: it clears after any other result, and a refused short question
+   * used to vanish from the box without a word.
+   */
+  async function ask(
+    question: string,
+    verify?: VerifyInput,
+    before: Turn[] = turns,
+  ): Promise<boolean> {
     const text = question.trim();
-    if (text.length < 3 || busy) return;
+    if (text.length < QUESTION_LENGTH.min || busy) return false;
+    if (text.length > QUESTION_LENGTH.max) {
+      setError(`That is over ${QUESTION_LENGTH.max.toLocaleString('en')} characters — shorten it.`);
+      return false;
+    }
     abortRef.current?.abort();
     const abort = new AbortController();
     abortRef.current = abort;
@@ -114,6 +128,7 @@ export function useChatSession({
                 outside: data.outside,
                 degraded: data.degraded,
                 verdict: data.verdict,
+                replies: data.replies,
               },
             ]);
             setLive(null);
@@ -121,12 +136,13 @@ export function useChatSession({
         }
       }
     } catch (e) {
-      if ((e as Error).name === 'AbortError') return;
+      if ((e as Error).name === 'AbortError') return true;
       setError(e instanceof Error ? e.message : 'Connection lost. Please retry.');
     } finally {
       setBusy(false);
       setLive(null);
     }
+    return true;
   }
 
   function stop() {
