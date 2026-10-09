@@ -107,7 +107,10 @@
 }
 /* ── "Check this": claim → Ask verdict (components/portal/CheckThis.tsx) ── */
 .check-this {
-  font: 0.72rem/1.4 var(--font-mono);
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--size-target);
+  font: var(--text-label)/1.4 var(--font-mono);
   text-transform: uppercase;
   letter-spacing: var(--tracking-caps);
   color: var(--color-accent);
@@ -127,7 +130,7 @@
 }
 .check-this.is-inline {
   margin-left: 0.6rem;
-  font-size: 0.65rem;
+  font-size: var(--text-label);
   color: var(--color-fg-tertiary);
 }
 
@@ -137,7 +140,7 @@
   margin-bottom: 0.4rem;
   padding: 0.15rem 0.5rem;
   border: 1px solid currentColor;
-  font: 600 0.72rem/1.5 var(--font-mono);
+  font: 600 var(--text-label)/1.5 var(--font-mono);
   text-transform: uppercase;
   letter-spacing: var(--tracking-caps);
 }

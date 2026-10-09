@@ -27,10 +27,17 @@ export function HomeStats({
   }[] = [
     {
       label: 'Bottlenecks mapped',
-      value: <Figure method="bottleneck-count">{totals.bottlenecks}</Figure>,
+      value: (
+        <Figure className="figure-target" method="bottleneck-count">
+          {totals.bottlenecks}
+        </Figure>
+      ),
       note: (
         <>
-          <Figure method="binding-now">{totals.bindingNow}</Figure> judged to be binding right now
+          <Figure className="figure-target" method="binding-now">
+            {totals.bindingNow}
+          </Figure>{' '}
+          judged to be binding right now
         </>
       ),
       href: '/bottlenecks',
@@ -39,14 +46,16 @@ export function HomeStats({
     {
       label: 'Maker rows sourced',
       value: (
-        <Figure method="sourced-rows">
+        <Figure className="figure-target" method="sourced-rows">
           {totals.sourced}/{totals.producers}
         </Figure>
       ),
       note: (
         <>
-          <Figure method="organisations">{markets.organisations}</Figure> organisations in the
-          directory
+          <Figure className="figure-target" method="organisations">
+            {markets.organisations}
+          </Figure>{' '}
+          organisations in the directory
         </>
       ),
       href: '/data',
@@ -54,14 +63,28 @@ export function HomeStats({
     },
     {
       label: 'Rules tracked',
-      value: <Figure method="rules-tracked">{policy.instruments}</Figure>,
+      value: (
+        <Figure className="figure-target" method="rules-tracked">
+          {policy.instruments}
+        </Figure>
+      ),
       note: (
         <>
-          <Figure method="rule-direction">{policy.tightening}</Figure> slow building,{' '}
-          <Figure method="rule-direction">{policy.loosening}</Figure> speed it
+          <Figure className="figure-target" method="rule-direction">
+            {policy.tightening}
+          </Figure>{' '}
+          slow building,{' '}
+          <Figure className="figure-target" method="rule-direction">
+            {policy.loosening}
+          </Figure>{' '}
+          speed it
           {bothWays > 0 && (
             <>
-              , <Figure method="rule-direction">{bothWays}</Figure> both ways
+              ,{' '}
+              <Figure className="figure-target" method="rule-direction">
+                {bothWays}
+              </Figure>{' '}
+              both ways
             </>
           )}
         </>
@@ -71,7 +94,11 @@ export function HomeStats({
     },
     {
       label: 'Possible fixes',
-      value: <Figure method="possible-fixes">{SCIENCE.length}</Figure>,
+      value: (
+        <Figure className="figure-target" method="possible-fixes">
+          {SCIENCE.length}
+        </Figure>
+      ),
       note: 'technologies argued to relieve a constraint',
       href: '/science',
       more: 'See the science',
@@ -92,7 +119,7 @@ export function HomeStats({
           <dd className="mt-2 text-xs">
             <Link
               href={tile.href}
-              className="text-fg-secondary underline-offset-4 hover:text-fg-primary hover:underline"
+              className="link-target text-fg-secondary underline-offset-4 hover:text-fg-primary hover:underline"
             >
               {tile.more} →
             </Link>

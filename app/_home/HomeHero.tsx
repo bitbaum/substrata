@@ -23,7 +23,9 @@ export function HomeHero({ freshness, now }: { freshness: Freshness | null; now:
             waiting to be checked ·{' '}
           </>
         ) : null}
-        <Link href="/data/freshness">How fresh is this?</Link>
+        <Link href="/data/freshness" className="link-target">
+          How fresh is this?
+        </Link>
       </p>
       <h1 className="home-hero-title">What is holding technology back, and what is changing.</h1>
       <p className="home-hero-lede">

@@ -16,7 +16,7 @@ export function StartHere({ bare = false }: { bare?: boolean }) {
             <li key={t.id}>
               <Link
                 href={`/bottlenecks?tech=${t.id}`}
-                className="inline-flex min-h-9 items-center gap-2 rounded-full border border-strong px-3 text-sm text-fg-secondary transition-colors hover:border-accent hover:text-fg-primary"
+                className="inline-flex min-h-(--size-target) items-center gap-2 rounded-full border border-strong px-3 text-sm text-fg-secondary transition-colors hover:border-accent hover:text-fg-primary"
               >
                 {t.name}
                 <span className="font-mono text-xs tabular-nums text-fg-muted">{count}</span>
@@ -36,7 +36,7 @@ export function StartHere({ bare = false }: { bare?: boolean }) {
             <li key={i.id}>
               <Link
                 href={`/bottlenecks?industry=${i.id}`}
-                className="inline-flex min-h-9 items-center gap-2 rounded-full border border-strong px-3 text-sm text-fg-secondary transition-colors hover:border-accent hover:text-fg-primary"
+                className="inline-flex min-h-(--size-target) items-center gap-2 rounded-full border border-strong px-3 text-sm text-fg-secondary transition-colors hover:border-accent hover:text-fg-primary"
               >
                 {i.name}
                 <span className="font-mono text-xs tabular-nums text-fg-muted">{count}</span>

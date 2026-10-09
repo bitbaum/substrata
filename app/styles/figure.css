@@ -20,6 +20,17 @@ a.figure-value:hover,
   padding: 0;
   cursor: help;
 }
+/* A figure that stands alone (a stat tile's count, a severity score) is a
+   full-height target. Its 0.25rem margins add up to 8px between two such
+   figures on consecutive lines. No min-width: a short count would push the
+   words after it away from it. */
+.figure-target {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--size-target);
+  margin-block: 0.25rem;
+  vertical-align: middle;
+}
 .figure-trigger:focus-visible,
 a.figure-value:focus-visible {
   outline: 2px solid var(--color-accent);
@@ -51,7 +62,7 @@ a.figure-value:focus-visible {
   gap: 0.45rem;
 }
 .figure-pop-kicker {
-  font: 0.7rem/1.5 var(--font-mono);
+  font: var(--text-label)/1.5 var(--font-mono);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--color-fg-tertiary);
@@ -65,6 +76,9 @@ a.figure-value:focus-visible {
   gap: 1rem;
 }
 .figure-pop-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--size-target);
   color: var(--color-accent);
   text-decoration: underline;
   text-underline-offset: 0.2em;

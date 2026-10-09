@@ -63,12 +63,23 @@ export function Progress({ sourced, total }: { sourced: number; total: number })
   );
 }
 
-/** 0–12 severity as a number and a short bar. The number opens how it is scored. */
-export function SeverityBar({ value, inLink = false }: { value: number; inLink?: boolean }) {
+/**
+ * 0–12 severity as a number and a short bar. The number opens how it is
+ * scored; `target` makes it a full-size tap target where it stands alone.
+ */
+export function SeverityBar({
+  value,
+  inLink = false,
+  target = false,
+}: {
+  value: number;
+  inLink?: boolean;
+  target?: boolean;
+}) {
   return (
     <span className="inline-flex items-center gap-2">
       <span className="font-mono text-xs tabular-nums text-fg-primary">
-        <Figure method="severity" inLink={inLink}>
+        <Figure method="severity" inLink={inLink} className={target ? 'figure-target' : undefined}>
           {value}
         </Figure>
       </span>

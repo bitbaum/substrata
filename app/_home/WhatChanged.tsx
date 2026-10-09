@@ -19,7 +19,10 @@ export function WhatChanged({ feed, now }: { feed: HomeFeed; now: Date }) {
         index="01"
         title="What changed"
         aside={
-          <Link href="/events" className="underline-offset-4 hover:text-fg-primary hover:underline">
+          <Link
+            href="/events"
+            className="link-target underline-offset-4 hover:text-fg-primary hover:underline"
+          >
             All {EVENTS.length} checked events →
           </Link>
         }
