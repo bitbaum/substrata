@@ -2,6 +2,13 @@
 
 What changed on substrata.orangecat.ch, newest first, in the words of someone using it. Every entry corresponds to a merged pull request and the numbers are the ones in the commits; fixes are listed with the same weight as features. This file is what the fleet map (`loki.orangecat.ch/api/fleet/map`) reads, and `/changelog` on the site renders from the map.
 
+## 2026-10-09
+
+### Added
+- **Answer Ask in one tap.** When an answer asks you something back, or the next step is obvious, two to four replies appear under it; tapping one sends it as your next question. (#167)
+### Fixed
+- **A short reply is a question.** "No" or "OK" used to vanish from the Ask box without being sent; two characters now send, and anything not sent stays in the box. (#167)
+
 ## 2026-10-06
 
 ### Added
