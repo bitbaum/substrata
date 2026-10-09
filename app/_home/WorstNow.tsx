@@ -34,7 +34,7 @@ export function WorstNow({
           aside={
             <Link
               href="/bottlenecks?horizon=now"
-              className="underline-offset-4 hover:text-fg-primary hover:underline"
+              className="link-target underline-offset-4 hover:text-fg-primary hover:underline"
             >
               All {bindingNow} →
             </Link>
@@ -47,12 +47,12 @@ export function WorstNow({
             <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
               <Link
                 href={bottleneckHref(b.slug)}
-                className="font-medium text-fg-primary underline-offset-4 hover:underline"
+                className="link-target font-medium text-fg-primary underline-offset-4 hover:underline"
               >
                 {b.name}
               </Link>
               <span className="flex items-center gap-4">
-                <SeverityBar value={b.binding} />
+                <SeverityBar value={b.binding} target />
                 <Status state={b.state} compact label={rowLabel(b.counts)} />
               </span>
             </div>
@@ -74,7 +74,7 @@ export function WorstNow({
       </ol>
       <p className="mt-3 font-mono text-xs text-fg-muted">
         {WHEN_LABEL.now} · ranked by{' '}
-        <Link href={methodHref('severity')} className="underline underline-offset-2">
+        <Link href={methodHref('severity')} className="link-target underline underline-offset-2">
           severity
         </Link>{' '}
         · judged {worst[0]?.judgedOn}

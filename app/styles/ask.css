@@ -55,7 +55,7 @@
 }
 
 .ask-dock-head button {
-  min-height: 2.75rem;
+  min-height: var(--size-target);
   padding: 0 0.6rem;
   cursor: pointer;
 }
@@ -131,7 +131,7 @@
 .ask-tool {
   display: inline-flex;
   align-items: center;
-  min-height: 2.75rem;
+  min-height: var(--size-target);
   padding: 0 0.6rem;
   border-radius: 0.4rem;
   font-size: 0.85rem;
@@ -200,7 +200,7 @@
   border-color: var(--color-status-warning);
 }
 .answer-block summary {
-  min-height: 2.75rem;
+  min-height: var(--size-target);
   display: flex;
   align-items: center;
   cursor: pointer;

@@ -24,7 +24,7 @@ export function LatestRule({ latestRule }: { latestRule: Instrument | undefined 
         <Empty what="No rules tracked yet." />
       )}
       <p className="mt-3 text-sm">
-        <Link href="/policy" className="text-accent underline-offset-4 hover:underline">
+        <Link href="/policy" className="link-target text-accent underline-offset-4 hover:underline">
           Which rules slow building, and who asked for them →
         </Link>
       </p>
