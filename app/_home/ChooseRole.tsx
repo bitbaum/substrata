@@ -16,13 +16,13 @@ export function ChooseRole() {
   return (
     <section className="role-choose" aria-labelledby="start-from-what-you-do">
       <Heading title="Start from what you do" />
-      <ul className="role-list">
+      <ul className="door-list">
         {AUDIENCES.map((a) => (
           <li key={a.id}>
-            <Link href={audienceHref(a.id)} className="role-row">
-              <span className="role-row-who">{a.iAm}</span>
-              <span className="role-row-hint">{a.hint}</span>
-              <span className="role-row-go" aria-hidden>
+            <Link href={audienceHref(a.id)} className="door-row">
+              <span className="door-row-who">{a.iAm}</span>
+              <span className="door-row-hint">{a.hint}</span>
+              <span className="door-row-go" aria-hidden>
                 →
               </span>
             </Link>

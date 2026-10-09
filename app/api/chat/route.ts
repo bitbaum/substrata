@@ -17,6 +17,7 @@ import { openJobs } from '@/lib/careers-query';
 import { filingsFor } from '@/lib/filings-store';
 import { itemsFor } from '@/lib/science-read';
 import { SITE } from '@/lib/site';
+import { QUESTION_LENGTH } from '@/config/substrata-chat';
 
 export const dynamic = 'force-dynamic';
 
@@ -87,10 +88,14 @@ export async function POST(request: Request) {
     return Response.json({ error: 'Unknown model.' }, { status: 400 });
   if (
     !verify &&
-    (typeof question !== 'string' || question.trim().length < 3 || question.length > 4000)
+    (typeof question !== 'string' ||
+      question.trim().length < QUESTION_LENGTH.min ||
+      question.length > QUESTION_LENGTH.max)
   )
     return Response.json(
-      { error: 'Ask a question between 3 and 4,000 characters.' },
+      {
+        error: `Ask a question between ${QUESTION_LENGTH.min} and ${QUESTION_LENGTH.max.toLocaleString('en')} characters.`,
+      },
       { status: 400 },
     );
   try {
@@ -167,6 +172,7 @@ export async function POST(request: Request) {
             context,
             turn,
             byok,
+            replies: true,
             emit: send,
             env: {
               signal: request.signal,

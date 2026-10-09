@@ -17,7 +17,9 @@ export function HomeFoot({ freshness, now }: { freshness: Freshness | null; now:
     <footer className="home-foot">
       <p className="home-foot-fix">
         {WHAT_IT_SOLVES.cta.lede}{' '}
-        <Link href={WHAT_IT_SOLVES.cta.primary.href}>{WHAT_IT_SOLVES.cta.primary.label} →</Link>
+        <Link href={WHAT_IT_SOLVES.cta.primary.href} className="link-target">
+          {WHAT_IT_SOLVES.cta.primary.label} →
+        </Link>
       </p>
       <p className="home-hero-status">
         {freshness?.lastRunAt ? (
@@ -27,7 +29,9 @@ export function HomeFoot({ freshness, now }: { freshness: Freshness | null; now:
             waiting to be checked ·{' '}
           </>
         ) : null}
-        <Link href="/data/freshness">How fresh is this?</Link>
+        <Link href="/data/freshness" className="link-target">
+          How fresh is this?
+        </Link>
       </p>
     </footer>
   );

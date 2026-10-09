@@ -1,5 +1,6 @@
 /** Reading a finished turn: its tool calls in either protocol, and its prose cleaned. */
 import { parseTextToolCalls, stripToolCallLines } from '@bitbaum/ai-kit';
+import { extractReplies } from '@bitbaum/chatkit';
 import { CHAT_TOOLS } from '../chat-tools/registry';
 import { resolveByPath } from '../entities/registry';
 
@@ -27,6 +28,17 @@ export function unnestLinks(text: string): string {
       // A space or line break between the two halves: `[Title] (https://…)`.
       .replace(/\[([^\]\n]+)\][ \t]*\n?[ \t]*\((https?:\/\/[^\s)]+)\)/g, '[$1]($2)')
   );
+}
+
+/**
+ * A finished turn as the reader keeps it: the suggested replies (chatkit's
+ * `quick_replies` block, asked for by `REPLIES_INSTRUCTION`) taken out BEFORE
+ * the prose is tidied — so the block never reaches the stored answer, the
+ * history the next question sends, or a copy — and the prose tidied.
+ */
+export function finalAnswer(text: string): { answer: string; replies: string[] } {
+  const split = extractReplies(text);
+  return { answer: tidyAnswer(split.text), replies: split.replies };
 }
 
 export function tidyAnswer(text: string): string {

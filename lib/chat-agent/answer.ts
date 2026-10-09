@@ -31,6 +31,8 @@ export interface AgentAnswer {
   degraded?: boolean;
   /** Verify mode: the verdict the answer opened with. */
   verdict?: Verdict;
+  /** What the reader is likely to say next, written by the model (chatkit). */
+  replies?: string[];
   /**
    * Milliseconds from the request to the first visible text and to the end;
    * how many model calls it took and how many lookups were planned before them.

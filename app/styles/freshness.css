@@ -4,7 +4,7 @@
   align-items: center;
   gap: 0.4rem;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--text-label);
   letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
   color: var(--color-fg-secondary);
@@ -37,7 +37,7 @@
   border: 1px solid var(--color-fg-muted);
 }
 .fresh-footer {
-  min-height: 2.75rem;
+  min-height: var(--size-target);
 }
 .fresh-footer-row {
   display: flex;

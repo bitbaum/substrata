@@ -28,3 +28,11 @@ export const CHAT_STARTERS: readonly { label: string; question: string }[] = [
     question: 'What expertise does this research still need?',
   },
 ];
+
+/**
+ * How long a question may be, for the panel and /api/chat alike. The floor is
+ * two characters, not three: "No", "Ja", "OK" are whole answers in a
+ * conversation — and a suggested reply the model writes may be one — while the
+ * panel used to drop anything shorter than three without a word.
+ */
+export const QUESTION_LENGTH = { min: 2, max: 4000 } as const;

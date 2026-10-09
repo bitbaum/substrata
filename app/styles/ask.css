@@ -55,7 +55,7 @@
 }
 
 .ask-dock-head button {
-  min-height: 2.75rem;
+  min-height: var(--size-target);
   padding: 0 0.6rem;
   cursor: pointer;
 }
@@ -131,7 +131,7 @@
 .ask-tool {
   display: inline-flex;
   align-items: center;
-  min-height: 2.75rem;
+  min-height: var(--size-target);
   padding: 0 0.6rem;
   border-radius: 0.4rem;
   font-size: 0.85rem;
@@ -200,7 +200,7 @@
   border-color: var(--color-status-warning);
 }
 .answer-block summary {
-  min-height: 2.75rem;
+  min-height: var(--size-target);
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -227,26 +227,4 @@
 }
 .answer-evidence {
   color: var(--color-fg-tertiary);
-}
-.answer-next {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.4rem;
-}
-.answer-next button {
-  min-height: 2.75rem;
-  padding: 0.4rem 0.8rem;
-  border: 1px solid var(--color-border-strong);
-  border-radius: 999px;
-  font-size: 0.85rem;
-  text-align: left;
-  color: var(--color-fg-primary);
-  cursor: pointer;
-}
-.answer-next button:hover:not(:disabled) {
-  background: var(--color-surface-raised);
-}
-.answer-next button:disabled {
-  opacity: 0.5;
 }

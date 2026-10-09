@@ -12,6 +12,7 @@ import {
 } from '@bitbaum/chatkit/react';
 import type { Attachment } from '@bitbaum/chatkit';
 import { CHAT_STARTERS } from '@/config/substrata-chat';
+import { answerRow } from '@/lib/ask-row';
 import type { CheckRequest } from '@/lib/ask-bridge';
 import { AiKeyPanel } from './ai-key/AiKeyPanel';
 import { useAiKey } from './ai-key/useAiKey';
@@ -88,10 +89,13 @@ export function ResearchChat({
     id: String(i),
     role: t.role,
     content: t.content,
+    // ONE row under the latest answer: the model's suggested replies first,
+    // then the questions built from the records it read (`lib/ask-row.ts`).
+    // chatkit shows it under the latest answer only, never while a turn runs.
+    replies: t.role === 'assistant' ? answerRow(t.replies, t.followUps) : undefined,
   }));
   if (chat.error && !chat.busy)
     messages.push({ id: 'failed', role: 'assistant', content: chat.error, failed: true });
-  const lastAnswer = chat.turns.length - 1;
   const live = chat.live
     ? { text: chat.live.text, status: chat.live.steps.at(-1) ?? chat.live.status }
     : null;
@@ -109,17 +113,13 @@ export function ResearchChat({
         live={live}
         onStop={chat.stop}
         onRetry={chat.retry}
+        // A suggested reply or a follow-up goes exactly where a typed question goes.
+        onReply={ask}
+        labels={{ replies: 'Reply or ask next' }}
         renderLink={renderLink}
         renderFooter={(m) => {
           const turn = chat.turns[Number(m.id)];
-          return turn?.role === 'assistant' ? (
-            <AnswerFooter
-              turn={turn}
-              isLast={Number(m.id) === lastAnswer}
-              busy={chat.busy}
-              onAsk={ask}
-            />
-          ) : null;
+          return turn?.role === 'assistant' ? <AnswerFooter turn={turn} /> : null;
         }}
         empty={
           <div className="ask-empty">
@@ -136,9 +136,8 @@ export function ResearchChat({
         }
       />
       <Composer
-        onSend={(text, attachments) => {
-          ask(withAttachments(text, attachments));
-        }}
+        // Returned, not dropped: a question that was not sent stays in the box.
+        onSend={(text, attachments) => chat.ask(withAttachments(text, attachments))}
         placeholder="Ask about a bottleneck, a company, a country, a rule…"
         sending={chat.busy}
         onStop={chat.stop}
