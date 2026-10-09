@@ -2,6 +2,11 @@
 
 What changed on substrata.orangecat.ch, newest first, in the words of someone using it. Every entry corresponds to a merged pull request and the numbers are the ones in the commits; fixes are listed with the same weight as features. This file is what the fleet map (`loki.orangecat.ch/api/fleet/map`) reads, and `/changelog` on the site renders from the map.
 
+## 2026-10-09
+
+### Changed
+- **The front page says what it is, then shows it.** One line, one sentence, one button; the three worst constraints right now; five doors as rows; the three newest checked events; the counts; a line for anyone who can fix a row; how live the sweep is. On a phone it was twenty screens (18,686px) — thirteen problem cards, two chip clouds, two event lists, the latest rule — every piece true and nothing said first. What left it is still on the site: the chips are the filters on Bottlenecks, the latest rule tops Policy, unchecked finds lead News, and the problem cards' copy stays for the role views.
+
 ## 2026-10-06
 
 ### Added
