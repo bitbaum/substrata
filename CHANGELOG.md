@@ -6,6 +6,8 @@ What changed on substrata.orangecat.ch, newest first, in the words of someone us
 
 ### Added
 - **Answer Ask in one tap.** When an answer asks you something back, or the next step is obvious, two to four replies appear under it; tapping one sends it as your next question. (#167)
+### Changed
+- **One row of buttons under an answer.** The suggested replies and the questions built from the records Ask read now sit in a single row, replies first, nothing offered twice, at most five — instead of two rows under the same answer.
 ### Fixed
 - **A short reply is a question.** "No" or "OK" used to vanish from the Ask box without being sent; two characters now send, and anything not sent stays in the box. (#167)
 
