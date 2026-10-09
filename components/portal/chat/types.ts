@@ -41,6 +41,8 @@ export type Answer = {
   degraded?: boolean;
   /** Verify mode: the verdict the answer opened with. */
   verdict?: Verdict;
+  /** What the reader is likely to say next — one tap sends it. */
+  replies?: string[];
 };
 
 export type Turn = {
@@ -54,6 +56,7 @@ export type Turn = {
   outside?: boolean;
   degraded?: boolean;
   verdict?: Verdict;
+  replies?: string[];
 };
 
 export type StreamEvent =

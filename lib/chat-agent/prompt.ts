@@ -1,5 +1,6 @@
 /** The system prompt for the tool-using assistant. */
 import { TEXT_TOOL_PROTOCOL_HINT } from '@bitbaum/ai-kit';
+import { REPLIES_INSTRUCTION } from '@bitbaum/chatkit';
 import { byokLabel, type ByokConfig } from '../byok';
 import { describeContext, type ReaderContext } from '../chat-context';
 
@@ -17,6 +18,8 @@ export function systemPrompt(opts: {
   today?: string;
   /** Verify mode: the claim, the evidence already gathered, the verdict format. */
   verify?: string;
+  /** A conversation (the Ask panel): end with chatkit's suggested replies. */
+  replies?: boolean;
 }): string {
   const names = opts.tools.map((t) => t.function.name);
   return [
@@ -67,6 +70,7 @@ export function systemPrompt(opts: {
     opts.byok
       ? `You are running as ${byokLabel(opts.byok)} on the reader's own key. Use your full reasoning; the evidence rules above still hold.`
       : '',
+    opts.replies ? REPLIES_INSTRUCTION : '',
   ]
     .filter(Boolean)
     .join('\n\n');

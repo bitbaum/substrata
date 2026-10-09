@@ -42,7 +42,7 @@ import {
   type AgentAnswer,
   type AgentEvent,
 } from './answer';
-import { renderCalls, tidyAnswer, toolRound } from './parse';
+import { finalAnswer, renderCalls, toolRound } from './parse';
 import { reviseUnsupported, unsupportedFigures, withoutSentencesHolding } from './grounding';
 import { planLookups, runLookups } from './plan';
 import { systemPrompt } from './prompt';
@@ -70,6 +70,7 @@ export async function runAgent(input: {
   byok?: ByokConfig;
   verify?: VerifyRequest;
   today?: string;
+  replies?: boolean; // suggested replies: the Ask panel only, never a factcheck
 }): Promise<void> {
   const started = Date.now();
   let firstText: number | undefined;
@@ -121,6 +122,7 @@ export async function runAgent(input: {
     byok: input.byok,
     today: input.today,
     verify: evidence,
+    replies: input.replies,
   });
   const messages: ChatMessage[] = [
     { role: 'system', content: system },
@@ -137,6 +139,7 @@ export async function runAgent(input: {
   let modelCalls = 0;
   const skipped: string[] = [];
   let answer = '';
+  let replies: string[] = [];
   let model: string | undefined;
   let shown = '';
   // Model calls are the latency: one when the lookups already answer the
@@ -168,7 +171,7 @@ export async function runAgent(input: {
         if (error instanceof StreamInterrupted && shown.trim().length > 40 && !offer) {
           // Half an answer is on screen and the vendor went away. Say so rather
           // than silently restart it from another vendor.
-          answer = `${shown.trim()}\n\n*(The model stopped mid-answer. Ask again to regenerate.)*`;
+          answer = `${finalAnswer(shown).answer}\n\n*(The model stopped mid-answer. Ask again to regenerate.)*`;
           break;
         }
         throw error;
@@ -231,7 +234,7 @@ export async function runAgent(input: {
         );
         continue;
       }
-      answer = tidyAnswer(`${cutShort}${result.text}`);
+      ({ answer, replies } = finalAnswer(`${cutShort}${result.text}`));
       break;
     }
   } catch (error) {
@@ -262,7 +265,7 @@ export async function runAgent(input: {
       turn: input.turn,
       onText: (text) => emit({ type: 'delta', text }),
     });
-    answer = revised ? tidyAnswer(revised) : withoutSentencesHolding(answer, figures);
+    answer = revised ? finalAnswer(revised).answer : withoutSentencesHolding(answer, figures);
   }
   answer = answer.trim() ? answer : (unwrittenAnswer(ledger) ?? '');
   if (!answer) {
@@ -282,6 +285,7 @@ export async function runAgent(input: {
     followUps: followUpsFor(sources.map((s) => ({ title: s.title, kind: s.kind }))),
     trail: ledger.trail,
     outside: ledger.web.length > 0,
+    ...(replies.length ? { replies } : {}),
     model,
     timing: {
       firstText,

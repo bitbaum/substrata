@@ -31,7 +31,7 @@
   "dependencies": {
     "@bitbaum/accountkit": "github:bitbaum/accountkit#v0.2.0",
     "@bitbaum/ai-kit": "^1.20.1",
-    "@bitbaum/chatkit": "github:bitbaum/chatkit#70824785e86189704aeb7cc92c33bc198ad17cda",
+    "@bitbaum/chatkit": "github:bitbaum/chatkit#163c879163d22c6eb633314b3bd4e25712a01899",
     "@bitbaum/geo-kit": "github:bitbaum/geo-kit#a337aec928cf7804fecf459c308d366b90f4b2fa",
     "@bitbaum/whenkit": "github:bitbaum/whenkit#v0.3.2",
     "bip-kit": "^0.5.2",
