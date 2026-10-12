@@ -225,6 +225,25 @@ export const QUALITY_DATASETS: readonly QualityDataset[] = [
     },
   },
   {
+    id: 'producer-places',
+    label: 'Producer sites on the globe (GeoNames placement)',
+    files: ['research/producer-places.json'],
+    page: '/atlas',
+    freshness: { datasets: ['producer-places'] },
+    criteria: {
+      completeness:
+        'Every facility location the Yearbook prints is either placed or listed as unresolved; none is dropped without a trace.',
+      correctness:
+        'No point lands inside another country, and a province named in the address holds the point.',
+      provenance:
+        'Every point names the GeoNames entry it came from, by id, name and feature code, and states its precision.',
+      freshness: 'The places were matched within the declared maximum age.',
+      links: LINKS,
+      consistency:
+        'Every point joins back to a facility in the Yearbook file by country and printed location.',
+    },
+  },
+  {
     id: 'oecd-restrictions',
     label: 'Export restrictions (OECD)',
     files: ['research/oecd-export-restrictions.json'],

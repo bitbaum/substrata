@@ -19,6 +19,7 @@ import {
   type World,
 } from './globe-geo';
 import { coast, flight, type Flight, type Spin } from './globe-motion';
+import type { Overlay } from './globe-overlay';
 import { paintFor, paintGlobe, type Paint } from './globe-paint';
 
 const IDLE_BEFORE_TURNING = 4000;
@@ -26,6 +27,8 @@ const STOP_TURNING_AFTER = 120_000;
 const TURN_PER_MS = 0.004; // degrees: a full turn in about 90 seconds
 /** How long the globe takes to follow the sheet or panel to a new place. */
 const FOLLOW_MS = 280;
+/** The routes' light runs this long after the last touch, then holds still. */
+const ROUTES_RUN_FOR = 90_000;
 
 export const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
@@ -38,6 +41,7 @@ export function useGlobeLoop({
   bins,
   selected,
   callouts = [],
+  overlayRef,
 }: {
   canvasRef: RefObject<HTMLCanvasElement | null>;
   world: World | null;
@@ -46,6 +50,8 @@ export function useGlobeLoop({
   selected?: string;
   /** Figures to draw at countries (the layer's top band). */
   callouts?: { iso: string; text: string }[];
+  /** Sites and routes, kept current by useOverlay. */
+  overlayRef?: RefObject<Overlay>;
 }) {
   const cameraRef = useRef<Camera>(HOME);
   const shown = useRef<{ from: View; to: View; start: number } | null>(null);
@@ -108,7 +114,11 @@ export function useGlobeLoop({
         m.spin = step.spin;
         return !!step.spin;
       }
-      if (selectedRef.current || cameraRef.current.k > 1.3 || reducedMotion()) return false;
+      // A route holds the globe where it was put: turning it would carry the
+      // chain off the face the reader is reading.
+      const routed = (overlayRef?.current.arcs.length ?? 0) > 0;
+      if (selectedRef.current || routed || cameraRef.current.k > 1.3 || reducedMotion())
+        return false;
       const idle = now - touchedRef.current;
       if (idle > IDLE_BEFORE_TURNING && idle < STOP_TURNING_AFTER) {
         const [lon, lat] = cameraRef.current.center;
@@ -130,7 +140,7 @@ export function useGlobeLoop({
       }
       return false;
     },
-    [radius],
+    [radius, overlayRef],
   );
 
   const tick = useCallback(
@@ -141,6 +151,10 @@ export function useGlobeLoop({
       const moving = advance(now, dt) || grabbed.current;
       let again = moving;
       if (shown.current && now - shown.current.start < FOLLOW_MS) again = true;
+      const overlay = overlayRef?.current;
+      const flowing =
+        !!overlay?.arcs.length && !reducedMotion() && now - touchedRef.current < ROUTES_RUN_FOR;
+      if (flowing) again = true;
       const el = canvasRef.current;
       const ctx = el?.getContext('2d');
       const proj = projection(now);
@@ -162,12 +176,14 @@ export function useGlobeLoop({
             m.flight && selectedFeature
               ? { feature: selectedFeature, t: (now - m.flight.start) / m.flight.f.duration }
               : undefined,
+          overlay,
+          now: flowing ? now : null,
         });
       }
       if (again) raf.current = requestAnimationFrame(next.current);
       else last.current = 0;
     },
-    [advance, canvasRef, projection, world],
+    [advance, canvasRef, projection, world, overlayRef],
   );
 
   const invalidate = useCallback(() => {

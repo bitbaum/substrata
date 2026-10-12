@@ -20,6 +20,7 @@ import { neighbors } from '@/lib/graph';
 import { chainFlow, chainHref, makerDetail, pickable, resolveChain } from './chain-data';
 import { chainStory } from './chain-story';
 import { chainActions } from './chain-actions';
+import { chainRoute } from './chain-route';
 
 export function ChainView({
   topic: requested,
@@ -41,7 +42,13 @@ export function ChainView({
   return (
     <>
       <div className="atlas-canvas atlas-canvas-chain">
-        <AtlasChain chain={chain} flow={flow} maker={maker?.slug} />
+        <AtlasChain
+          chain={chain}
+          flow={flow}
+          route={chainRoute(chain)}
+          topic={topic}
+          maker={maker?.slug}
+        />
       </div>
       <AtlasBar view="chain" worldHref={worldHref}>
         <AtlasPick label="Bottleneck" name="chain" value={chain.slug} hidden={{ topic }}>

@@ -68,6 +68,10 @@ export function linkTargets(): LinkTarget[] {
     add('usgs-producers', `${c.slug} workbook`, c.url);
     add('usgs-producers', `${c.slug} chapter PDF`, c.pdf);
   }
+  // The places are matched from GeoNames' country dumps: the dump index and
+  // its licence are what a reader follows to check a dot.
+  add('producer-places', 'GeoNames dump index', 'https://download.geonames.org/export/dump/');
+  add('producer-places', 'GeoNames licence', 'https://creativecommons.org/licenses/by/4.0/');
   add('oecd-restrictions', 'OECD data explorer', oecd.explorer);
   add('oecd-restrictions', 'OECD SDMX query', oecd.api);
   for (const r of sanctions.eu.regimes) {

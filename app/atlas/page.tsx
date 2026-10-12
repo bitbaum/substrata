@@ -18,12 +18,14 @@
  * here: they live on /bottlenecks, which is that list, grouped by stage.
  *
  * URLs kept from before: ?view=world, ?country=, ?resource=, ?topic=, ?chain=;
- * ?maker= opens one of the chain's makers in the panel.
+ * ?maker= opens one of the chain's makers in the panel. On the world view,
+ * ?chain= lays that chain over the globe and ?site= opens a producer site.
  */
 import type { Metadata } from 'next';
 
 import { Shell } from '@/components/portal/Shell';
 import { RESOURCE_KINDS } from '@/config/substrata-resources';
+import { bottleneckBySlug } from '@/lib/bottlenecks';
 import { ChainView } from './chain-view';
 import { WorldView } from './world-view';
 
@@ -42,6 +44,8 @@ type Params = {
   country?: string;
   resource?: string;
   measure?: string;
+  /** A producer site on the world view, opened from its dot. */
+  site?: string;
 };
 
 export default async function AtlasPage({ searchParams }: { searchParams: Promise<Params> }) {
@@ -53,6 +57,10 @@ export default async function AtlasPage({ searchParams }: { searchParams: Promis
   const keep: Record<string, string> = {};
   if (resource) keep.resource = resource;
   if (resource && measure === 'reserves') keep.measure = measure;
+  // A chain laid over the globe stays on it while the reader clicks around.
+  const route =
+    view === 'world' && params.chain && bottleneckBySlug(params.chain) ? params.chain : '';
+  if (route) keep.chain = route;
   const worldHref = `/atlas?${new URLSearchParams({ view: 'world', ...keep }).toString()}`;
   return (
     <Shell>
@@ -65,6 +73,8 @@ export default async function AtlasPage({ searchParams }: { searchParams: Promis
             measure={measure}
             keep={keep}
             worldHref={worldHref}
+            chain={route || undefined}
+            site={params.site}
           />
         ) : (
           <ChainView

@@ -20,6 +20,7 @@
     "research:usgs": "python3 scripts/research/usgs-mcs.py",
     "research:eia": "python3 scripts/research/eia-energy.py",
     "research:producers": "python3 scripts/research/usgs-myb-producers.py",
+    "research:producer-places": "python3 scripts/research/geocode-producers.py",
     "research:restrictions": "python3 scripts/research/oecd-export-restrictions.py",
     "research:sanctions": "python3 scripts/research/sanctions.py",
     "quality": "tsx scripts/quality/run.ts",

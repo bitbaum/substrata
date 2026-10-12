@@ -84,8 +84,8 @@ export function ChainDetail({
         <Link href={bottleneckHref(chain.slug)} className="atlas-primary">
           Full evidence
         </Link>
-        <Link href="/bottlenecks" className="atlas-secondary">
-          All bottlenecks
+        <Link href={`/atlas?view=world&chain=${chain.slug}`} className="atlas-secondary">
+          On the globe
         </Link>
       </div>
       <p className="atlas-fine">

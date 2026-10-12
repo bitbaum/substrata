@@ -33,6 +33,11 @@ export interface Palette {
   label: string;
   labelBack: string;
   labelFont: string;
+  /** A supply route's arc, under its moving light. */
+  route: string;
+  /** A producer site: an ink rim around a page-coloured dot, legible on any shade. */
+  site: string;
+  siteFill: string;
 }
 
 /**
@@ -76,6 +81,9 @@ export function readPalette(el: Element): Palette {
     label: v('--color-fg-primary'),
     labelBack: alpha(v('--color-surface-page'), 0.82),
     labelFont: `500 11px ${v('--font-mono') || 'ui-monospace, monospace'}`,
+    route: alpha(accent, 0.42),
+    site: v('--color-fg-primary'),
+    siteFill: v('--color-surface-page'),
   };
 }
 
