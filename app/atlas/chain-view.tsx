@@ -19,6 +19,7 @@ import { TECHNOLOGIES } from '@/config/substrata-taxonomy';
 import { neighbors } from '@/lib/graph';
 import { chainFlow, chainHref, makerDetail, pickable, resolveChain } from './chain-data';
 import { chainStory } from './chain-story';
+import { chainActions } from './chain-actions';
 
 export function ChainView({
   topic: requested,
@@ -75,7 +76,7 @@ export function ChainView({
         </AtlasSheet>
       ) : (
         <AtlasSheet label={`About ${chain.name}`} head={<ChainHead chain={chain} story={story} />}>
-          <ChainDetail chain={chain} flow={flow} story={story} />
+          <ChainDetail chain={chain} flow={flow} story={story} actions={chainActions(chain)} />
         </AtlasSheet>
       )}
     </>

@@ -9,10 +9,13 @@ import type { MultiLineString } from 'geojson';
 
 import { centreOf, horizonOf, visible } from './globe-cull';
 import type { CountryFeature, Shapes } from './globe-geo';
+import { paintMarks, type GlobeMarks } from './globe-marks';
 import { basisOf, pack, traceLine, traceRing } from './globe-trace';
 
 /** Bin 6: USGS printed a word, not a number — hatched, never on the ramp. */
 export const HATCHED = 6;
+
+const FULL = Math.PI * 2;
 
 export interface Palette {
   sphere: string;
@@ -26,6 +29,10 @@ export interface Palette {
   limb: [string, string];
   hover: string;
   selected: string;
+  /** Callout text and its backing, so a figure reads over any shade of land. */
+  label: string;
+  labelBack: string;
+  labelFont: string;
 }
 
 /**
@@ -66,6 +73,9 @@ export function readPalette(el: Element): Palette {
     limb: [alpha(limb, 0), alpha(limb, 0.55)],
     hover: alpha(accent, 0.7),
     selected: alpha(accent, 1),
+    label: v('--color-fg-primary'),
+    labelBack: alpha(v('--color-surface-page'), 0.82),
+    labelFont: `500 11px ${v('--font-mono') || 'ui-monospace, monospace'}`,
   };
 }
 
@@ -122,7 +132,6 @@ export function paintFor(
   };
 }
 
-const FULL = Math.PI * 2;
 const GRATICULE = (geoGraticule10() as MultiLineString).coordinates.map(pack);
 
 function blit(ctx: CanvasRenderingContext2D, layer: HTMLCanvasElement) {
@@ -198,7 +207,7 @@ export function paintGlobe(
   proj: GeoProjection,
   world: Shapes,
   paint: Paint,
-  marks: { hover?: CountryFeature; selected?: CountryFeature },
+  marks: GlobeMarks,
 ) {
   const { palette, groups } = paint;
   const path = geoPath(proj, ctx);
@@ -255,4 +264,6 @@ export function paintGlobe(
   };
   if (marks.hover !== marks.selected) outline(marks.hover, 1.25, palette.hover);
   outline(marks.selected, 2, palette.selected);
+
+  paintMarks(ctx, basis, palette, marks);
 }

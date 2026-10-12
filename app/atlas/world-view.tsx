@@ -64,6 +64,7 @@ export function WorldView({
           keep={keep}
           bins={layer.bins}
           labels={layer.labels}
+          callouts={layer.callouts}
           otherwise={layer.otherwise}
           summary={summary}
         />
