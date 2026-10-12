@@ -14,9 +14,12 @@
  *   2. other spellings (`aka`),
  *   3. the body (summary, long text, topic tags), with term frequency.
  * Each query word may match exactly, as a prefix (so results appear while the
- * reader is still typing) or — only when the word does not exist anywhere in
- * the corpus — within one or two edits, which is what turns "photresist" into
- * "photoresist" instead of into nothing.
+ * reader is still typing) or — only when it is not itself a word of the
+ * corpus — within the typo budget, which is what turns "photresist" into
+ * "photoresist" instead of into nothing. The matching, folding, marking and
+ * snippet cutting are `@bitbaum/searchkit`'s; the ranking is this module's,
+ * because this corpus is long documents of several kinds, where how often a
+ * rare word recurs says what a page is about (`search/score.ts`).
  *
  * The index is derived from static config and built once per process.
  */
@@ -24,7 +27,7 @@ import { defaultIndex, buildIndex, type Indexed } from './search/build';
 import type { SearchDoc } from './search/corpus';
 import { PREFIX, expand } from './search/expand';
 import { idf, scoreDoc, type Match } from './search/score';
-import { markPattern, segments, snippet } from './search/snippets';
+import { marks, snippet } from './search/snippets';
 import { STOP, words } from './search/text';
 import {
   SEARCH_TYPES,
@@ -33,6 +36,7 @@ import {
   type SearchResult,
   type SearchType,
   type Segment,
+  segments,
 } from './search-types';
 
 export * from './search-types';
@@ -119,15 +123,15 @@ export function search(rawQuery: string, options: SearchOptions = {}): SearchRes
   if (!ranked.length) return { ...empty, corrected: corrections.size ? phrase : null };
 
   const toHit = ({ d, m }: { d: Indexed; m: Match }): SearchHit => {
-    const re = markPattern(m.words);
-    const title = segments(d.doc.title, re);
+    const matched = new Set(m.words);
+    const title = segments(d.doc.title, marks(d.doc.title, matched));
     return {
       id: d.doc.id,
       type: d.doc.type,
       title,
       snippet: snippet(
-        d,
-        re,
+        d.doc,
+        matched,
         title.some((s) => s.hit),
       ),
       href: d.doc.href,
@@ -164,6 +168,6 @@ export function search(rawQuery: string, options: SearchOptions = {}): SearchRes
 }
 
 /** Plain text of a segment list, for tests and for aria labels. */
-export function plain(segments: Segment[]): string {
-  return segments.map((s) => s.text).join('');
+export function plain(parts: Segment[]): string {
+  return parts.map((s) => s.text).join('');
 }

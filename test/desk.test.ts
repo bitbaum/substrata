@@ -233,6 +233,9 @@ test('muted sites and words, effect and rail filters each narrow the feed', () =
   );
   assert.deepEqual(ids({ bottlenecks: ['Electronic-grade polysilicon'] }), ['2026-08-27-tokuyama']);
   assert.deepEqual(ids({ showLeads: false }), ['2026-08-27-tokuyama']);
+  assert.deepEqual(ids({ q: 'turbine backlog' }), ['a']);
+  assert.deepEqual(ids({ q: 'turbnie' }), ['a'], 'one slip in the filter box still finds the row');
+  assert.deepEqual(ids({ q: 'turbine zzqx' }), [], 'every typed word must match');
 });
 
 test('rail activity counts rows per rail, busiest first', () => {

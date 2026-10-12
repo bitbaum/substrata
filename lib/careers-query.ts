@@ -85,6 +85,9 @@ function where(f: JobFilter): { sql: string; args: unknown[] } {
   if (!f.all && !f.family && !f.company) {
     clauses.push(`(family NOT IN ('business', 'software-ai') OR cardinality(bottlenecks) > 0)`);
   }
+  // Substring in SQL, not searchkit: the table is paged newest-first in
+  // Postgres, and forgiving slips would need a vocabulary of every title kept
+  // in step with the ingest — not worth it beside the role and rail pickers.
   if (f.q)
     add(
       "title ILIKE '%' || ? || '%'",

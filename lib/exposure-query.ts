@@ -4,6 +4,7 @@
  */
 import { STAGES, type StageId } from '@/config/substrata-stages';
 import { isListed, type ExposureRow } from '@/lib/exposure';
+import { textFilter } from '@/lib/text-filter';
 
 export type Params = Record<string, string | undefined>;
 
@@ -54,11 +55,21 @@ export function selectRows(
   query: ExposureQuery,
   rails: ReadonlySet<string> | null,
 ): ExposureRow[] {
-  const q = query.q.toLowerCase();
   const tickers = (r: ExposureRow) =>
     r.listing && (r.listing.status === 'listed' || r.listing.status === 'parent')
-      ? `${r.listing.primary?.ticker ?? ''} ${r.listing.us?.ticker ?? ''}`
-      : '';
+      ? [r.listing.primary?.ticker ?? '', r.listing.us?.ticker ?? '']
+      : [];
+  const typed = textFilter(
+    rows,
+    {
+      fields: [
+        { name: 'company', get: (r) => r.company },
+        { name: 'bottleneck', get: (r) => r.bottleneck },
+        { name: 'ticker', get: tickers },
+      ],
+    },
+    query.q,
+  );
   const kept = rows.filter(
     (r) =>
       (!query.stage || r.stage === query.stage) &&
@@ -66,7 +77,7 @@ export function selectRows(
       (!query.listedOnly || isListed(r)) &&
       (!query.soleOnly || (!r.supplier && r.otherMakers === 0)) &&
       (!query.mine || !rails || rails.has(r.bottleneck)) &&
-      (!q || `${r.company} ${r.bottleneck} ${tickers(r)}`.toLowerCase().includes(q)),
+      typed(r),
   );
   const by: Record<Sort, (a: ExposureRow, b: ExposureRow) => number> = {
     binding: (a, b) => b.binding - a.binding || b.netPressure - a.netPressure,

@@ -1,11 +1,18 @@
 /**
- * Query expansion: each query word may match exactly, as a prefix (so results
- * appear while the reader is still typing) or — only when the word does not
- * exist anywhere in the corpus — within one or two edits.
+ * Query expansion: the corpus words a typed word could mean. Which words those
+ * are — exact, the start of a longer word while typing, within the typo budget
+ * by length (none under 4 letters, 1 from 4, 2 from 8; a swap is one) — is
+ * `@bitbaum/searchkit`'s `candidates`. What stays here is how much each kind
+ * is worth to the scorer, and two rules of this corpus.
  */
+import { candidates, DEFAULT_TYPO_POLICY, type TypoPolicy } from '@bitbaum/searchkit';
 import type { SearchIndex } from './build';
+import { STOP } from './text';
 
 export const PREFIX = 0.7;
+/** Quality of a correction by its number of typos. */
+const TYPO = [1, 0.6, 0.4];
+const NO_TYPOS: TypoPolicy = { oneTypoFrom: Infinity, twoTyposFrom: Infinity };
 
 export interface Expansion {
   word: string;
@@ -15,79 +22,48 @@ export interface Expansion {
   weight?: number;
 }
 
-/** Optimal-string-alignment distance, bailing out once it cannot be ≤ max. */
-function editDistance(a: string, b: string, max: number): number {
-  if (Math.abs(a.length - b.length) > max) return max + 1;
-  const rows: number[][] = [];
-  for (let i = 0; i <= a.length; i++) rows.push([i]);
-  for (let j = 1; j <= b.length; j++) rows[0][j] = j;
-  for (let i = 1; i <= a.length; i++) {
-    let best = Infinity;
-    for (let j = 1; j <= b.length; j++) {
-      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
-      let v = Math.min(rows[i - 1][j] + 1, rows[i][j - 1] + 1, rows[i - 1][j - 1] + cost);
-      if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1])
-        v = Math.min(v, rows[i - 2][j - 2] + 1);
-      rows[i][j] = v;
-      best = Math.min(best, v);
-    }
-    if (best > max) return max + 1;
-  }
-  return rows[a.length][b.length];
-}
-
-function prefixWords(vocab: string[], prefix: string): string[] {
-  let lo = 0,
-    hi = vocab.length;
-  while (lo < hi) {
-    const mid = (lo + hi) >> 1;
-    if (vocab[mid] < prefix) lo = mid + 1;
-    else hi = mid;
-  }
-  const out: string[] = [];
-  for (let i = lo; i < vocab.length && vocab[i].startsWith(prefix); i++) out.push(vocab[i]);
-  return out;
-}
+/**
+ * Typo candidates are a scan of the whole vocabulary, so expansions are
+ * memoised per index: a reader typing asks for the same words on every
+ * keystroke.
+ */
+const memo = new WeakMap<SearchIndex, Map<string, Expansion[]>>();
 
 export function expand(index: SearchIndex, token: string, last: boolean): Expansion[] {
-  const out: Expansion[] = [];
-  if (index.df.has(token)) out.push({ word: token, quality: 1 });
-  // Prefixes: always for the word being typed, and for any word of 3+ letters
-  // ("transform" should find "transformer" whether or not it is last).
-  if (token.length >= (last ? 1 : 3)) {
-    const more = prefixWords(index.vocab, token)
-      .filter((w) => w !== token)
-      .sort((a, b) => (index.df.get(b) ?? 0) - (index.df.get(a) ?? 0))
-      .slice(0, 60);
-    for (const word of more) out.push({ word, quality: PREFIX });
-  }
-  // Corrections only for a word the corpus does not contain at all, so a real
-  // word is never "corrected" into a neighbour.
-  if (!out.length && token.length >= 4 && !/^\d+$/.test(token))
-    out.push(...corrections(index, token));
+  let seen = memo.get(index);
+  if (!seen) memo.set(index, (seen = new Map()));
+  const key = `${last ? '+' : '-'}${token}`;
+  const hit = seen.get(key);
+  if (hit) return hit;
+  if (seen.size > 2000) seen.clear();
+  const out = expandUncached(index, token, last);
+  seen.set(key, out);
   return out;
 }
 
-/**
- * Words within one edit (two for long words) of a word the corpus lacks. A
- * scan of the whole vocabulary, so it is memoised per index: a reader typing
- * a misspelling asks for the same correction on every keystroke after it.
- */
-const correctionCache = new WeakMap<SearchIndex, Map<string, Expansion[]>>();
-
-function corrections(index: SearchIndex, token: string): Expansion[] {
-  let memo = correctionCache.get(index);
-  if (!memo) correctionCache.set(index, (memo = new Map()));
-  const hit = memo.get(token);
-  if (hit) return hit;
-  const max = token.length >= 8 ? 2 : 1;
-  const found: Expansion[] = [];
-  for (const word of index.vocab) {
-    if (word.length < 3 || Math.abs(word.length - token.length) > max) continue;
-    const d = editDistance(token, word, max);
-    if (d <= max) found.push({ word, quality: d === 1 ? 0.6 : 0.4 });
-  }
-  if (memo.size > 2000) memo.clear();
-  memo.set(token, found);
-  return found;
+function expandUncached(index: SearchIndex, token: string, last: boolean): Expansion[] {
+  // A real word is never "corrected" into a neighbour ("neon" is not a slip
+  // of "neo"); a word the corpus has only as the start of others still may
+  // be ("canno" is Canon as much as "cannot"). A number never is: "2023" is
+  // not "2024".
+  const exact = index.vocab.counts.has(token) || /^\d+$/.test(token);
+  const found = candidates(index.vocab, token, {
+    // Prefixes: always for the word being typed, and for any word of 3+
+    // letters ("transform" should find "transformer" whether or not it is last).
+    prefix: last || token.length >= 3,
+    policy: exact ? NO_TYPOS : DEFAULT_TYPO_POLICY,
+    // The exact word and the 60 commonest completions.
+    limit: 61,
+  });
+  return (
+    found
+      // A slip in the START of a longer word ("photres" → "photoresist") is
+      // the word being typed; for a finished word it only drags in noise. And
+      // nobody misspells a word to mean "are".
+      .filter((c) => c.typos === 0 || ((last || !c.prefix) && !STOP.has(c.term)))
+      .map((c) => ({
+        word: c.term,
+        quality: (c.prefix ? PREFIX : 1) * (TYPO[c.typos] ?? TYPO[2]),
+      }))
+  );
 }

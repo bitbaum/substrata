@@ -19,6 +19,8 @@ import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
+import { evaluate, typoCases } from '@bitbaum/searchkit';
+
 import {
   ACCOUNT_NAV,
   FOOTER_NAV,
@@ -100,6 +102,26 @@ test('the palette ranks label matches first and needs every word', () => {
   assert.ok(filterEntries(entries, 'careers training').some((e) => e.href === '/careers/paths'));
   assert.deepEqual(filterEntries(entries, 'zzqx'), []);
   assert.equal(filterEntries(entries, '').length, entries.length);
+});
+
+test('one slip in a page name still finds the page first', async () => {
+  const entries = paletteEntries({ signedIn: true, reviewer: true });
+  // A label two pages share ("Careers") cannot single one out; every other can.
+  const unique = entries.filter((e) => entries.filter((o) => o.label === e.label).length === 1);
+  const cases = typoCases(unique.map((e) => ({ id: e.href, name: e.label })));
+  const report = await evaluate(cases, (q) => filterEntries(entries, q).map((e) => e.href));
+  const misses = report.misses.map((m) => `${m.query} → ${m.expect[0]}, got ${m.got.join(', ')}`);
+  assert.ok(cases.length > 500, `${cases.length} cases`);
+  // The misses are slips that spell the start of another page ("bout" for
+  // About is also in Bottlenecks' hint) or land on the "x" of X-ray, too
+  // short for a typo. Was 0.04 with substring matching.
+  assert.ok(report.successAt1 >= 0.985, `success@1 ${report.successAt1}`);
+  assert.ok(
+    report.successAt3 >= 0.995,
+    `success@3 ${report.successAt3}:\n  ${misses.join('\n  ')}`,
+  );
+  assert.equal(filterEntries(entries, 'expsoure')[0]?.href, '/exposure');
+  assert.equal(filterEntries(entries, 'bottlenceks')[0]?.href, '/bottlenecks');
 });
 
 test('the current page is the most specific row, never its parent as well', () => {

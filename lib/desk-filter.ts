@@ -4,7 +4,9 @@
  * merging events and leads, cleaning titles — is `desk.ts`.
  */
 import type { EventEffect } from '@/config/substrata-events';
+import type { SearchSpec } from '@bitbaum/searchkit';
 import type { DeskItem } from '@/lib/desk';
+import { textFilter } from '@/lib/text-filter';
 
 export type MarkState = 'read' | 'saved' | 'hidden';
 
@@ -61,6 +63,15 @@ function muted(item: DeskItem, filter: FeedFilter): boolean {
   return filter.mutedWords.some((word) => title.includes(word.toLowerCase()));
 }
 
+/** What the desk's filter box reads: the headline, then the site, then the rails. */
+const DESK_SEARCH: SearchSpec<DeskItem> = {
+  fields: [
+    { name: 'title', get: (item) => item.title },
+    { name: 'host', get: (item) => item.host },
+    { name: 'bottlenecks', get: (item) => item.bottlenecks },
+  ],
+};
+
 /**
  * Every rule that decides whether a row is on screen, in one place.
  *
@@ -74,7 +85,7 @@ export function applyFilter(
   now: Date = new Date(),
 ): DeskItem[] {
   const since = filter.days === null ? null : now.getTime() - filter.days * 86_400_000;
-  const q = filter.q.trim().toLowerCase();
+  const typed = textFilter(feed, DESK_SEARCH, filter.q);
   return feed.filter((item) => {
     const key = itemKey(item);
     if (filter.view === 'hidden') return marks.hidden.has(key);
@@ -101,8 +112,7 @@ export function applyFilter(
       !item.bottlenecks.some((b) => filter.bottlenecks.includes(b))
     )
       return false;
-    if (q && !`${item.title} ${item.host} ${item.bottlenecks.join(' ')}`.toLowerCase().includes(q))
-      return false;
+    if (!typed(item)) return false;
     return !muted(item, filter);
   });
 }

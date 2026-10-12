@@ -18,6 +18,7 @@ import {
   type SeriesKind,
 } from '@/lib/series';
 import { allSeries } from '@/lib/series-store';
+import { textFilter } from '@/lib/text-filter';
 
 export const metadata = {
   title: 'Data series',
@@ -35,20 +36,29 @@ export default async function SeriesIndex({ searchParams }: { searchParams: Prom
   const { series: all, officialOk } = await allSeries();
   const kind = params.kind && params.kind in KIND_LABEL ? (params.kind as SeriesKind) : undefined;
   const origin = params.origin === 'official' || params.origin === 'corpus' ? params.origin : '';
-  const q = (params.q ?? '').trim().toLowerCase().slice(0, 80);
+  const q = (params.q ?? '').trim().slice(0, 80);
   const rail = BOTTLENECKS.find((b) => b.slug === params.b);
   const names = new Map(BOTTLENECKS.map((b) => [b.slug, b.name]));
   const limit = Math.min(Math.max(Number(params.n) || PAGE, PAGE), 400);
+  const typed = textFilter(
+    all,
+    {
+      fields: [
+        { name: 'metric', get: (s) => s.metric },
+        { name: 'geography', get: (s) => s.geography },
+        { name: 'bottleneck', get: (s) => names.get(s.bottleneck) },
+        { name: 'unit', get: (s) => s.unit },
+      ],
+    },
+    q,
+  );
   const shown = all
     .filter(
       (s) =>
         (!rail || s.bottleneck === rail.slug) &&
         (!kind || s.kind === kind) &&
         (!origin || s.origin === origin) &&
-        (!q ||
-          `${s.metric} ${s.geography} ${s.unit} ${names.get(s.bottleneck) ?? ''}`
-            .toLowerCase()
-            .includes(q)),
+        typed(s),
     )
     .sort(byRelevance);
   const withSeries = BOTTLENECKS.filter((b) => all.some((s) => s.bottleneck === b.slug));
