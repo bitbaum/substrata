@@ -24,6 +24,7 @@ import {
   type Choropleth,
   type ChoroplethMeasure,
 } from '@/lib/resources/choropleth';
+import type { Shading } from './map-shading';
 
 export const NOT_A_NUMBER = 6;
 
@@ -38,8 +39,8 @@ export interface MapLegend {
   source?: { label: string; short: string; href: string };
   /** The note changes how to read the colours, so a phone shows it too. */
   caveat?: boolean;
-  /** Production / reserves, when the resource has both. */
-  measures?: { id: ChoroplethMeasure; label: string; current: boolean }[];
+  /** Every shading on offer for this resource, set by shadedLayer (map-shading.ts). */
+  measures?: { id: Shading; label: string; current: boolean }[];
 }
 
 /** A figure drawn ON the globe, at the country: its name comes from the map. */
@@ -63,11 +64,6 @@ export interface MapLayerData {
   legend: MapLegend;
 }
 
-const MEASURE_LABEL: Record<ChoroplethMeasure, string> = {
-  production: 'Production',
-  reserves: 'Reserves',
-};
-
 /** Which resources USGS tabulates, and for which measures. */
 export function quantified(): Map<string, ChoroplethMeasure[]> {
   return new Map(choroplethOptions().map((o) => [o.resource, o.measures]));
@@ -75,7 +71,7 @@ export function quantified(): Map<string, ChoroplethMeasure[]> {
 
 /** Upper bounds of bins 1–4 as a fraction; bin 5 is everything above. */
 const STEPS = [0.01, 0.05, 0.1, 0.25] as const;
-const pct = (f: number) => `${+(f * 100).toFixed(f < 0.01 ? 2 : f < 0.1 ? 1 : 0)}%`;
+export const pct = (f: number) => `${+(f * 100).toFixed(f < 0.01 ? 2 : f < 0.1 ? 1 : 0)}%`;
 const num = (n: number) =>
   n.toLocaleString('en-US', { notation: 'compact', maximumSignificantDigits: 2 });
 
@@ -84,7 +80,7 @@ export function shareBin(fraction: number): number {
   return index === -1 ? 5 : index + 1;
 }
 
-function quantityLayer(label: string, c: Choropleth, measures: ChoroplethMeasure[]): MapLayerData {
+function quantityLayer(label: string, c: Choropleth): MapLayerData {
   // A share of a lower bound ("more than 140,000,000") would overstate every
   // country, so then the scale is the largest listed producer instead.
   const byShare = c.world.value !== null && c.world.value > 0 && !c.world.moreThan;
@@ -137,10 +133,6 @@ function quantityLayer(label: string, c: Choropleth, measures: ChoroplethMeasure
         href: c.source.url,
       },
       caveat: !byShare,
-      measures:
-        measures.length > 1
-          ? measures.map((id) => ({ id, label: MEASURE_LABEL[id], current: id === c.measure }))
-          : undefined,
     },
   };
 }
@@ -189,7 +181,5 @@ export function mapLayer(
   // Gallium has production and no reserves table: fall back rather than go blank.
   const chosen = measures.includes(measure) ? measure : measures[0];
   const data = chosen ? choropleth(kind.id, { measure: chosen }) : null;
-  return data
-    ? quantityLayer(kind.label, data, measures)
-    : presenceLayer(kind.id, kind.label, isos);
+  return data ? quantityLayer(kind.label, data) : presenceLayer(kind.id, kind.label, isos);
 }

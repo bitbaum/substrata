@@ -73,7 +73,7 @@ function Makers({ title, nodes, current }: { title: string; nodes: FlowNode[]; c
   if (nodes.length === 0) return null;
   return (
     <div className="flow-makers">
-      <p className="flow-kicker">{title}</p>
+      <p className="flow-kicker flow-kicker-sub">{title}</p>
       <ul>
         {nodes.map((n) => (
           <li key={n.href}>
@@ -185,7 +185,7 @@ export function AtlasChain({
             <Focus chain={chain} step={self} flow={flow} maker={maker} />
           ) : (
             <>
-              <h2 className="flow-kicker">{COLUMN[lv]}</h2>
+              <h2 className="flow-kicker flow-kicker-col">{COLUMN[lv]}</h2>
               <ul className="flow-nodes">
                 {route.steps
                   .filter((s) => s.level === lv)

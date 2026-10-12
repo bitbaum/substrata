@@ -80,7 +80,7 @@ export function readPalette(el: Element): Palette {
     selected: alpha(accent, 1),
     label: v('--color-fg-primary'),
     labelBack: alpha(v('--color-surface-page'), 0.82),
-    labelFont: `500 11px ${v('--font-mono') || 'ui-monospace, monospace'}`,
+    labelFont: `500 12px ${v('--font-mono') || 'ui-monospace, monospace'}`,
     route: alpha(accent, 0.42),
     site: v('--color-fg-primary'),
     siteFill: v('--color-surface-page'),
