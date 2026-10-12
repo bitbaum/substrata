@@ -17,7 +17,8 @@
  * The index of every bottleneck and the per-stage coverage counts are not
  * here: they live on /bottlenecks, which is that list, grouped by stage.
  *
- * URLs kept from before: ?view=world, ?country=, ?resource=, ?topic=, ?chain=.
+ * URLs kept from before: ?view=world, ?country=, ?resource=, ?topic=, ?chain=;
+ * ?maker= opens one of the chain's makers in the panel.
  */
 import type { Metadata } from 'next';
 
@@ -35,6 +36,8 @@ export const metadata: Metadata = {
 type Params = {
   topic?: string;
   chain?: string;
+  /** A maker on the chain, opened in the panel without leaving the map. */
+  maker?: string;
   view?: string;
   country?: string;
   resource?: string;
@@ -64,7 +67,12 @@ export default async function AtlasPage({ searchParams }: { searchParams: Promis
             worldHref={worldHref}
           />
         ) : (
-          <ChainView topic={params.topic} requested={params.chain} worldHref={worldHref} />
+          <ChainView
+            topic={params.topic}
+            requested={params.chain}
+            maker={params.maker}
+            worldHref={worldHref}
+          />
         )}
       </div>
     </Shell>
