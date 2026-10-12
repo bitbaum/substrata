@@ -14,6 +14,8 @@ export interface WorldMapProps {
   /** Bin per ISO code: 1–5 up the sequential scale, 6 hatched; absent = not listed. */
   bins: Record<string, number>;
   labels: Record<string, string>;
+  /** Figures drawn on the globe at the countries that matter most for this layer. */
+  callouts?: { iso: string; text: string }[];
   /** The hover line for a country with no row in this layer. */
   otherwise?: string;
   /** What the globe shows, in words, for a screen reader. */

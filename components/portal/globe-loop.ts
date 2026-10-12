@@ -37,16 +37,22 @@ export function useGlobeLoop({
   frame,
   bins,
   selected,
+  callouts = [],
 }: {
   canvasRef: RefObject<HTMLCanvasElement | null>;
   world: World | null;
   frame: { width: number; height: number; view: View } | null;
   bins: Record<string, number>;
   selected?: string;
+  /** Figures to draw at countries (the layer's top band). */
+  callouts?: { iso: string; text: string }[];
 }) {
   const cameraRef = useRef<Camera>(HOME);
   const shown = useRef<{ from: View; to: View; start: number } | null>(null);
   const motionRef = useRef<{ flight?: { f: Flight; start: number }; spin?: Spin }>({});
+  // Callouts resolved to features once per layer, not per frame. Read by the
+  // frame through a ref the effect below keeps current.
+  const calloutsRef = useRef<{ feature: CountryFeature; text: string }[]>([]);
   /** When the reader last touchedRef the globe; the idle turn waits for it. */
   const touchedRef = useRef(0);
   const hoverRef = useRef('');
@@ -142,9 +148,20 @@ export function useGlobeLoop({
         const dpr = pixelRatio();
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
         const shapes = moving ? world.coarse : world;
+        const m = motionRef.current;
+        const selectedFeature = selectedRef.current
+          ? byIso.current.get(selectedRef.current)
+          : undefined;
         paintGlobe(ctx, { w: el.width / dpr, h: el.height / dpr }, proj, shapes, paint.current, {
           hover: byIso.current.get(hoverRef.current),
-          selected: selectedRef.current ? byIso.current.get(selectedRef.current) : undefined,
+          selected: selectedFeature,
+          callouts: calloutsRef.current,
+          // The pulse rides the flight to a picked country: one ring that
+          // opens from where the country is and fades as the globe arrives.
+          pulse:
+            m.flight && selectedFeature
+              ? { feature: selectedFeature, t: (now - m.flight.start) / m.flight.f.duration }
+              : undefined,
         });
       }
       if (again) raf.current = requestAnimationFrame(next.current);
@@ -165,6 +182,10 @@ export function useGlobeLoop({
   useEffect(
     () => () => {
       cancelAnimationFrame(raf.current);
+      // Forget the cancelled frame. A handle left behind reads as "a frame is
+      // already coming", so every later invalidate() would wait for one that
+      // never fires — which is what a development remount did to the globe.
+      raf.current = 0;
       window.clearTimeout(wake.current);
     },
     [],
@@ -173,6 +194,15 @@ export function useGlobeLoop({
   useEffect(() => {
     if (world) byIso.current = new Map(world.countries.map((c) => [c.properties.iso, c]));
   }, [world]);
+
+  useEffect(() => {
+    const resolved = callouts.flatMap((c) => {
+      const feature = byIso.current.get(c.iso);
+      return feature ? [{ feature, text: c.text }] : [];
+    });
+    calloutsRef.current = resolved;
+    if (world) invalidate();
+  }, [callouts, world, invalidate]);
 
   // Colours from the tokens; read again when the theme flips them.
   useEffect(() => {

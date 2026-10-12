@@ -13,6 +13,8 @@ import { bottleneckHref } from '@/lib/links';
 import type { Bottleneck } from '@/lib/bottlenecks';
 import type { ChainFlow, MakerDetail } from '@/app/atlas/chain-data';
 import type { ChainStory } from '@/app/atlas/chain-story';
+import type { ChainAction } from '@/app/atlas/chain-actions';
+import { ChainActions } from './ChainActions';
 
 /** The panel for a chain: its head (always visible) and what it is. */
 export function ChainHead({ chain, story }: { chain: Bottleneck; story: ChainStory }) {
@@ -31,10 +33,13 @@ export function ChainDetail({
   chain,
   flow,
   story,
+  actions,
 }: {
   chain: Bottleneck;
   flow: ChainFlow;
   story: ChainStory;
+  /** What a reader can do with this chain, by who they are. */
+  actions: ChainAction[];
 }) {
   return (
     <>
@@ -74,6 +79,7 @@ export function ChainDetail({
           </ul>
         </section>
       )}
+      <ChainActions actions={actions} />
       <div className="atlas-actions">
         <Link href={bottleneckHref(chain.slug)} className="atlas-primary">
           Full evidence

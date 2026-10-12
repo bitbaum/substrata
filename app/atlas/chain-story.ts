@@ -37,7 +37,8 @@ export function listWords(items: readonly string[]): string {
   return `${words.slice(0, -1).join(', ')} and ${words[words.length - 1]}`;
 }
 
-function lower(label: string): string {
+/** Lower-case a label for mid-sentence use, keeping acronyms and proper nouns. */
+export function lower(label: string): string {
   // Proper nouns and acronyms keep their case; "EUV projection optics" stays.
   return /^[A-Z][a-z]/.test(label) && !/^[A-Z]{2,}/.test(label)
     ? label.charAt(0).toLowerCase() + label.slice(1)

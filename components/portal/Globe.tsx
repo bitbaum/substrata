@@ -25,6 +25,7 @@ import { useRouter } from 'next/navigation';
 
 import {
   cameraFor,
+  focusOf,
   clampTilt,
   clampZoom,
   loadWorld,
@@ -39,7 +40,15 @@ import { pickAt, pickIndex, type Pickable } from './globe-pick';
 import { useMapView } from './map-view';
 import type { WorldMapProps } from './WorldMap';
 
-export default function Globe({ selected, keep, bins, labels, otherwise, summary }: WorldMapProps) {
+export default function Globe({
+  selected,
+  keep,
+  bins,
+  labels,
+  callouts,
+  otherwise,
+  summary,
+}: WorldMapProps) {
   const router = useRouter();
   const wrap = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -67,7 +76,7 @@ export default function Globe({ selected, keep, bins, labels, otherwise, summary
   }, [loadAttempt]);
 
   const frame = useMapView(wrap);
-  const loop = useGlobeLoop({ canvasRef, world, frame, bins, selected });
+  const loop = useGlobeLoop({ canvasRef, world, frame, bins, selected, callouts });
   const { cameraRef, motionRef, touchedRef, hoverRef, grabbedRef } = loop;
   const { projection, radius, invalidate, fly } = loop;
 
@@ -80,19 +89,36 @@ export default function Globe({ selected, keep, bins, labels, otherwise, summary
   }, [world]);
 
   // Face the selected country: at once on first draw, by a flight after.
+  // With no country picked but a resource painted, face where it comes from:
+  // the largest producer, the whole globe in view. Lithium used to open on
+  // Europe with Australia and Chile on the far side, so the map showed the
+  // resource everywhere except where it is.
   const faced = useRef<string | null>(null);
+  const lead = callouts?.[0]?.iso ?? '';
   useEffect(() => {
-    if (!world || faced.current === (selected ?? '')) return;
+    const key = selected ? `country:${selected}` : lead ? `lead:${lead}` : '';
+    if (!world || faced.current === key) return;
     const first = faced.current === null;
-    faced.current = selected ?? '';
+    faced.current = key;
     const target = selected ? byIso.current.get(selected) : undefined;
+    const top = !selected && lead ? byIso.current.get(lead) : undefined;
     const c = cameraRef.current;
-    const to = target ? cameraFor(target) : { center: c.center, k: Math.min(c.k, 1) };
+    const to = target
+      ? cameraFor(target)
+      : top
+        ? {
+            center: [focusOf(top).center[0], clampTilt(focusOf(top).center[1] * 0.6)] as [
+              number,
+              number,
+            ],
+            k: 1,
+          }
+        : { center: c.center, k: Math.min(c.k, 1) };
     if (!first) return fly(to);
     cameraRef.current = to;
     touchedRef.current = performance.now();
     invalidate();
-  }, [world, selected, cameraRef, touchedRef, fly, invalidate]);
+  }, [world, selected, lead, cameraRef, touchedRef, fly, invalidate]);
 
   // What the input may do to the globe; kept current for its handlers.
   const controlRef = useRef<GlobeControl | null>(null);

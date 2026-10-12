@@ -377,3 +377,19 @@ test('a shaded layer: numbers on the ramp, words hatched, missing countries left
   );
   assert.ok(layer.legend.scale?.length === 5);
 });
+
+test('a shaded layer names its top producers ON the globe, largest first, never the plain map', () => {
+  // 2026-10-12: a painted globe said how much, somewhere — the reader had to
+  // hover each country to learn WHERE. The top band is now labelled in place.
+  const lithium = mapLayer('lithium', 'production', MAP_ISOS);
+  assert.ok(lithium.callouts.length > 0 && lithium.callouts.length <= 8);
+  assert.equal(lithium.callouts[0].iso, 'au', 'Australia mines the most lithium');
+  assert.ok(
+    lithium.callouts.some((c) => c.iso === 'cl'),
+    'Chile is in the top band',
+  );
+  for (const c of lithium.callouts) assert.match(c.text, /%$/, 'a share, when shares exist');
+  for (const c of lithium.callouts) assert.ok(lithium.bins[c.iso] >= 4, `${c.iso} is top band`);
+  assert.deepEqual(mapLayer(undefined, 'production', MAP_ISOS).callouts, []);
+  assert.deepEqual(mapLayer('uranium', 'production', MAP_ISOS).callouts, []);
+});

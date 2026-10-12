@@ -42,9 +42,22 @@ export interface MapLegend {
   measures?: { id: ChoroplethMeasure; label: string; current: boolean }[];
 }
 
+/** A figure drawn ON the globe, at the country: its name comes from the map. */
+export interface MapCallout {
+  iso: string;
+  /** The figure, short: "19%" or "56,000". */
+  text: string;
+}
+
 export interface MapLayerData {
   bins: Record<string, number>;
   labels: Record<string, string>;
+  /**
+   * The countries that matter most for this layer, labelled on the globe so
+   * a painted map says WHERE at a glance instead of only how much, somewhere.
+   * The top band, largest first, at most eight; empty when nothing is shaded.
+   */
+  callouts: MapCallout[];
   /** The hover line for a country with no row in this layer. */
   otherwise?: string;
   legend: MapLegend;
@@ -77,6 +90,7 @@ function quantityLayer(label: string, c: Choropleth, measures: ChoroplethMeasure
   const byShare = c.world.value !== null && c.world.value > 0 && !c.world.moreThan;
   const bins: Record<string, number> = {};
   const labels: Record<string, string> = {};
+  const ranked: { iso: string; fraction: number; text: string }[] = [];
   let hatched = false;
   for (const [iso, v] of Object.entries(c.values)) {
     const estimate = v.estimated ? ' (USGS estimate)' : '';
@@ -88,14 +102,21 @@ function quantityLayer(label: string, c: Choropleth, measures: ChoroplethMeasure
     }
     const fraction = byShare && v.share !== null ? v.share : v.value / c.max;
     bins[iso] = shareBin(fraction);
+    ranked.push({ iso, fraction, text: byShare && v.share !== null ? pct(v.share) : v.text });
     labels[iso] =
       `${v.text} ${c.unit}${estimate}` +
       (byShare && v.share !== null ? ` · ${pct(v.share)} of world` : '');
   }
   const bounds = ['0', ...STEPS.map((s) => (byShare ? pct(s) : num(s * c.max)))];
+  const callouts = ranked
+    .filter((r) => shareBin(r.fraction) >= 4)
+    .sort((a, b) => b.fraction - a.fraction)
+    .slice(0, 8)
+    .map(({ iso, text }) => ({ iso, text }));
   return {
     bins,
     labels,
+    callouts,
     otherwise: 'Not listed by USGS',
     legend: {
       title: `${label} · ${c.label}, ${c.year}${byShare ? '' : ` (${c.unit})`}`,
@@ -132,6 +153,7 @@ function presenceLayer(id: ResourceId, label: string, isos: string[]): MapLayerD
   return {
     bins: {},
     labels,
+    callouts: [],
     otherwise: 'Not listed in the geology directory',
     legend: {
       title: label,
@@ -146,6 +168,7 @@ function plainLayer(): MapLayerData {
   return {
     bins: {},
     labels: {},
+    callouts: [],
     legend: {
       title: 'Pick a resource to shade the globe',
       keys: [],
