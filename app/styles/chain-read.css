@@ -1,0 +1,189 @@
+/*
+ * The reading beside a chain (components/portal/ChainReader.tsx).
+ *
+ *   < 768     the page itself, top to bottom: the bar, what the chain is, the
+ *             route in one strip, the makers in one line, the tabs pinned
+ *             under the top bar, the reading at full width. No sheet, no
+ *             grip, one scroll — the diagram does not fit a phone, the strip
+ *             says the same route in a line.
+ *   768–1023  the diagram, then the same reading under it, one column.
+ *   ≥ 1024    a panel floating at the right of the diagram, as before.
+ */
+@media (max-width: 1023px) {
+  .atlas[data-view='chain'] {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+    background: var(--color-surface-page);
+  }
+  .atlas[data-view='chain'] .atlas-bar {
+    position: relative;
+    inset: auto;
+    order: -1;
+    padding: var(--atlas-gutter) var(--atlas-gutter) 0;
+  }
+  .atlas[data-view='chain'] .atlas-canvas-chain {
+    position: relative;
+    inset: auto;
+    padding: 1.5rem var(--atlas-gutter) 0.5rem;
+    overflow: visible;
+  }
+}
+@media (max-width: 767px) {
+  .atlas[data-view='chain'] .atlas-canvas-chain {
+    display: none;
+  }
+}
+
+.chain-read {
+  padding: 1rem 1rem 7rem;
+  background: var(--color-surface-page);
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .chain-read {
+    width: 100%;
+    max-width: 44rem;
+    margin-inline: auto;
+    padding-bottom: 10rem;
+  }
+}
+@media (min-width: 1024px) {
+  .chain-read {
+    position: absolute;
+    z-index: 4;
+    top: var(--atlas-gutter);
+    right: var(--atlas-gutter);
+    bottom: var(--atlas-dock);
+    width: var(--atlas-panel-w);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 1.25rem 1.25rem 1.5rem;
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--atlas-radius);
+    box-shadow: var(--shadow-overlay);
+  }
+}
+.chain-read-head {
+  padding-bottom: 0.75rem;
+}
+
+/* The two ways out, once, under the summary. */
+.chain-read-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.25rem;
+  margin-top: 0.25rem;
+}
+.chain-read-actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--size-target);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-fg-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--color-border-strong);
+  text-underline-offset: 0.25em;
+}
+.chain-read-actions a:hover {
+  text-decoration-color: currentColor;
+}
+
+/* ------------------------------------------------ the route, in one strip */
+/* Phones only: from 768px the diagram is on screen and says it better. */
+.route-strip {
+  margin: 0.5rem -1rem 0;
+}
+.route-strip ol {
+  display: flex;
+  align-items: stretch;
+  gap: 0.375rem;
+  overflow-x: auto;
+  padding: 0.25rem 1rem;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+.route-strip ol::-webkit-scrollbar {
+  display: none;
+}
+.route-strip li {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 0.375rem;
+  scroll-snap-align: start;
+}
+.route-strip li[data-joiner]::before {
+  font: var(--text-label)/1 var(--font-mono);
+  color: var(--color-fg-tertiary);
+}
+.route-strip li[data-joiner='goes into']::before {
+  content: '→';
+}
+.route-strip li[data-joiner='and']::before {
+  content: '+';
+}
+.route-strip a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.125rem;
+  width: 8.5rem;
+  min-height: 3.75rem;
+  padding: 0.5rem 0.625rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--atlas-radius);
+  background: var(--color-surface-raised);
+}
+.route-strip a[aria-current='page'] {
+  border-color: var(--color-fg-primary);
+  background: var(--color-surface-page);
+}
+.route-strip-meta {
+  font: var(--text-label)/1.3 var(--font-mono);
+  color: var(--color-fg-tertiary);
+}
+.route-strip-name {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-fg-primary);
+}
+
+/* Who makes it, in a line. */
+.chain-read-makers {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--color-fg-secondary);
+}
+.chain-read-makers a {
+  font-weight: 600;
+  color: var(--color-fg-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--color-border-strong);
+  text-underline-offset: 0.2em;
+}
+.chain-read-makers-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-fg-tertiary);
+}
+@media (min-width: 768px) {
+  .route-strip,
+  .chain-read-makers {
+    display: none;
+  }
+}
+
+.chain-read-fine {
+  margin-top: 1.5rem;
+}

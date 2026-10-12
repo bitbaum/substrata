@@ -20,6 +20,8 @@ import { capitalHref, pipelineHref } from '@/lib/links';
 import { listWords } from '../chain-story';
 import { count, type Lens } from './types';
 
+const SHORT: Record<string, string> = { 'not-money': 'No', 'partly-money': 'Partly', money: 'Yes' };
+
 export function moneyLens(chain: Bottleneck): Lens {
   const funding = fundingFor(chain.name);
   const providers = providersFor(chain.name);
@@ -53,11 +55,12 @@ export function moneyLens(chain: Bottleneck): Lens {
     means,
     figures: [
       {
-        label: 'Is money the constraint',
-        value: funding ? CONSTRAINT_LABEL[funding.constraint] : 'Not judged',
+        // The sentence above says it in full; the figure is the one-word answer.
+        label: 'Money the constraint?',
+        value: funding ? SHORT[funding.constraint] : 'Not judged',
         note: funding ? `judged ${funding.judgedOn}` : undefined,
       },
-      { label: 'Funders who could move it', value: String(providers.length) },
+      { label: 'Funders with a mandate', value: String(providers.length) },
     ],
     groups: [
       ...(providers.length > 0

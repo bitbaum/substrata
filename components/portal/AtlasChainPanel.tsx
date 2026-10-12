@@ -15,7 +15,8 @@ import type { ChainAction } from '@/app/atlas/chain-actions';
 import { LensBody, LensTabs } from './ChainLenses';
 import type { Lens, LensId } from '@/app/atlas/lenses';
 
-/** The panel for a chain: its head (always visible) and what it is. */
+/** The head of a chain's reading: what it is in one sentence, and the two
+ *  ways out — the evidence and the globe — once, at the top, not under every tab. */
 export function ChainHead({ chain, story }: { chain: Bottleneck; story: ChainStory }) {
   return (
     <>
@@ -24,19 +25,21 @@ export function ChainHead({ chain, story }: { chain: Bottleneck; story: ChainSto
       </p>
       <p className="atlas-title">{chain.name}</p>
       <p className="atlas-lede flow-story-lede">{story.lede}</p>
+      <p className="chain-read-actions">
+        <Link href={bottleneckHref(chain.slug)}>Full evidence</Link>
+        <Link href={`/atlas?view=world&chain=${chain.slug}`}>On the globe</Link>
+      </p>
     </>
   );
 }
 
 export function ChainDetail({
-  chain,
   flow,
   lenses,
   current,
   hrefFor,
   actions,
 }: {
-  chain: Bottleneck;
   flow: ChainFlow;
   /** The chain read six ways, and the one open. */
   lenses: Lens[];
@@ -62,15 +65,7 @@ export function ChainDetail({
           </ul>
         </section>
       )}
-      <div className="atlas-actions">
-        <Link href={bottleneckHref(chain.slug)} className="atlas-primary">
-          Full evidence
-        </Link>
-        <Link href={`/atlas?view=world&chain=${chain.slug}`} className="atlas-secondary">
-          On the globe
-        </Link>
-      </div>
-      <p className="atlas-fine">
+      <p className="atlas-fine chain-read-fine">
         Built from the records on file, not written by hand: a figure or a name here is a row with a
         source, and a gap says it is a gap. Severity, readiness and the skills a bottleneck needs
         are analyst judgements, dated.

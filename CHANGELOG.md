@@ -4,6 +4,9 @@ What changed on substrata.orangecat.ch, newest first, in the words of someone us
 
 ## 2026-10-12
 
+### Changed
+- **A chain reads as a page on a phone.** The pull-up sheet is gone from the chains view below laptop width. A phone now reads top to bottom: what the chain is, "Full evidence" and "On the globe" once, the route in one strip you can tap along, its makers in a line, one row of tabs pinned under the top bar, and the reading at full width — no grip, no second scroll, no 3 × 2 tab grid taking a quarter of the screen. A tablet shows the diagram with the reading under it; a laptop keeps the panel beside the diagram. The figures are one row of numbers instead of boxes, and money's answer is one word with the reasoning above it. (#178)
+
 ### Added
 - **Two more ways to shade the globe.** The legend's picker now offers Historical trend (each country's production change between the two years USGS prints) and Risk heat-map (how many export restrictions the OECD inventory records on the resource, per country), beside Production volumes and Reserves. Trade flows and environmental impact zones are listed as not yet available: no sourced figures for them are on file. (#177)
 - **Every chain, read six ways.** The panel beside a chain now has six tabs: Overview, Markets, Research, Money, People and Policy. Each says what the chain means from that side, in sentences built from the records, then the few figures that carry it, the records behind it, and the page that holds all of it. Markets names the listed makers by ticker and what a stop would reach; Research, how far along each way around it is; Money, whether money is the constraint at all; People, the work it needs and where to train for it; Policy, the rules that touch it and the restrictions on its raw material. A tab is a link, so a reading can be shared, and it stays chosen as you walk the chain. (#176)
