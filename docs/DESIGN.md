@@ -67,7 +67,13 @@ chain and every map, and gets it as a row under "What you can do"
 | Job seekers | Where the work that matters is hiring | Open roles filed under the bottleneck |
 | Learners | Understanding the machine that makes machines | The dossier, in order, with every source |
 
-Rules for that block: every row points at a page that already exists,
+Since #176 these are not a separate block but six readings of the chain,
+tabs in its panel (`app/atlas/lenses/`, `components/portal/ChainLenses.tsx`):
+Overview, Markets, Research, Money, People, Policy. Every lens has one shape —
+what it means, the figures, the records, where all of it lives — and names
+the reader it serves most.
+
+Rules for those readings: every link points at a page that already exists,
 filtered to this bottleneck. Its line is built from the data and never
 written by hand. A row with nothing behind it is not shown. "Not investment
 advice" sits beside it, every time.

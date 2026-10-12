@@ -1,6 +1,7 @@
 import { Figure } from '@/components/portal/Figure';
 import { ProducersTable } from '@/components/portal/ProducersTable';
 import { JUDGED_BY } from '@/config/substrata-about';
+import { SCORE_TESTS } from '@/config/substrata-assessment';
 import { stageById } from '@/config/substrata-stages';
 import { bottleneckBySlug, type Bottleneck } from '../../bottlenecks';
 import type { Entity } from '../../entities/types';
@@ -14,12 +15,7 @@ export function bottleneck(e: Entity): Bottleneck | undefined {
   return e.kind === 'bottleneck' ? bottleneckBySlug(e.key) : undefined;
 }
 
-const TESTS = [
-  ['concentration', 'How few suppliers qualify'],
-  ['substitution', 'How hard to replace'],
-  ['leadTime', 'Decision to new capacity'],
-  ['inelasticity', 'Can the buyer walk away'],
-] as const;
+const TESTS = SCORE_TESTS;
 
 const why: ProfileModule<Bottleneck> = {
   id: 'why',

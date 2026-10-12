@@ -37,10 +37,14 @@ function codes(isos: string[], max = 4): string {
 
 const pad = (n: number) => String(n).padStart(2, '0');
 
-function Step({ step, topic }: { step: RouteStep; topic: string }) {
+function Step({ step, topic, lens }: { step: RouteStep; topic: string; lens?: string }) {
   return (
     <li data-flow-node data-key={step.slug}>
-      <Link href={chainHref(step.slug, topic || undefined)} scroll={false} className="flow-card">
+      <Link
+        href={chainHref(step.slug, topic || undefined, undefined, lens)}
+        scroll={false}
+        className="flow-card"
+      >
         <span className="flow-role">
           {pad(step.step)} · {codes(step.isos)}
         </span>
@@ -136,6 +140,7 @@ export function AtlasChain({
   route,
   topic = '',
   maker,
+  lens,
 }: {
   chain: Bottleneck;
   flow: ChainFlow;
@@ -143,6 +148,8 @@ export function AtlasChain({
   topic?: string;
   /** The maker `?maker=` selected, lit on the diagram. */
   maker?: string;
+  /** The lens the panel is open on, kept as the reader walks the chain. */
+  lens?: string;
 }) {
   const levels = [...new Set(route.steps.map((s) => s.level))].sort((a, b) => a - b);
   const self = route.steps.find((s) => s.level === 0)!;
@@ -183,7 +190,7 @@ export function AtlasChain({
                 {route.steps
                   .filter((s) => s.level === lv)
                   .map((s) => (
-                    <Step key={s.slug} step={s} topic={topic} />
+                    <Step key={s.slug} step={s} topic={topic} lens={lens} />
                   ))}
               </ul>
             </>

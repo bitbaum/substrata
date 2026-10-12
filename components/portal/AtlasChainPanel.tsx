@@ -6,15 +6,14 @@
  */
 import Link from 'next/link';
 
-import { Figure } from './Figure';
 import { STAGE_LABEL } from '@/config/substrata-stages';
-import { HORIZON_LABEL } from '@/config/substrata-assessment';
 import { bottleneckHref } from '@/lib/links';
 import type { Bottleneck } from '@/lib/bottlenecks';
 import type { ChainFlow, MakerDetail } from '@/app/atlas/chain-data';
 import type { ChainStory } from '@/app/atlas/chain-story';
 import type { ChainAction } from '@/app/atlas/chain-actions';
-import { ChainActions } from './ChainActions';
+import { LensBody, LensTabs } from './ChainLenses';
+import type { Lens, LensId } from '@/app/atlas/lenses';
 
 /** The panel for a chain: its head (always visible) and what it is. */
 export function ChainHead({ chain, story }: { chain: Bottleneck; story: ChainStory }) {
@@ -32,42 +31,26 @@ export function ChainHead({ chain, story }: { chain: Bottleneck; story: ChainSto
 export function ChainDetail({
   chain,
   flow,
-  story,
+  lenses,
+  current,
+  hrefFor,
   actions,
 }: {
   chain: Bottleneck;
   flow: ChainFlow;
-  story: ChainStory;
+  /** The chain read six ways, and the one open. */
+  lenses: Lens[];
+  current: LensId;
+  hrefFor: (id: LensId) => string;
   /** What a reader can do with this chain, by who they are. */
   actions: ChainAction[];
 }) {
+  const lens = lenses.find((l) => l.id === current) ?? lenses[0];
   return (
     <>
-      <section className="atlas-section flow-story" aria-label="What this chain tells us">
-        {story.parts.map((part) => (
-          <div key={part.kicker} className="flow-story-part">
-            <h3>{part.kicker}</h3>
-            <p>{part.text}</p>
-          </div>
-        ))}
-      </section>
-      <dl className="atlas-facts">
-        <div>
-          <dt>Severity</dt>
-          <dd>
-            <Figure method="severity">{chain.binding}/12</Figure>
-          </dd>
-        </div>
-        <div>
-          <dt>When</dt>
-          <dd>{HORIZON_LABEL[chain.horizon]}</dd>
-        </div>
-        <div>
-          <dt>Judged</dt>
-          <dd>{chain.judgedOn}</dd>
-        </div>
-      </dl>
-      {flow.places.length > 0 && (
+      <LensTabs lenses={lenses} current={lens.id} hrefFor={hrefFor} />
+      <LensBody lens={lens} actions={actions} />
+      {lens.id === 'overview' && flow.places.length > 0 && (
         <section className="atlas-section">
           <h3>Where it sits</h3>
           <ul className="atlas-chips">
@@ -79,7 +62,6 @@ export function ChainDetail({
           </ul>
         </section>
       )}
-      <ChainActions actions={actions} />
       <div className="atlas-actions">
         <Link href={bottleneckHref(chain.slug)} className="atlas-primary">
           Full evidence
@@ -89,8 +71,9 @@ export function ChainDetail({
         </Link>
       </div>
       <p className="atlas-fine">
-        Lines are coverage, not customer contracts: a sourced maker row means there is a document
-        for that claim.
+        Built from the records on file, not written by hand: a figure or a name here is a row with a
+        source, and a gap says it is a gap. Severity, readiness and the skills a bottleneck needs
+        are analyst judgements, dated.
       </p>
     </>
   );

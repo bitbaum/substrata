@@ -308,6 +308,17 @@ export function bindingScore(score: BindingScore): number {
   return score.concentration + score.substitution + score.leadTime + score.inelasticity;
 }
 
+/** The four tests, in the order they are summed, as the site names them. */
+export const SCORE_TESTS = [
+  ['concentration', 'How few suppliers qualify'],
+  ['substitution', 'How hard to replace'],
+  ['leadTime', 'Decision to new capacity'],
+  ['inelasticity', 'Can the buyer walk away'],
+] as const satisfies readonly (readonly [keyof BindingScore, string])[];
+
+/** A test's 0–3 in words. Ordinal: 3 is the worst a test can score, not "three times" 1. */
+export const SCORE_WORDS = ['none', 'mild', 'serious', 'the worst on this test'] as const;
+
 export const HORIZON_LABEL: Record<Horizon, string> = {
   now: 'Binding now',
   'two-years': 'Within two years',

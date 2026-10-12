@@ -20,6 +20,8 @@
  * URLs kept from before: ?view=world, ?country=, ?resource=, ?topic=, ?chain=;
  * ?maker= opens one of the chain's makers in the panel. On the world view,
  * ?chain= lays that chain over the globe and ?site= opens a producer site.
+ * ?lens= opens the chain's panel on one reading: markets, research, money,
+ * people or policy.
  */
 import type { Metadata } from 'next';
 
@@ -44,6 +46,8 @@ type Params = {
   country?: string;
   resource?: string;
   measure?: string;
+  /** On the chains view, the lens the panel reads it through. */
+  lens?: string;
   /** A producer site on the world view, opened from its dot. */
   site?: string;
 };
@@ -81,6 +85,7 @@ export default async function AtlasPage({ searchParams }: { searchParams: Promis
             topic={params.topic}
             requested={params.chain}
             maker={params.maker}
+            lens={params.lens}
             worldHref={worldHref}
           />
         )}
