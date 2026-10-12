@@ -20,6 +20,9 @@ importers:
       '@bitbaum/geo-kit':
         specifier: github:bitbaum/geo-kit#a337aec928cf7804fecf459c308d366b90f4b2fa
         version: https://codeload.github.com/bitbaum/geo-kit/tar.gz/a337aec928cf7804fecf459c308d366b90f4b2fa
+      '@bitbaum/searchkit':
+        specifier: github:bitbaum/orangecat#a868c0a98e91df1075404d0c5f27a7846eb08d97&path:packages/searchkit
+        version: https://codeload.github.com/bitbaum/orangecat/tar.gz/a868c0a98e91df1075404d0c5f27a7846eb08d97#path:packages/searchkit(react@19.3.0)
       '@bitbaum/whenkit':
         specifier: github:bitbaum/whenkit#v0.3.2
         version: https://codeload.github.com/bitbaum/whenkit/tar.gz/f5e0a24208187091c2ca792008cdd7695a19910f(react@19.3.0)
@@ -227,6 +230,15 @@ packages:
     resolution: {gitHosted: true, integrity: sha512-LwgeruTRUSNRNZX4h00rB+aSaN+gnRV3r+Dkx1mZ89RxaxvzOsTViWnBZ+Yrn3grm7jj66CMl4DvKG7gteXwWw==, tarball: https://codeload.github.com/bitbaum/geo-kit/tar.gz/a337aec928cf7804fecf459c308d366b90f4b2fa}
     version: 0.1.1
     engines: {node: '>=20'}
+
+  '@bitbaum/searchkit@https://codeload.github.com/bitbaum/orangecat/tar.gz/a868c0a98e91df1075404d0c5f27a7846eb08d97#path:packages/searchkit':
+    resolution: {gitHosted: true, integrity: sha512-1JO7yBdII7Lo4/8kvcfCfr954HEVYCtuBvV3YxjMJMiBxfmtDn98X1K4Yp0p95zyTSFBgMqJRf6Nyuw71ptHcQ==, path: packages/searchkit, tarball: https://codeload.github.com/bitbaum/orangecat/tar.gz/a868c0a98e91df1075404d0c5f27a7846eb08d97}
+    version: 0.2.0
+    peerDependencies:
+      react: '>=18'
+    peerDependenciesMeta:
+      react:
+        optional: true
 
   '@bitbaum/sitekit@0.3.0':
     resolution: {integrity: sha512-DnIwW3F92PEXFW4h9VSW2q+HS4fYSlEX/TnjIUjQ+Pcjja38hRN5eo45B1c6nDOiXl2/8v9V7yRYjtLQ1zG6pQ==}
@@ -2855,6 +2867,10 @@ snapshots:
       react: 19.3.0
 
   '@bitbaum/geo-kit@https://codeload.github.com/bitbaum/geo-kit/tar.gz/a337aec928cf7804fecf459c308d366b90f4b2fa': {}
+
+  '@bitbaum/searchkit@https://codeload.github.com/bitbaum/orangecat/tar.gz/a868c0a98e91df1075404d0c5f27a7846eb08d97#path:packages/searchkit(react@19.3.0)':
+    optionalDependencies:
+      react: 19.3.0
 
   '@bitbaum/sitekit@0.3.0(react@19.3.0)':
     dependencies:
