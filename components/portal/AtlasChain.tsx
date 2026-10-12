@@ -1,168 +1,179 @@
 /**
- * The chains view: one bottleneck as a single left-to-right diagram —
- * what it needs, the thing itself, who makes it, what it holds up — and the
- * panel that says what it is and how hard it binds. On a phone the diagram
- * turns to run top to bottom; the order of reading does not change.
+ * The chains view: one bottleneck as a diagram — what it needs on the left,
+ * the thing in the middle with its makers feeding down into it, what it
+ * holds up on the right — and the panel that says, in plain words, what the
+ * chain is telling us. On a phone the diagram runs top to bottom in the same
+ * reading order: needs, makers, the thing, what it holds up.
  *
- * Every node is a link: an upstream or downstream bottleneck re-centres the
- * diagram on itself, so a reader can walk a whole supply chain here.
+ * Every node stays on the map. An upstream or downstream bottleneck
+ * re-centres the diagram on itself; a maker opens in the panel beside it, so
+ * walking a chain never means leaving it and pressing Back.
  */
 import Link from 'next/link';
 
 import { Figure } from './Figure';
+import { ChainLinks } from './ChainLinks';
 import { STAGE_LABEL } from '@/config/substrata-stages';
 import { HORIZON_LABEL } from '@/config/substrata-assessment';
-import { bottleneckHref } from '@/lib/links';
 import type { Bottleneck } from '@/lib/bottlenecks';
 import type { ChainFlow, FlowNode } from '@/app/atlas/chain-data';
 
-function Column({
+type Lane = 'needs' | 'makers' | 'feeds';
+
+function Node({ node, lane, current }: { node: FlowNode; lane: Lane; current?: boolean }) {
+  return (
+    <li data-flow-node data-lane={lane} data-key={`${lane}:${node.makerSlug ?? node.href}`}>
+      <Link
+        href={node.href}
+        scroll={false}
+        className="flow-card"
+        aria-current={current ? 'true' : undefined}
+        data-supplier={node.supplier || undefined}
+      >
+        {node.role && <span className="flow-role">{node.role}</span>}
+        <span className="flow-label">{node.label}</span>
+        {node.note && <span className="flow-note">{node.note}</span>}
+      </Link>
+    </li>
+  );
+}
+
+function Lane({
   index,
   title,
+  lane,
   nodes,
   empty,
+  current,
+  className,
   children,
 }: {
   index: string;
   title: string;
-  nodes?: FlowNode[];
-  empty?: string;
+  lane: Lane;
+  nodes: FlowNode[];
+  empty: string;
+  current?: string;
+  className?: string;
   children?: React.ReactNode;
 }) {
   return (
-    <section className="flow-col" aria-labelledby={`flow-${index}`}>
-      <h2 id={`flow-${index}`} className="flow-kicker">
+    <section className={`flow-col ${className ?? ''}`} aria-labelledby={`flow-${lane}`}>
+      <h2 id={`flow-${lane}`} className="flow-kicker">
         <span>{index}</span> {title}
       </h2>
-      {children}
-      {nodes && nodes.length > 0 && (
+      {nodes.length > 0 ? (
         <ul className="flow-nodes">
           {nodes.map((n) => (
-            <li key={n.href + n.label}>
-              <Link href={n.href} scroll={false}>
-                <span className="flow-label">{n.label}</span>
-                {n.note && <span className="flow-note">{n.note}</span>}
-              </Link>
-            </li>
+            <Node
+              key={n.href + n.label}
+              node={n}
+              lane={lane}
+              current={current !== undefined && current !== '' && n.makerSlug === current}
+            />
           ))}
         </ul>
+      ) : (
+        <p className="flow-empty">{empty}</p>
       )}
-      {nodes && nodes.length === 0 && empty && <p className="flow-empty">{empty}</p>}
+      {children}
     </section>
   );
 }
 
-function Arrow() {
+function Arrow({ label }: { label: string }) {
   return (
     <div className="flow-arrow" aria-hidden>
       <svg viewBox="0 0 24 24" focusable="false">
         <path d="M4 12h15m-5-5 5 5-5 5" />
       </svg>
+      <span>{label}</span>
     </div>
   );
 }
 
-export function AtlasChain({ chain, flow }: { chain: Bottleneck; flow: ChainFlow }) {
+/** Twelve ticks, the lit ones being the score: the severity you can see. */
+function SeverityMeter({ score }: { score: number }) {
+  return (
+    <span className="flow-meter" aria-hidden>
+      {Array.from({ length: 12 }, (_, i) => (
+        <i key={i} data-lit={i < score || undefined} />
+      ))}
+    </span>
+  );
+}
+
+export function AtlasChain({
+  chain,
+  flow,
+  maker,
+}: {
+  chain: Bottleneck;
+  flow: ChainFlow;
+  /** The maker `?maker=` selected, lit on the diagram. */
+  maker?: string;
+}) {
   return (
     <div className="flow" aria-label={`Supply chain of ${chain.name}`} role="group">
-      <Column
+      <ChainLinks />
+      <Lane
         index="01"
         title="Needs"
+        lane="needs"
         nodes={flow.needs}
         empty="No upstream bottleneck on record."
+        className="flow-needs"
       />
-      <Arrow />
-      <section className="flow-col flow-focus" aria-labelledby="flow-focus">
+      <Arrow label="goes into" />
+      <Lane
+        index="02"
+        title="Made by"
+        lane="makers"
+        nodes={flow.makers}
+        empty="No maker on record yet — a research gap."
+        current={maker ?? ''}
+        className="flow-makers"
+      />
+      <Arrow label="builds" />
+      <section className="flow-col flow-focus" aria-labelledby="flow-focus" data-flow-focus>
         <p className="flow-kicker">
-          <span>02</span> {STAGE_LABEL[chain.stage]}
+          <span>03</span> {STAGE_LABEL[chain.stage]}
         </p>
         <h2 id="flow-focus" className="flow-title">
           {chain.name}
         </h2>
+        <SeverityMeter score={chain.binding} />
         <p className="flow-note">
           severity <Figure method="severity">{chain.binding}/12</Figure> ·{' '}
           {HORIZON_LABEL[chain.horizon]}
         </p>
       </section>
-      <Arrow />
-      <Column
-        index="03"
-        title="Made by"
-        nodes={flow.makers}
-        empty="No maker on record yet — a research gap."
-      />
-      <Arrow />
-      <Column index="04" title="Holds up">
-        <ul className="flow-nodes">
-          {[...flow.feeds, ...flow.technologies].map((n) => (
-            <li key={n.href}>
-              <Link href={n.href} scroll={false}>
-                <span className="flow-label">{n.label}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </Column>
+      <Arrow label="holds up" />
+      <Lane
+        index="04"
+        title="Holds up"
+        lane="feeds"
+        nodes={flow.feeds}
+        empty="Nothing downstream on record yet."
+        className="flow-feeds"
+      >
+        {flow.technologies.length > 0 && (
+          <div className="flow-fields">
+            <p className="flow-kicker">
+              <span>+</span> Fields it serves
+            </p>
+            <ul className="flow-chips">
+              {flow.technologies.map((t) => (
+                <li key={t.href}>
+                  <Link href={t.href} scroll={false}>
+                    {t.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </Lane>
     </div>
-  );
-}
-
-/** The panel for a chain: its head (always visible) and what it is. */
-export function ChainHead({ chain }: { chain: Bottleneck }) {
-  return (
-    <>
-      <p className="atlas-kicker">
-        {STAGE_LABEL[chain.stage]} · {chain.state}
-      </p>
-      <p className="atlas-title">{chain.name}</p>
-    </>
-  );
-}
-
-export function ChainDetail({ chain, flow }: { chain: Bottleneck; flow: ChainFlow }) {
-  return (
-    <>
-      <p className="atlas-lede">{chain.plain}</p>
-      <dl className="atlas-facts">
-        <div>
-          <dt>Severity</dt>
-          <dd>
-            <Figure method="severity">{chain.binding}/12</Figure>
-          </dd>
-        </div>
-        <div>
-          <dt>When</dt>
-          <dd>{HORIZON_LABEL[chain.horizon]}</dd>
-        </div>
-        <div>
-          <dt>Judged</dt>
-          <dd>{chain.judgedOn}</dd>
-        </div>
-      </dl>
-      {flow.places.length > 0 && (
-        <section className="atlas-section">
-          <h3>Where it sits</h3>
-          <ul className="atlas-chips">
-            {flow.places.map((p) => (
-              <li key={p.iso2}>
-                <Link href={p.href}>{p.name}</Link>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-      <div className="atlas-actions">
-        <Link href={bottleneckHref(chain.slug)} className="atlas-primary">
-          Full evidence
-        </Link>
-        <Link href="/bottlenecks" className="atlas-secondary">
-          All bottlenecks
-        </Link>
-      </div>
-      <p className="atlas-fine">
-        Lines are coverage, not customer contracts: a sourced maker row means there is a document
-        for that claim.
-      </p>
-    </>
   );
 }

@@ -1,7 +1,9 @@
 /*
  * The chains view (components/portal/AtlasChain.tsx): one bottleneck as a
- * flow — needs → the bottleneck → made by → holds up. Top to bottom on a
- * phone, left to right from 768px, always in that reading order.
+ * diagram — needs on the left, the bottleneck in the middle with its makers
+ * feeding down into it, what it holds up on the right. Top to bottom on a
+ * phone (needs → made by → the thing → holds up), a three-column diagram from
+ * 768px with the lines drawn between the cards (ChainLinks.tsx).
  */
 .atlas-canvas-chain {
   overflow-y: auto;
@@ -23,6 +25,7 @@
   }
 }
 .flow {
+  position: relative;
   display: flex;
   flex-direction: column;
   max-width: 34rem;
@@ -30,11 +33,29 @@
 @media (min-width: 768px) {
   .flow {
     display: grid;
-    grid-template-columns:
-      minmax(0, 1fr) 1.75rem minmax(0, 1.2fr) 1.75rem minmax(0, 1fr)
-      1.75rem minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr) minmax(0, 1fr);
+    grid-template-areas:
+      'needs makers feeds'
+      'needs focus feeds';
+    grid-template-rows: auto auto;
+    column-gap: 3.5rem;
+    row-gap: 1.75rem;
     align-items: center;
     max-width: 72rem;
+  }
+  .flow-needs {
+    grid-area: needs;
+  }
+  .flow-makers {
+    grid-area: makers;
+    align-self: end;
+  }
+  .flow-focus {
+    grid-area: focus;
+    align-self: start;
+  }
+  .flow-feeds {
+    grid-area: feeds;
   }
 }
 .flow-col {
@@ -52,29 +73,71 @@
 .flow-kicker span {
   color: var(--color-fg-muted);
 }
-.flow-nodes a {
+
+/* ------------------------------------------------------------- the cards */
+.flow-nodes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.flow-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 0.125rem;
   min-height: 2.75rem;
-  padding: 0.5rem 0;
-  border-top: 1px solid var(--color-border-subtle);
+  padding: 0.625rem 0.875rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--atlas-radius);
+  background: var(--color-surface-raised);
+  transition:
+    border-color 160ms ease,
+    transform 160ms ease;
+  animation: flow-card-in 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
-.flow-nodes li:last-child a {
-  border-bottom: 1px solid var(--color-border-subtle);
+.flow-nodes li:nth-child(2) .flow-card {
+  animation-delay: 60ms;
+}
+.flow-nodes li:nth-child(3) .flow-card {
+  animation-delay: 120ms;
+}
+.flow-nodes li:nth-child(n + 4) .flow-card {
+  animation-delay: 180ms;
+}
+.flow-card:hover,
+.flow-card:focus-visible {
+  border-color: var(--color-fg-primary);
+  transform: translateY(-1px);
+}
+/* The maker the panel is showing. */
+.flow-card[aria-current='true'] {
+  border-color: var(--color-fg-primary);
+  box-shadow: inset 0 0 0 1px var(--color-fg-primary);
+}
+/* A part supplier is drawn lighter than the maker of the thing itself. */
+.flow-card[data-supplier] {
+  background: transparent;
 }
 .flow-label {
   font-size: 0.9375rem;
+  font-weight: 600;
   line-height: 1.3;
-  color: var(--color-fg-secondary);
+  color: var(--color-fg-primary);
   overflow-wrap: anywhere;
 }
-.flow-nodes a:hover .flow-label {
-  color: var(--color-fg-primary);
+.flow-card[data-supplier] .flow-label {
+  font-weight: 500;
+  color: var(--color-fg-secondary);
 }
 .flow-note {
   font: 0.75rem/1.4 var(--font-mono);
+  color: var(--color-fg-tertiary);
+}
+.flow-role {
+  font: 500 0.6875rem/1.4 var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--color-fg-tertiary);
 }
 .flow-empty {
@@ -83,7 +146,19 @@
   font-size: 0.8125rem;
   color: var(--color-fg-muted);
 }
-/* The one boxed thing on the canvas: the bottleneck the chain is about. */
+@keyframes flow-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ------------------------------------------------- the bottleneck itself */
+/* The one thing the chain is about: boxed in ink, with its severity drawn. */
 .flow-focus {
   padding: 1.25rem;
   border: 1px solid var(--color-fg-primary);
@@ -91,7 +166,7 @@
   background: var(--color-surface-raised);
 }
 .flow-title {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   font: 600 1.5rem/1.15 var(--font-heading);
   letter-spacing: var(--tracking-display);
   color: var(--color-fg-primary);
@@ -102,10 +177,57 @@
     font-size: 1.75rem;
   }
 }
+/* Twelve ticks; the lit ones are the score. */
+.flow-meter {
+  display: flex;
+  gap: 0.1875rem;
+  margin-bottom: 0.5rem;
+}
+.flow-meter i {
+  flex: 1 1 0;
+  height: 0.375rem;
+  border-radius: 1px;
+  background: var(--color-border-strong);
+}
+.flow-meter i[data-lit] {
+  background: var(--color-fg-primary);
+}
+
+/* ------------------------------------------------------ fields it serves */
+.flow-fields {
+  margin-top: 1rem;
+}
+.flow-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.flow-chips a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0 0.875rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  color: var(--color-fg-secondary);
+}
+.flow-chips a:hover {
+  border-color: var(--color-fg-primary);
+  color: var(--color-fg-primary);
+}
+
+/* ------------------------------------------------------------ the lines */
+/* Phones: an arrow between the stacked columns, with its verb. */
 .flow-arrow {
   display: flex;
+  align-items: center;
   justify-content: center;
+  gap: 0.5rem;
   padding: 0.5rem 0;
+  font: 500 0.6875rem/1.4 var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: var(--color-fg-muted);
 }
 .flow-arrow svg {
@@ -118,11 +240,73 @@
   stroke-linejoin: round;
   transform: rotate(90deg);
 }
+/* From 768px the lines are drawn between the cards instead. */
+.flow-links {
+  display: none;
+}
 @media (min-width: 768px) {
   .flow-arrow {
-    padding: 0;
+    display: none;
   }
-  .flow-arrow svg {
-    transform: none;
+  .flow-links {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: visible;
+    pointer-events: none;
+  }
+  .flow > .flow-col {
+    position: relative;
+    z-index: 1;
+  }
+}
+.flow-links path {
+  fill: none;
+  stroke-linecap: round;
+}
+.flow-link-track {
+  stroke: var(--color-border-strong);
+  stroke-width: 1.5;
+}
+.flow-link-flow {
+  stroke: var(--color-fg-tertiary);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 10;
+  animation: flow-run 1.6s linear infinite;
+  transition: stroke 160ms ease;
+}
+.flow-links g[data-active] .flow-link-track {
+  stroke: var(--color-fg-secondary);
+}
+.flow-links g[data-active] .flow-link-flow {
+  stroke: var(--color-fg-primary);
+}
+@keyframes flow-run {
+  to {
+    stroke-dashoffset: -14;
+  }
+}
+
+/* --------------------------------------------------- the story, in panel */
+.flow-story-lede {
+  margin-top: 0.75rem;
+}
+.flow-story-part + .flow-story-part {
+  margin-top: 1rem;
+}
+.flow-story-part p {
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--color-fg-secondary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-card {
+    animation: none;
+    transition: none;
+  }
+  .flow-link-flow {
+    animation: none;
   }
 }

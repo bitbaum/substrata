@@ -1,22 +1,36 @@
 /**
- * One bottleneck as a left-to-right flow: what it needs, the thing itself,
- * who makes it and where, and what it holds up.
+ * One bottleneck as a flow: what it needs, the thing itself, who makes it
+ * and where, and what it holds up.
  *
  * Nothing here is new data. "Needs" and "holds up" are the dependency edges of
  * the graph (config/substrata-dependencies.ts via lib/graph); makers are the
  * bottleneck's producer rows; technologies are its classification. This file
  * only arranges them in the order a supply chain reads.
+ *
+ * Every node stays on the map. A maker used to link out to its /markets page,
+ * so reading "who builds this" meant leaving the chain and pressing Back
+ * (owner, 2026-10-12); now a maker opens in the atlas' own panel, and the
+ * profile is one link further for whoever wants the whole dossier.
  */
 import { TECHNOLOGIES, type TechnologyId } from '@/config/substrata-taxonomy';
-import { BOTTLENECKS, type Bottleneck } from '@/lib/bottlenecks';
+import { CHAIN_LAYERS, SCARCITY_LABEL } from '@/config/substrata-participants';
+import { VERIFICATION_LABEL, type Verification } from '@/config/substrata-evidence';
+import { BOTTLENECKS, type Bottleneck, type BottleneckProducer } from '@/lib/bottlenecks';
 import { neighbors } from '@/lib/graph';
-import { marketHref } from '@/lib/links';
+import { hasMarketPage, participantBySlug } from '@/lib/participants';
+import { marketHref, slugify } from '@/lib/links';
 
 export interface FlowNode {
   label: string;
   href: string;
   /** A second line: a role, a country, a verification state. */
   note?: string;
+  /** Makers only: the role on the chain, as the card's chip. */
+  role?: string;
+  /** Makers only: supplies a part rather than building the thing. */
+  supplier?: boolean;
+  /** Makers only: the slug `?maker=` selects. */
+  makerSlug?: string;
 }
 
 export interface ChainFlow {
@@ -28,10 +42,31 @@ export interface ChainFlow {
   technologies: FlowNode[];
 }
 
+/** One maker as the panel shows it, inside the chain rather than on its own page. */
+export interface MakerDetail {
+  slug: string;
+  name: string;
+  role: string;
+  supplier: boolean;
+  countries: string[];
+  verification: Verification;
+  verificationLabel: string;
+  source: string | null;
+  /** The directory's one-line role and its scarcity judgement, when the maker has a row. */
+  directory: {
+    role: string | null;
+    why: string | null;
+    scarcity: string | null;
+    layer: string | null;
+  } | null;
+  /** The full profile, when one exists. */
+  profileHref: string | null;
+}
+
 const SLUGS = new Set(BOTTLENECKS.map((b) => b.slug));
 const REGION = new Intl.DisplayNames(['en'], { type: 'region' });
 
-function countryName(iso2: string): string {
+export function countryName(iso2: string): string {
   try {
     return REGION.of(iso2.toUpperCase()) ?? iso2.toUpperCase();
   } catch {
@@ -39,10 +74,11 @@ function countryName(iso2: string): string {
   }
 }
 
-export function chainHref(slug: string, topic?: string): string {
+export function chainHref(slug: string, topic?: string, maker?: string): string {
   const params = new URLSearchParams();
   if (topic) params.set('topic', topic);
   params.set('chain', slug);
+  if (maker) params.set('maker', maker);
   return `/atlas?${params.toString()}`;
 }
 
@@ -62,9 +98,13 @@ function dependencyNodes(chain: Bottleneck, rel: string, topic: string): FlowNod
     }));
 }
 
+/** Makers before part suppliers: Zeiss supplying optics is not a second scanner maker. */
+function orderedProducers(chain: Bottleneck): BottleneckProducer[] {
+  return [...chain.producers].sort((a, b) => Number(a.supplier) - Number(b.supplier));
+}
+
 export function chainFlow(chain: Bottleneck, topic: string): ChainFlow {
-  // Makers before part suppliers: Zeiss supplying optics is not a second scanner maker.
-  const producers = [...chain.producers].sort((a, b) => Number(a.supplier) - Number(b.supplier));
+  const producers = orderedProducers(chain);
   const isos = [
     ...new Set([...chain.jurisdictions, ...producers.flatMap((p) => p.jurisdictions)]),
   ].map((code) => code.toLowerCase());
@@ -72,8 +112,11 @@ export function chainFlow(chain: Bottleneck, topic: string): ChainFlow {
     needs: dependencyNodes(chain, 'depends on', topic),
     makers: producers.map((p) => ({
       label: p.name,
-      href: marketHref(p.name),
-      note: [p.jurisdictions.join(' · '), p.verification].filter(Boolean).join(' — '),
+      href: chainHref(chain.slug, topic, slugify(p.name)),
+      makerSlug: slugify(p.name),
+      role: p.role,
+      supplier: p.supplier,
+      note: p.jurisdictions.map(countryName).join(' · '),
     })),
     places: isos.map((iso2) => ({ iso2, name: countryName(iso2), href: countryHref(iso2) })),
     feeds: dependencyNodes(chain, 'depended on by', topic),
@@ -81,6 +124,34 @@ export function chainFlow(chain: Bottleneck, topic: string): ChainFlow {
       label: t.name,
       href: `/atlas?topic=${t.id}`,
     })),
+  };
+}
+
+/** The maker `?maker=` names on this chain, or null when it names nobody here. */
+export function makerDetail(chain: Bottleneck, slug: string | undefined): MakerDetail | null {
+  if (!slug) return null;
+  const producer = chain.producers.find((p) => slugify(p.name) === slug);
+  if (!producer) return null;
+  const row = participantBySlug(slug);
+  const layer = row ? (CHAIN_LAYERS.find((l) => l.id === row.layer)?.name ?? null) : null;
+  return {
+    slug,
+    name: producer.name,
+    role: producer.role,
+    supplier: producer.supplier,
+    countries: producer.jurisdictions.map(countryName),
+    verification: producer.verification,
+    verificationLabel: VERIFICATION_LABEL[producer.verification],
+    source: producer.source,
+    directory: row
+      ? {
+          role: row.role,
+          why: row.why,
+          scarcity: row.scarcity ? SCARCITY_LABEL[row.scarcity] : null,
+          layer,
+        }
+      : null,
+    profileHref: hasMarketPage(slug) ? marketHref(slug) : null,
   };
 }
 
