@@ -388,3 +388,22 @@
     min-height: 2.75rem;
   }
 }
+
+/* Producer sites, as the globe draws them (globe-overlay.ts): a light dot
+   with an ink rim, or an open ring where only the province is known. */
+.map-site {
+  display: inline-block;
+  flex: none;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-inline: 0.1875rem;
+  border: 1.25px solid var(--color-fg-primary);
+  border-radius: 999px;
+  background: var(--color-surface-page);
+}
+.map-site[data-region] {
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-inline: 0.0625rem;
+  background: transparent;
+}

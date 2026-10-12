@@ -1,9 +1,13 @@
 /*
  * The chains view (components/portal/AtlasChain.tsx): one bottleneck as a
- * diagram — needs on the left, the bottleneck in the middle with its makers
- * feeding down into it, what it holds up on the right. Top to bottom on a
- * phone (needs → made by → the thing → holds up), a three-column diagram from
- * 768px with the lines drawn between the cards (ChainLinks.tsx).
+ * route — the steps that go into it, the bottleneck with its makers inside
+ * it, what it holds up — one column per level, left to right in the order
+ * material moves. Top to bottom on a phone, with an arrow between levels; a
+ * row of columns with the lines drawn between the cards (ChainLinks.tsx)
+ * wherever there is room for one: 768–1023px, where the panel is a bottom
+ * sheet, and from 1280px. Between, the panel takes the right half and the
+ * space left is a phone's, so the diagram stacks as on one. Also the
+ * numbered route list in the globe's panel.
  */
 .atlas-canvas-chain {
   overflow-y: auto;
@@ -12,10 +16,14 @@
     calc(var(--atlas-sheet-peek) + var(--atlas-dock) + 2rem);
   background: var(--color-surface-page);
 }
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1023px), (min-width: 1280px) {
   .atlas-canvas-chain {
     display: grid;
-    align-content: center;
+    /* Centred when it fits; from the top when it does not, never clipped. */
+    align-content: safe center;
+    /* A four-level route can be wider than the space beside the panel: the
+       diagram scrolls on its own, the page never does. */
+    overflow-x: auto;
     padding-inline: 1.5rem;
   }
 }
@@ -30,32 +38,18 @@
   flex-direction: column;
   max-width: 34rem;
 }
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1023px), (min-width: 1280px) {
   .flow {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr) minmax(0, 1fr);
-    grid-template-areas:
-      'needs makers feeds'
-      'needs focus feeds';
-    grid-template-rows: auto auto;
-    column-gap: 3.5rem;
-    row-gap: 1.75rem;
+    grid-template-columns: var(--flow-template, minmax(0, 1fr));
+    column-gap: 2rem;
+    row-gap: 1.5rem;
     align-items: center;
-    max-width: 72rem;
+    max-width: 76rem;
   }
-  .flow-needs {
-    grid-area: needs;
-  }
-  .flow-makers {
-    grid-area: makers;
-    align-self: end;
-  }
-  .flow-focus {
-    grid-area: focus;
-    align-self: start;
-  }
-  .flow-feeds {
-    grid-area: feeds;
+  .flow-fields,
+  .flow-alone {
+    grid-column: 1 / -1;
   }
 }
 .flow-col {
@@ -172,7 +166,15 @@
   color: var(--color-fg-primary);
   overflow-wrap: anywhere;
 }
-@media (min-width: 1280px) {
+@media (min-width: 768px) and (max-width: 1439px) {
+  .flow-title {
+    font-size: 1.25rem;
+  }
+  .flow-label {
+    font-size: 0.875rem;
+  }
+}
+@media (min-width: 1440px) {
   .flow-title {
     font-size: 1.75rem;
   }
@@ -191,6 +193,61 @@
 }
 .flow-meter i[data-lit] {
   background: var(--color-fg-primary);
+}
+
+/* Makers, inside the bottleneck's card: who builds it, then whose parts. */
+.flow-makers {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border-subtle);
+}
+.flow-makers ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.flow-maker {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.125rem;
+  min-height: var(--size-target);
+  padding: 0.5rem 0.625rem;
+  margin-inline: -0.625rem;
+  border-radius: var(--atlas-radius);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-fg-primary);
+  transition: background-color 160ms ease;
+}
+.flow-maker:hover,
+.flow-maker:focus-visible,
+.flow-maker[aria-current='true'] {
+  background: var(--color-surface-page);
+}
+.flow-maker[aria-current='true'] {
+  box-shadow: inset 2px 0 0 var(--color-fg-primary);
+}
+.flow-globe {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--size-target);
+  margin-top: 1rem;
+  padding: 0 0.875rem;
+  border: 1px solid var(--color-fg-primary);
+  border-radius: var(--atlas-radius);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-fg-primary);
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+.flow-globe:hover,
+.flow-globe:focus-visible {
+  background: var(--color-fg-primary);
+  color: var(--color-surface-page);
 }
 
 /* ------------------------------------------------------ fields it serves */
@@ -244,7 +301,7 @@
 .flow-links {
   display: none;
 }
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1023px), (min-width: 1280px) {
   .flow-arrow {
     display: none;
   }
@@ -286,6 +343,57 @@
   to {
     stroke-dashoffset: -14;
   }
+}
+
+/* -------------------------------------------- the route, beside the globe */
+/* Numbered as the globe labels them; the bottleneck's own step in ink. */
+.route-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
+}
+.route-steps li {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: 0.75rem;
+  padding: 0.625rem 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.route-num {
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 999px;
+  font: 500 0.75rem/1 var(--font-mono);
+  color: var(--color-fg-secondary);
+}
+.route-steps li[data-side='self'] .route-num {
+  border-color: var(--color-fg-primary);
+  background: var(--color-fg-primary);
+  color: var(--color-surface-page);
+}
+.route-side {
+  font: 500 0.6875rem/1.4 var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-fg-tertiary);
+}
+.route-name {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--color-fg-primary);
+}
+a.route-name:hover {
+  text-decoration: underline;
+}
+.route-where {
+  font: 0.75rem/1.5 var(--font-mono);
+  color: var(--color-fg-tertiary);
 }
 
 /* --------------------------------------------------- the story, in panel */
@@ -344,5 +452,9 @@
   }
   .flow-link-flow {
     animation: none;
+  }
+  .flow-maker,
+  .flow-globe {
+    transition: none;
   }
 }

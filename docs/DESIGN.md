@@ -44,6 +44,8 @@ nowhere else. Every motion is still for `prefers-reduced-motion`.
 | The globe flies to a country, along the great circle, pulling back on a long turn | "Where is that?" | `globe-motion.ts` |
 | A ring opens from the picked country as the globe arrives | "That one — here" | `globe-marks.ts` |
 | Picking a resource turns the globe to its largest producer | "Where does it come from?" | `Globe.tsx` |
+| A site flies in close; a route is framed whole | "Show me that place" / "Show me the chain" | `Globe.tsx` |
+| A light runs along each route arc, input to output | "Which way does it move?" | `globe-overlay.ts` |
 | A dash runs along the chain's lines, input to output | "Which way does it flow?" | `ChainLinks.tsx` |
 | Cards rise in, staggered, when a chain opens | "This is new" | `atlas-chain.css` |
 
@@ -82,21 +84,29 @@ advice" sits beside it, every time.
 4. **Tokens only.** Every colour and size comes from `app/globals.css`; a
    canvas reads the same tokens (`readPalette`).
 
-## 5. Next, in order
+## 5. Done, and next
 
-1. **Producers on the globe, not only countries.** Facilities carry free-text
-   locations today (`research/usgs-producers.json`); geocode them once,
-   commit the coordinates with their source, and draw each producer as a
-   point inside its country, clickable to its row.
-2. **Chains on the globe.** From a bottleneck, draw great-circle arcs from
-   each input's producing countries to the maker's country, so "tin from
-   Indonesia → scanners in the Netherlands" is a line you can see. The
-   geometry already exists (`geoInterpolate` in `globe-motion.ts`).
-3. **A reader setting.** Let a reader say who they are once (`/for/<id>`
+Done on 2026-10-12:
+
+- **Producers on the globe.** `research/producer-places.json` places each
+  USGS facility location from GeoNames, offline, with its precision stated
+  (site, town, region) and the entry it came from. `test/producer-sites.test.ts`
+  fails if a dot lands in another country or a named province does not hold
+  it; the quality page measures the same. Drawn by `globe-overlay.ts`.
+- **Chains on the globe.** `app/atlas/chain-route.ts` is the one route model:
+  the diagram (`AtlasChain.tsx`) and the globe (`?view=world&chain=`) both
+  read it, numbered the same.
+
+Next, in order:
+
+1. **A reader setting.** Let a reader say who they are once (`/for/<id>`
    already exists) and lead every "What you can do" with their row.
-4. **AI-written briefs, sourced.** For each chain, a short brief drafted by
+2. **AI-written briefs, sourced.** For each chain, a short brief drafted by
    the model from the corpus rows only, every sentence linked to the row it
    came from, marked as drafted until an analyst signs it.
-5. **Dark by default on the atlas.** The map reads best on black; offer it
+3. **More on the map.** The overlay takes any point layer with a precision:
+   the corpus's own makers (fabs, refineries) and the export rules by country
+   are the next two, both already on file.
+4. **Dark by default on the atlas.** The map reads best on black; offer it
    as the atlas default while the rest of the site follows the reader's
    theme.

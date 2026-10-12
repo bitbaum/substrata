@@ -22,6 +22,7 @@ import eia from '../research/eia-energy.json';
 import oecd from '../research/oecd-export-restrictions.json';
 import sanctions from '../research/sanctions.json';
 import producers from '../research/usgs-producers.json';
+import producerPlaces from '../research/producer-places.json';
 import { ASSESSMENTS } from './substrata-assessment';
 
 export type FeedId =
@@ -229,6 +230,14 @@ export const DATASETS: readonly Dataset[] = [
     file: 'research/usgs-producers.json',
     refresh: 'pnpm run research:producers (new country chapters through the year)',
     checkedOn: day(producers.retrieved),
+    maxAgeDays: 400,
+  },
+  {
+    id: 'producer-places',
+    label: 'Producer sites on the globe (USGS rows placed with GeoNames)',
+    file: 'research/producer-places.json',
+    refresh: 'pnpm run research:producer-places (after research:producers)',
+    checkedOn: day(producerPlaces.retrieved),
     maxAgeDays: 400,
   },
   {

@@ -12,3 +12,4 @@ next-env.d.ts
 
 # Python bytecode from scripts/research/*.py
 __pycache__/
+.cache/

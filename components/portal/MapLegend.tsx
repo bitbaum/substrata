@@ -10,9 +10,12 @@ import type { MapLegend as Legend } from '@/app/atlas/map-layer';
 export function MapLegend({
   legend,
   measureHref,
+  sites = 0,
 }: {
   legend: Legend;
   measureHref?: (measure: string) => string;
+  /** Producer sites drawn for this resource; their key, when there are any. */
+  sites?: number;
 }) {
   return (
     <figure className="map-legend">
@@ -49,6 +52,18 @@ export function MapLegend({
               {key.label}
             </li>
           ))}
+        </ul>
+      )}
+      {sites > 0 && (
+        <ul className="map-keys map-sites">
+          <li>
+            <span className="map-site" aria-hidden />
+            {sites} producer sites (USGS), at the facility or its town
+          </li>
+          <li>
+            <span className="map-site" data-region aria-hidden />
+            Province only
+          </li>
         </ul>
       )}
       {legend.note && (

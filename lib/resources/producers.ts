@@ -73,6 +73,11 @@ export function facilitiesFor(iso2: string, resource: string): CountryFacilities
   };
 }
 
+/** Every country a Minerals Yearbook chapter was read for. */
+export function yearbookCountries(): string[] {
+  return FILE.countries.map((c) => c.iso2);
+}
+
 export function hasYearbookChapter(iso2: string): boolean {
   return FILE.countries.some((c) => c.iso2 === iso2.toLowerCase());
 }

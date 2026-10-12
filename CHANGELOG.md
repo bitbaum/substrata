@@ -2,6 +2,19 @@
 
 What changed on substrata.orangecat.ch, newest first, in the words of someone using it. Every entry corresponds to a merged pull request and the numbers are the ones in the commits; fixes are listed with the same weight as features. This file is what the fleet map (`loki.orangecat.ch/api/fleet/map`) reads, and `/changelog` on the site renders from the map.
 
+## 2026-10-12
+
+### Added
+- **Producer sites on the globe.** Pick a resource on the world view and every mine, smelter and refinery the USGS Minerals Yearbook lists for it appears where it is: about a thousand locations in 37 countries, placed from GeoNames. A solid dot is the facility or its town; an open ring means only the province is known. Click one and the globe flies in and the panel lists who operates what there, at what capacity, with both sources. (#175)
+- **A chain, laid over the Earth.** "On the globe" on any chain draws it across the world: one line from where each input is made to where the step that needs it is made, with a light running the way material moves, and numbered labels that match the list beside it. EUV scanners: optics from Germany and tin from China, Peru and Indonesia into the Netherlands, then on to foundries and packaging in Taiwan. (#175)
+- **What you can do, by reader.** Every chain now ends with one row each for equity investors, commodity traders, industry teams, job seekers and learners, each built from the records and linking to the page that serves them. (#174)
+- **The globe says where.** Picking a resource labels its largest producers in place ("Australia · 32%") and turns to face them; a clicked country is reached by a flight that lands with a ring. (#174)
+### Changed
+- **The chain is a route, not a hub.** The diagram now shows every step two levels up and down — for leading-edge foundries, quartz and polysilicon into wafers, scanners, helium, neon and photoresist, into the foundries, into packaging — left to right in the order material moves. Makers sit inside the bottleneck they build. (#175)
+- **The chain reads in plain words.** A maker opens beside the diagram instead of leaving the map, and the panel says in sentences what the chain tells us. (#173)
+### Fixed
+- **No line runs through the makers.** The old diagram drew the bottleneck's connector straight through the cards of its part suppliers. (#175)
+
 ## 2026-10-09
 
 ### Added

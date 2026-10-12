@@ -1,23 +1,23 @@
 'use client';
 
 /**
- * The lines of the chain, drawn between the cards that are actually on
- * screen: each need into the bottleneck, each maker down into it, the
- * bottleneck out to each thing it holds up. They flow — a moving dash from
- * input to output — so the direction reads without an arrow per column, and
- * they stand still for anyone who asked for reduced motion.
+ * The lines of the route, drawn between the cards that are actually on
+ * screen: one per dependency on record, from the input's right edge to the
+ * left edge of the step that needs it. They flow — a moving dash from input
+ * to output — so the direction reads without an arrow per column, and they
+ * stand still for anyone who asked for reduced motion.
  *
  * Positions are measured from the DOM (one ResizeObserver on the flow), so
  * the diagram stays a list of accessible links and this is purely the drawing
- * on top. Hovering or focusing a card lights its own line.
+ * on top. Hovering or focusing a card lights its own lines, in and out.
  */
 import { useEffect, useRef, useState } from 'react';
 
-type Lane = 'needs' | 'makers' | 'feeds';
+const ROW_LAYOUT = '(min-width: 768px) and (max-width: 1023px), (min-width: 1280px)';
 
 interface Line {
-  key: string;
-  lane: Lane;
+  from: string;
+  to: string;
   d: string;
 }
 
@@ -28,16 +28,12 @@ function centreOf(el: Element, host: DOMRect, side: 'left' | 'right' | 'top' | '
   return { x: x - host.left, y: y - host.top };
 }
 
-function curve(a: { x: number; y: number }, b: { x: number; y: number }, vertical: boolean) {
-  if (vertical) {
-    const my = (a.y + b.y) / 2;
-    return `M${a.x} ${a.y} C${a.x} ${my} ${b.x} ${my} ${b.x} ${b.y}`;
-  }
+function curve(a: { x: number; y: number }, b: { x: number; y: number }) {
   const mx = (a.x + b.x) / 2;
   return `M${a.x} ${a.y} C${mx} ${a.y} ${mx} ${b.y} ${b.x} ${b.y}`;
 }
 
-export function ChainLinks() {
+export function ChainLinks({ edges }: { edges: [string, string][] }) {
   const svg = useRef<SVGSVGElement>(null);
   const [lines, setLines] = useState<Line[]>([]);
   const [size, setSize] = useState({ w: 0, h: 0 });
@@ -50,37 +46,21 @@ export function ChainLinks() {
 
     function draw() {
       if (!flow) return;
-      // Below 768px the flow is a column with its own arrows; nothing to draw.
-      if (window.matchMedia('(max-width: 767px)').matches) {
+      // Stacked (a phone, or 1024–1279px beside the panel), the flow has its
+      // own arrows; nothing to draw. Same query as atlas-chain.css.
+      if (!window.matchMedia(ROW_LAYOUT).matches) {
         setLines([]);
         return;
       }
       const host = flow.getBoundingClientRect();
-      const focus = flow.querySelector('[data-flow-focus]');
-      if (!focus) return;
+      const card = (key: string) =>
+        flow.querySelector<HTMLElement>(`[data-flow-node][data-key="${CSS.escape(key)}"]`);
       const next: Line[] = [];
-      for (const node of flow.querySelectorAll<HTMLElement>('[data-flow-node]')) {
-        const lane = node.dataset.lane as Lane;
-        const key = node.dataset.key ?? '';
-        if (lane === 'needs') {
-          next.push({
-            key,
-            lane,
-            d: curve(centreOf(node, host, 'right'), centreOf(focus, host, 'left'), false),
-          });
-        } else if (lane === 'feeds') {
-          next.push({
-            key,
-            lane,
-            d: curve(centreOf(focus, host, 'right'), centreOf(node, host, 'left'), false),
-          });
-        } else if (lane === 'makers') {
-          next.push({
-            key,
-            lane,
-            d: curve(centreOf(node, host, 'bottom'), centreOf(focus, host, 'top'), true),
-          });
-        }
+      for (const [from, to] of edges) {
+        const a = card(from);
+        const b = card(to);
+        if (!a || !b) continue;
+        next.push({ from, to, d: curve(centreOf(a, host, 'right'), centreOf(b, host, 'left')) });
       }
       setSize({ w: host.width, h: host.height });
       setLines(next);
@@ -109,7 +89,7 @@ export function ChainLinks() {
       flow.removeEventListener('pointerleave', out);
       flow.removeEventListener('focusout', out);
     };
-  }, []);
+  }, [edges]);
 
   return (
     <svg
@@ -122,7 +102,10 @@ export function ChainLinks() {
       focusable="false"
     >
       {lines.map((line) => (
-        <g key={line.key} data-lane={line.lane} data-active={active === line.key || undefined}>
+        <g
+          key={`${line.from}>${line.to}`}
+          data-active={active === line.from || active === line.to || undefined}
+        >
           <path className="flow-link-track" d={line.d} />
           <path className="flow-link-flow" d={line.d} />
         </g>

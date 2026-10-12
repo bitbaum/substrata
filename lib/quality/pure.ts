@@ -6,6 +6,7 @@ import { corpusChecks } from './checks-corpus';
 import { crossChecks } from './checks-cross';
 import { listingChecks } from './checks-listings';
 import { miscChecks } from './checks-misc';
+import { placeChecks } from './checks-places';
 import { resourceChecks } from './checks-resources';
 import { seriesChecks } from './checks-series';
 import type { CheckResult } from './types';
@@ -22,6 +23,7 @@ export function pureResults(now = new Date()): CheckResult[] {
     ...listingChecks(now),
     ...resourceChecks(),
     ...crossChecks(),
+    ...placeChecks(),
     ...miscChecks(now),
   ];
   cached = { day, results };

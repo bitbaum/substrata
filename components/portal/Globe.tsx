@@ -14,31 +14,64 @@
  * fall back to. Drawn only when something changes; idle, it costs nothing.
  *
  * Split by job: geometry (globe-geo), movement (globe-motion), picking
- * (globe-pick), painting (globe-paint), the frame loop (globe-loop), input
- * (globe-input). This file wires them to the page: selection, the control
- * the input drives, the text alternative, the zoom buttons and hover card.
+ * (globe-pick), painting (globe-paint), sites and routes (globe-overlay),
+ * the frame loop (globe-loop), input (globe-input) and what it may do
+ * (globe-control). This file wires them to the page: selection, the text
+ * alternative, the zoom buttons and the hover card.
  * Every country is also reachable by name in the panel's search, which is
  * how Malta or Singapore are reached on a phone.
  */
 import { useEffect, useRef, useState } from 'react';
-import { useRouter } from 'next/navigation';
 
+import { useGlobeControl, type Hover } from './globe-control';
 import {
   cameraFor,
   focusOf,
   clampTilt,
-  clampZoom,
   loadWorld,
-  wrapLon,
   type CountryFeature,
   type World,
 } from './globe-geo';
-import { useGlobeInput, type GlobeControl } from './globe-input';
-import { reducedMotion, useGlobeLoop } from './globe-loop';
-import { dragged } from './globe-motion';
-import { pickAt, pickIndex, type Pickable } from './globe-pick';
+import { useGlobeInput } from './globe-input';
+import { useGlobeLoop } from './globe-loop';
+import { EMPTY_OVERLAY, type Overlay, type SitePoint } from './globe-overlay';
+import { useOverlay } from './globe-overlay-state';
+import { pickIndex, type Pickable } from './globe-pick';
 import { useMapView } from './map-view';
 import type { WorldMapProps } from './WorldMap';
+
+const NO_SITES: SitePoint[] = [];
+
+/**
+ * Where to face a route from: the mean of the countries on it, so as much of
+ * it as one side of the Earth can hold is in view. A route spread all the way
+ * round has no such side (the mean falls near the Earth's centre); then null,
+ * and the globe faces the bottleneck's own country instead.
+ */
+function routeCentre(
+  routes: { from: string; to: string }[],
+  byIso: Map<string, CountryFeature>,
+): [number, number] | null {
+  let x = 0;
+  let y = 0;
+  let z = 0;
+  let n = 0;
+  for (const iso of new Set(routes.flatMap((r) => [r.from, r.to]))) {
+    const f = byIso.get(iso);
+    if (!f) continue;
+    const [lon, lat] = focusOf(f).center.map((d) => (d * Math.PI) / 180);
+    x += Math.cos(lat) * Math.cos(lon);
+    y += Math.cos(lat) * Math.sin(lon);
+    z += Math.sin(lat);
+    n += 1;
+  }
+  if (n === 0) return null;
+  const r = Math.hypot(x, y, z) / n;
+  if (r < 0.35) return null;
+  const lon = (Math.atan2(y, x) * 180) / Math.PI;
+  const lat = (Math.atan2(z, Math.hypot(x, y)) * 180) / Math.PI;
+  return [lon, clampTilt(lat * 0.7)];
+}
 
 export default function Globe({
   selected,
@@ -48,16 +81,16 @@ export default function Globe({
   callouts,
   otherwise,
   summary,
+  sites,
+  site,
+  routes,
 }: WorldMapProps) {
-  const router = useRouter();
   const wrap = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [world, setWorld] = useState<World | null>(null);
   const [failed, setFailed] = useState(false);
   const [loadAttempt, setLoadAttempt] = useState(0);
-  const [hover, setHover] = useState<{ iso: string; name: string; x: number; y: number } | null>(
-    null,
-  );
+  const [hover, setHover] = useState<Hover | null>(null);
   const [facing, setFacing] = useState('');
 
   useEffect(() => {
@@ -76,9 +109,10 @@ export default function Globe({
   }, [loadAttempt]);
 
   const frame = useMapView(wrap);
-  const loop = useGlobeLoop({ canvasRef, world, frame, bins, selected, callouts });
-  const { cameraRef, motionRef, touchedRef, hoverRef, grabbedRef } = loop;
-  const { projection, radius, invalidate, fly } = loop;
+  const overlayRef = useRef<Overlay>(EMPTY_OVERLAY);
+  const loop = useGlobeLoop({ canvasRef, world, frame, bins, selected, callouts, overlayRef });
+  const { cameraRef, touchedRef, invalidate, fly } = loop;
+  const hoverSite = useOverlay({ overlayRef, world, sites, site, routes, invalidate });
 
   const index = useRef<Pickable[]>([]);
   const byIso = useRef(new Map<string, CountryFeature>());
@@ -95,122 +129,56 @@ export default function Globe({
   // resource everywhere except where it is.
   const faced = useRef<string | null>(null);
   const lead = callouts?.[0]?.iso ?? '';
+  const opened = site ? sites?.find((s) => s.id === site) : undefined;
   useEffect(() => {
-    const key = selected ? `country:${selected}` : lead ? `lead:${lead}` : '';
+    const key = opened
+      ? `site:${opened.id}`
+      : selected
+        ? `country:${selected}`
+        : routes?.length
+          ? `route:${routes.length}:${lead}`
+          : lead
+            ? `lead:${lead}`
+            : '';
     if (!world || faced.current === key) return;
     const first = faced.current === null;
     faced.current = key;
     const target = selected ? byIso.current.get(selected) : undefined;
     const top = !selected && lead ? byIso.current.get(lead) : undefined;
     const c = cameraRef.current;
-    const to = target
-      ? cameraFor(target)
-      : top
-        ? {
-            center: [focusOf(top).center[0], clampTilt(focusOf(top).center[1] * 0.6)] as [
-              number,
-              number,
-            ],
-            k: 1,
-          }
-        : { center: c.center, k: Math.min(c.k, 1) };
+    // A site is a point, not a country: come in close, so its neighbours
+    // separate into their own dots.
+    const span = !selected && routes?.length ? routeCentre(routes, byIso.current) : null;
+    const to = opened
+      ? { center: [opened.lon, clampTilt(opened.lat)] as [number, number], k: 3 }
+      : span
+        ? { center: span, k: 1 }
+        : target
+          ? cameraFor(target)
+          : top
+            ? {
+                center: [focusOf(top).center[0], clampTilt(focusOf(top).center[1] * 0.6)] as [
+                  number,
+                  number,
+                ],
+                k: 1,
+              }
+            : { center: c.center, k: Math.min(c.k, 1) };
     if (!first) return fly(to);
     cameraRef.current = to;
     touchedRef.current = performance.now();
     invalidate();
-  }, [world, selected, lead, cameraRef, touchedRef, fly, invalidate]);
+  }, [world, selected, lead, opened, routes, cameraRef, touchedRef, fly, invalidate]);
 
-  // What the input may do to the globe; kept current for its handlers.
-  const controlRef = useRef<GlobeControl | null>(null);
-  useEffect(() => {
-    const pick = (x: number, y: number) => {
-      const proj = projection();
-      return proj ? pickAt(index.current, proj, x, y) : null;
-    };
-    const facingNow = () => {
-      const proj = projection();
-      return proj ? pick(...proj.translate()) : null;
-    };
-    const open = (f: CountryFeature | null) => {
-      if (!f?.properties.iso) return;
-      const params = new URLSearchParams({ view: 'world', ...keep, country: f.properties.iso });
-      router.push(`/atlas?${params.toString()}`, { scroll: false });
-    };
-    const markHover = (f: CountryFeature | null) => {
-      const iso = f?.properties.iso ?? '';
-      if (iso === hoverRef.current) return;
-      hoverRef.current = iso;
-      invalidate();
-    };
-    const moved = () => {
-      touchedRef.current = performance.now();
-      setHover(null);
-      invalidate();
-    };
-    controlRef.current = {
-      grab() {
-        motionRef.current = {};
-        touchedRef.current = performance.now();
-      },
-      hold(down) {
-        grabbedRef.current = down;
-        if (!down) invalidate(); // the frame after the gesture is full detail
-      },
-      drag(dx, dy) {
-        cameraRef.current = dragged(cameraRef.current, dx, dy, radius());
-        moved();
-      },
-      scale(factor) {
-        cameraRef.current = { ...cameraRef.current, k: clampZoom(cameraRef.current.k * factor) };
-        moved();
-      },
-      coast(spin) {
-        motionRef.current.spin = spin;
-        invalidate();
-      },
-      tap: (x, y) => open(pick(x, y)),
-      hoverAt(x, y) {
-        const f = pick(x, y);
-        touchedRef.current = performance.now();
-        markHover(f);
-        setHover(f ? { iso: f.properties.iso, name: f.properties.name, x, y } : null);
-      },
-      hoverOff() {
-        markHover(null);
-        setHover(null);
-      },
-      zoomBy(factor) {
-        const c = cameraRef.current;
-        const k = factor === 'home' ? 1 : clampZoom(c.k * factor);
-        fly({ center: c.center, k }, 260);
-      },
-      turn(dLon, dLat) {
-        const c = cameraRef.current;
-        motionRef.current = {};
-        cameraRef.current = {
-          center: [wrapLon(c.center[0] + dLon / c.k), clampTilt(c.center[1] + dLat / c.k)],
-          k: c.k,
-        };
-        moved();
-        setFacing(facingNow()?.properties.name ?? 'open ocean');
-      },
-      openFacing: () => open(facingNow()),
-      reducedMotion,
-    };
-  }, [
-    cameraRef,
-    fly,
-    grabbedRef,
-    hoverRef,
-    invalidate,
+  const controlRef = useGlobeControl({
+    loop,
+    index,
     keep,
-    motionRef,
-    projection,
-    radius,
-    router,
-    touchedRef,
-  ]);
-
+    sites: sites ?? NO_SITES,
+    hoverSite,
+    setHover,
+    setFacing,
+  });
   useGlobeInput(canvasRef, controlRef);
   const chosen = selected ? world?.countries.find((c) => c.properties.iso === selected) : undefined;
 
@@ -258,7 +226,11 @@ export default function Globe({
       {hover && (
         <div className="wm-tip" style={{ left: hover.x, top: hover.y }} aria-hidden>
           <strong>{hover.name}</strong>
-          {(labels[hover.iso] ?? otherwise) && <span>{labels[hover.iso] ?? otherwise}</span>}
+          {hover.site ? (
+            <span>Click for the facilities</span>
+          ) : (
+            (labels[hover.iso] ?? otherwise) && <span>{labels[hover.iso] ?? otherwise}</span>
+          )}
         </div>
       )}
       {failed && (

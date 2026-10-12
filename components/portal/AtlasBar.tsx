@@ -11,17 +11,20 @@ import { AutoSubmitForm } from './AutoSubmitForm';
 export function AtlasBar({
   view,
   worldHref,
+  chainsHref = '/atlas',
   children,
 }: {
   view: 'chain' | 'world';
   /** The world view keeps a painted resource when the reader flips back. */
   worldHref: string;
+  /** And the chains view the chain that is on the globe. */
+  chainsHref?: string;
   children: ReactNode;
 }) {
   return (
     <div className="atlas-bar">
       <nav className="atlas-switch" aria-label="Map view">
-        <Link href="/atlas" aria-current={view === 'chain' ? 'page' : undefined}>
+        <Link href={chainsHref} aria-current={view === 'chain' ? 'page' : undefined}>
           Chains
         </Link>
         <Link href={worldHref} aria-current={view === 'world' ? 'page' : undefined}>

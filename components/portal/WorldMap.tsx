@@ -7,6 +7,9 @@
  */
 import dynamic from 'next/dynamic';
 
+import type { SitePoint } from './globe-overlay';
+import type { RouteHop } from './globe-overlay-state';
+
 export interface WorldMapProps {
   selected?: string;
   /** Query parameters a click on a country keeps (resource, measure). */
@@ -20,6 +23,12 @@ export interface WorldMapProps {
   otherwise?: string;
   /** What the globe shows, in words, for a screen reader. */
   summary: string;
+  /** Producer sites of the painted resource, as dots a click opens. */
+  sites?: SitePoint[];
+  /** The site `?site=` opened. */
+  site?: string;
+  /** A supply chain laid over the Earth: one arc per hop, by country code. */
+  routes?: RouteHop[];
 }
 
 const Globe = dynamic(() => import('./Globe'), {
