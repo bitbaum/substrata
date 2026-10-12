@@ -31,6 +31,8 @@ export interface FlowNode {
   supplier?: boolean;
   /** Makers only: the slug `?maker=` selects. */
   makerSlug?: string;
+  /** Makers only: the country codes behind `note`, for prose. */
+  noteIsos?: string[];
 }
 
 export interface ChainFlow {
@@ -74,11 +76,38 @@ export function countryName(iso2: string): string {
   }
 }
 
-export function chainHref(slug: string, topic?: string, maker?: string): string {
+/** Countries English names with "the": "made in the Netherlands", not "in Netherlands". */
+const WITH_THE = new Set([
+  'nl',
+  'us',
+  'gb',
+  'ph',
+  'cd',
+  'cf',
+  'do',
+  'ae',
+  'bs',
+  'gm',
+  'mv',
+  'mh',
+  'sb',
+  'km',
+  'va',
+]);
+
+/** A country as it reads mid-sentence. */
+export function countryInProse(iso2: string): string {
+  const name = countryName(iso2);
+  return WITH_THE.has(iso2.toLowerCase()) ? `the ${name}` : name;
+}
+
+export function chainHref(slug: string, topic?: string, maker?: string, lens?: string): string {
   const params = new URLSearchParams();
   if (topic) params.set('topic', topic);
   params.set('chain', slug);
   if (maker) params.set('maker', maker);
+  // The overview is the default; a lens the reader chose rides along as they walk the chain.
+  if (lens && lens !== 'overview') params.set('lens', lens);
   return `/atlas?${params.toString()}`;
 }
 
@@ -117,6 +146,7 @@ export function chainFlow(chain: Bottleneck, topic: string): ChainFlow {
       role: p.role,
       supplier: p.supplier,
       note: p.jurisdictions.map(countryName).join(' · '),
+      noteIsos: p.jurisdictions.map((c) => c.toLowerCase()),
     })),
     places: isos.map((iso2) => ({ iso2, name: countryName(iso2), href: countryHref(iso2) })),
     feeds: dependencyNodes(chain, 'depended on by', topic),

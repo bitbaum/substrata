@@ -14,7 +14,7 @@
 import type { Bottleneck } from '@/lib/bottlenecks';
 import type { GraphEdge } from '@/lib/graph';
 import { HORIZON_LABEL } from '@/config/substrata-assessment';
-import type { ChainFlow, FlowNode } from './chain-data';
+import { countryInProse, countryName, type ChainFlow, type FlowNode } from './chain-data';
 
 export interface StoryPart {
   /** The question this paragraph answers. */
@@ -59,13 +59,14 @@ function makerWords(flow: ChainFlow): { builders: string[]; suppliers: string[] 
 
 /** Where the BUILDERS work — not every country on the chain. "ASML
  *  (Netherlands and Germany)" credited Zeiss's home to ASML. */
-function placeWords(flow: ChainFlow): string {
-  const builders = flow.makers.filter((m) => !m.supplier && m.note);
-  const names =
+function placeWords(flow: ChainFlow, prose = true): string {
+  const builders = flow.makers.filter((m) => !m.supplier && m.noteIsos?.length);
+  const isos =
     builders.length > 0
-      ? builders.flatMap((m) => (m.note ?? '').split(' · '))
-      : flow.places.map((p) => p.name);
-  return listWords([...new Set(names)]);
+      ? builders.flatMap((m) => m.noteIsos ?? [])
+      : flow.places.map((p) => p.iso2);
+  // "working from the Netherlands" in a sentence; "ASML (Netherlands)" in brackets.
+  return listWords([...new Set(isos)].map(prose ? countryInProse : countryName));
 }
 
 function labels(nodes: readonly FlowNode[]): string[] {
@@ -88,6 +89,7 @@ export function chainStory(
 ): ChainStory {
   const { builders, suppliers } = makerWords(flow);
   const places = placeWords(flow);
+  const bracketed = placeWords(flow, false);
   const needs = labels(flow.needs);
   const feeds = labels(flow.feeds);
   const fields = flow.technologies.map((t) => t.label);
@@ -97,7 +99,7 @@ export function chainStory(
   // ── The lede: who, where, what it needs, what it holds up ─────────────
   const who =
     builders.length > 0
-      ? `${listWords(builders)}${places ? ` (${places})` : ''} ${builders.length === 1 ? 'builds' : 'build'} ${lower(chain.name)}`
+      ? `${listWords(builders)}${bracketed ? ` (${bracketed})` : ''} ${builders.length === 1 ? 'builds' : 'build'} ${lower(chain.name)}`
       : `Nobody is on record yet as the maker of ${lower(chain.name)}`;
   const inputs = needs.length > 0 ? `; it cannot be made without ${listWords(needs)}` : '';
   const outputs =

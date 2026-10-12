@@ -46,7 +46,7 @@ function listedMakers(chain: Bottleneck): { name: string; ticker: string }[] {
 }
 
 /** The resource this bottleneck is made from, when the map can paint it. */
-function resourceOf(chain: Bottleneck): { id: string; label: string } | null {
+export function resourceOf(chain: Bottleneck): { id: string; label: string } | null {
   for (const kind of RESOURCE_KINDS) {
     if (RESOURCE_TO_BOTTLENECKS[kind.id]?.includes(chain.name)) {
       return { id: kind.id, label: kind.label };

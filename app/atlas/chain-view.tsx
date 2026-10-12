@@ -21,16 +21,20 @@ import { chainFlow, chainHref, makerDetail, pickable, resolveChain } from './cha
 import { chainStory } from './chain-story';
 import { chainActions } from './chain-actions';
 import { chainRoute } from './chain-route';
+import { chainLenses, isLens, type LensId } from './lenses';
 
 export function ChainView({
   topic: requested,
   requested: chainSlug,
   maker: makerSlug,
+  lens: lensParam,
   worldHref,
 }: {
   topic?: string;
   requested?: string;
   maker?: string;
+  /** The lens the panel opens on (`?lens=`); the overview when absent or unknown. */
+  lens?: string;
   worldHref: string;
 }) {
   const topic = TECHNOLOGIES.find((t) => t.id === requested)?.id ?? '';
@@ -39,6 +43,9 @@ export function ChainView({
   const story = chainStory(chain, flow, neighbors('bottleneck', chain.slug));
   const maker = makerDetail(chain, makerSlug);
   const listed = pickable(topic);
+  const lens: LensId = isLens(lensParam) ? lensParam : 'overview';
+  const lenses = chainLenses(chain, story);
+  const hrefFor = (id: LensId) => chainHref(chain.slug, topic || undefined, undefined, id);
   return (
     <>
       <div className="atlas-canvas atlas-canvas-chain">
@@ -48,6 +55,7 @@ export function ChainView({
           route={chainRoute(chain)}
           topic={topic}
           maker={maker?.slug}
+          lens={lens}
         />
       </div>
       <AtlasBar view="chain" worldHref={worldHref}>
@@ -82,8 +90,20 @@ export function ChainView({
           <MakerDetailPanel maker={maker} chain={chain} backHref={chainHref(chain.slug, topic)} />
         </AtlasSheet>
       ) : (
-        <AtlasSheet label={`About ${chain.name}`} head={<ChainHead chain={chain} story={story} />}>
-          <ChainDetail chain={chain} flow={flow} story={story} actions={chainActions(chain)} />
+        <AtlasSheet
+          label={`About ${chain.name}`}
+          head={<ChainHead chain={chain} story={story} />}
+          // A link that names a reading opens the panel on it, on a phone too.
+          openKey={lens === 'overview' ? undefined : `lens:${lens}`}
+        >
+          <ChainDetail
+            chain={chain}
+            flow={flow}
+            lenses={lenses}
+            current={lens}
+            hrefFor={hrefFor}
+            actions={chainActions(chain)}
+          />
         </AtlasSheet>
       )}
     </>
