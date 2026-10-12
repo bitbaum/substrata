@@ -1,6 +1,7 @@
 /**
  * The chains view of /atlas: the flow diagram on the canvas, the bottleneck
- * picker in the bar, and in the panel either what the chain tells us or — when
+ * picker in the bar, and beside it (below it, on anything narrower than a
+ * laptop) the reading: either what the chain tells us, six ways, or — when
  * `?maker=` names one of its makers — that maker, in place.
  */
 import Link from 'next/link';
@@ -13,7 +14,7 @@ import {
   MakerDetailPanel,
   MakerHead,
 } from '@/components/portal/AtlasChainPanel';
-import { AtlasSheet } from '@/components/portal/AtlasSheet';
+import { ChainReader, MakersLine, RouteStrip } from '@/components/portal/ChainReader';
 import { STAGES } from '@/config/substrata-stages';
 import { TECHNOLOGIES } from '@/config/substrata-taxonomy';
 import { neighbors } from '@/lib/graph';
@@ -46,13 +47,14 @@ export function ChainView({
   const lens: LensId = isLens(lensParam) ? lensParam : 'overview';
   const lenses = chainLenses(chain, story);
   const hrefFor = (id: LensId) => chainHref(chain.slug, topic || undefined, undefined, id);
+  const route = chainRoute(chain);
   return (
     <>
       <div className="atlas-canvas atlas-canvas-chain">
         <AtlasChain
           chain={chain}
           flow={flow}
-          route={chainRoute(chain)}
+          route={route}
           topic={topic}
           maker={maker?.slug}
           lens={lens}
@@ -82,29 +84,28 @@ export function ChainView({
         )}
       </AtlasBar>
       {maker ? (
-        <AtlasSheet
-          label={`About ${maker.name}`}
-          head={<MakerHead maker={maker} chain={chain} />}
-          openKey={`maker:${maker.slug}`}
-        >
+        <ChainReader label={`About ${maker.name}`} head={<MakerHead maker={maker} chain={chain} />}>
           <MakerDetailPanel maker={maker} chain={chain} backHref={chainHref(chain.slug, topic)} />
-        </AtlasSheet>
+        </ChainReader>
       ) : (
-        <AtlasSheet
+        <ChainReader
           label={`About ${chain.name}`}
-          head={<ChainHead chain={chain} story={story} />}
-          // A link that names a reading opens the panel on it, on a phone too.
-          openKey={lens === 'overview' ? undefined : `lens:${lens}`}
+          head={
+            <>
+              <ChainHead chain={chain} story={story} />
+              <RouteStrip route={route} topic={topic} lens={lens} />
+              <MakersLine flow={flow} />
+            </>
+          }
         >
           <ChainDetail
-            chain={chain}
             flow={flow}
             lenses={lenses}
             current={lens}
             hrefFor={hrefFor}
             actions={chainActions(chain)}
           />
-        </AtlasSheet>
+        </ChainReader>
       )}
     </>
   );

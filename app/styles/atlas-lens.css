@@ -7,13 +7,18 @@
  */
 
 /* ------------------------------------------------------------- the tabs */
+/* One row, pinned: under the site's top bar where the reading is the page (a
+   phone, a tablet), at the top of the panel where it floats (a laptop). It
+   was a 3 x 2 grid of boxed buttons; on a phone that grid and the sheet's
+   grip took a quarter of the screen before a word of the reading. */
 .lens-tabs {
   position: sticky;
-  top: 0;
+  top: var(--spacing-topbar);
   z-index: 2;
   margin: 0 -1rem 1rem;
-  padding: 0.5rem 1rem 0;
+  padding: 0 0.5rem;
   border-bottom: 1px solid var(--color-border-subtle);
+  /* Six labels fit 340px: tighter than that, the row scrolls rather than wraps. */
   background: var(--color-surface-page);
 }
 @media (min-width: 1024px) {
@@ -21,43 +26,46 @@
     /* The panel scrolls inside a 1.25rem padding: cover it, edge to edge. */
     top: -1.25rem;
     margin-inline: -1.25rem;
-    padding-inline: 1.25rem;
+    padding-inline: 0.75rem;
   }
 }
-/* Six readings, all in view: three across, two rows, never a sideways scroll
-   that hides the last two behind the panel's edge. */
 .lens-tabs ul {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.25rem;
-  padding-bottom: 0.5rem;
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  /* On the narrowest phones the last tab slides in rather than wrapping. */
+  scroll-snap-type: x proximity;
+}
+.lens-tabs ul::-webkit-scrollbar {
+  display: none;
+}
+.lens-tabs li {
+  flex: 1 1 auto;
+  scroll-snap-align: start;
 }
 .lens-tabs a {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 2.5rem;
-  padding: 0 0.5rem;
-  border: 1px solid var(--color-border-subtle);
-  border-radius: var(--atlas-radius);
+  min-height: var(--size-target);
+  padding: 0 0.25rem;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
   font-size: 0.8125rem;
   font-weight: 500;
   white-space: nowrap;
-  color: var(--color-fg-secondary);
+  color: var(--color-fg-tertiary);
   transition:
     color 160ms ease,
-    border-color 160ms ease,
-    background-color 160ms ease;
+    border-color 160ms ease;
 }
 .lens-tabs a:hover,
 .lens-tabs a:focus-visible {
-  border-color: var(--color-fg-primary);
   color: var(--color-fg-primary);
 }
 .lens-tabs a[aria-current='page'] {
-  border-color: var(--color-fg-primary);
-  background: var(--color-fg-primary);
-  color: var(--color-surface-page);
+  border-bottom-color: var(--color-fg-primary);
+  color: var(--color-fg-primary);
   font-weight: 600;
 }
 /* Nothing on file for this reading yet: still reachable, drawn quieter. */
@@ -86,32 +94,38 @@
   margin-top: 0.5rem;
 }
 
+/* The figures as one row of numbers, not a wall of boxes: the value first
+   and largest, what it counts under it in plain case. */
 .lens-figures {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(6.25rem, 1fr));
-  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(5.5rem, 1fr));
   margin-top: 1rem;
+  border-block: 1px solid var(--color-border-subtle);
 }
 .lens-figures > div {
-  padding: 0.625rem 0.75rem;
-  border: 1px solid var(--color-border-subtle);
-  border-radius: var(--atlas-radius);
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  padding: 0.625rem 0.75rem 0.625rem 0;
+}
+.lens-figures > div + div {
+  padding-left: 0.75rem;
+  border-left: 1px solid var(--color-border-subtle);
 }
 .lens-figures dt {
-  font: 500 var(--text-label)/1.4 var(--font-mono);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: var(--text-label);
+  line-height: 1.35;
   color: var(--color-fg-tertiary);
 }
 .lens-figures dd {
-  margin-top: 0.25rem;
-  font: 600 0.875rem/1.3 var(--font-mono);
+  order: -1;
+  font: 600 1.0625rem/1.25 var(--font-mono);
   color: var(--color-fg-primary);
   overflow-wrap: anywhere;
 }
 .lens-figures .lens-figure-note {
-  margin-top: 0.125rem;
-  font: var(--text-label)/1.4 var(--font-mono);
+  order: 1;
+  font: var(--text-label)/1.35 var(--font-mono);
   color: var(--color-fg-tertiary);
 }
 
