@@ -1,10 +1,10 @@
 /**
  * The search index: each document's name, aka and body words, document
- * frequencies and a sorted vocabulary. Derived from static config and built
- * once per process.
+ * frequencies and the vocabulary typed words are expanded against. Derived
+ * from static config and built once per process.
  */
+import { createVocabulary, type Vocabulary } from '@bitbaum/searchkit';
 import { searchDocuments, type SearchDoc } from './corpus';
-import { probeOf } from './snippets';
 import { words } from './text';
 
 export interface Indexed {
@@ -16,16 +16,14 @@ export interface Indexed {
   body: Map<string, number>;
   normTitle: string;
   normAka: string[];
-  probeSummary: string;
-  probeBody: string;
 }
 
 export interface SearchIndex {
   docs: Indexed[];
   /** Word → how many documents contain it anywhere. */
   df: Map<string, number>;
-  /** Every word, sorted, for prefix lookups by binary search. */
-  vocab: string[];
+  /** Every word, counted by documents, so the commoner completion comes first. */
+  vocab: Vocabulary;
 }
 
 function normPhrase(text: string): string {
@@ -49,11 +47,9 @@ export function buildIndex(documents: SearchDoc[]): SearchIndex {
       body,
       normTitle: nameWords.join(' '),
       normAka: doc.aka.map(normPhrase),
-      probeSummary: probeOf(doc.summary),
-      probeBody: probeOf(doc.body),
     };
   });
-  return { docs, df, vocab: [...df.keys()].sort() };
+  return { docs, df, vocab: createVocabulary(df) };
 }
 
 let cached: SearchIndex | null = null;

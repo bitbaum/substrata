@@ -6,6 +6,8 @@
  * Pure, so `test/nav.test.ts` can hold it to "every nav path is in the
  * palette" without a browser.
  */
+import { createSearch, type Hit, type SearchSpec } from '@bitbaum/searchkit';
+
 import {
   ACCOUNT_NAV,
   FOOTER_NAV,
@@ -51,23 +53,22 @@ export function paletteEntries({
   return all.filter((e, i) => all.findIndex((o) => o.href === e.href) === i);
 }
 
-/** Label matches first, then the one-line hint; every word must match somewhere. */
+/** The label first, then where it sits and the one-line hint. */
+const SPEC: SearchSpec<PaletteEntry> = {
+  fields: [
+    { name: 'label', get: (e) => e.label },
+    { name: 'hint', get: (e) => [e.group, e.hint] },
+  ],
+};
+
+/**
+ * The pages matching what was typed, best first, forgiving a slip ("expsoure"
+ * is still Exposure), with the ranges to mark in each label.
+ */
+export function searchEntries(list: readonly PaletteEntry[], query: string): Hit<PaletteEntry>[] {
+  return createSearch(list, SPEC).search(query);
+}
+
 export function filterEntries(list: readonly PaletteEntry[], query: string): PaletteEntry[] {
-  const words = query.toLowerCase().split(/\s+/).filter(Boolean);
-  if (words.length === 0) return [...list];
-  const scored = list
-    .map((e) => {
-      const label = e.label.toLowerCase();
-      const rest = `${e.group} ${e.hint}`.toLowerCase();
-      let score = 0;
-      for (const w of words) {
-        if (label.startsWith(w)) score += 3;
-        else if (label.includes(w)) score += 2;
-        else if (rest.includes(w)) score += 1;
-        else return null;
-      }
-      return { e, score };
-    })
-    .filter((x): x is { e: PaletteEntry; score: number } => x !== null);
-  return scored.sort((a, b) => b.score - a.score).map((x) => x.e);
+  return query.trim() ? searchEntries(list, query).map((h) => h.item) : [...list];
 }

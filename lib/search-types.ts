@@ -3,6 +3,7 @@
  * the search box is a client component and must not pull the index (or the
  * filesystem reads behind the notes) into the bundle.
  */
+import { highlightRanges, type Range } from '@bitbaum/searchkit';
 
 /** Display groups, in the order a tie is broken. Notes and Learn read as one shelf. */
 export const SEARCH_TYPES = [
@@ -45,6 +46,13 @@ export function isSearchType(value: unknown): value is SearchType {
 export interface Segment {
   text: string;
   hit?: true;
+}
+
+/** `text` cut into runs, with the `ranges` searchkit matched marked. */
+export function segments(text: string, ranges: readonly Range[] = []): Segment[] {
+  return highlightRanges(text, ranges).map((p) =>
+    p.match ? { text: p.text, hit: true } : { text: p.text },
+  );
 }
 
 export interface SearchHit {

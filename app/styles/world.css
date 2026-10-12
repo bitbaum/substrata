@@ -253,7 +253,7 @@
   color: var(--color-fg-primary);
   background: var(--color-surface-raised);
 }
-.country-finder a span {
+.country-finder-iso {
   font: var(--text-label) var(--font-mono);
   color: var(--color-fg-muted);
 }

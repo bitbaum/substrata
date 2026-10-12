@@ -1,89 +1,38 @@
 /**
  * Highlighting and snippets: which words to mark in the original text, and
- * the window of summary or body shown under a result.
+ * the window of summary or body shown under a result. Cutting the window and
+ * splitting text into marked runs are `@bitbaum/searchkit`'s; choosing which
+ * text to show is this site's.
  */
-import type { Segment } from '../search-types';
-import type { Indexed } from './build';
-import { normalize } from './text';
-
-function escapeRe(s: string): string {
-  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
+import { snippet as excerpt, type Range } from '@bitbaum/searchkit';
+import { segments, type Segment } from '../search-types';
+import type { SearchDoc } from './corpus';
+import { terms } from './text';
 
 /**
- * The words to mark, as a regex over the ORIGINAL text. Matching runs on
- * folded words, so a match on "wafer" should also mark "wafers".
+ * Every word of `text` whose folded form matched, whole. Offsets are into the
+ * original text, so "Zürich" is marked where it stands; and a match on
+ * "wafer" marks "wafers", which folds to it.
  */
-export function markPattern(matched: string[]): RegExp | null {
-  const unique = [...new Set(matched)].filter(Boolean).sort((a, b) => b.length - a.length);
-  if (!unique.length) return null;
-  return new RegExp(
-    `(?<![\\p{L}\\p{N}])(${unique.map(escapeRe).join('|')})(?:e?s)?(?![\\p{L}\\p{N}])`,
-    'giu',
-  );
+export function marks(text: string, matched: ReadonlySet<string>): Range[] {
+  return terms(text).filter((t) => matched.has(t.term));
 }
 
-/**
- * The copy of a text the mark pattern runs over. Diacritic-stripping keeps
- * string length for the Latin text this corpus holds, but not always; the
- * normalized copy is used only when offsets still line up with the original.
- */
-export function probeOf(text: string): string {
-  const probe = normalize(text);
-  return probe.length === text.length ? probe : text.toLowerCase();
-}
-
-export function segments(text: string, re: RegExp | null, source = probeOf(text)): Segment[] {
-  if (!re || !text) return text ? [{ text }] : [];
-  const out: Segment[] = [];
-  let at = 0;
-  re.lastIndex = 0;
-  for (let m = re.exec(source); m; m = re.exec(source)) {
-    if (m.index > at) out.push({ text: text.slice(at, m.index) });
-    out.push({ text: text.slice(m.index, m.index + m[0].length), hit: true });
-    at = m.index + m[0].length;
-    if (m[0].length === 0) re.lastIndex++;
-  }
-  if (at < text.length) out.push({ text: text.slice(at) });
-  return out;
-}
-
-const SNIPPET = 190;
+const SNIPPET = { maxLength: 190, lead: 60 };
 
 /** A window of the summary or body around the first marked word. */
-export function snippet(d: Indexed, re: RegExp | null, titleMatched: boolean): Segment[] {
-  const { doc } = d;
+export function snippet(
+  doc: SearchDoc,
+  matched: ReadonlySet<string>,
+  titleMatched: boolean,
+): Segment[] {
   // When the name already shows why this matched, the plain description is
   // worth more than a passage of body text that happens to repeat the name.
-  const candidates: [string, string][] = titleMatched
-    ? [[doc.summary, d.probeSummary]]
-    : [
-        [doc.summary, d.probeSummary],
-        [doc.body, d.probeBody],
-      ];
-  for (const [text, probe] of candidates) {
-    if (!re || !text) continue;
-    re.lastIndex = 0;
-    const m = re.exec(probe);
-    if (!m) continue;
-    if (text.length <= SNIPPET) return segments(text, re, probe);
-    let start = Math.max(0, m.index - 60);
-    if (start > 0) {
-      const space = text.indexOf(' ', start);
-      start = space > -1 && space < m.index ? space + 1 : start;
-    }
-    let end = Math.min(text.length, start + SNIPPET);
-    if (end < text.length) {
-      const space = text.lastIndexOf(' ', end);
-      if (space > m.index) end = space;
-    }
-    const cut = segments(text.slice(start, end), re, probe.slice(start, end));
-    if (start > 0) cut.unshift({ text: '…' });
-    if (end < text.length) cut.push({ text: '…' });
-    return cut;
+  for (const text of titleMatched ? [doc.summary] : [doc.summary, doc.body]) {
+    const ranges = text ? marks(text, matched) : [];
+    if (!ranges.length) continue;
+    const cut = excerpt(text, ranges, SNIPPET);
+    return segments(cut.text, cut.ranges);
   }
-  const text = doc.summary || doc.body;
-  return [
-    { text: text.length > SNIPPET ? `${text.slice(0, SNIPPET).replace(/\s+\S*$/, '')}…` : text },
-  ];
+  return segments(excerpt(doc.summary || doc.body, [], SNIPPET).text);
 }

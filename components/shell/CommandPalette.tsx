@@ -12,11 +12,11 @@
 import React, { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import { SEARCH_TYPE_LABEL, type SearchResult } from '@/lib/search-types';
+import { SEARCH_TYPE_LABEL, segments, type SearchResult } from '@/lib/search-types';
 import { Highlight } from '@/components/portal/Highlight';
 import { SearchIcon } from '@/components/portal/Mark';
 import { searchHref } from '@/components/portal/search/shared';
-import { filterEntries, type PaletteEntry } from './palette';
+import { searchEntries, type PaletteEntry } from './palette';
 import { useDialog } from './use-dialog';
 
 const DEBOUNCE_MS = 120;
@@ -83,8 +83,11 @@ export function CommandPalette({
   useDialog(panel, onClose, input);
 
   const rows = useMemo<Row[]>(() => {
-    const pages = filterEntries(entries, query);
-    if (!query) return pages.map(pageRow);
+    if (!query) return entries.map(pageRow);
+    const pages = searchEntries(entries, query).map((hit) => ({
+      ...pageRow(hit.item),
+      title: <Highlight segments={segments(hit.item.label, hit.matches.label)} />,
+    }));
     const research =
       result?.groups.slice(0, GROUP_LIMIT).flatMap((g) =>
         g.hits.map((hit) => ({
@@ -102,7 +105,7 @@ export function CommandPalette({
       title: result ? `All ${result.total} results for “${query}”` : `Search for “${query}”`,
       sub: 'Every bottleneck, company, country, policy, note and event.',
     };
-    return [...pages.slice(0, PAGE_LIMIT).map(pageRow), ...research, all];
+    return [...pages.slice(0, PAGE_LIMIT), ...research, all];
   }, [entries, query, result]);
 
   const current = Math.min(active, rows.length - 1);

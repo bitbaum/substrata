@@ -96,6 +96,17 @@ test('"only recorded maker" keeps sole makers and never a part supplier', () => 
   );
 });
 
+test('the exposure filter forgives a slip in a company name and keeps the chosen sort', () => {
+  const rows = exposureRows();
+  const exact = selectRows(rows, parseExposureQuery({ q: 'Wolfspeed', sort: 'company' }), null);
+  assert.ok(exact.length > 0 && exact.every((r) => r.company === 'Wolfspeed'));
+  assert.deepEqual(
+    selectRows(rows, parseExposureQuery({ q: 'wolfsped', sort: 'company' }), null),
+    exact,
+  );
+  assert.deepEqual(selectRows(rows, parseExposureQuery({ q: 'wolfspeed zzqx' }), null), []);
+});
+
 test('EDGAR submissions: kept forms only, within the window, with a working link', () => {
   const filings = parseSubmissions(
     {
