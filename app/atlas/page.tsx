@@ -29,6 +29,7 @@ import { Shell } from '@/components/portal/Shell';
 import { RESOURCE_KINDS } from '@/config/substrata-resources';
 import { bottleneckBySlug } from '@/lib/bottlenecks';
 import { ChainView } from './chain-view';
+import { SHADINGS, shadingOf } from './map-shading';
 import { WorldView } from './world-view';
 
 export const metadata: Metadata = {
@@ -56,11 +57,11 @@ export default async function AtlasPage({ searchParams }: { searchParams: Promis
   const params = await searchParams;
   const view = params.view === 'world' ? 'world' : 'chain';
   const resource = RESOURCE_KINDS.find((r) => r.id === params.resource)?.id;
-  const measure = params.measure === 'reserves' ? 'reserves' : 'production';
+  const measure = shadingOf(params.measure);
   // What the world view carries from one click to the next.
   const keep: Record<string, string> = {};
   if (resource) keep.resource = resource;
-  if (resource && measure === 'reserves') keep.measure = measure;
+  if (resource && measure !== SHADINGS[0].id) keep.measure = measure;
   // A chain laid over the globe stays on it while the reader clicks around.
   const route =
     view === 'world' && params.chain && bottleneckBySlug(params.chain) ? params.chain : '';
@@ -69,7 +70,9 @@ export default async function AtlasPage({ searchParams }: { searchParams: Promis
   return (
     <Shell>
       <div className="atlas" data-view={view}>
-        <h1 className="sr-only">Map</h1>
+        <h1 className="sr-only">
+          Global Resource Map – Location, Production, and Supply-Chain Connections
+        </h1>
         {view === 'world' ? (
           <WorldView
             country={params.country}

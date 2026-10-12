@@ -17,10 +17,10 @@ import { RESOURCE_KINDS } from '@/config/substrata-resources';
 import { bottleneckBySlug } from '@/lib/bottlenecks';
 import { countryDossier } from '@/lib/geo';
 import { siteById, sitesFor, type Site } from '@/lib/resources/sites';
-import type { ChoroplethMeasure } from '@/lib/resources/choropleth';
 import { MAP_COUNTRIES, MAP_ISOS } from './countries';
 import { chainRoute } from './chain-route';
-import { mapLayer, quantified } from './map-layer';
+import { quantified } from './map-layer';
+import { shadedLayer, type Shading } from './map-shading';
 
 const NAMES = new Map(MAP_COUNTRIES.map((c) => [c.iso, c.name]));
 
@@ -66,7 +66,7 @@ export function WorldView({
 }: {
   country?: string;
   resource?: string;
-  measure: ChoroplethMeasure;
+  measure: Shading;
   keep: Record<string, string>;
   worldHref: string;
   /** A chain to lay over the globe. */
@@ -80,20 +80,13 @@ export function WorldView({
   const site = resource && siteId ? siteById(resource, siteId) : null;
   const selected = country?.toLowerCase() ?? '';
   const dossier = selected ? countryDossier(selected) : null;
-  const layer = mapLayer(resource, measure, MAP_ISOS);
+  const layer = shadedLayer(resource, measure, MAP_ISOS);
   const withData = quantified();
   const kind = RESOURCE_KINDS.find((r) => r.id === resource);
   const summary = globeSummary(layer.legend.title, layer.bins);
   const routeSummary = route
     ? `The chain of ${chain!.name} is drawn over it: ${route.steps.map((s) => `${s.step}, ${s.name}`).join('; ')}.`
     : '';
-  const measureHref = (m: string) => {
-    const params = new URLSearchParams({ view: 'world', ...keep });
-    if (m === 'reserves') params.set('measure', m);
-    else params.delete('measure');
-    if (dossier) params.set('country', selected);
-    return `/atlas?${params.toString()}`;
-  };
   return (
     <>
       <div className="atlas-canvas">
@@ -144,7 +137,18 @@ export function WorldView({
         </AtlasPick>
       </AtlasBar>
       {/* Nothing picked, nothing shaded: the picker and the panel say how. */}
-      {kind && <MapLegend legend={layer.legend} measureHref={measureHref} sites={sites.length} />}
+      {kind && (
+        <MapLegend
+          legend={layer.legend}
+          measureHidden={{
+            view: 'world',
+            resource: kind.id,
+            chain: keep.chain,
+            country: dossier ? selected : undefined,
+          }}
+          sites={sites.length}
+        />
+      )}
       {site ? (
         <AtlasSheet
           label={`Producer site, ${site.location}`}

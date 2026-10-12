@@ -46,6 +46,8 @@ export interface NavSection {
   icon: NavIcon;
   /** What the section is for, as the question a reader brings to it. */
   question: string;
+  /** A line under the heading in the full sidebar, where the label alone says too little. */
+  subtitle?: string;
   items: readonly NavLink[];
 }
 
@@ -200,6 +202,7 @@ export const NAV_SECTIONS: readonly NavSection[] = [
     label: 'Explore',
     icon: 'explore',
     question: 'What has to exist, where it is made, and what governs it?',
+    subtitle: 'Interactive map, bottlenecks, policy',
     items: [LINK.bottlenecks, LINK.map, LINK.policy, LINK.capital],
   },
   {

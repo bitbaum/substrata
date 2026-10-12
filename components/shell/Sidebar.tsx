@@ -95,7 +95,12 @@ export function Sidebar({ pathname, name }: { pathname: string; name: string }) 
                 onClick={() => toggle(section.id)}
               >
                 <NavIcon name={section.icon} />
-                <span className="flex-1">{section.label}</span>
+                <span className="flex-1">
+                  {section.label}
+                  {section.subtitle && (
+                    <span className="shell-section-subtitle">{section.subtitle}</span>
+                  )}
+                </span>
                 <NavIcon name="chevron" className="shell-chevron" />
               </button>
               <ul id={`shell-section-${section.id}`} hidden={!isOpen}>

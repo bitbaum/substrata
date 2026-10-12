@@ -59,13 +59,24 @@
   display: flex;
   gap: 0.5rem;
   margin-bottom: 0.5rem;
-  font: 500 0.6875rem/1.4 var(--font-mono);
+  font: 500 var(--text-label)/1.4 var(--font-mono);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-fg-tertiary);
 }
 .flow-kicker span {
   color: var(--color-fg-muted);
+}
+/* A column says what the whole column is, so it reads first; a list inside a
+   card ("Made by") sits under the card's title, so it reads last. */
+.flow-kicker-col {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-fg-secondary);
+}
+.flow-kicker-sub {
+  font-weight: 400;
+  letter-spacing: 0.06em;
 }
 
 /* ------------------------------------------------------------- the cards */
@@ -129,7 +140,7 @@
   color: var(--color-fg-tertiary);
 }
 .flow-role {
-  font: 500 0.6875rem/1.4 var(--font-mono);
+  font: 500 var(--text-label)/1.4 var(--font-mono);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-fg-tertiary);
@@ -282,7 +293,7 @@
   justify-content: center;
   gap: 0.5rem;
   padding: 0.5rem 0;
-  font: 500 0.6875rem/1.4 var(--font-mono);
+  font: 500 var(--text-label)/1.4 var(--font-mono);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-fg-muted);
@@ -376,7 +387,7 @@
   color: var(--color-surface-page);
 }
 .route-side {
-  font: 500 0.6875rem/1.4 var(--font-mono);
+  font: 500 var(--text-label)/1.4 var(--font-mono);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-fg-tertiary);

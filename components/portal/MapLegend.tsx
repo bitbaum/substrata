@@ -1,38 +1,45 @@
 /**
- * What the colour on the globe means: the measure and year in the title,
+ * What the colour on the globe means: the picker for what shades it, the
+ * measure and year in the title,
  * the scale's steps, the categorical keys (hatched, not listed), the unit or
  * caveat, and the source — edition and table — it came from.
  */
-import Link from 'next/link';
-
 import type { MapLegend as Legend } from '@/app/atlas/map-layer';
+import { UNSOURCED_SHADINGS } from '@/app/atlas/map-shading';
+import { AtlasPick } from './AtlasBar';
 
 export function MapLegend({
   legend,
-  measureHref,
+  measureHidden,
   sites = 0,
 }: {
   legend: Legend;
-  measureHref?: (measure: string) => string;
+  /** What the shading picker carries besides ?measure=: the rest of the URL. */
+  measureHidden?: Record<string, string | undefined>;
   /** Producer sites drawn for this resource; their key, when there are any. */
   sites?: number;
 }) {
   return (
     <figure className="map-legend">
       <figcaption>{legend.title}</figcaption>
-      {legend.measures && measureHref && (
-        <nav className="map-measures" aria-label="Measure">
+      {legend.measures && measureHidden && (
+        <AtlasPick
+          label="Shade the globe by"
+          name="measure"
+          value={legend.measures.find((m) => m.current)?.id ?? ''}
+          hidden={measureHidden}
+        >
           {legend.measures.map((m) => (
-            <Link
-              key={m.id}
-              href={measureHref(m.id)}
-              scroll={false}
-              aria-current={m.current ? 'page' : undefined}
-            >
+            <option key={m.id} value={m.id}>
               {m.label}
-            </Link>
+            </option>
           ))}
-        </nav>
+          {UNSOURCED_SHADINGS.map((label) => (
+            <option key={label} disabled>
+              {label} — no source on file yet
+            </option>
+          ))}
+        </AtlasPick>
       )}
       {legend.scale && (
         <ul className="map-scale">

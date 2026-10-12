@@ -164,6 +164,15 @@
   text-transform: uppercase;
   cursor: pointer;
 }
+/* Under the uppercase heading, in sentence case so it reads as a line, not a label. */
+.shell-section-subtitle {
+  display: block;
+  font-size: var(--text-label);
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--color-fg-tertiary);
+}
 .shell-link {
   font-size: 0.9rem;
 }
