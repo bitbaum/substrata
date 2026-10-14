@@ -21,8 +21,8 @@ importers:
         specifier: github:bitbaum/geo-kit#a337aec928cf7804fecf459c308d366b90f4b2fa
         version: https://codeload.github.com/bitbaum/geo-kit/tar.gz/a337aec928cf7804fecf459c308d366b90f4b2fa
       '@bitbaum/searchkit':
-        specifier: github:bitbaum/orangecat#e6cda794af7eb8da0e88602bdce2c26283616498&path:packages/searchkit
-        version: https://codeload.github.com/bitbaum/orangecat/tar.gz/e6cda794af7eb8da0e88602bdce2c26283616498#path:packages/searchkit(react@19.3.0)
+        specifier: github:bitbaum/searchkit#v0.2.2
+        version: git+https://github.com/bitbaum/searchkit.git#09532b1974c7cb92f38c98decaeed334f3ffea72(react@19.3.0)
       '@bitbaum/whenkit':
         specifier: github:bitbaum/whenkit#v0.3.2
         version: https://codeload.github.com/bitbaum/whenkit/tar.gz/f5e0a24208187091c2ca792008cdd7695a19910f(react@19.3.0)
@@ -231,8 +231,8 @@ packages:
     version: 0.1.1
     engines: {node: '>=20'}
 
-  '@bitbaum/searchkit@https://codeload.github.com/bitbaum/orangecat/tar.gz/e6cda794af7eb8da0e88602bdce2c26283616498#path:packages/searchkit':
-    resolution: {gitHosted: true, integrity: sha512-0dlR7+JG/7Hh4WlJzP6zLl+OloAE9G86WQmYxrFAJqYBezTLqi7sI4QDb80Qmtd/0RSc1smpMv1oDdTxDYzxsg==, path: packages/searchkit, tarball: https://codeload.github.com/bitbaum/orangecat/tar.gz/e6cda794af7eb8da0e88602bdce2c26283616498}
+  '@bitbaum/searchkit@git+https://github.com/bitbaum/searchkit.git#09532b1974c7cb92f38c98decaeed334f3ffea72':
+    resolution: {commit: 09532b1974c7cb92f38c98decaeed334f3ffea72, repo: https://github.com/bitbaum/searchkit.git, type: git}
     version: 0.2.2
     peerDependencies:
       react: '>=18'
@@ -2868,7 +2868,7 @@ snapshots:
 
   '@bitbaum/geo-kit@https://codeload.github.com/bitbaum/geo-kit/tar.gz/a337aec928cf7804fecf459c308d366b90f4b2fa': {}
 
-  '@bitbaum/searchkit@https://codeload.github.com/bitbaum/orangecat/tar.gz/e6cda794af7eb8da0e88602bdce2c26283616498#path:packages/searchkit(react@19.3.0)':
+  '@bitbaum/searchkit@git+https://github.com/bitbaum/searchkit.git#09532b1974c7cb92f38c98decaeed334f3ffea72(react@19.3.0)':
     optionalDependencies:
       react: 19.3.0
 
