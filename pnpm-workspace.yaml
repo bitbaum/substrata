@@ -5,7 +5,7 @@ allowBuilds:
   unrs-resolver: true
   # Git dep needs its prepare build; pnpm demands the exact resolved URL (the
   # same shape loki uses). If the listkit pin moves, pnpm prints the new key.
-  listkit@https://codeload.github.com/bitbaum/listkit/tar.gz/69cb4f4ef12d6a2a56b56db1bb4d4ac14aced525: true
+  listkit@git+https://github.com/bitbaum/listkit.git#69cb4f4ef12d6a2a56b56db1bb4d4ac14aced525: true
 
 # Our own packages, exempt from the minimum-release-age supply-chain window BY
 # NAME. A version-pinned entry refuses every release not listed in it, so a

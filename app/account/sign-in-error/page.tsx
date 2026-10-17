@@ -6,8 +6,8 @@ export const dynamic = 'force-dynamic';
 export const metadata = { title: 'Sign-in did not finish', robots: { index: false } };
 
 /**
- * Where Auth.js sends a sign-in that did not finish — it used to be Auth.js's
- * bare "Error" page. Try again starts the sign-in again; the provider's error
+ * A sign-in that did not finish, for links that still arrive here. Try again
+ * opens the sign-in screen, which offers every way in; the provider's error
  * code is never shown.
  */
 export default async function SignInErrorPage({
@@ -19,7 +19,7 @@ export default async function SignInErrorPage({
 
   async function retry() {
     'use server';
-    await signIn('orangecat', { redirectTo: '/account' });
+    await signIn({ redirectTo: '/account' });
   }
 
   return (
