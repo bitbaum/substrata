@@ -4,9 +4,9 @@ import { runAgentToAnswer } from '@/lib/chat-agent/run-to-answer';
 import { freeCooldown, freeLinks, streamedTurn } from '@/lib/chat-agent/turn';
 import { readerContext } from '@/lib/chat-context';
 import { lookUp, readSource, webLookupEnabled } from '@/lib/chat-web';
+import { factcheckSubject } from '@/lib/factcheck-subject';
 import { addMessage } from '@/lib/page-thread';
 import { allowRequest, boundedJson, sameOrigin } from '@/lib/request-guards';
-import { allLearn, allNotes } from '@/lib/notes';
 
 export const dynamic = 'force-dynamic';
 
@@ -31,13 +31,9 @@ export async function POST(request: Request) {
     return Response.json({ error: 'Invalid request' }, { status: 400 });
   }
   const path = input.path ?? '';
-  const note = path.startsWith('/notes/')
-    ? allNotes().find((n) => path === `/notes/${n.slug}`)
-    : path.startsWith('/learn/')
-      ? allLearn().find((n) => path === `/learn/${n.slug}`)
-      : undefined;
-  if (!note) return Response.json({ error: 'No article at that path.' }, { status: 404 });
-  const question = `Fact-check the article on this page, "${note.title}" (summary: ${note.summary}). Look up the records it relies on. For each claim that matters, say whether the corpus supports it and with what evidence state (Sourced, Candidate source, Unverified lead, analyst judgement); flag any claim nothing supports. Quote the deciding row or passage and link it. Do not invent sources.`;
+  const note = factcheckSubject(path);
+  if (!note) return Response.json({ error: 'No page to check at that path.' }, { status: 404 });
+  const question = `Fact-check the page the reader is on, "${note.title}" (summary: ${note.summary}). Look up the records it relies on. For each claim that matters, say whether the corpus supports it and with what evidence state (Sourced, Candidate source, Unverified lead, analyst judgement); flag any claim nothing supports. Quote the deciding row or passage and link it. Do not invent sources.`;
   try {
     // Inside the try: `allowRequest` throws when AUTH_SECRET is unset, and this
     // route should answer 503 like the rest of the file rather than a raw 500.
