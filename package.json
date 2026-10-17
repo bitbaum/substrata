@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@better-auth/passkey": "^1.7.7",
-    "@bitbaum/accountkit": "git+https://github.com/bitbaum/accountkit.git#a0bcdca8e82abfecf9840ffd0c263f08fff84668",
+    "@bitbaum/accountkit": "git+https://github.com/bitbaum/accountkit.git#b8ace1a5b910c6f1819ca56a0e24ecb7b3f1420c",
     "@bitbaum/ai-kit": "^1.20.1",
     "@bitbaum/chatkit": "git+https://github.com/bitbaum/chatkit.git#163c879163d22c6eb633314b3bd4e25712a01899",
     "@bitbaum/geo-kit": "git+https://github.com/bitbaum/geo-kit.git#a337aec928cf7804fecf459c308d366b90f4b2fa",
