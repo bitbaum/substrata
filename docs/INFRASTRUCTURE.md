@@ -41,6 +41,8 @@ secret Ask offers browser-only keys.
 `008-ai-spend.sql` (`research_ai_spend`) is the readers-first ledger: background
 jobs spend at most `SUBSTRATA_BACKGROUND_SHARE` (default 0.25) of the day and
 stop at a `SUBSTRATA_READER_FLOOR` (default 0.5) left for Ask.
+`015-accounts.sql` (users, sessions, accounts, passkeys, two_factors,
+verifications) backs sign-in; re-runnable, additive only.
 `012-ask-timing.sql` (`research_ask_timing`, applied 2026-09-25) holds Ask's
 per-question latency — durations and call counts only, no question text — for
 the p50/p90 on /data#ask-latency; the same line goes to the journal as
@@ -129,8 +131,13 @@ ready (`reviewQueue()` in `lib/event-draft-store.ts`).
 
 ## Authentication and contributions
 
-Auth.js uses OrangeCat OIDC with state and PKCE, client-secret-post, and only
-openid/profile/email scopes. No local password store. A verified identity is
+Accounts are the fleet's account package (`@bitbaum/accountkit/auth`,
+`lib/auth.ts`): email and password, passkeys, two-step codes, and "Continue
+with OrangeCat" (OIDC with PKCE, client-secret-post, openid/profile/email
+only) as one way in. Its tables are `scripts/db/015-accounts.sql`, applied
+like every other file here, and they must exist before the code that uses
+them deploys. A person whose first way in was OrangeCat keeps their
+OrangeCat actor id as the id their desk, follows and keys use. An account is
 required for saved interests; reading, questions and contributions are public.
 `SUBSTRATA_REVIEWER_ACTOR_IDS` grants private inbox access at `/review`.
 Reviewer identities are resolved from the existing owner identity during setup.
@@ -158,5 +165,7 @@ check the public `/api/health`, atlas, search, article and export. Exercise an
 actual AI request and an explicitly labelled operational contribution; verify
 the receipt in storage, then remove that one test record. Check `/review` is
 unavailable without reviewer identity and account endpoints do not expose
-another user's preferences. Complete OrangeCat login in a browser when a
+another user's preferences. Create a throwaway account at `/sign-up`,
+confirm `/api/auth/get-session` returns it, then delete it from
+`/account/settings`. Complete OrangeCat login in a browser when a
 real account session is available; do not claim callback success from a redirect.

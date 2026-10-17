@@ -1,7 +1,10 @@
 import Link from 'next/link';
+import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
+import { authLabelsFor, isDeliverable, signInMethods } from '@bitbaum/accountkit/auth';
 
-import { currentSession, isReviewer, signOut } from '@/lib/auth';
+import { currentSession, getAuth, getSession, isReviewer } from '@/lib/auth';
+import { SubstrataAccount } from '@/components/portal/AccountScreens';
 import { MARKET_PARTICIPANTS } from '@/lib/participants';
 import { Page, Shell } from '@/components/portal/Shell';
 import { PageHeader } from '@/components/portal/PageHeader';
@@ -35,7 +38,11 @@ export default async function DeskSettingsPage({
   searchParams: Promise<{ saved?: string }>;
 }) {
   const session = await currentSession();
-  if (!session?.actorId) redirect('/account');
+  const account = session ? await getSession().catch(() => null) : null;
+  if (!session?.actorId || !account) redirect('/account');
+  const linked = (await getAuth()
+    .api.listUserAccounts({ headers: await headers() })
+    .catch(() => [])) as { providerId: string }[];
   const { saved } = await searchParams;
   const now = new Date();
   const actorId = session.actorId;
@@ -114,16 +121,18 @@ export default async function DeskSettingsPage({
           <div className="settings-head">
             <h2>Account</h2>
           </div>
-          <form
-            action={async () => {
-              'use server';
-              await signOut({ redirectTo: '/' });
+          <SubstrataAccount
+            labels={authLabelsFor('en')}
+            methods={signInMethods(process.env, false)}
+            user={{
+              name: account.user.name ?? '',
+              email: isDeliverable(account.user.email) ? account.user.email : null,
+              emailVerified: Boolean(account.user.emailVerified),
+              role: account.user.role ?? 'customer',
+              twoFactorEnabled: Boolean(account.user.twoFactorEnabled),
             }}
-          >
-            <button type="submit" className="research-button-ghost">
-              Sign out
-            </button>
-          </form>
+            linked={linked.map((a) => a.providerId)}
+          />
         </section>
       </Page>
     </Shell>

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ACCOUNT_NAV } from '@/config/site-nav';
-import { authEnabled, currentSession, isReviewer, signIn, signOut } from '@/lib/auth';
+import { authEnabled, currentSession, isReviewer, signInHref, signOut } from '@/lib/auth';
 import { ThemeToggle } from './ThemeToggle';
 import { DetailsMenu } from './DetailsMenu';
 
@@ -23,16 +23,14 @@ export async function AccountMenu() {
         <div className="account-menu-panel">
           <p className="account-menu-label">Research desk</p>
           {authEnabled ? (
-            <form
-              action={async () => {
-                'use server';
-                await signIn('orangecat', { redirectTo: '/account' });
-              }}
-            >
-              <button type="submit" className="account-menu-action">
-                Continue with OrangeCat
-              </button>
-            </form>
+            <>
+              <a href={signInHref('/account')} className="account-menu-action">
+                Sign in
+              </a>
+              <a href={signInHref('/account', 'sign-up')} className="account-menu-link">
+                Create an account
+              </a>
+            </>
           ) : (
             <p className="px-3 py-2 text-sm text-fg-tertiary">Sign-in is being configured.</p>
           )}
