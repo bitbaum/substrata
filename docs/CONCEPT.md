@@ -7,7 +7,8 @@ database. `DATA-MODEL.md` says what to build next in the data; this says why,
 and for whom.
 
 It is a working document, not a claim about what exists. Everything in
-"Where this goes" is unbuilt.
+"Where this goes" was unbuilt when it was written; `ROADMAP.md` says what has
+shipped since (Exposure, for one).
 
 ---
 

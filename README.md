@@ -3,7 +3,7 @@
 Open-source research on the physical chokepoints between here and a
 much faster technological progress.
 
-Live at **https://substrata.orangecat.ch** — that is an address, not an
+Runs at **https://substrata.orangecat.ch** (beta) — that is an address, not an
 affiliation. Substrata is its own repository and its own deployment, like the
 other sites built here. The subdomain is used
 because that apex domain is already owned; it moves to its own domain the day
@@ -19,9 +19,10 @@ config/     the research corpus and the site, as data — the SSOT
             substrata-acting.ts        thesis, action routes, readiness ledger
             site-substrata.ts          those objects, rendered as pages
             site-content.ts            the closed set of section shapes
-lib/        the site's identity and link helper. The renderers themselves come
-            from the shared sitekit package; presentational only, never fetch.
-app/        one catch-all route. Pages are data, so adding one is a config entry.
+lib/        the joins, queries, stores and engines behind the pages. The page
+            renderers come from the shared sitekit package.
+app/        the routes. Pages rendered from `config/site-substrata.ts` go
+            through the catch-all `app/[...path]`; adding one is a config entry.
 app/globals.css   every design token, and the only place a colour is defined.
 ```
 
@@ -116,7 +117,7 @@ lib/participants.ts             the markets join
 lib/notes.ts                    notes and learn, over bip-kit's folder reader
 lib/contribute.ts               a join page as a model — portable, see below
 lib/labels.ts                   the words the interface uses
-components/portal/PublicNav.tsx  the grouped nav, both breakpoints
+components/shell/               the shell: sidebar, rail, top bar, phone tabs, More sheet, palette
 ```
 
 ## Notes
@@ -221,7 +222,9 @@ pnpm run verify     # format check + type-check + lint + tests
 
 ## Deployment
 
-Push to `main`. CD is the shared self-host pipeline
+A green, non-draft pull request merges itself (`.github/workflows/auto-merge.yml`,
+which calls the fleet's sweep in `bitbaum/fleet`). The push to `main` deploys:
+CD is the shared self-host pipeline
 (`bitbaum/loki/.github/workflows/selfhost-deploy.yml`), which waits
 for this commit's CI, builds, rsyncs to bitbaum and health-checks before
 declaring done. Port and hostname come from `scripts/hetzner/apps.conf` in

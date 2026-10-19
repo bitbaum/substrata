@@ -38,9 +38,11 @@ schedule `/opt/_appcron/run.sh` already drives `/api/cron/sweep` on.
 `007-ai-keys.sql` (`research_ai_keys`) backs readers' saved AI keys; they are
 sealed with `SUBSTRATA_BYOK_SECRET` from the runtime env, and without that
 secret Ask offers browser-only keys.
-`008-ai-spend.sql` (`research_ai_spend`) is the readers-first ledger: background
-jobs spend at most `SUBSTRATA_BACKGROUND_SHARE` (default 0.25) of the day and
-stop at a `SUBSTRATA_READER_FLOOR` (default 0.5) left for Ask.
+`008-ai-spend.sql` (`research_ai_spend`) is the ledger of the site's free AI
+(`lib/ai-budget.ts`). Since 2026-09-25 only readers spend it — Ask and
+fact-checks; no background job calls the free models (see "From lead to
+event" below). The `background` class stays so earlier days still read
+correctly on `/data`.
 `012-ask-timing.sql` (`research_ask_timing`, applied 2026-09-25) holds Ask's
 per-question latency — durations and call counts only, no question text — for
 the p50/p90 on /data#ask-latency; the same line goes to the journal as
