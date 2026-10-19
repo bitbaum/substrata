@@ -56,9 +56,9 @@ An hourly call that is not due returns `skipped: 'not due'` and does nothing.
 
 Each engine has one queue, and it is in this database: the sweep's is
 `research_sweep_candidates`, producer sourcing's is `research_source_candidates`
-(timer `appcron-substrata-source`, every six hours). The hand-run CLIs and their
-committed worklists (`research/events.json`, `research/evidence.json`) were
-removed on 2026-09-25 after their unreviewed rows were copied into these tables
+(timer `appcron-substrata-source`, every six hours). The hand-run CLIs were
+removed on 2026-09-25, and so were `research/events.json` and `research/evidence.json`,
+their committed worklists, after their unreviewed rows were copied into these tables
 (25 sweep leads, 2 source pages; the rest were already present or belonged to
 rows since sourced). A test fails if either file comes back.
 
