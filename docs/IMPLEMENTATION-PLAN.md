@@ -1,6 +1,8 @@
 # Substrata implementation ledger
 
-Started 2026-09-16. Status: quiet-chrome in flight.
+Started 2026-09-16. A dated ledger: the work log below is history. Where a
+current fact has changed since, it is corrected in place; `ROADMAP.md` is the
+status.
 
 ## What this site is for
 
@@ -14,14 +16,14 @@ filters, `bip-kit` for notes. Markup stays in this repo.
 
 A reader is doing one of two jobs.
 
-1. **Public** — read the research. SpaceX-thin bar: Map, News, Ask, search,
-   account. Footer is legal + About / Changelog / Roadmap / Source. No
-   sidebar. No megamenu. No sitemap.
-2. **Desk** (`/account`, `/review`) — operate. Sidebar from `DESK_NAV`. No
-   public megamenu. No fat footer.
+1. **Read** the research.
+2. **Operate** — desk, settings, the reviewer inbox (`/account`, `/review`).
 
-Header + footer + sidebar on the same page is a bug. Sidebar on the homepage
-is a bug.
+Superseded since: one shell serves every page, signed in or not
+(`components/shell/`, lists in `config/site-nav.ts`) — a sidebar of five
+sections, an icon rail on tablets, four tabs and "More" on phones, and the
+⌘K palette. Personal pages live in the account menu, never in the research
+list. The README's "The portal" section is the current description.
 
 Atlas and World are one map with two views (`/atlas`, `/atlas?view=world`).
 `/world` redirects. Geography and chain are projections of the same corpus.
@@ -49,7 +51,8 @@ for sourced errors.
   thread that *calls* that engine. Health exposes `ai: configured`.
 - Comments: `threadkit` (permission is participation). Storage is Postgres
   `research_page_messages`. AI fact-check is an `ai` participant.
-- Map: `react-simple-maps` (Equal Earth), not a hand-projected SVG.
+- Map: a canvas globe on `d3-geo` and `topojson-client`
+  (`components/portal/Globe.tsx`, `globe-*.ts`).
 
 ## Companion (Ask)
 
@@ -65,10 +68,9 @@ not a second client:
 - no RAG helper — retrieval stays app-side (the corpus is ours).
 - ~~no chat UI package~~ — superseded 2026-09-26: the fleet rule is now that
   every chat, assistant or composer is `@bitbaum/chatkit` (`fleet/SHARED.md`
-  → "Chat — the standard"). chatkit is not published yet (npm 404), so Ask
-  stays on its own `components/portal/chat/` for now. **When chatkit is
-  published, Ask moves to it** — `Composer`/`ChatThread` with Substrata's
-  tools, verdicts and key panel in its slots; a missing slot goes into
+  → "Chat — the standard"). Ask now renders through chatkit
+  (`components/portal/ResearchChat.tsx`); Substrata's tools, verdicts and key
+  panel stay in `components/portal/chat/`, and a missing slot goes into
   chatkit, not here.
 
 **Your own key** (`components/portal/ai-key/`): a pasted key is checked with
@@ -96,7 +98,8 @@ stable.
 
 Dated events are the newsfeed. A systemd timer on the box now drives BOTH
 engines through authenticated cron routes rather than a human running the
-CLI: `POST /api/cron/sweep` (events, `lib/sweep-store.ts`, four times a day)
+CLI: `POST /api/cron/sweep` (events, `lib/sweep-store.ts`; the timer fires
+hourly and the route runs when due per `/account/settings#sweep`)
 and `POST /api/cron/source` (producer sourcing, `lib/source-store.ts`, added
 2026-09-21). Neither auto-publishes: findings land in a Postgres review
 queue (`research_sweep_candidates` / `research_source_candidates`) and
