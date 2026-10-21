@@ -16,7 +16,7 @@ export function ChooseRole() {
   return (
     <section className="role-choose" aria-labelledby="start-from-what-you-do">
       <Heading title="Start from what you do" />
-      <ul className="door-list">
+      <ul className="door-list bb-list">
         {AUDIENCES.map((a) => (
           <li key={a.id}>
             <Link href={audienceHref(a.id)} className="door-row">
