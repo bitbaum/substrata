@@ -127,11 +127,55 @@
   letter-spacing: var(--tracking-display);
   color: var(--color-fg-primary);
 }
+.ask-cta {
+  margin: 0.75rem 0 0.5rem;
+}
+.ask-cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.15rem;
+  border-radius: var(--ck-radius-sm, 0.4rem);
+  background: var(--color-fg-primary);
+  color: var(--color-surface-page);
+  font: 500 0.9rem var(--font-sans);
+  border: 1px solid var(--color-fg-primary);
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+.ask-cta-button:hover {
+  opacity: 0.88;
+}
 .ask-empty p {
   margin: 0.6rem 0 1.2rem;
   max-width: 34rem;
   color: var(--color-fg-secondary);
   line-height: 1.55;
+}
+
+/* Composer input field label and text box appearance */
+.ask-composer-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps, 0.18em);
+  color: var(--color-fg-tertiary);
+  margin-bottom: 0.35rem;
+  cursor: pointer;
+  user-select: none;
+}
+.companion .ck-input {
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--ck-radius-sm, 0.4rem);
+  background: var(--color-surface-raised);
+  padding: 0.5rem 0.65rem;
+  min-height: 2.75rem;
+  transition: border-color 0.15s ease;
+}
+.companion .ck-input:focus {
+  border-color: var(--color-border-strong);
+  outline: none;
 }
 
 /* Composer tools: one height, one weight, no borders of their own. */
@@ -149,16 +193,46 @@
   color: var(--color-fg-primary);
   background: var(--color-surface-raised);
 }
-/* A native select is as wide as its longest option (a full model id), which
-   wrapped the composer's tools onto three rows on a phone. The chosen label is
-   short ("Auto"); the list still shows every name when opened. */
-.ask-model select {
-  width: 5.5rem;
-  text-overflow: ellipsis;
-  background: transparent;
-  color: inherit;
+/* Model picker hidden behind a toggle with a concise explanation */
+.ask-model-menu {
+  position: relative;
+  display: inline-flex;
+}
+.ask-model-summary {
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+}
+.ask-model-summary::-webkit-details-marker {
+  display: none;
+}
+.ask-model-panel {
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  left: 0;
+  z-index: 40;
+  width: min(18rem, calc(100vw - 2rem));
+  padding: 0.75rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--ck-radius-sm, 0.4rem);
+  background: var(--color-surface-raised);
+  box-shadow: var(--shadow-overlay);
+}
+.ask-model-desc {
+  margin: 0 0 0.6rem;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--color-fg-secondary);
+}
+.ask-model-select-label select {
+  width: 100%;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--ck-radius-sm, 0.4rem);
+  background: var(--color-surface-page);
+  color: var(--color-fg-primary);
   font: inherit;
-  border: 0;
+  font-size: 0.85rem;
   cursor: pointer;
 }
 

@@ -67,6 +67,7 @@ export function ResearchChat({
   const chat = useChatSession({ topic, onPath, model, keyFields: keys.requestFields });
   const [keyOpen, setKeyOpen] = useState(false);
   const ran = useRef<number | null>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
   // The visible height, which shrinks when a phone keyboard opens; on /chat
   // the column is sized to it so the composer stays above the keyboard.
   const root = useRef<HTMLDivElement>(null);
@@ -100,6 +101,10 @@ export function ResearchChat({
     ? { text: chat.live.text, status: chat.live.steps.at(-1) ?? chat.live.status }
     : null;
   const ask = (question: string) => void chat.ask(question);
+  const focusInput = () => {
+    inputRef.current?.focus();
+    inputRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  };
   const who = keys.active
     ? `Answering with your own AI: ${keys.active.label}`
     : ai === 'down'
@@ -123,7 +128,16 @@ export function ResearchChat({
         }}
         empty={
           <div className="ask-empty">
-            {!compact && <h2>Ask about any bottleneck, company, country or rule.</h2>}
+            {!compact && (
+              <>
+                <h2>Ask about any bottleneck, company, country or rule.</h2>
+                <div className="ask-cta">
+                  <button type="button" className="ask-cta-button" onClick={focusInput}>
+                    Ask a question now
+                  </button>
+                </div>
+              </>
+            )}
             <p>
               Answers say which claims are sourced and which are judgement, and link every record
               they read.
@@ -136,6 +150,13 @@ export function ResearchChat({
         }
       />
       <Composer
+        inputRef={inputRef}
+        header={
+          <span className="ask-composer-label" onClick={focusInput}>
+            Ask a question
+          </span>
+        }
+        ariaLabel="Ask about a bottleneck, a company, a country, a rule…"
         // Returned, not dropped: a question that was not sent stays in the box.
         onSend={(text, attachments) => chat.ask(withAttachments(text, attachments))}
         placeholder="Ask about a bottleneck, a company, a country, a rule…"

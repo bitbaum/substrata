@@ -9,7 +9,6 @@ import {
   INSTRUMENT_KIND_LABEL,
   INSTRUMENT_STATUS_LABEL,
   JURISDICTIONS,
-  JURISDICTION_LABEL,
   POLICY_PAGES,
   instrumentsIn,
   recommendationsIn,
@@ -161,5 +160,3 @@ export default async function JurisdictionPage({ params }: RouteParams) {
     </Shell>
   );
 }
-
-export { JURISDICTION_LABEL };
