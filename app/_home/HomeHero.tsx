@@ -12,14 +12,14 @@ import Link from 'next/link';
  */
 export function HomeHero() {
   return (
-    <header className="home-hero">
+    <header className="home-hero bb-stack">
       <h1 className="home-hero-title">What is holding technology back.</h1>
       <p className="home-hero-lede">
         The physical bottlenecks under faster compute, power, materials and machines — who makes
         each, which rule governs it, how sure we are — written down in public.
       </p>
-      <div className="home-hero-actions">
-        <Link href="/atlas" className="research-button">
+      <div className="home-hero-actions bb-actions">
+        <Link href="/atlas" className="research-button bb-button bb-button--primary">
           Open the map
         </Link>
       </div>
