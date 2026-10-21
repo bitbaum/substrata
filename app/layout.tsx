@@ -2,6 +2,8 @@ import { DEFAULT_LOCALE, dirFor } from '@/lib/i18n/locales';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import './globals.css';
+// Shared low-specificity layout grammar follows the Tailwind/reset layer.
+import '@bitbaum/design-tokens/composition.css';
 // Feature stylesheets, split out of globals.css (which keeps tokens, base and
 // site chrome). The order is the order they had inside globals.css, so the
 // cascade is unchanged; keep it when adding one.

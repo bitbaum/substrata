@@ -80,6 +80,22 @@
   --map-seq-5: #f2b74e;
 }
 
+/* The shared grammar uses our own monochrome engineering identity.
+ * Only reusable interaction roles are mapped; no foreign brand palette.
+ */
+:root {
+  --bb-action-bg: var(--color-fg-primary);
+  --bb-action-fg: var(--color-surface-page);
+  --bb-control-bg: var(--color-surface-raised);
+  --bb-control-fg: var(--color-fg-primary);
+  --bb-line: var(--color-border-strong);
+  --bb-muted: var(--color-fg-tertiary);
+  --bb-focus: var(--color-accent);
+  --bb-radius-control: 0.25rem;
+  --bb-stack-gap: 1rem;
+  --bb-list-row-y: 0.75rem;
+}
+
 /*
  * How much of the bottom of the screen the shell owns: the phone's tab bar
  * plus the home-indicator inset, and nothing from 768px up. Anything fixed or
