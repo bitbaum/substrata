@@ -84,13 +84,13 @@
  */
 .companion-page .companion {
   height: calc(
-    min(var(--ck-viewport-height, 100dvh), 100dvh - var(--shell-offset-bottom)) -
-      var(--spacing-topbar)
+    min(var(--ck-viewport-height, 100dvh), 100dvh) - var(--spacing-topbar) -
+      var(--shell-offset-bottom)
   );
   min-height: 0;
   /* The contribution form or key panel can outgrow a short screen. */
   overflow-y: auto;
-  padding: 1rem 0 0.75rem;
+  padding: 1rem 0 1.5rem;
 }
 
 .companion.is-compact {
@@ -102,10 +102,15 @@
 }
 
 /* The thread grows; in the dock the composer stays reachable at the bottom. */
-.companion .ck-thread-wrap {
+.companion .ck-thread-wrap,
+.companion .ck-thread {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.companion .ck-thread {
+  padding-bottom: 1.5rem;
 }
 .ask-dock-panel .companion .ck-composer-wrap {
   position: sticky;
