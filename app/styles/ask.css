@@ -104,6 +104,8 @@
 /* The thread grows; in the dock the composer stays reachable at the bottom. */
 .companion .ck-thread-wrap {
   flex: 1;
+  min-height: 0;
+  overflow-y: auto;
 }
 .ask-dock-panel .companion .ck-composer-wrap {
   position: sticky;
