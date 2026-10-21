@@ -172,6 +172,11 @@
 }
 .door-list {
   border-top: 1px solid var(--color-border-subtle);
+  --bb-line: var(--color-border-subtle);
+}
+
+.door-list > li:last-child {
+  border-bottom: 1px solid var(--color-border-subtle);
 }
 .door-row {
   display: grid;
@@ -180,7 +185,6 @@
   gap: 0.1rem 1rem;
   min-height: var(--size-target);
   padding: 0.6rem 0.25rem;
-  border-bottom: 1px solid var(--color-border-subtle);
   color: var(--color-fg-primary);
 }
 .door-row:hover .door-row-who,
