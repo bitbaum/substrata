@@ -70,7 +70,7 @@ export function ResearchChat({
   // The visible height, which shrinks when a phone keyboard opens; on /chat
   // the column is sized to it so the composer stays above the keyboard.
   const root = useRef<HTMLDivElement>(null);
-  useViewportHeight(root);
+  useViewportHeight(compact ? root : undefined);
 
   useEffect(() => {
     if (!pending || ran.current === pending.id) return;

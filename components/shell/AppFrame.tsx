@@ -43,6 +43,7 @@ export function AppFrame({
   children: ReactNode;
 }) {
   const pathname = usePathname() ?? '/';
+  const isChat = pathname === '/chat' || pathname.startsWith('/chat/');
   const [palette, setPalette] = useState(false);
   const [more, setMore] = useState(false);
   const entries = useMemo(() => paletteEntries({ signedIn, reviewer }), [signedIn, reviewer]);
@@ -80,7 +81,7 @@ export function AppFrame({
   }, [pathname]);
 
   return (
-    <div className="shell">
+    <div className={isChat ? 'shell is-chat' : 'shell'}>
       <a href="#main" className="shell-skip">
         Skip to content
       </a>
@@ -96,7 +97,7 @@ export function AppFrame({
         <main id="main" className="shell-page">
           {children}
         </main>
-        {footer}
+        {!isChat && footer}
       </div>
       <MobileTabBar pathname={pathname} moreOpen={more} onMore={() => setMore((o) => !o)} />
       {more && <MoreSheet pathname={pathname} onClose={closeMore} onSearch={openPalette} />}

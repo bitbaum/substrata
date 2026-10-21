@@ -64,3 +64,51 @@ test('ask.css adjusts viewport height and bottom padding on /chat against keyboa
     '.companion-page .companion must have sufficient bottom padding',
   );
 });
+
+test('ask.css anchors composer to bottom and makes empty state scrollable', () => {
+  const css = readFileSync(join(ROOT, 'app/styles/ask.css'), 'utf8');
+
+  // .companion .ask-empty must have flex: 1 and overflow-y: auto so empty starters do not push composer off-screen
+  assert.match(
+    css,
+    /\.companion\s+\.ask-empty[\s\S]*?overflow-y:\s*auto/,
+    '.companion .ask-empty must be scrollable',
+  );
+  assert.match(
+    css,
+    /\.companion\s+\.ask-empty\s*\{[\s\S]*?padding-bottom:\s*1\.5rem/,
+    '.companion .ask-empty must provide bottom padding',
+  );
+
+  // Composer must be sticky anchored to bottom of companion
+  assert.match(
+    css,
+    /\.companion\s+\.ck-composer-wrap\s*\{[\s\S]*?position:\s*sticky/,
+    '.companion .ck-composer-wrap must be sticky',
+  );
+  assert.match(
+    css,
+    /\.companion\s+\.ck-composer-wrap\s*\{[\s\S]*?bottom:\s*0/,
+    '.companion .ck-composer-wrap must stick to bottom',
+  );
+});
+
+test('/chat locks shell height to prevent window scrolling and suppresses site footer', () => {
+  const css = readFileSync(join(ROOT, 'app/styles/ask.css'), 'utf8');
+  const chatPage = readFileSync(join(ROOT, 'app/chat/page.tsx'), 'utf8');
+
+  // Shell on /chat must lock overflow to hidden and clamp height to viewport
+  assert.match(
+    css,
+    /\.shell\.is-chat[\s\S]*?overflow:\s*hidden/,
+    '.shell.is-chat must lock overflow to prevent window scrolling',
+  );
+  assert.match(
+    css,
+    /\.shell\.is-chat[\s\S]*?height:\s*min\(var\(--ck-viewport-height,\s*100dvh\),\s*100dvh\)/,
+    '.shell.is-chat must clamp height to visual viewport',
+  );
+
+  // /chat passes footer={false} to Shell
+  assert.match(chatPage, /<Shell\s+footer=\{false\}>/, '/chat must suppress footer in Shell');
+});

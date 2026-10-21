@@ -74,6 +74,24 @@
 }
 
 /*
+ * On /chat the shell locks to the visible viewport so the window never scrolls,
+ * the thread is what scrolls, and the composer stays anchored to the bottom
+ * above the tab bar or virtual keyboard.
+ */
+.shell.is-chat,
+.shell.is-chat .shell-column,
+.shell:has(.companion-page),
+.shell:has(.companion-page) .shell-column {
+  min-height: 0;
+  height: min(var(--ck-viewport-height, 100dvh), 100dvh);
+  overflow: hidden;
+}
+
+.shell-column:has(.companion-page) .site-footer {
+  display: none;
+}
+
+/*
  * On /chat the column is exactly the visible screen under the top bar, so the
  * thread is what scrolls. chatkit follows new tokens only while its thread is
  * at the bottom; when the whole page scrolled instead, the thread never moved,
@@ -101,9 +119,10 @@
   margin-top: 0.8rem;
 }
 
-/* The thread grows; in the dock the composer stays reachable at the bottom. */
+/* The thread grows; in the dock and on /chat the composer stays reachable at the bottom. */
 .companion .ck-thread-wrap,
-.companion .ck-thread {
+.companion .ck-thread,
+.companion .ask-empty {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
@@ -112,11 +131,15 @@
 .companion .ck-thread {
   padding-bottom: 1.5rem;
 }
-.ask-dock-panel .companion .ck-composer-wrap {
+.companion .ask-empty {
+  padding-bottom: 1.5rem;
+}
+.companion .ck-composer-wrap {
   position: sticky;
   bottom: 0;
   background: var(--color-surface-page);
   padding-bottom: 0.5rem;
+  z-index: 2;
 }
 
 .ask-empty {
