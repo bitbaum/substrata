@@ -32,7 +32,7 @@
   "dependencies": {
     "@bitbaum/accountkit": "github:bitbaum/accountkit#v0.2.1",
     "@bitbaum/ai-kit": "^1.20.1",
-    "@bitbaum/chatkit": "^0.11.0",
+    "@bitbaum/chatkit": "^0.12.0",
     "@bitbaum/geo-kit": "github:bitbaum/geo-kit#a337aec928cf7804fecf459c308d366b90f4b2fa",
     "@bitbaum/searchkit": "github:bitbaum/searchkit#v0.2.2",
     "@bitbaum/whenkit": "github:bitbaum/whenkit#v0.3.2",
