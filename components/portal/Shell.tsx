@@ -42,7 +42,13 @@ function Footer({ note }: { note: string }) {
   );
 }
 
-export async function Shell({ children }: { children: React.ReactNode }) {
+export async function Shell({
+  children,
+  footer = true,
+}: {
+  children: React.ReactNode;
+  footer?: boolean;
+}) {
   const chrome = siteChrome();
   const session = await currentSession();
   const actorId = session?.actorId;
@@ -52,7 +58,7 @@ export async function Shell({ children }: { children: React.ReactNode }) {
       signedIn={Boolean(actorId)}
       reviewer={isReviewer(actorId)}
       account={<AccountMenu />}
-      footer={<Footer note={chrome.footerNote} />}
+      footer={footer ? <Footer note={chrome.footerNote} /> : null}
     >
       {children}
     </AppFrame>

@@ -16,7 +16,7 @@ export default async function ChatPage({
   const params = await searchParams;
   const topic = typeof params.topic === 'string' ? params.topic.slice(0, 200) : '';
   return (
-    <Shell>
+    <Shell footer={false}>
       <div className="companion-page">
         <ResearchChat topic={topic} />
       </div>
