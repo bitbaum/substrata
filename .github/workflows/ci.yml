@@ -80,10 +80,6 @@ jobs:
             nextjs-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}-
             nextjs-${{ runner.os }}-
 
-      # Temporary formatter inspection, removed once its exact diff is applied.
-      - name: Formatter diagnostic
-        run: pnpm exec prettier --write test/composition.test.ts && git diff -- test/composition.test.ts
-
       - name: Verify
         run: pnpm run verify
 
