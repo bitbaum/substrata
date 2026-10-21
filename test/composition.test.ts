@@ -14,8 +14,8 @@ test('Substrata uses one immutable shared composition source, not the fleet bran
     'github:bitbaum/design-tokens#8e786a43220d267ccf6b5cd6119a012f1a52dfff',
   );
   const layout = source('app/layout.tsx');
-  assert.ok(layout.includes("@bitbaum/design-tokens/composition.css"));
-  assert.ok(!layout.includes("@bitbaum/design-tokens/tokens.css"));
+  assert.ok(layout.includes('@bitbaum/design-tokens/composition.css'));
+  assert.ok(!layout.includes('@bitbaum/design-tokens/tokens.css'));
   assert.ok(
     layout.indexOf("'./globals.css'") < layout.indexOf("'@bitbaum/design-tokens/composition.css'"),
     'composition must load after the Tailwind reset',
