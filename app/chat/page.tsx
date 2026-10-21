@@ -1,7 +1,12 @@
+import type { Metadata, Viewport } from 'next';
 import { ResearchChat } from '@/components/portal/ResearchChat';
 import { Shell } from '@/components/portal/Shell';
 
-export const metadata = { title: 'Ask Substrata' };
+export const metadata: Metadata = { title: 'Ask Substrata' };
+
+export const viewport: Viewport = {
+  interactiveWidget: 'resizes-content',
+};
 
 export default async function ChatPage({
   searchParams,
