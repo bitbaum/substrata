@@ -55,6 +55,7 @@ export function ResearchChat({
   onPath,
   compact = false,
   pending,
+  start,
 }: {
   topic: string;
   /** The page the reader is on, so the assistant can resolve "it" and "they". */
@@ -62,6 +63,8 @@ export function ResearchChat({
   compact?: boolean;
   /** A "Check this" request to run as soon as the panel is open. */
   pending?: (CheckRequest & { id: number }) | null;
+  /** A question to ask as soon as the page opens — what the home page's Ask box sends. */
+  start?: string;
 }) {
   const { ai, models, model, setModel } = useAssistantStatus();
   const keys = useAiKey();
@@ -82,6 +85,19 @@ export function ResearchChat({
     // `chat.ask` is a fresh closure each render; the request id is the trigger.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pending]);
+
+  const started = useRef(false);
+  useEffect(() => {
+    if (!start || started.current) return;
+    started.current = true;
+    // The question is in the thread now; a reload must not ask it again.
+    const url = new URL(window.location.href);
+    url.searchParams.delete('q');
+    window.history.replaceState(null, '', url);
+    void chat.ask(start);
+    // Once, on arrival: `chat.ask` is a fresh closure each render.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [start]);
 
   const messages: ChatMessageData[] = chat.turns.map((t) => ({
     id: t.id,

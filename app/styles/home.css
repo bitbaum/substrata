@@ -1,28 +1,9 @@
-/* The front page: hero, the live "what changed" list. Tokens only. */
+/* The front page. Tokens only. One rhythm: sections are `.home-section`, rows
+   of one kind share one class, and nothing here sets a colour of its own. */
+
 .home-hero {
   max-width: 44rem;
   margin-bottom: 2.5rem;
-}
-.home-hero-status {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.25rem 0.4rem;
-  font-size: 0.8rem;
-  color: var(--color-fg-tertiary);
-}
-.home-hero-status a {
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-}
-.home-hero-status a:hover {
-  color: var(--color-fg-primary);
-}
-.home-hero-live {
-  width: 0.45rem;
-  height: 0.45rem;
-  border-radius: 999px;
-  background: var(--color-status-positive);
 }
 .home-hero-title {
   font: 600 clamp(2rem, 6vw, 3.25rem) / 1.08 var(--font-heading);
@@ -32,12 +13,272 @@
 }
 .home-hero-lede {
   max-width: 36rem;
+  margin-top: 1rem;
   font-size: 1.05rem;
   line-height: 1.55;
   color: var(--color-fg-secondary);
+  text-wrap: pretty;
 }
-.home-hero-actions {
+/* The Ask box and what sits under it. The composer is chatkit's. */
+.home-ask {
+  margin-top: 1.5rem;
+}
+/* chatkit's text box is 40px tall; every control here is a full target. */
+.home-ask .ck-input {
+  min-height: var(--size-target);
+}
+.home-asks-label {
+  margin: 1rem 0 0.5rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--color-fg-tertiary);
+}
+/* Equal cells: two by two on a phone, four across from `sm`. */
+.home-asks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+@media (min-width: 640px) {
+  .home-asks {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+.home-asks > li {
+  display: flex;
+}
+.home-ask-option {
+  flex: 1;
+  min-height: var(--size-target);
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 0.5rem;
+  background: transparent;
+  font-size: 0.875rem;
+  line-height: 1.35;
+  text-align: left;
+  color: var(--color-fg-secondary);
+  cursor: pointer;
+}
+.home-ask-option:hover,
+.home-ask-option:focus-visible {
+  border-color: var(--color-fg-primary);
+  color: var(--color-fg-primary);
+}
+.home-hero-map {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: var(--size-target);
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--color-fg-secondary);
+}
+.home-hero-map:hover {
+  color: var(--color-fg-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* Sections share one gap. Worst-right-now and what-changed sit side by side
+   from `lg`; a single one (nothing changed) takes the whole row. */
+.home-section {
+  min-width: 0;
+  margin-bottom: 2.5rem;
+}
+.home-pair {
+  display: grid;
+  gap: 0 3rem;
+}
+@media (min-width: 1024px) {
+  .home-pair {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .home-pair > :only-child {
+    grid-column: 1 / -1;
+  }
+  .home-section {
+    margin-bottom: 3.5rem;
+  }
+}
+.home-more {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--size-target);
+  text-underline-offset: 0.2em;
+}
+.home-more:hover {
+  color: var(--color-fg-primary);
+  text-decoration: underline;
+}
+
+/* Worst right now: ONE row. Two columns at every width — text on the left,
+   a fixed-width gauge on the right — so the meter never changes place. */
+.board-rows {
+  border-top: 1px solid var(--color-border-subtle);
+}
+.board-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 8rem;
+  gap: 0 1rem;
   align-items: start;
+  padding: 0.5rem 0 0.75rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.board-row-name {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--color-fg-primary);
+  text-underline-offset: 0.2em;
+}
+.board-row-name:hover {
+  text-decoration: underline;
+}
+.board-row-plain {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--color-fg-tertiary);
+}
+.board-row-gauge {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+/* The score is a button; a two-digit number alone is 14px wide, so the button
+   itself is widened to a full target, its digits kept at the right. */
+.board-row-gauge .figure-target {
+  min-width: var(--size-target);
+  justify-content: flex-end;
+}
+.board-row-moved {
+  margin-top: 0.15rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+}
+.board-row-moved.is-worse {
+  color: var(--color-status-negative);
+}
+.board-row-moved.is-eased {
+  color: var(--color-status-positive);
+}
+.board-note {
+  margin-top: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  color: var(--color-fg-muted);
+}
+
+/* The corpus in four numbers: equal cells, one shape. */
+.home-numbers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 0.5rem;
+  background: var(--color-border-subtle);
+}
+@media (min-width: 1024px) {
+  .home-numbers {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+.home-numbers > li {
+  display: flex;
+}
+.home-number {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-height: var(--size-target);
+  padding: 1rem;
+  background: var(--color-surface-raised);
+  color: var(--color-fg-primary);
+}
+.home-number:hover .home-number-label,
+.home-number:focus-visible .home-number-label {
+  color: var(--color-fg-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.home-number-value {
+  font: 600 clamp(1.75rem, 5vw, 2.25rem) / 1.1 var(--font-heading);
+  font-variant-numeric: tabular-nums;
+}
+.home-number-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--color-fg-tertiary);
+}
+
+/* Doors: name, one line, chevron. The same three cells in every row; from
+   `lg` the line moves beside the name instead of under it. */
+.home-doors {
+  border-top: 1px solid var(--color-border-subtle);
+}
+.home-doors > li {
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.home-door {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.15rem 1rem;
+  min-height: var(--size-target);
+  padding: 0.7rem 0.25rem;
+  color: var(--color-fg-primary);
+}
+.home-door-who {
+  grid-column: 1;
+  font: 600 1rem/1.3 var(--font-heading);
+}
+.home-door-hint {
+  grid-column: 1;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--color-fg-tertiary);
+}
+.home-door-go {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  color: var(--color-fg-tertiary);
+}
+.home-door:hover .home-door-who,
+.home-door:focus-visible .home-door-who {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+@media (min-width: 1024px) {
+  .home-door {
+    grid-template-columns: 16rem minmax(0, 1fr) auto;
+    gap: 0 2rem;
+  }
+  .home-door-who,
+  .home-door-hint,
+  .home-door-go {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+/* The footer's freshness line. */
+.home-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 0.4rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--color-fg-muted);
 }
 
 .home-feed {
@@ -122,33 +363,6 @@
   font-size: 0.8rem;
   color: var(--color-fg-tertiary);
 }
-.home-feed-subhead {
-  margin: 1.75rem 0 0.5rem;
-  font: 600 0.95rem/1.3 var(--font-heading);
-  color: var(--color-fg-primary);
-}
-.home-feed-subhead span {
-  font-weight: 400;
-  color: var(--color-fg-tertiary);
-}
-
-/* The foot: the way in for someone who knows better, then how live the site
-   is. Quiet on purpose — a reader who scrolled this far already cares. */
-.home-foot {
-  display: grid;
-  gap: 0.75rem;
-  margin-top: 1rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--color-border-subtle);
-}
-.home-foot-fix {
-  max-width: 44rem;
-  font-size: 0.9rem;
-  line-height: 1.55;
-  color: var(--color-fg-secondary);
-}
-.home-foot-fix a {
-  color: var(--color-fg-primary);
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
+.home-section > .home-feed-note {
+  margin: 0 0 0.75rem;
 }

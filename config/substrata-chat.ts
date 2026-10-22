@@ -2,18 +2,26 @@
  * Companion starters. Config, not chrome. The model still answers from
  * retrieved corpus facts — these are only doors in.
  */
-export const CHAT_STARTERS: readonly { label: string; question: string }[] = [
+export const CHAT_STARTERS: readonly {
+  label: string;
+  question: string;
+  /** Offered on the home page, under the Ask box (lib/home-asks.ts). */
+  home?: true;
+}[] = [
   {
     label: 'What is actually binding compute?',
     question: 'What are the bottlenecks in compute, and which of them are sourced?',
+    home: true,
   },
   {
     label: 'Who makes silicon wafers?',
     question: 'Which companies make silicon wafers, and what is sourced versus unverified?',
+    home: true,
   },
   {
     label: 'Why does Niger matter?',
     question: 'Why does Niger matter for the path, and what is directory versus a finding?',
+    home: true,
   },
   {
     label: 'What would relieve EUV?',

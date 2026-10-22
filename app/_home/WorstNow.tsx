@@ -1,15 +1,14 @@
 import Link from 'next/link';
 
-import type { Bottleneck } from '@/lib/bottlenecks';
+import type { WorstNow as Board } from '@/lib/worst-now';
 import { WHEN_LABEL } from '@/lib/labels';
-import { Heading } from '@/components/portal/Shell';
-import { SeverityBar, Status, rowLabel } from '@/components/portal/Status';
-import { bottleneckHref } from '@/lib/links';
 import { methodHref } from '@/lib/methods';
+import { Heading } from '@/components/portal/Shell';
+import { BottleneckRow } from './BottleneckRow';
 
 /**
- * Section 02: the most binding constraints now, flagged where an event in the
- * window moved them.
+ * The most binding constraints now, flagged where an event in the window moved
+ * them. Used by the front page and by the industry view, which share the rows.
  */
 export function WorstNow({
   worst,
@@ -17,61 +16,33 @@ export function WorstNow({
   tightening,
   loosening,
   bare = false,
-}: {
-  worst: Bottleneck[];
+}: Board & {
   bindingNow: number;
-  tightening: Set<string>;
-  loosening: Set<string>;
   /** Without its own heading, inside a page section that already has one. */
   bare?: boolean;
 }) {
   return (
-    <section>
+    <section className="home-section">
       {!bare && (
         <Heading
           title="Worst right now"
           aside={
-            <Link
-              href="/bottlenecks?horizon=now"
-              className="link-target underline-offset-4 hover:text-fg-primary hover:underline"
-            >
+            <Link href="/bottlenecks?horizon=now" className="home-more">
               All {bindingNow} →
             </Link>
           }
         />
       )}
-      <ol className="divide-y divide-subtle border-y border-subtle">
+      <ol className="board-rows">
         {worst.map((b) => (
-          <li key={b.slug} className="py-3">
-            <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-              <Link
-                href={bottleneckHref(b.slug)}
-                className="link-target font-medium text-fg-primary underline-offset-4 hover:underline"
-              >
-                {b.name}
-              </Link>
-              <span className="flex items-center gap-4">
-                <SeverityBar value={b.binding} target />
-                <Status state={b.state} compact label={rowLabel(b.counts)} />
-              </span>
-            </div>
-            <p className="mt-0.5 max-w-prose text-xs leading-snug text-fg-tertiary">
-              {b.plain}
-              {tightening.has(b.name) && (
-                <span className="ml-2 font-mono uppercase tracking-caps text-status-negative">
-                  got worse
-                </span>
-              )}
-              {loosening.has(b.name) && (
-                <span className="ml-2 font-mono uppercase tracking-caps text-status-positive">
-                  eased
-                </span>
-              )}
-            </p>
-          </li>
+          <BottleneckRow
+            key={b.slug}
+            bottleneck={b}
+            moved={tightening.has(b.name) ? 'worse' : loosening.has(b.name) ? 'eased' : undefined}
+          />
         ))}
       </ol>
-      <p className="mt-3 font-mono text-xs text-fg-muted">
+      <p className="board-note">
         {WHEN_LABEL.now} · ranked by{' '}
         <Link href={methodHref('severity')} className="link-target underline underline-offset-2">
           severity

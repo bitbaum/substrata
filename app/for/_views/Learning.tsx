@@ -5,7 +5,7 @@ import { learnHref } from '@/lib/links';
 import { Rows } from '@/components/roles/RoleParts';
 import { RoleSection } from '@/components/roles/RoleSection';
 import { Paths } from '../../careers/_parts/Paths';
-import { StartHere } from '../../_home/StartHere';
+import { StartHere } from './StartHere';
 
 /** Plain words first, then a way to follow one thread, then a way in as a career. */
 export function LearningView() {

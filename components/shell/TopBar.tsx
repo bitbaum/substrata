@@ -59,10 +59,13 @@ export function TopBar({
       </button>
       <div className="shell-topbar-end">
         {/* Phones only: a floating Ask button covered the text above the tab
-            bar, so on a phone Ask lives here, as Loki's does. */}
-        <button type="button" className="shell-ask" onClick={requestOpen}>
-          Ask
-        </button>
+            bar, so on a phone Ask lives here, as Loki's does. Not on the home
+            page, whose own first line is the Ask box: two Asks is one too many. */}
+        {pathname !== HOME_LINK.href && (
+          <button type="button" className="shell-ask" onClick={requestOpen}>
+            Ask
+          </button>
+        )}
         {signedIn && (
           <Link
             href={ACCOUNT_NAV.desk.href}

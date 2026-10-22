@@ -3,14 +3,14 @@ import type { Metadata } from 'next';
 import { COMPANY } from '@/config/substrata';
 import { policyTotals } from '@/config/substrata-policy';
 import { portalTotals } from '@/lib/bottlenecks';
+import { homeAsks } from '@/lib/home-asks';
 import { homeFeed } from '@/lib/home-feed';
-import { marketTotals } from '@/lib/participants';
 import { worstNow } from '@/lib/worst-now';
 import { Page, Shell } from '@/components/portal/Shell';
-import { ChooseRole } from './_home/ChooseRole';
-import { HomeFoot } from './_home/HomeFoot';
+import { Doors } from './_home/Doors';
 import { HomeHero } from './_home/HomeHero';
-import { HomeStats } from './_home/HomeStats';
+import { HomeNumbers } from './_home/HomeNumbers';
+import { HomeStatus } from './_home/HomeStatus';
 import { WhatChanged } from './_home/WhatChanged';
 import { WorstNow } from './_home/WorstNow';
 
@@ -21,47 +21,47 @@ export const metadata: Metadata = {
 };
 
 /**
- * The front page answers, in order: what is this (one line, one sentence,
- * one button), what is worst right now (three rows — the proof that the
- * map holds something), which door is mine, what changed (three checked
- * events), and how big the corpus is. Then one line for the reader who can
- * fix it, and how live the site is.
+ * The front page, in order: ask (the hero is the Ask box), what is worst right
+ * now, what changed, the corpus in four numbers, which door is yours. Then a
+ * calm footer. Six short sections; on 2026-10-09 the page measured 18,686px
+ * on a phone and said nothing first, and the discipline is that it stays
+ * short — what left it is still on the site (config/what-it-solves.ts for
+ * the role views, the chips on /bottlenecks, the latest rule at the top of
+ * /policy, unchecked finds on /events).
  *
- * That is five short sections. On 2026-10-09 the page measured 18,686px on
- * a phone — some twenty screens: a two-clause title and three-sentence lede,
- * five role cards, thirteen "what it solves" cards, eight worst rows, two
- * event lists, two clouds of technology and industry chips, the latest rule
- * and the counts. Every piece was true and the page still said nothing
- * first. What left it is still on the site: the problem cards' copy stays
- * in config/what-it-solves.ts for the role views, the chips are the
- * filters on /bottlenecks, the latest rule is the top of /policy, and
- * unchecked finds lead News.
+ * It is served from a cache and rebuilt at most a minute after anyone asks:
+ * "what changed" is the one thing on it that must not be as old as the last
+ * deploy, and a minute is as fresh as the sweep itself can make it. For that
+ * the page cannot read the session — the shell learns its reader from
+ * /api/me in the browser (Shell reader="client"). Reading it here made every
+ * request a render, measured at 640–850ms.
  */
-// The front page reads the sweep's store on every request: "what changed"
-// is the one thing on it that must not be as old as the last deploy.
-export const dynamic = 'force-dynamic';
+export const revalidate = 60;
+// Pinned, not just implied: with a session secret configured (production), the
+// build treated this route as dynamic although nothing on the page reads a
+// request — measured with AUTH_SECRET set, `next build` listed it as ƒ. Pinning
+// it static means a stray session read returns "signed out" instead of
+// silently making every visit a render again.
+export const dynamic = 'force-static';
 
-export default async function TodayPage() {
+export default async function HomePage() {
   const now = new Date();
   const totals = portalTotals();
   const board = worstNow(3);
   const feed = await homeFeed(now);
 
   return (
-    <Shell>
+    <Shell reader="client" status={<HomeStatus freshness={feed.freshness} now={now} />}>
       <Page>
-        <HomeHero />
+        <HomeHero asks={homeAsks(board.worst[0])} />
 
-        <div className="mb-12 grid gap-12 lg:grid-cols-[2fr_3fr]">
+        <div className="home-pair">
           <WorstNow {...board} bindingNow={totals.bindingNow} />
-          <ChooseRole />
+          <WhatChanged feed={feed} now={now} />
         </div>
 
-        <WhatChanged feed={feed} now={now} compact />
-
-        <HomeStats totals={totals} markets={marketTotals()} policy={policyTotals()} />
-
-        <HomeFoot freshness={feed.freshness} now={now} />
+        <HomeNumbers totals={totals} policy={policyTotals()} />
+        <Doors />
       </Page>
     </Shell>
   );

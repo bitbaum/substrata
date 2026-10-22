@@ -229,6 +229,11 @@
 }
 
 /* --------------------------------------------------------------- footer */
+/* On a phone the Loki feedback launcher floats above the tab bar, outside this
+   page's control; the footer keeps its last line clear of it. */
+.site-footer {
+  padding-bottom: var(--widget-reserve, 0px);
+}
 .site-footer-nav {
   display: flex;
   flex-wrap: wrap;
@@ -332,6 +337,13 @@
 .theme-toggle-option[aria-pressed='true'] {
   color: var(--color-fg-primary);
   border: 1px solid var(--color-fg-primary);
+}
+/* A cached page learns its reader after it loads; the menu's place is held at
+   the size of "Sign in" so nothing moves when the answer arrives. */
+.account-menu-pending {
+  display: inline-block;
+  min-height: var(--size-target);
+  min-width: 5.25rem;
 }
 /* Signed out, the control says what it does rather than showing a dot. */
 .account-menu-signin {
