@@ -45,7 +45,8 @@ import {
 } from './answer';
 import { finalAnswer, renderCalls, toolRound } from './parse';
 import { reviseUnsupported, unsupportedFigures, withoutSentencesHolding } from './grounding';
-import { lookupIsEmpty, planLookups, runLookups } from './plan';
+import { runLookups, runPlan } from './lookups';
+import { planLookups } from './plan';
 import { LOOP_LIMITS, systemPrompt } from './prompt';
 import type { ModelTurn, ModelTurnResult } from './turn';
 import { gatherEvidence, verdictOf, verifyQuestion, type VerifyRequest } from './verify';
@@ -85,9 +86,8 @@ export async function runAgent(input: {
   const ledger = emptyLedger();
   const env: ToolEnv = { ...input.env, ledger };
   const question = input.verify ? verifyQuestion(input.verify) : input.question;
-  // The lookups the question obviously needs, made now rather than after a
-  // model round asks for them (plan.ts). A plan outranks "the page answers
-  // it": "what is new here" reads like a page question and needs the leads.
+  // The lookups the question obviously needs, made before any model round
+  // (plan.ts). A plan outranks "the page answers it": "what is new here" needs the leads.
   const plan = input.verify
     ? { calls: [], confident: false }
     : planLookups(question, input.context, env);
@@ -95,14 +95,13 @@ export async function runAgent(input: {
     !input.verify &&
     !plan.calls.length &&
     answerableFromPage(question, Boolean(input.context.entity));
-  const [preload, evidence, lookedUp] = await Promise.all([
+  const [preload, evidence, looked] = await Promise.all([
     preloadPage(input.context, env),
     input.verify ? gatherEvidence(input.verify, env) : Promise.resolve(undefined),
-    plan.calls.length ? runLookups(plan.calls, input.context, env, emit) : Promise.resolve([]),
+    runPlan(plan, question, input.context, env, emit),
   ]);
-  // An empty planned lookup is not an answer (see lookupIsEmpty): tools stay
-  // on offer and rounds are left for the web.
-  const planEmpty = plan.calls.length > 0 && lookedUp.some(lookupIsEmpty);
+  const lookedUp = looked.results; // an empty lookup already opened the web (runPlan)
+  const planEmpty = looked.empty;
   const noTools = pageOnly || (plan.confident && !planEmpty);
   // A tool the planner already ran unfiltered has given its whole list; offered
   // again, models re-asked for it (2 of 12 questions, 2026-10-02), a round each.
@@ -114,6 +113,7 @@ export async function runAgent(input: {
     preloaded: preload?.text,
     lookedUp: lookedUp.length ? lookedUp.join('\n\n') : undefined,
     lookedUpEmpty: planEmpty,
+    webSearched: looked.web,
     tools: noTools ? [] : tools,
     byok: input.byok,
     today: input.today,

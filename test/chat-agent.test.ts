@@ -18,8 +18,14 @@ import { StreamGate, couldBeProtocol } from '../lib/chat-agent/stream-gate';
 import { readTurn, stripThinking, tidyAnswer } from '../lib/chat-agent/parse';
 import type { ModelTurn } from '../lib/chat-agent/turn';
 import { systemPrompt } from '../lib/chat-agent/prompt';
-import { budgetMessage, isPageRecord, runAgent, type AgentEvent } from '../lib/chat-agent/loop';
-import { lookupIsEmpty } from '../lib/chat-agent/plan';
+import {
+  budgetMessage,
+  isPageRecord,
+  runAgent,
+  type AgentAnswer,
+  type AgentEvent,
+} from '../lib/chat-agent/loop';
+import { lookupIsEmpty } from '../lib/chat-agent/lookups';
 import { BOTTLENECKS } from '../lib/bottlenecks';
 import { MARKET_PARTICIPANTS } from '../lib/participants';
 
@@ -453,6 +459,58 @@ test('planned lookups that come back empty leave the tools on offer and rounds f
   assert.ok(offered[0].includes('web_search'), 'the web stays within reach after an empty lookup');
 });
 
+test('an empty planned lookup searches the web before the model is asked', async () => {
+  let system = '';
+  const turn: ModelTurn = async (input) => {
+    system = String(input.messages[0].content);
+    return { text: 'Answer from the pages.', calls: [], model: 'groq/m' };
+  };
+  const events: AgentEvent[] = [];
+  const data = await new Promise<AgentAnswer>((resolve) =>
+    runAgent({
+      question: 'What open jobs are there in Niger?',
+      history: [],
+      context: readerContext({}),
+      turn,
+      env: {
+        web: async () => ({
+          status: 'found' as const,
+          findings: [
+            { title: 'Jobs in Niamey', url: 'https://example.org/niger', excerpt: 'Hiring' },
+          ],
+        }),
+      },
+      emit: (e) => {
+        events.push(e);
+        if (e.type === 'done') resolve(e.data);
+      },
+    }),
+  );
+  const labels = events.filter((e) => e.type === 'tool').map((e) => (e as { label: string }).label);
+  assert.ok(
+    labels.some((l) => /Searching the web/.test(l)),
+    `the web was searched: ${labels}`,
+  );
+  assert.match(system, /answer from the web_search result above/);
+  assert.equal(data.outside, true, 'the answer says it went outside the corpus');
+  assert.equal(data.web.length, 1);
+});
+
+test('an empty planned lookup without a search backend stays on the corpus', async () => {
+  const events: AgentEvent[] = [];
+  const turn: ModelTurn = async () => ({ text: 'Background.', calls: [], model: 'groq/m' });
+  await runAgent({
+    question: 'What open jobs are there in Niger?',
+    history: [],
+    context: readerContext({}),
+    turn,
+    env: {},
+    emit: (e) => events.push(e),
+  });
+  const labels = events.filter((e) => e.type === 'tool').map((e) => (e as { label: string }).label);
+  assert.ok(!labels.some((l) => /Searching the web/.test(l)));
+});
+
 test('the prompt turns an empty lookup into a search or marked background, never a wall', () => {
   const withWeb = systemPrompt({
     context: readerContext({}),
@@ -462,6 +520,14 @@ test('the prompt turns an empty lookup into a search or marked background, never
   });
   assert.match(withWeb, /does not track this yet/);
   assert.match(withWeb, /call web_search now/);
+  const searched = systemPrompt({
+    context: readerContext({}),
+    lookedUp: '[search_corpus] {"results":[]}\n\n[web_search] {"results":[{"title":"x"}]}',
+    lookedUpEmpty: true,
+    webSearched: true,
+    tools: toolDefinitions(envWith({ web: async () => ({ status: 'nothing' as const }) })),
+  });
+  assert.match(searched, /answer from the web_search result above/);
   const without = systemPrompt({
     context: readerContext({}),
     lookedUp: '[search_corpus] {"results":[]}',
