@@ -38,6 +38,46 @@ test('unconfigured reports "off", not "nothing"', async () => {
   assert.deepEqual(result, { status: 'off' });
 });
 
+test('a result whose page will not open still counts, by its snippet, marked unread', async () => {
+  // Seen live (2026-10-22): Bing returned ten results for a jobs question, the
+  // two pages tried refused a server, and the lookup said "nothing" — so the
+  // model wrote a wall with ten links in hand.
+  const results = [1, 2, 3, 4, 5].map((i) => ({
+    title: `Jobs ${i}`,
+    url: `https://example.org/jobs/${i}`,
+    snippet: `Hiring in Niamey, listing ${i}`,
+  }));
+  const refused = await lookUp('jobs in Niger', undefined, env({ SEARXNG_URL: 'http://x' }), {
+    search: async () => ({ status: 'found', query: 'q', results, attempts: [] }) as never,
+    read: async () => ({ ok: false, status: 403 }) as never,
+  });
+  assert.equal(refused.status, 'found');
+  if (refused.status !== 'found') return;
+  assert.equal(refused.findings.length, 5);
+  assert.ok(refused.findings.every((f) => f.unread && f.excerpt.includes('Niamey')));
+  assert.match(renderWebContext(refused.findings), /search snippet only/);
+
+  // A page that opens is read in full and is not marked; the rest keep their snippets.
+  const read = await lookUp('jobs in Niger', undefined, env({ SEARXNG_URL: 'http://x' }), {
+    search: async () => ({ status: 'found', query: 'q', results, attempts: [] }) as never,
+    read: async (url: string) =>
+      (url.endsWith('/1')
+        ? { ok: true, url, title: 'Jobs 1', text: 'Hiring in Niamey now. Apply today.' }
+        : { ok: false, status: 403 }) as never,
+  });
+  assert.equal(read.status, 'found');
+  if (read.status !== 'found') return;
+  assert.equal(read.findings[0].unread, undefined);
+  assert.equal(read.findings.filter((f) => f.unread).length, 4);
+
+  // Nothing to search with is still nothing.
+  const empty = await lookUp('jobs in Niger', undefined, env({ SEARXNG_URL: 'http://x' }), {
+    search: async () => ({ status: 'nothing', query: 'q', attempts: [] }) as never,
+    read: async () => ({ ok: false, status: 403 }) as never,
+  });
+  assert.deepEqual(empty, { status: 'nothing' });
+});
+
 test('fetched pages are labelled as quoted data, not as instructions', () => {
   // A fetched page is attacker-controlled text. The block has to say so, or a
   // page that reads "ignore previous instructions" becomes one.

@@ -32,6 +32,14 @@ export interface WebFinding {
   excerpt: string;
   /** The source the claim itself cites, as opposed to a search result. */
   cited?: boolean;
+  /** Only the search engine's snippet: the page itself could not be read. */
+  unread?: boolean;
+}
+
+/** The two network calls, injectable so the lookup can be tested without a web. */
+export interface LookUpDeps {
+  search: typeof webSearch;
+  read: typeof readPage;
 }
 
 export type WebLookup =
@@ -139,10 +147,11 @@ export async function lookUp(
   question: string,
   signal?: AbortSignal,
   env: NodeJS.ProcessEnv = process.env,
+  deps: LookUpDeps = { search: webSearch, read: readPage },
 ): Promise<WebLookup> {
   if (!webLookupEnabled(env)) return { status: 'off' };
 
-  const search = await webSearch(question, { limit: 5, timeoutMs: 6000 });
+  const search = await deps.search(question, { limit: 5, timeoutMs: 6000 });
   if (search.status === 'could_not_look') return { status: 'could_not_look' };
   if (search.status === 'nothing' || search.results.length === 0) return { status: 'nothing' };
 
@@ -152,7 +161,7 @@ export async function lookUp(
     search.results.slice(0, MAX_PAGES).map((result) =>
       signal?.aborted
         ? null
-        : readPage(result.url, { timeoutMs: 6000, maxChars: 30_000 }).then((page) =>
+        : deps.read(result.url, { timeoutMs: 6000, maxChars: 30_000 }).then((page) =>
             page.ok
               ? {
                   title: page.title || result.title || result.url,
@@ -163,7 +172,21 @@ export async function lookUp(
           ),
     ),
   );
-  const findings = pages.filter((f): f is WebFinding => f !== null);
+  // A result whose page would not open (job boards and most news sites refuse
+  // a server; seen live 2026-10-22: ten Bing results, two refusals, "nothing")
+  // is still a lead with a link: its snippet stands in, marked as unread.
+  const findings: WebFinding[] = [];
+  search.results.forEach((result, i) => {
+    const page = i < MAX_PAGES ? pages[i] : null;
+    if (page) findings.push(page);
+    else if (result.snippet?.trim())
+      findings.push({
+        title: result.title || result.url,
+        url: result.url,
+        excerpt: result.snippet.trim().slice(0, EXCERPT),
+        unread: true,
+      });
+  });
   return findings.length > 0 ? { status: 'found', findings } : { status: 'nothing' };
 }
 
@@ -201,7 +224,7 @@ export function renderWebContext(findings: WebFinding[]): string {
   const blocks = findings
     .map(
       (finding, index) =>
-        `[W${index + 1}] ${finding.title} — ${finding.url}\n"""\n${finding.excerpt}\n"""`,
+        `[W${index + 1}] ${finding.title} — ${finding.url}${finding.unread ? ' (search snippet only; the page could not be read)' : ''}\n"""\n${finding.excerpt}\n"""`,
     )
     .join('\n\n');
   return [
