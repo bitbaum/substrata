@@ -45,7 +45,8 @@ import {
 } from './answer';
 import { finalAnswer, renderCalls, toolRound } from './parse';
 import { reviseUnsupported, unsupportedFigures, withoutSentencesHolding } from './grounding';
-import { planLookups, runLookups, runPlan } from './plan';
+import { runLookups, runPlan } from './lookups';
+import { planLookups } from './plan';
 import { LOOP_LIMITS, systemPrompt } from './prompt';
 import type { ModelTurn, ModelTurnResult } from './turn';
 import { gatherEvidence, verdictOf, verifyQuestion, type VerifyRequest } from './verify';
@@ -85,9 +86,8 @@ export async function runAgent(input: {
   const ledger = emptyLedger();
   const env: ToolEnv = { ...input.env, ledger };
   const question = input.verify ? verifyQuestion(input.verify) : input.question;
-  // The lookups the question obviously needs, made now rather than after a
-  // model round asks for them (plan.ts). A plan outranks "the page answers
-  // it": "what is new here" reads like a page question and needs the leads.
+  // The lookups the question obviously needs, made before any model round
+  // (plan.ts). A plan outranks "the page answers it": "what is new here" needs the leads.
   const plan = input.verify
     ? { calls: [], confident: false }
     : planLookups(question, input.context, env);

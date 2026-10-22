@@ -25,7 +25,7 @@ import {
   type AgentAnswer,
   type AgentEvent,
 } from '../lib/chat-agent/loop';
-import { lookupIsEmpty } from '../lib/chat-agent/plan';
+import { lookupIsEmpty } from '../lib/chat-agent/lookups';
 import { BOTTLENECKS } from '../lib/bottlenecks';
 import { MARKET_PARTICIPANTS } from '../lib/participants';
 
