@@ -19,6 +19,7 @@ import { readTurn, stripThinking, tidyAnswer } from '../lib/chat-agent/parse';
 import type { ModelTurn } from '../lib/chat-agent/turn';
 import { systemPrompt } from '../lib/chat-agent/prompt';
 import { budgetMessage, isPageRecord, runAgent, type AgentEvent } from '../lib/chat-agent/loop';
+import { lookupIsEmpty } from '../lib/chat-agent/plan';
 import { BOTTLENECKS } from '../lib/bottlenecks';
 import { MARKET_PARTICIPANTS } from '../lib/participants';
 
@@ -397,4 +398,55 @@ test('a tool the planner already ran unfiltered is not offered again', async () 
   });
   assert.ok(offered[0].length > 0, 'tools are offered');
   assert.ok(!offered[0].includes('relief_technologies'), 'its whole list is already in hand');
+});
+
+test('an empty tool result is recognised as empty; one row is not', () => {
+  assert.equal(lookupIsEmpty('[search_corpus] {"results":[],"note":"No record matches."}'), true);
+  assert.equal(lookupIsEmpty('[resource_production] {"error":"not available"}'), true);
+  assert.equal(lookupIsEmpty('[get_company] {"name":"X","producers":[]}'), false);
+  assert.equal(lookupIsEmpty('[x] {"rows":[{"a":1}],"note":"n"}'), false);
+});
+
+test('planned lookups that come back empty leave the tools on offer and rounds for the web', async () => {
+  const offered: string[][] = [];
+  const turn: ModelTurn = async (input) => {
+    offered.push(
+      ((input.tools ?? []) as { function: { name: string } }[]).map((t) => t.function.name),
+    );
+    return { text: 'Not tracked yet; here is the background.', calls: [], model: 'groq/m' };
+  };
+  const events: AgentEvent[] = [];
+  await runAgent({
+    question: 'What open jobs are there in Niger?',
+    history: [],
+    context: readerContext({}),
+    turn,
+    env: { web: async () => ({ status: 'nothing' as const }) },
+    emit: (e) => events.push(e),
+  });
+  assert.ok(
+    events.some((e) => e.type === 'tool'),
+    'the planner looked the roles up for a jobs question',
+  );
+  assert.ok(offered[0].includes('web_search'), 'the web stays within reach after an empty lookup');
+});
+
+test('the prompt turns an empty lookup into a search or marked background, never a wall', () => {
+  const withWeb = systemPrompt({
+    context: readerContext({}),
+    lookedUp: '[search_corpus] {"results":[]}',
+    lookedUpEmpty: true,
+    tools: toolDefinitions(envWith({ web: async () => ({ status: 'nothing' as const }) })),
+  });
+  assert.match(withWeb, /does not track this yet/);
+  assert.match(withWeb, /call web_search now/);
+  const without = systemPrompt({
+    context: readerContext({}),
+    lookedUp: '[search_corpus] {"results":[]}',
+    lookedUpEmpty: true,
+    tools: toolDefinitions(envWith()),
+  });
+  assert.match(without, /Outside the corpus/);
+  assert.match(without, /Send evidence/);
+  assert.doesNotMatch(without, /call web_search now/);
 });

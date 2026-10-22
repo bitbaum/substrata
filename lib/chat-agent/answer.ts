@@ -154,3 +154,13 @@ export function unwrittenAnswer(ledger: Ledger): string | undefined {
     .map((s) => `- [${s.title}](${s.href})`)
     .join('\n')}`;
 }
+
+/** The status line shown before anything is fetched: what the loop is about to read. */
+export function openingStatus(context: ReaderContext, verify?: { source?: unknown }): string {
+  if (verify) {
+    return verify.source
+      ? 'Reading the cited source and searching the web…'
+      : 'Searching the web for the claim…';
+  }
+  return context.entity ? `Reading ${context.entity.name}…` : 'Thinking…';
+}

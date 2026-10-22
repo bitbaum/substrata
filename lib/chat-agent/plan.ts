@@ -238,3 +238,38 @@ export async function runLookups(
   );
   return outs.map((o, i) => `[${calls[i].name}] ${o.result}`);
 }
+
+/**
+ * Whether a tool result carries nothing to answer from: every list in it is
+ * empty and what remains is a note, a warning or an error. A result with one
+ * row is not empty, whatever note sits beside it.
+ *
+ * Why the loop asks: a planned lookup that came back empty — no rows, only
+ * "no record matches" — is not an answer. Seen live (2026-10-22): a question
+ * about a country the corpus had little on was planned, looked up, found
+ * nothing, and the model was then capped at one round and told to write — so
+ * it wrote "not in our data" and stopped, with the web tool never within
+ * reach. The loop treats "some lookups empty", not "every lookup empty", as
+ * the signal: the question about Niger planned two lookups, the uranium
+ * bottleneck (found) and Niger's production table (nothing), and one found
+ * record must not close the door on the part that was not.
+ */
+export function lookupIsEmpty(result: string): boolean {
+  const json = result.replace(/^\[[^\]]+\]\s*/, '');
+  let value: unknown;
+  try {
+    value = JSON.parse(json);
+  } catch {
+    return !json.trim();
+  }
+  const empty = (v: unknown): boolean => {
+    if (v === null || v === undefined || v === '' || v === false) return true;
+    if (Array.isArray(v)) return v.length === 0;
+    if (typeof v === 'object')
+      return Object.entries(v as Record<string, unknown>).every(
+        ([k, x]) => ['note', 'warning', 'error', 'cite_as', 'query', 'tip'].includes(k) || empty(x),
+      );
+    return false;
+  };
+  return empty(value);
+}
