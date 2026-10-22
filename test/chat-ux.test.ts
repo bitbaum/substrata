@@ -48,7 +48,7 @@ test('Composer displays input field before voice button with clear label and inp
   // Input field must have distinct text box appearance
   assert.match(
     css,
-    /\.companion\s+\.ck-input\s*\{[\s\S]*?border:\s*1px solid/,
+    /\.companion\.is-compact\s+\.ck-input\s*\{[\s\S]*?border:\s*1px solid/,
     'ck-input must have a visible border defining it as a text box',
   );
   assert.match(css, /\.ask-composer-label\s*\{/, 'ask.css must style .ask-composer-label');
