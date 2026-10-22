@@ -53,15 +53,17 @@ export default async function HomePage() {
   return (
     <Shell reader="client" status={<HomeStatus freshness={feed.freshness} now={now} />}>
       <Page>
-        <HomeHero asks={homeAsks(board.worst[0])} />
+        <div className="home-column">
+          <HomeHero asks={homeAsks(board.worst[0])} />
 
-        <div className="home-pair">
-          <WorstNow {...board} bindingNow={totals.bindingNow} />
-          <WhatChanged feed={feed} now={now} />
+          <div className="home-pair">
+            <WorstNow {...board} bindingNow={totals.bindingNow} />
+            <WhatChanged feed={feed} now={now} />
+          </div>
+
+          <HomeNumbers totals={totals} policy={policyTotals()} />
+          <Doors />
         </div>
-
-        <HomeNumbers totals={totals} policy={policyTotals()} />
-        <Doors />
       </Page>
     </Shell>
   );

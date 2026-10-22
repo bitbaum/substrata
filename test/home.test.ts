@@ -63,9 +63,13 @@ test('every worst-right-now row is drawn by the one row component', () => {
   const board = worstNow(3);
   const html = renderToStaticMarkup(React.createElement(WorstNow, { ...board, bindingNow: 17 }));
   assert.equal((html.match(/class="board-row"/g) ?? []).length, board.worst.length);
-  // Same two columns in each: main text and gauge, no per-row layout switches.
-  assert.equal((html.match(/board-row-main/g) ?? []).length, board.worst.length);
-  assert.equal((html.match(/board-row-gauge/g) ?? []).length, board.worst.length);
+  // The same four cells in each: name, meter, sentence, status — no per-row switches.
+  for (const cell of ['name', 'meter', 'plain', 'status'])
+    assert.equal(
+      (html.match(new RegExp(`board-row-${cell}`, 'g')) ?? []).length,
+      board.worst.length,
+      cell,
+    );
   const board_ = read('app/_home/WorstNow.tsx');
   assert.ok(!board_.includes('<li'), 'rows are not hand-written in the section');
 });

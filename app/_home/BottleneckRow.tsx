@@ -5,12 +5,13 @@ import { bottleneckHref } from '@/lib/links';
 import { SeverityBar, Status, rowLabel } from '@/components/portal/Status';
 
 /**
- * One row of "worst right now", and the only way one is drawn. Two columns at
- * every width: the name and one plain line on the left, a fixed-width column
- * on the right holding the severity meter, the evidence word and — when an
- * event in the window moved it — one word saying which way. Nothing wraps
- * under anything else, so a long name cannot push the meter to a second line
- * on one row and leave it beside the title on the next.
+ * One row of "worst right now", and the only way one is drawn. A grid of
+ * two columns and two lines at every width: the name and the severity meter on
+ * the first line, the plain sentence and the evidence word (with, when an event
+ * in the window moved it, one word saying which way) on the second. The right
+ * column is fixed, so each value sits on the baseline of the text it belongs
+ * to, and a long name cannot push the meter to a second line on one row and
+ * leave it beside the title on the next.
  */
 export function BottleneckRow({
   bottleneck: b,
@@ -21,14 +22,14 @@ export function BottleneckRow({
 }) {
   return (
     <li className="board-row">
-      <div className="board-row-main">
-        <Link href={bottleneckHref(b.slug)} className="board-row-name link-target">
-          {b.name}
-        </Link>
-        <p className="board-row-plain">{b.plain}</p>
-      </div>
-      <div className="board-row-gauge">
+      <Link href={bottleneckHref(b.slug)} className="board-row-name link-target">
+        {b.name}
+      </Link>
+      <div className="board-row-meter">
         <SeverityBar value={b.binding} target />
+      </div>
+      <p className="board-row-plain">{b.plain}</p>
+      <div className="board-row-status">
         <Status state={b.state} compact label={rowLabel(b.counts)} />
         {moved && (
           <span className={`board-row-moved is-${moved}`}>

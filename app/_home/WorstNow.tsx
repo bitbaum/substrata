@@ -47,7 +47,7 @@ export function WorstNow({
         <Link href={methodHref('severity')} className="link-target underline underline-offset-2">
           severity
         </Link>{' '}
-        · judged {worst[0]?.judgedOn}
+        · judged <span className="whitespace-nowrap">{worst[0]?.judgedOn}</span>
       </p>
     </section>
   );
