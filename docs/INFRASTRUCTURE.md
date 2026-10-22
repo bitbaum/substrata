@@ -48,6 +48,25 @@ per-question latency — durations and call counts only, no question text — fo
 the p50/p90 on /data#ask-latency; the same line goes to the journal as
 `substrata ask-timing {…}`.
 
+### Chat review
+
+`015-chat-review.sql` (`chat_turns`, `chat_feedback`) backs the fleet's
+chat-review loop. `/api/chat` logs every Ask turn — the question, the answer,
+the status and tool labels the reader watched, the page it was asked from and
+whether it failed — under random ids the browser mints per thread
+(`lib/chat-review/log.ts`); the thumbs chatkit draws under every answer land
+in `chat_feedback` through `POST /api/chat/feedback`, same-origin and rate
+limited like Ask itself. Nothing in either table names a reader. Loki's
+nightly judge reads a day of conversations from
+`GET /api/chat/review-export?since=<ISO>&limit=50` with
+`Authorization: Bearer $CHAT_REVIEW_TOKEN` — the one value shared by every
+app on the box, written into this env by Loki's `share-chat-review-token`
+workflow; while it is unset the route answers 503 — and files what Substrata
+should have answered into its feedback inbox. The export's `scope` is built
+from the system prompt and the tool registry (`assistantScope` in
+`lib/chat-agent/prompt.ts`), so it says what the assistant can actually do on
+this deployment.
+
 The sweep's cadence lives in the database, not on the box. The box timer
 `appcron-substrata-sweep.timer` fires hourly at :17, and `/api/cron/sweep`
 decides whether a run is due from `research_sweep_settings.everyHours`

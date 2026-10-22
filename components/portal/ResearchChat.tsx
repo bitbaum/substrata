@@ -83,8 +83,8 @@ export function ResearchChat({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pending]);
 
-  const messages: ChatMessageData[] = chat.turns.map((t, i) => ({
-    id: String(i),
+  const messages: ChatMessageData[] = chat.turns.map((t) => ({
+    id: t.id,
     role: t.role,
     content: t.content,
     // ONE row under the latest answer: the model's suggested replies first,
@@ -120,8 +120,10 @@ export function ResearchChat({
       renderLink={renderLink}
       // Copy · Listen · Share under every answer, the fleet's row (chatkit).
       share={{ title: 'Ask Substrata' }}
+      // Thumbs under every answer (chatkit 0.14); a thumb down asks why.
+      onFeedback={chat.feedback}
       renderFooter={(m) => {
-        const turn = chat.turns[Number(m.id)];
+        const turn = chat.turns.find((t) => t.id === m.id);
         return turn?.role === 'assistant' ? <AnswerFooter turn={turn} /> : null;
       }}
       empty={

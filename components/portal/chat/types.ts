@@ -46,6 +46,8 @@ export type Answer = {
 };
 
 export type Turn = {
+  /** A uuid: the browser mints it, the server logs the turn under it, a thumb names it. */
+  id: string;
   role: 'user' | 'assistant';
   content: string;
   sources?: Source[];

@@ -10,6 +10,7 @@ import { lookUp, readSource, webLookupEnabled } from '@/lib/chat-web';
 import { currentSession } from '@/lib/auth';
 import { FREE_QUESTIONS_PER_DAY, record } from '@/lib/ai-budget';
 import { recordAskTiming, timingOf } from '@/lib/ask-timing';
+import { chatTurnLog, uuidOrNull } from '@/lib/chat-review/log';
 import { database } from '@/lib/db';
 import { parseFollows, type Follows } from '@/lib/follows';
 import { searchLeads } from '@/lib/sweep-queue';
@@ -143,11 +144,20 @@ export async function POST(request: Request) {
             'X-Title': 'Substrata',
           },
         });
+    // The review log: ids the browser minted for the thread and this answer
+    // (lib/chat-review/log.ts), so a thumb later finds the turn it is about.
+    const log = chatTurnLog({
+      conversationId: uuidOrNull((input as { conversationId?: unknown })?.conversationId),
+      messageId: uuidOrNull((input as { messageId?: unknown })?.messageId),
+      question: typeof question === 'string' ? question : (verify?.claim ?? ''),
+      surface: onPath,
+    });
     const encoder = new TextEncoder();
     const stream = new ReadableStream({
       async start(controller) {
         const asked = Date.now();
         const send = (event: AgentEvent) => {
+          log.observe(event);
           if (event.type === 'done')
             void recordAskTiming(timingOf(event.data), event.data.timing?.skipped);
           if (event.type === 'error' && event.kind !== 'byok')
