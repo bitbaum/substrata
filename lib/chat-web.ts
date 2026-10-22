@@ -143,6 +143,25 @@ const STOP = new Set([
   'been',
 ]);
 
+/**
+ * The language an engine should search in. The fleet's SearXNG sits in a
+ * German locale: asked "jobs in Niger" with no language, Bing answered with
+ * job boards for Chemnitz (2026-10-22). A question written in English is
+ * searched in English; one carrying German, French or Italian words, or
+ * accented letters, is left to the engine's own locale.
+ */
+export function searchLanguage(question: string): string | undefined {
+  const q = ` ${question.toLowerCase()} `;
+  if (/[äöüßéèêàçìòù]/.test(q)) return undefined;
+  if (
+    / (der|die|das|und|nicht|welche|wie|ist|sind|gibt|les|des|est|sont|quels|dans|gli|della|sono|quali) /.test(
+      q,
+    )
+  )
+    return undefined;
+  return 'en';
+}
+
 export async function lookUp(
   question: string,
   signal?: AbortSignal,
@@ -151,7 +170,11 @@ export async function lookUp(
 ): Promise<WebLookup> {
   if (!webLookupEnabled(env)) return { status: 'off' };
 
-  const search = await deps.search(question, { limit: 5, timeoutMs: 6000 });
+  const search = await deps.search(question, {
+    limit: 5,
+    timeoutMs: 6000,
+    lang: searchLanguage(question),
+  });
   if (search.status === 'could_not_look') return { status: 'could_not_look' };
   if (search.status === 'nothing' || search.results.length === 0) return { status: 'nothing' };
 

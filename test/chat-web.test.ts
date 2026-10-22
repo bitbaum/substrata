@@ -9,7 +9,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { renderWebContext, webLookupEnabled, lookUp } from '../lib/chat-web';
+import { renderWebContext, webLookupEnabled, lookUp, searchLanguage } from '../lib/chat-web';
 
 /** A process env without the ambient one leaking in. */
 function env(extra: Record<string, string> = {}): NodeJS.ProcessEnv {
@@ -76,6 +76,24 @@ test('a result whose page will not open still counts, by its snippet, marked unr
     read: async () => ({ ok: false, status: 403 }) as never,
   });
   assert.deepEqual(empty, { status: 'nothing' });
+});
+
+test('an English question is searched in English; another language keeps the engine locale', async () => {
+  // Live (2026-10-22): "jobs in Niger" with no language came back as job
+  // boards for Chemnitz — the fleet's SearXNG sits in a German locale.
+  assert.equal(searchLanguage('jobs in Niger'), 'en');
+  assert.equal(searchLanguage('the price of gallium'), 'en');
+  assert.equal(searchLanguage('Welche Stellen gibt es in Niger?'), undefined);
+  assert.equal(searchLanguage('Quels emplois à Niamey ?'), undefined);
+  let seen: { lang?: string } | undefined;
+  await lookUp('jobs in Niger', undefined, env({ SEARXNG_URL: 'http://x' }), {
+    search: (async (_q: string, opts?: { lang?: string }) => {
+      seen = opts;
+      return { status: 'nothing', query: 'q', attempts: [] };
+    }) as never,
+    read: async () => ({ ok: false, status: 403 }) as never,
+  });
+  assert.equal(seen?.lang, 'en');
 });
 
 test('fetched pages are labelled as quoted data, not as instructions', () => {
