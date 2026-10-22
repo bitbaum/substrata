@@ -3,6 +3,39 @@ import { TEXT_TOOL_PROTOCOL_HINT } from '@bitbaum/ai-kit';
 import { RICH_ANSWERS_INSTRUCTION, REPLIES_INSTRUCTION } from '@bitbaum/chatkit';
 import { byokLabel, type ByokConfig } from '../byok';
 import { describeContext, type ReaderContext } from '../chat-context';
+import { CHAT_TOOLS } from '../chat-tools/registry';
+import { webLookupEnabled } from '../chat-web';
+import { FREE_QUESTIONS_PER_DAY } from '../ai-budget';
+
+/** Who the model is told it is — the first line of every system prompt, and of the review scope. */
+export const ASSISTANT_ROLE =
+  "You are Substrata's research assistant. Substrata tracks the physical bottlenecks (materials, machines, processes) on the path to much faster technology: who makes them, how well each claim is evidenced, and what is changing. Speak plainly, like a careful analyst. Be direct and specific; no filler.";
+
+/** The loop's limits (loop.ts), stated here so the review scope says the same numbers the loop runs. */
+export const LOOP_LIMITS = { rounds: 3, callsPerRound: 4 } as const;
+
+/**
+ * What this assistant can do, for the nightly chat review (chatkit 0.14
+ * `reviewPrompt(scope, …)`): its role, its tools and their reach, and its
+ * limits — read from the prompt and the tool registry, never typed twice.
+ */
+export function assistantScope(env: NodeJS.ProcessEnv = process.env): string {
+  const web = webLookupEnabled(env);
+  const tools = CHAT_TOOLS.filter((t) => web || t.name !== 'web_search');
+  return [
+    // The role's first two sentences say what it is; the rest is tone.
+    ASSISTANT_ROLE.split('. ')
+      .slice(0, 2)
+      .join('. ')
+      .replace(/^You are /, 'It is ') + '.',
+    `Over the corpus it can call ${tools.length} tools: ${tools.map((t) => t.name).join(', ')}; each returns rows with their evidence state (Sourced, Candidate source, Unverified lead, analyst judgement) and a site link to cite.`,
+    web
+      ? 'When the corpus does not track a subject it must call web_search and answer from unchecked web pages, marked as such, never stop at "not in the corpus".'
+      : 'Web search is not configured on this deployment: when the corpus does not track a subject it must give widely established background marked "Outside the corpus —", name the nearest records, and point to the Send evidence button.',
+    'It never invents a number, date, supplier relationship, source or link, gives no personalised investment advice, answers in the language of the question, and ends every answer with suggested replies.',
+    `It runs on free shared models with at most ${LOOP_LIMITS.rounds} tool rounds of ${LOOP_LIMITS.callsPerRound} calls per answer and ${FREE_QUESTIONS_PER_DAY} free questions a day per reader, unless the reader brings their own AI key.`,
+  ].join(' ');
+}
 
 // ---------------------------------------------------------------------------
 // The prompt.
@@ -25,7 +58,7 @@ export function systemPrompt(opts: {
 }): string {
   const names = opts.tools.map((t) => t.function.name);
   return [
-    "You are Substrata's research assistant. Substrata tracks the physical bottlenecks (materials, machines, processes) on the path to much faster technology: who makes them, how well each claim is evidenced, and what is changing. Speak plainly, like a careful analyst. Be direct and specific; no filler.",
+    ASSISTANT_ROLE,
     `Today is ${opts.today ?? new Date().toISOString().slice(0, 10)}.`,
     '## Where the reader is',
     describeContext(opts.context),

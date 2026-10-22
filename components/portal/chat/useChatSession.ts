@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
+import type { AnswerFeedback } from '@bitbaum/chatkit';
 import { QUESTION_LENGTH } from '@/config/substrata-chat';
 import type { LiveAnswer, StreamEvent, Turn, VerifyInput } from './types';
 
@@ -31,6 +32,10 @@ export function useChatSession({
   const [receipt, setReceipt] = useState('');
   const [contribute, setContribute] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
+  // One id per thread, minted here and sent with every question, so the
+  // server's review log can keep the turns of one conversation together.
+  const conversationId = useRef<string | null>(null);
+  if (conversationId.current === null) conversationId.current = crypto.randomUUID();
 
   /**
    * Ask a question — or, with `verify`, check a claim: the server reads the
@@ -58,7 +63,8 @@ export function useChatSession({
     setBusy(true);
     setError('');
     setReceipt('');
-    setTurns([...before, { role: 'user', content: text }]);
+    const messageId = crypto.randomUUID();
+    setTurns([...before, { id: crypto.randomUUID(), role: 'user', content: text }]);
     setDraft('');
     setLive({
       steps: [],
@@ -76,6 +82,8 @@ export function useChatSession({
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           question: text,
+          conversationId: conversationId.current,
+          messageId,
           // Ignored server-side when a key is active (it names its own model).
           model,
           history: history.slice(0, -1).map((t) => ({ role: t.role, content: t.content })),
@@ -118,6 +126,7 @@ export function useChatSession({
             setTurns((prev) => [
               ...prev,
               {
+                id: messageId,
                 role: 'assistant',
                 content: data.answer,
                 sources: data.sources,
@@ -186,6 +195,17 @@ export function useChatSession({
     }
   }
 
+  /** A thumb under an answer, kept with the conversation for the nightly review. */
+  function feedback(input: AnswerFeedback) {
+    void fetch('/api/chat/feedback', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ conversationId: conversationId.current, ...input }),
+    }).catch(() => {
+      // Thanks was already said; a lost thumb is not the reader's problem.
+    });
+  }
+
   return {
     turns,
     draft,
@@ -200,6 +220,7 @@ export function useChatSession({
     ask,
     stop,
     retry,
+    feedback,
     sendContribution,
   };
 }

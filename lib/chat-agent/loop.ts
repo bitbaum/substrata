@@ -46,7 +46,7 @@ import {
 import { finalAnswer, renderCalls, toolRound } from './parse';
 import { reviseUnsupported, unsupportedFigures, withoutSentencesHolding } from './grounding';
 import { lookupIsEmpty, planLookups, runLookups } from './plan';
-import { systemPrompt } from './prompt';
+import { LOOP_LIMITS, systemPrompt } from './prompt';
 import type { ModelTurn, ModelTurnResult } from './turn';
 import { gatherEvidence, verdictOf, verifyQuestion, type VerifyRequest } from './verify';
 
@@ -58,9 +58,9 @@ export {
   type AgentEvent,
 } from './answer';
 
-const MAX_ROUNDS = 3;
+const MAX_ROUNDS = LOOP_LIMITS.rounds;
 
-const MAX_CALLS_PER_ROUND = 4;
+const MAX_CALLS_PER_ROUND = LOOP_LIMITS.callsPerRound;
 
 export async function runAgent(input: {
   question: string;
