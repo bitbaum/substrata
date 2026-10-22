@@ -70,3 +70,26 @@ export async function homeFeed(now: Date = new Date()): Promise<HomeFeed> {
     ...(await recentFinds(now)),
   };
 }
+
+/**
+ * How many rows the front page shows. A checked event is a headline and its
+ * rails; an unchecked find also carries Check this, so it is a taller row and
+ * the page shows fewer of them — it has to stay short.
+ */
+export const HOME_ROWS = { checked: 3, found: 2 } as const;
+
+/**
+ * What the front page's "what changed" shows. Checked events when there are
+ * any; otherwise the sweep's newest finds, each labelled not yet checked;
+ * otherwise nothing at all — the front page never draws an empty state, so
+ * the section is simply absent.
+ */
+export type WhatChangedRows =
+  { kind: 'checked'; items: DeskItem[] } | { kind: 'found'; items: DeskItem[] };
+
+export function whatChangedRows(feed: Pick<HomeFeed, 'checked' | 'found'>): WhatChangedRows | null {
+  if (feed.checked.length > 0)
+    return { kind: 'checked', items: feed.checked.slice(0, HOME_ROWS.checked) };
+  if (feed.found.length > 0) return { kind: 'found', items: feed.found.slice(0, HOME_ROWS.found) };
+  return null;
+}

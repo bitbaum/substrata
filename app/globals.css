@@ -125,6 +125,8 @@
 @media (max-width: 767px) {
   :root {
     --shell-offset-bottom: calc(var(--spacing-tabbar) + env(safe-area-inset-bottom, 0px));
+    /* Room above the tab bar for the feedback launcher (a 3rem circle). */
+    --widget-reserve: 4rem;
   }
 }
 

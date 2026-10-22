@@ -36,15 +36,13 @@ test('Substrata preserves monochrome roles while importing shared geometry', () 
   assert.ok(css.includes('--font-heading:'));
 });
 
-test('Home and audience chooser use the shared layout and list anatomy', () => {
-  const hero = source('app/_home/HomeHero.tsx');
-  const roles = source('app/_home/ChooseRole.tsx');
+test('Home rows and doors keep one anatomy each, in the stylesheet that owns them', () => {
+  const doors = source('app/_home/Doors.tsx');
   const homeCss = source('app/styles/home.css');
   const rolesCss = source('app/styles/roles.css');
-  assert.ok(hero.includes('home-hero bb-stack'));
-  assert.ok(hero.includes('home-hero-actions bb-actions'));
-  assert.ok(hero.includes('bb-button bb-button--primary'));
-  assert.ok(roles.includes('door-list bb-list'));
-  assert.ok(!homeCss.includes('gap: 0.75rem;\n  margin-top: 1.5rem;'));
-  assert.ok(rolesCss.includes('--bb-line: var(--color-border-subtle);'));
+  assert.ok(doors.includes('home-door-who') && doors.includes('home-door-hint'));
+  assert.ok(doors.includes('home-door-go'));
+  // The chooser's old classes left roles.css with the component that used them.
+  assert.ok(!rolesCss.includes('.door-row'));
+  assert.ok(!homeCss.includes('.home-hero-status'));
 });

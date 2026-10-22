@@ -21,6 +21,7 @@ import { MoreSheet } from './MoreSheet';
 import { paletteEntries } from './palette';
 import { Sidebar } from './Sidebar';
 import { TopBar } from './TopBar';
+import { useReader } from './useReader';
 
 function isTyping(target: EventTarget | null): boolean {
   if (!(target instanceof HTMLElement)) return false;
@@ -29,8 +30,9 @@ function isTyping(target: EventTarget | null): boolean {
 
 export function AppFrame({
   name,
-  signedIn,
-  reviewer,
+  signedIn: serverSignedIn,
+  reviewer: serverReviewer,
+  readerFromClient = false,
   account,
   footer,
   children,
@@ -38,11 +40,16 @@ export function AppFrame({
   name: string;
   signedIn: boolean;
   reviewer: boolean;
+  /** The page was cached, so the session was not read: ask the browser's own. */
+  readerFromClient?: boolean;
   account: ReactNode;
   footer: ReactNode;
   children: ReactNode;
 }) {
   const pathname = usePathname() ?? '/';
+  const client = useReader(readerFromClient);
+  const signedIn = readerFromClient ? Boolean(client?.signedIn) : serverSignedIn;
+  const reviewer = readerFromClient ? Boolean(client?.reviewer) : serverReviewer;
   const isChat = pathname === '/chat' || pathname.startsWith('/chat/');
   const [palette, setPalette] = useState(false);
   const [more, setMore] = useState(false);

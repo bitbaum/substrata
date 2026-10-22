@@ -9,6 +9,10 @@ import { ResearchChat } from './ResearchChat';
  * Always-available research companion. Hidden on /chat, where the full page is
  * the same thing. A "Check this" anywhere on the page opens it with the claim
  * already asked.
+ *
+ * On the home page Ask is the page's own first line, so the floating button
+ * is not drawn there (it sat on top of the content); a "Check this" still
+ * opens the panel.
  */
 export function AskDock() {
   const path = usePathname();
@@ -22,7 +26,9 @@ export function AskDock() {
       setPending({ ...detail, id: Date.now() });
       setOpen(true);
     };
-    const onOpen = () => setOpen(true);
+    const onOpen = () => {
+      if (window.location.pathname !== '/') setOpen(true);
+    };
     window.addEventListener(CHECK_EVENT, onCheck);
     window.addEventListener(OPEN_EVENT, onOpen);
     return () => {
@@ -32,6 +38,7 @@ export function AskDock() {
   }, []);
 
   if (path === '/chat') return null;
+  const onHome = path === '/';
 
   return (
     <div className="ask-dock">
@@ -46,14 +53,16 @@ export function AskDock() {
           <ResearchChat topic="" onPath={path} compact pending={pending} />
         </div>
       )}
-      <button
-        type="button"
-        className="ask-dock-toggle"
-        aria-expanded={open}
-        onClick={() => setOpen((v) => !v)}
-      >
-        Ask
-      </button>
+      {!onHome && (
+        <button
+          type="button"
+          className="ask-dock-toggle"
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+        >
+          Ask
+        </button>
+      )}
     </div>
   );
 }

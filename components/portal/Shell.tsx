@@ -16,17 +16,18 @@ import { FOOTER_NAV } from '@/config/site-nav';
 import { currentSession, isReviewer } from '@/lib/auth';
 import { SITE, correctionUrl } from '@/lib/site';
 import { AppFrame } from '@/components/shell/AppFrame';
+import { ClientAccountMenu } from '@/components/shell/ClientAccountMenu';
 import { AccountMenu } from './AccountMenu';
 import { FreshnessBadge } from './FreshnessBadge';
 import { SectionNav } from './SectionNav';
 
-function Footer({ note }: { note: string }) {
+function Footer({ note, status }: { note: string; status: React.ReactNode }) {
   return (
     <footer className="site-footer mt-auto border-t border-subtle">
       <div className="mx-auto flex max-w-shell flex-col gap-4 px-4 py-6 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
         <div className="max-w-xl">
           <p className="text-xs leading-relaxed text-fg-muted">{note}</p>
-          <FreshnessBadge />
+          {status}
         </div>
         <nav aria-label="About Substrata" className="site-footer-nav">
           {FOOTER_NAV.map((item) => (
@@ -45,11 +46,39 @@ function Footer({ note }: { note: string }) {
 export async function Shell({
   children,
   footer = true,
+  status,
+  reader = 'server',
 }: {
   children: React.ReactNode;
   footer?: boolean;
+  /** The footer's second line; the data-freshness badge unless a page says better. */
+  status?: React.ReactNode;
+  /**
+   * Who is reading, and where that is learned. `server` reads the session
+   * while rendering — correct, and it makes the page per-request, never
+   * cacheable. `client` is for a page served from a cache: the shell renders
+   * the same for everyone and asks /api/me once it has loaded.
+   */
+  reader?: 'server' | 'client';
 }) {
   const chrome = siteChrome();
+  const foot = footer ? (
+    <Footer note={chrome.footerNote} status={status ?? <FreshnessBadge />} />
+  ) : null;
+  if (reader === 'client') {
+    return (
+      <AppFrame
+        name={chrome.name}
+        signedIn={false}
+        reviewer={false}
+        readerFromClient
+        account={<ClientAccountMenu />}
+        footer={foot}
+      >
+        {children}
+      </AppFrame>
+    );
+  }
   const session = await currentSession();
   const actorId = session?.actorId;
   return (
@@ -58,7 +87,7 @@ export async function Shell({
       signedIn={Boolean(actorId)}
       reviewer={isReviewer(actorId)}
       account={<AccountMenu />}
-      footer={footer ? <Footer note={chrome.footerNote} /> : null}
+      footer={foot}
     >
       {children}
     </AppFrame>
