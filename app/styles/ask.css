@@ -60,81 +60,118 @@
   cursor: pointer;
 }
 
-.companion-page {
-  max-width: 44rem;
-  margin: 0 auto;
-  padding: 0 1.25rem;
-}
-
-.companion {
-  display: flex;
-  flex-direction: column;
-  min-height: 28rem;
-  flex: 1;
-}
-
 /*
- * On /chat the shell locks to the visible viewport so the window never scrolls,
- * the thread is what scrolls, and the composer stays anchored to the bottom
- * above the tab bar or virtual keyboard.
+ * /chat is the fleet's whole-screen chat: chatkit's ChatScreen (as on Loki
+ * and Solon). It owns the heights — the visual viewport that shrinks under a
+ * phone keyboard, the measured header and composer insets the thread pads
+ * itself with — so nothing here computes a height. What the page adds is the
+ * shell around it: the column never scrolls (the thread is the only
+ * scroller), and on a phone the site's top bar and tab bar step aside so the
+ * conversation has the whole display; the floating header's pill is the way
+ * back. From 768px up the top bar stays and the screen takes the rest.
  */
-.shell.is-chat,
-.shell.is-chat .shell-column,
-.shell:has(.companion-page),
-.shell:has(.companion-page) .shell-column {
+.shell.is-chat .shell-column {
   min-height: 0;
-  height: min(var(--ck-viewport-height, 100dvh), 100dvh);
+  height: 100dvh;
   overflow: hidden;
 }
+.shell.is-chat .shell-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.companion-page {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+}
+@media (max-width: 767.98px) {
+  .shell.is-chat .shell-topbar,
+  .shell.is-chat .shell-tabbar {
+    display: none;
+  }
+  .shell.is-chat .shell-column {
+    padding-bottom: 0;
+  }
+}
+@media (min-width: 768px) {
+  .companion-page > .ck-screen-viewport {
+    height: calc(var(--ck-viewport-height, 100dvh) - var(--spacing-topbar));
+  }
+}
 
-.shell-column:has(.companion-page) .site-footer {
+/* The floating header: the way back as a frosted pill, the page's name beside it. */
+.companion-title {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font: 600 1rem/1.2 var(--font-heading);
+  letter-spacing: var(--tracking-display);
+  color: var(--color-fg-primary);
+}
+
+/* The empty state is a direct child of the screen body (chatkit renders
+   `empty` in the thread's place): it scrolls under the floating header and
+   composer with the measured insets as its padding, in the reading column. */
+.companion .ck-screen-body > .ask-empty {
+  flex: 1;
+  width: 100%;
+  max-width: calc(var(--ck-measure) + 2 * var(--ck-gutter));
+  margin-inline: auto;
+  min-height: 0;
+  padding: calc(var(--ck-top-inset, 0px) + 1rem) var(--ck-gutter)
+    calc(var(--ck-bottom-inset, 0px) + 1rem);
+  overflow-y: auto;
+}
+
+/* With the composer, in the dock: the key panel and "Send evidence". It can
+   outgrow a short phone, so it scrolls inside the dock rather than pushing
+   the composer off the screen. */
+.companion-beside {
+  max-height: 40dvh;
+  overflow-y: auto;
+}
+.companion-beside:empty {
   display: none;
+}
+.companion-beside .ask-aside {
+  margin-top: 0;
+  text-align: center;
 }
 
 /*
- * On /chat the column is exactly the visible screen under the top bar, so the
- * thread is what scrolls. chatkit follows new tokens only while its thread is
- * at the bottom; when the whole page scrolled instead, the thread never moved,
- * it always read as "following", and each token pulled the reader back down.
- * The bottom edge is whichever is higher: the tab bar, or the top of a phone
- * keyboard (--ck-viewport-height, from useViewportHeight), which 100dvh does
- * not see — so the composer stays above the keyboard.
+ * The dock (AskDock, every other page): a column inside a fixed panel. The
+ * thread grows and scrolls, the composer stays at its foot.
  */
-.companion-page .companion {
-  height: calc(
-    min(var(--ck-viewport-height, 100dvh), 100dvh) - var(--spacing-topbar) -
-      var(--shell-offset-bottom)
-  );
-  min-height: 0;
-  /* The contribution form or key panel can outgrow a short screen. */
-  overflow-y: auto;
-  padding: 1rem 0 1.5rem;
-}
-
 .companion.is-compact {
+  display: flex;
+  flex-direction: column;
   min-height: 18rem;
+  flex: 1;
 }
 
 .companion-inbox {
   margin-top: 0.8rem;
 }
 
-/* The thread grows; in the dock and on /chat the composer stays reachable at the bottom. */
-.companion .ck-thread-wrap,
-.companion .ck-thread,
-.companion .ask-empty {
+.companion.is-compact .ck-thread-wrap,
+.companion.is-compact .ck-thread,
+.companion.is-compact .ask-empty {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
-.companion .ck-thread {
+.companion.is-compact .ck-thread {
   padding-bottom: 1.5rem;
 }
-.companion .ask-empty {
+.companion.is-compact .ask-empty {
   padding-bottom: 1.5rem;
 }
-.companion .ck-composer-wrap {
+.companion.is-compact .ck-composer-wrap {
   position: sticky;
   bottom: 0;
   background: var(--color-surface-page);
@@ -157,6 +194,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-height: var(--size-target);
   padding: 0.55rem 1.15rem;
   border-radius: var(--ck-radius-sm, 0.4rem);
   background: var(--color-fg-primary);
@@ -188,7 +226,7 @@
   cursor: pointer;
   user-select: none;
 }
-.companion .ck-input {
+.companion.is-compact .ck-input {
   border: 1px solid var(--color-border-subtle);
   border-radius: var(--ck-radius-sm, 0.4rem);
   background: var(--color-surface-raised);
@@ -196,7 +234,7 @@
   min-height: 2.75rem;
   transition: border-color 0.15s ease;
 }
-.companion .ck-input:focus {
+.companion.is-compact .ck-input:focus {
   border-color: var(--color-border-strong);
   outline: none;
 }
@@ -265,6 +303,9 @@
   color: var(--color-fg-tertiary);
 }
 .ask-aside button {
+  /* A link in a sentence with a 44px thumb: the hit area grows, the line does not. */
+  padding-block: 0.8rem;
+  margin-block: -0.8rem;
   text-decoration: underline;
   text-underline-offset: 0.2em;
   cursor: pointer;

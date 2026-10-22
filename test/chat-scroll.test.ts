@@ -1,7 +1,9 @@
 /**
- * /chat layout contract: the response thread scrolls within the visible screen,
- * and on mobile devices with virtual keyboards, content remains above the
- * keyboard and tab bar.
+ * /chat layout contract: the page is the fleet's whole-screen chat
+ * (chatkit ChatScreen, as on Loki and Solon). ChatScreen owns the heights —
+ * the visual viewport under a phone keyboard, the measured header and
+ * composer insets — so the page computes none, and on a phone the site's
+ * own bars step aside so the conversation has the whole display.
  */
 
 import { test } from 'node:test';
@@ -12,6 +14,8 @@ import { join } from 'node:path';
 import { viewport } from '../app/chat/page';
 
 const ROOT = new URL('..', import.meta.url).pathname;
+const css = () => readFileSync(join(ROOT, 'app/styles/ask.css'), 'utf8');
+const chat = () => readFileSync(join(ROOT, 'components/portal/ResearchChat.tsx'), 'utf8');
 
 test('/chat exports viewport with interactiveWidget: resizes-content', () => {
   assert.equal(
@@ -21,94 +25,70 @@ test('/chat exports viewport with interactiveWidget: resizes-content', () => {
   );
 });
 
-test('ask.css makes the response container scrollable with touch momentum and bottom padding', () => {
-  const css = readFileSync(join(ROOT, 'app/styles/ask.css'), 'utf8');
-
-  // Both thread wrap and inner thread must have min-height: 0 and overflow-y: auto
+test('/chat renders through ChatScreen filling the visual viewport', () => {
+  const code = chat();
   assert.match(
-    css,
-    /\.companion\s+\.ck-thread-wrap[\s\S]*?overflow-y:\s*auto/,
-    '.companion .ck-thread-wrap must be scrollable',
+    code,
+    /<ChatScreen\s[\s\S]*?fill="viewport"/,
+    '/chat must use ChatScreen fill="viewport"',
   );
   assert.match(
-    css,
-    /\.companion\s+\.ck-thread[\s\S]*?overflow-y:\s*auto/,
-    '.companion .ck-thread must be scrollable',
+    code,
+    /header=\{[\s\S]*?className="ck-glass"/,
+    'the floating header needs a ck-glass way back',
   );
   assert.match(
-    css,
-    /\.companion\s+\.ck-thread[\s\S]*?-webkit-overflow-scrolling:\s*touch/,
-    '.companion .ck-thread must enable smooth touch scrolling on iOS',
+    code,
+    /share=\{\{ title: 'Ask Substrata' \}\}/,
+    'Copy · Listen · Share under answers',
   );
-  assert.match(
-    css,
-    /\.companion\s+\.ck-thread\s*\{[\s\S]*?padding-bottom:\s*1\.5rem/,
-    '.companion .ck-thread must provide sufficient bottom padding so content clears the composer',
-  );
+  // The dock keeps its own column; it lives inside a fixed panel.
+  assert.match(code, /className="companion is-compact"/, 'the dock keeps the compact column');
 });
 
-test('ask.css adjusts viewport height and bottom padding on /chat against keyboard overlap', () => {
-  const css = readFileSync(join(ROOT, 'app/styles/ask.css'), 'utf8');
-
-  // .companion-page .companion height must subtract --shell-offset-bottom
-  assert.match(
-    css,
-    /\.companion-page\s+\.companion\s*\{[\s\S]*?var\(--shell-offset-bottom\)/,
-    '.companion-page .companion must subtract --shell-offset-bottom from viewport height',
+test('ask.css computes no chat height of its own', () => {
+  const s = css();
+  assert.doesNotMatch(
+    s,
+    /\.companion(?:\.is-compact)?\s*\{[^}]*height:\s*calc\(/,
+    'ChatScreen owns the height',
   );
-
-  // .companion-page .companion must provide bottom padding
-  assert.match(
-    css,
-    /\.companion-page\s+\.companion\s*\{[\s\S]*?padding:\s*1rem\s+0\s+1\.5rem/,
-    '.companion-page .companion must have sufficient bottom padding',
-  );
+  assert.doesNotMatch(s, /\.companion\s+\.ck-composer-wrap/, 'no sticky composer on /chat');
+  assert.doesNotMatch(s, /\.companion-page\s+\.companion/, 'the old column rule is gone');
 });
 
-test('ask.css anchors composer to bottom and makes empty state scrollable', () => {
-  const css = readFileSync(join(ROOT, 'app/styles/ask.css'), 'utf8');
-
-  // .companion .ask-empty must have flex: 1 and overflow-y: auto so empty starters do not push composer off-screen
+test('ask.css gives the conversation the whole phone display and keeps the window still', () => {
+  const s = css();
   assert.match(
-    css,
-    /\.companion\s+\.ask-empty[\s\S]*?overflow-y:\s*auto/,
-    '.companion .ask-empty must be scrollable',
+    s,
+    /\.shell\.is-chat \.shell-column \{[\s\S]*?overflow:\s*hidden/,
+    'the shell column never scrolls on /chat; the thread is the scroller',
   );
   assert.match(
-    css,
-    /\.companion\s+\.ask-empty\s*\{[\s\S]*?padding-bottom:\s*1\.5rem/,
-    '.companion .ask-empty must provide bottom padding',
-  );
-
-  // Composer must be sticky anchored to bottom of companion
-  assert.match(
-    css,
-    /\.companion\s+\.ck-composer-wrap\s*\{[\s\S]*?position:\s*sticky/,
-    '.companion .ck-composer-wrap must be sticky',
+    s,
+    /@media \(max-width: 767\.98px\) \{[\s\S]*?\.shell\.is-chat \.shell-topbar,\s*\.shell\.is-chat \.shell-tabbar \{\s*display:\s*none/,
+    'below 768px the top bar and tab bar step aside',
   );
   assert.match(
-    css,
-    /\.companion\s+\.ck-composer-wrap\s*\{[\s\S]*?bottom:\s*0/,
-    '.companion .ck-composer-wrap must stick to bottom',
+    s,
+    /@media \(min-width: 768px\) \{[\s\S]*?\.companion-page > \.ck-screen-viewport \{\s*height:\s*calc\(var\(--ck-viewport-height, 100dvh\) - var\(--spacing-topbar\)\)/,
+    'from 768px the screen takes the height under the top bar',
   );
-});
-
-test('/chat locks shell height to prevent window scrolling and suppresses site footer', () => {
-  const css = readFileSync(join(ROOT, 'app/styles/ask.css'), 'utf8');
   const chatPage = readFileSync(join(ROOT, 'app/chat/page.tsx'), 'utf8');
-
-  // Shell on /chat must lock overflow to hidden and clamp height to viewport
-  assert.match(
-    css,
-    /\.shell\.is-chat[\s\S]*?overflow:\s*hidden/,
-    '.shell.is-chat must lock overflow to prevent window scrolling',
-  );
-  assert.match(
-    css,
-    /\.shell\.is-chat[\s\S]*?height:\s*min\(var\(--ck-viewport-height,\s*100dvh\),\s*100dvh\)/,
-    '.shell.is-chat must clamp height to visual viewport',
-  );
-
-  // /chat passes footer={false} to Shell
   assert.match(chatPage, /<Shell\s+footer=\{false\}>/, '/chat must suppress footer in Shell');
+});
+
+test('ask.css pads the empty state with the measured insets, like the thread', () => {
+  const s = css();
+  assert.match(
+    s,
+    /\.companion \.ck-screen-body > \.ask-empty \{[\s\S]*?--ck-top-inset[\s\S]*?--ck-bottom-inset[\s\S]*?overflow-y:\s*auto/,
+    'the empty state scrolls under the floating header and composer',
+  );
+});
+
+test('ask.css keeps the dock column: thread scrolls, composer at its foot', () => {
+  const s = css();
+  assert.match(s, /\.companion\.is-compact \.ck-thread[\s\S]*?overflow-y:\s*auto/);
+  assert.match(s, /\.companion\.is-compact \.ck-composer-wrap \{[\s\S]*?position:\s*sticky/);
 });

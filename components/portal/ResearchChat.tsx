@@ -3,14 +3,15 @@
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import {
+  ChatScreen,
   ChatStarters,
   ChatThread,
   Composer,
   type ChatMessageData,
   type RenderLink,
-  useViewportHeight,
 } from '@bitbaum/chatkit/react';
 import type { Attachment } from '@bitbaum/chatkit';
+import { HOME_LINK } from '@/config/site-nav';
 import { CHAT_STARTERS } from '@/config/substrata-chat';
 import { answerRow } from '@/lib/ask-row';
 import type { CheckRequest } from '@/lib/ask-bridge';
@@ -68,10 +69,6 @@ export function ResearchChat({
   const [keyOpen, setKeyOpen] = useState(false);
   const ran = useRef<number | null>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
-  // The visible height, which shrinks when a phone keyboard opens; on /chat
-  // the column is sized to it so the composer stays above the keyboard.
-  const root = useRef<HTMLDivElement>(null);
-  useViewportHeight(compact ? root : undefined);
 
   useEffect(() => {
     if (!pending || ran.current === pending.id) return;
@@ -111,81 +108,92 @@ export function ResearchChat({
       ? 'The assistant is unavailable just now'
       : 'Free models, shared · add your own AI key for more';
 
-  return (
-    <div ref={root} className={compact ? 'companion is-compact' : 'companion'}>
-      <ChatThread
-        messages={messages}
-        live={live}
-        onStop={chat.stop}
-        onRetry={chat.retry}
-        // A suggested reply or a follow-up goes exactly where a typed question goes.
-        onReply={ask}
-        labels={{ replies: 'Reply or ask next' }}
-        renderLink={renderLink}
-        renderFooter={(m) => {
-          const turn = chat.turns[Number(m.id)];
-          return turn?.role === 'assistant' ? <AnswerFooter turn={turn} /> : null;
-        }}
-        empty={
-          <div className="ask-empty">
-            {!compact && (
-              <>
-                <h2>Ask about any bottleneck, company, country or rule.</h2>
-                <div className="ask-cta">
-                  <button type="button" className="ask-cta-button" onClick={focusInput}>
-                    Ask a question now
-                  </button>
-                </div>
-              </>
-            )}
-            <p>
-              Answers say which claims are sourced and which are judgement, and link every record
-              they read.
-            </p>
-            <ChatStarters
-              starters={CHAT_STARTERS.map((s) => ({ label: s.label, prompt: s.question }))}
-              onPick={ask}
-            />
-          </div>
-        }
-      />
-      <Composer
-        inputRef={inputRef}
-        header={
-          <span className="ask-composer-label" onClick={focusInput}>
-            Ask a question
-          </span>
-        }
-        ariaLabel="Ask about a bottleneck, a company, a country, a rule…"
-        // Returned, not dropped: a question that was not sent stays in the box.
-        onSend={(text, attachments) => chat.ask(withAttachments(text, attachments))}
-        placeholder="Ask about a bottleneck, a company, a country, a rule…"
-        sending={chat.busy}
-        onStop={chat.stop}
-        density={compact ? 'compact' : 'comfortable'}
-        voice={{ transcribeUrl: '/api/transcribe' }}
-        // Only text is read; a picture gets a sentence saying so, never silence.
-        attach={{ maxFiles: 3, maxTextChars: 20_000, maxImageBytes: 1 }}
-        labels={{
-          send: 'Ask',
-          attach: 'Attach a text file (.txt, .md, .csv)',
-          attachNotes: {
-            imageTooLarge: (name) => `${name}: pictures are not read here yet — paste the text.`,
-          },
-        }}
-        tools={
-          <AskTools
-            keys={keys}
-            models={models}
-            model={model}
-            setModel={setModel}
-            busy={chat.busy}
-            keyOpen={keyOpen}
-            onToggleKey={() => setKeyOpen((v) => !v)}
+  const thread = (
+    <ChatThread
+      messages={messages}
+      live={live}
+      onStop={chat.stop}
+      onRetry={chat.retry}
+      // A suggested reply or a follow-up goes exactly where a typed question goes.
+      onReply={ask}
+      labels={{ replies: 'Reply or ask next' }}
+      renderLink={renderLink}
+      // Copy · Listen · Share under every answer, the fleet's row (chatkit).
+      share={{ title: 'Ask Substrata' }}
+      renderFooter={(m) => {
+        const turn = chat.turns[Number(m.id)];
+        return turn?.role === 'assistant' ? <AnswerFooter turn={turn} /> : null;
+      }}
+      empty={
+        <div className="ask-empty">
+          {!compact && (
+            <>
+              <h2>Ask about any bottleneck, company, country or rule.</h2>
+              <div className="ask-cta">
+                <button type="button" className="ask-cta-button" onClick={focusInput}>
+                  Ask a question now
+                </button>
+              </div>
+            </>
+          )}
+          <p>
+            Answers say which claims are sourced and which are judgement, and link every record they
+            read.
+          </p>
+          <ChatStarters
+            starters={CHAT_STARTERS.map((s) => ({ label: s.label, prompt: s.question }))}
+            onPick={ask}
           />
-        }
-        hint={who}
-      />
+        </div>
+      }
+    />
+  );
+
+  const composer = (
+    <Composer
+      inputRef={inputRef}
+      header={
+        <span className="ask-composer-label" onClick={focusInput}>
+          Ask a question
+        </span>
+      }
+      ariaLabel="Ask about a bottleneck, a company, a country, a rule…"
+      // Returned, not dropped: a question that was not sent stays in the box.
+      onSend={(text, attachments) => chat.ask(withAttachments(text, attachments))}
+      placeholder="Ask about a bottleneck, a company, a country, a rule…"
+      sending={chat.busy}
+      onStop={chat.stop}
+      density={compact ? 'compact' : 'comfortable'}
+      voice={{ transcribeUrl: '/api/transcribe' }}
+      // Only text is read; a picture gets a sentence saying so, never silence.
+      attach={{ maxFiles: 3, maxTextChars: 20_000, maxImageBytes: 1 }}
+      labels={{
+        send: 'Ask',
+        attach: 'Attach a text file (.txt, .md, .csv)',
+        attachNotes: {
+          imageTooLarge: (name) => `${name}: pictures are not read here yet — paste the text.`,
+        },
+      }}
+      tools={
+        <AskTools
+          keys={keys}
+          models={models}
+          model={model}
+          setModel={setModel}
+          busy={chat.busy}
+          keyOpen={keyOpen}
+          onToggleKey={() => setKeyOpen((v) => !v)}
+        />
+      }
+      // On /chat the same line is ChatScreen's footnote under the dock.
+      hint={compact ? who : undefined}
+    />
+  );
+
+  // What belongs with the composer: the key panel it opens, and the way to
+  // hand us a source. One shape in the dock and on the page.
+  const beside = (
+    <>
       {keyOpen && <AiKeyPanel keys={keys} onDone={() => setKeyOpen(false)} />}
       <p className="ask-aside">
         {chat.receipt ? (
@@ -202,6 +210,46 @@ export function ResearchChat({
         )}
       </p>
       {chat.contribute && <ContributeForm busy={chat.busy} onSubmit={chat.sendContribution} />}
-    </div>
+    </>
+  );
+
+  // The dock: a column inside a fixed panel, the thread growing and the
+  // composer kept at its foot (ask.css, `.companion.is-compact`).
+  if (compact)
+    return (
+      <div className="companion is-compact">
+        {thread}
+        {composer}
+        {beside}
+      </div>
+    );
+
+  // /chat: the fleet's whole-screen chat (chatkit ChatScreen, as Loki and
+  // Solon). The conversation is the display; a see-through header with the
+  // way back floats at the top, the composer floats at the bottom and rides
+  // above a phone keyboard (fill="viewport"); ChatScreen measures both and
+  // pads the thread, so the last line always rests above the composer.
+  return (
+    <ChatScreen
+      fill="viewport"
+      className="companion"
+      header={
+        <>
+          <Link href={HOME_LINK.href} className="ck-glass" aria-label="Back to Substrata">
+            <span aria-hidden="true">←</span> Substrata
+          </Link>
+          <span className="companion-title">Ask Substrata</span>
+        </>
+      }
+      composer={
+        <>
+          {composer}
+          <div className="companion-beside">{beside}</div>
+        </>
+      }
+      footnote={who}
+    >
+      {thread}
+    </ChatScreen>
   );
 }

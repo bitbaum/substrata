@@ -12,14 +12,14 @@ importers:
         specifier: github:bitbaum/accountkit#v0.2.1
         version: https://codeload.github.com/bitbaum/accountkit/tar.gz/ec5654270527757aa0e762f09b5aaabf272389a2(react@19.3.1)
       '@bitbaum/ai-kit':
-        specifier: ^1.20.1
-        version: 1.20.1(react@19.3.1)
-      '@bitbaum/design-tokens':
-        specifier: github:bitbaum/design-tokens#8e786a43220d267ccf6b5cd6119a012f1a52dfff
-        version: https://codeload.github.com/bitbaum/design-tokens/tar.gz/8e786a43220d267ccf6b5cd6119a012f1a52dfff
+        specifier: ^1.21.0
+        version: 1.21.0(react@19.3.1)
       '@bitbaum/chatkit':
         specifier: ^0.12.0
         version: 0.12.0(react@19.3.1)
+      '@bitbaum/design-tokens':
+        specifier: github:bitbaum/design-tokens#8e786a43220d267ccf6b5cd6119a012f1a52dfff
+        version: https://codeload.github.com/bitbaum/design-tokens/tar.gz/8e786a43220d267ccf6b5cd6119a012f1a52dfff
       '@bitbaum/geo-kit':
         specifier: github:bitbaum/geo-kit#a337aec928cf7804fecf459c308d366b90f4b2fa
         version: https://codeload.github.com/bitbaum/geo-kit/tar.gz/a337aec928cf7804fecf459c308d366b90f4b2fa
@@ -120,12 +120,6 @@ importers:
 
 packages:
 
-  '@bitbaum/design-tokens@https://codeload.github.com/bitbaum/design-tokens/tar.gz/8e786a43220d267ccf6b5cd6119a012f1a52dfff':
-    resolution: {gitHosted: true, tarball: https://codeload.github.com/bitbaum/design-tokens/tar.gz/8e786a43220d267ccf6b5cd6119a012f1a52dfff}
-    version: 1.2.0
-    engines: {node: '>=20'}
-
-
   '@alloc/quick-lru@5.2.0':
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
     engines: {node: '>=10'}
@@ -218,8 +212,8 @@ packages:
     peerDependencies:
       react: '>=18'
 
-  '@bitbaum/ai-kit@1.20.1':
-    resolution: {integrity: sha512-mdYcA562q7eWbaWd2jwPlYZTTbWwSTK/XrexiIkG3mW2OiNDihMG8DmnFFlRf7lRcHiBOXHey1E28XCGb43Fsg==}
+  '@bitbaum/ai-kit@1.21.0':
+    resolution: {integrity: sha512-eWOsNrv4nyURMOxA9AoUfAZpj2ajuCSG3IK0z94vpPgAbcbkPviNOXGQpV9e01PRfMBP3EBVIrTa0wLN9gT9pQ==}
     engines: {node: '>=20'}
     peerDependencies:
       react: '>=18'
@@ -233,6 +227,11 @@ packages:
     hasBin: true
     peerDependencies:
       react: '>=18'
+
+  '@bitbaum/design-tokens@https://codeload.github.com/bitbaum/design-tokens/tar.gz/8e786a43220d267ccf6b5cd6119a012f1a52dfff':
+    resolution: {gitHosted: true, integrity: sha512-henmOzj7OGmR4+HstNareRk7leYKNZ7sZbyr66OrGAnTA5m3yK18Wvq7qfQejO678lUydaYI4ifLLGbkrPj3tQ==, tarball: https://codeload.github.com/bitbaum/design-tokens/tar.gz/8e786a43220d267ccf6b5cd6119a012f1a52dfff}
+    version: 1.2.0
+    engines: {node: '>=20'}
 
   '@bitbaum/geo-kit@https://codeload.github.com/bitbaum/geo-kit/tar.gz/a337aec928cf7804fecf459c308d366b90f4b2fa':
     resolution: {gitHosted: true, integrity: sha512-LwgeruTRUSNRNZX4h00rB+aSaN+gnRV3r+Dkx1mZ89RxaxvzOsTViWnBZ+Yrn3grm7jj66CMl4DvKG7gteXwWw==, tarball: https://codeload.github.com/bitbaum/geo-kit/tar.gz/a337aec928cf7804fecf459c308d366b90f4b2fa}
@@ -1114,9 +1113,9 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
-  ai-forms@0.1.2:
-    resolution: {integrity: sha512-agadca4pN0iGlZTlNy1Vo2SmnQB+0dNkrQSDE3wCJYeaVxKDs5KaxiwGj5+GL6mVYcI1xZ8pwnT9kL9WcxnBHA==}
-    engines: {node: '>=18'}
+  ai-forms@0.1.3:
+    resolution: {integrity: sha512-jpewuXsyiI7/356qcNCkeiDl6E8ua+5ZjpMxpA+e4XiEcNrjUE9XsUC1bKMr2j0ikzGNDp7/MuQIssKeYVaRhQ==}
+    engines: {node: '>=20'}
     peerDependencies:
       react: '>=18'
     peerDependenciesMeta:
@@ -2750,9 +2749,6 @@ packages:
 
 snapshots:
 
-  '@bitbaum/design-tokens@https://codeload.github.com/bitbaum/design-tokens/tar.gz/8e786a43220d267ccf6b5cd6119a012f1a52dfff': {}
-
-
   '@alloc/quick-lru@5.2.0': {}
 
   '@auth/core@0.41.3':
@@ -2867,15 +2863,17 @@ snapshots:
     dependencies:
       react: 19.3.1
 
-  '@bitbaum/ai-kit@1.20.1(react@19.3.1)':
+  '@bitbaum/ai-kit@1.21.0(react@19.3.1)':
     dependencies:
-      ai-forms: 0.1.2(react@19.3.1)
+      ai-forms: 0.1.3(react@19.3.1)
     optionalDependencies:
       react: 19.3.1
 
   '@bitbaum/chatkit@0.12.0(react@19.3.1)':
     dependencies:
       react: 19.3.1
+
+  '@bitbaum/design-tokens@https://codeload.github.com/bitbaum/design-tokens/tar.gz/8e786a43220d267ccf6b5cd6119a012f1a52dfff': {}
 
   '@bitbaum/geo-kit@https://codeload.github.com/bitbaum/geo-kit/tar.gz/a337aec928cf7804fecf459c308d366b90f4b2fa': {}
 
@@ -3556,7 +3554,7 @@ snapshots:
 
   acorn@8.18.0: {}
 
-  ai-forms@0.1.2(react@19.3.1):
+  ai-forms@0.1.3(react@19.3.1):
     optionalDependencies:
       react: 19.3.1
 
