@@ -89,7 +89,7 @@ export async function runAgent(input: {
   // The lookups the question obviously needs, made before any model round
   // (plan.ts). A plan outranks "the page answers it": "what is new here" needs the leads.
   const plan = input.verify
-    ? { calls: [], confident: false }
+    ? { calls: [], confident: false, webQuery: '' }
     : planLookups(question, input.context, env);
   const pageOnly =
     !input.verify &&

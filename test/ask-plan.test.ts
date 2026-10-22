@@ -9,7 +9,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { planLookups, bottleneckIn } from '../lib/chat-agent/plan';
+import { planLookups, bottleneckIn, webQuery } from '../lib/chat-agent/plan';
 import { runAgent, type AgentEvent } from '../lib/chat-agent/loop';
 import type { ModelTurn } from '../lib/chat-agent/turn';
 import { tidyAnswer } from '../lib/chat-agent/parse';
@@ -159,5 +159,24 @@ test('training-format citation markers become markdown links, or go', () => {
   assert.equal(
     tidyAnswer('Per ASML【https://www.asml.com/en/products】 and 【3†L1-L4】 [W1]【W2】.'),
     'Per ASML ([source](https://www.asml.com/en/products)) and [W1] [W2].',
+  );
+});
+
+test('the web is searched for the subject of a question, not its wording', () => {
+  // Live (2026-10-22): the question sent verbatim brought back OpenAI and the
+  // Open University — the engine matched "open".
+  assert.equal(webQuery('What open jobs are there in Niger?'), 'jobs in Niger');
+  assert.equal(
+    webQuery('Are there power grid jobs in Germany?'),
+    'power engineering jobs in Germany',
+  );
+  assert.equal(webQuery('What is the price of gallium?'), 'the price of gallium');
+  assert.equal(
+    webQuery('Who makes EUV lithography machines?'),
+    'Who makes EUV lithography machines',
+  );
+  assert.equal(
+    planLookups('What open jobs are there in Niger?', readerContext({}), {}).webQuery,
+    'jobs in Niger',
   );
 });
