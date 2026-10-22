@@ -263,13 +263,34 @@ export function lookupIsEmpty(result: string): boolean {
     return !json.trim();
   }
   const empty = (v: unknown): boolean => {
-    if (v === null || v === undefined || v === '' || v === false) return true;
+    if (v === null || v === undefined || v === '' || v === false || v === 0) return true;
     if (Array.isArray(v)) return v.length === 0;
     if (typeof v === 'object')
       return Object.entries(v as Record<string, unknown>).every(
-        ([k, x]) => ['note', 'warning', 'error', 'cite_as', 'query', 'tip'].includes(k) || empty(x),
+        ([k, x]) => LOOKUP_META_KEYS.has(k) || empty(x),
       );
     return false;
   };
   return empty(value);
 }
+
+/**
+ * Keys that describe a lookup rather than answer it: what was asked, where
+ * the full list lives, what to try next. Seen live (2026-10-22): the Niger
+ * roles lookup came back with zero roles and a filter block, a board link, a
+ * status line and a hint — read as "data", so the model re-ran the board
+ * without the country, got 388 US roles, and wrote the wall.
+ */
+const LOOKUP_META_KEYS = new Set([
+  'note',
+  'warning',
+  'error',
+  'cite_as',
+  'query',
+  'tip',
+  'hint',
+  'status',
+  'filter',
+  'board',
+  'relaxed',
+]);
