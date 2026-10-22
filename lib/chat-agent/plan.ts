@@ -29,6 +29,34 @@ export interface Plan {
   calls: ToolRequest[];
   /** The planned results answer the question as asked: offer no tools. */
   confident: boolean;
+  /** What to search the web for when a planned lookup comes back empty. */
+  webQuery: string;
+}
+
+/**
+ * The search a web engine should run for the question: its subject, not its
+ * wording. Seen live (2026-10-22): "What open jobs are there in Niger?" sent
+ * verbatim brought back OpenAI and the Open University — the engine matched
+ * "open". A jobs question searches for jobs in the country it names; any
+ * other question loses its question words and keeps the names it carries.
+ */
+export function webQuery(question: string): string {
+  const q = question.toLowerCase();
+  const countries = countriesIn(question);
+  const family = familyIn(question);
+  const named = bottleneckIn(question);
+  if (JOBS.test(q)) {
+    const where = countries[0] ? ` in ${countries[0].name}` : '';
+    const what = family ? family.replace(/-/g, ' ') : named ? named.name : '';
+    return `${what} jobs${where}`.trim();
+  }
+  const stripped = question
+    .replace(/^\s*(what|which|where|when|why|how (many|much|does|do|is|are))\b\s*/i, '')
+    .replace(/\b(is|are|was|were|do|does|did|can|could|there|tell me|show me|about)\b\s*/gi, ' ')
+    .replace(/[?.!]+\s*$/, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  return stripped || question.trim();
 }
 
 const NEWS =
@@ -205,7 +233,11 @@ export function planLookups(
 
   // Nothing recognised: no guess. A corpus search here would list its eight
   // hits among the records read whether or not the answer used them.
-  return { calls: calls.slice(0, 5), confident: Boolean(bottleneck || company) && intent };
+  return {
+    calls: calls.slice(0, 5),
+    confident: Boolean(bottleneck || company) && intent,
+    webQuery: webQuery(question),
+  };
 }
 
 /**

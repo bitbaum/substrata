@@ -37,7 +37,12 @@ export async function runPlan(
   const results = await runLookups(plan.calls, context, env, emit);
   const empty = results.some(lookupIsEmpty);
   if (!empty || !env.web) return { results, empty, web: false };
-  const found = await runLookups([call('web_search', { query: question })], context, env, emit);
+  const found = await runLookups(
+    [call('web_search', { query: plan.webQuery || question })],
+    context,
+    env,
+    emit,
+  );
   return { results: [...results, ...found], empty, web: true };
 }
 
