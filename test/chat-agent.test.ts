@@ -405,6 +405,28 @@ test('an empty tool result is recognised as empty; one row is not', () => {
   assert.equal(lookupIsEmpty('[resource_production] {"error":"not available"}'), true);
   assert.equal(lookupIsEmpty('[get_company] {"name":"X","producers":[]}'), false);
   assert.equal(lookupIsEmpty('[x] {"rows":[{"a":1}],"note":"n"}'), false);
+  // The real shape of an empty roles lookup: zero roles beside the filter it
+  // was asked with, the board link, a status line and a hint (2026-10-22).
+  assert.equal(
+    lookupIsEmpty(
+      '[open_roles] ' +
+        JSON.stringify({
+          filter: { bottleneck: null, country: 'Niger', family: null, query: null },
+          total_open: 0,
+          roles: [],
+          board: '/careers?country=NE',
+          status: "Live postings read from each company's own job board.",
+          hint: 'Nothing matches all filters: try without the role family or the title words.',
+        }),
+    ),
+    true,
+  );
+  assert.equal(
+    lookupIsEmpty(
+      '[open_roles] {"filter":{"country":"Germany"},"total_open":12,"roles":[{"title":"x"}],"board":"/careers?country=DE"}',
+    ),
+    false,
+  );
 });
 
 test('planned lookups that come back empty leave the tools on offer and rounds for the web', async () => {
