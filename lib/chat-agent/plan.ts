@@ -216,6 +216,29 @@ export function planLookups(
  * looked up at once; results come back in call order. Used for the planned
  * lookups and for every round of calls the model asks for.
  */
+/**
+ * The planned lookups, run — and when one of them comes back empty and the
+ * web is configured, the web searched for the question too, before any model
+ * sees it. Seen live (2026-10-22, twice): told "call web_search now", the
+ * fallback model answered "not in Substrata's database" instead. An empty
+ * lookup opens the web in code, not by request; the model is then handed the
+ * pages and asked to answer from them.
+ */
+export async function runPlan(
+  plan: Plan,
+  question: string,
+  context: ReaderContext,
+  env: ToolEnv,
+  emit: (event: AgentEvent) => void,
+): Promise<{ results: string[]; empty: boolean; web: boolean }> {
+  if (!plan.calls.length) return { results: [], empty: false, web: false };
+  const results = await runLookups(plan.calls, context, env, emit);
+  const empty = results.some(lookupIsEmpty);
+  if (!empty || !env.web) return { results, empty, web: false };
+  const found = await runLookups([call('web_search', { query: question })], context, env, emit);
+  return { results: [...results, ...found], empty, web: true };
+}
+
 export async function runLookups(
   calls: ToolRequest[],
   context: ReaderContext,
