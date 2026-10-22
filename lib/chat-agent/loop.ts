@@ -37,6 +37,7 @@ import type { ChatTurn } from '../chat/types';
 import {
   answerableFromPage,
   failureEvent,
+  openingStatus,
   sourcesOf,
   unwrittenAnswer,
   type AgentAnswer,
@@ -44,7 +45,7 @@ import {
 } from './answer';
 import { finalAnswer, renderCalls, toolRound } from './parse';
 import { reviseUnsupported, unsupportedFigures, withoutSentencesHolding } from './grounding';
-import { planLookups, runLookups } from './plan';
+import { lookupIsEmpty, planLookups, runLookups } from './plan';
 import { systemPrompt } from './prompt';
 import type { ModelTurn, ModelTurnResult } from './turn';
 import { gatherEvidence, verdictOf, verifyQuestion, type VerifyRequest } from './verify';
@@ -58,6 +59,7 @@ export {
 } from './answer';
 
 const MAX_ROUNDS = 3;
+
 const MAX_CALLS_PER_ROUND = 4;
 
 export async function runAgent(input: {
@@ -79,16 +81,7 @@ export async function runAgent(input: {
     input.emit(event);
   };
   // Before anything is fetched: the reader sees that it started.
-  emit({
-    type: 'status',
-    text: input.verify
-      ? input.verify.source
-        ? 'Reading the cited source and searching the web…'
-        : 'Searching the web for the claim…'
-      : input.context.entity
-        ? `Reading ${input.context.entity.name}…`
-        : 'Thinking…',
-  });
+  emit({ type: 'status', text: openingStatus(input.context, input.verify) });
   const ledger = emptyLedger();
   const env: ToolEnv = { ...input.env, ledger };
   const question = input.verify ? verifyQuestion(input.verify) : input.question;
@@ -107,10 +100,12 @@ export async function runAgent(input: {
     input.verify ? gatherEvidence(input.verify, env) : Promise.resolve(undefined),
     plan.calls.length ? runLookups(plan.calls, input.context, env, emit) : Promise.resolve([]),
   ]);
-  const noTools = pageOnly || plan.confident;
+  // An empty planned lookup is not an answer (see lookupIsEmpty): tools stay
+  // on offer and rounds are left for the web.
+  const planEmpty = plan.calls.length > 0 && lookedUp.some(lookupIsEmpty);
+  const noTools = pageOnly || (plan.confident && !planEmpty);
   // A tool the planner already ran unfiltered has given its whole list; offered
-  // again, models re-asked for it or a subset of it (2 of 12 questions,
-  // 2026-10-02), a full round each.
+  // again, models re-asked for it (2 of 12 questions, 2026-10-02), a round each.
   const tools = toolDefinitions(env).filter(
     (t) => !plan.calls.some((c) => c.name === t.function.name && c.args === '{}'),
   );
@@ -118,6 +113,7 @@ export async function runAgent(input: {
     context: input.context,
     preloaded: preload?.text,
     lookedUp: lookedUp.length ? lookedUp.join('\n\n') : undefined,
+    lookedUpEmpty: planEmpty,
     tools: noTools ? [] : tools,
     byok: input.byok,
     today: input.today,
@@ -126,8 +122,7 @@ export async function runAgent(input: {
   });
   const messages: ChatMessage[] = [
     { role: 'system', content: system },
-    // Recent turns only, long answers clipped: every token of history is paid
-    // again on every round, against a per-minute ceiling.
+    // Recent turns only, long answers clipped: history is paid again every round.
     ...input.history.slice(-4).map((t) => ({
       role: t.role,
       content: t.content.length > 900 ? `${t.content.slice(0, 900)}…` : t.content,
@@ -142,10 +137,15 @@ export async function runAgent(input: {
   let replies: string[] = [];
   let model: string | undefined;
   let shown = '';
-  // Model calls are the latency: one when the lookups already answer the
-  // question; two when the page record or planned lookups are in hand and the
-  // model may still need something; four only for a question from nowhere.
-  let lastRound = noTools ? 0 : plan.calls.length || preload ? 1 : MAX_ROUNDS;
+  // Model calls are the latency: one when the lookups already answer; two when
+  // a page record or planned lookups are in hand; four for a question from nowhere.
+  let lastRound = noTools
+    ? 0
+    : planEmpty
+      ? MAX_ROUNDS - 1
+      : plan.calls.length || preload
+        ? 1
+        : MAX_ROUNDS;
   // One extra round, once, for a model that asks for a tool when tools are no
   // longer offered: its lookup is run and it is told to write.
   let bonusUsed = false;
