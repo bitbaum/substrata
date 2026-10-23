@@ -26,6 +26,12 @@
  */
 
 import type { IndustryId, TechnologyId } from './substrata-taxonomy';
+import {
+  instrumentFromCandidate,
+  sidecarRows,
+  type InstrumentCandidate,
+} from '../lib/entry/candidate';
+import instrumentsCandidates from './candidates/instruments.json';
 
 export type JurisdictionId = 'us' | 'eu' | 'cn' | 'jp' | 'kr' | 'tw' | 'nl' | 'gb' | 'de' | 'ch';
 
@@ -78,6 +84,8 @@ export interface Instrument {
   /** A verbatim sentence from the source. Translated only where the original is not in English. */
   quote: string;
   proponents: Proponent[];
+  /** Set only on a row folded in from config/candidates/ — a cheaper model's row nobody has promoted. */
+  evidence?: 'candidate';
   readOn: string;
 }
 
@@ -426,6 +434,8 @@ export const INSTRUMENTS: readonly Instrument[] = [
     proponents: [],
     readOn: READ,
   },
+  // Candidate rows (config/candidates/instruments.json), each flagged `evidence: 'candidate'`.
+  ...sidecarRows<InstrumentCandidate>(instrumentsCandidates).map(instrumentFromCandidate),
 ];
 
 /**
