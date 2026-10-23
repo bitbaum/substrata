@@ -5,6 +5,7 @@ import { buildFeed, whenLabel, type DeskItem } from '@/lib/desk';
 import { bottleneckHref } from '@/lib/links';
 import { LEAD_EXPIRY_DAYS } from '@/lib/lead-expiry';
 import { leadsFor } from '@/lib/sweep-queue';
+import { LEADS_SHOWN } from '@/lib/company-sections';
 
 export type Lead = Extract<DeskItem, { source: 'lead' }>;
 
@@ -20,58 +21,83 @@ export async function leadsOn(profile: CompanyProfile): Promise<Lead[]> {
   if (names.length === 0) return [];
   try {
     const feed = buildFeed(profile.events, await leadsFor(names));
-    return feed.filter((item): item is Lead => item.source === 'lead').slice(0, 6);
+    return feed.filter((item): item is Lead => item.source === 'lead').slice(0, 12);
   } catch {
     return [];
   }
 }
 
+function LeadRow({ lead, now }: { lead: Lead; now: Date }) {
+  return (
+    <li className="py-3">
+      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+        <span
+          className="rounded border border-strong px-1.5 font-mono text-xs uppercase tracking-caps text-fg-tertiary"
+          title={
+            lead.accepted
+              ? 'Found by the sweep on the open web and accepted by a reviewer; not yet filed as an event.'
+              : lead.expired
+                ? `Found by the sweep on the open web. Nobody here read it within ${LEAD_EXPIRY_DAYS} days.`
+                : 'Found by the sweep on the open web. Not yet read by anyone here.'
+          }
+        >
+          {lead.accepted
+            ? 'Accepted lead · awaiting filing'
+            : lead.expired
+              ? 'Expired lead · never reviewed'
+              : 'Unread lead'}
+        </span>
+        <span className="font-mono text-xs tabular-nums text-fg-tertiary">
+          {whenLabel(lead.at, now)}
+          {lead.dated ? '' : ' (found)'}
+        </span>
+        {lead.bottlenecks[0] && (
+          <Link
+            href={bottleneckHref(lead.bottlenecks[0])}
+            className="tap font-mono text-xs uppercase tracking-caps text-fg-tertiary underline-offset-4 hover:text-fg-primary hover:underline"
+          >
+            {lead.bottlenecks[0]}
+          </Link>
+        )}
+      </div>
+      <p className="mt-1 max-w-prose text-sm leading-relaxed text-fg-primary">
+        <a href={lead.url} rel="noreferrer" className="underline-offset-4 hover:underline">
+          {lead.title}
+        </a>{' '}
+        <span className="text-xs text-fg-tertiary">{lead.host} ↗</span>
+      </p>
+    </li>
+  );
+}
+
+/**
+ * The first few leads, then the rest behind one "All n" row — a wall of
+ * unread pages is not what a reader came for, and the three newest say
+ * whether the sweep is finding anything.
+ */
 export function LeadList({ leads }: { leads: Lead[] }) {
   const now = new Date();
+  const shown = leads.slice(0, LEADS_SHOWN);
+  const rest = leads.slice(LEADS_SHOWN);
   return (
     <>
       <ul className="divide-y divide-subtle border-y border-subtle">
-        {leads.map((lead) => (
-          <li key={lead.id} className="py-3">
-            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <span
-                className="rounded border border-strong px-1.5 font-mono text-xs uppercase tracking-caps text-fg-tertiary"
-                title={
-                  lead.accepted
-                    ? 'Found by the sweep on the open web and accepted by a reviewer; not yet filed as an event.'
-                    : lead.expired
-                      ? `Found by the sweep on the open web. Nobody here read it within ${LEAD_EXPIRY_DAYS} days.`
-                      : 'Found by the sweep on the open web. Not yet read by anyone here.'
-                }
-              >
-                {lead.accepted
-                  ? 'Accepted lead · awaiting filing'
-                  : lead.expired
-                    ? 'Expired lead · never reviewed'
-                    : 'Unread lead'}
-              </span>
-              <span className="font-mono text-xs tabular-nums text-fg-tertiary">
-                {whenLabel(lead.at, now)}
-                {lead.dated ? '' : ' (found)'}
-              </span>
-              {lead.bottlenecks[0] && (
-                <Link
-                  href={bottleneckHref(lead.bottlenecks[0])}
-                  className="font-mono text-xs uppercase tracking-caps text-fg-tertiary underline-offset-4 hover:text-fg-primary hover:underline"
-                >
-                  {lead.bottlenecks[0]}
-                </Link>
-              )}
-            </div>
-            <p className="mt-1 max-w-prose text-sm leading-relaxed text-fg-primary">
-              <a href={lead.url} rel="noreferrer" className="underline-offset-4 hover:underline">
-                {lead.title}
-              </a>{' '}
-              <span className="text-xs text-fg-tertiary">{lead.host} ↗</span>
-            </p>
-          </li>
+        {shown.map((lead) => (
+          <LeadRow key={lead.id} lead={lead} now={now} />
         ))}
       </ul>
+      {rest.length > 0 && (
+        <details className="leads-rest">
+          <summary className="home-more cursor-pointer text-sm text-fg-secondary">
+            All {leads.length} leads
+          </summary>
+          <ul className="divide-y divide-subtle border-b border-subtle">
+            {rest.map((lead) => (
+              <LeadRow key={lead.id} lead={lead} now={now} />
+            ))}
+          </ul>
+        </details>
+      )}
       <p className="mt-3 max-w-prose text-xs leading-relaxed text-fg-muted">
         Pages the sweep found on these chokepoints. Nobody here has read them yet; they are not
         events and not evidence.

@@ -20,6 +20,7 @@
  */
 import { DEPENDENCY_TOOLS } from './dependencies';
 import { EXPOSURE_TOOLS } from './exposure';
+import { OWNERSHIP_TOOLS } from './ownership';
 import { FILING_TOOLS } from './filings';
 import { JOB_TOOLS } from './jobs';
 import { NUMBER_TOOLS } from './numbers';
@@ -40,6 +41,7 @@ export const CHAT_TOOLS: readonly ChatTool[] = [
   ...RECORD_TOOLS,
   ...DEPENDENCY_TOOLS,
   ...EXPOSURE_TOOLS,
+  ...OWNERSHIP_TOOLS,
   ...RESOURCE_TOOLS,
   ...SCENARIO_TOOLS,
   ...LIST_TOOLS,

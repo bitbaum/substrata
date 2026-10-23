@@ -45,7 +45,7 @@ export function Ticker({
           className="ticker"
           title={`${ref.name} · ${ref.figi ? `OpenFIGI ${ref.figi}` : `SEC CIK ${ref.cik}`} · checked ${listing.checkedOn}`}
         >
-          {terminalTicker(ref)}
+          <span className="ticker-chip">{terminalTicker(ref)}</span>
         </a>
       ))}
       {listing.status === 'parent' && (

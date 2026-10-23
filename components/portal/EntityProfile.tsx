@@ -39,8 +39,14 @@ export function EntityProfile({
   from?: number;
   extra?: ExtraSection[];
 }) {
+  // A page section with a module's id REPLACES that module: the company page
+  // hands "what has happened" its SEC filings, which the registry, being
+  // synchronous and corpus-only, cannot load. Same id, same anchor, one
+  // section — never the module and a richer twin of it.
+  const replaced = new Set(extra.map((section) => section.id));
   const rendered = [
     ...modulesFor(entity, from)
+      .filter((module) => !replaced.has(module.id))
       .map((module) => ({ module, output: module.render(entity) }))
       .filter((entry) => entry.output !== null),
     ...extra.map((section) => ({

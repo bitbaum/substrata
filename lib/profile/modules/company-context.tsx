@@ -48,6 +48,7 @@ const relief: ProfileModule<CompanyProfile> = {
                 <br />
                 <span className="font-heading text-lg font-semibold text-fg-primary">
                   <Figure
+                    className="figure-target figure-standalone"
                     estimate={{
                       by: 'Substrata',
                       on: entry.judgedOn,
@@ -71,7 +72,7 @@ const relief: ProfileModule<CompanyProfile> = {
               </p>
               <p className={`mt-1 ${CAPS}`}>
                 Substitute · for{' '}
-                <Link href={bottleneckHref(bottleneck.slug)} className="hover:underline">
+                <Link href={bottleneckHref(bottleneck.slug)} className="tap hover:underline">
                   {bottleneck.name}
                 </Link>
                 {row.sources[0] && (
@@ -137,7 +138,9 @@ const sources: ProfileModule<CompanyProfile> = {
   id: 'sources',
   title: t('profile.sources.title'),
   appliesTo: ['company'],
-  importance: 86,
+  // After "what this connects to" (88): a reader sees the joins, then the
+  // documents they rest on.
+  importance: 89,
   load(entity) {
     const p = profile(entity);
     return p && p.sources.length > 0 ? p : null;
@@ -148,7 +151,7 @@ const sources: ProfileModule<CompanyProfile> = {
       <ol className="list-decimal space-y-2 pl-5 text-sm marker:font-mono marker:text-fg-muted">
         {p.sources.map((s) => (
           <li key={s.url}>
-            <a href={s.url} rel="noreferrer" className={LINK}>
+            <a href={s.url} rel="noreferrer" className={`tap ${LINK}`}>
               {hostOf(s.url)} ↗
             </a>{' '}
             <span className="text-fg-secondary">— {s.supports}</span>
