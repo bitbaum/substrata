@@ -2,6 +2,7 @@
 import { BOTTLENECKS } from '../bottlenecks';
 import { ENTITY_KINDS, type EntityKind } from '../entities/types';
 import { chatContext } from '../chat/retrieve';
+import { retrieve } from '../index/retrieve';
 import { remember } from './ledger';
 import { findBottleneck, findCompany, findEntity } from './resolve';
 import { bottleneckDetail, clip, companyDetail, entityDetail } from './shape';
@@ -11,7 +12,7 @@ export const RECORD_TOOLS: readonly ChatTool[] = [
   {
     name: 'search_corpus',
     description:
-      'Find records in the Substrata corpus (bottlenecks, companies, countries, policies, science, capital, facilities, talent, articles) matching a phrase. Use when you do not know the exact record, or for questions spanning many records.',
+      'Find records in the Substrata corpus matching a phrase: entities (bottlenecks, companies, countries, policies, science, capital, facilities, talent, articles) and the rows behind them — dated events, series values, policy instruments, export restrictions, quantities, world rankings by country, and data-quality findings. Each result names its evidence state and the date it is for. Use when you do not know the exact record, or for questions spanning many records.',
     parameters: {
       type: 'object',
       properties: {
@@ -25,26 +26,30 @@ export const RECORD_TOOLS: readonly ChatTool[] = [
       const kind = ENTITY_KINDS.includes(args.kind as EntityKind)
         ? (args.kind as EntityKind)
         : undefined;
-      const hits = chatContext(str(args.query))
-        .filter((d) => !kind || d.kind === kind)
+      // Over-fetch when filtering by kind, so a kind filter still returns a page of results.
+      const hits = retrieve(str(args.query), { k: kind ? 40 : 8 })
+        .filter((h) => !kind || h.chunk.kind === kind)
         .slice(0, 8);
-      for (const d of hits)
+      for (const { chunk } of hits)
         remember(env.ledger, {
-          title: d.title,
-          href: d.href,
-          kind: d.kind,
-          evidence: d.evidence,
-          primary: d.sources.slice(0, 3),
+          title: chunk.title,
+          href: chunk.href,
+          kind: chunk.kind ?? chunk.facet,
+          evidence: chunk.evidence,
+          primary: chunk.sourceUrl ? [chunk.sourceUrl] : [],
         });
       if (!hits.length)
         return { results: [], note: 'No record matches. Try other words or a lookup by name.' };
       return {
-        results: hits.map((d) => ({
-          name: d.title,
-          kind: d.kind,
-          page: d.href,
-          evidence_state: d.evidence,
-          excerpt: clip(d.text, 260),
+        results: hits.map(({ chunk }) => ({
+          name: chunk.title,
+          kind: chunk.kind ?? chunk.facet,
+          facet: chunk.facet,
+          page: chunk.href,
+          evidence_state: chunk.evidence,
+          ...(chunk.asOf ? { as_of: chunk.asOf } : {}),
+          ...(chunk.sourceUrl ? { source: chunk.sourceUrl } : {}),
+          excerpt: clip(chunk.text, 260),
         })),
       };
     },
