@@ -42,8 +42,14 @@ export function evidenceKey(material: string, producer: string): string {
  */
 export type Verification = 'sourced' | 'candidate' | 'unverified';
 
-/** What the corpus alone can say about a producer row: sourced or not. */
-export function verificationFor(source: string | null): Verification {
+/**
+ * What the corpus alone can say about a producer row: sourced or not — and a
+ * row folded in from config/candidates/ (`evidence: 'candidate'`) has a URL a
+ * cheaper model attached and nobody has promoted, so it reads "Candidate
+ * source", never "Sourced".
+ */
+export function verificationFor(source: string | null, evidence?: 'candidate'): Verification {
+  if (evidence === 'candidate') return 'candidate';
   return source ? 'sourced' : 'unverified';
 }
 
