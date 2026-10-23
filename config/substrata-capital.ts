@@ -189,6 +189,8 @@ export const CAPITAL_KINDS: readonly CapitalKind[] = [
 export interface CapitalProvider {
   id: string;
   name: string;
+  /** The name as it fits a tile: "EIB", "DOE Loan Programs Office". */
+  short: string;
   kind: CapitalKindId;
   jurisdiction: JurisdictionId;
   /** What it exists to do, from its own document. */
@@ -220,6 +222,7 @@ const READ = '2026-09-15';
 export const CAPITAL_PROVIDERS: readonly CapitalProvider[] = [
   {
     id: 'us-doe-loan-programs-office',
+    short: 'DOE Loan Programs Office',
     name: 'Department of Energy Loan Programs Office',
     kind: 'development-bank',
     jurisdiction: 'us',
@@ -238,6 +241,7 @@ export const CAPITAL_PROVIDERS: readonly CapitalProvider[] = [
   },
   {
     id: 'eu-eib',
+    short: 'EIB',
     name: 'European Investment Bank',
     kind: 'development-bank',
     jurisdiction: 'eu',
@@ -256,6 +260,7 @@ export const CAPITAL_PROVIDERS: readonly CapitalProvider[] = [
   },
   {
     id: 'de-kfw',
+    short: 'KfW',
     name: 'KfW',
     kind: 'development-bank',
     jurisdiction: 'de',
@@ -270,6 +275,7 @@ export const CAPITAL_PROVIDERS: readonly CapitalProvider[] = [
   },
   {
     id: 'jp-jbic',
+    short: 'JBIC',
     name: 'Japan Bank for International Cooperation',
     kind: 'export-credit',
     jurisdiction: 'jp',

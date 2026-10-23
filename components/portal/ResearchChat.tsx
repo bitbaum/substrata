@@ -12,7 +12,6 @@ import {
 } from '@bitbaum/chatkit/react';
 import type { Attachment } from '@bitbaum/chatkit';
 import { HOME_LINK } from '@/config/site-nav';
-import { CHAT_STARTERS } from '@/config/substrata-chat';
 import { answerRow } from '@/lib/ask-row';
 import type { CheckRequest } from '@/lib/ask-bridge';
 import { AiKeyPanel } from './ai-key/AiKeyPanel';
@@ -56,6 +55,7 @@ export function ResearchChat({
   compact = false,
   pending,
   start,
+  starters,
 }: {
   topic: string;
   /** The page the reader is on, so the assistant can resolve "it" and "they". */
@@ -65,6 +65,8 @@ export function ResearchChat({
   pending?: (CheckRequest & { id: number }) | null;
   /** A question to ask as soon as the page opens — what the home page's Ask box sends. */
   start?: string;
+  /** The empty screen's questions: drawn from the corpus per facet (lib/starters.ts), by the server. */
+  starters: readonly { label: string; question: string }[];
 }) {
   const { ai, models, model, setModel } = useAssistantStatus();
   const keys = useAiKey();
@@ -159,7 +161,7 @@ export function ResearchChat({
             read.
           </p>
           <ChatStarters
-            starters={CHAT_STARTERS.map((s) => ({ label: s.label, prompt: s.question }))}
+            starters={starters.map((s) => ({ label: s.label, prompt: s.question }))}
             onPick={ask}
           />
         </div>
