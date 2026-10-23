@@ -10,6 +10,11 @@ import { ResearchChat } from './ResearchChat';
  * the same thing. A "Check this" anywhere on the page opens it with the claim
  * already asked.
  *
+ * The panel is mounted on the first open and then kept, hidden, so Close and
+ * a second tap on Ask find the thread where it was; before that first open
+ * a page carries no chat at all (its status fetches run only once wanted).
+ * The pill hides while the panel is open: the panel has its own Close.
+ *
  * On the home page Ask is the page's own first line, so the floating button
  * is not drawn there (it sat on top of the content); a "Check this" still
  * opens the panel.
@@ -22,6 +27,8 @@ export function AskDock({
 }) {
   const path = usePathname();
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  if (open && !mounted) setMounted(true);
   const [pending, setPending] = useState<(CheckRequest & { id: number }) | null>(null);
 
   useEffect(() => {
@@ -47,18 +54,18 @@ export function AskDock({
 
   return (
     <div className="ask-dock">
-      {open && (
-        <div className="ask-dock-panel" role="dialog" aria-label="Ask Substrata">
-          <header className="ask-dock-head">
-            <p>Ask Substrata</p>
-            <button type="button" onClick={() => setOpen(false)} aria-label="Close">
-              Close
-            </button>
-          </header>
-          <ResearchChat topic="" onPath={path} compact pending={pending} starters={starters} />
-        </div>
+      {mounted && (
+        <ResearchChat
+          topic=""
+          onPath={path}
+          compact
+          open={open}
+          onClose={() => setOpen(false)}
+          pending={pending}
+          starters={starters}
+        />
       )}
-      {!onHome && (
+      {!onHome && !open && (
         <button
           type="button"
           className="ask-dock-toggle"

@@ -52,11 +52,6 @@ function fold(word: string): string {
   return word.length > 3 && word.endsWith('s') && !word.endsWith('ss') ? word.slice(0, -1) : word;
 }
 
-/** A text's whole words, lower-cased and plural-folded exactly as the scorer reads them. */
-export function foldedWords(text: string): Set<string> {
-  return new Set(tokenize(text).map(fold));
-}
-
 interface IndexedDocument {
   document: ResearchDocument;
   titleWords: Set<string>;

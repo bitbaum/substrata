@@ -57,12 +57,17 @@ export const OWNERSHIP_TOOLS: readonly ChatTool[] = [
           name: h.name,
           kind: HOLDER_KIND_LABEL[h.kind],
           share: h.share === null ? 'no figure on record' : `${h.share}%`,
+          // The plain number a `share` chart block takes (0–100); null stays null.
+          share_pct: h.share,
           as_of: h.asOf,
           source: h.source,
           ...(h.note ? { note: h.note } : {}),
         })),
         ...(view.rest !== null
-          ? { other_holders_and_public_float: `${Number(view.rest.toFixed(2))}%` }
+          ? {
+              other_holders_and_public_float: `${Number(view.rest.toFixed(2))}%`,
+              other_pct: Number(view.rest.toFixed(2)),
+            }
           : {}),
         ...(view.holders.length === 0
           ? {

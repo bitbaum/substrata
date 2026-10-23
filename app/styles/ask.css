@@ -30,34 +30,170 @@
   cursor: pointer;
 }
 
-.ask-dock-panel {
-  width: min(28rem, calc(100vw - 2rem));
-  max-height: min(78vh, 40rem);
-  overflow: auto;
-  padding: 1rem;
-  border: 1px solid var(--color-border-strong);
+/*
+ * The panel over a page (AskPanel): on a phone a sheet from the bottom edge,
+ * 92% of the visual viewport, with a grip to pull it down; from 768px a
+ * panel on the right, full height. The conversation inside is chatkit's
+ * ChatScreen, which owns the scrolling; this owns the edges. `--ck-viewport-
+ * height` is set on the sheet by chatkit's useViewportHeight, so the sheet
+ * shrinks to the room above a phone keyboard and the composer rides on it.
+ */
+.ask-sheet-root {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+}
+.ask-sheet-root[hidden] {
+  display: none;
+}
+.ask-sheet-scrim {
+  position: absolute;
+  inset: 0;
+  background: var(--color-scrim);
+  pointer-events: auto;
+}
+.ask-sheet {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  pointer-events: auto;
   background: var(--color-surface-page);
   box-shadow: var(--shadow-overlay);
+  transition: transform 0.18s ease-out;
 }
-
-.ask-dock-head {
-  /* Stays at the top while the panel scrolls, so Close is always in reach. */
-  position: sticky;
-  top: -1rem;
+/* The grip: a bar in the sheet's top edge, the pull area the strip above the
+   title row, edge to edge — never over Expand or Close, which on a 320px
+   phone sit where a centred 44px area would land. */
+.ask-sheet-grip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 1;
-  padding-top: 1rem;
-  background: var(--color-surface-page);
+  height: 1rem;
+  background: none;
+  cursor: grab;
+  touch-action: none;
+}
+.ask-sheet-grip::before {
+  content: '';
+  position: absolute;
+  top: 0.4rem;
+  left: 50%;
+  width: 2.5rem;
+  height: 0.3rem;
+  border-radius: 999px;
+  background: var(--color-border-strong);
+  transform: translateX(-50%);
+}
+.ask-sheet-head {
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0.75rem;
-  font-weight: 650;
-}
-
-.ask-dock-head button {
+  gap: 0.5rem;
   min-height: var(--size-target);
-  padding: 0 0.6rem;
+  padding: 1rem 0.25rem 0 1rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.ask-sheet-head h2 {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font: 600 1rem/1.2 var(--font-heading);
+  letter-spacing: var(--tracking-display);
+  color: var(--color-fg-primary);
+}
+.ask-sheet-actions {
+  display: flex;
+  flex-shrink: 0;
+}
+.ask-sheet-actions button {
+  min-height: var(--size-target);
+  min-width: var(--size-target);
+  padding: 0 0.75rem;
+  border-radius: 0.375rem;
+  color: var(--color-fg-secondary);
+  font-size: 0.9rem;
   cursor: pointer;
+}
+.ask-sheet-actions button:hover {
+  background: var(--color-surface-raised);
+  color: var(--color-fg-primary);
+}
+.ask-sheet-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+/* A chart in an answer (chartkit's figure, drawn by chat/chartRenderers.tsx)
+   is a block of its own, set apart from the sentences around it. */
+.companion .ck-chart {
+  margin-block: 1rem;
+}
+/* chatkit's text box is 40px tall; every control in a chat here is a full
+   target (as on the home page's Ask box). */
+.companion .ck-input {
+  min-height: var(--size-target);
+}
+.ask-sheet-body > .ck-screen {
+  flex: 1;
+  height: auto;
+  min-height: 0;
+}
+@media (max-width: 767.98px) {
+  .ask-sheet {
+    right: 0;
+    left: 0;
+    top: calc(var(--ck-viewport-height, 100dvh) * 0.08);
+    height: calc(var(--ck-viewport-height, 100dvh) * 0.92);
+    border-top: 1px solid var(--color-border-strong);
+    border-radius: 1rem 1rem 0 0;
+    animation: ask-rise 0.2s ease-out;
+  }
+  /* The page does not scroll behind the sheet. */
+  html.ask-sheet-open {
+    overflow: hidden;
+  }
+}
+@media (min-width: 768px) {
+  .ask-sheet-scrim,
+  .ask-sheet-grip {
+    display: none;
+  }
+  .ask-sheet {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(30rem, 100vw);
+    border-left: 1px solid var(--color-border-strong);
+    animation: ask-slide 0.2s ease-out;
+  }
+  .ask-sheet-head {
+    padding-top: 0;
+  }
+}
+@keyframes ask-rise {
+  from {
+    transform: translateY(2rem);
+    opacity: 0;
+  }
+}
+@keyframes ask-slide {
+  from {
+    transform: translateX(2rem);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ask-sheet {
+    animation: none;
+    transition: none;
+  }
 }
 
 /*
@@ -142,41 +278,9 @@
   text-align: center;
 }
 
-/*
- * The dock (AskDock, every other page): a column inside a fixed panel. The
- * thread grows and scrolls, the composer stays at its foot.
- */
-.companion.is-compact {
-  display: flex;
-  flex-direction: column;
-  min-height: 18rem;
-  flex: 1;
-}
-
-.companion-inbox {
-  margin-top: 0.8rem;
-}
-
-.companion.is-compact .ck-thread-wrap,
-.companion.is-compact .ck-thread,
+/* In the panel the empty state is shorter: no headline, the starters at once. */
 .companion.is-compact .ask-empty {
-  flex: 1;
-  min-height: 0;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
-.companion.is-compact .ck-thread {
-  padding-bottom: 1.5rem;
-}
-.companion.is-compact .ask-empty {
-  padding-bottom: 1.5rem;
-}
-.companion.is-compact .ck-composer-wrap {
-  position: sticky;
-  bottom: 0;
-  background: var(--color-surface-page);
-  padding-bottom: 0.5rem;
-  z-index: 2;
+  padding-top: 0.5rem;
 }
 
 .ask-empty {
@@ -214,7 +318,7 @@
   line-height: 1.55;
 }
 
-/* Composer input field label and text box appearance */
+/* The page's composer carries a label above the box (the panel's does not). */
 .ask-composer-label {
   display: block;
   font-size: 0.75rem;
@@ -225,18 +329,6 @@
   margin-bottom: 0.35rem;
   cursor: pointer;
   user-select: none;
-}
-.companion.is-compact .ck-input {
-  border: 1px solid var(--color-border-subtle);
-  border-radius: var(--ck-radius-sm, 0.4rem);
-  background: var(--color-surface-raised);
-  padding: 0.5rem 0.65rem;
-  min-height: 2.75rem;
-  transition: border-color 0.15s ease;
-}
-.companion.is-compact .ck-input:focus {
-  border-color: var(--color-border-strong);
-  outline: none;
 }
 
 /* Composer tools: one height, one weight, no borders of their own. */
@@ -254,39 +346,26 @@
   color: var(--color-fg-primary);
   background: var(--color-surface-raised);
 }
-/* Model picker hidden behind a toggle with a concise explanation */
-.ask-model-menu {
-  position: relative;
-  display: inline-flex;
-}
-.ask-model-summary {
-  list-style: none;
-  cursor: pointer;
-  user-select: none;
-}
-.ask-model-summary::-webkit-details-marker {
-  display: none;
-}
-.ask-model-panel {
-  position: absolute;
-  bottom: calc(100% + 0.5rem);
-  left: 0;
-  z-index: 40;
-  width: min(18rem, calc(100vw - 2rem));
+/* The key panel, opened from the footnote: the shared models for a reader
+   without a key, then the key itself. */
+.ask-key {
+  display: grid;
+  gap: 0.75rem;
   padding: 0.75rem;
-  border: 1px solid var(--color-border-strong);
+  border: 1px solid var(--color-border-subtle);
   border-radius: var(--ck-radius-sm, 0.4rem);
   background: var(--color-surface-raised);
-  box-shadow: var(--shadow-overlay);
 }
-.ask-model-desc {
-  margin: 0 0 0.6rem;
-  font-size: 0.8rem;
-  line-height: 1.45;
+.ask-model-select {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
   color: var(--color-fg-secondary);
 }
-.ask-model-select-label select {
-  width: 100%;
+.ask-model-select select {
+  flex: 1;
+  min-height: var(--size-target);
   padding: 0.4rem 0.5rem;
   border: 1px solid var(--color-border-strong);
   border-radius: var(--ck-radius-sm, 0.4rem);
@@ -295,6 +374,19 @@
   font: inherit;
   font-size: 0.85rem;
   cursor: pointer;
+}
+/* "Use your own AI key" in the one line under the composer: a link in a
+   sentence with a 44px thumb — the hit area grows, the line does not. */
+.ask-footnote-button {
+  padding-block: 0.8rem;
+  margin-block: -0.8rem;
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+}
+.ask-footnote-button:hover {
+  color: var(--color-fg-primary);
 }
 
 .ask-aside {

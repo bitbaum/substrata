@@ -12,9 +12,6 @@
  * implied knowledge nobody could inspect.
  */
 
-import { facilityFromCandidate, sidecarRows, type FacilityCandidate } from '../lib/entry/candidate';
-import facilitiesCandidates from './candidates/facilities.json';
-
 export type FacilityKind = 'field' | 'plant' | 'mine' | 'refinery' | 'fab';
 
 export const FACILITY_KIND_LABEL: Record<FacilityKind, string> = {
@@ -42,8 +39,6 @@ export interface Facility {
   what: string;
   source: string;
   primary: boolean;
-  /** Set only on a row folded in from config/candidates/ — a cheaper model's row nobody has promoted. */
-  evidence?: 'candidate';
   readOn: string;
 }
 
@@ -93,8 +88,6 @@ export const FACILITIES: readonly Facility[] = [
     primary: true,
     readOn: READ,
   },
-  // Candidate rows (config/candidates/facilities.json), each flagged `evidence: 'candidate'`.
-  ...sidecarRows<FacilityCandidate>(facilitiesCandidates).map(facilityFromCandidate),
 ];
 
 export function facilitiesFor(material: string): Facility[] {

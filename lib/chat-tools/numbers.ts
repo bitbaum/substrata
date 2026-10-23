@@ -20,6 +20,8 @@ import {
 import { str, type ChatTool } from './tool';
 
 const KEY_NUMBERS = 3;
+/** Enough points for a line chart of the recent run; the page has them all. */
+const POINTS = 12;
 
 function row(s: Series) {
   const last = lastActual(s);
@@ -37,6 +39,12 @@ function row(s: Series) {
     planned: planned ? `${formatPoint(planned)} ${s.unit} planned for ${planned.date}` : undefined,
     source: last ? `${last.publisher}${last.primary ? ' (primary)' : ''}: ${last.source}` : null,
     page: `/data/series/${s.id}`,
+    // The run as plain numbers, newest last: what a `line` chart block takes.
+    unit: s.unit,
+    points: s.points
+      .filter((p) => !isPlanned(p))
+      .slice(-POINTS)
+      .map((p) => ({ x: p.date, y: p.value })),
   };
 }
 

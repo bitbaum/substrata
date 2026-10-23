@@ -1,8 +1,12 @@
 /**
- * Contract tests for /chat page improvements:
- * 1. Clear call-to-action after the headline ("Ask a question now").
- * 2. Input field (text box) labeled and clearly styled before the voice input button.
- * 3. Model selector collapsed behind a toggle with a concise explanation.
+ * Contract tests for the Ask surfaces:
+ * 1. /chat's empty state has a clear call-to-action after the headline.
+ * 2. The page's composer is labelled and focusable from that CTA.
+ * 3. The panel over a page is chatkit's ChatScreen in a sheet (phone) or a
+ *    right-hand panel (desktop) with one title row — Ask Substrata · Expand ·
+ *    Close — and its composer is microphone + send: no paperclip, and no
+ *    model label unless the reader's own key is set (owner, 2026-10-23:
+ *    "The chat didn't scroll, no way to expand … this is terrible").
  */
 
 import { test } from 'node:test';
@@ -11,79 +15,76 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = new URL('..', import.meta.url).pathname;
+const read = (p: string) => readFileSync(join(ROOT, p), 'utf8');
 
 test('/chat empty state includes a clear call-to-action after the headline', () => {
-  const code = readFileSync(join(ROOT, 'components/portal/ResearchChat.tsx'), 'utf8');
-
-  // Must have CTA button after the headline
+  const code = read('components/portal/ResearchChat.tsx');
   assert.match(
     code,
     /ask-cta[\s\S]*?Ask a question now/,
     'ResearchChat empty state must render a call-to-action button after the headline',
   );
-
-  // CTA button must focus the input
   assert.match(code, /onClick=\{focusInput\}/, 'CTA button must trigger focusInput');
 });
 
-test('Composer displays input field before voice button with clear label and inputRef', () => {
-  const code = readFileSync(join(ROOT, 'components/portal/ResearchChat.tsx'), 'utf8');
-
-  // Composer must receive inputRef
+test('the page composer is labelled and reachable from the CTA; the panel composer is not', () => {
+  const code = read('components/portal/ResearchChat.tsx');
+  assert.match(code, /inputRef=\{inputRef\}/, 'Composer must receive inputRef');
   assert.match(
     code,
-    /inputRef=\{inputRef\}/,
-    'Composer must receive inputRef for direct focus control',
+    /compact \? undefined : \([\s\S]*?ask-composer-label[\s\S]*?Ask a question/,
+    'the label is the page’s; the panel’s composer is chatkit’s box alone',
   );
-
-  // Composer must receive header label
-  assert.match(
-    code,
-    /header=\{[\s\S]*?ask-composer-label[\s\S]*?Ask a question/,
-    'Composer must render a clear input header label',
-  );
-
-  const css = readFileSync(join(ROOT, 'app/styles/ask.css'), 'utf8');
-
-  // Input field must have distinct text box appearance
-  assert.match(
-    css,
-    /\.companion\.is-compact\s+\.ck-input\s*\{[\s\S]*?border:\s*1px solid/,
-    'ck-input must have a visible border defining it as a text box',
-  );
-  assert.match(css, /\.ask-composer-label\s*\{/, 'ask.css must style .ask-composer-label');
+  assert.match(read('app/styles/ask.css'), /\.ask-composer-label\s*\{/);
 });
 
-test('AskTools hides the model list behind a toggle with a concise explanation', () => {
-  const code = readFileSync(join(ROOT, 'components/portal/chat/AskTools.tsx'), 'utf8');
-
-  // Must use DetailsMenu for the toggle
+test('the panel is chatkit’s ChatScreen in a sheet with one title row', () => {
+  const chat = read('components/portal/ResearchChat.tsx');
   assert.match(
-    code,
-    /DetailsMenu[\s\S]*?ask-model-menu/,
-    'AskTools must wrap the model selection in DetailsMenu',
+    chat,
+    /<AskPanel[\s\S]*?<ChatScreen[\s\S]*?fill="parent"/,
+    'compact = ChatScreen in AskPanel',
   );
-
-  // Must show a concise explanation
+  const panel = read('components/portal/AskPanel.tsx');
   assert.match(
-    code,
-    /ask-model-desc[\s\S]*?Answers route across free shared models automatically/,
-    'AskTools must include a concise explanation of automatic model routing',
+    panel,
+    /useViewportHeight\(sheetRef, open\)/,
+    'the sheet follows the visual viewport',
   );
-
-  // Must display current model summary
-  assert.match(
-    code,
-    /ask-model-summary[\s\S]*?Model: \{currentLabel\}/,
-    'AskTools summary must display current model name',
-  );
-
-  const css = readFileSync(join(ROOT, 'app/styles/ask.css'), 'utf8');
-
-  assert.match(css, /\.ask-model-menu\s*\{/, 'ask.css must style .ask-model-menu');
+  assert.match(panel, /ask-sheet-grip/, 'a grip to pull the sheet down');
+  assert.match(panel, />\s*Expand\s*</, 'Expand opens /chat');
+  assert.match(panel, />\s*Close\s*</);
+  const css = read('app/styles/ask.css');
+  assert.match(css, /\* 0\.92\)/, 'a phone sheet opens to 92% of the viewport');
   assert.match(
     css,
-    /\.ask-model-panel\s*\{[\s\S]*?position:\s*absolute/,
-    'ask.css must style .ask-model-panel as a popover',
+    /@media \(min-width: 768px\)[\s\S]*?\.ask-sheet \{[\s\S]*?right: 0;/,
+    'a right-hand panel from 768px',
   );
+  assert.doesNotMatch(css, /ask-dock-panel/, 'the old scrolling box is gone');
+});
+
+test('the panel composer is microphone and send; the model chip only with a key', () => {
+  const chat = read('components/portal/ResearchChat.tsx');
+  assert.match(chat, /attach=\{compact \? false :/, 'no paperclip in the panel');
+  const tools = read('components/portal/chat/AskTools.tsx');
+  assert.match(tools, /if \(!keys\.active\) return null;/, 'nothing in the slot without a key');
+  assert.doesNotMatch(tools, /[>`'"]Model: /, 'no "Model: Auto" label anywhere');
+  assert.match(chat, /Use your own AI key/, 'the way to a key is the footnote line');
+});
+
+test('Expand hands the whole thread to /chat under its id', () => {
+  const chat = read('components/portal/ResearchChat.tsx');
+  assert.match(
+    chat,
+    /saveThread\(\{ id, conversationId: chat\.conversationIdNow\(\), topic, onPath, turns: chat\.turns \}\)/,
+  );
+  assert.match(chat, /router\.push\(chatHref\(id\)\)/);
+  assert.match(chat, /loadThread\(threadId\)/, '/chat picks the thread up');
+  assert.match(read('app/chat/page.tsx'), /threadId=\{threadId\}/);
+});
+
+test('"N records read" is the thought row above the answer, not a line under it', () => {
+  assert.match(read('components/portal/ResearchChat.tsx'), /thinking: thinkingFor\(t\)/);
+  assert.doesNotMatch(read('components/portal/chat/AnswerFooter.tsx'), /records? read/);
 });
