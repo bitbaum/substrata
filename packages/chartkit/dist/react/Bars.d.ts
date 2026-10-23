@@ -15,13 +15,19 @@ export interface BarChartProps {
     caption: string;
     /** The label of the row to draw in the accent: "this one", among the rest. */
     highlight?: string;
+    /**
+     * The value a full bar stands for; defaults to the largest row. Pass the
+     * whole (100 for per cent of world) when the bars are shares of it, or a
+     * lone 1.6% is drawn as wide as a monopoly.
+     */
+    max?: number;
 }
 /**
  * Horizontal ranked bars: label left, bar, value right. Rows are ranked —
  * largest first, no number last — whatever order they arrive in; a chart
  * called ranked that trusts its caller's order is sometimes not ranked.
  */
-export declare function BarChart({ rows, unit, caption, highlight }: BarChartProps): import("react").JSX.Element;
+export declare function BarChart({ rows, unit, caption, highlight, max: whole }: BarChartProps): import("react").JSX.Element;
 export interface ShareRow {
     label: string;
     /** 0–1. */

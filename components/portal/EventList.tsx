@@ -69,7 +69,9 @@ export function EventList({
             id={event.id}
             className="grid scroll-mt-24 gap-x-6 gap-y-1 py-3 sm:grid-cols-[7rem_1fr]"
           >
-            <div className="font-mono text-xs tabular-nums text-fg-tertiary">{event.date}</div>
+            <div className="whitespace-nowrap font-mono text-xs tabular-nums text-fg-tertiary">
+              {event.date}
+            </div>
             <div>
               <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                 <EffectMark effect={event.effect} />

@@ -49,14 +49,14 @@ export function CountryResources({ iso2, selected }: { iso2: string; selected?: 
       <h3>Natural resources, measured</h3>
       {measured.length === 0 ? (
         <p className="resource-empty">
-          No USGS or EIA production or reserves table lists this country individually.
+          No USGS, EIA or WNA production or reserves table lists this country individually.
         </p>
       ) : (
         <>
           <p className="resource-line">
             Ordered by the country’s largest{' '}
             <Figure method="resource-significance">share of world output</Figure>. Values are USGS
-            (minerals) or EIA (energy); an “e” marks a USGS estimate.
+            (minerals), EIA (energy) or WNA (uranium); an “e” marks an estimate.
           </p>
           {selectedFirst.map((facts, i) => (
             <details

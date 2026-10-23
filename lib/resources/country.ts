@@ -49,6 +49,25 @@ export interface ResourceFacts {
   reservesToProduction: { years: number; reservesYear: number; productionYear: number } | null;
   /** The share this ordering is ranked by (largest share on any production series), or null. */
   significance: number | null;
+  /**
+   * Whether the country's standing on this resource is worth leading with: at
+   * least SIGNIFICANT_SHARE of world output and within SIGNIFICANT_RANK. A
+   * 0.1% share ranked 42nd is a fact, not a headline — Niger's oil led its
+   * page once because uranium had no table and oil was the only measured row.
+   */
+  significant: boolean;
+}
+
+export const SIGNIFICANT_SHARE = 0.01;
+export const SIGNIFICANT_RANK = 10;
+
+export function isSignificant(lead: SeriesFact | undefined): boolean {
+  return (
+    !!lead &&
+    (lead.current.share ?? 0) >= SIGNIFICANT_SHARE &&
+    lead.current.rank !== null &&
+    lead.current.rank <= SIGNIFICANT_RANK
+  );
 }
 
 function priorOf(chapter: UsgsChapter, series: Series, year: number, iso2: string) {
@@ -146,6 +165,7 @@ export function resourceFacts(iso2: string, chapter: UsgsChapter): ResourceFacts
     // series (capacity is not output): Russia is minor in platinum and the
     // largest palladium miner.
     significance: leadOf(production)?.current.share ?? null,
+    significant: isSignificant(leadOf(production)),
   };
 }
 

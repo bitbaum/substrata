@@ -45,7 +45,7 @@ test('the risk layer counts OECD export restrictions and never calls absence saf
 });
 
 test('a resource without a country table offers no trend, and a missing shading falls back', () => {
-  const uranium = shadedLayer('uranium', 'trend', MAP_ISOS);
-  assert.ok(!ids(uranium).includes('trend'));
-  assert.deepEqual(uranium.bins, {}, 'no quantity, no shade');
+  const neon = shadedLayer('neon', 'trend', MAP_ISOS);
+  assert.ok(!ids(neon).includes('trend'));
+  assert.deepEqual(neon.bins, {}, 'no quantity, no shade');
 });

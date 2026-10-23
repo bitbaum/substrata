@@ -83,12 +83,25 @@ export function inInventory(iso2: string): boolean {
   return FILE.measures.some((m) => m.iso2 === id);
 }
 
-/** One line a reader can scan: "Export prohibition on ore (since 2023-07-17)". */
-export function restrictionSummary(m: Restriction): string {
+/** The pieces of a summary line, so a renderer can keep each date on one line. */
+export function restrictionParts(m: Restriction): {
+  head: string;
+  since: string | null;
+  until: string | null;
+} {
   const forms = [...new Set(m.lines.map((l) => l.form))].join(', ');
   const value =
     m.value && m.valueUnit ? ` ${m.value}${m.valueUnit === '%' ? '%' : ` ${m.valueUnit}`}` : '';
-  const since = m.introduced ? ` since ${m.introduced}` : '';
-  const until = m.ends ? `, until ${m.ends}` : '';
-  return `${m.typeLabel}${value} on ${forms}${since}${until}`;
+  return { head: `${m.typeLabel}${value} on ${forms}`, since: m.introduced, until: m.ends };
+}
+
+/** One line a reader can scan: "Export prohibition on ore since 2023-07-17". */
+export function restrictionSummary(m: Restriction): string {
+  const { head, since, until } = restrictionParts(m);
+  return `${head}${since ? ` since ${since}` : ''}${until ? `, until ${until}` : ''}`;
+}
+
+/** Every country the inventory records a measure for, on any resource. */
+export function restrictingCountries(): string[] {
+  return [...new Set(FILE.measures.map((m) => m.iso2))].sort();
 }

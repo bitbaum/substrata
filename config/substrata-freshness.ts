@@ -19,6 +19,7 @@ import occupations from '../research/occupations.json';
 import series from '../research/series.json';
 import usgs from '../research/usgs-mcs.json';
 import eia from '../research/eia-energy.json';
+import wna from '../research/wna-uranium.json';
 import oecd from '../research/oecd-export-restrictions.json';
 import sanctions from '../research/sanctions.json';
 import producers from '../research/usgs-producers.json';
@@ -223,6 +224,15 @@ export const DATASETS: readonly Dataset[] = [
     refresh: 'pnpm run research:eia',
     checkedOn: day(eia.retrieved),
     maxAgeDays: 120,
+  },
+  {
+    id: 'wna-uranium',
+    label: 'Uranium mined by country (World Nuclear Association)',
+    file: 'research/wna-uranium.json',
+    // WNA updates the page as each year's figures settle, usually by mid-year.
+    refresh: 'pnpm run research:uranium',
+    checkedOn: day(wna.retrieved),
+    maxAgeDays: 400,
   },
   {
     id: 'usgs-producers',

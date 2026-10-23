@@ -18,7 +18,10 @@ test('every USGS chapter maps to a Substrata resource and adds up to its world t
   const ids = new Set(RESOURCE_KINDS.map((r) => r.id as string));
   for (const chapter of chapters()) {
     assert.ok(ids.has(chapter.resource), `${chapter.slug}: unknown resource ${chapter.resource}`);
-    assert.ok(/^https:\/\/(pubs\.usgs\.gov|www\.eia\.gov)\//.test(chapter.url), chapter.slug);
+    assert.ok(
+      /^https:\/\/(pubs\.usgs\.gov|www\.eia\.gov|world-nuclear\.org)\//.test(chapter.url),
+      chapter.slug,
+    );
     const world = worldRow(chapter);
     assert.ok(world, `${chapter.slug}: no world row`);
     for (const series of seriesOf(chapter)) {

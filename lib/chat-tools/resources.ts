@@ -5,6 +5,7 @@
  * showed China at ~100% of 2025 primary output; asked whether Russia matters,
  * it could not see Russia's 44% of world palladium. These rows close that gap.
  */
+import { countryHref } from '@/lib/world/pages';
 import { choropleth, choroplethOptions } from '../resources/choropleth';
 import { chapterFor, seriesOf } from '../resources/usgs';
 import { countryResources } from '../resources/country';
@@ -193,7 +194,7 @@ export const RESOURCE_TOOLS: ChatTool[] = [
         const { measured, unmeasured } = countryResources(country.iso2);
         return {
           country: country.name,
-          page: `/atlas?view=world&country=${country.iso2}`,
+          page: countryHref(country.iso2),
           produces: measured.slice(0, 12).map((f) => {
             const lead = f.production[0];
             return {

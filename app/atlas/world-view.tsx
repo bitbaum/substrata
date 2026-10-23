@@ -17,6 +17,7 @@ import { RESOURCE_KINDS } from '@/config/substrata-resources';
 import { bottleneckBySlug } from '@/lib/bottlenecks';
 import { countryDossier } from '@/lib/geo';
 import { siteById, sitesFor, type Site } from '@/lib/resources/sites';
+import { countryHref, hasCountryPage } from '@/lib/world/pages';
 import { MAP_COUNTRIES, MAP_ISOS } from './countries';
 import { chainRoute } from './chain-route';
 import { quantified } from './map-layer';
@@ -180,6 +181,13 @@ export function WorldView({
                   {kind && (
                     <p className="atlas-metric">
                       <span>{kind.label}</span> {layer.labels[selected] ?? layer.otherwise ?? '—'}
+                    </p>
+                  )}
+                  {hasCountryPage(selected) && (
+                    <p className="atlas-metric">
+                      <Link href={countryHref(selected)} className="link-target">
+                        Open the profile →
+                      </Link>
                     </p>
                   )}
                 </div>

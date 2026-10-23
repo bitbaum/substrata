@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { Figure } from '../Figure';
 import { peersFor } from '@/lib/resources/peers';
 import { formatShare, ordinal } from '@/lib/resources/format';
+import { countryHref } from '@/lib/world/pages';
 
 export function Peers({ iso2, prefer }: { iso2: string; prefer?: string }) {
   const groups = peersFor(iso2, { prefer });
@@ -23,9 +24,7 @@ export function Peers({ iso2, prefer }: { iso2: string; prefer?: string }) {
           <ol className="resource-list">
             {g.peers.map((p) => (
               <li key={p.iso2}>
-                <Link href={`/atlas?view=world&country=${p.iso2}&resource=${g.resource}`}>
-                  {p.name}
-                </Link>{' '}
+                <Link href={countryHref(p.iso2, g.resource)}>{p.name}</Link>{' '}
                 <span className="resource-unit">
                   <Figure method="world-rank">{ordinal(p.rank)}</Figure>
                   {p.share !== null && (

@@ -355,10 +355,11 @@ test('shares fall into five steps; the boundaries go up, never down', () => {
 
 test('colour means a quantity: nothing is shaded without one', () => {
   assert.deepEqual(mapLayer(undefined, 'production', MAP_ISOS).bins, {});
-  const uranium = mapLayer('uranium', 'production', MAP_ISOS);
-  assert.deepEqual(uranium.bins, {}, 'uranium has no country table, so no shade');
-  assert.match(uranium.legend.note ?? '', /No quantity to shade/);
-  assert.ok(Object.keys(uranium.labels).length > 0, 'the hover still says where it is listed');
+  // Uranium was the example until the WNA table measured it (2026-10-23).
+  const neon = mapLayer('neon', 'production', MAP_ISOS);
+  assert.deepEqual(neon.bins, {}, 'neon has no country table, so no shade');
+  assert.match(neon.legend.note ?? '', /No quantity to shade/);
+  assert.ok(Object.keys(neon.labels).length > 0, 'the hover still says where it is listed');
 });
 
 test('a shaded layer: numbers on the ramp, words hatched, missing countries left plain', () => {
@@ -391,5 +392,5 @@ test('a shaded layer names its top producers ON the globe, largest first, never 
   for (const c of lithium.callouts) assert.match(c.text, /%$/, 'a share, when shares exist');
   for (const c of lithium.callouts) assert.ok(lithium.bins[c.iso] >= 4, `${c.iso} is top band`);
   assert.deepEqual(mapLayer(undefined, 'production', MAP_ISOS).callouts, []);
-  assert.deepEqual(mapLayer('uranium', 'production', MAP_ISOS).callouts, []);
+  assert.deepEqual(mapLayer('neon', 'production', MAP_ISOS).callouts, []);
 });

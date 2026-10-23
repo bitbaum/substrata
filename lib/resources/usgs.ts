@@ -15,6 +15,7 @@
  */
 import data from '@/research/usgs-mcs.json';
 import energy from '@/research/eia-energy.json';
+import uranium from '@/research/wna-uranium.json';
 
 export interface UsgsCell {
   raw: string;
@@ -85,6 +86,12 @@ const ENERGY = energy as unknown as {
   chapters: UsgsChapter[];
 };
 
+// Uranium: neither USGS's chapters nor the EIA bulk file measure it, so the
+// World Nuclear Association's mining table (scripts/research/wna-uranium.py)
+// is read in the same shape. Without it, a uranium country's headline led
+// with whatever else a table happened to list — Niger's with oil.
+const URANIUM = uranium as unknown as { retrieved: string; chapters: UsgsChapter[] };
+
 const ALL: readonly UsgsChapter[] = [
   ...FILE.chapters.map((c) => ({
     ...c,
@@ -93,10 +100,17 @@ const ALL: readonly UsgsChapter[] = [
     retrieved: FILE.retrieved,
   })),
   ...ENERGY.chapters.map((c) => ({ ...c, retrieved: ENERGY.retrieved })),
+  ...URANIUM.chapters.map((c) => ({ ...c, retrieved: URANIUM.retrieved })),
 ];
 
-/** What the open energy source does not publish (reserves for oil and gas, uranium). */
-export const ENERGY_GAPS: readonly string[] = ENERGY.gaps;
+/**
+ * What the open energy source does not publish (reserves for oil and gas).
+ * EIA's own note that it has no uranium is dropped once the WNA table fills
+ * that gap, so a country page never says "not read" about a table it shows.
+ */
+export const ENERGY_GAPS: readonly string[] = ENERGY.gaps.filter(
+  (gap) => !/^Uranium/.test(gap) || !URANIUM.chapters.some((c) => c.resource === 'uranium'),
+);
 
 export const USGS = {
   source: FILE.source,
