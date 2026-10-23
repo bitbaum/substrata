@@ -59,6 +59,8 @@ export type Turn = {
   degraded?: boolean;
   verdict?: Verdict;
   replies?: string[];
+  /** How long the answer took, question sent to answer done: the thought row's time. */
+  durationMs?: number;
 };
 
 export type StreamEvent =

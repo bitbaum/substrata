@@ -150,7 +150,7 @@ export function materialBottlenecks(): Bottleneck[] {
       jurisdictions: producer.jurisdictions,
       role: ROLE_LABEL[producer.role] ?? producer.role,
       supplier: false,
-      verification: verificationFor(producer.source, producer.evidence),
+      verification: verificationFor(producer.source),
       source: producer.source,
     }));
     const counts = {

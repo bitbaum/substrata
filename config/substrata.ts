@@ -154,15 +154,6 @@ export const NODE_TYPES = [
 
 export type NodeType = (typeof NODE_TYPES)[number]['id'];
 
-/** Display label per node type, so the site never prints a raw enum. */
-export const NODE_TYPE_LABEL: Record<NodeType, string> = {
-  material: 'Material',
-  company: 'Company',
-  person: 'People',
-  machine: 'Machine',
-  process: 'Process',
-};
-
 // =====================================================================
 // COVERAGE AREAS
 //

@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react';
 import type { AnswerFeedback } from '@bitbaum/chatkit';
 import { QUESTION_LENGTH } from '@/config/substrata-chat';
+import type { ThreadHandoff } from '@/lib/ask-thread';
 import type { LiveAnswer, StreamEvent, Turn, VerifyInput } from './types';
 
 /**
@@ -64,6 +65,7 @@ export function useChatSession({
     setError('');
     setReceipt('');
     const messageId = crypto.randomUUID();
+    const startedAt = Date.now();
     setTurns([...before, { id: crypto.randomUUID(), role: 'user', content: text }]);
     setDraft('');
     setLive({
@@ -138,6 +140,7 @@ export function useChatSession({
                 degraded: data.degraded,
                 verdict: data.verdict,
                 replies: data.replies,
+                durationMs: Date.now() - startedAt,
               },
             ]);
             setLive(null);
@@ -156,6 +159,13 @@ export function useChatSession({
 
   function stop() {
     abortRef.current?.abort();
+  }
+
+  /** Continue a thread handed over from the panel (Expand): its turns and its id. */
+  function restore(handoff: ThreadHandoff) {
+    conversationId.current = handoff.conversationId;
+    setTurns(handoff.turns);
+    setError('');
   }
 
   /** Ask the last question again, replacing its failed or unwanted answer. */
@@ -207,6 +217,8 @@ export function useChatSession({
   }
 
   return {
+    /** One id per thread; a handoff to /chat carries it so the log continues. */
+    conversationIdNow: () => conversationId.current ?? '',
     turns,
     draft,
     setDraft,
@@ -219,6 +231,7 @@ export function useChatSession({
     setContribute,
     ask,
     stop,
+    restore,
     retry,
     feedback,
     sendContribution,

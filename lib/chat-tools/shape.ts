@@ -33,6 +33,10 @@ export function eventRow(event: CoverageEvent) {
     date: event.date,
     headline: event.headline,
     effect: event.effect,
+    // A `timeline` chart block takes these as they are: the row on /events,
+    // and which way it moved the bottleneck (tightens = down).
+    page: `/events#${event.id}`,
+    tone: event.effect === 'tightens' ? 'down' : event.effect === 'loosens' ? 'up' : 'neutral',
     bottlenecks: event.bottlenecks,
     participants: event.participants,
     source: event.source,

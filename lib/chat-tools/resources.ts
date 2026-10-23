@@ -165,12 +165,18 @@ export const RESOURCE_TOOLS: ChatTool[] = [
           year: map.year,
           unit: map.unitLabel,
           world_total: withUnit(map.world.text, map.unitLabel),
+          // `value_number` and `share_pct` are the plain numbers a chart block
+          // takes (chatkit's RICH_ANSWERS_INSTRUCTION: bars with a share); the
+          // text forms stay for prose. `page` per row is the country's atlas page.
           top_producers: ranked.slice(0, TOP).map((v) => ({
             country: v.name,
             value: withUnit(v.text, map.unitLabel),
+            value_number: v.value,
             world_share: pct(v.share),
+            share_pct: v.share === null ? null : Number((v.share * 100).toFixed(1)),
             rank: v.rank,
             estimated: v.estimated || undefined,
+            page: `/atlas?view=world&country=${v.iso2}`,
           })),
           ...(country
             ? {
@@ -201,8 +207,12 @@ export const RESOURCE_TOOLS: ChatTool[] = [
               measure: lead?.label,
               year: lead?.year,
               value: lead ? withUnit(lead.current.text, lead.unit) : undefined,
+              value_number: lead?.current.value ?? null,
               world_share: lead ? pct(lead.current.share) : null,
+              share_pct:
+                lead?.current.share == null ? null : Number((lead.current.share * 100).toFixed(1)),
               rank: lead?.current.rank ?? null,
+              page: `/resources/${f.resource}`,
               source: f.source.url,
             };
           }),

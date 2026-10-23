@@ -1,39 +1,24 @@
 'use client';
 
-import Link from 'next/link';
 import type { Turn } from './types';
-
-function hostOf(url: string): string {
-  try {
-    return new URL(url).hostname.replace(/^www\./, '');
-  } catch {
-    return url;
-  }
-}
 
 /**
  * What sits under an answer, in chatkit's `renderFooter` slot: Substrata's
- * evidence, which no generic chat has. Three registers that are never merged —
- * corpus records, unreviewed sweep leads, unchecked web pages. The look is
- * chatkit's; only the content is Substrata's.
+ * evidence, which no generic chat has. Two registers that are never merged —
+ * unreviewed sweep leads and unchecked web pages. The corpus records the
+ * answer read are the thought row ABOVE it ("Thought for 12s › Read 3
+ * records", `thinking.ts`), the way every chat app shows what it did; a
+ * record count under the answer was a stray line nobody could place.
+ * The look is chatkit's; only the content is Substrata's.
  *
  * Where to go next is NOT here: the follow-up questions join the suggested
  * replies in chatkit's one row under the latest answer (`lib/ask-row.ts`), so
  * an answer never carries two rows of buttons.
  */
 export function AnswerFooter({ turn }: { turn: Turn }) {
-  const sources = turn.sources ?? [];
   const leads = turn.leads ?? [];
   const web = turn.web ?? [];
-  if (
-    !sources.length &&
-    !leads.length &&
-    !web.length &&
-    !turn.verdict &&
-    !turn.outside &&
-    !turn.degraded
-  )
-    return null;
+  if (!leads.length && !web.length && !turn.verdict && !turn.outside && !turn.degraded) return null;
 
   return (
     <div className="answer-footer">
@@ -49,33 +34,6 @@ export function AnswerFooter({ turn }: { turn: Turn }) {
           {turn.outside && <span className="answer-tag">Looked outside the corpus</span>}{' '}
           {turn.degraded && <span className="answer-tag">No AI answer</span>}
         </p>
-      )}
-
-      {sources.length > 0 && (
-        <details className="answer-block">
-          <summary>
-            {sources.length} record{sources.length === 1 ? '' : 's'} read
-          </summary>
-          <ul>
-            {sources.map((s) => (
-              <li key={s.id}>
-                <Link href={s.href}>{s.title}</Link>{' '}
-                <span className="answer-evidence">{s.evidence}</span>
-                {s.primary
-                  .filter((url) => /^https?:\/\//.test(url))
-                  .slice(0, 2)
-                  .map((url) => (
-                    <span key={url}>
-                      {' '}
-                      <a href={url} target="_blank" rel="noreferrer nofollow">
-                        {hostOf(url)} ↗
-                      </a>
-                    </span>
-                  ))}
-              </li>
-            ))}
-          </ul>
-        </details>
       )}
 
       {leads.length > 0 && (

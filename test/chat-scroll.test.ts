@@ -87,8 +87,12 @@ test('ask.css pads the empty state with the measured insets, like the thread', (
   );
 });
 
-test('ask.css keeps the dock column: thread scrolls, composer at its foot', () => {
+test('the panel is chatkit’s screen filling the sheet: its thread is the scroller', () => {
   const s = css();
-  assert.match(s, /\.companion\.is-compact \.ck-thread[\s\S]*?overflow-y:\s*auto/);
-  assert.match(s, /\.companion\.is-compact \.ck-composer-wrap \{[\s\S]*?position:\s*sticky/);
+  assert.match(
+    s,
+    /\.ask-sheet-body > \.ck-screen \{[\s\S]*?flex:\s*1;[\s\S]*?min-height:\s*0/,
+    'the screen takes the sheet’s height, so chatkit’s thread scrolls inside it',
+  );
+  assert.doesNotMatch(s, /\.companion\.is-compact \.ck-thread/, 'no hand-made scroller');
 });

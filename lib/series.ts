@@ -21,8 +21,6 @@
  * time, never as a value.
  */
 import corpusFile from '../research/series.json';
-import pointCandidates from '../config/candidates/series-points.json';
-import { sidecarRows, withCandidatePoints, type SeriesPointCandidate } from './entry/candidate';
 
 export type SeriesKind =
   | 'lead-time'
@@ -79,8 +77,6 @@ export interface SeriesPoint {
   preliminary?: boolean;
   /** Official series: when the value first reached the database. */
   firstSeen?: string;
-  /** Set only on a row folded in from config/candidates/ — a cheaper model's row nobody has promoted. */
-  evidence?: 'candidate';
 }
 
 export interface Series {
@@ -105,12 +101,7 @@ export interface Series {
 
 type CorpusSeries = Omit<Series, 'origin' | 'points'> & { points: SeriesPoint[] };
 
-// Candidate points (config/candidates/series-points.json) join their series
-// before sorting, each flagged `evidence: 'candidate'`.
-const CORPUS: Series[] = withCandidatePoints(
-  corpusFile.series as CorpusSeries[],
-  sidecarRows<SeriesPointCandidate>(pointCandidates),
-).map((s) => ({
+const CORPUS: Series[] = (corpusFile.series as CorpusSeries[]).map((s) => ({
   ...s,
   origin: 'corpus' as const,
   points: sortPoints(s.points),
