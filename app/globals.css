@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import '@bitbaum/chatkit/styles.css';
+@import '@bitbaum/chartkit/styles.css';
 @import '@bitbaum/accountkit/styles.css';
 /* The renderers live in the sitekit package now; Tailwind must scan them or
    their semantic classes are never emitted. */
@@ -151,6 +152,15 @@
   --ck-radius-sm: 0.4rem;
   --ck-font: var(--font-sans);
   --ck-mono: var(--font-mono);
+  /* @bitbaum/chartkit shares the prefix: --ck-line, --ck-accent, --ck-bg,
+     --ck-font and --ck-mono above are its too. These are the chart's own.
+     The accent is the ink here, so a second series is told apart by its
+     dash and a lighter grey, never by a colour the site does not have. */
+  --ck-ink: var(--color-fg-primary);
+  --ck-ink-muted: var(--color-fg-muted);
+  --ck-up: var(--color-status-positive);
+  --ck-down: var(--color-status-negative);
+  --ck-series-2: var(--color-fg-tertiary);
 }
 
 :root {

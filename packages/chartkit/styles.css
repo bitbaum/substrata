@@ -1,0 +1,585 @@
+/*
+ * @bitbaum/chartkit — the look of the one chart.
+ *
+ * Every colour and face is a --ck-* variable. By default they read
+ * @bitbaum/design-tokens' HSL-triplet variables, so apps on those tokens match
+ * without doing anything; an app whose variables are full colours maps them
+ * once on :root. The prefix is shared with chatkit on purpose: --ck-line,
+ * --ck-accent, --ck-bg, --ck-font and --ck-mono mean the same thing in both,
+ * so an app that has themed its chat has themed its charts.
+ *
+ * Non-negotiable, and why:
+ *  - Text is in rem, never in SVG units: the drawing is an SVG stretched to
+ *    its box (preserveAspectRatio="none", non-scaling strokes) and every
+ *    label is HTML laid over it, so a 320px plot has the same type as a
+ *    1440px one. A label that scaled with the plot shrank to nothing on a
+ *    phone (Substrata's first chart).
+ *  - No label is set under 0.75rem (12px): the fleet's floor.
+ *  - Long labels truncate with an ellipsis and carry the full text in
+ *    `title`; bar labels have a least column; timeline events that would
+ *    collide take a second lane. The audit (src/audit.ts) measures all three.
+ *  - Light and dark both by token: nothing here is a literal colour except
+ *    the fallback for an app with no tokens at all.
+ */
+
+:where(:root) {
+  /* Defaults at ZERO specificity on the root: an app's own :root rule setting
+     a --ck-* variable always wins. */
+  --ck-ink: hsl(var(--text-primary, 0 0% 10%));
+  --ck-ink-muted: hsl(var(--text-tertiary, 0 0% 50%));
+  --ck-line: hsl(var(--border-subtle, 0 0% 90%));
+  --ck-bg: hsl(var(--surface-base, 0 0% 100%));
+  --ck-accent: var(--accent-primary, #ff5c00);
+  --ck-up: hsl(var(--status-positive, 145 60% 35%));
+  --ck-down: hsl(var(--status-negative, 0 65% 50%));
+  /* Series by index, never cycled: the first is the ink, and each later one
+     differs from the ink by a dash as well as a colour, so the set survives
+     a monochrome theme (Substrata's accent IS its ink) and a greyscale print. */
+  --ck-series-1: var(--ck-ink);
+  --ck-series-2: var(--ck-accent);
+  --ck-series-3: color-mix(in srgb, var(--ck-ink) 55%, transparent);
+  --ck-series-4: var(--ck-up);
+  --ck-series-5: var(--ck-down);
+  --ck-series-6: color-mix(in srgb, var(--ck-accent) 55%, transparent);
+  --ck-font: var(--font-sans, system-ui, -apple-system, "Segoe UI", sans-serif);
+  --ck-mono: var(--font-mono, ui-monospace, "SF Mono", Menlo, monospace);
+  /* The one label size, and the floor. */
+  --ck-label: 0.75rem;
+}
+
+/* ---- The frame ------------------------------------------------------- */
+
+.ck-chart {
+  margin: 0;
+  min-width: 0;
+  font-family: var(--ck-font);
+  color: var(--ck-ink);
+}
+.ck-chart-caption {
+  margin-top: 0.75rem;
+  font-size: var(--ck-label);
+  line-height: 1.45;
+  color: var(--ck-ink-muted);
+}
+.ck-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.ck-chart a {
+  color: inherit;
+}
+
+/* Labels: one size, one face, tabular figures, never under the floor. */
+.ck-line-tick,
+.ck-line-xtick,
+.ck-line-unit,
+.ck-bar-value,
+.ck-legend,
+.ck-tl-month,
+.ck-meter-value,
+.ck-tile-label,
+.ck-tile-note {
+  font-family: var(--ck-mono);
+  font-size: var(--ck-label);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Legend: a row of swatch + name (+ value), wrapping as a list does. */
+.ck-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  margin: 0.6rem 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--ck-ink-muted);
+}
+.ck-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 0;
+  max-width: 100%;
+}
+.ck-legend-swatch {
+  flex: none;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 2px;
+  background: var(--ck-series-1);
+}
+.ck-legend-label {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--ck-ink);
+}
+.ck-legend-value {
+  color: var(--ck-ink-muted);
+}
+[data-series="1"] {
+  --ck-series: var(--ck-series-1);
+}
+[data-series="2"] {
+  --ck-series: var(--ck-series-2);
+}
+[data-series="3"] {
+  --ck-series: var(--ck-series-3);
+}
+[data-series="4"] {
+  --ck-series: var(--ck-series-4);
+}
+[data-series="5"] {
+  --ck-series: var(--ck-series-5);
+}
+[data-series="6"] {
+  --ck-series: var(--ck-series-6);
+}
+.ck-legend-swatch[data-series],
+.ck-share-seg[data-series] {
+  background: var(--ck-series);
+}
+
+/* ---- LineChart --------------------------------------------------------- */
+
+.ck-chart-line {
+  --ck-gutter: 3rem;
+  --ck-plot-height: 13rem;
+  /* Room for the top tick label and the tooltip arrow; the first tick sits
+     on the plot's top edge. */
+  padding: 1.25rem 0.5rem 0 var(--ck-gutter);
+}
+.ck-line-plot {
+  position: relative;
+  height: var(--ck-plot-height);
+}
+.ck-line-grid {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 1px solid var(--ck-line);
+}
+.ck-line-tick {
+  position: absolute;
+  right: calc(100% + 0.5rem);
+  top: -0.4rem;
+  color: var(--ck-ink-muted);
+  white-space: nowrap;
+}
+.ck-line-unit {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 0.25rem);
+  color: var(--ck-ink-muted);
+}
+.ck-line-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.ck-line-path {
+  fill: none;
+  stroke: var(--ck-series, var(--ck-ink));
+  stroke-width: 2px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.ck-line-path[data-series="2"],
+.ck-line-path[data-series="6"] {
+  stroke-dasharray: 6 4;
+}
+.ck-line-path[data-series="3"],
+.ck-line-path[data-series="5"] {
+  stroke-dasharray: 2 4;
+}
+.ck-line-path[data-series="4"] {
+  stroke-dasharray: 8 3 2 3;
+}
+
+/* A point: a target the size of a fingertip around an 8px mark, ringed in
+   the surface colour so it reads where lines cross. */
+.ck-pt {
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: -0.75rem 0 0 -0.75rem;
+  border-radius: 50%;
+  z-index: 1;
+  outline: none;
+}
+.ck-pt::before {
+  content: "";
+  position: absolute;
+  inset: 0.5rem;
+  border-radius: 50%;
+  background: var(--ck-series, var(--ck-ink));
+  box-shadow: 0 0 0 2px var(--ck-bg);
+}
+.ck-pt-dense::before {
+  inset: 0.6rem;
+}
+.ck-pt:hover::before,
+.ck-pt:focus-visible::before {
+  inset: 0.3rem;
+}
+.ck-pt:focus-visible::before {
+  box-shadow:
+    0 0 0 2px var(--ck-bg),
+    0 0 0 4px var(--ck-ink);
+}
+.ck-tip {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 0.25rem);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 11rem;
+  max-width: 16rem;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--ck-line);
+  background: var(--ck-bg);
+  font-size: var(--ck-label);
+  line-height: 1.4;
+  color: var(--ck-ink-muted);
+  z-index: 2;
+  pointer-events: none;
+}
+.ck-pt-end .ck-tip {
+  left: auto;
+  right: 0;
+  transform: none;
+}
+.ck-pt:hover .ck-tip,
+.ck-pt:focus-visible .ck-tip {
+  display: flex;
+  flex-direction: column;
+}
+.ck-tip strong {
+  color: var(--ck-ink);
+  font-size: 0.85rem;
+}
+.ck-line-axis {
+  position: relative;
+  height: 1.25rem;
+  margin-top: 0.5rem;
+  color: var(--ck-ink-muted);
+}
+.ck-line-xtick {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+.ck-line-xtick.ck-at-start {
+  transform: none;
+}
+.ck-line-xtick.ck-at-end {
+  transform: translateX(-100%);
+}
+/* Five labels do not fit a phone's plot; every second one steps back. */
+@media (max-width: 479px) {
+  .ck-line-xtick:nth-child(even) {
+    display: none;
+  }
+}
+
+/* ---- BarChart ---------------------------------------------------------- */
+
+.ck-bars {
+  display: grid;
+  /* The label has a least column — a bar whose name was squeezed to one
+     letter is a bar nobody can read — and the value column is as wide as
+     its widest number. */
+  grid-template-columns: minmax(6rem, 30%) minmax(0, 1fr) auto;
+  gap: 0.5rem 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ck-bar-row {
+  display: contents;
+}
+.ck-bar-label {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.ck-bar-row-hi .ck-bar-label {
+  font-weight: 600;
+}
+.ck-bar-track {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  height: 1.25rem;
+}
+.ck-bar-fill {
+  display: block;
+  height: 0.75rem;
+  min-width: 2px;
+  border-radius: 0 2px 2px 0;
+  background: var(--ck-ink);
+}
+.ck-bar-row-hi .ck-bar-fill {
+  background: var(--ck-accent);
+}
+.ck-bar-value {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  justify-self: end;
+  line-height: 1.25rem;
+  white-space: nowrap;
+}
+.ck-bar-share,
+.ck-bar-none,
+.ck-bar-est {
+  color: var(--ck-ink-muted);
+}
+
+/* ---- ShareBars --------------------------------------------------------- */
+
+.ck-share {
+  display: flex;
+  height: 1.5rem;
+  overflow: hidden;
+  border-radius: 2px;
+}
+.ck-share-seg {
+  position: relative;
+  display: block;
+  min-width: 0;
+  height: 100%;
+  /* The 2px of surface between fills, carried by the segment itself so the
+     widths still sum to 100%. */
+  box-shadow: inset -2px 0 0 var(--ck-bg);
+  background: var(--ck-series-1);
+  container-type: inline-size;
+}
+.ck-share-seg:last-child {
+  box-shadow: none;
+}
+.ck-share-other {
+  background: var(--ck-line) !important;
+}
+.ck-share-inside {
+  display: none;
+  position: absolute;
+  inset: 0 0.5rem;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: var(--ck-mono);
+  font-size: var(--ck-label);
+  color: var(--ck-bg);
+}
+/* Inside only when the segment has room for the words. */
+@container (min-width: 9rem) {
+  .ck-share-inside {
+    display: flex;
+  }
+}
+
+/* ---- Sparkline --------------------------------------------------------- */
+
+.ck-spark {
+  flex: none;
+  overflow: visible;
+  vertical-align: middle;
+}
+.ck-spark path {
+  fill: none;
+  stroke: var(--ck-ink);
+  stroke-width: 1.5px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.ck-spark circle {
+  fill: none;
+  stroke: var(--ck-ink);
+  stroke-width: 5px;
+  stroke-linecap: round;
+}
+
+/* ---- Meter ------------------------------------------------------------- */
+
+.ck-meter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+.ck-meter-value {
+  color: var(--ck-ink);
+}
+.ck-meter-track {
+  display: flex;
+  flex: none;
+  width: 3rem;
+  height: 0.375rem;
+  overflow: hidden;
+  border-radius: 9999px;
+  background: var(--ck-line);
+}
+.ck-meter-fill {
+  width: var(--ck-meter, 0%);
+  background: var(--ck-accent);
+}
+
+/* ---- StatTiles --------------------------------------------------------- */
+
+.ck-tiles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  list-style: none;
+  border: 1px solid var(--ck-line);
+  border-radius: 0.5rem;
+  background: var(--ck-line);
+}
+@media (min-width: 640px) {
+  .ck-tiles {
+    grid-template-columns: repeat(var(--ck-n, 4), minmax(0, 1fr));
+  }
+}
+.ck-tiles > li {
+  display: flex;
+  min-width: 0;
+}
+.ck-tile {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+  min-height: 2.75rem;
+  padding: 1rem;
+  background: var(--ck-bg);
+  text-decoration: none;
+}
+.ck-tile-value {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.ck-tile-label,
+.ck-tile-note {
+  line-height: 1.35;
+  color: var(--ck-ink-muted);
+}
+a.ck-tile:hover .ck-tile-label,
+a.ck-tile:focus-visible .ck-tile-label {
+  color: var(--ck-ink);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* ---- Timeline ---------------------------------------------------------- */
+
+.ck-tl {
+  --ck-lane: 1.75rem;
+  position: relative;
+  padding: 0.25rem 0 0;
+}
+.ck-tl-lane {
+  position: relative;
+  height: var(--ck-lane);
+}
+.ck-tl-event {
+  position: absolute;
+  top: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  height: var(--ck-lane);
+  /* As wide as the room to the neighbour in this lane, never more. */
+  max-width: var(--ck-room, 30%);
+  margin-left: -0.25rem;
+  text-decoration: none;
+}
+.ck-tl-left {
+  flex-direction: row-reverse;
+  margin-left: 0.25rem;
+  transform: translateX(-100%);
+}
+.ck-tl-dot {
+  flex: none;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--ck-ink);
+  box-shadow: 0 0 0 2px var(--ck-bg);
+}
+.ck-tl-dot[data-tone="up"] {
+  background: var(--ck-up);
+}
+.ck-tl-dot[data-tone="down"] {
+  background: var(--ck-down);
+}
+.ck-tl-label {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: var(--ck-label);
+  line-height: 1;
+}
+a.ck-tl-event:hover .ck-tl-label,
+a.ck-tl-event:focus-visible .ck-tl-label {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.ck-tl-axis {
+  position: relative;
+  height: 1.5rem;
+  border-top: 1px solid var(--ck-line);
+}
+.ck-tl-tick {
+  position: absolute;
+  top: -1px;
+  width: 1px;
+  height: 0.3rem;
+  background: var(--ck-line);
+}
+.ck-tl-major {
+  height: 0.5rem;
+}
+.ck-tl-month {
+  position: absolute;
+  top: 0.7rem;
+  left: 0;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  color: var(--ck-ink-muted);
+}
+.ck-tl-tick.ck-at-start .ck-tl-month {
+  transform: none;
+}
+.ck-tl-tick.ck-at-end .ck-tl-month {
+  transform: translateX(-100%);
+}
+/* Six month labels do not fit a phone; every second one steps back. */
+@media (max-width: 479px) {
+  .ck-tl-tick[data-alt] .ck-tl-month {
+    display: none;
+  }
+}

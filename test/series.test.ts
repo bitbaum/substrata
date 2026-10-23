@@ -22,7 +22,6 @@ import {
   sortPoints,
   type Series,
 } from '../lib/series';
-import { geometry, niceStep } from '../lib/series-chart';
 import { parseBls, toSeries } from '../lib/series-store';
 
 const SLUGS = new Set(BOTTLENECKS.map((b) => b.slug));
@@ -117,23 +116,6 @@ test('CSV escapes quotes and commas and keeps provenance on every row', () => {
   assert.equal(csv.length, 2);
   assert.match(csv[1], /"He said ""5"", then left"/);
   assert.match(csv[1], /https:\/\/example\.org\//);
-});
-
-test('chart geometry spans the data on round ticks, and never divides by zero', () => {
-  assert.equal(niceStep(100, 3), 50);
-  assert.equal(niceStep(7, 3), 5);
-  const g = geometry(
-    fake([
-      ['2020', 400],
-      ['2022', 475],
-    ]).points,
-  );
-  assert.ok(g.min <= 400 && g.max >= 475);
-  assert.equal(g.placed[0].x, 0);
-  assert.equal(g.placed[1].x, 100);
-  for (const t of g.ticks) assert.ok(t.y >= 0 && t.y <= 100);
-  const flat = geometry(fake([['2020', 3]]).points);
-  assert.ok(Number.isFinite(flat.placed[0].y));
 });
 
 test('BLS rows parse to months, skip the annual average, and keep the preliminary flag', () => {

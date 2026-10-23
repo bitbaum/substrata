@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import { Figure } from '@/components/portal/Figure';
-import { Sparkline } from '@/components/series/SeriesChart';
+import { SeriesSparkline } from '@/components/series/SeriesChart';
 import { ChangeBadge } from '@/components/series/SeriesParts';
 import { BOTTLENECKS } from '@/lib/bottlenecks';
 import { seriesHref } from '@/lib/links';
@@ -67,7 +67,7 @@ export function SeriesRows({ series }: { series: readonly Series[] }) {
                 {s.unit} · {periodLabel(last.date)}
               </span>
               <span className="role-series-trend">
-                <Sparkline series={s} />
+                <SeriesSparkline series={s} />
                 <ChangeBadge series={s} />
               </span>
             </div>
