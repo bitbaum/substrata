@@ -15,7 +15,7 @@
   top: var(--spacing-topbar);
   z-index: 20;
   margin: 0 -1rem 1.5rem;
-  padding: 0.5rem 1rem;
+  padding: 0.25rem 1rem;
   border-bottom: 1px solid var(--color-border-subtle);
   background: color-mix(in srgb, var(--color-surface-page) 94%, transparent);
   backdrop-filter: blur(8px);
@@ -36,8 +36,10 @@
   display: none;
 }
 .section-nav a {
-  display: block;
-  padding: 0.35rem 0.7rem;
+  display: flex;
+  align-items: center;
+  min-height: var(--size-target);
+  padding: 0 0.7rem;
   border-radius: 999px;
   font-size: 0.8125rem;
   white-space: nowrap;
@@ -93,6 +95,9 @@
   }
   .section-nav a {
     margin-left: -1px;
+    min-height: var(--size-target);
+    display: flex;
+    align-items: center;
     padding: 0.3rem 0 0.3rem 0.85rem;
     border-left: 2px solid transparent;
     border-radius: 0;
@@ -100,6 +105,7 @@
     font-size: 0.875rem;
   }
   .section-nav li.is-sub a {
+    min-height: 2rem;
     padding-left: 1.6rem;
     font-size: 0.8125rem;
     color: var(--color-fg-tertiary);

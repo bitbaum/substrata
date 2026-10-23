@@ -25,6 +25,7 @@
     "research:sanctions": "python3 scripts/research/sanctions.py",
     "quality": "tsx scripts/quality/run.ts",
     "check:home-layout": "node scripts/ux/home-layout.mjs",
+    "check:profile-layout": "node scripts/ux/profile-layout.mjs",
     "check:file-inputs": "chatkit-check-file-inputs app components lib",
     "verify": "pnpm run format:check && pnpm run type-check && pnpm run lint && pnpm run check:file-inputs && pnpm run test",
     "format": "prettier --write .",

@@ -89,7 +89,7 @@ export function EventList({
                     <Link
                       key={name}
                       href={bottleneckHref(name)}
-                      className="text-fg-secondary underline-offset-4 hover:text-fg-primary hover:underline"
+                      className="tap text-fg-secondary underline-offset-4 hover:text-fg-primary hover:underline"
                     >
                       {name}
                     </Link>
@@ -103,7 +103,7 @@ export function EventList({
                     <Link
                       key={name}
                       href={marketHref(name)}
-                      className="text-fg-secondary underline-offset-4 hover:text-fg-primary hover:underline"
+                      className="tap text-fg-secondary underline-offset-4 hover:text-fg-primary hover:underline"
                     >
                       {name}
                     </Link>
@@ -114,7 +114,7 @@ export function EventList({
                 <a
                   href={event.source}
                   rel="noreferrer"
-                  className="text-fg-secondary underline underline-offset-4 hover:text-fg-primary"
+                  className="tap text-fg-secondary underline underline-offset-4 hover:text-fg-primary"
                 >
                   {new URL(event.source).hostname.replace(/^www\./, '')} ↗
                 </a>
@@ -123,7 +123,7 @@ export function EventList({
                 </span>
               </p>
               <details className="mt-1 text-xs">
-                <summary className="cursor-pointer text-fg-tertiary hover:text-fg-primary">
+                <summary className="link-target cursor-pointer text-fg-tertiary hover:text-fg-primary">
                   The sentence that says so
                 </summary>
                 <p className="mt-1 max-w-prose leading-relaxed text-fg-tertiary">“{event.quote}”</p>

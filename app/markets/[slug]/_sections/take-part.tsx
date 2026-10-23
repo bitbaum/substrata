@@ -38,7 +38,7 @@ export function TakePartSection({ routes }: { routes: TakePartRoute[] }) {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-accent hover:underline"
+                        className="link-target text-accent hover:underline"
                       >
                         {link.label} ↗
                       </a>
@@ -46,7 +46,7 @@ export function TakePartSection({ routes }: { routes: TakePartRoute[] }) {
                       <Link
                         key={link.href}
                         href={link.href}
-                        className="text-accent hover:underline"
+                        className="link-target text-accent hover:underline"
                       >
                         {link.label}
                       </Link>

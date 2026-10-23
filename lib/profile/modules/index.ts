@@ -3,8 +3,11 @@ import type { ProfileModule } from '../types';
 import type { Entity } from '../../entities/types';
 import { related, discussion } from './shared';
 import { timeline } from './timeline';
-import { chokepoints, companyEvents } from './company';
+import { chokepoints } from './company';
+import { companyEvents } from './company-happened';
 import { relief, sameLayer, sources } from './company-context';
+import { ownership } from './ownership';
+import { numbers } from './numbers';
 import { relieves, readiness, milestone } from './science';
 import { around } from './science-around';
 import { mandate, canMove, source } from './capital';
@@ -30,7 +33,15 @@ import { dependencies } from './dependencies';
  *   40+ what governs it, what would change it, what was predicted, who funds it
  *   80  what has happened
  *   84+ what it connects to
+ *   89  the sources a company page rests on, after what they support
  *   90  discussion, last, because it responds to everything above
+ *
+ * A company reads: what it holds (10), who owns it (20), the numbers it
+ * reports (30), what has happened (40), leads (45, from the page), what
+ * could loosen its grip (50), ways to take part (55) and hiring (58, both
+ * from the page), others at its step (60), what it connects to (88), sources
+ * (89). The page's own sections take their importance from
+ * `COMPANY_SECTION_IMPORTANCE` in lib/company-sections.ts.
  */
 export const PROFILE_MODULES: AnyProfileModule[] = [
   // Bottleneck
@@ -47,6 +58,8 @@ export const PROFILE_MODULES: AnyProfileModule[] = [
   funding,
   // Company
   chokepoints,
+  ownership,
+  numbers,
   companyEvents,
   relief,
   sameLayer,

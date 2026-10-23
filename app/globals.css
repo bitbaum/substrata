@@ -212,6 +212,16 @@ html[data-theme='light'] {
   display: inline-flex;
   align-items: center;
   min-height: var(--size-target);
+  min-width: var(--size-target);
+}
+/* A link in a row of text that must still be a full target: the hit area
+   grows to --size-target without moving the line it sits on. */
+.tap {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--size-target);
+  min-width: var(--size-target);
+  margin-block: calc((1.5em - var(--size-target)) / 2);
 }
 .inquire-open {
   min-height: var(--size-target);

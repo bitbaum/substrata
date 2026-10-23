@@ -65,7 +65,7 @@ const related: ProfileModule<ReturnType<typeof neighbors>> = {
             <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
               <Link
                 href={edge.to.href}
-                className="text-fg-primary underline-offset-4 hover:underline"
+                className="link-target text-fg-primary underline-offset-4 hover:underline"
               >
                 {edge.to.label}
               </Link>

@@ -19,6 +19,8 @@ export const EN = {
   // Profile sections. The title a module shows is interface, not research.
   'profile.chokepoints.title': 'Chokepoints it holds',
   'profile.companyEvents.title': 'What has happened',
+  'profile.ownership.title': 'Ownership and investors',
+  'profile.numbers.title': 'Numbers it reports',
   'profile.leads.title': 'Unread leads',
   'profile.filings.title': 'SEC filings',
   'profile.takePart.title': 'Ways to take part',

@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
-import { EventList } from '@/components/portal/EventList';
 import { Figure } from '@/components/portal/Figure';
 import { Status } from '@/components/portal/Status';
+import { Meter } from '@/components/charts';
 import { HORIZON_LABEL } from '@/config/substrata-assessment';
 import {
   bindingSum,
@@ -16,8 +16,9 @@ import type { Entity } from '../../entities/types';
 import { t } from '../../i18n/messages';
 import type { ProfileModule } from '../types';
 
-// What it holds and what has happened to it. What bears on it from outside —
-// relief, peers at the same step, sources — lives in `company-context.tsx`.
+// What it holds. What has happened to it is `company-happened.tsx`; what
+// bears on it from outside — relief, peers at the same step, sources — is
+// `company-context.tsx`; who owns it `ownership.tsx`; its numbers `numbers.tsx`.
 
 /**
  * The company profile's sections, all read from `companyProfile()` so they
@@ -33,35 +34,36 @@ export function profile(entity: Entity): CompanyProfile | undefined {
 }
 
 export const LINK = 'text-accent underline-offset-4 hover:underline';
-export const NAME = 'font-medium text-fg-primary underline-offset-4 hover:underline';
+export const NAME = 'link-target font-medium text-fg-primary underline-offset-4 hover:underline';
 export const CAPS = 'font-mono text-xs uppercase tracking-caps text-fg-tertiary';
 
 /**
  * A binding score is a judgement, so it renders as an estimate: whose, when,
  * the four-part sum and the rationale, with the assessment one click away.
+ * Drawn as the same meter the front page's "worst right now" rows use.
  */
-export function BindingLink({ held }: { held: CompanyProfile['held'][number] }) {
+export function BindingMeter({
+  held,
+  inLink = false,
+}: {
+  held: CompanyProfile['held'][number];
+  inLink?: boolean;
+}) {
   const b = held.bottleneck;
-  const s = b.score;
   return (
-    <span className="inline-flex flex-col items-end text-right">
-      <span className="font-heading text-2xl font-semibold tabular-nums text-fg-primary">
-        <Figure
-          estimate={{
-            by: 'Substrata',
-            on: b.judgedOn,
-            basis: `${bindingSum(b)}. ${b.rationale}`,
-            source: `${bottleneckHref(b.slug)}#severity`,
-          }}
-        >
-          {b.binding}
-        </Figure>
-        <span className="text-sm font-normal text-fg-muted">/12</span>
-      </span>
-      <span className="font-mono text-xs tabular-nums text-fg-tertiary">
-        {s.concentration}+{s.substitution}+{s.leadTime}+{s.inelasticity}
-      </span>
-    </span>
+    <Meter value={b.binding} max={12} label={`${b.name}, binding score`}>
+      <Figure
+        inLink={inLink}
+        estimate={{
+          by: 'Substrata',
+          on: b.judgedOn,
+          basis: `${bindingSum(b)}. ${b.rationale}`,
+          source: `${bottleneckHref(b.slug)}#severity`,
+        }}
+      >
+        {b.binding}
+      </Figure>
+    </Meter>
   );
 }
 
@@ -106,17 +108,22 @@ const chokepoints: ProfileModule<CompanyProfile> = {
     const judged = [...new Set(p.held.map((h) => h.bottleneck.judgedOn))].join(', ');
     return (
       <>
-        <ul className="divide-y divide-subtle border-y border-subtle">
+        {/* The front page's row: name and meter on one line, the plain sentence
+            and the evidence word on the next, the meter in one x on every row. */}
+        <ol className="board-rows">
           {p.held.map((h) => (
-            <li key={h.bottleneck.slug} className="grid grid-cols-[1fr_auto] gap-x-6 gap-y-2 py-4">
-              <div className="min-w-0">
-                <Link href={bottleneckHref(h.bottleneck.slug)} className={NAME}>
-                  {h.bottleneck.name}
-                </Link>
-                <p className={`mt-1 ${CAPS}`}>
+            <li key={h.bottleneck.slug} className="board-row">
+              <Link href={bottleneckHref(h.bottleneck.slug)} className="board-row-name link-target">
+                {h.bottleneck.name}
+              </Link>
+              <div className="board-row-meter">
+                <BindingMeter held={h} />
+              </div>
+              <div className="board-row-plain">
+                <p className={CAPS}>
                   {h.step} · {HORIZON_LABEL[h.bottleneck.horizon]}
                 </p>
-                <p className="mt-2 text-sm leading-relaxed text-fg-secondary">
+                <p className="mt-1 text-sm leading-relaxed text-fg-secondary">
                   {h.soleRecorded ? (
                     <span className="font-medium text-fg-primary">No other maker recorded.</span>
                   ) : (
@@ -134,94 +141,26 @@ const chokepoints: ProfileModule<CompanyProfile> = {
                     <Names rows={h.suppliers} />
                   </p>
                 )}
-                <p className="mt-1 text-xs">
-                  {h.source ? (
-                    <a href={h.source} rel="noreferrer" className={LINK}>
-                      <span
-                        aria-hidden
-                        className="mr-1.5 inline-block h-1.5 w-1.5 rounded-full bg-status-positive align-middle"
-                      />
-                      Sourced: {hostOf(h.source)} ↗
-                    </a>
-                  ) : (
-                    <Status state={h.verification} />
-                  )}
-                </p>
               </div>
-              <BindingLink held={h} />
+              <div className="board-row-status">
+                {h.source ? (
+                  <a href={h.source} rel="noreferrer" className="link-target text-xs">
+                    <Status state="sourced" compact label={`${hostOf(h.source)} ↗`} />
+                  </a>
+                ) : (
+                  <Status state={h.verification} compact />
+                )}
+              </div>
             </li>
           ))}
-        </ul>
-        <p className="mt-3 max-w-prose text-xs leading-relaxed text-fg-muted">
-          Score = concentration + substitution + lead time + inelasticity, each 0–3, an analyst
-          judgement dated {judged}; open a score for its rationale and assessment. Makers are those
-          the corpus records, not the whole market. No market-share figure is sourced, so none is
-          shown.
+        </ol>
+        <p className="board-note">
+          Score = concentration + substitution + lead time + inelasticity, each 0–3 · an analyst
+          judgement dated {judged} · makers are those the corpus records, not the whole market
         </p>
       </>
     );
   },
 };
 
-const companyEvents: ProfileModule<CompanyProfile> = {
-  id: 'events',
-  title: t('profile.companyEvents.title'),
-  appliesTo: ['company'],
-  importance: 40,
-  load(entity) {
-    const p = profile(entity);
-    return p && (p.events.length > 0 || p.relatedEvents.length > 0) ? p : null;
-  },
-  evidence: (p) =>
-    [
-      p.events.length > 0 ? `${p.events.length} name it` : '',
-      p.relatedEvents.length > 0 ? `${p.relatedEvents.length} about what it holds` : '',
-    ]
-      .filter(Boolean)
-      .join(' · '),
-  Render({ data: p }) {
-    const related = p.relatedEvents.slice(0, 6);
-    return (
-      <>
-        {p.events.length > 0 && <EventList events={p.events} showBottlenecks />}
-        {related.length > 0 && (
-          <>
-            <h3 className={`${p.events.length > 0 ? 'mt-8' : ''} mb-2 ${CAPS}`}>
-              About what it holds, not naming {p.participant.name}
-            </h3>
-            <ul className="divide-y divide-subtle border-y border-subtle">
-              {related.map(({ event, through }) => (
-                <li key={event.id} className="py-3">
-                  <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                    <span className="font-mono text-xs tabular-nums text-fg-tertiary">
-                      {event.date}
-                    </span>
-                    <Link
-                      href={bottleneckHref(through.slug)}
-                      className={`${CAPS} underline-offset-4 hover:text-fg-primary hover:underline`}
-                    >
-                      {through.name}
-                    </Link>
-                  </div>
-                  <p className="mt-1 max-w-prose text-sm leading-relaxed text-fg-primary">
-                    {event.headline}{' '}
-                    <a href={event.source} rel="noreferrer" className={`text-xs ${LINK}`}>
-                      {hostOf(event.source)} ↗
-                    </a>
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
-        <p className="mt-3 text-sm">
-          <Link href="/events" className={LINK}>
-            {t('action.allEvents')}
-          </Link>
-        </p>
-      </>
-    );
-  },
-};
-
-export { chokepoints, companyEvents };
+export { chokepoints };

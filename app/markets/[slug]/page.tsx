@@ -6,6 +6,7 @@ import { CHAIN_LAYERS } from '@/config/substrata-participants';
 import { MARKET_PARTICIPANTS, participantBySlug } from '@/lib/participants';
 import { marketsBy } from '@/lib/links';
 import { companyProfile } from '@/lib/company-profile';
+import { COMPANY_SECTION_IMPORTANCE } from '@/lib/company-sections';
 import { Page, Shell } from '@/components/portal/Shell';
 import { currentSession } from '@/lib/auth';
 import { database } from '@/lib/db';
@@ -13,10 +14,11 @@ import { parseFollows } from '@/lib/follows';
 import { EntityProfile, type ExtraSection } from '@/components/portal/EntityProfile';
 import { resolveIn } from '@/lib/entities/registry';
 import { t } from '@/lib/i18n/messages';
+import { WhatHappened, happenedEvidence } from '@/lib/profile/modules/company-happened';
 import { CompanyHeader } from './_sections/CompanyHeader';
 import { LeadList, leadsOn } from './_sections/leads';
 import { UpdateNews } from '@/components/updates/UpdateNews';
-import { FilingList, filingsOf } from './_sections/filings';
+import { filingsOf } from './_sections/filings';
 import { HiringSection, hiringOf } from './_sections/hiring';
 import { TakePartSection } from './_sections/take-part';
 import { takePartRoutes } from '@/lib/take-part';
@@ -39,14 +41,19 @@ export async function generateMetadata({ params }: RouteParams): Promise<Metadat
   return {
     title: p.name,
     description: held.length
-      ? `${p.name}: ${held.join(', ')} — how hard each binds, who else makes it, and the sources.`
+      ? `${p.name}: ${held.join(', ')} — how hard each binds, who owns it, who else makes it, and the sources.`
       : (p.why ?? `${p.name} in the ${p.layer} layer of the chain, and how it is evidenced.`),
   };
 }
 
 /**
- * A company profile: what it is, which chokepoints it holds and how hard each
- * binds, then the shared modules.
+ * A company profile, in one reading order on every company: the header with
+ * five tiles at a glance, what it holds (with a meter per row), who owns it,
+ * the numbers it reports, what has happened (one axis, then the lists),
+ * unread leads, what could loosen its grip, ways to take part, hiring, others
+ * at its step, what it connects to, sources, discussion. The section menu
+ * (a strip on a phone, a rail from 1280px) is built from the headings, so it
+ * lists exactly what is on the page.
  */
 export default async function ParticipantPage({ params }: RouteParams) {
   const { slug } = await params;
@@ -83,11 +90,25 @@ export default async function ParticipantPage({ params }: RouteParams) {
     hiring,
     hasFilings: filings.length > 0,
   });
+  const happened = profile.events.length + profile.relatedEvents.length + filings.length > 0;
   const extra: ExtraSection[] = [
+    // Replaces the registry's "what has happened": same id and anchor, with
+    // the SEC filings (per request) on the same axis as the events.
+    ...(happened
+      ? [
+          {
+            id: 'events',
+            title: t('profile.companyEvents.title'),
+            importance: COMPANY_SECTION_IMPORTANCE.events,
+            evidence: happenedEvidence(profile, filings.length),
+            node: <WhatHappened p={profile} filings={filings} />,
+          },
+        ]
+      : []),
     {
       id: 'take-part',
       title: t('profile.takePart.title'),
-      importance: 75,
+      importance: COMPANY_SECTION_IMPORTANCE['take-part'],
       evidence: 'how to reach it, not whether to',
       node: <TakePartSection routes={routes} />,
     },
@@ -96,20 +117,9 @@ export default async function ParticipantPage({ params }: RouteParams) {
           {
             id: 'hiring',
             title: 'Hiring',
-            importance: 80,
+            importance: COMPANY_SECTION_IMPORTANCE.hiring,
             evidence: hiring.live ? 'from its public job board' : 'official careers page',
             node: <HiringSection hiring={hiring} slug={p.slug} />,
-          },
-        ]
-      : []),
-    ...(filings.length > 0
-      ? [
-          {
-            id: 'filings',
-            title: t('profile.filings.title'),
-            importance: 50,
-            evidence: `${filings.length} most recent, from SEC EDGAR`,
-            node: <FilingList filings={filings} company={p.name} />,
           },
         ]
       : []),
@@ -118,7 +128,7 @@ export default async function ParticipantPage({ params }: RouteParams) {
           {
             id: 'leads',
             title: t('profile.leads.title'),
-            importance: 45,
+            importance: COMPANY_SECTION_IMPORTANCE.leads,
             evidence: `${leads.length} found by the sweep, unread`,
             node: <LeadList leads={leads} />,
           },
@@ -128,7 +138,7 @@ export default async function ParticipantPage({ params }: RouteParams) {
 
   return (
     <Shell>
-      <Page>
+      <Page sections>
         <nav
           aria-label="Breadcrumb"
           className="crumbs mb-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary"

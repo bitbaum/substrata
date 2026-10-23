@@ -18,6 +18,7 @@ import { defineModule } from '../lib/profile/define';
 import { connectionsFor } from '../lib/profile/modules/shared';
 import { AROUND_GROUPS, aroundFor } from '../lib/profile/modules/science-around';
 import { neighbors } from '../lib/graph';
+import { COMPANY_SECTION_IMPORTANCE, COMPANY_SECTION_ORDER } from '../lib/company-sections';
 
 test('module ids are unique and ordering is deterministic', () => {
   const ids = PROFILE_MODULES.map((m) => m.id);
@@ -252,4 +253,54 @@ test('around reads the same joins as the bottleneck page, never the page itself'
     !others.some((r) => r.entity.id === science.id),
     'a page is not its own "other science"',
   );
+});
+
+test('a company reads in the order the owner asked for, and every module sits where the list says', () => {
+  // 2026-10-23: header → at a glance → what it holds → ownership → numbers →
+  // what has happened → leads → what could loosen its grip → ways to take
+  // part → hiring → others at the same step → what it connects to → sources
+  // → discussion. The page's own sections (leads, take-part, hiring) take
+  // their place from the same list.
+  const gev = entitiesOfKind('company').find((e) => e.key === 'ge-vernova');
+  assert.ok(gev, 'GE Vernova should be in the corpus');
+  const modules = modulesFor(gev);
+  for (const m of modules) {
+    const pinned = (COMPANY_SECTION_IMPORTANCE as Record<string, number>)[m.id];
+    if (pinned !== undefined) assert.equal(m.importance, pinned, `${m.id} drifted from the list`);
+  }
+  const rendered = modules.filter((m) => m.render(gev) !== null).map((m) => m.id);
+  for (const id of [
+    'chokepoints',
+    'ownership',
+    'numbers',
+    'events',
+    'relief',
+    'same-layer',
+    'sources',
+    'discussion',
+  ])
+    assert.ok(rendered.includes(id), `GE Vernova renders no "${id}"`);
+  const inOrder = COMPANY_SECTION_ORDER.filter((id) => rendered.includes(id));
+  assert.deepEqual(
+    rendered.filter((id) => (COMPANY_SECTION_ORDER as readonly string[]).includes(id)),
+    inOrder,
+    'company sections are out of the reading order',
+  );
+  assert.ok(
+    rendered.indexOf('related') < rendered.indexOf('sources'),
+    'sources come after connections',
+  );
+});
+
+test('ownership says so for a private firm and a subsidiary, and stays silent for a listed firm with no rows', () => {
+  const ids = (key: string) => {
+    const e = entitiesOfKind('company').find((x) => x.key === key);
+    assert.ok(e, key);
+    return modulesFor(e)
+      .filter((m) => m.render(e) !== null)
+      .map((m) => m.id);
+  };
+  assert.ok(ids('sibelco').includes('ownership'), 'a private firm says who owns it');
+  assert.ok(ids('kuka').includes('ownership'), 'a subsidiary says whose it is');
+  assert.ok(!ids('nikon').includes('ownership'), 'no rows, no section');
 });

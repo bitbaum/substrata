@@ -41,7 +41,7 @@ const role: ProfileModule<{ roles: Role[]; direct: boolean }> = {
               <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
                 <Link
                   href="/research"
-                  className="font-medium text-fg-primary underline-offset-4 hover:underline"
+                  className="link-target font-medium text-fg-primary underline-offset-4 hover:underline"
                 >
                   {entry.loop.name}
                 </Link>
@@ -54,7 +54,7 @@ const role: ProfileModule<{ roles: Role[]; direct: boolean }> = {
                   {entry.via}{' '}
                   <Link
                     href={entry.through.href}
-                    className="text-fg-primary underline-offset-4 hover:underline"
+                    className="tap text-fg-primary underline-offset-4 hover:underline"
                   >
                     {entry.through.name}
                   </Link>

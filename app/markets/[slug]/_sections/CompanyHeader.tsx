@@ -6,7 +6,7 @@ import { correctionUrl } from '@/lib/site';
 import type { CompanyProfile } from '@/lib/company-profile';
 import { hostOf } from '@/lib/desk';
 import { FollowButton } from '@/components/portal/FollowButton';
-import { CompanyFacts } from './CompanyFacts';
+import { AtAGlance } from './AtAGlance';
 import { Lede } from './Lede';
 import { Ticker } from '@/components/exposure/Ticker';
 import { listingFor } from '@/lib/listings';
@@ -60,7 +60,7 @@ export function CompanyHeader({
       <p className="mt-2 text-sm">
         <Ticker listing={listingFor(p.slug) ?? null} />{' '}
         <a href="#take-part" className="ml-2 text-xs text-accent hover:underline">
-          Work there, own it, buy from it ↓
+          Work there, own part of it, buy from it ↓
         </a>
       </p>
       <p className="mt-3 max-w-prose text-lg leading-relaxed text-fg-secondary">
@@ -68,7 +68,7 @@ export function CompanyHeader({
         <CheckThis className="is-inline" label="Check this" />
       </p>
 
-      <CompanyFacts p={p} profile={profile} />
+      <AtAGlance p={p} profile={profile} />
 
       {p.why && (
         <p className="mt-4 max-w-prose text-sm leading-relaxed text-fg-tertiary">
