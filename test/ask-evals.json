@@ -1,0 +1,176 @@
+[
+  {
+    "id": "niger-uranium",
+    "facet": "country",
+    "question": "What is Niger known for?",
+    "path": "/world/ne",
+    "mustMention": ["country:ne", "bottleneck:uranium-conversion-and-enrichment"],
+    "mustNotLead": ["oil", "natural gas"],
+    "expectedTools": ["resource_production"],
+    "expectedHits": ["entity:country:ne#0"],
+    "gap": "resources/directory-unmeasured",
+    "pending": "PR 1"
+  },
+  {
+    "id": "euv-makers",
+    "facet": "bottleneck",
+    "question": "Who makes EUV scanners and how well sourced is that?",
+    "path": "/bottlenecks/euv-lithography-scanners",
+    "mustMention": ["bottleneck:euv-lithography-scanners", "company:asml"],
+    "expectedTools": [],
+    "expectedHits": ["entity:bottleneck:euv-lithography-scanners#0"]
+  },
+  {
+    "id": "transformer-exposure",
+    "facet": "bottleneck",
+    "question": "Which listed companies are exposed to transformer lead times?",
+    "path": "/exposure",
+    "mustMention": ["bottleneck:large-power-transformer-slots"],
+    "expectedTools": ["listed_exposure"],
+    "expectedHits": ["series:power-transformer-average-lead-time#0"]
+  },
+  {
+    "id": "asml-depends",
+    "facet": "company",
+    "question": "What does ASML depend on?",
+    "path": "/markets/asml",
+    "mustMention": ["company:asml"],
+    "expectedTools": ["trace_dependencies"],
+    "expectedHits": ["entity:company:asml#0"]
+  },
+  {
+    "id": "asml-filings",
+    "facet": "company",
+    "question": "What has ASML filed with the SEC lately?",
+    "mustMention": ["company:asml"],
+    "expectedTools": ["get_company", "recent_filings"],
+    "expectedHits": ["entity:company:asml#0"]
+  },
+  {
+    "id": "kazakhstan-produces",
+    "facet": "country",
+    "question": "What does Kazakhstan produce?",
+    "mustMention": ["country:kz"],
+    "expectedTools": ["resource_production"],
+    "expectedHits": ["entity:country:kz#0"]
+  },
+  {
+    "id": "helium-countries",
+    "facet": "material",
+    "question": "Which countries produce helium?",
+    "mustMention": ["bottleneck:liquid-helium-he-4"],
+    "expectedTools": ["resource_production"],
+    "expectedHits": ["entity:bottleneck:liquid-helium-he-4#0"]
+  },
+  {
+    "id": "gallium-refined",
+    "facet": "material",
+    "question": "How much refined gallium does China make?",
+    "mustMention": ["bottleneck:gallium-refined", "country:cn"],
+    "expectedTools": ["get_bottleneck"],
+    "expectedHits": ["quantity:gallium-refined/cn/refine#0"]
+  },
+  {
+    "id": "gallium-controls-news",
+    "facet": "events",
+    "question": "What is new on gallium export controls?",
+    "path": "/bottlenecks/gallium-refined",
+    "mustMention": ["policy:cn-gallium-germanium-2023"],
+    "expectedTools": ["recent_leads", "policy_rules"],
+    "expectedHits": ["policy:cn-gallium-germanium-2023#0"]
+  },
+  {
+    "id": "spruce-pine",
+    "facet": "events",
+    "question": "What happened at the Spruce Pine quartz mines?",
+    "mustMention": ["bottleneck:crucible-grade-high-purity-quartz-sand"],
+    "expectedTools": ["recent_leads"],
+    "expectedHits": ["event:2026-06-30-quartz-corp-spruce-pine-closure#0"]
+  },
+  {
+    "id": "china-rare-earth-rules",
+    "facet": "policy",
+    "question": "What export controls has China put on heavy rare earths?",
+    "mustMention": ["policy:cn-heavy-rare-earths-2025"],
+    "expectedTools": ["policy_rules"],
+    "expectedHits": ["policy:cn-heavy-rare-earths-2025#0"]
+  },
+  {
+    "id": "eu-goes-safeguard",
+    "facet": "policy",
+    "question": "What is the EU safeguard on electrical steel?",
+    "mustMention": ["policy:eu-goes-safeguard-2026"],
+    "expectedTools": ["policy_rules"],
+    "expectedHits": ["policy:eu-goes-safeguard-2026#0"],
+    "pending": "PR 6"
+  },
+  {
+    "id": "high-na-readiness",
+    "facet": "science",
+    "question": "How ready is high-NA EUV technology?",
+    "mustMention": ["science:high-na-euv"],
+    "expectedTools": ["relief_technologies"],
+    "expectedHits": ["science:high-na-euv#0"]
+  },
+  {
+    "id": "neon-relief",
+    "facet": "science",
+    "question": "Which technologies could relieve the neon shortage?",
+    "mustMention": ["science:neon-recycling"],
+    "expectedTools": ["relief_technologies"],
+    "expectedHits": ["science:neon-recycling#0"]
+  },
+  {
+    "id": "doe-loans",
+    "facet": "capital",
+    "question": "What does the DOE Loan Programs Office finance?",
+    "mustMention": ["capital:us-doe-loan-programs-office"],
+    "expectedTools": ["get_record"],
+    "expectedHits": ["entity:capital:us-doe-loan-programs-office#0"],
+    "pending": "PR 6"
+  },
+  {
+    "id": "jobs-niger",
+    "facet": "jobs",
+    "question": "What open jobs are there in Niger?",
+    "mustMention": ["country:ne"],
+    "expectedTools": ["open_roles"],
+    "expectedHits": ["entity:country:ne#0"]
+  },
+  {
+    "id": "orenburg",
+    "facet": "material",
+    "question": "Tell me about the Orenburg helium plant",
+    "mustMention": ["facility:orenburg-helium-plant"],
+    "expectedTools": ["get_record"],
+    "expectedHits": ["quantity:facility/orenburg-helium-plant#0"],
+    "pending": "PR 6"
+  },
+  {
+    "id": "off-topic-banana-bread",
+    "facet": "outside",
+    "question": "What's a good recipe for banana bread?",
+    "mustMention": [],
+    "expectedTools": [],
+    "expectedHits": [],
+    "outsideCorpus": true
+  },
+  {
+    "id": "off-topic-bicycle",
+    "facet": "outside",
+    "question": "How do I fix my bicycle chain?",
+    "mustMention": [],
+    "expectedTools": [],
+    "expectedHits": [],
+    "outsideCorpus": true
+  },
+  {
+    "id": "off-topic-weather",
+    "facet": "outside",
+    "question": "What is the weather in Paris tomorrow?",
+    "mustMention": [],
+    "expectedTools": [],
+    "expectedHits": [],
+    "outsideCorpus": true
+  }
+]
