@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>chartkit demo</title>
+    <link rel="stylesheet" href="../node_modules/@bitbaum/design-tokens/tokens.css" />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      /* Page chrome only — the charts' look comes from styles.css + tokens. */
+      body {
+        margin: 0;
+        font-family: var(--font-sans, system-ui, sans-serif);
+        background: hsl(var(--surface-page, 0 0% 98%));
+        color: hsl(var(--text-primary, 0 0% 10%));
+      }
+      main {
+        max-width: 56rem;
+        margin: 0 auto;
+        padding: 24px 16px 64px;
+      }
+      section + section {
+        margin-top: 40px;
+      }
+      h2 {
+        margin: 0 0 12px;
+        font-size: 14px;
+        font-weight: 500;
+        opacity: 0.6;
+      }
+      .inline {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="demo"></main>
+    <script src="./dist/demo.js"></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+# Build output — formatting it is noise.
+node_modules
+dist
+demo/dist
+
+# Lockfiles are generated; prettier would rewrite them wholesale.
+pnpm-lock.yaml
+
+# Markdown is deliberately out of scope, as in chatkit: prettier rewraps prose.
+*.md
