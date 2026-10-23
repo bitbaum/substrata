@@ -29,6 +29,8 @@ function row(s: Series) {
   const planned = s.points.filter((p) => isPlanned(p)).at(-1);
   return {
     metric: s.metric,
+    // The quantity as the series states it, to be copied verbatim (never re-unit it).
+    display: last ? `${formatPoint(last)} ${s.unit}` : null,
     figure: last ? `${formatPoint(last)} ${s.unit}, ${s.geography}, ${last.date}` : null,
     // In words, not a signed percentage: "+83.5% from 352.8" was read back as a
     // fall (2026-10-02). The direction is stated, so it cannot be reversed.

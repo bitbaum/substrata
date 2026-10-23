@@ -17,23 +17,21 @@ import { str, type ChatTool } from './tool';
 const TOP = 8;
 
 /**
- * The value with its unit, and a human-scale reading beside it. Handed
- * "900,000" and "kilograms", gpt-oss wrote "900 kt" (it is 900 t) in two
- * answers on 2026-10-02 — so the conversion is done here, not by the model.
+ * A quantity as the reader should see it: the number and the unit exactly as
+ * the table prints them ("6,000 kg"), and "(estimated)" where the agency marks
+ * the value as an estimate. The model copies this string; it never builds one.
+ *
+ * Handed "900,000" and "kilograms", gpt-oss wrote "900 kt" (it is 900 t) on
+ * 2026-10-02. A human-scale reading was added beside it ("6,000 kg (= 6 t)"),
+ * and on 2026-10-23 the answer said Russia made "6 kt" of gallium — the "6"
+ * from the reading, a "k" from nowhere: a thousandfold overstatement. Every
+ * extra spelling is one more thing to recombine, so there is one spelling, the
+ * table's, and grounding.ts flags a figure written in any other unit.
  */
-export function withUnit(text: string, unit: string): string {
-  const n = Number(text.replace(/,/g, ''));
-  if (!Number.isFinite(n)) return `${text} ${unit}`;
-  const fmt = (v: number) => v.toLocaleString('en', { maximumFractionDigits: v < 10 ? 1 : 0 });
-  if (/^kilograms?$/i.test(unit)) {
-    return n >= 1000 ? `${text} kg (= ${fmt(n / 1000)} t)` : `${text} kg`;
-  }
-  if (/^(metric )?tons?$|^tonnes?$/i.test(unit)) {
-    if (n >= 1e6) return `${text} t (= ${fmt(n / 1e6)} million t)`;
-    if (n >= 1000) return `${text} t (= ${fmt(n / 1000)} thousand t)`;
-    return `${text} t`;
-  }
-  return `${text} ${unit}`;
+export function quantityDisplay(text: string, unit: string, estimated = false): string {
+  const numberLike = /^(more than |less than )?[\d,.]+$/.test(text);
+  const shown = numberLike ? `${text} ${unit}` : text;
+  return estimated ? `${shown} (estimated)` : shown;
 }
 const pct = (share: number | null) =>
   share === null ? null : `${(share * 100).toFixed(share < 0.01 ? 2 : 1)}%`;
@@ -164,26 +162,27 @@ export const RESOURCE_TOOLS: ChatTool[] = [
           resource: map.commodity,
           measure: map.label,
           year: map.year,
-          unit: map.unitLabel,
-          world_total: withUnit(map.world.text, map.unitLabel),
+          // The unit as the table prints it; `unit_name` only says what it means.
+          unit: map.unit,
+          unit_name: map.unitLabel,
+          world_total: { display: quantityDisplay(map.world.text, map.unit) },
           // `value_number` and `share_pct` are the plain numbers a chart block
-          // takes (chatkit's RICH_ANSWERS_INSTRUCTION: bars with a share); the
-          // text forms stay for prose. `page` per row is the country's atlas page.
+          // takes (chatkit's RICH_ANSWERS_INSTRUCTION: bars with a share); `display`
+          // is what prose quotes, verbatim. `page` per row is the country's atlas page.
           top_producers: ranked.slice(0, TOP).map((v) => ({
             country: v.name,
-            value: withUnit(v.text, map.unitLabel),
+            display: quantityDisplay(v.text, map.unit, v.estimated),
             value_number: v.value,
             world_share: pct(v.share),
             share_pct: v.share === null ? null : Number((v.share * 100).toFixed(1)),
             rank: v.rank,
-            estimated: v.estimated || undefined,
             page: `/atlas?view=world&country=${v.iso2}`,
           })),
           ...(country
             ? {
                 [country.name]: one
                   ? {
-                      value: withUnit(one.text, map.unitLabel),
+                      display: quantityDisplay(one.text, map.unit, one.estimated),
                       world_share: pct(one.share),
                       rank: one.rank,
                     }
@@ -192,7 +191,9 @@ export const RESOURCE_TOOLS: ChatTool[] = [
             : {}),
           page: `/resources/${resource.resource}`,
           source: { label: map.source.label, url: map.source.url },
-          status: 'Sourced (primary statistical source); "e" values are the agency\'s estimates',
+          note: 'Quote each quantity by copying its `display` exactly — same number, same unit. Never convert or abbreviate the unit.',
+          status:
+            'Sourced (primary statistical source); "(estimated)" values are the agency\'s estimates',
         };
       }
 
@@ -207,7 +208,10 @@ export const RESOURCE_TOOLS: ChatTool[] = [
               resource: f.label,
               measure: lead?.label,
               year: lead?.year,
-              value: lead ? withUnit(lead.current.text, lead.unit) : undefined,
+              display: lead
+                ? quantityDisplay(lead.current.text, lead.unit, lead.current.estimated)
+                : undefined,
+              unit: lead?.unit,
               value_number: lead?.current.value ?? null,
               world_share: lead ? pct(lead.current.share) : null,
               share_pct:
@@ -218,6 +222,7 @@ export const RESOURCE_TOOLS: ChatTool[] = [
             };
           }),
           present_but_unmeasured: unmeasured.slice(0, 10).map((u) => u.label),
+          note: 'Quote each quantity by copying its `display` exactly — same number, same unit. Never convert or abbreviate the unit.',
           status: 'Sourced (USGS / EIA tables)',
         };
       }

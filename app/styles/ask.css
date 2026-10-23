@@ -318,19 +318,6 @@
   line-height: 1.55;
 }
 
-/* The page's composer carries a label above the box (the panel's does not). */
-.ask-composer-label {
-  display: block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-caps, 0.18em);
-  color: var(--color-fg-tertiary);
-  margin-bottom: 0.35rem;
-  cursor: pointer;
-  user-select: none;
-}
-
 /* Composer tools: one height, one weight, no borders of their own. */
 .ask-tool {
   display: inline-flex;

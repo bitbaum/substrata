@@ -21,6 +21,13 @@ const DISMISS_PX = 96;
  *
  * It stays mounted while closed (hidden), so a thread survives Close and a
  * second tap on Ask finds it where it was.
+ *
+ * While it is open the Loki feedback launcher steps aside: it floated over
+ * the reply row (2026-10-23). `data-fc-place="hidden"` is the widget's host
+ * directive for a rendered region (loki widget/README.md, "Where the launcher
+ * sits"); a closed sheet is display:none, says nothing, and the launcher
+ * returns. Not `Loki.hide()`: that stores the visitor's own "hide on this
+ * site", and the matching `show()` would overwrite a visitor who chose it.
  */
 export function AskPanel({
   open,
@@ -56,7 +63,7 @@ export function AskPanel({
   }, [open, onClose]);
 
   return (
-    <div className="ask-sheet-root" hidden={!open}>
+    <div className="ask-sheet-root" hidden={!open} data-fc-place="hidden">
       <div className="ask-sheet-scrim" aria-hidden onClick={onClose} />
       <section
         ref={sheetRef}

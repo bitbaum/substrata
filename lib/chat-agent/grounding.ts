@@ -61,15 +61,82 @@ export function withoutSentencesHolding(answer: string, figures: string[]): stri
     .trim();
 }
 
-/** Figures in the answer that appear in none of the evidence. */
-export function unsupportedFigures(answer: string, evidence: string): string[] {
-  const known = numbersIn(evidence);
+// ---------------------------------------------------------------------------
+// Units. Asked who produces gallium (2026-10-23), the answer said Russia made
+// "6 kt"; the row said "6,000 kg (estimated)" — 6 t, a thousandfold less. The
+// "6" was in the evidence, so the number check above let it through. A figure
+// is therefore also checked against the unit of the row it came from.
+// ---------------------------------------------------------------------------
+
+/** A quantity with a unit the tables print: mass, volume, energy, carats. */
+const QUANTITY =
+  /(?<![\w./-])(\d{1,3}(?:[,\u00a0\u202f ]\d{3})+|\d+)(?:\.(\d+))?\s?(thousand (?:metric )?(?:tonnes|tons|t)|million (?:metric )?(?:tonnes|tons|t)|kilograms?|kg|metric tons?|tonnes?|tons?|kt|mt|t|mct|bcm|mcm|twh)(?![\w])/gi;
+
+/** One spelling per unit, and which family it belongs to (a kg is never compared with a bcm). */
+function unitOf(raw: string): { unit: string; family: string } {
+  const u = raw.toLowerCase().replace(/\s+/g, ' ');
+  if (/^kilograms?$|^kg$/.test(u)) return { unit: 'kg', family: 'mass' };
+  if (/^(metric )?tons?$|^tonnes?$|^t$/.test(u)) return { unit: 't', family: 'mass' };
+  if (/^thousand /.test(u) || u === 'kt') return { unit: 'kt', family: 'mass' };
+  if (/^million /.test(u) || u === 'mt') return { unit: 'Mt', family: 'mass' };
+  return { unit: u, family: u };
+}
+
+interface Quantity {
+  text: string;
+  value: number;
+  unit: string;
+  family: string;
+}
+
+function quantitiesIn(text: string): Quantity[] {
+  return [...text.matchAll(QUANTITY)].map((m) => ({
+    text: m[0].trim(),
+    value: Number(canonical(m[1], m[2])),
+    ...unitOf(m[3]),
+  }));
+}
+
+/** 6 and 6,000 and 6,000,000: the same digits a thousandfold apart, as a re-unit produces. */
+function sameDigits(a: number, b: number): boolean {
+  if (!(a > 0 && b > 0)) return false;
+  const k = Math.log10(a / b) / 3;
+  return Math.abs(k - Math.round(k)) < 1e-6;
+}
+
+/**
+ * Answer quantities written in a different unit from the row they came from:
+ * "6 kt" where the row says "6,000 kg". A quantity that appears as written in
+ * the evidence is fine; one whose digits match a row's in another unit of the
+ * same family has been converted or abbreviated, and the prompt says neither.
+ */
+export function unitMismatches(answer: string, evidence: string): string[] {
+  const rows = quantitiesIn(evidence);
   const out = new Set<string>();
-  // Sentences the answer itself marks as background are its own claim, labelled.
-  const claimed = answer
+  for (const q of quantitiesIn(answer)) {
+    const same = rows.filter((r) => r.family === q.family);
+    if (same.some((r) => r.unit === q.unit && r.value === q.value)) continue;
+    if (same.some((r) => r.unit !== q.unit && sameDigits(q.value, r.value))) out.add(q.text);
+  }
+  return [...out];
+}
+
+/** Sentences the answer itself marks as background: its own claim, labelled. */
+function claimedText(answer: string): string {
+  return answer
     .split(/(?<=[.!?])\s+|\n+/)
     .filter((sentence) => !/outside the corpus|außerhalb des korpus/i.test(sentence))
     .join('\n');
+}
+
+/**
+ * Figures in the answer that appear in none of the evidence, and quantities
+ * written in another unit than the row's (unitMismatches): both are sent back.
+ */
+export function unsupportedFigures(answer: string, evidence: string): string[] {
+  const known = numbersIn(evidence);
+  const claimed = claimedText(answer);
+  const out = new Set<string>(unitMismatches(claimed, evidence));
   for (const m of claimed.matchAll(FIGURE)) {
     const value = canonical(m[1], m[2]);
     const n = Number(value);
@@ -77,7 +144,7 @@ export function unsupportedFigures(answer: string, evidence: string): string[] {
     if (!Number.isFinite(n)) continue;
     // Years, list numbering, small counts ("three bullets", "2 suppliers"): not figures.
     if (!m[2] && !unit && (n < 20 || (n >= 1900 && n <= 2100))) continue;
-    if (known.has(value)) continue;
+    if (known.has(value) || [...out].some((f) => f.startsWith(m[0].trim()))) continue;
     // A rounding of something in the evidence ("128 weeks" from "128.0") is fine.
     if (m[2] && known.has(canonical(m[1]))) continue;
     out.add(m[0].trim());
@@ -104,7 +171,7 @@ export async function reviseUnsupported(opts: {
         { role: 'assistant', content: answer },
         {
           role: 'user',
-          content: `Check before I read this: these figures in your answer appear in none of the looked-up rows: ${figures.join(', ')}. Rewrite the whole answer without them — or, only if one is well-established general knowledge, keep it in a sentence that starts "Outside the corpus —". Keep every figure that IS in the rows, with its source. No tools.`,
+          content: `Check before I read this: these figures in your answer appear in none of the looked-up rows, or are written in a unit the row does not use: ${figures.join(', ')}. Rewrite the whole answer: a quantity from a row is copied exactly as its \`display\` gives it — same number, same unit, never converted or abbreviated; a figure from no row is removed — or, only if it is well-established general knowledge, kept in a sentence that starts "Outside the corpus —". Keep every figure that IS in the rows, with its source. No tools.`,
         },
       ],
       onText,
