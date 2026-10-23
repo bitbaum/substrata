@@ -107,130 +107,9 @@
   color: var(--color-fg-tertiary);
 }
 
-/* Sparkline: the shape, no axis. */
-.series-spark {
-  flex: none;
-  width: 5.5rem;
-  height: 1.75rem;
-  overflow: visible;
-}
-.series-spark path,
-.series-line path {
-  fill: none;
-  stroke: var(--color-fg-primary);
-  stroke-width: 1.5px;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-}
-.series-spark circle {
-  fill: none;
-  stroke: var(--color-fg-primary);
-  stroke-width: 5px;
-  stroke-linecap: round;
-}
-
-/* Full chart: a plot whose line stretches and whose points are links. */
+/* The chart is @bitbaum/chartkit; it is given room under the key row. */
 .series-chart {
   margin: 1rem 0 1.25rem;
-  padding: 0 0 0 3.25rem;
-}
-.series-plot {
-  position: relative;
-  height: 13rem;
-  margin: 0.75rem 0.5rem 0 0;
-}
-.series-grid {
-  position: absolute;
-  left: 0;
-  right: 0;
-  border-top: 1px solid var(--color-border-subtle);
-}
-.series-tick {
-  position: absolute;
-  right: calc(100% + 0.5rem);
-  top: -0.55rem;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  line-height: 1;
-  color: var(--color-fg-muted);
-  white-space: nowrap;
-  font-variant-numeric: tabular-nums;
-}
-.series-line {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-.series-line path {
-  stroke-width: 2px;
-}
-.series-dot {
-  position: absolute;
-  width: 1.5rem;
-  height: 1.5rem;
-  margin: -0.75rem 0 0 -0.75rem;
-  border-radius: 50%;
-  z-index: 1;
-}
-.series-dot::before {
-  content: '';
-  position: absolute;
-  inset: 0.45rem;
-  border-radius: 50%;
-  background: var(--color-fg-primary);
-  box-shadow: 0 0 0 2px var(--color-surface-page);
-}
-.series-dot-dense::before {
-  inset: 0.55rem;
-}
-.series-dot:hover::before,
-.series-dot:focus-visible::before {
-  inset: 0.3rem;
-}
-.series-dot:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 0;
-}
-.series-tip {
-  display: none;
-  position: absolute;
-  bottom: calc(100% + 0.25rem);
-  left: 50%;
-  transform: translateX(-50%);
-  min-width: 11rem;
-  max-width: 16rem;
-  padding: 0.5rem 0.65rem;
-  border: 1px solid var(--color-border-strong);
-  background: var(--color-surface-raised);
-  font-size: 0.75rem;
-  line-height: 1.4;
-  color: var(--color-fg-secondary);
-  z-index: 2;
-  pointer-events: none;
-}
-.series-dot-end .series-tip {
-  left: auto;
-  right: 0;
-  transform: none;
-}
-.series-dot:hover .series-tip,
-.series-dot:focus-visible .series-tip {
-  display: flex;
-  flex-direction: column;
-}
-.series-tip strong {
-  color: var(--color-fg-primary);
-  font-size: 0.85rem;
-}
-.series-axis {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  color: var(--color-fg-muted);
 }
 
 /* Points table: the chart's table view and its provenance. */
@@ -413,9 +292,6 @@
   .series-td-source {
     grid-column: 1 / -1;
     min-width: 0;
-  }
-  .series-chart {
-    padding-left: 2.75rem;
   }
 }
 

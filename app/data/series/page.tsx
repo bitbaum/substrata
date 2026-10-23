@@ -5,7 +5,7 @@ import { Figure } from '@/components/portal/Figure';
 import { Empty, Page, Shell } from '@/components/portal/Shell';
 import { PageHeader } from '@/components/portal/PageHeader';
 import { AutoSubmitForm } from '@/components/portal/AutoSubmitForm';
-import { Sparkline } from '@/components/series/SeriesChart';
+import { SeriesSparkline } from '@/components/series/SeriesChart';
 import { ChangeBadge } from '@/components/series/SeriesParts';
 import { BOTTLENECKS } from '@/lib/bottlenecks';
 import { bottleneckHref, seriesHref } from '@/lib/links';
@@ -171,7 +171,7 @@ export default async function SeriesIndex({ searchParams }: { searchParams: Prom
                     </span>
                   </div>
                   <div className="series-key-trend">
-                    <Sparkline series={s} />
+                    <SeriesSparkline series={s} />
                     <ChangeBadge series={s} />
                   </div>
                   <a className="series-row-csv" href={`${seriesHref(s.id)}/csv`} download>
