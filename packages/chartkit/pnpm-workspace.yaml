@@ -1,0 +1,5 @@
+# esbuild only builds demo/ (the visual check); nothing it produces ships.
+# Standalone: the fleet creates bitbaum/chartkit from this folder and runs
+# pnpm install there, where pnpm 11 refuses an unapproved build script.
+allowBuilds:
+  esbuild: true
