@@ -25,6 +25,7 @@
  */
 import { createRequire } from 'node:module';
 import { parseArgs } from 'node:util';
+import { BROKEN_WORDS_SOURCE } from '@bitbaum/chatkit/audit';
 
 const require = createRequire(import.meta.url);
 const { chromium } = require(process.env.PLAYWRIGHT_CORE ?? 'playwright-core');
@@ -91,41 +92,17 @@ for (const [width, scheme] of [320, 390, 1440].flatMap((w) => [
     const meters = [...document.querySelectorAll('.board-row-meter')].map((el) =>
       Math.round(el.getBoundingClientRect().right),
     );
-    // A word must sit on one line. Each word of every visible text node is
-    // measured with a Range: if its client rects start more than 6px apart
-    // vertically it was broken across lines mid-word (a long name in a narrow
-    // cell, a missing overflow-wrap). Same test as findBrokenWords in
-    // @bitbaum/chatkit/audit (0.14.2); inlined until that is installed here.
-    const broken = [];
-    const walker = document.createTreeWalker(
-      document.querySelector('main').parentElement,
-      NodeFilter.SHOW_TEXT,
-    );
-    for (let node = walker.nextNode(); node; node = walker.nextNode()) {
-      const host = node.parentElement;
-      if (!host || !visible(host) || host.closest('[hidden], [popover], script, style, textarea'))
-        continue;
-      for (const m of node.textContent.matchAll(/\S+/g)) {
-        if (m[0].length < 4) continue;
-        const range = document.createRange();
-        range.setStart(node, m.index);
-        range.setEnd(node, m.index + m[0].length);
-        const rects = [...range.getClientRects()].filter((r) => r.width > 0);
-        if (
-          rects.length > 1 &&
-          Math.max(...rects.map((r) => r.top)) - Math.min(...rects.map((r) => r.top)) > 6
-        )
-          broken.push(m[0]);
-      }
-    }
     return {
       overflow: document.documentElement.scrollWidth - window.innerWidth,
       targets,
       floating,
       meters,
-      broken,
     };
   });
+  // A word must sit on one line: chatkit's audit lays every word out in a
+  // Range and reports any drawn across two lines (the same check every product
+  // runs; 0.14.2). A long name in a narrow cell, a missing overflow-wrap.
+  facts.broken = await page.evaluate(`(${BROKEN_WORDS_SOURCE})(document.body)`);
 
   if (facts.overflow > 0) fail(width, `scrolls sideways by ${facts.overflow}px`);
   for (const t of facts.targets) fail(width, `target "${t.label}" is ${t.w}x${t.h}`);
