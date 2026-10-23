@@ -14,7 +14,12 @@ import { ResearchChat } from './ResearchChat';
  * is not drawn there (it sat on top of the content); a "Check this" still
  * opens the panel.
  */
-export function AskDock() {
+export function AskDock({
+  starters,
+}: {
+  /** The panel's empty-screen questions, drawn from the corpus by the layout. */
+  starters: readonly { label: string; question: string }[];
+}) {
   const path = usePathname();
   const [open, setOpen] = useState(false);
   const [pending, setPending] = useState<(CheckRequest & { id: number }) | null>(null);
@@ -50,7 +55,7 @@ export function AskDock() {
               Close
             </button>
           </header>
-          <ResearchChat topic="" onPath={path} compact pending={pending} />
+          <ResearchChat topic="" onPath={path} compact pending={pending} starters={starters} />
         </div>
       )}
       {!onHome && (

@@ -10,8 +10,9 @@ import { readdirSync, readFileSync } from 'node:fs';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 
-import { CHAT_STARTERS, QUESTION_LENGTH } from '../config/substrata-chat';
-import { askHref, homeAsks, startQuestion } from '../lib/home-asks';
+import { QUESTION_LENGTH } from '../config/substrata-chat';
+import { askHref, startQuestion } from '../lib/home-asks';
+import { homeAsks, starters } from '../lib/starters';
 import { whatChangedRows, type HomeFeed } from '../lib/home-feed';
 import { worstNow } from '../lib/worst-now';
 import { WorstNow } from '../app/_home/WorstNow';
@@ -93,11 +94,13 @@ test('the front page is served from a cache and never reads the session', () => 
   assert.ok(page.includes('reader="client"'));
 });
 
-test('home questions: one from the worst row, three curated, all sendable', () => {
-  const asks = homeAsks({ name: 'EUV lithography scanners' });
+test('home questions: four from the corpus, no two of one kind, all sendable', () => {
+  const asks = homeAsks('2026-10-23');
   assert.equal(asks.length, 4);
-  assert.ok(asks[0].label.includes('EUV lithography scanners'));
-  assert.equal(CHAT_STARTERS.filter((s) => s.home).length, 3);
+  assert.deepEqual(
+    asks.map((a) => a.question),
+    starters({ seed: '2026-10-23', count: 4 }).map((s) => s.question),
+  );
   for (const a of asks) {
     assert.ok(a.question.length >= QUESTION_LENGTH.min && a.question.length <= QUESTION_LENGTH.max);
     assert.equal(
@@ -105,7 +108,10 @@ test('home questions: one from the worst row, three curated, all sendable', () =
       a.question,
     );
   }
-  assert.equal(homeAsks(undefined).length, 3);
+  // Another day, another four — the page is served from a cache keyed by the date.
+  assert.notDeepEqual(homeAsks('2026-10-24'), asks);
+  const page = read('app/page.tsx');
+  assert.match(page, /homeAsks\(seedFor\(now\)\)/, 'the page seeds its questions with today');
 });
 
 test('a question parameter is trimmed, bounded and ignored when it is not a question', () => {

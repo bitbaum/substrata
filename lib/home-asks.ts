@@ -1,35 +1,17 @@
 /**
- * The questions the home page offers under its Ask box, and the way a
- * question travels from there to /chat.
+ * The way a question travels from the home page's Ask box to /chat.
  *
- * One of them is built from the corpus — the row that is worst right now — so
- * the first suggestion is always about something that is true today; the rest
- * are the curated starters marked `home` in config/substrata-chat.ts. Every
- * one is a question the corpus can answer: they are the same ones /chat
- * offers on its empty screen.
+ * The questions themselves are `homeAsks` in lib/starters.ts, drawn from the
+ * corpus on the server. This file is imported by the client (the Ask box
+ * builds the link), so it must stay free of the corpus and of node modules.
  */
-import { CHAT_STARTERS, QUESTION_LENGTH } from '@/config/substrata-chat';
+import { QUESTION_LENGTH } from '@/config/substrata-chat';
 
 export interface HomeAsk {
   /** What the button says. */
   label: string;
   /** What is asked when it is pressed. */
   question: string;
-}
-
-export function homeAsks(worst: { name: string } | undefined): HomeAsk[] {
-  const curated = CHAT_STARTERS.filter((s) => s.home).map(({ label, question }) => ({
-    label,
-    question,
-  }));
-  if (!worst) return curated;
-  return [
-    {
-      label: `What would ease ${worst.name}?`,
-      question: `${worst.name} is among the most binding bottlenecks right now. Why does it bind, who holds it, and what would relieve it?`,
-    },
-    ...curated,
-  ];
 }
 
 /** Where a question from the home page goes: /chat, with the question to start. */

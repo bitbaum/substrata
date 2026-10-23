@@ -1,35 +1,17 @@
 /**
- * Companion starters. Config, not chrome. The model still answers from
- * retrieved corpus facts — these are only doors in.
+ * Companion questions. The ones a reader is offered are GENERATED from the
+ * corpus, one per facet, rotating daily (lib/starters.ts); this typed list is
+ * only the fallback for a corpus with nothing to draw from, and names no
+ * entity so it can never go stale or favour one.
  */
-export const CHAT_STARTERS: readonly {
-  label: string;
-  question: string;
-  /** Offered on the home page, under the Ask box (lib/home-asks.ts). */
-  home?: true;
-}[] = [
+export const CHAT_STARTERS: readonly { label: string; question: string }[] = [
   {
     label: 'What is actually binding compute?',
     question: 'What are the bottlenecks in compute, and which of them are sourced?',
-    home: true,
-  },
-  {
-    label: 'Who makes silicon wafers?',
-    question: 'Which companies make silicon wafers, and what is sourced versus unverified?',
-    home: true,
-  },
-  {
-    label: 'Why does Niger matter?',
-    question: 'Why does Niger matter for the path, and what is directory versus a finding?',
-    home: true,
-  },
-  {
-    label: 'What would relieve EUV?',
-    question: 'What science would relieve EUV lithography scanners, and how ready is it?',
   },
   {
     label: 'Is money the constraint?',
-    question: 'For large power transformers, is capital the binding constraint? Why or why not?',
+    question: 'Where is capital the binding constraint, and where is it not? Why?',
   },
   {
     label: 'What expertise is missing?',

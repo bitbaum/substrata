@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import { COMPANY } from '@/config/substrata';
 import { policyTotals } from '@/config/substrata-policy';
 import { portalTotals } from '@/lib/bottlenecks';
-import { homeAsks } from '@/lib/home-asks';
 import { homeFeed } from '@/lib/home-feed';
+import { homeAsks, seedFor } from '@/lib/starters';
 import { worstNow } from '@/lib/worst-now';
 import { Page, Shell } from '@/components/portal/Shell';
 import { Doors } from './_home/Doors';
@@ -54,7 +54,7 @@ export default async function HomePage() {
     <Shell reader="client" status={<HomeStatus freshness={feed.freshness} now={now} />}>
       <Page>
         <div className="home-column">
-          <HomeHero asks={homeAsks(board.worst[0])} />
+          <HomeHero asks={homeAsks(seedFor(now))} />
 
           <div className="home-pair">
             <WorstNow {...board} bindingNow={totals.bindingNow} />
