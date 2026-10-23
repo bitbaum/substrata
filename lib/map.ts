@@ -95,7 +95,7 @@ export function buildMap() {
           name: producer.name,
           jurisdictions: producer.jurisdictions,
           role: producer.role,
-          verification: verificationFor(producer.source),
+          verification: verificationFor(producer.source, producer.evidence),
           source: producer.source,
         })),
       };

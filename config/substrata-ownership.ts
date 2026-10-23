@@ -21,6 +21,11 @@
  * directory.
  */
 
+import { withCandidateHolders } from '../lib/entry/candidate';
+import ownershipCandidates from './candidates/ownership.json';
+
+export { HOLDER_KIND_LABEL, OWNERSHIP_STATUS_LABEL } from './substrata-ownership-labels';
+
 export type OwnershipStatus = 'listed' | 'private' | 'subsidiary' | 'state-owned';
 
 export type HolderKind = 'founder' | 'state' | 'fund' | 'strategic' | 'public-float';
@@ -36,6 +41,8 @@ export interface Holder {
   source: string;
   /** Anything a reader needs to read the figure right: voting rights vs capital, via which vehicle. */
   note?: string;
+  /** Only on a row from config/candidates/: a model's, not yet promoted by a person. */
+  evidence?: 'candidate';
 }
 
 export interface Ownership {
@@ -68,7 +75,7 @@ const SAMSUNG_ELECTRONICS_HOLDERS: Holder[] = [
   },
 ];
 
-export const OWNERSHIP: readonly Ownership[] = [
+const CORPUS_OWNERSHIP: readonly Ownership[] = [
   {
     company: 'asml',
     status: 'listed',
@@ -580,20 +587,7 @@ export const OWNERSHIP: readonly Ownership[] = [
   },
 ];
 
-export const HOLDER_KIND_LABEL: Record<HolderKind, string> = {
-  founder: 'Founder or family',
-  state: 'State',
-  fund: 'Fund',
-  strategic: 'Strategic',
-  'public-float': 'Public float',
-};
-
-export const OWNERSHIP_STATUS_LABEL: Record<OwnershipStatus, string> = {
-  listed: 'Listed',
-  private: 'Private',
-  subsidiary: 'Subsidiary',
-  'state-owned': 'State-owned',
-};
+export const OWNERSHIP = withCandidateHolders(CORPUS_OWNERSHIP, ownershipCandidates);
 
 export function ownershipOf(slug: string): Ownership | undefined {
   return OWNERSHIP.find((o) => o.company === slug);

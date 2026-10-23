@@ -19,6 +19,13 @@
  * public domain. Read 2026-09-17.
  */
 
+import {
+  endowmentFromCandidate,
+  sidecarRows,
+  type EndowmentCandidate,
+} from '../lib/entry/candidate';
+import endowmentsCandidates from './candidates/endowments.json';
+
 /** Units are explicit because these materials are not measured on one scale. */
 export type Unit = 'kg' | 't' | 'Mcm' | 'bcm';
 
@@ -82,6 +89,8 @@ export interface Endowment {
   reserves?: Quantity;
   /** A named qualification where the source gives one instead of a number. */
   note?: string;
+  /** Set only on a row folded in from config/candidates/ — a cheaper model's row nobody has promoted. */
+  evidence?: 'candidate';
   source: string;
   readOn: string;
 }
@@ -248,6 +257,8 @@ export const ENDOWMENTS: readonly Endowment[] = [
   reo(DYSPROSIUM, 'cn', 270_000, 44_000_000, 'reported'),
   reo(DYSPROSIUM, 'us', 45_000, 1_900_000, 'reported'),
   reo(DYSPROSIUM, 'mm', 31_000, null),
+  // Candidate rows (config/candidates/endowments.json), each flagged `evidence: 'candidate'`.
+  ...sidecarRows<EndowmentCandidate>(endowmentsCandidates).map(endowmentFromCandidate),
 ];
 
 /**
