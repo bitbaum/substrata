@@ -80,8 +80,18 @@ jobs:
             nextjs-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}-
             nextjs-${{ runner.os }}-
 
+      # packages/chartkit's verify drives a real browser over its demo
+      # (test/browser.mjs): the one check that catches a label clipped at
+      # 320px. Chromium is not on the runner by default.
+      - run: pnpm --filter @bitbaum/chartkit exec playwright install --with-deps chromium
+
       - name: Verify
         run: pnpm run verify
+
+      # packages/chartkit/dist is committed so the app and a `github:` install
+      # need no build step; it must be exactly what the source builds to.
+      - name: Committed package dist matches its source
+        run: git diff --exit-code --stat -- packages/*/dist
 
       # The build is the real test for a content site: a broken import or a bad
       # config surfaces here and nowhere earlier.

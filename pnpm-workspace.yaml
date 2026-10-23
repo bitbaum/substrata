@@ -1,3 +1,10 @@
+# Packages born here and consumed by path until the fleet gives them a repo
+# (registers/package-repos.json → create-package-repos.mjs copies the folder).
+# `workspace:*` in package.json resolves to the folder, so the app runs on the
+# package's committed dist/ with no publish in between.
+packages:
+  - 'packages/*'
+
 # pnpm 11 blocks dependency build scripts by default; allow only what we trust.
 allowBuilds:
   esbuild: true

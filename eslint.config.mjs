@@ -24,7 +24,8 @@ const eslintConfig = defineConfig([
     files: ['**/*.js', '**/*.mjs'],
     languageOptions: { parser: espree },
   },
-  globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts']),
+  // packages/* lint themselves with their own config (they are standalone).
+  globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts', 'packages/**']),
 ]);
 
 export default eslintConfig;

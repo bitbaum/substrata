@@ -5,7 +5,7 @@ import { Figure } from '@/components/portal/Figure';
 import { formatPoint, isPlanned, periodLabel, KIND_LABEL, type Series } from '@/lib/series';
 import { seriesHref } from '@/lib/links';
 import { ChangeBadge, OriginNote, PointsTable } from './SeriesParts';
-import { SeriesChart, Sparkline } from './SeriesChart';
+import { SeriesChart, SeriesSparkline } from './SeriesChart';
 import { Claims } from './Claims';
 import type { Claim } from '@/lib/claims';
 
@@ -44,7 +44,7 @@ function KeyRow({ series: s, open }: { series: Series; open: boolean }) {
             </span>
           </span>
           <span className="series-key-trend">
-            <Sparkline series={s} />
+            <SeriesSparkline series={s} />
             <ChangeBadge series={s} />
           </span>
         </summary>
