@@ -27,15 +27,23 @@ test('/chat empty state includes a clear call-to-action after the headline', () 
   assert.match(code, /onClick=\{focusInput\}/, 'CTA button must trigger focusInput');
 });
 
-test('the page composer is labelled and reachable from the CTA; the panel composer is not', () => {
+test('one composer on the panel and on /chat: no kicker, no paperclip, reachable from the CTA', () => {
   const code = read('components/portal/ResearchChat.tsx');
   assert.match(code, /inputRef=\{inputRef\}/, 'Composer must receive inputRef');
-  assert.match(
-    code,
-    /compact \? undefined : \([\s\S]*?ask-composer-label[\s\S]*?Ask a question/,
-    'the label is the page’s; the panel’s composer is chatkit’s box alone',
+  // One <Composer>, built once and placed in both frames — never a second configuration.
+  assert.equal(code.match(/<Composer\b/g)?.length, 1);
+  const composer = code.slice(
+    code.indexOf('<Composer'),
+    code.indexOf('/>', code.indexOf('<Composer')),
   );
-  assert.match(read('app/styles/ask.css'), /\.ask-composer-label\s*\{/);
+  assert.doesNotMatch(composer, /compact \?/, 'the composer does not differ between the frames');
+  assert.doesNotMatch(composer, /header=/, 'no kicker over the box');
+  assert.match(
+    composer,
+    /attach=\{false\}/,
+    '/api/chat takes no files, so neither box offers them',
+  );
+  assert.doesNotMatch(read('app/styles/ask.css'), /\.ask-composer-label/);
 });
 
 test('the panel is chatkit’s ChatScreen in a sheet with one title row', () => {
@@ -64,9 +72,9 @@ test('the panel is chatkit’s ChatScreen in a sheet with one title row', () => 
   assert.doesNotMatch(css, /ask-dock-panel/, 'the old scrolling box is gone');
 });
 
-test('the panel composer is microphone and send; the model chip only with a key', () => {
+test('the composer is microphone and send on both frames; the model chip only with a key', () => {
   const chat = read('components/portal/ResearchChat.tsx');
-  assert.match(chat, /attach=\{compact \? false :/, 'no paperclip in the panel');
+  assert.match(chat, /attach=\{false\}/, 'no paperclip on the panel or on /chat');
   const tools = read('components/portal/chat/AskTools.tsx');
   assert.match(tools, /if \(!keys\.active\) return null;/, 'nothing in the slot without a key');
   assert.doesNotMatch(tools, /[>`'"]Model: /, 'no "Model: Auto" label anywhere');

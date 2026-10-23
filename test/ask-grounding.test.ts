@@ -8,7 +8,12 @@ import assert from 'node:assert/strict';
 
 import { runAgent, type AgentEvent } from '../lib/chat-agent/loop';
 import { readerContext } from '../lib/chat-context';
-import { numbersIn, unsupportedFigures } from '../lib/chat-agent/grounding';
+import {
+  numbersIn,
+  unitMismatches,
+  unsupportedFigures,
+  withoutSentencesHolding,
+} from '../lib/chat-agent/grounding';
 
 const EVIDENCE =
   'TOOL RESULTS: {"figure":"128 weeks, US, 2025-Q2","change":"up 6.7% from 120 weeks (2024)"} ' +
@@ -23,6 +28,30 @@ test('figures from nowhere are found; figures from the rows are not', () => {
   const answer =
     'A blockade would remove about 70% of leading-edge capacity, and Taiwan controls >80% of wafer output. Lead times are 128 weeks, up 6.7% from 120 weeks; China made 900,000 kg (900 t).';
   assert.deepEqual(unsupportedFigures(answer, EVIDENCE).sort(), ['70%', '80%']);
+});
+
+test('a quantity in another unit than its row is flagged: "6 kt" where USGS says 6,000 kg', () => {
+  // The resource_production rows for gallium, as the tool returns them.
+  const evidence =
+    'TOOL RESULTS: {"resource":"Gallium (low-purity, primary)","unit":"kg","world_total":{"display":"900,000 kg (estimated)"},' +
+    '"top_producers":[{"country":"China","display":"900,000 kg (estimated)","value_number":900000,"world_share":"100.0%"},' +
+    '{"country":"Russia","display":"6,000 kg (estimated)","value_number":6000,"world_share":"0.67%"},' +
+    '{"country":"Japan","display":"3,000 kg (estimated)","value_number":3000,"world_share":"0.33%"}]}';
+  // The answer on https://substrata.orangecat.ch, 2026-10-23 13:20 Zurich.
+  const answer =
+    'Almost all primary low-purity gallium production — 900 kt (100 %) is reported from China (USGS estimate). The next largest producer, Russia, accounts for only **6 kt (≈0.7 %)**, and Japan **3 kt (≈0.3 %)**. Thus, the supply chain is highly concentrated in a single jurisdiction (China).';
+  assert.deepEqual(unitMismatches(answer, evidence).sort(), ['3 kt', '6 kt', '900 kt']);
+  assert.deepEqual(unsupportedFigures(answer, evidence).sort(), ['3 kt', '6 kt', '900 kt']);
+  // Treated like any figure from nowhere: the fallback drops the sentences that hold them.
+  assert.doesNotMatch(withoutSentencesHolding(answer, unsupportedFigures(answer, evidence)), /kt/);
+  // Copied as the row gives it, nothing is flagged — nor a share, a rank or a year.
+  const copied =
+    'China produced 900,000 kg (estimated), 100.0% of the 2025 total; Russia 6,000 kg (estimated), 0.67%; Japan 3,000 kg (estimated).';
+  assert.deepEqual(unsupportedFigures(copied, evidence), []);
+  // A conversion, even a correct one, is still not the row's unit.
+  assert.deepEqual(unitMismatches('Russia made 6 t.', evidence), ['6 t']);
+  // A different quantity family is never compared: 6 bcm is not 6,000 kg.
+  assert.deepEqual(unitMismatches('Russia exports 6 bcm.', evidence), []);
 });
 
 test('years, small counts, the reader’s own numbers and labelled background are left alone', () => {

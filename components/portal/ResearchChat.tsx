@@ -20,7 +20,7 @@ import { AnswerFooter } from './chat/AnswerFooter';
 import { AskTools } from './chat/AskTools';
 import { chartRenderers } from './chat/chartRenderers';
 import { ComposerBeside } from './chat/ComposerBeside';
-import { renderLink, withAttachments } from './chat/links';
+import { renderLink } from './chat/links';
 import { thinkingFor } from './chat/thinking';
 import { useAssistantStatus } from './chat/useAssistantStatus';
 import { useAutoAsk } from './chat/useAutoAsk';
@@ -182,36 +182,27 @@ export function ResearchChat({
     />
   );
 
-  // chatkit's composer: microphone and send, and the key chip only when a
-  // key is set. Text files can be attached on the page; the panel over a
-  // page keeps to the two things every chat app's composer has.
+  // chatkit's composer, ONE configuration on the panel and on /chat (one
+  // shape per kind): microphone and send, the key chip only when a key is
+  // set, and no label over the box — the placeholder says what it is for.
+  // /chat once carried an "Ask a question" kicker and a paperclip the panel
+  // did not, so Expand landed on a different box (2026-10-23). No paperclip
+  // on either: /api/chat takes a question of at most QUESTION_LENGTH.max
+  // characters and no files, so an attached file was only pasted text that a
+  // long file pushed past the limit into a refusal.
   const composer = (
     <Composer
       inputRef={inputRef}
-      header={
-        compact ? undefined : (
-          <span className="ask-composer-label" onClick={focusInput}>
-            Ask a question
-          </span>
-        )
-      }
       ariaLabel="Ask about a bottleneck, a company, a country, a rule…"
       // Returned, not dropped: a question that was not sent stays in the box.
-      onSend={(text, attachments) => chat.ask(withAttachments(text, attachments))}
+      onSend={(text) => chat.ask(text)}
       placeholder="Ask about a bottleneck, a company, a country, a rule…"
       sending={chat.busy}
       onStop={chat.stop}
-      density={compact ? 'compact' : 'comfortable'}
+      density="compact"
       voice={{ transcribeUrl: '/api/transcribe' }}
-      // Only text is read; a picture gets a sentence saying so, never silence.
-      attach={compact ? false : { maxFiles: 3, maxTextChars: 20_000, maxImageBytes: 1 }}
-      labels={{
-        send: 'Ask',
-        attach: 'Attach a text file (.txt, .md, .csv)',
-        attachNotes: {
-          imageTooLarge: (name) => `${name}: pictures are not read here yet — paste the text.`,
-        },
-      }}
+      attach={false}
+      labels={{ send: 'Ask' }}
       tools={<AskTools keys={keys} keyOpen={keyOpen} onToggleKey={toggleKey} />}
     />
   );

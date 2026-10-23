@@ -20,7 +20,15 @@
  *   - the chart did not draw as chartkit's figure, or the thought row
  *     ("Thought for …") is missing, or a replies row is drawn empty;
  *   - a word is broken across two lines (chatkit's audit);
- *   - Expand does not land on /chat with the same messages.
+ *   - Expand does not land on /chat with the same messages;
+ *   - anything but the sheet's own UI sits over the reply row (the Loki
+ *     feedback launcher did, 2026-10-23), or the launcher is not back once
+ *     the sheet closes, or it shows on /chat. The widget only loads with a
+ *     token, so a stand-in launcher obeys the widget's documented host
+ *     contract (loki widget/host-scan.ts readPlaceDirective: <html>, then
+ *     every rendered [data-fc-place], the last one wins);
+ *   - /chat's composer is not the panel's: a kicker over the box, a
+ *     paperclip, or a different set of controls.
  * Screenshots of the panel open go to --out (default: the scratchpad).
  *
  * Needs a Playwright build: set PLAYWRIGHT_CORE to its path if it is not
@@ -123,6 +131,68 @@ function scriptedStream() {
   return events.map((e) => JSON.stringify(e)).join('\n') + '\n';
 }
 
+/**
+ * A stand-in for the Loki launcher: round, 56px, on the right edge where the
+ * real one sat over the reply row, and hidden exactly when the widget's host
+ * directive says "hidden".
+ */
+const LAUNCHER_STAND_IN = `(() => {
+  const directive = () => {
+    let v = document.documentElement.getAttribute('data-fc-place');
+    for (const el of document.querySelectorAll('body [data-fc-place]'))
+      if (el.getClientRects().length > 0) v = el.getAttribute('data-fc-place');
+    return v;
+  };
+  const mount = () => {
+    const fab = document.createElement('div');
+    fab.id = 'loki-stand-in';
+    fab.style.cssText = 'position:fixed;right:12px;width:56px;height:56px;border-radius:50%;z-index:2147483000;background:#888';
+    document.body.appendChild(fab);
+    const place = () => {
+      const row = document.querySelector('.ask-sheet .ck-replies, .companion .ck-replies');
+      const r = row && row.getBoundingClientRect();
+      fab.style.top = (r && r.height ? r.top : innerHeight * 0.6) + 'px';
+      fab.style.display = directive() === 'hidden' ? 'none' : '';
+    };
+    new MutationObserver(place).observe(document.documentElement, { subtree: true, childList: true, attributes: true });
+    setInterval(place, 200);
+    place();
+  };
+  if (document.body) mount(); else addEventListener('DOMContentLoaded', mount);
+})();`;
+
+/** The composer's anatomy: its controls by name, and any text over the box. */
+const COMPOSER_FACTS = `(() => {
+  const box = document.querySelector('.ck-composer');
+  if (!box) return null;
+  const controls = [...box.querySelectorAll('button, input, select, a')]
+    .filter((el) => el.getClientRects().length > 0)
+    .map((el) => el.getAttribute('aria-label') || el.textContent.trim())
+    .sort();
+  const textarea = box.querySelector('textarea');
+  const above = [...box.querySelectorAll('*')]
+    .filter((el) => el.children.length === 0 && el.getClientRects().length > 0 && el.textContent.trim())
+    .filter((el) => textarea && el.getBoundingClientRect().bottom <= textarea.getBoundingClientRect().top + 1)
+    .map((el) => el.textContent.trim());
+  return { controls, above };
+})()`;
+
+/** Points along the reply row whose topmost element is not inside `selector`. */
+const COVERED = (selector) => `(() => {
+  const row = document.querySelector('${selector} .ck-replies');
+  if (!row) return ['no reply row'];
+  row.scrollIntoView({ block: 'center' });
+  const r = row.getBoundingClientRect();
+  const out = [];
+  for (let x = r.left + 4; x < r.right; x += 16)
+    for (const y of [r.top + 4, r.top + r.height / 2, r.bottom - 4]) {
+      const top = document.elementFromPoint(Math.min(x, innerWidth - 1), y);
+      if (top && !top.closest('${selector}'))
+        out.push((top.id || top.className || top.tagName) + ' at ' + Math.round(x) + ',' + Math.round(y));
+    }
+  return [...new Set(out)].slice(0, 3);
+})()`;
+
 const browser = await chromium.launch(
   process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {},
 );
@@ -148,6 +218,7 @@ for (const [width, scheme] of [320, 390, 1440].flatMap((w) => [
       // Blocked storage: the page follows prefers-color-scheme, set above.
     }
   }, scheme);
+  await page.addInitScript(LAUNCHER_STAND_IN);
   await page.route('**/api/chat', (route) => {
     if (route.request().method() !== 'POST') return route.fallback();
     return route.fulfill({
@@ -244,7 +315,24 @@ for (const [width, scheme] of [320, 390, 1440].flatMap((w) => [
   for (const w of facts.broken) fail(width, `word broken across lines: "${w}"`);
   if (facts.messages.length < 2) fail(width, `only ${facts.messages.length} turns drawn`);
 
+  for (const c of await page.evaluate(COVERED('.ask-sheet')))
+    fail(width, `something sits over the panel's reply row: ${c}`);
+  const panelComposer = await page.evaluate(COMPOSER_FACTS);
+  if (panelComposer?.above.length)
+    fail(width, `text over the panel's composer: ${panelComposer.above}`);
+
   await page.screenshot({ path: join(values.out, `ask-${width}-${scheme}.png`) });
+
+  // Close: the launcher comes back; open again: it steps aside again.
+  await sheet.getByRole('button', { name: 'Close', exact: true }).click();
+  await page.waitForTimeout(400);
+  if (!(await page.locator('#loki-stand-in').isVisible()))
+    fail(width, 'the feedback launcher did not come back when the panel closed');
+  await page.click('.ask-dock-toggle');
+  await sheet.waitFor({ state: 'visible' });
+  await page.waitForTimeout(400);
+  if (await page.locator('#loki-stand-in').isVisible())
+    fail(width, 'the feedback launcher shows over the reopened panel');
 
   // Expand: /chat with the same messages, from the same thread.
   await sheet.getByRole('button', { name: 'Expand', exact: true }).click();
@@ -262,6 +350,23 @@ for (const [width, scheme] of [320, 390, 1440].flatMap((w) => [
       if (expanded[i] !== m) fail(width, `Expand: turn ${i + 1} differs on /chat`);
     });
   if (await page.locator('.ask-sheet').count()) fail(width, 'the panel is still mounted on /chat');
+  await page.locator('.ck-replies').first().waitFor({ timeout: 5_000 });
+  await page.waitForTimeout(400);
+  if (await page.locator('#loki-stand-in').isVisible())
+    fail(width, 'the feedback launcher shows on /chat');
+  for (const c of await page.evaluate(COVERED('.companion')))
+    fail(width, `something sits over /chat's reply row: ${c}`);
+  const chatComposer = await page.evaluate(COMPOSER_FACTS);
+  if (!chatComposer) fail(width, 'no composer on /chat');
+  else {
+    if (chatComposer.above.length)
+      fail(width, `a kicker over /chat's composer: ${chatComposer.above}`);
+    if (JSON.stringify(chatComposer.controls) !== JSON.stringify(panelComposer?.controls))
+      fail(
+        width,
+        `/chat's composer is not the panel's: [${chatComposer.controls}] vs [${panelComposer?.controls}]`,
+      );
+  }
   await page.screenshot({ path: join(values.out, `chat-${width}-${scheme}.png`) });
   await context.close();
 }

@@ -107,13 +107,26 @@ test('the planner sends job, resource and country questions to the right tables'
   );
 });
 
-test('quantities arrive in human units, so a model cannot turn 900,000 kg into "900 kt"', async () => {
-  const { withUnit } = await import('../lib/chat-tools/resources');
-  assert.equal(withUnit('900,000', 'kilograms'), '900,000 kg (= 900 t)');
-  assert.equal(withUnit('270,000', 'metric tons'), '270,000 t (= 270 thousand t)');
-  assert.equal(withUnit('642.041', 'billion m³'), '642.041 billion m³');
+test('quantities arrive as the table prints them, to be copied: "6,000 kg (estimated)", never "6 kt"', async () => {
+  const { quantityDisplay } = await import('../lib/chat-tools/resources');
+  assert.equal(quantityDisplay('900,000', 'kg', true), '900,000 kg (estimated)');
+  assert.equal(quantityDisplay('270,000', 't'), '270,000 t');
+  assert.equal(quantityDisplay('withheld (W)', 'kg'), 'withheld (W)');
+  // The question that produced "Russia … 6 kt" on 2026-10-23 is planned onto the table.
+  const question = 'Who produces gallium, and how concentrated is it?';
+  assert.ok(
+    planLookups(question, readerContext({}), { leads: async () => [] }).calls.some(
+      (c) => c.name === 'resource_production',
+    ),
+  );
   const out = await json('resource_production', { resource: 'gallium' });
-  assert.match(out.top_producers[0].value, /= 900 t/);
+  const russia = out.top_producers.find((p: { country: string }) => p.country === 'Russia');
+  assert.equal(out.unit, 'kg');
+  assert.equal(russia.display, '6,000 kg (estimated)');
+  // No second spelling of the quantity for a model to recombine.
+  assert.doesNotMatch(JSON.stringify(out), /\(= |\bkt\b|thousand t/);
+  const country = await json('resource_production', { country: 'Russia' });
+  assert.ok(country.produces.every((p: { display?: string }) => !p.display || / /.test(p.display)));
 });
 
 test('job words pick a role family, and an empty filter is loosened, never a bare zero', async () => {

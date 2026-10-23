@@ -31,7 +31,9 @@ export default async function ChatPage({
   });
   return (
     <Shell footer={false}>
-      <div className="companion-page">
+      {/* The Loki feedback launcher stays off the chat (it sat on the reply row):
+          the widget's host directive for this region, left behind with the route. */}
+      <div className="companion-page" data-fc-place="hidden">
         <ResearchChat
           topic={topic}
           start={startQuestion(params.q)}
