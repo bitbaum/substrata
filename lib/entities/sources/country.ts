@@ -1,14 +1,7 @@
-import {
-  COUNTRY_RESOURCES,
-  RESOURCE_DIRECTORY_NOTE,
-  resourceLabel,
-} from '@/config/substrata-resources';
-import { WORLD_PATHS } from '@/config/world-paths';
+import { RESOURCE_DIRECTORY_NOTE, resourceLabel, resourcesFor } from '@/config/substrata-resources';
 import { entityId, type Entity } from '../types';
 import { countryHeadline } from '@/lib/resources/headline';
-function countryName(iso2: string): string {
-  return WORLD_PATHS.find((p) => p.iso2 === iso2)?.name ?? iso2.toUpperCase();
-}
+import { countryNameOf, countryPages } from '@/lib/world/pages';
 
 /**
  * Alternative spellings, minus the name itself and minus duplicates.
@@ -21,29 +14,39 @@ function aliasesOf(aliases: string[] | undefined, name: string): string[] {
   return [...new Set(aliases ?? [])].filter((alias) => alias && alias !== name);
 }
 
+/**
+ * One entity per country that has a profile page (lib/world/pages): the
+ * directory's rows, every country a USGS/EIA table lists, every exporter in
+ * the OECD inventory, the policy jurisdictions and the countries that host
+ * a company. The href is the profile; the atlas sheet links to it.
+ */
 function countries(): Entity[] {
-  return COUNTRY_RESOURCES.map((row) => {
-    const name = countryName(row.iso2);
+  return countryPages().map((iso2) => {
+    const name = countryNameOf(iso2);
+    const row = resourcesFor(iso2);
     // Computed facts lead; the directory sentence is kept, labelled, for
     // countries no production table lists.
-    const facts = countryHeadline(row.iso2);
+    const facts = countryHeadline(iso2);
+    const why = row?.why ?? '';
+    const resources = row?.resources ?? [];
+    const related = row?.relatedBottlenecks ?? [];
     return {
-      id: entityId('country', row.iso2),
+      id: entityId('country', iso2),
       kind: 'country' as const,
-      key: row.iso2,
+      key: iso2,
       name,
-      aka: aliasesOf([row.iso2.toUpperCase()], name),
-      href: `/atlas?view=world&country=${row.iso2}`,
-      summary: facts ?? row.why,
+      aka: aliasesOf([iso2.toUpperCase()], name),
+      href: `/world/${iso2}`,
+      summary: facts ?? why ?? `${name} in the chain.`,
       evidence: facts ? 'computed from USGS and EIA tables' : 'directory, not a finding',
       sources: [],
-      topics: ['country', row.iso2, ...row.resources],
+      topics: ['country', iso2, ...resources],
       // "Directory cross-references" rather than "Related bottlenecks named in
       // the directory": every one of ~180 country rows repeated the word
       // "bottlenecks", which is exactly the kind of near-ubiquitous connector
       // that outscored the actual bottleneck entities in search. The names
       // that follow are the real cross-reference and stay.
-      retrievalText: `${name} (${row.iso2.toUpperCase()}). ${facts ?? ''} Directory note: ${row.why} Directory resources: ${row.resources.map(resourceLabel).join(', ') || 'none listed'}. Directory cross-references: ${row.relatedBottlenecks.join(', ') || 'none yet'}. ${RESOURCE_DIRECTORY_NOTE}`,
+      retrievalText: `${name} (${iso2.toUpperCase()}). ${facts ?? ''} Directory note: ${why} Directory resources: ${resources.map(resourceLabel).join(', ') || 'none listed'}. Directory cross-references: ${related.join(', ') || 'none yet'}. ${RESOURCE_DIRECTORY_NOTE}`,
     };
   });
 }

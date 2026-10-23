@@ -19,6 +19,12 @@ export interface BarChartProps {
   caption: string;
   /** The label of the row to draw in the accent: "this one", among the rest. */
   highlight?: string;
+  /**
+   * The value a full bar stands for; defaults to the largest row. Pass the
+   * whole (100 for per cent of world) when the bars are shares of it, or a
+   * lone 1.6% is drawn as wide as a monopoly.
+   */
+  max?: number;
 }
 
 /** Labels longer than this get an ellipsis and carry the full text in `title`. */
@@ -29,9 +35,9 @@ const LABEL_MAX = 28;
  * largest first, no number last — whatever order they arrive in; a chart
  * called ranked that trusts its caller's order is sometimes not ranked.
  */
-export function BarChart({ rows, unit, caption, highlight }: BarChartProps) {
+export function BarChart({ rows, unit, caption, highlight, max: whole }: BarChartProps) {
   const ranked = [...rows].sort((a, b) => (b.value ?? -Infinity) - (a.value ?? -Infinity));
-  const max = Math.max(0, ...ranked.map((r) => r.value ?? 0));
+  const max = Math.max(whole ?? 0, ...ranked.map((r) => r.value ?? 0));
   const table = {
     head: ["Row", unit ? `Value (${unit})` : "Value", "Share", "Note"],
     rows: ranked.map((r) => [

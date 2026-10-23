@@ -159,6 +159,7 @@ export const SECTIONS = {
 export const ROUTES = [
   '/atlas',
   '/world',
+  '/world/:iso2',
   '/search',
   '/talent',
   '/careers',

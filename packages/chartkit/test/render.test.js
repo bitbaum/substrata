@@ -101,6 +101,13 @@ test("BarChart: ranked largest first, a null drawn as a dash, an estimate marked
   assert.match(html, /<td>900,000 \(estimated\)<\/td>/);
 });
 
+test("BarChart: a stated whole draws a small share small", () => {
+  const html = renderToStaticMarkup(
+    h(BarChart, { rows: [{ label: "Uranium", value: 1.6 }], caption: "Share", max: 100 }),
+  );
+  assert.match(html, /style="width:1.6%"/);
+});
+
 test("ShareBars: one bar whose widths sum to 100%, the largest labelled inside, every segment in the legend", () => {
   const html = renderToStaticMarkup(
     h(ShareBars, {

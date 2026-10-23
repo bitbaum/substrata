@@ -18,6 +18,8 @@ import { turn, gates } from './loop';
 import { production, substitutes } from './quantities';
 import { places, facilitySupply } from './facility';
 import { dependencies } from './dependencies';
+import { produces, companies } from './country';
+import { rules as countryRules, access, countryEvents } from './country-rules';
 
 /**
  * The registry. A new section is one definition plus one entry here.
@@ -76,6 +78,12 @@ export const PROFILE_MODULES: AnyProfileModule[] = [
   // Loop
   turn,
   gates,
+  // Country
+  produces,
+  companies,
+  countryRules,
+  access,
+  countryEvents,
   // Every kind that has them
   dependencies,
   timeline,

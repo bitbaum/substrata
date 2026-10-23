@@ -6,7 +6,8 @@ import Link from 'next/link';
 import { Figure } from '../Figure';
 import type { ResourceRanking } from '@/lib/resources/ranking';
 import { USGS } from '@/lib/resources/usgs';
-import { formatShare, formatValue, ordinal } from '@/lib/resources/format';
+import { formatChange, formatShare, formatValue, ordinal } from '@/lib/resources/format';
+import { countryHref } from '@/lib/world/pages';
 
 export function RankingTable({ ranking }: { ranking: ResourceRanking }) {
   const p = ranking.production;
@@ -23,6 +24,7 @@ export function RankingTable({ ranking }: { ranking: ResourceRanking }) {
                 {p.label}, {p.year} ({p.unitLabel})
               </th>
               {ranking.priorYear && <th scope="col">{ranking.priorYear}</th>}
+              {ranking.priorYear && <th scope="col">Change</th>}
               <th scope="col">Share · rank</th>
               {r && (
                 <th scope="col">
@@ -37,9 +39,7 @@ export function RankingTable({ ranking }: { ranking: ResourceRanking }) {
             {ranking.rows.map((row) => (
               <tr key={row.iso2}>
                 <th scope="row">
-                  <Link href={`/atlas?view=world&country=${row.iso2}&resource=${ranking.resource}`}>
-                    {row.name}
-                  </Link>
+                  <Link href={countryHref(row.iso2, ranking.resource)}>{row.name}</Link>
                 </th>
                 <td>
                   {row.production.value !== null && row.production.value > 0 ? (
@@ -51,6 +51,20 @@ export function RankingTable({ ranking }: { ranking: ResourceRanking }) {
                   )}
                 </td>
                 {ranking.priorYear && <td>{row.prior?.text ?? '—'}</td>}
+                {/* Two years is a change, not a trend: the tables carry the
+                    prior year beside the latest and nothing earlier, so the
+                    year-over-year lives here as a column rather than a chart. */}
+                {ranking.priorYear && (
+                  <td>
+                    {row.production.value && row.prior?.value && row.prior.value > 0 ? (
+                      <Figure method="production-change">
+                        {formatChange(row.production.value / row.prior.value - 1)}
+                      </Figure>
+                    ) : (
+                      '—'
+                    )}
+                  </td>
+                )}
                 <td>
                   {row.production.rank !== null ? (
                     <>
@@ -94,7 +108,8 @@ export function RankingTable({ ranking }: { ranking: ResourceRanking }) {
         World total {p.year}: {p.world.text} {p.unitLabel}
         {r ? `; reserves: ${r.world.text} ${r.unitLabel}` : ''}. Countries USGS or EIA fold into
         “other countries” are not listed or ranked. {r && USGS.definitions.reserves}{' '}
-        {p.source.label}, table “{p.source.table}”, read {p.source.retrieved}.
+        {p.source.label}, table “{p.source.table}”,{' '}
+        <span className="whitespace-nowrap">read {p.source.retrieved}</span>.
       </p>
     </section>
   );

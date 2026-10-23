@@ -1,0 +1,364 @@
+{
+  "source": "World Nuclear Association, World Uranium Mining Production",
+  "url": "https://world-nuclear.org/information-library/nuclear-fuel-cycle/mining-of-uranium/world-uranium-mining-production",
+  "licence": "© World Nuclear Association; figures reprinted as published, with attribution",
+  "retrieved": "2026-10-23",
+  "updated": "2026-10-09",
+  "gaps": [],
+  "chapters": [
+    {
+      "slug": "wna-uranium",
+      "commodity": "Uranium",
+      "resource": "uranium",
+      "source": "WNA",
+      "edition": "World Nuclear Association, World Uranium Mining Production, updated 2026-10-09",
+      "url": "https://world-nuclear.org/information-library/nuclear-fuel-cycle/mining-of-uranium/world-uranium-mining-production",
+      "table": "Production from mines (tonnes U)",
+      "unit": "t",
+      "unitQuote": "tonnes U (uranium metal content); identified resources are tonnes U recoverable to $130/kgU as of 1 January 2025",
+      "primary": "mine",
+      "columns": [
+        {
+          "key": "mine:2023",
+          "measure": "production",
+          "stage": "mine",
+          "year": 2023,
+          "unit": "t"
+        },
+        {
+          "key": "mine:2024",
+          "measure": "production",
+          "stage": "mine",
+          "year": 2024,
+          "unit": "t"
+        },
+        {
+          "key": "reserves:2025",
+          "measure": "reserves",
+          "product": "identified resources recoverable to $130/kgU",
+          "year": 2025,
+          "unit": "t"
+        }
+      ],
+      "rows": [
+        {
+          "name": "Kazakhstan",
+          "kind": "country",
+          "iso2": "kz",
+          "cells": {
+            "mine:2023": {
+              "raw": "21,109",
+              "value": 21109
+            },
+            "mine:2024": {
+              "raw": "23,270",
+              "value": 23270
+            },
+            "reserves:2025": {
+              "raw": "1,219,000",
+              "value": 1219000
+            }
+          },
+          "footnotes": []
+        },
+        {
+          "name": "Canada",
+          "kind": "country",
+          "iso2": "ca",
+          "cells": {
+            "mine:2023": {
+              "raw": "11,001",
+              "value": 11001
+            },
+            "mine:2024": {
+              "raw": "14,309",
+              "value": 14309
+            },
+            "reserves:2025": {
+              "raw": "639,700",
+              "value": 639700
+            }
+          },
+          "footnotes": []
+        },
+        {
+          "name": "Namibia",
+          "kind": "country",
+          "iso2": "na",
+          "cells": {
+            "mine:2023": {
+              "raw": "6986",
+              "value": 6986
+            },
+            "mine:2024": {
+              "raw": "7333",
+              "value": 7333
+            },
+            "reserves:2025": {
+              "raw": "504,500",
+              "value": 504500
+            }
+          },
+          "footnotes": []
+        },
+        {
+          "name": "Australia",
+          "kind": "country",
+          "iso2": "au",
+          "cells": {
+            "mine:2023": {
+              "raw": "4693",
+              "value": 4693
+            },
+            "mine:2024": {
+              "raw": "4598",
+              "value": 4598
+            },
+            "reserves:2025": {
+              "raw": "2,119,800",
+              "value": 2119800
+            }
+          },
+          "footnotes": []
+        },
+        {
+          "name": "Uzbekistan",
+          "kind": "country",
+          "iso2": "uz",
+          "cells": {
+            "mine:2023": {
+              "raw": "4000",
+              "value": 4000,
+              "estimated": true
+            },
+            "mine:2024": {
+              "raw": "4000",
+              "value": 4000,
+              "estimated": true
+            }
+          },
+          "footnotes": []
+        },
+        {
+          "name": "Russia",
+          "kind": "country",
+          "iso2": "ru",
+          "cells": {
+            "mine:2023": {
+              "raw": "2710",
+              "value": 2710
+            },
+            "mine:2024": {
+              "raw": "2738",
+              "value": 2738
+            },
+            "reserves:2025": {
+              "raw": "745,600",
+              "value": 745600
+            }
+          },
+          "footnotes": []
+        },
+        {
+          "name": "China",
+          "kind": "country",
+          "iso2": "cn",
+          "cells": {
+            "mine:2023": {
+              "raw": "1600",
+              "value": 1600,
+              "estimated": true
+            },
+            "mine:2024": {
+              "raw": "1600",
+              "value": 1600,
+              "estimated": true
+            },
+            "reserves:2025": {
+              "raw": "492,200",
+              "value": 492200
+            }
+          },
+          "footnotes": []
+        },
+        {
+          "name": "Niger",
+          "kind": "country",
+          "iso2": "ne",
+          "cells": {
+            "mine:2023": {
+              "raw": "1130",
+              "value": 1130
+            },
+            "mine:2024": {
+              "raw": "962",
+              "value": 962
+            },
+            "reserves:2025": {
+              "raw": "412,500",
+              "value": 412500
+            }
+          },
+          "footnotes": []
+        },
+        {
+          "name": "India",
+          "kind": "country",
+          "iso2": "in",
+          "cells": {
+            "mine:2023": {
+              "raw": "485",
+              "value": 485,
+              "estimated": true
+            },
+            "mine:2024": {
+              "raw": "500",
+              "value": 500,
+              "estimated": true
+            }
+          },
+          "footnotes": []
+        },
+        {
+          "name": "South Africa",
+          "kind": "country",
+          "iso2": "za",
+          "cells": {
+            "mine:2023": {
+              "raw": "200",
+              "value": 200,
+              "estimated": true
+            },
+            "mine:2024": {
+              "raw": "200",
+              "value": 200,
+              "estimated": true
+            },
+            "reserves:2025": {
+              "raw": "405,700",
+              "value": 405700
+            }
+          },
+          "footnotes": []
+        },
+        {
+          "name": "Ukraine",
+          "kind": "country",
+          "iso2": "ua",
+          "cells": {
+            "mine:2023": {
+              "raw": "340",
+              "value": 340,
+              "estimated": true
+            },
+            "mine:2024": {
+              "raw": "288",
+              "value": 288,
+              "estimated": true
+            },
+            "reserves:2025": {
+              "raw": "206,800",
+              "value": 206800
+            }
+          },
+          "footnotes": []
+        },
+        {
+          "name": "United States",
+          "kind": "country",
+          "iso2": "us",
+          "cells": {
+            "mine:2023": {
+              "raw": "19",
+              "value": 19
+            },
+            "mine:2024": {
+              "raw": "260",
+              "value": 260
+            }
+          },
+          "footnotes": []
+        },
+        {
+          "name": "Other countries",
+          "kind": "other",
+          "cells": {
+            "mine:2023": {
+              "raw": "161",
+              "value": 161
+            },
+            "mine:2024": {
+              "raw": "155",
+              "value": 155
+            },
+            "reserves:2025": {
+              "raw": "549,700",
+              "value": 549700
+            }
+          },
+          "footnotes": []
+        },
+        {
+          "name": "World",
+          "kind": "world",
+          "cells": {
+            "mine:2023": {
+              "raw": "54,433",
+              "value": 54433
+            },
+            "mine:2024": {
+              "raw": "60,213",
+              "value": 60213
+            },
+            "reserves:2025": {
+              "raw": "7,824,600",
+              "value": 7824600
+            }
+          },
+          "footnotes": []
+        },
+        {
+          "name": "Brazil",
+          "kind": "country",
+          "iso2": "br",
+          "cells": {
+            "reserves:2025": {
+              "raw": "231,000",
+              "value": 231000
+            }
+          },
+          "footnotes": []
+        },
+        {
+          "name": "Mongolia",
+          "kind": "country",
+          "iso2": "mn",
+          "cells": {
+            "reserves:2025": {
+              "raw": "223,000",
+              "value": 223000
+            }
+          },
+          "footnotes": []
+        },
+        {
+          "name": "Tanzania",
+          "kind": "country",
+          "iso2": "tz",
+          "cells": {
+            "reserves:2025": {
+              "raw": "75,000",
+              "value": 75000
+            }
+          },
+          "footnotes": []
+        }
+      ],
+      "footnotes": {
+        "1": "Identified resources recoverable (reasonably assured plus inferred), to $130/kg U, as of 1 January 2025, from OECD NEA & IAEA, Uranium 2026: Resources, Production and Demand (the Red Book), as reprinted by the WNA.",
+        "2": "A country marked (est.) on the WNA page has every year's figure estimated."
+      },
+      "events": ""
+    }
+  ]
+}
