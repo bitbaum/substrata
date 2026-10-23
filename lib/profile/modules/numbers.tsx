@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { LineChart, Sparkline } from '@/components/charts';
+import { LineChart, Sparkline } from '@bitbaum/chartkit/react';
 import { Figure } from '@/components/portal/Figure';
 import type { Entity } from '../../entities/types';
 import { bottleneckBySlug } from '../../bottlenecks';
@@ -130,6 +130,8 @@ const numbers: ProfileModule<Numbers> = {
                     },
                   ]}
                   unit={s.unit}
+                  caption={`${s.metric}, ${s.unit}, ${periodLabel(s.points[0].date)} to ${periodLabel(s.points[s.points.length - 1].date)}; every point links to the page it was read from.`}
+                  height={176}
                 />
               </div>
             );

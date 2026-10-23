@@ -1,19 +1,18 @@
-import { StatTiles, type StatTile } from '@/components/charts';
-import { Figure } from '@/components/portal/Figure';
-import { SCARCITY_DETAIL } from '@/config/substrata-participants';
+import { StatTiles, type StatTile } from '@bitbaum/chartkit/react';
 import { SCARCITY_LABEL, type MarketParticipant } from '@/lib/participants';
 import { marketsBy } from '@/lib/links';
-import { bindingSum, type CompanyProfile } from '@/lib/company-profile';
+import type { CompanyProfile } from '@/lib/company-profile';
 import { listingFor, terminalTicker } from '@/lib/listings';
 import { ownershipView } from '@/lib/ownership';
-import { BindingMeter } from '@/lib/profile/modules/company';
 import { eventSummary } from '@/lib/profile/modules/company-happened';
 
 /**
  * At a glance: five equal tiles under a company's name, the same five on
  * every company — bottlenecks held, hardest binding, directory grade,
- * listing, events. Each links to the section or page that holds the rows
- * it counts, so a figure here is never the end of the road.
+ * listing, events — drawn by @bitbaum/chartkit's StatTiles. Each links to
+ * the section or page that holds the rows it counts and their provenance
+ * (the Figure popovers live there), so a figure here is never the end of
+ * the road.
  */
 export function AtAGlance({ p, profile }: { p: MarketParticipant; profile: CompanyProfile }) {
   const { held, soleRecorded, hardest } = profile;
@@ -46,14 +45,7 @@ export function AtAGlance({ p, profile }: { p: MarketParticipant; profile: Compa
   const tiles: StatTile[] = [
     {
       label: 'Bottlenecks held',
-      value: (
-        <>
-          <Figure method="bottlenecks-held" inLink>
-            {held.length}
-          </Figure>
-          <small> of {profile.trackedBottlenecks}</small>
-        </>
-      ),
+      value: `${held.length} of ${profile.trackedBottlenecks}`,
       note:
         held.length === 0
           ? 'none of the tracked rows'
@@ -64,19 +56,17 @@ export function AtAGlance({ p, profile }: { p: MarketParticipant; profile: Compa
     },
     {
       label: 'Hardest binding',
-      value: hardest ? <BindingMeter held={hardest} inLink /> : <small>—</small>,
+      value: hardest ? `${hardest.bottleneck.binding} of 12` : '—',
       note: hardest
         ? `${hardest.bottleneck.name} · judged ${hardest.bottleneck.judgedOn}`
         : 'holds no tracked row',
       href: hardest ? '#chokepoints' : '/bottlenecks',
-      title: hardest ? bindingSum(hardest.bottleneck) : undefined,
     },
     {
       label: 'Directory grade',
-      value: p.scarcity ? SCARCITY_LABEL[p.scarcity] : <small>not graded</small>,
+      value: p.scarcity ? SCARCITY_LABEL[p.scarcity] : 'Not graded',
       note: p.scarcity ? 'a judgement, not a sourced fact' : 'listed from a maker row only',
       href: p.scarcity ? marketsBy('grade', p.scarcity) : '/markets',
-      title: p.scarcity ? SCARCITY_DETAIL[p.scarcity] : undefined,
     },
     {
       label: 'Listing',
@@ -86,11 +76,7 @@ export function AtAGlance({ p, profile }: { p: MarketParticipant; profile: Compa
     },
     {
       label: 'Events',
-      value: (
-        <Figure method="company-events" inLink>
-          {events.count}
-        </Figure>
-      ),
+      value: events.count,
       note: events.newest
         ? `newest ${events.newest.date}${profile.relatedEvents.length > 0 ? ` · ${profile.relatedEvents.length} on what it holds` : ''}`
         : 'none recorded yet',
@@ -98,8 +84,8 @@ export function AtAGlance({ p, profile }: { p: MarketParticipant; profile: Compa
     },
   ];
   return (
-    <div className="mt-6">
-      <StatTiles tiles={tiles} label="At a glance" />
+    <div className="company-glance mt-6">
+      <StatTiles tiles={tiles} caption="At a glance" />
     </div>
   );
 }

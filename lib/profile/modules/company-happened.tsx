@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import { EventList } from '@/components/portal/EventList';
-import { Timeline, type TimelineEvent } from '@/components/charts';
+import { Timeline, type TimelineEvent } from '@bitbaum/chartkit/react';
 import { EVENT_KIND_LABEL, type CoverageEvent, type EventEffect } from '@/config/substrata-events';
 import { FORM_LABEL, filingHeadline, type Filing } from '../../filings';
 import type { CompanyProfile } from '../../company-profile';
@@ -31,9 +31,9 @@ export function timelineOf(p: CompanyProfile, filings: readonly Filing[]): Timel
     tone: TONE[e.effect],
     kind: 'Names it',
   }));
-  const related: TimelineEvent[] = p.relatedEvents.map(({ event, through }) => ({
+  const related: TimelineEvent[] = p.relatedEvents.map(({ event }) => ({
     date: event.date,
-    label: `${through.name}: ${event.headline}`,
+    label: event.headline,
     tone: TONE[event.effect],
     kind: 'What it holds',
   }));
@@ -62,26 +62,22 @@ export function WhatHappened({
       {axis.length > 1 && (
         <Timeline
           events={axis}
-          legend={{ up: 'tightens', down: 'loosens', neutral: 'neutral or a filing' }}
-          caption={
-            <>
-              Every dated row on this page, on one axis: events that name {p.participant.name},
-              events on what it holds
-              {filings.length > 0 ? ', and its filings with the SEC' : ''}. The lists below carry
-              the sources.
-            </>
-          }
+          caption={`Every dated row on this page on one axis: events that name ${p.participant.name}, events on what it holds${filings.length > 0 ? ', and its filings with the SEC' : ''}. Red tightens, green loosens. The lists below carry the sources.`}
         />
       )}
       {p.events.length > 0 && (
         <>
-          <h3 className={`mb-2 ${CAPS}`}>Names {p.participant.name}</h3>
+          <h3 className={`${axis.length > 1 ? 'mt-6 ' : ''}mb-2 ${CAPS}`}>
+            Names {p.participant.name}
+          </h3>
           <EventList events={p.events} showBottlenecks />
         </>
       )}
       {related.length > 0 && (
         <>
-          <h3 className={`${p.events.length > 0 ? 'mt-8' : ''} mb-2 ${CAPS}`}>
+          <h3
+            className={`${p.events.length > 0 ? 'mt-8' : axis.length > 1 ? 'mt-6' : ''} mb-2 ${CAPS}`}
+          >
             About what it holds, not naming {p.participant.name}
           </h3>
           <ul className="divide-y divide-subtle border-y border-subtle">

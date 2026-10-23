@@ -1,0 +1,47 @@
+/* Company profiles (app/markets/[slug]). The charts are @bitbaum/chartkit's;
+   this only places them in the page's rows. Tokens only. */
+
+/* Five tiles at a glance: the package's grid stops at four across, and the
+   fifth would hang alone on a second row. */
+@media (min-width: 1024px) {
+  .company-glance .ck-tiles {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+/* A word in a tile ("Chokepoint", "ASML NA") at a fifth of the width. */
+.company-glance .ck-tile-value {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  overflow-wrap: normal;
+  hyphens: none;
+}
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .company-glance .ck-tile-value {
+    font-size: 1.25rem;
+  }
+}
+
+/* The meter in a held-bottleneck row is a link to the assessment: a full target. */
+.board-row-meter .ck-meter {
+  min-height: var(--size-target);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+.board-row-meter .ck-meter:hover .ck-meter-value {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* A figure that stands alone in a row is a full target in width too. */
+.figure-standalone {
+  min-width: var(--size-target);
+  justify-content: flex-end;
+}
+
+/* On a phone the fifth tile would leave an empty cell beside it: it spans the row. */
+@media (max-width: 639px) {
+  .company-glance .ck-tiles > li:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}

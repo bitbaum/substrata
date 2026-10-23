@@ -1,8 +1,7 @@
 import Link from 'next/link';
 
-import { Figure } from '@/components/portal/Figure';
 import { Status } from '@/components/portal/Status';
-import { Meter } from '@/components/charts';
+import { Meter } from '@bitbaum/chartkit/react';
 import { HORIZON_LABEL } from '@/config/substrata-assessment';
 import {
   bindingSum,
@@ -38,32 +37,20 @@ export const NAME = 'link-target font-medium text-fg-primary underline-offset-4 
 export const CAPS = 'font-mono text-xs uppercase tracking-caps text-fg-tertiary';
 
 /**
- * A binding score is a judgement, so it renders as an estimate: whose, when,
- * the four-part sum and the rationale, with the assessment one click away.
- * Drawn as the same meter the front page's "worst right now" rows use.
+ * A binding score is a judgement, so the meter is a link to the assessment
+ * that made it — whose, when, the four-part sum and the rationale — and
+ * carries the sum in its title. Drawn by @bitbaum/chartkit's Meter, the
+ * same meter every product uses for a score against its scale.
  */
-export function BindingMeter({
-  held,
-  inLink = false,
-}: {
-  held: CompanyProfile['held'][number];
-  inLink?: boolean;
-}) {
+export function BindingMeter({ held }: { held: CompanyProfile['held'][number] }) {
   const b = held.bottleneck;
   return (
-    <Meter value={b.binding} max={12} label={`${b.name}, binding score`}>
-      <Figure
-        inLink={inLink}
-        estimate={{
-          by: 'Substrata',
-          on: b.judgedOn,
-          basis: `${bindingSum(b)}. ${b.rationale}`,
-          source: `${bottleneckHref(b.slug)}#severity`,
-        }}
-      >
-        {b.binding}
-      </Figure>
-    </Meter>
+    <Meter
+      value={b.binding}
+      max={12}
+      label={`${b.name}: ${bindingSum(b)}, judged ${b.judgedOn}`}
+      href={`${bottleneckHref(b.slug)}#severity`}
+    />
   );
 }
 

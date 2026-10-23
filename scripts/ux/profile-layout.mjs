@@ -92,8 +92,9 @@ for (const path of values.pages.split(',')) {
           (el) =>
             !el.classList.contains('figure-trigger') || el.classList.contains('figure-target'),
         )
-        // The discussion widget is a package's; its targets are its own gate.
-        .filter((el) => !el.closest('.tk-thread, [data-threadkit]'))
+        // The discussion widget's and the charts' targets are their packages'
+        // own gate (@bitbaum/chartkit/audit measures the charts).
+        .filter((el) => !el.closest('.tk-thread, [data-threadkit], .ck-chart'))
         .map((el) => {
           const r = el.getBoundingClientRect();
           return { label: label(el), w: Math.round(r.width), h: Math.round(r.height) };

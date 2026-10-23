@@ -1,17 +1,17 @@
 import Link from 'next/link';
 
-import { ShareBars, type ShareRow } from '@/components/charts';
+import { ShareBars } from '@bitbaum/chartkit/react';
 import { Ticker } from '@/components/exposure/Ticker';
 import { correctionUrl } from '@/lib/site';
 import { hostOf } from '../../desk';
 import type { Entity } from '../../entities/types';
 import { listingFor } from '../../listings';
-import { holderDetail, ownershipView, type OwnershipView } from '../../ownership';
+import { formatShare, holderDetail, ownershipView, type OwnershipView } from '../../ownership';
 import { marketHref, slugify } from '../../links';
 import { participantBySlug } from '../../participants';
 import { t } from '../../i18n/messages';
 import type { ProfileModule } from '../types';
-import { CAPS, LINK } from './company';
+import { CAPS, LINK, NAME } from './company';
 
 interface OwnershipData {
   slug: string;
@@ -49,16 +49,11 @@ const ownership: ProfileModule<OwnershipData> = {
     const listing = listingFor(slug);
     const parentSlug =
       view.parent && participantBySlug(slugify(view.parent)) ? slugify(view.parent) : null;
-    const rows: ShareRow[] = view.holders.map((h) => ({
+    // The bar draws only shares read off a document; a lead is named under it.
+    const bars = view.sourced.map((h) => ({
       label: h.name,
-      share: h.share,
+      share: (h.share ?? 0) / 100,
       href: h.source,
-      detail: (
-        <>
-          {holderDetail(h)} · {hostOf(h.source)} ↗{h.note ? ` · ${h.note}` : ''}
-        </>
-      ),
-      missing: 'no figure on record',
     }));
     return (
       <>
@@ -86,29 +81,50 @@ const ownership: ProfileModule<OwnershipData> = {
             <>No holder of {view.parent ?? name} has been read off a document yet.</>
           )}
         </p>
-        {view.holders.length > 0 && (
+        {bars.length > 0 && (
           <ShareBars
-            rows={rows}
-            other={
-              view.rest !== null
-                ? { label: 'Other holders and public float', share: view.rest }
-                : undefined
-            }
-            caption={
-              <>
-                Each figure is as of the date on its row, read from the document it links to: an
-                annual report, a proxy statement, a regulatory notice or the company&rsquo;s own
-                investor page. A holder with no figure is named by a lead that nobody here has read
-                against such a document. Shares shift daily; this is a record, not a feed.{' '}
-                <a href={correctionUrl(`${name} ownership`)} className={LINK}>
-                  Correct a row
-                </a>
-              </>
-            }
+            rows={bars}
+            other={view.rest !== null ? view.rest / 100 : undefined}
+            caption={`Named holders of ${view.parent ?? name} as a share of its stock, each read from the document on its row below; "Other" is the rest, public float included.`}
           />
         )}
+        {view.holders.length > 0 && (
+          <ol className="mt-4 divide-y divide-subtle border-y border-subtle">
+            {view.holders.map((h) => (
+              <li
+                key={h.name}
+                className="grid grid-cols-[1fr_auto] items-center gap-x-4 gap-y-0 py-2"
+              >
+                <a href={h.source} rel="noreferrer" className={NAME}>
+                  {h.name}
+                </a>
+                <span className="text-right font-mono text-sm tabular-nums">
+                  {h.share === null ? (
+                    <span className="text-fg-muted">no figure on record</span>
+                  ) : (
+                    <span className="text-fg-primary">{formatShare(h.share)}</span>
+                  )}
+                </span>
+                <span className="col-span-2 max-w-prose pb-1 text-xs leading-relaxed text-fg-tertiary">
+                  {holderDetail(h)} · {hostOf(h.source)} ↗{h.note ? ` · ${h.note}` : ''}
+                </span>
+              </li>
+            ))}
+          </ol>
+        )}
+        {view.holders.length > 0 && (
+          <p className="mt-3 max-w-prose text-xs leading-relaxed text-fg-muted">
+            Each figure is as of the date on its row, read from the document it links to: an annual
+            report, a proxy statement, a regulatory notice or the company&rsquo;s own investor page.
+            A holder with no figure is named by a lead that nobody here has read against such a
+            document. Shares shift daily; this is a record, not a feed.{' '}
+            <a href={correctionUrl(`${name} ownership`)} className={LINK}>
+              Correct a row
+            </a>
+          </p>
+        )}
         {view.holders.length === 0 && (
-          <p className={`${CAPS}`}>
+          <p className={CAPS}>
             <a href={correctionUrl(`${name} ownership`)} className="hover:text-fg-primary">
               Know a document that names them? Send it →
             </a>
