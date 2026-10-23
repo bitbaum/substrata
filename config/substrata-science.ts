@@ -19,6 +19,8 @@
  */
 
 import type { IndustryId, TechnologyId } from './substrata-taxonomy';
+import { scienceFromCandidate, sidecarRows, type ScienceCandidate } from '../lib/entry/candidate';
+import scienceCandidates from './candidates/science.json';
 
 /** The nine-point scale, stated on the page so a reader can argue with a number. */
 export const READINESS_SCALE: readonly { level: number; label: string }[] = [
@@ -56,6 +58,8 @@ export interface ScienceEntry {
   source: string | null;
   /** What to watch for next. Null where nothing specific is known. */
   nextMilestone: string | null;
+  /** Set only on a row folded in from config/candidates/ — a cheaper model's row nobody has promoted. */
+  evidence?: 'candidate';
   judgedOn: string;
 }
 
@@ -391,6 +395,8 @@ export const SCIENCE: readonly ScienceEntry[] = [
     nextMilestone: 'A mainstream accelerator package adopting a diamond layer.',
     judgedOn: ON,
   },
+  // Candidate rows (config/candidates/science.json), each flagged `evidence: 'candidate'`.
+  ...sidecarRows<ScienceCandidate>(scienceCandidates).map(scienceFromCandidate),
 ];
 
 export function scienceFor(bottleneck: string): ScienceEntry[] {

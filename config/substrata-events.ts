@@ -18,6 +18,9 @@
 // Rows accepted at /review and written by `pnpm run research:accept-events`.
 // Same shape, same tests, same rule: they reach a page through a commit.
 import reviewedEvents from './substrata-events-accepted.json';
+// Rows a cheaper model added through scripts/research/add.ts, flagged `evidence: 'candidate'`.
+import { eventFromCandidate, sidecarRows, type EventCandidate } from '../lib/entry/candidate';
+import eventCandidates from './candidates/events.json';
 
 export type EventKind =
   'capacity' | 'lead-time' | 'price' | 'policy' | 'outage' | 'filing' | 'milestone';
@@ -50,6 +53,8 @@ export interface CoverageEvent {
   quote: string;
   /** The date the analyst accepted it; git carries the rest. */
   acceptedOn: string;
+  /** Set only on a row folded in from config/candidates/ — a cheaper model's row nobody has promoted. */
+  evidence?: 'candidate';
 }
 
 export const EVENT_KIND_LABEL: Record<EventKind, string> = {
@@ -451,6 +456,7 @@ export const EVENTS: readonly CoverageEvent[] = [
     acceptedOn: '2026-09-15',
   },
   ...(reviewedEvents as CoverageEvent[]),
+  ...sidecarRows<EventCandidate>(eventCandidates).map(eventFromCandidate),
 ];
 
 /**

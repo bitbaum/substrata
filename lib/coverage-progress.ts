@@ -25,7 +25,10 @@ export function coverageProgress(): CoverageProgress {
   const covered = new Set(COVERAGE.map((entry) => entry.material));
   return {
     total: rows.length,
-    sourced: rows.filter((producer) => producer.source !== null).length,
+    // A candidate row has a URL nobody has promoted: still a lead, not coverage.
+    sourced: rows.filter(
+      (producer) => producer.source !== null && producer.evidence !== 'candidate',
+    ).length,
     uncoveredMaterials: MATERIALS.map((material) => material.title).filter(
       (title) => !covered.has(title),
     ),

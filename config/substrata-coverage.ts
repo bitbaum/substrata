@@ -30,6 +30,10 @@
  */
 
 import type { CurveId, NodeType } from './substrata';
+import { withCandidateProducers } from '../lib/entry/candidate';
+
+export { NODE_TYPE_LABEL } from './substrata';
+import producerCandidates from './candidates/producers.json';
 
 // =====================================================================
 // SHAPE
@@ -76,6 +80,8 @@ export interface Producer {
    * Solvay. Without these the search looks for a string nobody writes.
    */
   aliases?: string[];
+  /** Only on a row from config/candidates/: a model's, not yet promoted by a person. */
+  evidence?: 'candidate';
 }
 
 export interface MaterialCoverage {
@@ -115,7 +121,7 @@ function sourced(
 // THE UNIVERSE
 // =====================================================================
 
-export const COVERAGE: readonly MaterialCoverage[] = [
+const CORPUS_COVERAGE: readonly MaterialCoverage[] = [
   // ---------- Lithography & Optics ----------
   {
     material: 'High-purity tin, EUV droplet grade',
@@ -612,6 +618,8 @@ export const COVERAGE: readonly MaterialCoverage[] = [
   },
 ];
 
+export const COVERAGE = withCandidateProducers(CORPUS_COVERAGE, producerCandidates);
+
 // =====================================================================
 // CHOKEPOINTS THAT ARE NOT MATERIALS
 //
@@ -693,15 +701,6 @@ function node(
 function held(role: HolderRole, ...names: string[]): Holder[] {
   return names.map((name) => ({ name, role }));
 }
-
-/** Display label per node type, so the site never prints a raw enum. */
-export const NODE_TYPE_LABEL: Record<NodeType, string> = {
-  material: 'Material',
-  company: 'Company',
-  person: 'People',
-  machine: 'Machine',
-  process: 'Process',
-};
 
 export const CHOKEPOINTS: readonly Chokepoint[] = [
   // ---------- Compute per joule ----------
