@@ -84,6 +84,8 @@ export interface Instrument {
 export interface Jurisdiction {
   id: JurisdictionId;
   name: string;
+  /** The name as it fits a tile, where the full one does not: "US", "EU", "UK". */
+  short?: string;
   /** What this jurisdiction is, for the purposes of this map, in one line. */
   detail: string;
 }
@@ -91,11 +93,13 @@ export interface Jurisdiction {
 export const JURISDICTIONS: readonly Jurisdiction[] = [
   {
     id: 'us',
+    short: 'US',
     name: 'United States',
     detail: 'Sets the export rules most of the chip chain is written against.',
   },
   {
     id: 'eu',
+    short: 'EU',
     name: 'European Union',
     detail: 'Trade defence, dual-use controls, and the first broad AI statute.',
   },
@@ -112,7 +116,12 @@ export const JURISDICTIONS: readonly Jurisdiction[] = [
   { id: 'kr', name: 'South Korea', detail: 'Memory and wafer capacity.' },
   { id: 'tw', name: 'Taiwan', detail: 'Leading-edge foundry and advanced packaging.' },
   { id: 'nl', name: 'Netherlands', detail: 'The lithography chokepoint sits here.' },
-  { id: 'gb', name: 'United Kingdom', detail: 'Research base and grid connection reform.' },
+  {
+    id: 'gb',
+    short: 'UK',
+    name: 'United Kingdom',
+    detail: 'Research base and grid connection reform.',
+  },
   { id: 'de', name: 'Germany', detail: 'Optics, electrical steel and industrial gases.' },
   { id: 'ch', name: 'Switzerland', detail: 'Where this project is written.' },
 ];
@@ -486,9 +495,7 @@ export const RECOMMENDATIONS: readonly Recommendation[] = [
   },
 ];
 
-// =====================================================================
-// LOOKUPS
-// =====================================================================
+// Lookups
 
 export const JURISDICTION_LABEL: Record<JurisdictionId, string> = Object.fromEntries(
   JURISDICTIONS.map((j) => [j.id, j.name]),

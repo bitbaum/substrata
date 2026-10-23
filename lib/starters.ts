@@ -16,9 +16,9 @@
  */
 import { CHAT_STARTERS } from '@/config/substrata-chat';
 import type { HomeAsk } from '@/lib/home-asks';
-import { FACETS, GENERATORS, LABEL_MAX, clip, type Facet, type Starter } from './starter-facets';
+import { FACETS, GENERATORS, LABEL_MAX, fits, type Facet, type Starter } from './starter-facets';
 
-export { FACETS, LABEL_MAX, clip, type Facet, type Starter };
+export { FACETS, LABEL_MAX, fits, type Facet, type Starter };
 
 /** FNV-1a, 32-bit: small, stable across runtimes, spread enough to pick a row. */
 export function hash(text: string): number {
@@ -57,7 +57,7 @@ export function candidates(facet: Facet): Starter[] {
 function fallback(count: number): Starter[] {
   return CHAT_STARTERS.slice(0, count).map((s) => ({
     facet: 'bottleneck' as const,
-    label: clip(s.label),
+    label: s.label,
     question: s.question,
     about: '',
     href: '/bottlenecks',
@@ -80,7 +80,10 @@ export interface StarterOptions {
  * The facets are walked round-robin from an offset the date sets, so the
  * tiles move one facet along each day and every facet is reached within nine
  * days; within a facet the seed's hash picks the row, so the same facet asks
- * about a different company or rule from one day to the next.
+ * about a different company or rule from one day to the next. A row whose
+ * label would not fit a tile is never offered — never clipped either — and a
+ * facet with nothing that fits is skipped for the seed, the walk carrying on
+ * to the next facet so the set still fills.
  */
 export function starters({
   seed,
@@ -94,9 +97,13 @@ export function starters({
   const [, rest = ''] = seed.split('|', 2);
   const offset = (dayOf(seed) + hash(rest)) % open.length;
   const out: Starter[] = [];
-  for (let i = 0; i < Math.min(count, open.length); i++) {
+  for (let i = 0; i < open.length && out.length < count; i++) {
     const facet = open[(offset + i) % open.length];
-    const rows = candidates(facet);
+    // The hash picks among the rows that fit a tile, so a facet where many
+    // names are long still rotates evenly over the ones that do, rather than
+    // walking from a long name onto the same short neighbour every day.
+    const rows = candidates(facet).filter(fits);
+    if (rows.length === 0) continue;
     const start = hash(`${seed}|${facet}`) % rows.length;
     for (let j = 0; j < rows.length; j++) {
       const row = rows[(start + j) % rows.length];

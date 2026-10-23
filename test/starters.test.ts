@@ -16,7 +16,7 @@ import {
   FACETS,
   LABEL_MAX,
   candidates,
-  clip,
+  fits,
   hash,
   seedFor,
   starters,
@@ -33,7 +33,14 @@ function days(from: string, n: number): string[] {
 }
 
 /** Every facet with data in the corpus today. */
-const open = FACETS.filter((f) => candidates(f).length > 0);
+const withData = FACETS.filter((f) => candidates(f).length > 0);
+/**
+ * Every facet that can be a tile today: it has a candidate whose label fits.
+ * Talent has one bottleneck with a readable job board, "REBCO superconducting
+ * tape, 12 mm", whose label is 49 characters — so it is skipped, never
+ * clipped, until a shorter name gains a board.
+ */
+const open = withData.filter((f) => candidates(f).some(fits));
 
 test('every facet but talent has candidates; talent only when a board is read', () => {
   for (const f of FACETS) if (f !== 'talent') assert.ok(candidates(f).length > 0, f);
@@ -43,7 +50,7 @@ test('every generated question names a thing the site has a page for', () => {
   const byHref = new Map(allEntities().map((e) => [e.href.split('?')[0], e]));
   const byName = new Map(allEntities().map((e) => [`${e.kind}:${e.name}`, e]));
   const resources = new Set(resourcesWithData());
-  for (const facet of open) {
+  for (const facet of withData) {
     for (const s of candidates(facet)) {
       assert.ok(
         s.question.toLowerCase().includes(s.about.toLowerCase()),
@@ -78,17 +85,61 @@ test('every generated question names a thing the site has a page for', () => {
   }
 });
 
-test('four tiles never share a facet, and the label fits a tile', () => {
-  for (const seed of days('2026-10-01', 30)) {
+test('four tiles never share a facet; no label is clipped or over the limit, 60 days', () => {
+  for (const seed of days('2026-10-01', 60)) {
     const set = starters({ seed });
     assert.equal(set.length, 4, seed);
     assert.equal(new Set(set.map((s) => s.facet)).size, 4, `${seed}: one facet twice`);
     for (const s of set) {
+      assert.ok(!s.label.includes('…'), `${seed}: "${s.label}" is clipped`);
+      assert.ok(!s.label.includes('...'), `${seed}: "${s.label}" is clipped`);
       assert.ok(s.label.length <= LABEL_MAX, `${seed}: "${s.label}" is ${s.label.length}`);
       assert.ok(s.label.length > 0);
-      assert.ok(s.question.length > s.label.replace(/…$/, '').length - 1, s.question);
     }
   }
+});
+
+test('a name too long for a tile is passed over for the next in its facet, never clipped', () => {
+  // A facet with nothing that fits is skipped for the seed, not clipped into a tile.
+  for (const f of withData)
+    if (!candidates(f).some(fits))
+      for (const seed of days('2026-10-01', 30))
+        assert.ok(
+          !starters({ seed }).some((s) => s.facet === f),
+          `${f} shown with no fitting label`,
+        );
+  // The science entry "Diamond heat spreaders in production packaging" does
+  // not fit; it is never a tile, but its question is still in the pool.
+  const tooLong = candidates('science').filter((s) => !fits(s));
+  assert.ok(tooLong.length > 0);
+  for (const seed of days('2026-10-01', 60))
+    for (const s of starters({ seed })) assert.ok(!tooLong.some((t) => t.label === s.label));
+});
+
+test('tile labels follow one short template per facet', () => {
+  const pick = (f: Facet) => candidates(f)[0];
+  assert.match(pick('bottleneck').label, /^What eases .+\?$/);
+  assert.match(pick('company').label, /^What does .+ hold\?$/);
+  assert.match(pick('country').label, /^What does .+ hold\?$/);
+  assert.match(
+    pick('policy').label,
+    /^(US|EU|China|Japan|South Korea|Taiwan|Netherlands|UK|Germany|Switzerland) \d{4} [a-z ]+: what changes\?$/,
+  );
+  assert.ok(candidates('policy').every(fits), 'every rule fits a tile');
+  assert.match(pick('science').label, /^How close is [a-z0-9]/);
+  assert.match(
+    pick('capital').label,
+    /^What could (DOE Loan Programs Office|EIB|KfW|JBIC) move\?$/,
+  );
+  assert.match(pick('events').label, /^.+: what changed\?$/);
+  assert.match(pick('material').label, /^Who produces [a-z]/);
+  if (candidates('talent').length) assert.match(pick('talent').label, /^Who is hiring for .+\?$/);
+});
+
+test('materials a tracked bottleneck depends on come first; oil does not lead', () => {
+  const labels = candidates('material').map((s) => s.about.toLowerCase());
+  assert.ok(labels.includes('lithium'));
+  assert.ok(!labels.includes('oil'), 'oil has no tracked bottleneck');
 });
 
 test('the set is the same for the same seed and different the next day', () => {
@@ -143,12 +194,7 @@ test('facets and count are honoured; an empty choice falls back to the typed lis
   );
 });
 
-test('clip keeps a short label, cuts a long one at a word with an ellipsis', () => {
-  assert.equal(clip('What would ease helium?'), 'What would ease helium?');
-  const long = clip('What would ease crucible-grade high-purity quartz sand for crystal pulling?');
-  assert.ok(long.length <= LABEL_MAX, long);
-  assert.ok(long.endsWith('…'));
-  assert.ok(!/\s…$/.test(long));
+test('the hash is stable and spreads', () => {
   assert.equal(hash('a'), hash('a'));
   assert.notEqual(hash('a'), hash('b'));
 });
