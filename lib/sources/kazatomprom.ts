@@ -127,6 +127,7 @@ export function kazatompromDrafts(pages: readonly string[], report: KapReport) {
             asOf,
             url: report.url,
             quote,
+            note: 'A conversion facility this company owns is a delivery point, not a named buyer: title passes to the customer there.',
             label,
           });
       }

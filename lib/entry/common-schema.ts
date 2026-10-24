@@ -32,9 +32,23 @@ export const Provenance = z
   })
   .strict();
 
+/**
+ * What `submittedBy.model` says. Repo files carry no model identifier, so a
+ * person or an agent writes `unrecorded`, and a source adapter, which no model
+ * ran, writes `deterministic-adapter`. Any other non-empty string still parses,
+ * so rows written before this rule stay valid.
+ */
+export const MODEL_UNRECORDED = 'unrecorded';
+export const MODEL_ADAPTER = 'deterministic-adapter';
+
 export const SubmittedBy = z.object({
   agent: z.string().min(1).describe('Who ran it, e.g. "data-agent".'),
-  model: z.string().min(1).describe('The model id the run used, exactly as its provider names it.'),
+  model: z
+    .string()
+    .min(1)
+    .describe(
+      `Write "${MODEL_UNRECORDED}": repo files never name the model that ran. Adapters write "${MODEL_ADAPTER}".`,
+    ),
   runId: z.string().min(1).describe('One id per session, the same on every row it writes.'),
 });
 

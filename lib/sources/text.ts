@@ -62,9 +62,17 @@ export function quoteAround(text: string, start: number, end: number): string | 
 /**
  * A span of raw JSON from the first occurrence of `from` (searching after
  * `after`) through the end of the value that follows `to`. Null when either
- * marker is missing or the span is outside the quote bounds.
+ * marker is missing or the span is outside the quote bounds (`max`, by default
+ * a hand-written quote's; a whole record may pass the relation schema's
+ * longer RECORD_QUOTE_MAX).
  */
-export function jsonSpan(raw: string, from: string, to: string, after = 0): string | null {
+export function jsonSpan(
+  raw: string,
+  from: string,
+  to: string,
+  after = 0,
+  max = QUOTE_MAX,
+): string | null {
   const s = raw.indexOf(from, after);
   if (s < 0) return null;
   const t = raw.indexOf(to, s);
@@ -72,5 +80,5 @@ export function jsonSpan(raw: string, from: string, to: string, after = 0): stri
   let e = t + to.length;
   while (e < raw.length && !/[,}\]]/.test(raw[e])) e++;
   const span = raw.slice(s, e);
-  return span.length >= QUOTE_MIN && span.length <= QUOTE_MAX ? span : null;
+  return span.length >= QUOTE_MIN && span.length <= max ? span : null;
 }
