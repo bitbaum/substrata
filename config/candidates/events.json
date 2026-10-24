@@ -1,6 +1,98 @@
 [
   {
     "evidence": "candidate",
+    "asOf": "2024-11-15",
+    "source": {
+      "url": "https://world-nuclear-news.org/articles/russia-places-ban-on-us-uranium-exports",
+      "quote": "The Russian government announced the ban on its official website on 15 November as an amendment to Government Decree No 313 of 9 March 2022.",
+      "readOn": "2026-10-24"
+    },
+    "submittedBy": {
+      "agent": "data-agent",
+      "model": "unrecorded",
+      "runId": "belt-data-2026-10-24"
+    },
+    "id": "2024-11-15-russia-restricts-enriched-uranium-exports-to-us",
+    "date": "2024-11-15",
+    "headline": "Russia restricts enriched uranium exports to the United States",
+    "kind": "policy",
+    "effect": "tightens",
+    "bottlenecks": ["Uranium conversion and enrichment"],
+    "participants": [],
+    "jurisdictions": ["RU"],
+    "primary": false
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2025-01-17",
+    "source": {
+      "url": "https://world-nuclear-news.org/articles/investment-agreement-signed-for-mongolian-uranium-project",
+      "quote": "The agreement between the Orano Group and the Mongolian government for the development and operation of the Zuuvch Ovoo uranium mine has been signed at a ceremony in Ulaanbaatar.",
+      "readOn": "2026-10-24"
+    },
+    "submittedBy": {
+      "agent": "data-agent",
+      "model": "unrecorded",
+      "runId": "belt-data-2026-10-24"
+    },
+    "id": "2025-01-17-mongolia-orano-zuuvch-ovoo-investment-agreement",
+    "date": "2025-01-17",
+    "headline": "Orano and Mongolia sign investment agreement for Zuuvch Ovoo uranium mine",
+    "kind": "capacity",
+    "effect": "loosens",
+    "bottlenecks": ["Uranium conversion and enrichment"],
+    "participants": [],
+    "jurisdictions": ["MN"],
+    "primary": false
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2025-03-13",
+    "source": {
+      "url": "https://gov.uz/en/mingeo/news/view/40187",
+      "quote": "The agreement provides for the start of uranium production by the end of 2025 at the Jongeldi deposit, located in the Tomdi district of Navoi region, as well as the intensification of geological exploration works within the framework of other joint projects.",
+      "readOn": "2026-10-24"
+    },
+    "submittedBy": {
+      "agent": "data-agent",
+      "model": "unrecorded",
+      "runId": "belt-data-2026-10-24"
+    },
+    "id": "2025-03-13-uzbekistan-navoiuran-orano-itochu-jongeldi-agreement",
+    "date": "2025-03-13",
+    "headline": "Navoiuran, Orano and Itochu sign agreement to start Jongeldi uranium production",
+    "kind": "capacity",
+    "effect": "loosens",
+    "bottlenecks": ["Uranium conversion and enrichment"],
+    "participants": [],
+    "jurisdictions": ["UZ"],
+    "primary": true
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2025-04-04",
+    "source": {
+      "url": "https://english.mofcom.gov.cn/Policies/AnnouncementsOrders/art/2025/art_0dd87cbee7b045bf93fabe6ab2faceee.html",
+      "quote": "1C905.a Dysprosium metal, dysprosium-containing alloys and related products",
+      "readOn": "2026-10-24"
+    },
+    "submittedBy": {
+      "agent": "data-agent",
+      "model": "unrecorded",
+      "runId": "belt-data-2026-10-24"
+    },
+    "id": "2025-04-04-china-export-control-medium-heavy-rare-earths",
+    "date": "2025-04-04",
+    "headline": "China puts dysprosium and other medium and heavy rare earths under export licence",
+    "kind": "policy",
+    "effect": "tightens",
+    "bottlenecks": ["Dysprosium metal"],
+    "participants": [],
+    "jurisdictions": ["CN"],
+    "primary": true
+  },
+  {
+    "evidence": "candidate",
     "asOf": "2025-08-22",
     "source": {
       "url": "https://www.world-nuclear-news.org/articles/kazatomprom-to-lower-uranium-production-in-2026",
