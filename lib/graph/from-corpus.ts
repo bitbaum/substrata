@@ -21,6 +21,7 @@ import { FACILITIES } from '@/config/substrata-facilities';
 import { OWNERSHIP, type Holder } from '@/config/substrata-ownership';
 import { resolveInDirectory } from '@/lib/entities/registry';
 import { entityId, type EntityId } from '@/lib/entities/types';
+import { holderVerdict } from './holder-kind';
 import { resolveParty } from './parties';
 import type { Relation, RelationEvidence } from './types';
 import { relationId } from './validate';
@@ -55,6 +56,12 @@ export function corpusRelations(): CorpusEdges {
   for (const row of OWNERSHIP) {
     const company: EntityId = entityId('company', row.company);
     for (const h of row.holders) {
+      // A person or a group of holders is never minted as a company (./holder-kind.ts).
+      const verdict = holderVerdict(h);
+      if (!verdict.party) {
+        skip(`holder is ${verdict.reason}`);
+        continue;
+      }
       const party = resolveParty(h.name);
       if ('skip' in party) {
         skip(`holder is ${party.skip}`);

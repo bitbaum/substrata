@@ -2,71 +2,23 @@ import React from 'react';
 import Link from 'next/link';
 
 import { EntityProfile } from '@/components/portal/EntityProfile';
-import { resolveEntity } from '@/lib/entities/registry';
-import { sourceLabel, stubRelations } from '@/lib/entities/sources/company-stubs';
+import { stubEvidence } from '@/lib/entities/stub-evidence';
 import type { Entity } from '@/lib/entities/types';
-import { quoteExcerpt } from '@/lib/chat-tools/graph-rows';
-import { graphNode, relationEvidence, type Relation } from '@/lib/graph/index';
+import { graphNode } from '@/lib/graph/index';
+import { StubSources } from './StubSources';
 import { correctionUrl } from '@/lib/site';
 import { t } from '@/lib/i18n/messages';
 import { countryHref, countryNameOf } from '@/lib/world/pages';
 
-/** Where a reader can open the other end: its page, else the country whose table printed it. */
-function otherEnd(id: string): { name: string; href?: string } {
-  const node = graphNode(id);
-  const page = resolveEntity(id)?.href ?? (node.iso2[0] ? countryHref(node.iso2[0]) : undefined);
-  return { name: node.name, ...(page ? { href: page } : {}) };
-}
-
-function Row({ r, self }: { r: Relation; self: string }) {
-  const ev = relationEvidence(r);
-  const other = otherEnd(r.from === self ? r.to : r.from);
-  const source = r.evidence[0];
-  const quote = quoteExcerpt(source.quote, [graphNode(r.from).name, graphNode(r.to).name]);
-  return (
-    <li className="py-4">
-      <p className="text-sm leading-relaxed text-fg-primary">{ev.sentence}</p>
-      <p className="mt-1 text-xs text-fg-tertiary">
-        {ev.gradeLabel} · as of {r.asOf}
-        {other.href && (
-          <>
-            {' · '}
-            <Link
-              href={other.href}
-              className="tap text-fg-secondary underline-offset-4 hover:text-fg-primary hover:underline"
-            >
-              {other.name}
-            </Link>
-          </>
-        )}
-      </p>
-      <blockquote className="mt-2 max-w-prose border-l border-subtle pl-3 text-sm leading-relaxed text-fg-secondary wrap-anywhere">
-        {quote.whole ? '' : '… '}
-        {quote.text}
-        {quote.whole ? '' : ' …'}
-      </blockquote>
-      <p className="mt-1 text-xs text-fg-muted wrap-anywhere">
-        <a
-          href={source.source}
-          rel="noreferrer"
-          className="tap text-accent underline-offset-4 hover:underline"
-        >
-          {sourceLabel(source.source)} ↗
-        </a>
-        {source.locator ? ` · ${source.locator}` : ''} · {ev.sources[0]?.reading}
-      </p>
-    </li>
-  );
-}
-
 /**
  * A company the relation graph names and the directory holds no profile for
  * (lib/entities/sources/company-stubs.ts). Same route, same profile frame as
- * a profiled company; the only section of its own is what the sources say,
- * each row with its grade, its quote and its source.
+ * a profiled company; the only section of its own is what the sources say
+ * (./StubSources.tsx): one line per relation, every source cell once.
  */
 export function StubCompany({ entity }: { entity: Entity }) {
-  const relations = stubRelations(entity.id);
+  const view = stubEvidence(entity.id);
+  const count = view.groups.reduce((n, g) => n + g.rows.length, 0);
   const countries = graphNode(entity.id).iso2;
   return (
     <>
@@ -112,14 +64,8 @@ export function StubCompany({ entity }: { entity: Entity }) {
             id: 'sources-say',
             title: t('profile.stubSources.title'),
             importance: 10,
-            evidence: `${relations.length} ${relations.length === 1 ? 'relation' : 'relations'}, each quoted`,
-            node: (
-              <ul className="divide-y divide-subtle border-y border-subtle">
-                {relations.map((r) => (
-                  <Row key={r.id} r={r} self={entity.id} />
-                ))}
-              </ul>
-            ),
+            evidence: `${count} ${count === 1 ? 'relation' : 'relations'}, each quoted`,
+            node: <StubSources groups={view.groups} cells={view.cells} />,
           },
         ]}
       />
