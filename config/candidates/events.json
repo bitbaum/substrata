@@ -1,1 +1,94 @@
-[]
+[
+  {
+    "evidence": "candidate",
+    "asOf": "2025-08-22",
+    "source": {
+      "url": "https://www.world-nuclear-news.org/articles/kazatomprom-to-lower-uranium-production-in-2026",
+      "quote": "The national atomic company of Kazakhstan has announced plans for a roughly 10% cut in its uranium production in 2026, saying it does not view the current supply-demand balance and existing uncovered demand as sufficient to incentivise a return to its 100% levels at this time.",
+      "readOn": "2026-10-24"
+    },
+    "submittedBy": {
+      "agent": "data-agent",
+      "model": "not recorded",
+      "runId": "kz-pilot-2026-10-24"
+    },
+    "id": "2025-08-22-kazatomprom-plans-10-percent-cut-2026",
+    "date": "2025-08-22",
+    "headline": "Kazatomprom announces a roughly 10% cut in planned 2026 uranium production",
+    "kind": "capacity",
+    "effect": "tightens",
+    "bottlenecks": ["Uranium conversion and enrichment"],
+    "participants": [],
+    "jurisdictions": ["KZ"],
+    "primary": false
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2026-03-20",
+    "source": {
+      "url": "https://www.kazatomprom.kz/en/media/view/announces_2025_full_year_financial_results_",
+      "quote": "The 2026 production guidance remains subject to sulphuric acid availability.",
+      "readOn": "2026-10-24"
+    },
+    "submittedBy": {
+      "agent": "data-agent",
+      "model": "not recorded",
+      "runId": "kz-pilot-2026-10-24"
+    },
+    "id": "2026-03-20-kazatomprom-2026-guidance-subject-to-acid",
+    "date": "2026-03-20",
+    "headline": "Kazatomprom says 2026 production guidance remains subject to sulphuric acid availability",
+    "kind": "capacity",
+    "effect": "neutral",
+    "bottlenecks": ["Uranium conversion and enrichment"],
+    "participants": [],
+    "jurisdictions": ["KZ"],
+    "primary": true
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2026-08-21",
+    "source": {
+      "url": "https://www.investegate.co.uk/announcement/rns/joint-stock-company-national-atomic-company-kazatomprom--kap/kazatomprom-announces-1h2026-financial-results-/9733046",
+      "quote": "construction works in the affected area have been suspended pending official permit from relevant state authorities to resume work.",
+      "readOn": "2026-10-24"
+    },
+    "submittedBy": {
+      "agent": "data-agent",
+      "model": "not recorded",
+      "runId": "kz-pilot-2026-10-24"
+    },
+    "id": "2026-08-21-kazatomprom-tqz-acid-plant-works-suspended",
+    "date": "2026-08-21",
+    "headline": "Kazatomprom: construction at the TQZ sulphuric acid plant site suspended after specimens found",
+    "kind": "capacity",
+    "effect": "tightens",
+    "bottlenecks": ["Uranium conversion and enrichment"],
+    "participants": [],
+    "jurisdictions": ["KZ"],
+    "primary": false
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2026-09-21",
+    "source": {
+      "url": "https://sightlineu3o8.com/2026/09/kazatomprom-obtains-exploration-rights-for-the-kyzyltu-block-and-updates-on-sulphuric-acid-supplies-from-russia/",
+      "quote": "Based on the information currently available, these measures do not prohibit sulphuric acid exports. Rather, they introduce a revised approval procedure for export volumes, which is expected to remain in effect until 31 December 2026.",
+      "readOn": "2026-10-24"
+    },
+    "submittedBy": {
+      "agent": "data-agent",
+      "model": "not recorded",
+      "runId": "kz-pilot-2026-10-24"
+    },
+    "id": "2026-09-21-russia-sulphuric-acid-export-approval-procedure",
+    "date": "2026-09-21",
+    "headline": "Kazatomprom on Russia's revised approval procedure for sulphuric acid exports (Resolution 1158)",
+    "kind": "policy",
+    "effect": "neutral",
+    "bottlenecks": ["Uranium conversion and enrichment"],
+    "participants": [],
+    "jurisdictions": ["KZ", "RU"],
+    "primary": false
+  }
+]

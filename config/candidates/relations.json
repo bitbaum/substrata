@@ -1,1 +1,320 @@
-[]
+[
+  {
+    "evidence": "candidate",
+    "asOf": "2025",
+    "source": {
+      "url": "https://www.kazatomprom.kz/storage/6c/kap_ir_2025_encjwwsl.pdf",
+      "quote": "When transporting materials to China, the Company delivers cargo to the Alashankou railway station near the Kazakhstan– China border.",
+      "readOn": "2026-10-24",
+      "locator": "page 17"
+    },
+    "submittedBy": {
+      "agent": "source-adapter:kazatomprom",
+      "model": "none (deterministic adapter)",
+      "runId": "run-task-2026-10-24"
+    },
+    "provenance": {
+      "adapter": "kazatomprom",
+      "fetchedAt": "2026-10-24T07:54:56.682Z",
+      "url": "https://www.kazatomprom.kz/storage/6c/kap_ir_2025_encjwwsl.pdf"
+    },
+    "from": "company:nac-kazatomprom-jsc",
+    "to": "country:cn",
+    "type": "ships_to",
+    "grade": "stated"
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2025",
+    "source": {
+      "url": "https://www.kazatomprom.kz/storage/6c/kap_ir_2025_encjwwsl.pdf",
+      "quote": "For supplies to the Russian Federation, the Group transports cargo by rail from its operating sites to one of the stations of Russian Railways (RZD), depending on the final destination of the products.",
+      "readOn": "2026-10-24",
+      "locator": "page 17"
+    },
+    "submittedBy": {
+      "agent": "source-adapter:kazatomprom",
+      "model": "none (deterministic adapter)",
+      "runId": "run-task-2026-10-24"
+    },
+    "provenance": {
+      "adapter": "kazatomprom",
+      "fetchedAt": "2026-10-24T07:54:56.682Z",
+      "url": "https://www.kazatomprom.kz/storage/6c/kap_ir_2025_encjwwsl.pdf"
+    },
+    "from": "company:nac-kazatomprom-jsc",
+    "to": "country:ru",
+    "type": "ships_to",
+    "grade": "stated"
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2024",
+    "source": {
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=284410&flowCode=X&partnerCode=124",
+      "quote": "\"cmdCode\":\"284410\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":1843200.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":35,\"altQtyUnitAbbr\":null,\"altQty\":1347470.0,\"isAltQtyEstimated\":false,\"netWgt\":1843200.0",
+      "readOn": "2026-10-24",
+      "locator": "UN Comtrade record, partner code 124"
+    },
+    "submittedBy": {
+      "agent": "source-adapter:comtrade",
+      "model": "none (deterministic adapter)",
+      "runId": "run-task-2026-10-24"
+    },
+    "provenance": {
+      "adapter": "comtrade",
+      "fetchedAt": "2026-10-24T07:54:12.424Z",
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=284410&flowCode=X&partnerCode=124"
+    },
+    "from": "country:kz",
+    "to": "country:ca",
+    "type": "ships_to",
+    "grade": "stated",
+    "volume": {
+      "value": 1843200,
+      "unit": "kg",
+      "period": "2024",
+      "commodity": "HS 284410"
+    }
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2024",
+    "source": {
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=284410&flowCode=X&partnerCode=156",
+      "quote": "\"cmdCode\":\"284410\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":11224600.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":35,\"altQtyUnitAbbr\":null,\"altQty\":9443600.0,\"isAltQtyEstimated\":false,\"netWgt\":11224600.0",
+      "readOn": "2026-10-24",
+      "locator": "UN Comtrade record, partner code 156"
+    },
+    "submittedBy": {
+      "agent": "source-adapter:comtrade",
+      "model": "none (deterministic adapter)",
+      "runId": "run-task-2026-10-24"
+    },
+    "provenance": {
+      "adapter": "comtrade",
+      "fetchedAt": "2026-10-24T07:53:54.651Z",
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=284410&flowCode=X&partnerCode=156"
+    },
+    "from": "country:kz",
+    "to": "country:cn",
+    "type": "ships_to",
+    "grade": "stated",
+    "volume": {
+      "value": 11224600,
+      "unit": "kg",
+      "period": "2024",
+      "commodity": "HS 284410"
+    }
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2024",
+    "source": {
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=7403&flowCode=X&partnerCode=156",
+      "quote": "\"cmdCode\":\"7403\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":311918344.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":8,\"altQtyUnitAbbr\":null,\"altQty\":311918344.0,\"isAltQtyEstimated\":false,\"netWgt\":311918344.0",
+      "readOn": "2026-10-24",
+      "locator": "UN Comtrade record, partner code 156"
+    },
+    "submittedBy": {
+      "agent": "source-adapter:comtrade",
+      "model": "none (deterministic adapter)",
+      "runId": "run-task-2026-10-24"
+    },
+    "provenance": {
+      "adapter": "comtrade",
+      "fetchedAt": "2026-10-24T07:54:18.629Z",
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=7403&flowCode=X&partnerCode=156"
+    },
+    "from": "country:kz",
+    "to": "country:cn",
+    "type": "ships_to",
+    "grade": "stated",
+    "volume": {
+      "value": 311918344,
+      "unit": "kg",
+      "period": "2024",
+      "commodity": "HS 7403"
+    }
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2024",
+    "source": {
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=284410&flowCode=X&partnerCode=251",
+      "quote": "\"cmdCode\":\"284410\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":1895580.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":35,\"altQtyUnitAbbr\":null,\"altQty\":1501210.0,\"isAltQtyEstimated\":false,\"netWgt\":1895580.0",
+      "readOn": "2026-10-24",
+      "locator": "UN Comtrade record, partner code 251"
+    },
+    "submittedBy": {
+      "agent": "source-adapter:comtrade",
+      "model": "none (deterministic adapter)",
+      "runId": "run-task-2026-10-24"
+    },
+    "provenance": {
+      "adapter": "comtrade",
+      "fetchedAt": "2026-10-24T07:54:06.792Z",
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=284410&flowCode=X&partnerCode=251"
+    },
+    "from": "country:kz",
+    "to": "country:fr",
+    "type": "ships_to",
+    "grade": "stated",
+    "volume": {
+      "value": 1895580,
+      "unit": "kg",
+      "period": "2024",
+      "commodity": "HS 284410"
+    }
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2024",
+    "source": {
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=7403&flowCode=X&partnerCode=440",
+      "quote": "\"cmdCode\":\"7403\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":438670.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":8,\"altQtyUnitAbbr\":null,\"altQty\":438670.0,\"isAltQtyEstimated\":false,\"netWgt\":438670.0",
+      "readOn": "2026-10-24",
+      "locator": "UN Comtrade record, partner code 440"
+    },
+    "submittedBy": {
+      "agent": "source-adapter:comtrade",
+      "model": "none (deterministic adapter)",
+      "runId": "run-task-2026-10-24"
+    },
+    "provenance": {
+      "adapter": "comtrade",
+      "fetchedAt": "2026-10-24T07:54:37.282Z",
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=7403&flowCode=X&partnerCode=440"
+    },
+    "from": "country:kz",
+    "to": "country:lt",
+    "type": "ships_to",
+    "grade": "stated",
+    "volume": {
+      "value": 438670,
+      "unit": "kg",
+      "period": "2024",
+      "commodity": "HS 7403"
+    }
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2024",
+    "source": {
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=7403&flowCode=X&partnerCode=428",
+      "quote": "\"cmdCode\":\"7403\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":5776555.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":8,\"altQtyUnitAbbr\":null,\"altQty\":5776555.0,\"isAltQtyEstimated\":false,\"netWgt\":5776555.0",
+      "readOn": "2026-10-24",
+      "locator": "UN Comtrade record, partner code 428"
+    },
+    "submittedBy": {
+      "agent": "source-adapter:comtrade",
+      "model": "none (deterministic adapter)",
+      "runId": "run-task-2026-10-24"
+    },
+    "provenance": {
+      "adapter": "comtrade",
+      "fetchedAt": "2026-10-24T07:54:26.649Z",
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=7403&flowCode=X&partnerCode=428"
+    },
+    "from": "country:kz",
+    "to": "country:lv",
+    "type": "ships_to",
+    "grade": "stated",
+    "volume": {
+      "value": 5776555,
+      "unit": "kg",
+      "period": "2024",
+      "commodity": "HS 7403"
+    }
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2024",
+    "source": {
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=284410&flowCode=X&partnerCode=643",
+      "quote": "\"cmdCode\":\"284410\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":9974990.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":35,\"altQtyUnitAbbr\":null,\"altQty\":8865300.0,\"isAltQtyEstimated\":false,\"netWgt\":9974990.0",
+      "readOn": "2026-10-24",
+      "locator": "UN Comtrade record, partner code 643"
+    },
+    "submittedBy": {
+      "agent": "source-adapter:comtrade",
+      "model": "none (deterministic adapter)",
+      "runId": "run-task-2026-10-24"
+    },
+    "provenance": {
+      "adapter": "comtrade",
+      "fetchedAt": "2026-10-24T07:53:59.154Z",
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=284410&flowCode=X&partnerCode=643"
+    },
+    "from": "country:kz",
+    "to": "country:ru",
+    "type": "ships_to",
+    "grade": "stated",
+    "volume": {
+      "value": 9974990,
+      "unit": "kg",
+      "period": "2024",
+      "commodity": "HS 284410"
+    }
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2024",
+    "source": {
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=7403&flowCode=X&partnerCode=792",
+      "quote": "\"cmdCode\":\"7403\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":156281160.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":8,\"altQtyUnitAbbr\":null,\"altQty\":156281160.0,\"isAltQtyEstimated\":false,\"netWgt\":156281160.0",
+      "readOn": "2026-10-24",
+      "locator": "UN Comtrade record, partner code 792"
+    },
+    "submittedBy": {
+      "agent": "source-adapter:comtrade",
+      "model": "none (deterministic adapter)",
+      "runId": "run-task-2026-10-24"
+    },
+    "provenance": {
+      "adapter": "comtrade",
+      "fetchedAt": "2026-10-24T07:54:23.181Z",
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=7403&flowCode=X&partnerCode=792"
+    },
+    "from": "country:kz",
+    "to": "country:tr",
+    "type": "ships_to",
+    "grade": "stated",
+    "volume": {
+      "value": 156281160,
+      "unit": "kg",
+      "period": "2024",
+      "commodity": "HS 7403"
+    }
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2024",
+    "source": {
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=284410&flowCode=X&partnerCode=842",
+      "quote": "\"cmdCode\":\"284410\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":2619180.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":35,\"altQtyUnitAbbr\":null,\"altQty\":1969230.0,\"isAltQtyEstimated\":false,\"netWgt\":2619180.0",
+      "readOn": "2026-10-24",
+      "locator": "UN Comtrade record, partner code 842"
+    },
+    "submittedBy": {
+      "agent": "source-adapter:comtrade",
+      "model": "none (deterministic adapter)",
+      "runId": "run-task-2026-10-24"
+    },
+    "provenance": {
+      "adapter": "comtrade",
+      "fetchedAt": "2026-10-24T07:54:02.709Z",
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=284410&flowCode=X&partnerCode=842"
+    },
+    "from": "country:kz",
+    "to": "country:us",
+    "type": "ships_to",
+    "grade": "stated",
+    "volume": {
+      "value": 2619180,
+      "unit": "kg",
+      "period": "2024",
+      "commodity": "HS 284410"
+    }
+  }
+]
