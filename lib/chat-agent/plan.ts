@@ -19,6 +19,7 @@
 import type { ReaderContext } from '../chat-context';
 import type { ToolEnv } from '../chat-tools/ledger';
 import { familyIn } from '../chat-tools/jobs';
+import { producerResourcesIn } from '../chat-tools/producers';
 import { resourceIn } from '../chat-tools/resources';
 import type { ToolRequest } from './parse';
 import { bottleneckIn, bottlenecksIn, companiesIn, countriesIn } from './question';
@@ -88,6 +89,15 @@ const JURISDICTION: [RegExp, string][] = [
   [/\b(china|chinese|prc)\b/, 'CN'],
   [/\b(japan|japanese)\b/, 'JP'],
 ];
+/** Who runs and owns the mines and plants: the USGS facility rows (producers_in). */
+const FACILITY_ASK =
+  /\b(compan(y|ies)|operat(e|es|or|ors|ing)|owns?|owners?|owned|ownership|stakes?|shareholders?|mines?|mining|miners?|plants?|refiner(y|ies)|smelters?|facilit(y|ies)|producers?|produce|who (makes|mines|runs|extracts))\b/;
+/** With no resource named, only words about companies send a country to its facility rows. */
+const COMPANY_ASK =
+  /\b(compan(y|ies)|operators?|owns?|owners?|ownership|stakes?|shareholders?|miners?|who (mines|runs|operates))\b/;
+const RESTRICTION_ASK =
+  /\b(export (ban|bans|restrictions?|controls?|quotas?|tax|taxes|licen[cs]es?)|restrict(s|ed|ions?)?|quotas?|bans? (on )?exports?)\b/;
+const SANCTION_ASK = /\b(sanction(s|ed)?|embargo(es|ed)?|ofac)\b/;
 const HOLDINGS = /\b(i hold|my (portfolio|holdings|positions|stocks)|i own|tickers?)\b/;
 
 const call = (name: string, args: Record<string, unknown>): ToolRequest => ({
@@ -119,6 +129,21 @@ export function planLookups(
 
   const calls: ToolRequest[] = [];
   let intent = false;
+  // Rung 2 of the answer ladder first: a country's mines, plants, operators and
+  // owners are USGS facility rows. Asked live on 2026-10-24 which companies
+  // mine uranium in Kazakhstan and who owns them, no tool read those rows and
+  // the answer said they were not recorded.
+  const facilityResources = producerResourcesIn(question).slice(0, 2);
+  if (
+    countries[0] &&
+    (facilityResources.length ? FACILITY_ASK.test(q) : !resource && COMPANY_ASK.test(q))
+  ) {
+    intent = true;
+    for (const id of facilityResources.length ? facilityResources : [undefined])
+      calls.push(
+        call('producers_in', { country: countries[0].name, ...(id ? { resource: id } : {}) }),
+      );
+  }
   if (named && named.slug !== pageBottleneck)
     calls.push(call('get_bottleneck', { name: named.slug }));
   else if (!named)
@@ -179,6 +204,24 @@ export function planLookups(
       call('policy_rules', {
         ...(bottleneck ? { bottleneck } : {}),
         ...(where ? { jurisdiction: where } : {}),
+      }),
+    );
+  }
+  if (RESTRICTION_ASK.test(q) && !NEWS.test(q) && (resource || countries[0])) {
+    intent = true;
+    calls.push(
+      call('restrictions_on', {
+        ...(resource ? { resource: resource.term } : {}),
+        ...(countries[0] ? { country: countries[0].name } : {}),
+      }),
+    );
+  }
+  if (SANCTION_ASK.test(q) && countries[0]) {
+    intent = true;
+    calls.push(
+      call('sanctions_on', {
+        name: countries[0].name,
+        ...(resource ? { resource: resource.term } : {}),
       }),
     );
   }

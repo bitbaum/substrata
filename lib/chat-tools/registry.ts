@@ -31,9 +31,11 @@ import { LEAD_TOOLS } from './leads';
 import type { ToolEnv } from './ledger';
 import { LIST_TOOLS } from './lists';
 import { RECORD_TOOLS } from './records';
+import { PRODUCER_TOOLS } from './producers';
 import { RESOURCE_TOOLS } from './resources';
 import { SCENARIO_TOOLS } from './scenario';
 import { withAliases, type Args, type ChatTool } from './tool';
+import { TRADE_RULE_TOOLS } from './trade-rules';
 import { WEB_TOOLS } from './web';
 
 /** Every tool, in the order the model is offered them. */
@@ -43,6 +45,12 @@ export const CHAT_TOOLS: readonly ChatTool[] = [
   ...EXPOSURE_TOOLS,
   ...OWNERSHIP_TOOLS,
   ...RESOURCE_TOOLS,
+  ...PRODUCER_TOOLS,
+  ...TRADE_RULE_TOOLS,
+  // Rung 3 of the answer ladder plugs in here: a graph traversal tool from
+  // lib/graph (country → facilities → operators → owners → buyers). Its result
+  // should carry `buyers` / `ships_to` / `buys_from` lists so lib/chat-agent/
+  // ladder.ts counts those links as covered.
   ...SCENARIO_TOOLS,
   ...LIST_TOOLS,
   ...NUMBER_TOOLS,

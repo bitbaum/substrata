@@ -524,7 +524,7 @@ test('the prompt turns an empty lookup into a search or marked background, never
     context: readerContext({}),
     lookedUp: '[search_corpus] {"results":[]}\n\n[web_search] {"results":[{"title":"x"}]}',
     lookedUpEmpty: true,
-    webSearched: true,
+    web: 'found',
     tools: toolDefinitions(envWith({ web: async () => ({ status: 'nothing' as const }) })),
   });
   assert.match(searched, /answer from the web_search result above/);
