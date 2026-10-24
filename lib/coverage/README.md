@@ -18,6 +18,7 @@ that cannot be computed carries the reason.
 | `national.ts` | the national figure: USGS MCS, then WNA (uranium), then EIA — nearest year to the facility table, the gap stated |
 | `rows.ts` | each printed row once (`rowKey`); a capacity printed once for a group (Kazakh uranium: 16 ventures, 24,000 t) is one figure, never per operator |
 | `ratio.ts` | `coverageFor(iso2, resource)`, `coverageOf(iso2)` |
+| `display.ts` | the headline (`≥100%` when named capacity covers the national figure; the exact ratio stays in the working), the "check the row" flag naming the printed row behind a ratio above `IMPLAUSIBLE_RATIO` (3) — data unaltered — and a "Locations:" cell split one place per line |
 | `shares.ts` | rows with a named operator, operators with a stated owner, `ships_to` flows (no national export volume is held yet, so flows say so) |
 | `rules.ts` | the three inference rules below |
 

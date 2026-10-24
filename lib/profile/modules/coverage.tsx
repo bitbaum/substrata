@@ -1,4 +1,5 @@
 import { coverageOf, RATIO_CAVEAT, RATIO_LABEL, type Coverage } from '../../coverage/ratio';
+import { dominantRow, exactRatio, headline, splitLocations } from '../../coverage/display';
 import type { RowWorking } from '../../coverage/rows';
 import { codeHref } from '../../methods';
 import { formatValue } from '../../resources/format';
@@ -13,15 +14,12 @@ import type { ProfileModule } from '../types';
 // A paragraph of the working: plain flowing text (measure-lines is a grid, which
 // split a sentence and its link onto separate lines).
 const PARA = 'coverage-working';
-const pct = (ratio: number) => `${Math.round(ratio * 100)}%`;
 const unitOf = (unit: string) => UNIT_LABEL[unit] ?? unit;
 const amount = (value: number, unit: string) => `${formatValue(value)} ${unitOf(unit)}`;
 
 function RowLine({ row }: { row: RowWorking }) {
   const printed = row.printed.trim() ? `${row.printed.trim()} ${row.unit}` : 'no capacity printed';
-  const who = row.operators.length
-    ? `operated by ${row.operators.map((o) => o.name).join(', ')}`
-    : 'no stated operator';
+  const places = splitLocations(row.location);
   const counted =
     row.compared !== true
       ? `not compared: ${row.compared}`
@@ -32,8 +30,29 @@ function RowLine({ row }: { row: RowWorking }) {
           : 'listed, not named';
   return (
     <li>
-      <span className="text-fg-primary">{row.location || 'no place printed'}</span> —{' '}
-      {row.commodity}; {printed}; {who}. <span className="text-fg-tertiary">{counted}.</span>
+      <p>
+        <span className="text-fg-primary">
+          {places.length > 1
+            ? `${places.length} places, one capacity printed for all`
+            : places[0] || 'no place printed'}
+        </span>{' '}
+        — {row.commodity}; {printed}. <span className="text-fg-tertiary">{counted}.</span>
+      </p>
+      <p className="coverage-operators">
+        {row.operators.length
+          ? `Operator${row.operators.length === 1 ? '' : `s (${row.operators.length})`}: ${row.operators.map((o) => o.name).join(' · ')}`
+          : 'No stated operator'}
+      </p>
+      {places.length > 1 && (
+        <details className="coverage-places">
+          <summary>Locations ({places.length})</summary>
+          <ul>
+            {places.map((place, i) => (
+              <li key={i}>{place}</li>
+            ))}
+          </ul>
+        </details>
+      )}
     </li>
   );
 }
@@ -46,12 +65,15 @@ function Working({ c }: { c: Coverage }) {
         <>
           <p className={PARA}>
             {amount(c.named.capacity, c.unit)} named ÷ {amount(c.national.value, c.unit)} national ={' '}
-            {pct(c.ratio)}. All rows of this basis, named or not:{' '}
+            {exactRatio(c.ratio)} (exact). All rows of this basis, named or not:{' '}
             {amount(c.listed.capacity, c.unit)} ({c.listed.rows} row{c.listed.rows === 1 ? '' : 's'}
             ).
             {c.yearGap > 0 &&
               ` The facility table is for ${c.table?.year} and the national figure for ${c.national.year}: ${c.yearGap} year${c.yearGap === 1 ? '' : 's'} apart.`}
           </p>
+          {dominantRow(c) && (
+            <p className="coverage-working coverage-flag">{dominantRow(c)!.note}</p>
+          )}
         </>
       ) : null}
       {c.national && (
@@ -115,12 +137,18 @@ const coverage: ProfileModule<Coverage[]> = {
                     {c.label}
                     <span className="coverage-line">
                       {c.status === 'computed'
-                        ? `${RATIO_LABEL} · ${c.basis}`
+                        ? `${headline(c.ratio).note ?? RATIO_LABEL} · ${c.basis}`
                         : `Cannot be computed: ${c.reason}`}
                     </span>
+                    {dominantRow(c) && (
+                      <span className="coverage-line coverage-flag">
+                        Check the row: one printed figure dominates —{' '}
+                        {splitLocations(dominantRow(c)!.row.location)[0]}
+                      </span>
+                    )}
                   </span>
                   <span className="measure-country-meta">
-                    {c.status === 'computed' ? pct(c.ratio) : 'n/a'}
+                    {c.status === 'computed' ? headline(c.ratio).value : 'n/a'}
                   </span>
                 </summary>
                 <Working c={c} />
