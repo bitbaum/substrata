@@ -33,7 +33,23 @@ import {
 } from '../lib/entry/candidate';
 import instrumentsCandidates from './candidates/instruments.json';
 
-export type JurisdictionId = 'us' | 'eu' | 'cn' | 'jp' | 'kr' | 'tw' | 'nl' | 'gb' | 'de' | 'ch';
+import {
+  JURISDICTIONS,
+  isCuratedJurisdiction,
+  type JurisdictionId,
+} from './substrata-jurisdictions';
+
+export {
+  CURATED_JURISDICTIONS,
+  DERIVED_JURISDICTION_DETAIL,
+  JURISDICTIONS,
+  JURISDICTION_LABEL,
+  isJurisdictionId,
+  jurisdictionById,
+  type CuratedJurisdictionId,
+  type Jurisdiction,
+  type JurisdictionId,
+} from './substrata-jurisdictions';
 
 export type InstrumentKind =
   | 'export-control'
@@ -88,51 +104,6 @@ export interface Instrument {
   evidence?: 'candidate';
   readOn: string;
 }
-
-export interface Jurisdiction {
-  id: JurisdictionId;
-  name: string;
-  /** The name as it fits a tile, where the full one does not: "US", "EU", "UK". */
-  short?: string;
-  /** What this jurisdiction is, for the purposes of this map, in one line. */
-  detail: string;
-}
-
-export const JURISDICTIONS: readonly Jurisdiction[] = [
-  {
-    id: 'us',
-    short: 'US',
-    name: 'United States',
-    detail: 'Sets the export rules most of the chip chain is written against.',
-  },
-  {
-    id: 'eu',
-    short: 'EU',
-    name: 'European Union',
-    detail: 'Trade defence, dual-use controls, and the first broad AI statute.',
-  },
-  {
-    id: 'cn',
-    name: 'China',
-    detail: 'Holds the refining and magnet steps, and licenses their export.',
-  },
-  {
-    id: 'jp',
-    name: 'Japan',
-    detail: 'Chemistry and precision machinery the rest of the chain qualifies against.',
-  },
-  { id: 'kr', name: 'South Korea', detail: 'Memory and wafer capacity.' },
-  { id: 'tw', name: 'Taiwan', detail: 'Leading-edge foundry and advanced packaging.' },
-  { id: 'nl', name: 'Netherlands', detail: 'The lithography chokepoint sits here.' },
-  {
-    id: 'gb',
-    short: 'UK',
-    name: 'United Kingdom',
-    detail: 'Research base and grid connection reform.',
-  },
-  { id: 'de', name: 'Germany', detail: 'Optics, electrical steel and industrial gases.' },
-  { id: 'ch', name: 'Switzerland', detail: 'Where this project is written.' },
-];
 
 const READ = '2026-09-15';
 
@@ -507,28 +478,44 @@ export const RECOMMENDATIONS: readonly Recommendation[] = [
 
 // Lookups
 
-export const JURISDICTION_LABEL: Record<JurisdictionId, string> = Object.fromEntries(
-  JURISDICTIONS.map((j) => [j.id, j.name]),
-) as Record<JurisdictionId, string>;
+/** A rule that has taken effect in law: adopted, or already in force. */
+const ENACTED: readonly InstrumentStatus[] = ['adopted', 'in-force'];
 
 /**
- * The jurisdictions that actually have a page.
+ * Whether a jurisdiction sits in the policy lists: the table on /policy, the
+ * tiles, the map's links. The curated ten always do. A country taken from the
+ * map joins them only once an adopted or in-force rule is recorded under it,
+ * so a register of every country does not read as a map of rules about them.
+ */
+export function isListedJurisdiction(id: JurisdictionId): boolean {
+  return (
+    isCuratedJurisdiction(id) ||
+    INSTRUMENTS.some((i) => i.jurisdiction === id && ENACTED.includes(i.status))
+  );
+}
+
+/** The jurisdictions the policy lists show, curated ten first. */
+export const LISTED_JURISDICTIONS = JURISDICTIONS.filter((j) => isListedJurisdiction(j.id));
+
+/**
+ * The jurisdictions linked to as having a page.
  *
- * A jurisdiction only earns one once something is recorded under it, so ten
- * jurisdictions are defined and three are served. This set is the single fact:
+ * A listed jurisdiction is linked once something is recorded under it, so
+ * ten are curated and three are served. This set is the single fact:
  * `generateStaticParams` builds from it, and anything linking to a jurisdiction
  * asks it first rather than assuming. Germany is the case that proved the need
- * — a capital provider is German, and `/policy/de` does not exist.
+ * — a capital provider is German, and `/policy/de` is not linked. Any other
+ * jurisdiction's page still renders on request, saying nothing is recorded.
  */
 export const POLICY_PAGES: ReadonlySet<JurisdictionId> = new Set(
-  JURISDICTIONS.filter(
+  LISTED_JURISDICTIONS.filter(
     (j) =>
       INSTRUMENTS.some((i) => i.jurisdiction === j.id) ||
       RECOMMENDATIONS.some((r) => r.jurisdiction === j.id),
   ).map((j) => j.id),
 );
 
-/** Whether a jurisdiction can be linked to without producing a 404. */
+/** Whether a jurisdiction can be linked to as a page with something on it. */
 export function hasPolicyPage(jurisdiction: string): boolean {
   return POLICY_PAGES.has(jurisdiction as JurisdictionId);
 }

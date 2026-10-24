@@ -4,7 +4,7 @@
  * so it never goes stale: a box filled since the last run simply stops
  * producing a task.
  */
-import { JURISDICTIONS } from '@/config/substrata-policy';
+import { isJurisdictionId } from '@/config/substrata-jurisdictions';
 import { FACETS } from '@/lib/entry/candidate';
 import type { GapTask } from '@/lib/graph/types';
 import { labById } from '@/config/substrata-labs';
@@ -57,7 +57,6 @@ const KIND_ORDER: Record<DossierKind, number> = {
   science: 4,
 };
 const PRIORITY = new Map<string, number>(PRIORITY_COUNTRIES.map((iso2, i) => [iso2, i]));
-const KNOWN_JURISDICTIONS = new Set<string>(JURISDICTIONS.map((j) => j.id));
 
 /** Where a subject sits in the owner's country order; companies by their best jurisdiction. */
 function priorityOf(subject: Subject): number {
@@ -79,8 +78,10 @@ function blockedBy(def: BoxDefinition, subject: Subject): string | null {
     return `A person fills this box (${def.writeTo.command}); a data agent does not edit ${def.writeTo.file}.`;
   if (!(FACETS as readonly string[]).includes(facet))
     return `The "${facet}" facet is not in scripts/research/add.ts yet; skip until it is.`;
-  if (def.id === 'law_licensing' && !KNOWN_JURISDICTIONS.has(subject.key))
-    return `The instruments register has no jurisdiction "${subject.key}" yet; a person adds it to JURISDICTIONS in config/substrata-policy.ts first.`;
+  // Every map country is a jurisdiction (config/substrata-jurisdictions.ts);
+  // only a page off the map (a USGS-only row) still has none to write under.
+  if (def.id === 'law_licensing' && !isJurisdictionId(subject.key))
+    return `"${subject.key}" is not on the map, so the instruments register has no jurisdiction for it; a person adds the country to config/substrata-countries.ts first.`;
   return null;
 }
 
@@ -90,6 +91,7 @@ function instructionFor(t: Omit<DossierTask, 'instruction'>, def: BoxDefinition)
     `Task ${t.id}: ${t.missing}`,
     `Subject: ${t.name} (${t.entity}), page ${t.href}. Read the page first; do not add a row it already shows.`,
     `Box: ${t.label} — ${def.question} Now ${t.status} (${t.basis || 'nothing counted'}). Full means ${t.fullMeans}.`,
+    ...(def.record ? [`Record ${def.record}.`] : []),
     `Look in these sources, in this order, and nowhere else: ${t.allowedSources.map((s, i) => `${i + 1}. ${s}`).join(' ')}`,
   ];
   if (t.blockedBy) {

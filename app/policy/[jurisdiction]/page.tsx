@@ -8,36 +8,43 @@ import {
   INSTRUMENT_EFFECT_LABEL,
   INSTRUMENT_KIND_LABEL,
   INSTRUMENT_STATUS_LABEL,
-  JURISDICTIONS,
   POLICY_PAGES,
   instrumentsIn,
+  jurisdictionById,
   recommendationsIn,
-  type JurisdictionId,
 } from '@/config/substrata-policy';
 import { Empty, Heading, Page, Shell } from '@/components/portal/Shell';
 import { bottleneckHref } from '@/lib/links';
+import { correctionUrl } from '@/lib/site';
+import { countryHref } from '@/lib/world/pages';
 
 interface RouteParams {
   params: Promise<{ jurisdiction: string }>;
 }
 
+/**
+ * Built ahead: the pages with something on them. Every other jurisdiction
+ * (any country on the map) renders on request and says nothing is recorded.
+ */
 export function generateStaticParams(): Array<{ jurisdiction: string }> {
   return [...POLICY_PAGES].map((jurisdiction) => ({ jurisdiction }));
 }
 
+export const dynamicParams = true;
+
 export async function generateMetadata({ params }: RouteParams): Promise<Metadata> {
   const { jurisdiction } = await params;
-  const j = JURISDICTIONS.find((x) => x.id === jurisdiction);
+  const j = jurisdictionById(jurisdiction);
   return j ? { title: `${j.name} policy`, description: j.detail } : {};
 }
 
 export default async function JurisdictionPage({ params }: RouteParams) {
   const { jurisdiction } = await params;
-  const j = JURISDICTIONS.find((x) => x.id === jurisdiction);
+  const j = jurisdictionById(jurisdiction);
   if (!j) notFound();
 
-  const instruments = instrumentsIn(j.id as JurisdictionId);
-  const recommendations = recommendationsIn(j.id as JurisdictionId);
+  const instruments = instrumentsIn(j.id);
+  const recommendations = recommendationsIn(j.id);
   const slowing = instruments.filter((i) => i.effect === 'tightens').length;
   const speeding = instruments.filter((i) => i.effect === 'loosens').length;
   const mixed = instruments.length - slowing - speeding;
@@ -77,7 +84,25 @@ export default async function JurisdictionPage({ params }: RouteParams) {
         <section className="mb-12">
           <Heading index="01" title="Rules tracked here" />
           {instruments.length === 0 ? (
-            <Empty what="Nothing researched for this jurisdiction yet." />
+            <Empty
+              what={`No rule from ${j.name} is recorded here yet.`}
+              next="That is a gap in this register, not a finding that it has no rules. A rule is added with its source and one sentence quoted from it."
+              action={
+                <>
+                  <a
+                    href={correctionUrl(`policy, ${j.name}`, {
+                      problem: `A rule ${j.name} applies that the register does not hold yet.`,
+                    })}
+                    rel="noopener noreferrer"
+                  >
+                    Send a source for a rule here
+                  </a>
+                  {j.derived && (
+                    <Link href={countryHref(j.id)}>What else is known about {j.name}</Link>
+                  )}
+                </>
+              }
+            />
           ) : (
             <ul className="divide-y divide-subtle border-y border-subtle">
               {instruments.map((instrument) => (

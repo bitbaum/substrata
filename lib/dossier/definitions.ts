@@ -83,6 +83,8 @@ export interface BoxDefinition {
   thresholds: Thresholds;
   /** The core row in words, when `thresholds.core` is set. */
   coreNeed?: string;
+  /** What one row to record is, for the task text, when the unit alone does not say. */
+  record?: string;
   /** Source families a reader accepts for this box, best first. */
   allowedSources: readonly string[];
   writeTo: WriteTo;

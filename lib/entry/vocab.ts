@@ -9,6 +9,7 @@ import { z } from 'zod';
 
 import { COUNTRIES } from '@/config/substrata-countries';
 import { COVERAGE } from '@/config/substrata-coverage';
+import { isJurisdictionId, type JurisdictionId } from '@/config/substrata-jurisdictions';
 import {
   INDUSTRIES,
   TECHNOLOGIES,
@@ -47,6 +48,18 @@ export const countryPlace = z
   .regex(/^[a-z]{2}$/, 'a lower-case ISO 3166-1 alpha-2 code')
   .refine((code) => resolveIn('country', code) !== undefined, 'not a country entity on this site')
   .describe('Lower-case ISO 3166-1 alpha-2 of a country entity, e.g. "ne".');
+
+/**
+ * An instrument's jurisdiction: one of the curated ten ("eu" among them) or
+ * any country on the map by its lower-case ISO2. A refinement, not an enum,
+ * so the printed shape stays short; the cast only names what the check proved.
+ */
+export const jurisdictionId = z
+  .string()
+  .regex(/^[a-z]{2}$/, 'a lower-case ISO 3166-1 alpha-2 code, or "eu"')
+  .refine(isJurisdictionId, 'not a jurisdiction in config/substrata-jurisdictions.ts')
+  .transform((code) => code as JurisdictionId)
+  .describe('Lower-case ISO2 of the country that issued it ("kz", "cl"), or "eu".');
 
 const BOTTLENECK_NAME_SET = new Set(BOTTLENECK_NAMES);
 export const bottleneckName = z

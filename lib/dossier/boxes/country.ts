@@ -150,11 +150,13 @@ export const COUNTRY_BOXES: readonly BoxDefinition[] = [
     units: 'rules on record',
     thresholds: { full: LAW_FULL, thin: 1, core: LAW_CORE },
     coreNeed: 'how it licenses extraction or processing (a licence regime, permit or procedure)',
+    record:
+      "one instrument per row, issued by this country: the subsoil or mining law that licenses extraction, a licence regime or permit for processing, or an export ban, quota, licence or duty on a mineral. Jurisdiction is the country's lower-case ISO2; the quote is a sentence from the law or the issuing body's page",
     allowedSources: [
-      'the national mining code or subsoil law, official gazette',
-      'ministry or regulator page for licences',
-      'OECD Inventory of Export Restrictions on Critical Raw Materials',
-      'official trade notice or decree',
+      'the law, decree or order as published in the official gazette (subsoil or mining code, licensing regulation, export ban)',
+      "the issuing ministry's or regulator's own page for the licence or the measure",
+      'an OECD Inventory of Export Restrictions on Critical Raw Materials entry, recorded with the legal document it cites as the source',
+      "a law firm's summary of the primary law, only as a secondary source: primary false, naming the law it summarises, and only where none of the above is reachable",
     ],
     writeTo: writeTo('instruments'),
     example: {
