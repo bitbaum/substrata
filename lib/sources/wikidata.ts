@@ -143,11 +143,17 @@ export function wikidataDrafts(
     // owned by / parent organization / operator: the value owns or operates the item.
     const from = value.id!;
     const to = item.id!;
+    const agreed = agrees(edgeKey(from, p.type, to));
     drafts.push({
       from,
       to,
       type: p.type,
-      grade: agrees(edgeKey(from, p.type, to)) ? 'stated' : 'lead',
+      grade: agreed ? 'stated' : 'lead',
+      ...(agreed
+        ? {}
+        : {
+            note: 'Wikidata is edited by anyone, and no second source in the graph says this yet.',
+          }),
       asOf: today,
       url,
       quote,

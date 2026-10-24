@@ -59,7 +59,16 @@ test('comtrade: Kazakhstan’s uranium exports become ships_to rows with the net
     ],
   );
   assert.ok(r.rows[0].source.url.endsWith('partnerCode=156'));
-  assert.match(r.rows[0].source.quote, /^"cmdCode":"284410".*"netWgt":11224600\.0$/);
+  // Reporter, partner, HS code and weight in one literal span of the fetched record.
+  assert.match(
+    r.rows[0].source.quote,
+    /^"reporterCode":398,.*"partnerCode":156,.*"cmdCode":"284410".*"netWgt":11224600\.0$/,
+  );
+  assert.ok(fixtureText('comtrade-kz-284410-2024-p156.json').includes(r.rows[0].source.quote));
+  assert.match(r.rows[0].source.locator!, /reporterCode 398 = KZ, partnerCode 156 = CN/);
+  assert.equal(r.rows[0].volume?.commodity, 'HS 284410 natural uranium and compounds');
+  assert.match(r.rows[0].note!, /compound’s mass, not uranium content/);
+  assert.equal(r.rows[0].submittedBy.model, 'deterministic-adapter');
   everyRowIsAGoodCandidate(r.rows, 'comtrade');
 });
 

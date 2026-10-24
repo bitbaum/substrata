@@ -19,6 +19,7 @@ import { extractReadableText } from '@bitbaum/ai-kit/web';
 
 import { FACETS, type CandidateCommon } from '../lib/entry/candidate';
 import { FACET_SPECS } from '../lib/entry/schemas';
+import { shapeOf } from '../lib/entry/shape';
 import { COVERAGE } from '../config/substrata-coverage';
 import { verificationFor, VERIFICATION_LABEL } from '../config/substrata-evidence';
 import { EXIT, run, type PageRead } from '../scripts/research/add';
@@ -182,4 +183,45 @@ test('add.ts exits 2 on a schema failure and 3 on an unreachable page', async ()
     log: () => {},
   });
   assert.equal(code, EXIT.unreachable);
+});
+
+test('submittedBy.model takes "unrecorded" and the adapter value, and still the old free strings', () => {
+  const schema = FACET_SPECS.relations.schema;
+  const base = {
+    evidence: 'candidate',
+    asOf: '2024',
+    from: 'country:kz',
+    to: 'country:cn',
+    type: 'ships_to',
+    grade: 'stated',
+    source: { url: 'https://example.org/x', quote: 'q'.repeat(30), readOn: '2026-10-24' },
+  };
+  for (const model of ['unrecorded', 'deterministic-adapter', 'not recorded', 'fixture'])
+    assert.ok(
+      schema.safeParse({ ...base, submittedBy: { agent: 'a', model, runId: 'r' } }).success,
+    );
+  const shape = shapeOf('relations');
+  assert.match(shape, /model: string; .*Write "unrecorded"/);
+  assert.doesNotMatch(shape, /model id/i, 'the shape no longer asks for a model identifier');
+});
+
+test('a quote over 400 characters passes only on an adapter row (with provenance)', () => {
+  const schema = FACET_SPECS.relations.schema;
+  const row = {
+    evidence: 'candidate',
+    asOf: '2024',
+    from: 'country:kz',
+    to: 'country:cn',
+    type: 'ships_to',
+    grade: 'stated',
+    source: { url: 'https://example.org/x', quote: 'q'.repeat(600), readOn: '2026-10-24' },
+    submittedBy: { agent: 'a', model: 'unrecorded', runId: 'r' },
+  };
+  assert.equal(schema.safeParse(row).success, false, 'by hand: 400 at most');
+  const provenance = {
+    adapter: 'comtrade',
+    fetchedAt: '2026-10-24T00:00:00.000Z',
+    url: 'https://example.org/x',
+  };
+  assert.ok(schema.safeParse({ ...row, provenance }).success);
 });

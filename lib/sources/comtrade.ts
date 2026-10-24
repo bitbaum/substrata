@@ -8,9 +8,17 @@
  * and value". It maps exactly onto `country:<reporter> ships_to
  * country:<partner>` with the net weight as the volume. To make the quote
  * unambiguous each partner is read from its own URL (`partnerCode=` in the
- * query), whose one record is quoted from `"cmdCode"` through `"netWgt"`.
- * A weight Comtrade marks as estimated is a `lead`.
+ * query), whose one record is quoted from `"reporterCode"` through
+ * `"netWgt"` — reporter, flow, partner, HS code and weight in one literal
+ * span (about 600 characters, which the relation schema allows an adapter's
+ * record). The preview leaves `partnerDesc` null, so the partner is its M49
+ * code; the locator names both countries.
+ *
+ * The net weight is the mass of the goods declared under the HS code — for
+ * HS 2844 the uranium COMPOUND, not its uranium content — and every row's
+ * note says so. A weight Comtrade marks as estimated is a `lead`.
  */
+import { RECORD_QUOTE_MAX } from '@/lib/entry/relation-schema';
 import { countryByIso2 } from './endpoints';
 import { readDocument, type DocumentDeps, type DocumentRead } from './document';
 import { finalise, type AdapterResult, type Draft, type Skipped } from './proposal';
@@ -23,7 +31,7 @@ export const COMTRADE_PARTNERS =
 
 /** One HS code per resource: the form a country mostly ships it in. Edit with a reason. */
 export const HS_FOR_RESOURCE: Record<string, { code: string; what: string }> = {
-  uranium: { code: '284410', what: 'natural uranium and its compounds' },
+  uranium: { code: '284410', what: 'natural uranium and compounds' },
   copper: { code: '7403', what: 'refined copper, unwrought' },
   lithium: { code: '283691', what: 'lithium carbonates' },
   nickel: { code: '7502', what: 'unwrought nickel' },
@@ -52,6 +60,7 @@ export interface ComtradeQuery {
 
 export interface ComtradeRecord {
   reporterIso2: string;
+  reporterCode: number;
   partnerIso2: string | null;
   partnerCode: number;
   period: string;
@@ -117,6 +126,7 @@ export async function fetchComtradeExports(
     if (!row) continue;
     records.push({
       reporterIso2: q.reporterIso2.toLowerCase(),
+      reporterCode,
       partnerIso2: iso.get(row.partnerCode) ?? null,
       partnerCode: row.partnerCode,
       period: q.period,
@@ -128,6 +138,20 @@ export async function fetchComtradeExports(
     });
   }
   return { records, docs };
+}
+
+/** What the HS code covers, as the volume's commodity names it: 'HS 284410 natural uranium and compounds'. */
+export function hsCommodity(hs: string): string {
+  const what = Object.values(HS_FOR_RESOURCE).find((h) => h.code === hs)?.what;
+  return what ? `HS ${hs} ${what}` : `HS ${hs}`;
+}
+
+/** What the weight measures, for the reviewer. */
+export function weightNote(hs: string, estimated: boolean): string {
+  const what = hs.startsWith('2844')
+    ? 'HS 2844 covers uranium compounds, so this is the compound’s mass, not uranium content'
+    : 'the mass of the goods as declared, not the content of any one element in them';
+  return `Net weight: ${what}.${estimated ? ' Comtrade marks this weight as estimated, so the row is a lead.' : ''}`;
 }
 
 /** Drafts for the records whose two countries are on the site; the rest skipped with the reason. */
@@ -142,12 +166,14 @@ export function comtradeDrafts(
     const from = countryByIso2(r.reporterIso2);
     const to = r.partnerIso2 ? countryByIso2(r.partnerIso2) : undefined;
     const doc = docs.get(r.url);
-    const quote = doc?.ok ? jsonSpan(doc.text, '"cmdCode":', '"netWgt":') : null;
+    const quote = doc?.ok
+      ? jsonSpan(doc.text, '"reporterCode":', '"netWgt":', 0, RECORD_QUOTE_MAX)
+      : null;
     if (!from || !to) skipped.push({ record: label, reason: 'a country the site has no page for' });
     else if (!quote)
       skipped.push({
         record: label,
-        reason: 'no quotable span of 20–400 characters in the record',
+        reason: `no quotable span of 20–${RECORD_QUOTE_MAX} characters in the record`,
       });
     else
       drafts.push({
@@ -158,8 +184,14 @@ export function comtradeDrafts(
         asOf: r.period,
         url: r.url,
         quote,
-        locator: `UN Comtrade record, partner code ${r.partnerCode}`,
-        volume: { value: r.netWeightKg, unit: 'kg', period: r.period, commodity: `HS ${r.hs}` },
+        locator: `UN Comtrade record: reporterCode ${r.reporterCode} = ${r.reporterIso2.toUpperCase()}, partnerCode ${r.partnerCode} = ${r.partnerIso2!.toUpperCase()} (M49)`,
+        volume: {
+          value: r.netWeightKg,
+          unit: 'kg',
+          period: r.period,
+          commodity: hsCommodity(r.hs),
+        },
+        note: weightNote(r.hs, r.estimated),
         label,
       });
   }

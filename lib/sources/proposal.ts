@@ -12,6 +12,7 @@
  * fetched text. add.ts then re-reads the URL and checks again on --write.
  */
 import type { RelationCandidate, SubmittedBy } from '@/lib/entry/candidate';
+import { MODEL_ADAPTER } from '@/lib/entry/common-schema';
 import { RelationEntry } from '@/lib/entry/relation-schema';
 import { verbatimIn } from '@/lib/event-rules';
 import type { DocumentRead } from './document';
@@ -45,6 +46,8 @@ export interface Draft {
   volume?: RelationCandidate['volume'];
   /** Where in the source (a table row), when not a PDF page. */
   locator?: string;
+  /** For the reviewer: what a figure measures, or why the row is a lead. */
+  note?: string;
   /** What the row came from, for the skipped list. */
   label: string;
 }
@@ -90,7 +93,11 @@ export function finalise(
       });
       continue;
     }
-    const grade = ctx.ceiling === 'lead' ? 'lead' : d.grade;
+    const capped = ctx.ceiling === 'lead' && d.grade !== 'lead';
+    const grade = capped ? 'lead' : d.grade;
+    const note = capped
+      ? [d.note, `${ctx.adapter} proposes leads only.`].filter(Boolean).join(' ')
+      : d.note;
     const locator = found.locator ?? d.locator;
     const row = {
       evidence: 'candidate',
@@ -104,6 +111,7 @@ export function finalise(
       grade,
       ...(d.share ? { share: d.share } : {}),
       ...(d.volume ? { volume: d.volume } : {}),
+      ...(note ? { note } : {}),
     };
     const parsed = RelationEntry.safeParse(row);
     if (!parsed.success) {
@@ -120,5 +128,10 @@ export function finalise(
 
 /** The `submittedBy` an adapter run carries: no model wrote it. */
 export function adapterRun(adapter: string, runId: string): SubmittedBy {
-  return { agent: `source-adapter:${adapter}`, model: 'none (deterministic adapter)', runId };
+  return { agent: `source-adapter:${adapter}`, model: MODEL_ADAPTER, runId };
+}
+
+/** Why a row is a lead, for the dry run: its note, or the plain fact when it has none. */
+export function whyLead(row: RelationCandidate): string {
+  return row.note ?? `${row.provenance?.adapter ?? 'its writer'} graded it lead`;
 }
