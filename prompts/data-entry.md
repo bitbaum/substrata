@@ -101,8 +101,9 @@ cut from the fetched text. Your job is then to check, not to type. In order:
    **Leads are not written by default.** The dry run prints `lead because: …`
    under every lead, and `rows.json` and `--write` hold only `stated` rows.
    Pass `--include-leads` only when the task asks for leads; a lead never fills
-   a box. A row already in the corpus or the sidecar is skipped, so re-running
-   a task proposes only what is new.
+   a box. A row already in the corpus or the sidecar is skipped — a trade flow
+   is matched by from, type, to, asOf and HS code, not by its wording — so
+   re-running a task proposes only what is new.
 
 5. **Then the box by hand** for whatever the adapters skipped, from the task's
    allowed sources, with the normal rules below.
