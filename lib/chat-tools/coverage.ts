@@ -8,6 +8,7 @@
  * and both sources; a resource that cannot be computed travels with the reason.
  */
 import { SERIES_SPECS } from '../coverage/basis';
+import { dominantRow, exactRatio, headline } from '../coverage/display';
 import {
   coverageFor,
   coverageOf,
@@ -81,7 +82,10 @@ function shaped(c: Coverage) {
   return {
     resource: c.label,
     computed: true,
-    ratio: `${Math.round(c.ratio * 100)}%`,
+    ratio: headline(c.ratio).value,
+    ...(headline(c.ratio).note ? { ratio_means: headline(c.ratio).note } : {}),
+    exact_ratio: exactRatio(c.ratio),
+    ...(dominantRow(c) ? { check: dominantRow(c)!.note } : {}),
     ratio_is: RATIO_LABEL,
     caveat: RATIO_CAVEAT,
     basis: c.basis,
