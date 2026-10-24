@@ -67,10 +67,14 @@ test('the layout check draws the table the code builds today', async () => {
   assert.deepEqual(table, fixture, 'regenerate scripts/ux/fixtures/kz-uranium-table.json');
 });
 
-test('three rows or fewer stay a list; a table is never sent to the model', async () => {
-  // Kazakhstan's rare earths: one plant, read as text.
-  const small = await tableFor('Kazakhstan', 'rare earths');
-  assert.equal(small.table, undefined);
+test('every facility answer carries its table, one row or many; never sent to the model', async () => {
+  // Kazakhstan's rare earths: one plant — a table of one row, named in the summary.
+  const small = (await tableFor('Kazakhstan', 'rare earths')) as {
+    table?: AnswerTable;
+    summary?: string[];
+  };
+  assert.equal(small.table?.rows.length, 1);
+  assert.ok(small.summary?.some((s) => s.startsWith('Operators, as printed: ')));
   const ledger = emptyLedger();
   const { result } = await runTool(
     'producers_in',

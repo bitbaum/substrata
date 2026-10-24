@@ -12,8 +12,15 @@ import type { AnswerTable, SharedCell, TableRow } from '../chat/answer-table';
 import type { Facility } from '../resources/producers';
 import { capacityOf, readCompanies } from './producers';
 
-/** More rows than this and the answer carries a table instead of a list. */
-export const TABLE_MIN_ROWS = 4;
+/**
+ * Every facility answer carries its table, however few the rows: the
+ * operators, owners, places and capacities are rendered from the rows in
+ * code, so they reach the reader whatever the prose says (seen live, Russia,
+ * 2026-10-24: three nickel rows and one rare-earth row, no table, and the
+ * prose that named them was dropped as uncited). How many rows show before
+ * "Show all" is the drawing's business (TABLE_PREVIEW_ROWS), not this one's.
+ */
+export const TABLE_MIN_ROWS = 1;
 
 export function facilityTable(opts: {
   country: string;

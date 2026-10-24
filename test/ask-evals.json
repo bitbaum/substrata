@@ -579,8 +579,10 @@
     "expectedGaps": [],
     "recordedTool": "test/fixtures/ru-rare-earth-nickel-producers-in-2026-10-24.json",
     "recordedAnswer": "test/fixtures/ask-live-ru-rare-earth-nickel-2026-10-24.md",
-    "noTable": true,
-    "mustKeep": ["**OAO Apatit**", "300000 metric tons"],
+    "mustKeep": [
+      "Operators, as printed: OAO Apatit.",
+      "Operators, as printed: OAO Ufaleynickel, PAO GMK Norilskiy Nickel (Nornickel) and ZAO NPK Geotechnologiya."
+    ],
     "mustDrop": ["You are right", "read_as", "producers_in", "Rewriting below", "`companies`"]
   },
   {
@@ -595,8 +597,10 @@
     "expectedGaps": [],
     "recordedTool": "test/fixtures/ru-rare-earth-nickel-producers-in-2026-10-24.json",
     "recordedAnswer": "test/fixtures/ask-live-ru-rare-earth-nickel-2026-10-24.txt",
-    "noTable": true,
-    "mustKeep": ["OAO Apatit", "300000 metric tons"],
+    "mustKeep": [
+      "Operators, as printed: OAO Apatit.",
+      "Operators, as printed: OAO Ufaleynickel, PAO GMK Norilskiy Nickel (Nornickel) and ZAO NPK Geotechnologiya."
+    ],
     "mustDrop": ["You are right", "read_as", "companies cell", "null"],
     "recordedSlice": ["Thought for", "\nCopy\nListen"],
     "linksLost": true
@@ -637,5 +641,26 @@
       "Outside the corpus — Many Chilean brine producers have long-term supply agreements with various battery manufacturers and trading companies; however, these specific buyer relationships are not tracked in the Substrata records provided."
     ],
     "leadsKept": [1, 2, 3, 4, 5]
+  },
+  {
+    "id": "russia-rare-earth-nickel-after-deny-live",
+    "facet": "facilities",
+    "question": "Which companies produce rare earths and nickel in Russia?",
+    "mustMention": ["country:ru"],
+    "expectedTools": ["producers_in"],
+    "expectedHits": [],
+    "wall": false,
+    "firstTool": "producers_in",
+    "expectedGaps": [],
+    "recordedTool": "test/fixtures/ru-rare-earth-nickel-producers-in-2026-10-24.json",
+    "recordedAnswer": "test/fixtures/ask-live-ru-rare-earth-nickel-after-deny-2026-10-24.txt",
+    "recordedSlice": ["Thought for", "\nCopy\nListen"],
+    "operatorsNamed": true,
+    "mustDrop": [
+      "No owner is printed for the other three rows",
+      "would settle it",
+      "What is missing",
+      "USGS Minerals Yearbook 2022, Russia chapter"
+    ]
   }
 ]
