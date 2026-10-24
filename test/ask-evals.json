@@ -695,5 +695,22 @@
     "operatorsNamed": true,
     "mustKeep": ["Note: USGS prints no capacity for either row, and capacity is not production."],
     "mustDrop": ["*(Note", "(Note"]
+  },
+  {
+    "id": "zimbabwe-lithium-live",
+    "facet": "facilities",
+    "question": "Which companies mine lithium in Zimbabwe?",
+    "mustMention": ["country:zw"],
+    "expectedTools": ["producers_in"],
+    "expectedHits": [],
+    "wall": false,
+    "firstTool": "producers_in",
+    "expectedGaps": [],
+    "recordedTool": "test/fixtures/zw-lithium-producers-in-2026-10-24.json",
+    "recordedAnswer": "test/fixtures/ask-live-zw-lithium-2026-10-24.txt",
+    "recordedSlice": ["Thought for", "\nAustralia\n92,000"],
+    "operatorsNamed": true,
+    "mustKeep": ["Capacity is capacity, not production"],
+    "mustDrop": ["the operator shown in the table below is:"]
   }
 ]

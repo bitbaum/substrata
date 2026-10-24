@@ -126,3 +126,27 @@ test('what a cut leaves behind is tidied: pointers, unmatched brackets, a lone e
     ].join('\n'),
   );
 });
+
+test('the last leftovers: an announcement of nothing, and a "(source)" on a gap', () => {
+  const answer = [
+    'As recorded in the USGS Minerals Yearbook 2019, the operator shown in the table below is:',
+    '',
+    'Capacity is capacity, not production.',
+    '',
+    "The buyers of Kazakhstan's uranium output are not in our sources ([source](https://example.org/x)).",
+    '',
+    'These are unchecked web pages, not part of the corpus:',
+    '- [W1] [A page](https://example.org/a) — reports a buyer.',
+  ].join('\n');
+  assert.equal(
+    defaultDeny(answer, ctx).answer,
+    [
+      'Capacity is capacity, not production.',
+      '',
+      "The buyers of Kazakhstan's uranium output are not in our sources.",
+      '',
+      'These are unchecked web pages, not part of the corpus:',
+      '- [W1] [A page](https://example.org/a) — reports a buyer.',
+    ].join('\n'),
+  );
+});
