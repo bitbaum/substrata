@@ -1,26 +1,21 @@
 /**
  * Scoring: name beats other spellings beats body, with term frequency, idf,
- * phrase-level bonuses and a per-type weight.
+ * phrase-level bonuses, a bonus when a run of the query IS the name, and a
+ * per-kind weight — the last two shared with retrieval (`lib/rank-priority.ts`).
  */
-import type { SearchType } from '../search-types';
+import {
+  HEADLINE_KINDS,
+  HEADLINE_SHARE,
+  NAMED_TERM_BONUS,
+  kindWeight,
+  namedShare,
+} from '../rank-priority';
 import type { Indexed, SearchIndex } from './build';
 import type { Expansion } from './expand';
 
 const NAME = 10;
 const AKA = 7;
 const BODY = 1.5;
-
-/** How much a type's match is worth, relative to an entity. */
-const TYPE_WEIGHT: Partial<Record<SearchType, number>> = {
-  bottleneck: 1.1,
-  glossary: 0.9,
-  note: 0.9,
-  capital: 0.9,
-  facility: 0.9,
-  loop: 0.9,
-  talent: 0.9,
-  event: 0.8,
-};
 
 export function idf(index: SearchIndex, word: string): number {
   return Math.log(1 + index.rankDocs / (index.rankDf.get(word) ?? 1));
@@ -38,9 +33,11 @@ function scoreToken(index: SearchIndex, d: Indexed, expansions: Expansion[]) {
   let best = 0;
   let inName = false;
   const matched: string[] = [];
+  // A headline word is never "in the name": it earns no name bonuses below.
+  const headline = HEADLINE_KINDS.has(d.doc.type);
   for (const { word, weight = 0 } of expansions) {
     let field = 0;
-    if (d.name.has(word)) field = NAME;
+    if (d.name.has(word)) field = headline ? NAME * HEADLINE_SHARE : NAME;
     else if (d.aka.has(word)) field = AKA;
     const tf = d.body.get(word) ?? 0;
     const body = tf ? BODY * (1 + Math.log(tf)) : 0;
@@ -87,8 +84,10 @@ export function scoreDoc(
   // Every word in the name, and a name that is mostly those words, reads as "this is it".
   if (inName === tokens.length) score += 8;
   score += (inName / d.nameLength) * 3;
+  // A run of the query that IS this record's name: the thing, not a page about it.
+  if (phrase) score += NAMED_TERM_BONUS * namedShare(d.keys, phrase.split(' '));
   // A partial match is ranked by how much of the query it covers first.
   if (!requireAll) score *= hitCount / tokens.length;
-  score *= (TYPE_WEIGHT[d.doc.type] ?? 1) * (d.doc.weight ?? 1);
+  score *= kindWeight(d.doc.type) * (d.doc.weight ?? 1);
   return { score, words: matched, inName };
 }

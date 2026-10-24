@@ -4,6 +4,7 @@
  * from static config and built once per process.
  */
 import { createVocabulary, type Vocabulary } from '@bitbaum/searchkit';
+import { nameKeys } from '../rank-priority';
 import { searchDocuments, type SearchDoc } from './corpus';
 import { words } from './text';
 
@@ -16,6 +17,8 @@ export interface Indexed {
   body: Map<string, number>;
   normTitle: string;
   normAka: string[];
+  /** Name, head of the name and other spellings, as word runs (`lib/rank-priority.ts`). */
+  keys: string[];
 }
 
 export interface SearchIndex {
@@ -62,6 +65,7 @@ export function buildIndex(documents: SearchDoc[]): SearchIndex {
       body,
       normTitle: nameWords.join(' '),
       normAka: doc.aka.map(normPhrase),
+      keys: nameKeys(doc.title, doc.aka, words),
     };
   });
   return { docs, df, rankDf, rankDocs, vocab: createVocabulary(df) };

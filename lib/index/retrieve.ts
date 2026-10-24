@@ -9,9 +9,14 @@
  * the best hit, so the in-process ranking is the database ranking minus
  * vectors and tests on a laptop with no DATABASE_URL rank the way the site does.
  *
+ * The word score is then weighted by kind and lifted when a run of the
+ * question IS an entity's name, by the same rules as the ⌘K search
+ * (`lib/rank-priority.ts`): a material's own page outranks the events about it.
+ *
  * `rank` is the generic part (chunks in, hits out) and reads no config; only
  * `retrieve` binds it to this corpus's chunks.
  */
+import { NAMED_TERM_LIFT, kindWeight, nameKeys, namedShare } from '../rank-priority';
 import { foldedWords, scoreDocuments, type ResearchDocument } from '../research-index';
 import { recency, type Chunk, type Facet } from './chunk';
 import { buildChunks } from './build';
@@ -87,6 +92,23 @@ export function queryWords(question: string): string[] {
   return [...new Set(words)].filter((w) => w.length > 1 && !STOP.has(w));
 }
 
+/** A text's words as `scoreDocuments` reads them, in order, for name runs. */
+function orderedWords(text: string): string[] {
+  return queryWords(text).flatMap((w) => [...foldedWords(w)]);
+}
+
+/**
+ * The word score, weighted by the chunk's kind (an event chunk has none and
+ * is weighted as `event`), and lifted when it is an entity's own chunk and a
+ * run of the question is that entity's name. Only `entity` chunks carry a
+ * name: a derived chunk's title ("Gallium, refined in China") is a label.
+ */
+export function prioritised(chunk: Chunk, raw: number, question: readonly string[]): number {
+  const named =
+    chunk.facet === 'entity' ? namedShare(nameKeys(chunk.title, [], orderedWords), question) : 0;
+  return raw * kindWeight(chunk.kind ?? chunk.facet) * (1 + NAMED_TERM_LIFT * named);
+}
+
 const documentsOf = new WeakMap<readonly Chunk[], ResearchDocument[]>();
 
 function asDocuments(chunks: readonly Chunk[]): ResearchDocument[] {
@@ -120,11 +142,18 @@ export function rank(
   const byId = new Map(chunks.map((c) => [c.id, c]));
   const words = queryWords(question);
   const wanted = [...foldedWords(words.join(' '))];
-  const scored = scoreDocuments(asDocuments(chunks), words).filter((s) => s.score >= MIN_LEXICAL);
+  const ordered = orderedWords(question);
+  const scored = scoreDocuments(asDocuments(chunks), words)
+    .filter((s) => s.score >= MIN_LEXICAL)
+    .map((s) => ({
+      ...s,
+      raw: s.score,
+      score: prioritised(byId.get(s.document.id)!, s.score, ordered),
+    }));
   const best = Math.max(0, ...scored.map((s) => s.score));
   const lexicalWeight = WEIGHTS.lexical + WEIGHTS.cosine;
   const hits: Hit[] = [];
-  for (const { document, score } of scored) {
+  for (const { document, score, raw } of scored) {
     const chunk = byId.get(document.id)!;
     if (opts.facets && !opts.facets.includes(chunk.facet)) continue;
     const lexical = best > 0 ? score / best : 0;
@@ -132,7 +161,7 @@ export function rank(
     hits.push({
       chunk,
       lexical,
-      raw: score,
+      raw,
       matched: 0,
       score:
         lexicalWeight * lexical +
