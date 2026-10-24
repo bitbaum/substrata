@@ -33,7 +33,8 @@ import {
   type TableFacts,
 } from './table-guard';
 import { openWithSummary, tableProse } from './table-prose';
-import { dropUncited, tableEntityWords, uncitedClaims, webCountIn } from './uncited';
+import { withoutInternals } from './internal';
+import { dropUncited, oneGapEach, tableEntityWords, uncitedClaims, webCountIn } from './uncited';
 import type { ModelTurn } from './turn';
 
 export async function checkAnswer(opts: {
@@ -118,7 +119,9 @@ export async function checkAnswer(opts: {
  * - with a code table shown, the computed summary opens the answer and
  *   nothing of the rows is redone (table-prose.ts);
  * - nothing made up: an uncited claim on a missing link, or about a firm the
- *   table names, gives way to the gap sentence (uncited.ts).
+ *   table names, gives way to the gap sentence (uncited.ts);
+ * - the reader's words only: no tool or field names, no reply to a
+ *   send-back (internal.ts).
  */
 export function finishInCode(
   answer: string,
@@ -132,5 +135,6 @@ export function finishInCode(
     webCount: opts.webCount,
     summary: facts?.summary,
   });
-  return dropUncited(shaped, claims, gaps);
+  // And in the reader's words only: no tool, no field, no reply to a send-back (internal.ts).
+  return withoutInternals(oneGapEach(dropUncited(shaped, claims, gaps), gaps));
 }

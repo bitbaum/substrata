@@ -201,7 +201,11 @@ test('the Kazakhstan question: web searched for the buyers, the wall sent back, 
   assert.match(systems[0], /The buyers of Kazakhstan's uranium output are not in our sources/);
   assert.match(systems[0], /unchecked leads \[W#\]/);
   assert.equal(calls, 2, 'the wall went back once');
-  assert.match(asks[1], /the producers_in rows above carry them/);
+  assert.match(asks[1], /the USGS facility table above names them/);
+  assert.ok(
+    !/producers_in|`companies`|read_as/.test(asks[1]),
+    'the send-back names no tool or field',
+  );
   // The rows are the table's (built in code); the prose's uncited retelling of one
   // goes, and the computed summary opens the answer (table-prose.ts, uncited.ts).
   assert.ok(

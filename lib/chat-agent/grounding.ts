@@ -14,7 +14,7 @@
  * in a sentence marked "Outside the corpus" are never questioned.
  */
 import type { ChatMessage } from '@bitbaum/ai-kit';
-import type { ModelTurn } from './turn';
+import { REVISION_RULE, type ModelTurn } from './turn';
 
 /** A figure as written: digits with separators, an optional decimal, and its unit or %. */
 const FIGURE =
@@ -201,7 +201,7 @@ export async function reviseUnsupported(opts: {
         { role: 'assistant', content: answer },
         {
           role: 'user',
-          content: `Check before I read this: these figures in your answer appear in none of the looked-up rows, or are written in a unit or a form the row does not use: ${figures.join(', ')}. Rewrite the whole answer: a figure from a row is copied exactly as the row prints it ("50%", never "50 %"; "24000", never "24 000"), a quantity exactly as its \`display\` gives it — same number, same unit, never converted or abbreviated; a figure from no row is removed — or, only if it is well-established general knowledge, kept in a sentence that starts "Outside the corpus —". Keep every figure that IS in the rows, with its source. No tools.`,
+          content: `Check before I read this: these figures in your answer appear in none of the looked-up rows, or are written in a unit or a form the row does not use: ${figures.join(', ')}. Rewrite the whole answer: a figure from a row is copied exactly as the row prints it ("50%", never "50 %"; "24000", never "24 000"), a quantity exactly as the source states it — same number, same unit, never converted or abbreviated; a figure from no row is removed — or, only if it is well-established general knowledge, kept in a sentence that starts "Outside the corpus —". Keep every figure that IS in the rows, with its source. No tools. ${REVISION_RULE}`,
         },
       ],
       onText,
