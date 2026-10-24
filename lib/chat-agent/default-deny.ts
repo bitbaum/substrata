@@ -216,9 +216,22 @@ export function defaultDeny(
  */
 function tidy(lines: string[]): string {
   let out = lines.map((l) => {
-    let line = l;
+    if (/^\s*```/.test(l) || /^\s*[{["]/.test(l)) return l;
+    // A pointer left without its sentence ("…(source). See the table below",
+    // "Nickel (2022) See the table below", seen live, Russia) points at the
+    // table the reader is already under: it goes.
+    let line = l.replace(/\s*\bsee the table below\b(?![^.!?]*[.!?]\s*\S)[.!?]?\s*$/i, '');
+    // A title with nothing but the pointer after it ("Nickel (2022)") goes with it.
+    if (line !== l && line.trim().split(/\s+/).length <= 8 && !/[.!?:]$/.test(line.trim()))
+      line = '';
     while ((line.match(/\)/g) ?? []).length > (line.match(/\(/g) ?? []).length)
       line = line.replace(/\)(?=[.!?:]?\s*$)|\)(?![\s\S]*\))/, '');
+    // An opening with no close ("*(Note: USGS prints no capacity…", seen live,
+    // Mozambique): the "(" goes, and a lone "*" of emphasis that never closes.
+    while ((line.match(/\(/g) ?? []).length > (line.match(/\)/g) ?? []).length)
+      line = line.replace(/^(\s*(?:[-*•>]\s+)?\**)\(|\((?![\s\S]*\()/, '$1');
+    if ((line.replace(/\*\*/g, '').match(/\*/g) ?? []).length % 2)
+      line = line.replace(/^(\s*(?:[-•>]\s+)?)\*(?!\*)/, '$1');
     return line;
   });
   if (!GAP_SAYS.test(out.join('\n')))
