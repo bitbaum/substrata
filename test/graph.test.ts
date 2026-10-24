@@ -497,3 +497,13 @@ test('add.ts relations: a quote on the page passes, one off the page exits 4, a 
     await new Promise((resolve) => server.close(resolve));
   }
 });
+
+test('a relation id carries the commodity a flow states, and only then', () => {
+  const base = { from: 'country:kz', type: 'ships_to', to: 'country:cn', asOf: '2024' } as const;
+  assert.equal(relationId(base), 'country:kz|ships_to|country:cn|2024');
+  const uranium = relationId({ ...base, volume: { commodity: 'Uranium (HS 2844)' } });
+  const copper = relationId({ ...base, volume: { commodity: 'Refined copper' } });
+  assert.equal(uranium, 'country:kz|ships_to|country:cn|2024|uranium-hs-2844');
+  assert.equal(copper, 'country:kz|ships_to|country:cn|2024|refined-copper');
+  assert.notEqual(uranium, copper);
+});

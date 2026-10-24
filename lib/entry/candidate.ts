@@ -29,6 +29,7 @@ import type { ScienceEntry } from '@/config/substrata-science';
 import type { Holder, Ownership } from '@/config/substrata-ownership';
 import type { Series, SeriesPoint } from '@/lib/series';
 import type { Relation } from '@/lib/graph/types';
+import { relationId } from '@/lib/graph/id';
 
 export interface CandidateSource {
   url: string;
@@ -250,8 +251,8 @@ export function withCandidatePoints<S extends Pick<Series, 'id' | 'points'>>(
 }
 
 /** The relation's stable id: the same rule `lib/graph/validate.ts` checks. */
-export function relationCandidateId(c: Pick<Relation, 'from' | 'type' | 'to' | 'asOf'>): string {
-  return `${c.from}|${c.type}|${c.to}|${c.asOf}`;
+export function relationCandidateId(c: Parameters<typeof relationId>[0]): string {
+  return relationId(c);
 }
 
 /** A candidate relation as the graph reads it; `origin: 'candidate'` is what a page flags. */

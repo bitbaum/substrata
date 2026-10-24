@@ -142,9 +142,9 @@ export async function main(
     for (const row of r.rows) {
       const id = relationCandidateId(row);
       if (rows.some((x) => relationCandidateId(x) === id)) {
-        // A relation's id is from|type|to|asOf: a second commodity to the same partner in the same year is the same edge.
+        // A relation's id is from|type|to|asOf plus the commodity a flow states, so a repeat is the same edge.
         log(
-          `  skipped: ${id} from ${row.source.url} — same relation id as a row above (the id carries no commodity)`,
+          `  skipped: ${id} from ${row.source.url} — same relation id as a row above`,
         );
         continue;
       }

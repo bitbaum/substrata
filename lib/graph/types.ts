@@ -62,7 +62,7 @@ export const RELATION_ORIGINS = ['curated', 'candidate', 'research'] as const;
 export type RelationOrigin = (typeof RELATION_ORIGINS)[number];
 
 export interface Relation {
-  /** Stable: `${from}|${type}|${to}|${asOf}`. */
+  /** Stable: `${from}|${type}|${to}|${asOf}`, plus `|${commodity}` when a flow states one (lib/graph/id.ts). */
   id: string;
   from: EntityId;
   to: EntityId;
