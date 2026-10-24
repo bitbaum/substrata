@@ -457,7 +457,8 @@
     "mustDrop": ["Uranium mining companies in Kazakhstan and their owners"],
     "mustFixQuote": [
       ["20%; Uranium One Utercht B.V., 30%", "20%, and Uranium One Utercht B.V., 30%"]
-    ]
+    ],
+    "linksLost": true
   },
   {
     "id": "kazakh-uranium-cell-pasted-live",
@@ -527,7 +528,8 @@
     "recordedSlice": ["Thought for", "Uranium facilities in Kazakhstan — USGS"],
     "mustDrop": ["sell uranium under bilateral supply contracts"],
     "mustKeep": ["The buyers of Kazakhstan's uranium output are not in our sources."],
-    "leadsKept": [1, 2, 3, 4, 5]
+    "leadsKept": [1, 2, 3, 4, 5],
+    "linksLost": true
   },
   {
     "id": "chile-lithium-buyers-live",
@@ -562,11 +564,8 @@
     "recordedTool": "test/fixtures/cl-lithium-owners-producers-in-2026-10-24.json",
     "recordedAnswer": "test/fixtures/ask-live-cl-lithium-owners-2026-10-24.txt",
     "recordedSlice": ["Thought for", "Lithium facilities in Chile — USGS"],
-    "mustDrop": [],
-    "mustKeep": [
-      "These rows list the facilities, capacities, and the exact ownership stakes",
-      "the downstream buyers of the Chilean lithium chemicals are not captured"
-    ]
+    "mustDrop": ["the downstream buyers of the Chilean lithium chemicals are not captured"],
+    "mustKeep": ["These rows list the facilities, capacities, and the exact ownership stakes"]
   },
   {
     "id": "russia-rare-earth-nickel-live",
@@ -599,7 +598,8 @@
     "noTable": true,
     "mustKeep": ["OAO Apatit", "300000 metric tons"],
     "mustDrop": ["You are right", "read_as", "companies cell", "null"],
-    "recordedSlice": ["Thought for", "\nCopy\nListen"]
+    "recordedSlice": ["Thought for", "\nCopy\nListen"],
+    "linksLost": true
   },
   {
     "id": "chile-lithium-gap-once-live",
@@ -616,6 +616,26 @@
     "recordedWeb": 5,
     "mustKeep": ["The buyers of Chile's lithium output are not in our sources."],
     "mustDrop": ["The buyers of Chile's output are not in our sources."],
+    "leadsKept": [1, 2, 3, 4, 5]
+  },
+  {
+    "id": "chile-lithium-brine-claim-live",
+    "facet": "facilities",
+    "question": "Who produces lithium in Chile and who owns them, and who buys their lithium?",
+    "mustMention": ["country:cl"],
+    "expectedTools": ["producers_in"],
+    "expectedHits": [],
+    "wall": false,
+    "firstTool": "producers_in",
+    "expectedGaps": ["buyers"],
+    "recordedTool": "test/fixtures/cl-lithium-gap-twice-producers-in-2026-10-24.json",
+    "recordedAnswer": "test/fixtures/ask-live-cl-lithium-brine-2026-10-24.txt",
+    "recordedWeb": 5,
+    "recordedSlice": ["Thought for", "Lithium facilities in Chile — USGS"],
+    "mustDrop": ["Many Chilean brine producers", "battery manufacturers"],
+    "keepAllExcept": [
+      "Outside the corpus — Many Chilean brine producers have long-term supply agreements with various battery manufacturers and trading companies; however, these specific buyer relationships are not tracked in the Substrata records provided."
+    ],
     "leadsKept": [1, 2, 3, 4, 5]
   }
 ]

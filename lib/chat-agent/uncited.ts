@@ -107,7 +107,9 @@ export function uncitedClaims(
         cited(sentence, opts.webCount) &&
         leadBox &&
         !ATTRIBUTED.test(sentence) &&
-        !/^[-*•[]/.test(sentence)
+        !/^[-*•[]/.test(sentence) &&
+        // A lead's title line ("EnergyX inks ... deal with Trafigura [W1]") is a title, not a claim.
+        !/^[^.!?]*\[W\d+\]\s*$/.test(sentence)
       ) {
         out.push({
           sentence,
@@ -134,25 +136,23 @@ export function uncitedClaims(
 
 /** The answer without them; the gap sentences stand where the first one was, unless already said. */
 /** Words that name each link, however a sentence paraphrases it. */
-const BOX_WORDS: Record<LadderBox, RegExp> = {
+export const BOX_WORDS: Record<LadderBox, RegExp> = {
   buyers:
-    /\b(buyers?|customers?|purchasers?|offtake|off-take|clients?|who buys|sold to|sells? to)\b/i,
+    /\b(buyers?|customers?|purchas\w*|offtake|off-take|clients?|who buys|sold to|sells? to)\b/i,
   finance: /\b(financ\w*|funders?|lenders?|investors?)\b/i,
   owners: /\b(owners?|ownership|shareholders?|stakes?|who owns)\b/i,
   facilities: /\b(operators?|operating compan(y|ies)|mining compan(y|ies)|facilit(y|ies))\b/i,
 };
 
+/** The words of a sentence that says a link is missing. */
+export const GAP_SAYS =
+  /not in (our|the) (sources|corpus|data|records)|(is|are) not (recorded|tracked|captured|covered)|(does|do|did) not (record|contain|list|hold|track|name|include)|no .{0,30}(is|are) named/i;
+
 /** The sentences that say this link is missing, in any words (the live Chile answer said it twice). */
 export function gapSentences(answer: string, box: LadderBox): string[] {
   return answer
     .split(/(?<=[.!?])\s+|\n+/)
-    .filter(
-      (s) =>
-        BOX_WORDS[box].test(s) &&
-        /not in (our|the) (sources|corpus|data|records)|(is|are) not (recorded|tracked|captured|covered)/i.test(
-          s,
-        ),
-    );
+    .filter((s) => BOX_WORDS[box].test(s) && GAP_SAYS.test(s));
 }
 
 const saysGap = (answer: string, box: LadderBox) => gapSentences(answer, box).length > 0;

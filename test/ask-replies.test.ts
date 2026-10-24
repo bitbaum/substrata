@@ -37,9 +37,12 @@ async function ask(replies: boolean | undefined, text: string) {
 }
 
 test('a conversation asks for replies and gets them as data, never as text', async () => {
-  const { done, systems } = await ask(true, `Shin-Etsu and SUMCO lead the corpus.${BLOCK}`);
+  const { done, systems } = await ask(
+    true,
+    `[Shin-Etsu](/markets/shin-etsu-chemical) and SUMCO lead the corpus.${BLOCK}`,
+  );
   assert.ok(systems.every((s) => s.includes(REPLIES_INSTRUCTION)));
-  assert.equal(done?.answer, 'Shin-Etsu and SUMCO lead the corpus.');
+  assert.equal(done?.answer, '[Shin-Etsu](/markets/shin-etsu-chemical) and SUMCO lead the corpus.');
   assert.deepEqual(done?.replies, ['Which of them are sourced?', 'No']);
 });
 

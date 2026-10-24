@@ -1,0 +1,45 @@
+Who produces lithium in Chile and who owns them, and who buys their lithium?
+Thought for 4s
+
+The table has 4 rows: 2 for “Lithium carbonate”, 1 for “Lithium chloride” and 1 for “Lithium hydroxide”. Albemarle Corp. is named as an owner in 2 of the 4 rows; its stated share is 100% in each. Sociedad Química y Minera de Chile S.A. is named as an owner in 2 of the 4 rows; its stated share is 100% in each.
+
+Capacity is capacity, not production.
+
+The corpus does not record the buyers of Chile’s lithium output. A source that would settle this is: offtake and supply agreements disclosed in the producers’ annual reports and filings, customs and trade records (UN Comtrade), and the buyers’ own procurement disclosures.
+
+Unchecked web leads on buyers
+
+The following open-web pages were found as unreviewed leads. They are not part of the Substrata corpus and have not been verified.
+
+EnergyX inks 10-year, $2B lithium offtake deal with Trafigura [W1]
+EnergyX Signs 10-Year Lithium Deal with Trafigura [W2]
+EnergyX Signs $2 Billion Lithium Supply Deal With Trafigura [W3]
+EnergyX signs binding $2 billion lithium supply deal with Trafigura [W4]
+EnergyX Inks 10 Year, US$2 Billion Lithium Deal with Trafigura | INN [W5]
+
+Outside the corpus — Many Chilean brine producers have long-term supply agreements with various battery manufacturers and trading companies; however, these specific buyer relationships are not tracked in the Substrata records provided. You can send evidence to get it tracked.
+
+Lithium facilities in Chile — USGS Minerals Yearbook 2019
+Operator	Owners and shares, as printed	Commodity, as printed	Location	Capacity, as printed
+Rockwood Litio Ltda.	Albemarle Corp., 100%	Lithium carbonate	La Negra I and II plants, Antofagasta Region	44,000 metric tons
+SQM Salar S.A.	Sociedad Química y Minera de Chile S.A. (SQM), 100%	Lithium carbonate	Salar del Carmen plant, Antofagasta Region	70,000 metric tons
+Rockwood Litio Ltda.	Albemarle Corp., 100%	Lithium chloride	La Negra I and II plants, Antofagasta Region	6,000 metric tons
+SQM Salar S.A.	Sociedad Química y Minera de Chile S.A. (SQM), 100%	Lithium hydroxide	Salar del Carmen plant, Antofagasta Region	13500 metric tons
+
+Every cell is copied from the USGS table as printed. Capacity is capacity, not production. The table names no buyers. USGS Minerals Yearbook, volume III (Area Reports: International), country chapters, Table 2. Structure of the mineral industry (Table 2) ↗
+
+Looked outside the corpus
+
+5 web pages · not checked by Substrata
+Copy
+Listen
+Try again
+What is USGS Minerals Yearbook 2019: Chile, lithium facilities recorded as holding?
+Who is recorded as producing Battery-grade lithium chemicals?
+←
+Substrata
+Ask Substrata
+
+Have a source we should hold? Send evidence
+
+Free models, shared · Use your own AI key
