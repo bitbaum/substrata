@@ -8,6 +8,9 @@
  *    and per-row repeats of a once-printed figure are stripped, and counts or
  *    share aggregates it made up are replaced by the computed summary
  *    (table-guard.ts).
+ *    With a table shown, the prose may not redo its rows either: runs of
+ *    rows go, misquoted cells are put back, and the summary opens the
+ *    answer (table-prose.ts).
  * 3. Figures from nowhere, re-united quantities and reformatted printed
  *    figures (grounding.ts).
  *
@@ -22,13 +25,8 @@ import { fileGap, type GapFiler } from './gaps';
 import { reviseUnsupported, unsupportedFigures, withoutSentencesHolding } from './grounding';
 import { missingLinks, reviseWall, wallProblem, type MissingLink } from './ladder';
 import { finalAnswer } from './parse';
-import {
-  claimProblems,
-  replaceClaims,
-  reviseClaims,
-  stripModelTables,
-  tableFactsIn,
-} from './table-guard';
+import { claimProblems, replaceClaims, reviseClaims, tableFactsIn } from './table-guard';
+import { openWithSummary, tableProse } from './table-prose';
 import type { ModelTurn } from './turn';
 
 export async function checkAnswer(opts: {
@@ -68,7 +66,7 @@ export async function checkAnswer(opts: {
 
   const facts = tableFactsIn(opts.results);
   if (facts && answer.trim()) {
-    answer = stripModelTables(answer, facts.printedOnce);
+    answer = tableProse(answer, facts);
     const claims = claimProblems(answer, facts.summary);
     if (claims.length) {
       emit({ type: 'reset' });
@@ -82,9 +80,7 @@ export async function checkAnswer(opts: {
         turn,
         onText,
       });
-      const next = revised
-        ? stripModelTables(finalAnswer(revised).answer, facts.printedOnce)
-        : answer;
+      const next = revised ? tableProse(finalAnswer(revised).answer, facts) : answer;
       const left = claimProblems(next, facts.summary);
       answer = left.length ? replaceClaims(next, left, facts.summary) : next;
     }
@@ -98,6 +94,9 @@ export async function checkAnswer(opts: {
     const revised = await reviseUnsupported({ messages, answer, figures, turn, onText });
     answer = revised ? finalAnswer(revised).answer : withoutSentencesHolding(answer, figures);
   }
+  // Last, so no revision undoes it: with a code table shown, the computed
+  // summary opens the answer and nothing of the rows is redone (table-prose.ts).
+  if (facts && answer.trim()) answer = openWithSummary(tableProse(answer, facts), facts.summary);
   // Rung 6: every missing link the answer ended on is filed as demand.
   if (answer.trim())
     for (const gap of gaps)

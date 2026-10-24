@@ -35,6 +35,7 @@ import { runPlan } from '../lib/chat-agent/lookups';
 import { missingLinks, wallProblem } from '../lib/chat-agent/ladder';
 import { printedFormMismatches, unsupportedFigures } from '../lib/chat-agent/grounding';
 import { claimProblems, stripModelTables, tableFactsIn } from '../lib/chat-agent/table-guard';
+import { fixQuotes, openWithSummary, tableProse } from '../lib/chat-agent/table-prose';
 import { readFileSync } from 'node:fs';
 import { emptyLedger } from '../lib/chat-tools/ledger';
 import { GRADE_LABEL } from '../lib/graph/index';
@@ -84,6 +85,13 @@ interface EvalRow {
   summaryHolds?: string[];
   /** Parts of the recorded answer the aggregate check must flag (the table is stripped first). */
   mustFlag?: string[];
+  /** Markers around the answer in a recorded page (its first line is skipped). */
+  recordedSlice?: [string, string];
+  /** Text the final answer must keep (missing links, web leads) and must not. */
+  mustKeep?: string[];
+  mustDrop?: string[];
+  /** A misquoted cell in the recorded answer, and the printed text it must become. */
+  mustFixQuote?: [string, string][];
   /** Re-formatted printed figures the grounding check must flag ("50 %"). */
   mustFlagForms?: string[];
   /** A re-united quantity the grounding check must catch, and its verbatim form it must pass. */
@@ -107,8 +115,8 @@ function leadClause(line: string): string {
 }
 
 test('the eval set is the one the ADR names', () => {
-  assert.equal(EVALS.length, 35);
-  assert.equal(EVALS.filter((r) => r.wall === false).length, 14, 'fourteen no-wall questions');
+  assert.equal(EVALS.length, 37);
+  assert.equal(EVALS.filter((r) => r.wall === false).length, 16, 'sixteen no-wall questions');
   assert.equal(new Set(EVALS.map((r) => r.id)).size, EVALS.length, 'ids are unique');
   const niger = EVALS.find((r) => r.id === 'niger-uranium');
   assert.ok(niger, 'niger-uranium is in the set');
@@ -156,7 +164,14 @@ function gradeRecorded(row: EvalRow, fresh: string[]) {
   assert.deepEqual(tableFactsIn(fresh), facts, 'the live tools compute the recorded summary');
   for (const s of row.summaryHolds ?? [])
     assert.ok(facts.summary.join(' ').includes(s), `the summary holds "${s}"`);
-  const answer = file(row.recordedAnswer!);
+  const recordedPage = file(row.recordedAnswer!);
+  // A page recorded as the reader saw it: the answer is the span between two markers, verbatim.
+  const answer = row.recordedSlice
+    ? recordedPage.slice(
+        recordedPage.indexOf('\n', recordedPage.indexOf(row.recordedSlice[0])) + 1,
+        recordedPage.indexOf(row.recordedSlice[1]),
+      )
+    : recordedPage;
   const stripped = stripModelTables(answer, facts.printedOnce);
   assert.ok(!/^\s*\|/m.test(stripped), 'the model’s own table is stripped');
   const claims = claimProblems(stripped, facts.summary).join('\n');
@@ -171,7 +186,25 @@ function gradeRecorded(row: EvalRow, fresh: string[]) {
     [],
     'the summary itself passes',
   );
-  assert.ok(!wallProblem(stripped, results), 'what is left is not a wall');
+
+  // With a code table shown, the facts are code's: what the reader gets in the end.
+  const final = openWithSummary(tableProse(answer, facts), facts.summary);
+  assert.ok(
+    final.replace(/^#{1,6} .+\n+/, '').startsWith(facts.summary[0]),
+    'the computed summary opens the answer (under a leading heading)',
+  );
+  assert.ok(!wallProblem(final, results), 'what the reader gets is not a wall');
+  const named = facts.rows.filter(
+    (r) => r.operator && final.replace(/\s+/g, ' ').includes(r.operator),
+  ).length;
+  assert.ok(named < 4, `the prose redoes ${named} of the table's rows`);
+  assert.equal(fixQuotes(final, facts), final, 'every quote of a cell is the printed cell');
+  for (const k of row.mustKeep ?? []) assert.ok(final.includes(k), `keeps "${k}"`);
+  for (const d of row.mustDrop ?? []) assert.ok(!final.includes(d), `drops "${d}"`);
+  for (const [bad, good] of row.mustFixQuote ?? []) {
+    assert.ok(answer.replace(/\s+/g, ' ').includes(bad), `the recorded answer misquotes: "${bad}"`);
+    assert.ok(fixQuotes(answer, facts).includes(good), `the quote is put back: "${good}"`);
+  }
 }
 
 interface RelationRowShape {

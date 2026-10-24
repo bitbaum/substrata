@@ -21,16 +21,20 @@
 import type { ChatMessage } from '@bitbaum/ai-kit';
 import type { ModelTurn } from './turn';
 
-interface TableFacts {
+export interface TableFacts {
   /** The computed sentences the model was told to copy. */
   summary: string[];
   /** Cells printed once for several rows ("24000 metric tons"). */
   printedOnce: string[];
+  /** The table's rows as the tool read them: operator and owners, verbatim. */
+  rows: { operator: string | null; owner: string | null }[];
+  /** The source cells whole (the `companies` cell of each facility row). */
+  cells: string[];
 }
 
 /** What the facility lookups said about the table the reader sees, if any. */
 export function tableFactsIn(results: string[]): TableFacts | null {
-  const facts: TableFacts = { summary: [], printedOnce: [] };
+  const facts: TableFacts = { summary: [], printedOnce: [], rows: [], cells: [] };
   let shown = false;
   for (const r of results) {
     if (!/^\[producers_in\]/.test(r)) continue;
@@ -39,11 +43,19 @@ export function tableFactsIn(results: string[]): TableFacts | null {
         table_shown?: string;
         summary?: string[];
         printed_once?: string[];
+        facilities?: {
+          companies?: string;
+          read_as?: { operator: string | null; owner: string | null }[];
+        }[];
       };
       if (!v.table_shown) continue;
       shown = true;
       facts.summary.push(...(v.summary ?? []));
       facts.printedOnce.push(...(v.printed_once ?? []));
+      for (const f of v.facilities ?? []) {
+        if (f.companies) facts.cells.push(f.companies);
+        facts.rows.push(...(f.read_as ?? []));
+      }
     } catch {
       // A result cut short for length carries no facts.
     }

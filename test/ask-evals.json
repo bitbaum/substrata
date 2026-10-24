@@ -430,5 +430,57 @@
     ],
     "mustFlag": ["17 mining joint-ventures", "(up to 50%)", "at least 49%"],
     "mustFlagForms": ["50 %", "24 000"]
+  },
+  {
+    "id": "kazakh-uranium-rows-listed-live",
+    "facet": "facilities",
+    "question": "Which companies mine uranium in Kazakhstan, who owns them, and who do they sell to?",
+    "mustMention": ["country:kz"],
+    "expectedTools": ["producers_in", "resource_production"],
+    "expectedHits": [],
+    "wall": false,
+    "firstTool": "producers_in",
+    "expectedGaps": ["buyers"],
+    "recordedTool": "test/fixtures/kz-uranium-producers-in-2026-10-24.json",
+    "recordedAnswer": "test/fixtures/ask-live2-kz-uranium-2026-10-24.txt",
+    "summaryHolds": [
+      "NAC Kazatomprom JSC is named as an owner in 16 of the 17 rows; its stated shares range from 30% to 100%.",
+      "16 for “Uranium, U content” and 1 for “Rare earth elements, recovered from uranium-ore residue”"
+    ],
+    "mustFlag": [],
+    "mustFlagForms": [],
+    "recordedSlice": ["Thought for", "Uranium facilities in Kazakhstan — USGS"],
+    "mustKeep": [
+      "The dataset does not contain buyer information for Kazakh uranium.",
+      "Unchecked web leads on Kazakh uranium buyers"
+    ],
+    "mustDrop": ["Uranium mining companies in Kazakhstan and their owners"],
+    "mustFixQuote": [
+      ["20%; Uranium One Utercht B.V., 30%", "20%, and Uranium One Utercht B.V., 30%"]
+    ]
+  },
+  {
+    "id": "kazakh-uranium-cell-pasted-live",
+    "facet": "facilities",
+    "question": "Which companies mine uranium in Kazakhstan, who owns them, and who do they sell to?",
+    "mustMention": ["country:kz"],
+    "expectedTools": ["producers_in", "resource_production"],
+    "expectedHits": [],
+    "wall": false,
+    "firstTool": "producers_in",
+    "expectedGaps": ["buyers"],
+    "recordedTool": "test/fixtures/kz-uranium-producers-in-2026-10-24.json",
+    "recordedAnswer": "test/fixtures/ask-live3-kz-uranium-2026-10-24.md",
+    "summaryHolds": [
+      "NAC Kazatomprom JSC is named as an owner in 16 of the 17 rows; its stated shares range from 30% to 100%.",
+      "16 for “Uranium, U content” and 1 for “Rare earth elements, recovered from uranium-ore residue”"
+    ],
+    "mustFlag": [],
+    "mustFlagForms": [],
+    "mustKeep": [
+      "The buyers of Kazakhstan's uranium output are not in our sources.",
+      "### Unchecked web leads"
+    ],
+    "mustDrop": ["Companies: Akbastau JV"]
   }
 ]

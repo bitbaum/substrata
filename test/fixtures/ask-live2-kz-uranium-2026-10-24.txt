@@ -1,0 +1,116 @@
+Which companies mine uranium in Kazakhstan, who owns them, and who do they sell to?
+Thought for 7s
+
+Uranium mining companies in Kazakhstan and their owners
+
+•
+Akbastau JV
+owned by “NAC Kazatomprom JSC, 50%, and Uranium One Inc., 50%”
+•
+APPAK LLP
+owned by “NAC Kazatomprom JSC, 65%; Sumitomo Corp., 25%; Kansai Electric Power Co. Inc., 10%”
+•
+Baiken-U LLP
+owned by “NAC Kazatomprom JSC, 52.5%, and Energy Asia (BVI) Ltd., 47.5%”
+•
+JV Akbastau JSC
+owned by “NAC Kazatomprom JSC, 50%, and One Group JSC, 50%”
+•
+JV Budyonovskoye LLP
+owned by “NAC Kazatomprom JSC, 51%, and Stepnogorsk Mining and Chemical Plant LLP, 49%”
+•
+JV Inkai LLP
+owned by “NAC Kazatomprom JSC, 60%, and Cameco Corp., 40%”
+•
+JV Katco LLP
+owned by “JSC ORANO Mining, 51%, and NAC Kazatomprom JSC, 49%”
+•
+JV Khorasan-U LLP
+owned by “NAC Kazatomprom JSC, 50%; Energy Asia Holding Ltd., 20%; Uranium One Utercht B.V., 30%”
+•
+JV Southern Mining and Chemical Co. (SMCC LLP)
+owned by “Uranium One Rotterdam B.V., 70%, and NAC Kazatomprom JSC, 30%”
+•
+Karatau LLP
+owned by “NAC Kazatomprom JSC, 50%, and Uranium One Netherlands B.V. PLLC”
+•
+Kazatomprom-SaUran LLP
+owned by “NAC Kazatomprom JSC, 100%”
+•
+Kyzylkum LLP
+owned by “NAC Kazatomprom JSC, 50%; Japanese consortium, 30%; UraniumOne Inc., 20%”
+•
+PE Ortalyk LLP
+owned by “NAC Kazatomp JSC, 51%, and CGNM UK Ltd., 49%”
+•
+RU-6 LLP
+owned by “NAC Kazatomprom JSC, 100%”
+•
+Semizbai-U LLP
+owned by “NAC Kazatomprom JSC, 51%, and Beijing Sino-Kazakh Uranium Resources Investment Co. Ltd., 49%”
+•
+JV Zarechnoe JSC
+owned by “NAC Kazatomprom JSC, 49.98%; JV Zarechoe JSC, 49.98; and JSC Kara-Balta Mining Plant, 0.04%”
+
+Who they sell to – missing in the corpus
+
+The dataset does not contain buyer information for Kazakh uranium. A source that would settle this would be:
+
+Off-take and supply agreements disclosed in the producers’ annual reports and regulatory filings.
+Customs and trade statistics (e.g., UN Comtrade) showing export destinations.
+Procurement disclosures from major nuclear utilities and fuel-cycle companies.
+
+Unchecked web leads on Kazakh uranium buyers
+
+•
+Kazakhstan Rewrote the Rules on Its Uranium. China Is Built to Meet …
+discusses China as a major buyer. (Unreviewed lead)
+•
+Kazatomprom announces 1H2026 Financial Results
+may contain contract details. (Unreviewed lead)
+•
+Kazakhstan's 10% Production Cut & the $90/lb Uranium Contract …
+mentions contract structures with utilities. (Unreviewed lead)
+•
+Kazakhstan's Uranium Advantage Is Difficult to Replicate
+overview of market position. (Unreviewed lead)
+•
+Uranium's Next Threshold
+notes Russia as a key acid supplier and hints at downstream buyers. (Unreviewed lead)
+
+These web pages are unchecked; they can be examined for buyer details and added to the corpus if validated.
+
+Uranium facilities in Kazakhstan — USGS Minerals Yearbook 2023
+Operator	Owners and shares, as printed	Commodity, as printed	Location	Capacity, as printed
+Summit Atom Rare Earth Co. LLP (SARECO LLP)	ATEK LLC, 100% (Depannez Properties Ltd., 74.34%, and private investors, 25.66%)	Rare earth elements, recovered from uranium-ore residue	Plant in Stepnogorsk, Aqmola Province	1500 metric tons
+Akbastau JV	NAC Kazatomprom JSC, 50%, and Uranium One Inc., 50%	Uranium, U content	—	—
+APPAK LLP	NAC Kazatomprom JSC, 65%; Sumitomo Corp., 25%; Kansai Electric Power Co. Inc., 10%	Uranium, U content	—	—
+Baiken-U LLP	NAC Kazatomprom JSC, 52.5%, and Energy Asia (BVI) Ltd., 47.5%	Uranium, U content	—	—
+JV Akbastau JSC	NAC Kazatomprom JSC, 50%, and One Group JSC, 50%	Uranium, U content	—	—
+JV Budyonovskoye LLP	NAC Kazatomprom JSC, 51%, and Stepnogorsk Mining and Chemical Plant LLP, 49%	Uranium, U content	—	—
+JV Inkai LLP	NAC Kazatomprom JSC, 60%, and Cameco Corp., 40%	Uranium, U content	—	—
+JV Katco LLP	JSC ORANO Mining, 51%, and NAC Kazatomprom JSC, 49%	Uranium, U content	—	—
+Locations of these 16 ventures (one list, as printed)
+Capacity of all 16 together (as printed)
+Show all 17
+
+Every cell is copied from the USGS table as printed. Capacity is capacity, not production. The table names no buyers. USGS Minerals Yearbook, volume III (Area Reports: International), country chapters, Table 2. Structure of the mineral industry (Table 2) ↗
+
+Looked outside the corpus
+
+5 web pages · not checked by Substrata
+Copy
+Listen
+Try again
+Show buyer‑source options
+List mining companies only
+Add more recent news
+What is USGS Minerals Yearbook 2023: Kazakhstan, uranium facilities recorded as holding?
+Who is recorded as producing Uranium conversion and enrichment?
+←
+Substrata
+Ask Substrata
+
+Have a source we should hold? Send evidence
+
+Free models, shared · Use your own AI key
