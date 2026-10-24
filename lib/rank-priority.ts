@@ -106,17 +106,45 @@ export function nameKeys(
 }
 
 /**
- * The share of the query's words, 0..1, covered by runs that are exactly one
- * of `keys`. "gallium china" against the Gallium bottleneck is 0.5 (the run
- * "gallium" is its head); against China, 0.5; against an event whose
- * headline holds both words, 0 — no run of the query is its name.
+ * The query's word positions, grouped into the units a reader means: a run
+ * that is exactly one of `unitKeys` (a country's name or other spelling,
+ * "united state america") is ONE unit, every other word its own. Longest run
+ * first. Without it "gallium United States of America" is four words, three
+ * of them a country's, and any page that says "United States" out-points the
+ * page named "Gallium" by sheer word count.
  */
-export function namedShare(keys: readonly string[], query: readonly string[]): number {
+export function queryUnits(query: readonly string[], unitKeys: ReadonlySet<string>): number[][] {
+  const units: number[][] = [];
+  for (let i = 0; i < query.length;) {
+    let end = i + 1;
+    for (let j = query.length; j > i + 1; j--)
+      if (unitKeys.has(query.slice(i, j).join(' '))) {
+        end = j;
+        break;
+      }
+    units.push(Array.from({ length: end - i }, (_, k) => i + k));
+    i = end;
+  }
+  return units;
+}
+
+/**
+ * The share of the query, 0..1, covered by runs that are exactly one of
+ * `keys`, counted in `units` (each word its own unit when none are given).
+ * "gallium china" against the Gallium bottleneck is 0.5 (the run "gallium"
+ * is its head); against China, 0.5; against an event whose headline holds
+ * both words, 0: no run of the query is its name.
+ */
+export function namedShare(
+  keys: readonly string[],
+  query: readonly string[],
+  units: readonly (readonly number[])[] = query.map((_, i) => [i]),
+): number {
   if (!query.length || !keys.length) return 0;
   const set = new Set(keys);
   const covered = new Array<boolean>(query.length).fill(false);
   for (let i = 0; i < query.length; i++)
     for (let j = i + 1; j <= query.length; j++)
       if (set.has(query.slice(i, j).join(' '))) covered.fill(true, i, j);
-  return covered.filter(Boolean).length / query.length;
+  return units.filter((u) => u.every((i) => covered[i])).length / units.length;
 }

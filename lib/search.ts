@@ -29,6 +29,7 @@ import { PREFIX, expand } from './search/expand';
 import { idf, scoreDoc, type Match } from './search/score';
 import { marks, snippet } from './search/snippets';
 import { STOP, words } from './search/text';
+import { queryUnits } from './rank-priority';
 import {
   SEARCH_TYPES,
   type SearchGroup,
@@ -102,10 +103,12 @@ export function search(rawQuery: string, options: SearchOptions = {}): SearchRes
     }
   });
   const phrase = tokens.map((t) => corrections.get(t) ?? t).join(' ');
+  // "united state america" is one country, not three words that outvote "gallium".
+  const units = queryUnits(phrase.split(' '), index.unitKeys);
 
   const run = (requireAll: boolean) =>
     index.docs
-      .map((d) => ({ d, m: scoreDoc(index, d, expansions, phrase, requireAll) }))
+      .map((d) => ({ d, m: scoreDoc(index, d, expansions, phrase, requireAll, units) }))
       .filter((x): x is { d: Indexed; m: Match } => x.m !== null)
       .sort(
         (a, b) =>

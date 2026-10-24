@@ -6,7 +6,7 @@ import { buildChunks } from '../lib/index/build';
 import { makeChunk, type Chunk } from '../lib/index/chunk';
 import { countryName } from '../lib/index/chunks/ids';
 import { rank } from '../lib/index/retrieve';
-import { KIND_WEIGHT, nameKeys, namedShare } from '../lib/rank-priority';
+import { KIND_WEIGHT, nameKeys, namedShare, queryUnits } from '../lib/rank-priority';
 import { plain, search, searchDocuments, type SearchDoc } from '../lib/search';
 import { words } from '../lib/search/text';
 
@@ -126,4 +126,17 @@ test('kind priority: bottleneck > country > company > science > event > note', (
   const order = ['bottleneck', 'country', 'company', 'science', 'event', 'note'];
   for (let i = 1; i < order.length; i++)
     assert.ok(KIND_WEIGHT[order[i - 1]] > KIND_WEIGHT[order[i]], `${order[i - 1]} > ${order[i]}`);
+});
+
+test('a country named in several words is one unit of the query, and counts as one', () => {
+  const q = ['gallium', 'united', 'state', 'america'];
+  const units = queryUnits(q, new Set(['united state america', 'united state']));
+  assert.deepEqual(units, [[0], [1, 2, 3]]);
+  assert.equal(namedShare(['gallium refined', 'gallium'], q, units), 0.5);
+  const i = at('gallium United States of America', GALLIUM, 'bottleneck');
+  const firstEvent = search('gallium United States of America').hits.findIndex(
+    (h) => h.type === 'event',
+  );
+  assert.ok(i >= 0 && i < 3, `Gallium, refined is #${i + 1}`);
+  assert.ok(firstEvent < 0 || firstEvent > i, `an event is #${firstEvent + 1}`);
 });

@@ -57,21 +57,32 @@ export function scoreDoc(
   tokens: Expansion[][],
   phrase: string,
   requireAll: boolean,
+  /** Token positions grouped as the reader means them (`queryUnits`): a country's name is one. */
+  units: readonly (readonly number[])[] = tokens.map((_, i) => [i]),
 ): Match | null {
   let score = 0;
   let inName = 0;
   let hitCount = 0;
   const matched: string[] = [];
-  for (const expansions of tokens) {
-    const t = scoreToken(index, d, expansions);
-    if (t.score === 0) {
-      if (requireAll) return null;
-      continue;
+  for (const unit of units) {
+    // A unit weighs as one word: the mean of its words, so a long name cannot outvote a short one.
+    let unitScore = 0;
+    let unitHits = 0;
+    for (const i of unit) {
+      const t = scoreToken(index, d, tokens[i]);
+      if (t.score === 0) {
+        if (requireAll) return null;
+        continue;
+      }
+      unitScore += t.score;
+      unitHits++;
+      if (t.inName) inName++;
+      matched.push(...t.matched);
     }
-    hitCount++;
-    score += t.score;
-    if (t.inName) inName++;
-    matched.push(...t.matched);
+    if (unitScore === 0) continue;
+    // Half a country's name is half a match of it.
+    hitCount += unitHits / unit.length;
+    score += unitScore / unit.length;
   }
   if (!hitCount) return null;
   // Phrase-level signals: the whole query IS the name, starts it, or sits in it.
@@ -85,9 +96,9 @@ export function scoreDoc(
   if (inName === tokens.length) score += 8;
   score += (inName / d.nameLength) * 3;
   // A run of the query that IS this record's name: the thing, not a page about it.
-  if (phrase) score += NAMED_TERM_BONUS * namedShare(d.keys, phrase.split(' '));
+  if (phrase) score += NAMED_TERM_BONUS * namedShare(d.keys, phrase.split(' '), units);
   // A partial match is ranked by how much of the query it covers first.
-  if (!requireAll) score *= hitCount / tokens.length;
+  if (!requireAll) score *= hitCount / units.length;
   score *= kindWeight(d.doc.type) * (d.doc.weight ?? 1);
   return { score, words: matched, inName };
 }
