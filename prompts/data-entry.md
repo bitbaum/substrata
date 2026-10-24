@@ -58,7 +58,9 @@ pnpm test
 | 5 | the row is already in the corpus or the sidecar | drop it — it is done |
 
 Facets: `producers`, `events`, `endowments`, `facilities`, `instruments`,
-`science`, `ownership`, `series-points`. Rows land in
+`science`, `ownership`, `series-points`, `relations`. A relation's endpoints
+are entity ids (`company:asml`, `country:kz`) that the site or
+`research/usgs-relations.json` already names; see `lib/graph/README.md`. Rows land in
 `config/candidates/<facet>.json`; `test/candidates.test.ts` re-checks every
 row in CI.
 
@@ -81,7 +83,7 @@ must already exist on the site; the gate checks.
   };
   submittedBy: {
     agent: string; // 1–∞ chars; Who ran it, e.g. "data-agent".
-    model: string; // 1–∞ chars; The model id, e.g. "claude-haiku-4-5".
+    model: string; // 1–∞ chars; The model id the run used, exactly as its provider names it.
     runId: string; // 1–∞ chars; One id per session, the same on every row it writes.
   };
   material: string; // The material NAME the producer row sits under, e.g. "Gallium, refined".
@@ -105,7 +107,7 @@ must already exist on the site; the gate checks.
   };
   submittedBy: {
     agent: string; // 1–∞ chars; Who ran it, e.g. "data-agent".
-    model: string; // 1–∞ chars; The model id, e.g. "claude-haiku-4-5".
+    model: string; // 1–∞ chars; The model id the run used, exactly as its provider names it.
     runId: string; // 1–∞ chars; One id per session, the same on every row it writes.
   };
   id: string; // /^\d{4}-\d{2}-\d{2}-[a-z0-9-]+$/
@@ -133,7 +135,7 @@ must already exist on the site; the gate checks.
   };
   submittedBy: {
     agent: string; // 1–∞ chars; Who ran it, e.g. "data-agent".
-    model: string; // 1–∞ chars; The model id, e.g. "claude-haiku-4-5".
+    model: string; // 1–∞ chars; The model id the run used, exactly as its provider names it.
     runId: string; // 1–∞ chars; One id per session, the same on every row it writes.
   };
   material: string; // /^[a-z0-9-]+$/; A bottleneck SLUG, e.g. "gallium-refined" (the last part of /bottlenecks/<slug>).
@@ -169,7 +171,7 @@ must already exist on the site; the gate checks.
   };
   submittedBy: {
     agent: string; // 1–∞ chars; Who ran it, e.g. "data-agent".
-    model: string; // 1–∞ chars; The model id, e.g. "claude-haiku-4-5".
+    model: string; // 1–∞ chars; The model id the run used, exactly as its provider names it.
     runId: string; // 1–∞ chars; One id per session, the same on every row it writes.
   };
   id: string; // /^[a-z0-9-]+$/
@@ -197,7 +199,7 @@ must already exist on the site; the gate checks.
   };
   submittedBy: {
     agent: string; // 1–∞ chars; Who ran it, e.g. "data-agent".
-    model: string; // 1–∞ chars; The model id, e.g. "claude-haiku-4-5".
+    model: string; // 1–∞ chars; The model id the run used, exactly as its provider names it.
     runId: string; // 1–∞ chars; One id per session, the same on every row it writes.
   };
   id: string; // /^[a-z0-9-]+$/
@@ -235,7 +237,7 @@ must already exist on the site; the gate checks.
   };
   submittedBy: {
     agent: string; // 1–∞ chars; Who ran it, e.g. "data-agent".
-    model: string; // 1–∞ chars; The model id, e.g. "claude-haiku-4-5".
+    model: string; // 1–∞ chars; The model id the run used, exactly as its provider names it.
     runId: string; // 1–∞ chars; One id per session, the same on every row it writes.
   };
   id: string; // /^[a-z0-9-]+$/
@@ -266,7 +268,7 @@ must already exist on the site; the gate checks.
   };
   submittedBy: {
     agent: string; // 1–∞ chars; Who ran it, e.g. "data-agent".
-    model: string; // 1–∞ chars; The model id, e.g. "claude-haiku-4-5".
+    model: string; // 1–∞ chars; The model id the run used, exactly as its provider names it.
     runId: string; // 1–∞ chars; One id per session, the same on every row it writes.
   };
   company: string; // /^[a-z0-9-]+$/; A directory company SLUG (the last part of /markets/<slug>).
@@ -293,7 +295,7 @@ must already exist on the site; the gate checks.
   };
   submittedBy: {
     agent: string; // 1–∞ chars; Who ran it, e.g. "data-agent".
-    model: string; // 1–∞ chars; The model id, e.g. "claude-haiku-4-5".
+    model: string; // 1–∞ chars; The model id the run used, exactly as its provider names it.
     runId: string; // 1–∞ chars; One id per session, the same on every row it writes.
   };
   series: string; // The id of a committed series in research/series.json.
@@ -304,5 +306,38 @@ must already exist on the site; the gate checks.
   published?: string; // /^\d{4}-\d{2}-\d{2}$/
   primary: boolean;
   note?: string;
+}
+```
+
+### `relations`
+
+```ts
+{
+  evidence: "candidate";
+  asOf: string; // /^\d{4}(-\d{2}(-\d{2})?)?$/; The date the fact is FOR, at the precision the source gives.
+  source: {
+    url: string; // /^https?:\/\/\S+$/; The primary source page — publisher, regulator, filing, agency table.
+    quote: string; // 20–400 chars; Copied VERBATIM from the page at url. The gate re-reads the page and looks for it.
+    readOn: string; // /^\d{4}-\d{2}-\d{2}$/; The day you read the page: today.
+  };
+  submittedBy: {
+    agent: string; // 1–∞ chars; Who ran it, e.g. "data-agent".
+    model: string; // 1–∞ chars; The model id the run used, exactly as its provider names it.
+    runId: string; // 1–∞ chars; One id per session, the same on every row it writes.
+  };
+  from: string; // /^(bottleneck|company|science|policy|country|capital|loop|facility|talent|learn|article):[a-z0-9-]+$/; Who or what the relation starts from, as an entity id.
+  to: string; // /^(bottleneck|company|science|policy|country|capital|loop|facility|talent|learn|article):[a-z0-9-]+$/; Who or what it points to, as an entity id.
+  type: "operates" | "owns" | "finances" | "supplies" | "buys_from" | "ships_to" | "licenses" | "regulates" | "researches" | "employs" | "competes_with";
+  grade: "stated" | "lead"; // "stated" when the quote says it outright; "lead" when it only suggests it.
+  share?: {
+    value: number; // 0..100
+    unit: "percent";
+  };
+  volume?: {
+    value: number;
+    unit: string; // 1–∞ chars
+    period: string; // 1–∞ chars
+    commodity?: string;
+  };
 }
 ```

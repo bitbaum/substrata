@@ -6,7 +6,7 @@
  *   pnpm exec tsx scripts/research/add.ts <facet> --json-schema    the same, as JSON Schema
  *
  * facet ∈ producers | events | endowments | facilities | instruments | science
- *         | ownership | series-points
+ *         | ownership | series-points | relations
  *
  * Input is a JSON array of rows (or one row) in the facet's shape, from a file
  * or stdin (`-`). Every row is, in order:
@@ -45,6 +45,7 @@ import { FACET_SPECS } from '../../lib/entry/schemas';
 import { printedSchema, shapeOf } from '../../lib/entry/shape';
 import { verbatimIn } from '../../lib/event-rules';
 import { corpusSeries } from '../../lib/series';
+import { allRelations } from '../../lib/graph/index';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '../..');
@@ -85,6 +86,8 @@ function corpusKeys(facet: Facet): Set<string> {
       return new Set(OWNERSHIP.flatMap((o) => o.holders.map((h) => `${o.company}/${h.name}`)));
     case 'series-points':
       return new Set(corpusSeries().flatMap((s) => s.points.map((p) => `${s.id}/${p.date}`)));
+    case 'relations':
+      return new Set(allRelations().map((r) => r.id));
   }
 }
 

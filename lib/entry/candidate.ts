@@ -28,6 +28,7 @@ import type { Instrument } from '@/config/substrata-policy';
 import type { ScienceEntry } from '@/config/substrata-science';
 import type { Holder, Ownership } from '@/config/substrata-ownership';
 import type { Series, SeriesPoint } from '@/lib/series';
+import type { Relation } from '@/lib/graph/types';
 
 export interface CandidateSource {
   url: string;
@@ -74,6 +75,14 @@ export type OwnershipCandidate = CandidateOf<
   Pick<Ownership, 'company' | 'status' | 'parent' | 'ownedBy'>
 >;
 export type SeriesPointCandidate = CandidateOf<SeriesPoint, { series: string }>;
+/**
+ * A relation from one source: `stated` when the quote says it, `lead` when it
+ * only suggests it. `corroborated` is earned by a second source in the store,
+ * and `derived` is written by a rule, never by hand.
+ */
+export type RelationCandidate = Pick<Relation, 'from' | 'to' | 'type' | 'share' | 'volume'> & {
+  grade: 'stated' | 'lead';
+} & CandidateCommon;
 
 export const FACETS = [
   'producers',
@@ -84,6 +93,7 @@ export const FACETS = [
   'science',
   'ownership',
   'series-points',
+  'relations',
 ] as const;
 
 export type Facet = (typeof FACETS)[number];
@@ -171,7 +181,13 @@ export function scienceFromCandidate(c: ScienceCandidate): Flagged<ScienceEntry>
 
 export function holderFromCandidate(c: OwnershipCandidate): Flagged<Holder> {
   const holder = omit(rowPart(c), ['company', 'status', 'parent', 'ownedBy']);
-  return { ...holder, asOf: c.asOf, source: c.source.url, evidence: 'candidate' };
+  return {
+    ...holder,
+    asOf: c.asOf,
+    source: c.source.url,
+    readOn: c.source.readOn,
+    evidence: 'candidate',
+  };
 }
 
 /**
@@ -219,4 +235,25 @@ export function withCandidatePoints<S extends Pick<Series, 'id' | 'points'>>(
     s.points.push(seriesPointFromCandidate(c));
   }
   return [...byId.values()];
+}
+
+/** The relation's stable id: the same rule `lib/graph/validate.ts` checks. */
+export function relationCandidateId(c: Pick<Relation, 'from' | 'type' | 'to' | 'asOf'>): string {
+  return `${c.from}|${c.type}|${c.to}|${c.asOf}`;
+}
+
+/** A candidate relation as the graph reads it; `origin: 'candidate'` is what a page flags. */
+export function relationFromCandidate(c: RelationCandidate): Relation {
+  return {
+    id: relationCandidateId(c),
+    from: c.from,
+    to: c.to,
+    type: c.type,
+    grade: c.grade,
+    ...(c.share ? { share: c.share } : {}),
+    ...(c.volume ? { volume: c.volume } : {}),
+    asOf: c.asOf,
+    evidence: [{ source: c.source.url, quote: c.source.quote, readOn: c.source.readOn }],
+    origin: 'candidate',
+  };
 }

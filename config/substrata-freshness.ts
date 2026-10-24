@@ -24,6 +24,7 @@ import oecd from '../research/oecd-export-restrictions.json';
 import sanctions from '../research/sanctions.json';
 import producers from '../research/usgs-producers.json';
 import producerPlaces from '../research/producer-places.json';
+import usgsRelations from '../research/usgs-relations.json';
 import { ASSESSMENTS } from './substrata-assessment';
 
 export type FeedId =
@@ -240,6 +241,14 @@ export const DATASETS: readonly Dataset[] = [
     file: 'research/usgs-producers.json',
     refresh: 'pnpm run research:producers (new country chapters through the year)',
     checkedOn: day(producers.retrieved),
+    maxAgeDays: 400,
+  },
+  {
+    id: 'usgs-relations',
+    label: 'Operators and owners parsed from the USGS producer tables',
+    file: 'research/usgs-relations.json',
+    refresh: 'pnpm run research:usgs-relations (after research:producers)',
+    checkedOn: day(usgsRelations.readOn),
     maxAgeDays: 400,
   },
   {

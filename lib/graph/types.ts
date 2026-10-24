@@ -40,7 +40,26 @@ export interface RelationEvidence {
   quote: string;
   /** The day the source was read, ISO date. */
   readOn: string;
+  /** Where in the source: a table and row, a page, a section. Printed beside the quote. */
+  locator?: string;
+  /**
+   * What kind of text `quote` is. Absent means a verbatim sentence from the
+   * page. `table-cell` is a cell copied whole from a published table;
+   * `curated-record` is a corpus row a person wrote from the document (its
+   * holder, share and note), which a page must print as a reading, not as the
+   * source's own words.
+   */
+  reading?: 'table-cell' | 'curated-record';
 }
+
+/**
+ * Where a relation entered the corpus. `curated` is a hand-written row or one
+ * derived from a hand-written row; `candidate` came through
+ * `config/candidates/relations.json` and nobody has promoted it; `research` was
+ * parsed by a committed script from a committed research file.
+ */
+export const RELATION_ORIGINS = ['curated', 'candidate', 'research'] as const;
+export type RelationOrigin = (typeof RELATION_ORIGINS)[number];
 
 export interface Relation {
   /** Stable: `${from}|${type}|${to}|${asOf}`. */
@@ -60,6 +79,8 @@ export interface Relation {
   /** Only for `derived`: the relation ids this follows from, and the rule that fired. */
   derivedFrom?: string[];
   rule?: string;
+  /** Where the row came from. A reader filtering to reviewed rows drops `candidate`. */
+  origin?: RelationOrigin;
 }
 
 /**
