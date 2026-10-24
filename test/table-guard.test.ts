@@ -158,3 +158,24 @@ test('check-answer: the recorded answer goes back once and comes out with the su
   assert.ok(!forced.answer.includes('17 mining joint-ventures'));
   assert.ok(forced.answer.includes(facts.summary[1]));
 });
+
+test('with a table shown, the summary opens the answer even when nothing was claimed', async () => {
+  const plain =
+    "The rows are in the table below.\n\n- Akbastau JV\n- APPAK LLP\n- Baiken-U LLP\n- JV Inkai LLP\n\nThe buyers of Kazakhstan's uranium output are not in our sources.";
+  const out = await checkAnswer({
+    answer: plain,
+    question: recorded.question,
+    results,
+    messages: [{ role: 'user', content: results.join('\n') }],
+    verify: false,
+    turn: (async () => {
+      throw new Error('no model call expected');
+    }) as unknown as ModelTurn,
+    emit: () => {},
+    fileGap: async () => {},
+  });
+  assert.ok(out.answer.startsWith(facts.summary[0]), 'the summary is put first, in code');
+  assert.ok(!out.answer.includes('Baiken-U LLP'), 'the run of rows is gone');
+  assert.match(out.answer, /not in our sources/, 'the missing link stays');
+  assert.equal(out.calls, 0);
+});

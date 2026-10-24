@@ -226,7 +226,7 @@ function sentences(answer: string): string[] {
         .replace(/^\s*[-•\d.]+\s*/, '')
         .trim(),
     )
-    .filter((s) => s.length > 0);
+    .filter((s) => s.length > 0 && !/^outside the corpus/i.test(s)); // labelled background denies nothing
 }
 
 /** A gap sentence that denies operators or owners — checked against rows that carry them. */
