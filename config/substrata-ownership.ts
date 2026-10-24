@@ -43,6 +43,8 @@ export interface Holder {
   note?: string;
   /** Only on a row from config/candidates/: a model's, not yet promoted by a person. */
   evidence?: 'candidate';
+  /** YYYY-MM-DD the document was read, where the row records it (candidate rows always do). */
+  readOn?: string;
 }
 
 export interface Ownership {

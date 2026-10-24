@@ -15,7 +15,9 @@ import {
   type IndustryId,
   type TechnologyId,
 } from '@/config/substrata-taxonomy';
-import { resolveIn } from '@/lib/entities/registry';
+import { resolveEntity, resolveIn } from '@/lib/entities/registry';
+import { ENTITY_KINDS, type EntityId } from '@/lib/entities/types';
+import usgsRelations from '../../research/usgs-relations.json';
 import { BOTTLENECK_NAMES } from '@/lib/event-rules';
 import corpusSeriesFile from '../../research/series.json';
 
@@ -76,3 +78,19 @@ export const seriesId = z
 
 export const technologies = z.array(z.enum(tuple<TechnologyId>(TECHNOLOGIES.map((t) => t.id))));
 export const industries = z.array(z.enum(tuple<IndustryId>(INDUSTRIES.map((i) => i.id))));
+
+/**
+ * A relation endpoint: a directory entity, or a node a committed research file
+ * already names (research/usgs-relations.json). A candidate cannot mint a new
+ * endpoint: a typo would become a firm.
+ */
+const GRAPH_NODES = new Set(Object.keys((usgsRelations as { nodes: object }).nodes));
+const KIND = new RegExp(`^(${ENTITY_KINDS.join('|')}):[a-z0-9-]+$`);
+export const graphEndpoint = z
+  .string()
+  .regex(KIND, 'an entity id, kind:key, e.g. "company:asml"')
+  .refine(
+    (id) => resolveEntity(id) !== undefined || GRAPH_NODES.has(id),
+    'not an entity on this site, nor a node in research/usgs-relations.json',
+  )
+  .transform((id) => id as EntityId);

@@ -33,6 +33,7 @@ import { TECHNOLOGIES, type TechnologyId } from '@/config/substrata-taxonomy';
 import { EVENT_EFFECTS, EVENT_KINDS, eventProblems } from '@/lib/event-rules';
 import {
   eventFromCandidate,
+  relationCandidateId,
   type EndowmentCandidate,
   type EventCandidate,
   type Facet,
@@ -40,13 +41,13 @@ import {
   type InstrumentCandidate,
   type OwnershipCandidate,
   type ProducerCandidate,
+  type RelationCandidate,
   type ScienceCandidate,
   type SeriesPointCandidate,
 } from './candidate';
 import {
   tuple,
   isoDate,
-  factDate,
   url,
   iso2Upper,
   countryPlace,
@@ -59,33 +60,16 @@ import {
   technologies,
   industries,
 } from './vocab';
+import { Candidate, Source, SubmittedBy } from './common-schema';
+import { RelationEntry } from './relation-schema';
+
+export { RelationEntry };
 
 // =====================================================================
 // THE COMMON PART
 // =====================================================================
 
-export const Source = z.object({
-  url,
-  quote: z
-    .string()
-    .min(20)
-    .max(400)
-    .describe('Copied VERBATIM from the page at url. The gate re-reads the page and looks for it.'),
-  readOn: isoDate.describe('The day you read the page: today.'),
-});
-
-export const SubmittedBy = z.object({
-  agent: z.string().min(1).describe('Who ran it, e.g. "data-agent".'),
-  model: z.string().min(1).describe('The model id, e.g. "claude-haiku-4-5".'),
-  runId: z.string().min(1).describe('One id per session, the same on every row it writes.'),
-});
-
-export const Candidate = z.object({
-  evidence: z.literal('candidate'),
-  asOf: factDate,
-  source: Source,
-  submittedBy: SubmittedBy,
-});
+export { Source, SubmittedBy, Candidate };
 
 const Quantity = z.object({
   value: z.number().nonnegative(),
@@ -265,4 +249,5 @@ export const FACET_SPECS: Record<Facet, FacetSpec> = {
     schema: SeriesPointEntry,
     key: (r: SeriesPointCandidate) => `${r.series}/${r.date}`,
   },
+  relations: { schema: RelationEntry, key: (r: RelationCandidate) => relationCandidateId(r) },
 };

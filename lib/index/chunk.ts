@@ -23,6 +23,7 @@ export const FACETS = [
   'quantity',
   'ranking',
   'quality',
+  'relation',
 ] as const;
 
 export type Facet = (typeof FACETS)[number];

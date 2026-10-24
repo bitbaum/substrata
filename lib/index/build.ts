@@ -13,6 +13,7 @@ import { policyChunks } from './chunks/policy';
 import { qualityChunks } from './chunks/quality';
 import { quantityChunks } from './chunks/quantity';
 import { rankingChunks } from './chunks/ranking';
+import { relationChunks } from './chunks/relation';
 import { restrictionChunks } from './chunks/restriction';
 import { scienceChunks } from './chunks/science';
 import { seriesChunks } from './chunks/series';
@@ -28,6 +29,7 @@ export const PRODUCERS: Record<Facet, () => Chunk[]> = {
   quantity: quantityChunks,
   ranking: rankingChunks,
   quality: () => qualityChunks(),
+  relation: relationChunks,
 };
 
 let built: { day: string; chunks: Chunk[] } | null = null;
