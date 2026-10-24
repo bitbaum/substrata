@@ -15,6 +15,7 @@
  * `validateRelations` throws with every problem listed, so a bad row stops the
  * build instead of rendering as a fact. Pure: no config, no network.
  */
+import { relationId } from './id';
 import { ENTITY_KINDS } from '@/lib/entities/types';
 import {
   COUNTED_GRADES,
@@ -42,9 +43,7 @@ export const MIN_QUOTE = 10;
 /** A table cell carries its claim with its row and column, so a short firm name ("Hafsil AS") is enough. */
 export const MIN_CELL = 2;
 
-export function relationId(r: Pick<Relation, 'from' | 'type' | 'to' | 'asOf'>): string {
-  return `${r.from}|${r.type}|${r.to}|${r.asOf}`;
-}
+export { relationId };
 
 export function isEntityIdShape(id: string): boolean {
   const at = id.indexOf(':');
