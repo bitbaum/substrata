@@ -69,6 +69,11 @@ export function pipelineOrgHref(name?: string): string {
   return `/science/pipeline/organisations${name ? `?org=${encodeURIComponent(name)}` : ''}`;
 }
 
+/** A lab: an institute, university group or national laboratory (config/substrata-labs.ts). */
+export function labHref(id: string): string {
+  return `/labs/${id}`;
+}
+
 export function facilityHref(id: string): string {
   return `/facilities/${id}`;
 }
@@ -208,6 +213,7 @@ export const ROUTES = [
   '/loops/:slug',
   '/facilities',
   '/facilities/:slug',
+  '/labs/:slug',
   '/resources/:slug',
   '/resources/:slug/csv',
   '/events',

@@ -19,7 +19,7 @@
  */
 import { FACILITIES } from '@/config/substrata-facilities';
 import { OWNERSHIP, type Holder } from '@/config/substrata-ownership';
-import { resolveIn } from '@/lib/entities/registry';
+import { resolveInDirectory } from '@/lib/entities/registry';
 import { entityId, type EntityId } from '@/lib/entities/types';
 import { resolveParty } from './parties';
 import type { Relation, RelationEvidence } from './types';
@@ -85,7 +85,7 @@ export function corpusRelations(): CorpusEdges {
       skip('facility without an operator on record');
       continue;
     }
-    const operator = resolveIn('company', f.operator);
+    const operator = resolveInDirectory('company', f.operator);
     if (!operator) {
       skip('facility operator not in the directory');
       continue;

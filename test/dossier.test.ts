@@ -80,7 +80,7 @@ test('leads and derived rows never move a box; corroborated rows do', () => {
 });
 
 test('the standard: every box has sources, a place to write and sane thresholds', () => {
-  const kinds = { country: 7, company: 8, resource: 6, lab: 4 };
+  const kinds = { country: 7, company: 8, resource: 6, lab: 4, science: 4 };
   for (const kind of DOSSIER_KINDS) assert.equal(boxesFor(kind).length, kinds[kind], kind);
   for (const def of ALL_BOXES) {
     const at = `${def.kind}.${def.id}`;

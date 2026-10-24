@@ -13,6 +13,8 @@ import { MATERIALS } from '@/config/substrata';
 import { CHOKEPOINTS, COVERAGE } from '@/config/substrata-coverage';
 import { PARTICIPANTS } from '@/config/substrata-participants';
 import type { CoverageEvent, EventEffect, EventKind } from '@/config/substrata-events';
+import { resolveIn } from '@/lib/entities/registry';
+import { isStub } from '@/lib/entities/types';
 
 export const EVENT_KINDS: readonly EventKind[] = [
   'capacity',
@@ -115,7 +117,19 @@ function inSet(names: readonly string[]): (name: string) => boolean {
   return (name) => set.has(name);
 }
 const isBottleneck = inSet(BOTTLENECK_NAMES);
-const isParticipant = inSet(PARTICIPANT_NAMES);
+const inDirectory = inSet(PARTICIPANT_NAMES);
+
+/**
+ * A participant is a directory name, or a stub company's canonical name exactly
+ * as its source printed it ("NAC Kazatomprom JSC", not the reviewed alias
+ * "NAC Kazatomp JSC"): an organisation the relation
+ * graph names has a page, so an event may name it too.
+ */
+function isParticipant(name: string): boolean {
+  if (inDirectory(name)) return true;
+  const stub = resolveIn('company', name);
+  return stub !== undefined && isStub(stub) && stub.name === name;
+}
 
 /**
  * Everything wrong with an event row, as sentences a reviewer can act on.

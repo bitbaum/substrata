@@ -11,6 +11,7 @@ import { COMPANY_COUNTERS } from './counters/company';
 import { COUNTRY_COUNTERS } from './counters/country';
 import { LAB_COUNTERS } from './counters/lab';
 import { RESOURCE_COUNTERS } from './counters/resource';
+import { SCIENCE_COUNTERS } from './counters/science';
 import { NOTHING, plus } from './counters/shared';
 import {
   boxStatus,
@@ -29,6 +30,7 @@ const COUNTERS: Record<DossierKind, Record<string, (s: Subject) => RowCounts>> =
   company: COMPANY_COUNTERS,
   resource: RESOURCE_COUNTERS,
   lab: LAB_COUNTERS,
+  science: SCIENCE_COUNTERS,
 };
 
 export interface BoxResult {
@@ -134,7 +136,7 @@ const cache = new Map<string, Dossier | null>();
 
 /**
  * The dossier for a subject id (`country:kz`, `company:asml`, `resource:uranium`,
- * `science:<id>`), or null when the id names nothing. Memoised per process for
+ * `lab:<id>`, `science:<id>`), or null when the id names nothing. Memoised per process for
  * the default (no relations) counter, because every input is static config.
  */
 export function computeDossier(id: string, opts: ComputeOptions = {}): Dossier | null {

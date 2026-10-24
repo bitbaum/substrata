@@ -7,6 +7,7 @@
 import { JURISDICTIONS } from '@/config/substrata-policy';
 import { FACETS } from '@/lib/entry/candidate';
 import type { GapTask } from '@/lib/graph/types';
+import { labById } from '@/config/substrata-labs';
 import { participantBySlug } from '@/lib/participants';
 import { computeDossier, type BoxResult, type ComputeOptions } from './compute';
 import { NO_DEMAND, type DemandReader } from './demand';
@@ -48,7 +49,13 @@ export interface EmitOptions extends ComputeOptions, TaskFilter {
   demand?: DemandReader;
 }
 
-const KIND_ORDER: Record<DossierKind, number> = { country: 0, company: 1, resource: 2, lab: 3 };
+const KIND_ORDER: Record<DossierKind, number> = {
+  country: 0,
+  company: 1,
+  resource: 2,
+  lab: 3,
+  science: 4,
+};
 const PRIORITY = new Map<string, number>(PRIORITY_COUNTRIES.map((iso2, i) => [iso2, i]));
 const KNOWN_JURISDICTIONS = new Set<string>(JURISDICTIONS.map((j) => j.id));
 
@@ -59,7 +66,9 @@ function priorityOf(subject: Subject): number {
       ? [subject.key]
       : subject.kind === 'company'
         ? (participantBySlug(subject.key)?.jurisdictions ?? []).map((j) => j.toLowerCase())
-        : [];
+        : subject.kind === 'lab'
+          ? [labById(subject.key)?.place ?? '']
+          : [];
   const rest = PRIORITY_COUNTRIES.length;
   return Math.min(rest, ...isos.map((iso2) => PRIORITY.get(iso2) ?? rest));
 }

@@ -3,6 +3,7 @@
  * reviewed edit with its reason beside it.
  */
 import type { BoxDefinition } from '../definitions';
+import { LAB_BOXES } from './lab';
 import { RUN, SOURCE, writeTo } from './shared';
 
 /**
@@ -242,20 +243,12 @@ export const COUNTRY_BOXES: readonly BoxDefinition[] = [
       'paper or patent affiliation',
       'Wikidata item with an official website',
     ],
-    writeTo: writeTo('relations'),
+    // One lab row per lab (config/candidates/labs.json); `place` is the country.
+    writeTo: writeTo('labs'),
     relations: [
       { types: ['employs', 'researches'], direction: 'in' },
       { types: ['employs', 'researches'], direction: 'out' },
     ],
-    noSourceYet: true,
-    example: {
-      from: 'country:kz',
-      to: 'science:example-lab',
-      type: 'researches',
-      asOf: '2025',
-      evidence: [
-        { source: 'https://www.example.edu/', quote: SOURCE.shapeOnly, readOn: '2026-10-24' },
-      ],
-    },
+    example: LAB_BOXES[0].example,
   },
 ];

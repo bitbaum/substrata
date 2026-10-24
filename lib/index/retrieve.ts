@@ -101,6 +101,7 @@ function asDocuments(chunks: readonly Chunk[]): ResearchDocument[] {
       sources: c.sourceUrl ? [c.sourceUrl] : [],
       evidence: c.evidence,
       topics: [c.facet],
+      ...(c.weight !== undefined ? { weight: c.weight } : {}),
     }));
     documentsOf.set(chunks, docs);
   }

@@ -1,7 +1,7 @@
 /**
  * Print the work queue: one task per empty or thin dossier box.
  *
- *   pnpm exec tsx scripts/research/gaps.ts [--kind country|company|resource|lab]
+ *   pnpm exec tsx scripts/research/gaps.ts [--kind country|company|resource|lab|science]
  *        [--entity country:kz] [--box facilities] [--limit 20] [--out tasks.json]
  *
  * JSON to stdout (an array of tasks, ordered by demand, then the owner's

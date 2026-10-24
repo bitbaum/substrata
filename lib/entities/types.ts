@@ -26,6 +26,7 @@ export const ENTITY_KINDS = [
   'talent',
   'learn',
   'article',
+  'lab',
 ] as const;
 
 export type EntityKind = (typeof ENTITY_KINDS)[number];
@@ -63,6 +64,18 @@ export interface Entity {
    * the profile can never disagree about what an entity is.
    */
   retrievalText: string;
+}
+
+/**
+ * The evidence word a stub carries: an organisation the relation graph names
+ * (an operator or owner a published table printed) that the directory holds no
+ * profile for. Its page lists only what the sources say; search ranks it below
+ * a profiled entity; nothing is written about it beyond the relations.
+ */
+export const STUB_EVIDENCE = 'stub';
+
+export function isStub(entity: Pick<Entity, 'evidence'>): boolean {
+  return entity.evidence === STUB_EVIDENCE;
 }
 
 export function entityId(kind: EntityKind, key: string): EntityId {

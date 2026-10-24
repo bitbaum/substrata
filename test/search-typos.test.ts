@@ -20,7 +20,10 @@ import { words } from '../lib/search/text';
 const NAMED: SearchType[] = ['company', 'country'];
 
 test('one slip in a company or country name still finds it first', async () => {
-  const docs = searchDocuments().filter((d) => NAMED.includes(d.type));
+  // Stub companies (named only by a yearbook table, ranked below anything
+  // profiled on purpose) are not names people type: a slip in one may well
+  // find the profiled firm first, which is the ranking working.
+  const docs = searchDocuments().filter((d) => NAMED.includes(d.type) && d.weight === undefined);
   const vocabulary = defaultIndex().vocab.counts;
   const title = new Map(docs.map((d) => [d.id, words(d.title)]));
   const cases = typoCases(

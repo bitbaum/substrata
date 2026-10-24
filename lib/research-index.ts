@@ -8,7 +8,7 @@
  * text used for ranking and retrieval.
  */
 import { allEntities } from './entities/registry';
-import type { EntityKind } from './entities/types';
+import { isStub, type EntityKind } from './entities/types';
 
 export interface ResearchDocument {
   id: string;
@@ -19,7 +19,16 @@ export interface ResearchDocument {
   sources: string[];
   evidence: string;
   topics: string[];
+  /**
+   * Multiplies the score, below 1 for a stub company. A down-weighted document
+   * is found by its words but does not count towards how rare a word is, so a
+   * thousand yearbook names cannot make "Niger" or "uranium" common.
+   */
+  weight?: number;
 }
+
+/** A stub company's weight in every ranking (search, retrieval): present, below anything profiled. */
+export const STUB_WEIGHT = 0.6;
 
 export function researchDocuments(): ResearchDocument[] {
   return allEntities().map((entity) => ({
@@ -31,6 +40,7 @@ export function researchDocuments(): ResearchDocument[] {
     sources: entity.sources,
     evidence: entity.evidence,
     topics: entity.topics,
+    ...(isStub(entity) ? { weight: STUB_WEIGHT } : {}),
   }));
 }
 
@@ -85,7 +95,8 @@ function indexDocuments(documents: ResearchDocument[]): IndexedDocument[] {
  */
 function documentFrequencies(indexed: IndexedDocument[]): Map<string, number> {
   const freq = new Map<string, number>();
-  for (const { bodyWords } of indexed) {
+  for (const { document, bodyWords } of indexed) {
+    if (document.weight !== undefined) continue;
     for (const word of bodyWords) freq.set(word, (freq.get(word) ?? 0) + 1);
   }
   return freq;
@@ -127,7 +138,7 @@ export function scoreDocuments(documents: ResearchDocument[], words: string[]): 
         const weight = wordWeight(freq.get(word) ?? 1);
         score += titleWords.has(word) ? weight * 4 : weight;
       }
-      return { document, score };
+      return { document, score: score * (document.weight ?? 1) };
     })
     .filter((x) => x.score > 0);
 }
@@ -146,10 +157,9 @@ export function searchResearch(documents: ResearchDocument[], query: string): Re
     .filter(({ bodyWords }) => words.every((w) => bodyWords.has(w)))
     .map(({ document, titleWords }) => ({
       document,
-      score: words.reduce(
-        (n, w) => n + (titleWords.has(w) ? 4 : 1) * wordWeight(freq.get(w) ?? 1),
-        0,
-      ),
+      score:
+        words.reduce((n, w) => n + (titleWords.has(w) ? 4 : 1) * wordWeight(freq.get(w) ?? 1), 0) *
+        (document.weight ?? 1),
     }))
     .sort((a, b) => b.score - a.score || a.document.title.localeCompare(b.document.title))
     .map((x) => x.document);

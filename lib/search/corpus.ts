@@ -7,7 +7,8 @@
 import { GLOSSARY } from '@/config/substrata-glossary';
 import { EVENTS, EVENT_EFFECT_LABEL, EVENT_KIND_LABEL } from '@/config/substrata-events';
 import { allEntities } from '../entities/registry';
-import type { EntityKind } from '../entities/types';
+import { isStub, type EntityKind } from '../entities/types';
+import { STUB_WEIGHT } from '../research-index';
 import { glossaryHref } from '../links';
 import { allLearn, allNotes, type Note } from '../notes';
 import type { SearchType } from '../search-types';
@@ -24,6 +25,7 @@ const KIND_TO_TYPE: Record<EntityKind, SearchType> = {
   talent: 'talent',
   learn: 'note',
   article: 'note',
+  lab: 'lab',
 };
 
 export interface SearchDoc {
@@ -38,6 +40,11 @@ export interface SearchDoc {
   href: string;
   /** Short context for the kicker: an evidence state, a date. */
   meta: string;
+  /**
+   * Multiplies the score. A stub company (known only from the relations that
+   * name it) is below 1, so a profiled entity with the same words comes first.
+   */
+  weight?: number;
 }
 
 /** Plain text of a note's blocks, whatever their shape: every string that is not a type tag. */
@@ -81,7 +88,9 @@ export function searchDocuments(): SearchDoc[] {
     summary: e.summary,
     body: withoutUrls(`${e.retrievalText} ${e.topics.join(' ')} ${bodies.get(e.id) ?? ''}`),
     href: e.href,
-    meta: e.evidence,
+    ...(isStub(e)
+      ? { meta: 'named in sources · no profile yet', weight: STUB_WEIGHT }
+      : { meta: e.evidence }),
   }));
 
   const events: SearchDoc[] = EVENTS.map((ev) => ({

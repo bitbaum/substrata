@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 
 import { CHAIN_LAYERS } from '@/config/substrata-participants';
 import { MARKET_PARTICIPANTS, participantBySlug } from '@/lib/participants';
@@ -12,7 +12,10 @@ import { currentSession } from '@/lib/auth';
 import { database } from '@/lib/db';
 import { parseFollows } from '@/lib/follows';
 import { EntityProfile, type ExtraSection } from '@/components/portal/EntityProfile';
-import { resolveIn } from '@/lib/entities/registry';
+import { resolveEntity, resolveIn } from '@/lib/entities/registry';
+import { isStub, type Entity } from '@/lib/entities/types';
+import { aliasEntry } from '@/lib/graph/aliases';
+import { StubCompany } from './_sections/StubCompany';
 import { t } from '@/lib/i18n/messages';
 import { WhatHappened, happenedEvidence } from '@/lib/profile/modules/company-happened';
 import { CompanyHeader } from './_sections/CompanyHeader';
@@ -28,14 +31,31 @@ interface RouteParams {
   params: Promise<{ slug: string }>;
 }
 
+/**
+ * Directory companies are built ahead; the ~1,200 stub companies (named only
+ * by the relation graph) render on first request, so the build stays the size
+ * it was. `dynamicParams` is Next's default; it is stated because the stubs
+ * depend on it.
+ */
+export const dynamicParams = true;
+
 export function generateStaticParams(): Array<{ slug: string }> {
   return MARKET_PARTICIPANTS.map((p) => ({ slug: p.slug }));
+}
+
+/** A company the relation graph names and the directory does not profile. */
+function stubOf(slug: string): Entity | undefined {
+  const entity = resolveEntity(`company:${slug}`);
+  return entity && isStub(entity) ? entity : undefined;
 }
 
 export async function generateMetadata({ params }: RouteParams): Promise<Metadata> {
   const { slug } = await params;
   const p = participantBySlug(slug);
-  if (!p) return {};
+  if (!p) {
+    const stub = stubOf(slug);
+    return stub ? { title: stub.name, description: stub.summary } : {};
+  }
   const profile = companyProfile(slug);
   const held = profile?.held.map((h) => h.bottleneck.name) ?? [];
   return {
@@ -58,8 +78,30 @@ export async function generateMetadata({ params }: RouteParams): Promise<Metadat
 export default async function ParticipantPage({ params }: RouteParams) {
   const { slug } = await params;
   const p = participantBySlug(slug);
+  if (!p) {
+    // A reviewed alias (config/entity-aliases.ts) is the same firm: one page.
+    const alias = aliasEntry(`company:${slug}`);
+    if (alias) permanentRedirect(`/markets/${alias.canonical.slice('company:'.length)}`);
+    const stub = stubOf(slug);
+    if (!stub) notFound();
+    return (
+      <Shell>
+        <Page sections>
+          <nav
+            aria-label="Breadcrumb"
+            className="crumbs mb-6 font-mono text-xs uppercase tracking-caps text-fg-tertiary"
+          >
+            <Link href="/markets" className="hover:text-fg-primary">
+              Markets
+            </Link>
+          </nav>
+          <StubCompany entity={stub} />
+        </Page>
+      </Shell>
+    );
+  }
   const profile = companyProfile(slug);
-  if (!p || !profile) notFound();
+  if (!profile) notFound();
 
   const session = await currentSession();
   let following = false;

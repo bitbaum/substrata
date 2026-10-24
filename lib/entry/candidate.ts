@@ -27,6 +27,7 @@ import type { Facility } from '@/config/substrata-facilities';
 import type { Instrument } from '@/config/substrata-policy';
 import type { ScienceEntry } from '@/config/substrata-science';
 import type { Holder, Ownership } from '@/config/substrata-ownership';
+import type { Lab } from '@/config/substrata-labs';
 import type { Series, SeriesPoint } from '@/lib/series';
 import type { Relation } from '@/lib/graph/types';
 import { relationId } from '@/lib/graph/id';
@@ -87,6 +88,7 @@ export type OwnershipCandidate = CandidateOf<
   Holder,
   Pick<Ownership, 'company' | 'status' | 'parent' | 'ownedBy'>
 >;
+export type LabCandidate = CandidateOf<Lab>;
 export type SeriesPointCandidate = CandidateOf<SeriesPoint, { series: string }>;
 /**
  * A relation from one source: `stated` when the quote says it, `lead` when it
@@ -109,6 +111,7 @@ export const FACETS = [
   'ownership',
   'series-points',
   'relations',
+  'labs',
 ] as const;
 
 export type Facet = (typeof FACETS)[number];
@@ -192,6 +195,16 @@ export function instrumentFromCandidate(c: InstrumentCandidate): Flagged<Instrum
 
 export function scienceFromCandidate(c: ScienceCandidate): Flagged<ScienceEntry> {
   return { ...rowPart(c), source: c.source.url, judgedOn: c.source.readOn, evidence: 'candidate' };
+}
+
+export function labFromCandidate(c: LabCandidate): Flagged<Lab> {
+  return {
+    ...rowPart(c),
+    source: c.source.url,
+    quote: c.source.quote,
+    readOn: c.source.readOn,
+    evidence: 'candidate',
+  };
 }
 
 export function holderFromCandidate(c: OwnershipCandidate): Flagged<Holder> {

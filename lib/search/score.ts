@@ -23,7 +23,7 @@ const TYPE_WEIGHT: Partial<Record<SearchType, number>> = {
 };
 
 export function idf(index: SearchIndex, word: string): number {
-  return Math.log(1 + index.docs.length / (index.df.get(word) ?? 1));
+  return Math.log(1 + index.rankDocs / (index.rankDf.get(word) ?? 1));
 }
 
 export interface Match {
@@ -89,6 +89,6 @@ export function scoreDoc(
   score += (inName / d.nameLength) * 3;
   // A partial match is ranked by how much of the query it covers first.
   if (!requireAll) score *= hitCount / tokens.length;
-  score *= TYPE_WEIGHT[d.doc.type] ?? 1;
+  score *= (TYPE_WEIGHT[d.doc.type] ?? 1) * (d.doc.weight ?? 1);
   return { score, words: matched, inName };
 }

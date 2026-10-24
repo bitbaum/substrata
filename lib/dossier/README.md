@@ -31,8 +31,15 @@ derived rows are shown beside the count and never move a box.
 ## Subjects
 
 `country:<iso2>`, `company:<slug>`, `resource:<id>` (no entity kind yet, hence
-`SubjectId` in `lib/graph/types.ts`) and `science:<id>`, which carries the lab
-dossier until labs and people are an entity kind.
+`SubjectId` in `lib/graph/types.ts`), `lab:<id>` (config/substrata-labs.ts,
+rows through `add.ts labs`) and `science:<id>`, the research fronts, which keep
+the four lab boxes under their own kind (`boxes/science.ts`).
+
+A stub company (`company:<slug>` named only by the relation graph,
+`lib/entities/sources/company-stubs.ts`) resolves — `computeDossier` works on
+it — but is not queued: its gap is the country's companies box. A country's
+people-and-labs box counts its lab rows (`labsIn`) and any `employs` or
+`researches` relations.
 
 ## The queue
 

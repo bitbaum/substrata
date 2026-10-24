@@ -4,10 +4,12 @@
  *   country:<iso2>   → country      (every country with a profile page)
  *   company:<slug>   → company      (every directory company)
  *   resource:<id>    → resource     (config/substrata-resources.ts)
- *   science:<id>     → lab          (until labs and people are a kind; boxes/lab.ts)
+ *   lab:<id>         → lab          (config/substrata-labs.ts; boxes/lab.ts)
+ *   science:<id>     → science      (research fronts, the lab dossier's former stand-in)
  */
 import { RESOURCE_KINDS, resourceLabel } from '@/config/substrata-resources';
 import { entitiesOfKind, resolveEntity } from '@/lib/entities/registry';
+import { isStub } from '@/lib/entities/types';
 import type { SubjectId } from '@/lib/graph/types';
 import type { DossierKind } from './definitions';
 
@@ -21,11 +23,12 @@ export interface Subject {
 
 const ENTITY_KIND_FOR: Record<
   Exclude<DossierKind, 'resource'>,
-  'country' | 'company' | 'science'
+  'country' | 'company' | 'lab' | 'science'
 > = {
   country: 'country',
   company: 'company',
-  lab: 'science',
+  lab: 'lab',
+  science: 'science',
 };
 
 /** The subject an id names, or undefined when nothing in the corpus answers to it. */
@@ -60,11 +63,16 @@ export function subjectsOf(kind: DossierKind): Subject[] {
       (s): s is Subject => s !== undefined,
     );
   }
-  return entitiesOfKind(ENTITY_KIND_FOR[kind]).map((entity) => ({
-    id: entity.id,
-    kind,
-    key: entity.key,
-    name: entity.name,
-    href: entity.href,
-  }));
+  // A stub company resolves (computeDossier works on it) but is not queued:
+  // every box of it reads "not in the directory", and the gap it stands for
+  // is the country's companies box, which already names it.
+  return entitiesOfKind(ENTITY_KIND_FOR[kind])
+    .filter((entity) => !isStub(entity))
+    .map((entity) => ({
+      id: entity.id,
+      kind,
+      key: entity.key,
+      name: entity.name,
+      href: entity.href,
+    }));
 }

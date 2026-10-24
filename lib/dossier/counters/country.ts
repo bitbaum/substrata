@@ -1,9 +1,10 @@
 /**
  * Row counts for a country's boxes, from the data the repository holds today.
- * A box with no counter here (trade, people and labs) counts only relations.
+ * A box with no counter here (trade) counts only relations.
  */
 import { EVENTS } from '@/config/substrata-events';
 import { FACILITIES } from '@/config/substrata-facilities';
+import { LABS, type Lab } from '@/config/substrata-labs';
 import { INSTRUMENTS, type InstrumentKind } from '@/config/substrata-policy';
 import { ENDOWMENTS } from '@/config/substrata-quantities';
 import { MARKET_PARTICIPANTS } from '@/lib/participants';
@@ -94,10 +95,17 @@ function events(iso2: string): RowCounts {
   return tally(rows, gradeOf, `${rows.length} accepted events in its jurisdiction`);
 }
 
+/** Labs in the country, one row each: a candidate lab reads `lead` until promoted. */
+export function peopleLabs(iso2: string, labs: readonly Lab[] = LABS): RowCounts {
+  const rows = labs.filter((lab) => lab.place === iso2);
+  return tally(rows, gradeOf, `${rows.length} lab${rows.length === 1 ? '' : 's'} in the register`);
+}
+
 export const COUNTRY_COUNTERS: Record<string, (s: Subject) => RowCounts> = {
   endowment_output: (s) => endowmentOutput(s.key),
   facilities: (s) => facilities(s.key),
   companies: (s) => companies(s.key),
   law_licensing: (s) => lawLicensing(s.key),
   events: (s) => events(s.key),
+  people_labs: (s) => peopleLabs(s.key),
 };

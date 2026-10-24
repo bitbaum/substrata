@@ -47,7 +47,19 @@ test('every entity is well formed and kind-scoped', () => {
 test('every declared kind is actually adapted', () => {
   // A kind in the union with no adapter is a page that can never be built and a
   // filter that always returns nothing.
+  // Unless its source says, with a date and a reason, that it lands before its
+  // data (knowledge-system ADR §5): labs, until the data pilot fills them.
   for (const kind of ENTITY_KINDS) {
+    const source = ENTITY_SOURCES.find((s) => s.kind === kind);
+    if (source?.allowEmpty) {
+      assert.match(
+        source.allowEmpty.since,
+        /^\d{4}-\d{2}-\d{2}$/,
+        `${kind}: allowEmpty needs a date`,
+      );
+      assert.ok(source.allowEmpty.reason.length > 20, `${kind}: allowEmpty needs a reason`);
+      continue;
+    }
     assert.ok(entitiesOfKind(kind).length > 0, `kind "${kind}" is declared but has no entities`);
   }
 });

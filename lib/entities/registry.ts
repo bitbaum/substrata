@@ -6,8 +6,8 @@
  * the assistant, the graph and the profile pages all read this, so they cannot
  * disagree about what exists or what it is called.
  */
-import { ENTITY_SOURCES } from './sources';
-import type { Entity, EntityKind } from './types';
+import { DERIVED_SOURCES, ENTITY_SOURCES } from './sources';
+import { isStub, type Entity, type EntityKind } from './types';
 
 /**
  * The corpus, built once and indexed.
@@ -31,8 +31,19 @@ interface EntityIndex {
 
 let index: EntityIndex | null = null;
 
-function buildIndex(): EntityIndex {
-  const all = ENTITY_SOURCES.flatMap((source) => source.build());
+/**
+ * A label as the index keys it: lower case, with the Turkish dotted and
+ * dotless i folded to "i" — "Bakır".toUpperCase().toLowerCase() is "bakir",
+ * so without this a yearbook name typed in capitals resolves to nothing.
+ */
+function labelKey(label: string): string {
+  return label
+    .toLowerCase()
+    .replace(/ı/g, 'i')
+    .replace(/\u0307/g, '');
+}
+
+function indexOf(all: Entity[]): EntityIndex {
   const byId = new Map<string, Entity>();
   const byKind = new Map<EntityKind, Entity[]>();
   const byLabel = new Map<string, Entity>();
@@ -44,15 +55,29 @@ function buildIndex(): EntityIndex {
     // First writer wins, so a later alias collision cannot silently displace a
     // real key — the entity test holds ids unique, aliases are best effort.
     for (const label of [entity.key, entity.name, ...entity.aka]) {
-      const at = `${entity.kind}:${label.toLowerCase()}`;
+      const at = `${entity.kind}:${labelKey(label)}`;
       if (!byLabel.has(at)) byLabel.set(at, entity);
     }
   }
   return { all, byId, byKind, byLabel };
 }
 
+/**
+ * Two passes. The directory first; then the derived sources (company stubs),
+ * which read the relation graph — and the graph's producers resolve the names
+ * they print against the directory. So the directory is installed before the
+ * derived pass runs, and a graph built during that pass sees exactly the
+ * directory, never a half-built index. A derived entity never displaces a
+ * directory one: ids are checked unique by test/entities.test.ts, and labels
+ * are first-writer-wins.
+ */
 function entityIndex(): EntityIndex {
-  if (!index) index = buildIndex();
+  if (!index) {
+    const directory = ENTITY_SOURCES.flatMap((source) => source.build());
+    index = indexOf(directory);
+    const derived = DERIVED_SOURCES.flatMap((source) => source.build());
+    if (derived.length) index = indexOf([...directory, ...derived]);
+  }
   return index;
 }
 
@@ -72,7 +97,24 @@ export function resolveEntity(id: string): Entity | undefined {
 
 /** Resolve within a kind, tolerating the name as well as the key, via `aka`. */
 export function resolveIn(kind: Entity['kind'], keyOrName: string): Entity | undefined {
-  return entityIndex().byLabel.get(`${kind}:${keyOrName.toLowerCase()}`);
+  return entityIndex().byLabel.get(`${kind}:${labelKey(keyOrName)}`);
+}
+
+/**
+ * The same, but only an entity the corpus profiles: a stub (a firm known only
+ * from the relations that name it) does not answer. The graph's producers use
+ * this, so the graph a stub is derived from never depends on whether the stubs
+ * were built yet.
+ */
+export function resolveInDirectory(kind: Entity['kind'], keyOrName: string): Entity | undefined {
+  const hit = resolveIn(kind, keyOrName);
+  return hit && !isStub(hit) ? hit : undefined;
+}
+
+/** Resolve by id, profiled entities only (see `resolveInDirectory`). */
+export function resolveDirectoryEntity(id: string): Entity | undefined {
+  const hit = resolveEntity(id);
+  return hit && !isStub(hit) ? hit : undefined;
 }
 
 /**

@@ -19,6 +19,7 @@ export const SEARCH_TYPES = [
   'facility',
   'loop',
   'talent',
+  'lab',
 ] as const;
 
 export type SearchType = (typeof SEARCH_TYPES)[number];
@@ -36,6 +37,7 @@ export const SEARCH_TYPE_LABEL: Record<SearchType, { one: string; many: string }
   facility: { one: 'Facility', many: 'Facilities' },
   loop: { one: 'Loop', many: 'Loops' },
   talent: { one: 'Talent', many: 'Talent' },
+  lab: { one: 'Lab', many: 'Labs' },
 };
 
 export function isSearchType(value: unknown): value is SearchType {

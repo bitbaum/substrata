@@ -22,6 +22,14 @@ export interface SearchIndex {
   docs: Indexed[];
   /** Word → how many documents contain it anywhere. */
   df: Map<string, number>;
+  /**
+   * The same over the documents that weigh in full, and their count: what idf
+   * is computed from. A down-weighted document (a stub company) is findable by
+   * its words but never changes how rare a word is, so a thousand yearbook
+   * names cannot reorder the profiled entities.
+   */
+  rankDf: Map<string, number>;
+  rankDocs: number;
   /** Every word, counted by documents, so the commoner completion comes first. */
   vocab: Vocabulary;
 }
@@ -32,13 +40,20 @@ function normPhrase(text: string): string {
 
 export function buildIndex(documents: SearchDoc[]): SearchIndex {
   const df = new Map<string, number>();
+  const rankDf = new Map<string, number>();
+  let rankDocs = 0;
   const docs = documents.map((doc) => {
     const nameWords = words(doc.title);
     const name = new Set(nameWords);
     const aka = new Set(doc.aka.flatMap(words));
     const body = new Map<string, number>();
     for (const w of words(`${doc.summary} ${doc.body}`)) body.set(w, (body.get(w) ?? 0) + 1);
-    for (const w of new Set([...name, ...aka, ...body.keys()])) df.set(w, (df.get(w) ?? 0) + 1);
+    const full = doc.weight === undefined;
+    if (full) rankDocs += 1;
+    for (const w of new Set([...name, ...aka, ...body.keys()])) {
+      df.set(w, (df.get(w) ?? 0) + 1);
+      if (full) rankDf.set(w, (rankDf.get(w) ?? 0) + 1);
+    }
     return {
       doc,
       name,
@@ -49,7 +64,7 @@ export function buildIndex(documents: SearchDoc[]): SearchIndex {
       normAka: doc.aka.map(normPhrase),
     };
   });
-  return { docs, df, vocab: createVocabulary(df) };
+  return { docs, df, rankDf, rankDocs, vocab: createVocabulary(df) };
 }
 
 let cached: SearchIndex | null = null;
