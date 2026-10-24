@@ -31,9 +31,13 @@ export default async function ChatPage({
   });
   return (
     <Shell footer={false}>
-      {/* The Loki feedback launcher stays off the chat (it sat on the reply row):
-          the widget's host directive for this region, left behind with the route. */}
-      <div className="companion-page" data-fc-place="hidden">
+      {/* On the chat the Loki feedback launcher is the slim edge tab, not the
+          round button that sat on the reply row (2026-10-23). "tab", not
+          "hidden": a hidden launcher makes the owner's widget fall back to a
+          bar across the top of the page, a different widget from the one on
+          every other page. The widget's host directive for this region, left
+          behind with the route. */}
+      <div className="companion-page" data-fc-place="tab">
         <ResearchChat
           topic={topic}
           start={startQuestion(params.q)}

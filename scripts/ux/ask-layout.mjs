@@ -23,7 +23,7 @@
  *   - Expand does not land on /chat with the same messages;
  *   - anything but the sheet's own UI sits over the reply row (the Loki
  *     feedback launcher did, 2026-10-23), or the launcher is not back once
- *     the sheet closes, or it shows on /chat. The widget only loads with a
+ *     the sheet closes, or it is more than the slim edge tab on /chat. The widget only loads with a
  *     token, so a stand-in launcher obeys the widget's documented host
  *     contract (loki widget/host-scan.ts readPlaceDirective: <html>, then
  *     every rendered [data-fc-place], the last one wins);
@@ -151,8 +151,15 @@ const LAUNCHER_STAND_IN = `(() => {
     const place = () => {
       const row = document.querySelector('.ask-sheet .ck-replies, .companion .ck-replies');
       const r = row && row.getBoundingClientRect();
-      fab.style.top = (r && r.height ? r.top : innerHeight * 0.6) + 'px';
-      fab.style.display = directive() === 'hidden' ? 'none' : '';
+      const d = directive();
+      // "tab": the slim edge handle, flush with the edge, off the reply row.
+      const tab = d === 'tab';
+      fab.style.width = tab ? '28px' : '56px';
+      fab.style.height = tab ? '72px' : '56px';
+      fab.style.right = tab ? '0' : '12px';
+      fab.style.borderRadius = tab ? '12px 0 0 12px' : '50%';
+      fab.style.top = tab ? innerHeight * 0.4 + 'px' : (r && r.height ? r.top : innerHeight * 0.6) + 'px';
+      fab.style.display = d === 'hidden' ? 'none' : '';
     };
     new MutationObserver(place).observe(document.documentElement, { subtree: true, childList: true, attributes: true });
     setInterval(place, 200);
@@ -352,8 +359,12 @@ for (const [width, scheme] of [320, 390, 1440].flatMap((w) => [
   if (await page.locator('.ask-sheet').count()) fail(width, 'the panel is still mounted on /chat');
   await page.locator('.ck-replies').first().waitFor({ timeout: 5_000 });
   await page.waitForTimeout(400);
-  if (await page.locator('#loki-stand-in').isVisible())
-    fail(width, 'the feedback launcher shows on /chat');
+  // On /chat the launcher is the slim edge tab: present, but never the round
+  // button that sat on the reply row.
+  const standIn = page.locator('#loki-stand-in');
+  if (!(await standIn.isVisible())) fail(width, 'the launcher is not on /chat (the edge tab is)');
+  else if ((await standIn.boundingBox()).width > 28)
+    fail(width, 'the feedback launcher shows on /chat as more than the edge tab');
   for (const c of await page.evaluate(COVERED('.companion')))
     fail(width, `something sits over /chat's reply row: ${c}`);
   const chatComposer = await page.evaluate(COMPOSER_FACTS);
