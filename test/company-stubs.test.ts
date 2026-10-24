@@ -41,9 +41,17 @@ test('the Kazakh uranium operators and owners are stub companies with a page', (
     assert.equal(e.evidence, STUB_EVIDENCE);
     assert.equal(e.href, `/markets/${id.slice('company:'.length)}`);
     assert.ok(e.topics.includes('kz'), `${id}: the Kazakhstan table printed it`);
-    assert.match(e.summary, /^Named in the USGS Minerals Yearbook 2023 \(Kazakhstan\) as /);
+    // Other sources may join (the pilot's own Kazatomprom rows do): the
+    // yearbook leads, and the tail is whatever the relations say.
+    assert.match(
+      e.summary,
+      /^Named in the USGS Minerals Yearbook 2023 \(Kazakhstan\)( and \d+ other sources?)? as /,
+    );
     assert.equal(resolveDirectoryEntity(id), undefined, 'a stub is not a directory entity');
   }
+  const kap = resolveEntity('company:nac-kazatomprom-jsc')!.summary;
+  assert.match(kap, /holder of a stake in Akbastau JV, APPAK LLP/);
+  assert.match(kap, /shipper to China/);
   assert.match(
     resolveEntity('company:jv-inkai-llp')!.summary,
     /operator of one listed site and held by Cameco Corp\. and NAC Kazatomprom JSC/,
