@@ -22,6 +22,7 @@ import { RELATIONS } from '@/config/substrata-relations';
 import { resolveEntity } from '@/lib/entities/registry';
 import type { EntityId } from '@/lib/entities/types';
 import usgsFile from '@/research/usgs-relations.json';
+import { withCanonicalEnds } from './aliases';
 import { corpusRelations } from './from-corpus';
 import { COUNTED_GRADES, type Relation, type RelationOrigin } from './types';
 import type { UsgsNode, UsgsReport } from './usgs-operators';
@@ -94,7 +95,9 @@ export function buildStore(
   const hand = inputs.hand ?? RELATIONS;
   const conflicts: string[] = [];
   const byId = new Map<string, Relation>();
-  for (const r of [...hand, ...corpus.relations, ...usgs.relations]) {
+  for (const raw of [...hand, ...corpus.relations, ...usgs.relations]) {
+    // A reviewed alias moves every edge to one id, whichever producer wrote it.
+    const r = withCanonicalEnds(raw);
     const seen = byId.get(r.id);
     byId.set(r.id, seen ? merge(seen, r, conflicts) : r);
   }

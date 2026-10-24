@@ -16,6 +16,7 @@
  * guessed at.
  */
 import { resolveEntity, resolveIn } from '@/lib/entities/registry';
+import { aliasEntry } from './aliases';
 import { entityId, type EntityId } from '@/lib/entities/types';
 
 /** Legal forms and their abbreviations, as they appear before or after a firm's name. */
@@ -46,7 +47,13 @@ const PUBLIC_BODY =
   /\b(government|ministry|department|office|administration|commission|presidential|state council|municipal|provincial)\b/i;
 
 export type PartyResolution =
-  { id: EntityId; minted: boolean } | { skip: 'not one party' | 'public body' | 'empty' };
+  | {
+      id: EntityId;
+      minted: boolean;
+      /** A reviewed alias (config/entity-aliases.ts) moved it: the canonical spelling. */
+      name?: string;
+    }
+  | { skip: 'not one party' | 'public body' | 'empty' };
 
 export function slugOf(name: string): string {
   return name
@@ -111,5 +118,10 @@ export function resolveParty(
   if (known) return { id: known, minted: false };
   const slug = slugOf(name);
   if (!slug) return { skip: 'empty' };
-  return { id: entityId('company', slug), minted: true };
+  const minted = entityId('company', slug);
+  // Only a pair a person reviewed merges; the matcher only proposes.
+  const alias = aliasEntry(minted);
+  if (alias)
+    return { id: alias.canonical, minted: !resolveEntity(alias.canonical), name: alias.name };
+  return { id: minted, minted: true };
 }

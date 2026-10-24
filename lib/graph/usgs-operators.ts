@@ -175,7 +175,7 @@ export function buildUsgsRelations(file: UsgsProducersFile): UsgsBuild {
           skip(`holder is ${resolved.skip}`);
           return null;
         }
-        if (resolved.minted) note(resolved.id, p.name, 'company');
+        if (resolved.minted) note(resolved.id, resolved.name ?? p.name, 'company');
         return resolved.id;
       };
       const owners = (target: EntityId, holders: Party[]) => {

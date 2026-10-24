@@ -15,6 +15,7 @@ import './styles/atlas-chain.css';
 import './styles/atlas-lens.css';
 import './styles/chain-read.css';
 import './styles/ask.css';
+import './styles/answer-table.css';
 import './styles/ask-key.css';
 import './styles/discussion.css';
 import './styles/chat.css';

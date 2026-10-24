@@ -1,5 +1,6 @@
 'use client';
 
+import { AnswerTables } from './AnswerTables';
 import type { Turn } from './types';
 
 /**
@@ -9,7 +10,8 @@ import type { Turn } from './types';
  * answer read are the thought row ABOVE it ("Thought for 12s › Read 3
  * records", `thinking.ts`), the way every chat app shows what it did; a
  * record count under the answer was a stray line nobody could place.
- * The look is chatkit's; only the content is Substrata's.
+ * The look is chatkit's; only the content is Substrata's. A table of the
+ * rows the answer rests on (AnswerTables) comes first, right under the prose.
  *
  * Where to go next is NOT here: the follow-up questions join the suggested
  * replies in chatkit's one row under the latest answer (`lib/ask-row.ts`), so
@@ -18,10 +20,21 @@ import type { Turn } from './types';
 export function AnswerFooter({ turn }: { turn: Turn }) {
   const leads = turn.leads ?? [];
   const web = turn.web ?? [];
-  if (!leads.length && !web.length && !turn.verdict && !turn.outside && !turn.degraded) return null;
+  const tables = turn.tables ?? [];
+  if (
+    !tables.length &&
+    !leads.length &&
+    !web.length &&
+    !turn.verdict &&
+    !turn.outside &&
+    !turn.degraded
+  )
+    return null;
 
   return (
     <div className="answer-footer">
+      {/* The rows the answer rests on, as a table built from the tool rows — first, right under the prose. */}
+      {tables.length > 0 && <AnswerTables tables={tables} />}
       {(turn.verdict || turn.outside || turn.degraded) && (
         <p className="answer-tags">
           {turn.verdict && (

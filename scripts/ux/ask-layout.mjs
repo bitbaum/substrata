@@ -28,7 +28,11 @@
  *     contract (loki widget/host-scan.ts readPlaceDirective: <html>, then
  *     every rendered [data-fc-place], the last one wins);
  *   - /chat's composer is not the panel's: a kicker over the box, a
- *     paperclip, or a different set of controls.
+ *     paperclip, or a different set of controls;
+ *   - the answer's table (the Kazakh uranium rows, fixtures/) does not draw,
+ *     does not show eight rows and then all on "Show all", scrolls sideways
+ *     once opened, is not cards on a phone, cuts a word, or has a control
+ *     under 44px. Its screenshot is table-<width>-<scheme>.png.
  * Screenshots of the panel open go to --out (default: the scratchpad).
  *
  * Needs a Playwright build: set PLAYWRIGHT_CORE to its path if it is not
@@ -36,7 +40,7 @@
  * `pnpm run verify`: CI installs no browser. The parts that need none are
  * test/ask-charts.test.ts, test/ask-thread.test.ts and test/chat-ux.test.ts.
  */
-import { mkdirSync } from 'node:fs';
+import { mkdirSync, readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { join } from 'node:path';
 import { parseArgs } from 'node:util';
@@ -53,6 +57,14 @@ const { values } = parseArgs({
 mkdirSync(values.out, { recursive: true });
 
 const PAGE = '/bottlenecks/euv-lithography-scanners';
+/**
+ * The table an answer carries (components/portal/chat/AnswerTables.tsx): the
+ * Kazakh uranium rows exactly as the code builds them today —
+ * test/answer-table.test.ts fails when this fixture drifts from the builder.
+ */
+const TABLE = JSON.parse(
+  readFileSync(new URL('./fixtures/kz-uranium-table.json', import.meta.url), 'utf8'),
+);
 const QUESTION = 'Who makes EUV scanners, and who supplies the light source?';
 
 const CHART = {
@@ -122,6 +134,7 @@ function scriptedStream() {
             kind: 'company',
           },
         ],
+        tables: [TABLE],
         trail: ['Looking up EUV lithography scanners', 'Reading listings and exposure for ASML'],
         followUps: ['What does Zeiss make for the scanner?'],
         replies: ['Who buys the scanners?', 'How many ship a year?'],
@@ -188,7 +201,12 @@ const COMPOSER_FACTS = `(() => {
 const COVERED = (selector) => `(() => {
   const row = document.querySelector('${selector} .ck-replies');
   if (!row) return ['no reply row'];
-  row.scrollIntoView({ block: 'center' });
+  // Where a reader meets the row: the thread at rest at its end, under the
+  // answer. Centred, a long answer (a table) parked the row at 40% of the
+  // screen, where any edge tab sits whatever the page does.
+  const thread = row.closest('.ck-thread');
+  if (thread) thread.scrollTop = thread.scrollHeight;
+  else row.scrollIntoView({ block: 'end' });
   const r = row.getBoundingClientRect();
   const out = [];
   for (let x = r.left + 4; x < r.right; x += 16)
@@ -321,6 +339,48 @@ for (const [width, scheme] of [320, 390, 1440].flatMap((w) => [
   if (facts.paperclip) fail(width, 'a paperclip in the panel composer');
   for (const w of facts.broken) fail(width, `word broken across lines: "${w}"`);
   if (facts.messages.length < 2) fail(width, `only ${facts.messages.length} turns drawn`);
+
+  // The table under the answer: eight rows, then all of them, never sideways.
+  const table = sheet.locator('figure.answer-table');
+  if (!(await table.count())) fail(width, 'the answer table did not draw');
+  else {
+    const before = await table.locator('tbody tr').count();
+    if (before !== 8) fail(width, `the table shows ${before} rows before "Show all", not 8`);
+    await table.locator('.answer-table-more').click();
+    const after = await table.locator('tbody tr').count();
+    if (after !== TABLE.rows.length)
+      fail(width, `"Show all" shows ${after} rows, not ${TABLE.rows.length}`);
+    await table.locator('.answer-table-shared summary').first().click();
+    const wide = await page.evaluate(() => {
+      const fig = document.querySelector('.ask-sheet figure.answer-table');
+      const thread = document.querySelector('.ask-sheet .ck-thread');
+      return {
+        fig: fig.scrollWidth - fig.clientWidth,
+        thread: thread.scrollWidth - thread.clientWidth,
+        page: document.documentElement.scrollWidth - window.innerWidth,
+        cards: getComputedStyle(fig.querySelector('tr')).display === 'block',
+      };
+    });
+    if (wide.fig > 0 || wide.thread > 0 || wide.page > 0)
+      fail(width, `the open table scrolls sideways: ${JSON.stringify(wide)}`);
+    if (width < 768 && !wide.cards) fail(width, 'on a phone the table rows are not cards');
+    for (const w of await page.evaluate(
+      `(${BROKEN_WORDS_SOURCE})(document.querySelector('.ask-sheet figure.answer-table'))`,
+    ))
+      fail(width, `word broken across lines in the table: "${w}"`);
+    const small = await page.evaluate(
+      () =>
+        [
+          ...document.querySelectorAll(
+            '.ask-sheet figure.answer-table button, .ask-sheet figure.answer-table summary',
+          ),
+        ]
+          .map((el) => el.getBoundingClientRect())
+          .filter((r) => r.width > 0 && (r.height < 44 || r.width < 44)).length,
+    );
+    if (small) fail(width, `${small} table control(s) under 44px`);
+    await table.screenshot({ path: join(values.out, `table-${width}-${scheme}.png`) });
+  }
 
   for (const c of await page.evaluate(COVERED('.ask-sheet')))
     fail(width, `something sits over the panel's reply row: ${c}`);

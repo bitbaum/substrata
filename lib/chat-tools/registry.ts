@@ -22,6 +22,7 @@ import { DEPENDENCY_TOOLS } from './dependencies';
 import { EXPOSURE_TOOLS } from './exposure';
 import { OWNERSHIP_TOOLS } from './ownership';
 import { FILING_TOOLS } from './filings';
+import { GRAPH_TOOLS } from './graph';
 import { JOB_TOOLS } from './jobs';
 import { NUMBER_TOOLS } from './numbers';
 import { POLICY_TOOLS } from './policy';
@@ -29,6 +30,7 @@ import { SCIENCE_TOOLS } from './science';
 import { WRITING_TOOLS } from './writing';
 import { LEAD_TOOLS } from './leads';
 import type { ToolEnv } from './ledger';
+import { isAnswerTable } from '../chat/answer-table';
 import { LIST_TOOLS } from './lists';
 import { RECORD_TOOLS } from './records';
 import { PRODUCER_TOOLS } from './producers';
@@ -47,10 +49,10 @@ export const CHAT_TOOLS: readonly ChatTool[] = [
   ...RESOURCE_TOOLS,
   ...PRODUCER_TOOLS,
   ...TRADE_RULE_TOOLS,
-  // Rung 3 of the answer ladder plugs in here: a graph traversal tool from
-  // lib/graph (country → facilities → operators → owners → buyers). Its result
-  // should carry `buyers` / `ships_to` / `buys_from` lists so lib/chat-agent/
-  // ladder.ts counts those links as covered.
+  // Rung 3 of the answer ladder: related_to and how_connected over lib/graph.
+  // related_to's non-empty `owners` list covers the owners link in
+  // lib/chat-agent/ladder.ts; a `buyers` list would cover the buyers link.
+  ...GRAPH_TOOLS,
   ...SCENARIO_TOOLS,
   ...LIST_TOOLS,
   ...NUMBER_TOOLS,
@@ -109,7 +111,20 @@ export async function runTool(
   } catch {
     out = { error: `${name} failed.` };
   }
-  return { label, result: fitResult(out, tool.budget) };
+  return { label, result: fitResult(routeTable(out, env), tool.budget) };
+}
+
+/**
+ * A result's `table` goes to the answer, not to the model: the reader gets it
+ * drawn under the prose (lib/chat/answer-table.ts), and the model, which has
+ * the same rows in `facilities`, is spared paying for them twice.
+ */
+function routeTable(out: unknown, env: ToolEnv): unknown {
+  if (!out || typeof out !== 'object' || !('table' in out)) return out;
+  const { table, ...rest } = out as { table?: unknown };
+  if (isAnswerTable(table) && !env.ledger.tables.some((t) => t.id === table.id))
+    env.ledger.tables.push(table);
+  return rest;
 }
 
 /** Halve every long list, deep. */

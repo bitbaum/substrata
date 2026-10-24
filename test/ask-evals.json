@@ -257,5 +257,140 @@
       "wrong": "Russia produced 6 kt of gallium.",
       "right": "Russia produced 6,000 kg (estimated) of gallium."
     }
+  },
+  {
+    "id": "inkai-owners",
+    "facet": "ownership",
+    "question": "Who owns Inkai?",
+    "mustMention": ["country:kz"],
+    "expectedTools": ["related_to"],
+    "expectedHits": [],
+    "wall": false,
+    "firstTool": "related_to",
+    "mustHold": [
+      "JV Inkai LLP (NAC Kazatomprom JSC, 60%, and Cameco Corp., 40%)",
+      "Cameco Corp. owns 40% of JV Inkai LLP"
+    ],
+    "graded": [
+      {
+        "quote": "JV Inkai LLP (NAC Kazatomprom JSC, 60%, and Cameco Corp., 40%)",
+        "grade": "stated",
+        "reading": "table-cell"
+      }
+    ],
+    "expectedGaps": [],
+    "recordedWall": "Who owns Inkai is not recorded in the corpus."
+  },
+  {
+    "id": "kazatomprom-stakes",
+    "facet": "ownership",
+    "question": "Which companies does Kazatomprom hold stakes in?",
+    "mustMention": ["country:kz"],
+    "expectedTools": ["related_to"],
+    "expectedHits": [],
+    "wall": false,
+    "firstTool": "related_to",
+    "mustHold": [
+      "PE Ortalyk LLP (NAC Kazatomp JSC, 51%, and CGNM UK Ltd., 49%)",
+      "JV Katco LLP (JSC ORANO Mining, 51%, and NAC Kazatomprom JSC, 49%)",
+      "NAC Kazatomprom JSC owns 51% of PE Ortalyk LLP"
+    ],
+    "graded": [
+      {
+        "quote": "PE Ortalyk LLP (NAC Kazatomp JSC, 51%, and CGNM UK Ltd., 49%)",
+        "grade": "stated",
+        "reading": "table-cell"
+      }
+    ],
+    "expectedGaps": []
+  },
+  {
+    "id": "cameco-kz-partners",
+    "facet": "ownership",
+    "question": "Who are Cameco's partners in Kazakhstan?",
+    "mustMention": ["country:kz"],
+    "expectedTools": ["related_to"],
+    "expectedHits": [],
+    "wall": false,
+    "firstTool": "related_to",
+    "mustHold": [
+      "NAC Kazatomprom JSC owns 60% of JV Inkai LLP",
+      "Cameco Corp. owns 40% of JV Inkai LLP"
+    ],
+    "graded": [
+      {
+        "quote": "JV Inkai LLP (NAC Kazatomprom JSC, 60%, and Cameco Corp., 40%)",
+        "grade": "stated",
+        "reading": "table-cell"
+      }
+    ],
+    "expectedGaps": []
+  },
+  {
+    "id": "sumitomo-kz-uranium",
+    "facet": "ownership",
+    "question": "How is Sumitomo connected to Kazakh uranium?",
+    "mustMention": ["country:kz"],
+    "expectedTools": ["how_connected"],
+    "expectedHits": [],
+    "wall": false,
+    "firstTool": "how_connected",
+    "mustHold": [
+      "Sumitomo Corp. owns 25% of APPAK LLP",
+      "APPAK LLP (NAC Kazatomprom JSC, 65%; Sumitomo Corp., 25%; Kansai Electric Power Co. Inc., 10%)"
+    ],
+    "graded": [
+      {
+        "quote": "APPAK LLP (NAC Kazatomprom JSC, 65%; Sumitomo Corp., 25%; Kansai Electric Power Co. Inc., 10%)",
+        "grade": "stated",
+        "reading": "table-cell"
+      }
+    ],
+    "expectedGaps": []
+  },
+  {
+    "id": "chile-collahuasi-owners",
+    "facet": "ownership",
+    "question": "Who owns Collahuasi?",
+    "mustMention": ["country:cl"],
+    "expectedTools": ["related_to"],
+    "expectedHits": [],
+    "wall": false,
+    "firstTool": "related_to",
+    "mustHold": [
+      "Anglo American plc owns 44% of Compañía Minera Doña Inés de Collahuasi SCM",
+      "Glencore Plc. owns 44% of Compañía Minera Doña Inés de Collahuasi SCM"
+    ],
+    "graded": [
+      {
+        "quote": "Compañía Minera Doña Inés de Collahuasi SCM (Anglo American plc, 44%; Glencore plc, 44% ; Japan Collahuasi Resources B.V., 12%)",
+        "grade": "stated",
+        "reading": "table-cell"
+      }
+    ],
+    "expectedGaps": []
+  },
+  {
+    "id": "russia-gazprom-owners",
+    "facet": "ownership",
+    "question": "Who owns Gazprom?",
+    "mustMention": ["company:gazprom"],
+    "expectedTools": ["related_to"],
+    "expectedHits": [],
+    "wall": false,
+    "firstTool": "related_to",
+    "mustHold": [
+      "PAO Gazprom (Government, 50.23%, and private owners, 49.77%)",
+      "Russia owns 50.23% of Gazprom"
+    ],
+    "graded": [
+      {
+        "quote": "PAO Gazprom (Government, 50.23%, and private owners, 49.77%)",
+        "grade": "stated",
+        "reading": "table-cell"
+      }
+    ],
+    "expectedGaps": [],
+    "recordedWall": "The owners of Gazprom are not in our database."
   }
 ]

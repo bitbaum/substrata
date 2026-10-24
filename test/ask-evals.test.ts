@@ -35,6 +35,7 @@ import { runPlan } from '../lib/chat-agent/lookups';
 import { missingLinks, wallProblem } from '../lib/chat-agent/ladder';
 import { unsupportedFigures } from '../lib/chat-agent/grounding';
 import { emptyLedger } from '../lib/chat-tools/ledger';
+import { GRADE_LABEL } from '../lib/graph/index';
 
 interface EvalRow {
   id: string;
@@ -65,6 +66,15 @@ interface EvalRow {
   expectedGaps?: string[];
   /** A refusal recorded live (or written to the shape of one) that the wall check must catch. */
   recordedWall?: string;
+  /**
+   * Relation rows the graph tools must return: the source quote verbatim, with
+   * this grade and this kind of reading (table cell, curated record, verbatim).
+   */
+  graded?: {
+    quote: string;
+    grade: 'stated' | 'corroborated' | 'derived' | 'lead';
+    reading: string;
+  }[];
   /** A re-united quantity the grounding check must catch, and its verbatim form it must pass. */
   unitGuard?: { wrong: string; right: string };
 }
@@ -86,8 +96,8 @@ function leadClause(line: string): string {
 }
 
 test('the eval set is the one the ADR names', () => {
-  assert.equal(EVALS.length, 27);
-  assert.equal(EVALS.filter((r) => r.wall === false).length, 6, 'six no-wall questions');
+  assert.equal(EVALS.length, 33);
+  assert.equal(EVALS.filter((r) => r.wall === false).length, 12, 'twelve no-wall questions');
   assert.equal(new Set(EVALS.map((r) => r.id)).size, EVALS.length, 'ids are unique');
   const niger = EVALS.find((r) => r.id === 'niger-uranium');
   assert.ok(niger, 'niger-uranium is in the set');
@@ -125,6 +135,28 @@ console.log(
 
 const GENERIC_WALL = 'That is not recorded in the corpus.';
 
+interface RelationRowShape {
+  grade: string;
+  counted: boolean;
+  source: { quote: string; reading: string };
+}
+
+/** Every relation row (related_to, how_connected) in a set of tool results, however deep. */
+function relationRowsIn(results: string[]): RelationRowShape[] {
+  const out: RelationRowShape[] = [];
+  const walk = (v: unknown): void => {
+    if (Array.isArray(v)) return v.forEach(walk);
+    if (!v || typeof v !== 'object') return;
+    const o = v as Record<string, unknown>;
+    if (o.source && typeof o.grade === 'string' && typeof o.counted === 'boolean')
+      out.push(o as unknown as RelationRowShape);
+    Object.values(o).forEach(walk);
+  };
+  for (const r of results.filter((x) => /^\[(related_to|how_connected)\]/.test(x)))
+    walk(JSON.parse(r.replace(/^\[[^\]]+\]\s*/, '')));
+  return out;
+}
+
 for (const row of EVALS.filter((r) => r.wall === false || r.unitGuard)) {
   test(
     `ladder ${row.id}: ${row.question}`,
@@ -142,6 +174,16 @@ for (const row of EVALS.filter((r) => r.wall === false || r.unitGuard)) {
       );
       const text = looked.results.join('\n');
       for (const s of row.mustHold ?? []) assert.ok(text.includes(s), `the lookups return "${s}"`);
+      const rels = relationRowsIn(looked.results);
+      for (const g of row.graded ?? []) {
+        const hit = rels.filter((r) => r.source.quote === g.quote);
+        assert.ok(hit.length, `a relation row quotes "${g.quote}" verbatim`);
+        for (const r of hit) {
+          assert.equal(r.grade, GRADE_LABEL[g.grade], `graded ${g.grade}: ${g.quote}`);
+          assert.equal(r.source.reading, g.reading, `read as ${g.reading}: ${g.quote}`);
+          assert.equal(r.counted, g.grade === 'stated' || g.grade === 'corroborated');
+        }
+      }
       if (row.unitGuard) {
         assert.ok(
           unsupportedFigures(row.unitGuard.wrong, text).length > 0,

@@ -1,3 +1,5 @@
+import type { AnswerTable } from '@/lib/chat/answer-table';
+
 export type Source = {
   number: number;
   id: string;
@@ -31,6 +33,8 @@ export type Answer = {
   web?: WebFinding[];
   /** Unreviewed sweep leads the answer read. Rendered apart, labelled. */
   leads?: Lead[];
+  /** Rows the tools returned, as tables built in code — never by the model. */
+  tables?: AnswerTable[];
   /** Questions this assistant can answer, built from what it looked up. */
   followUps?: string[];
   /** What it looked up, in order. */
@@ -53,6 +57,7 @@ export type Turn = {
   sources?: Source[];
   web?: WebFinding[];
   leads?: Lead[];
+  tables?: AnswerTable[];
   followUps?: string[];
   trail?: string[];
   outside?: boolean;

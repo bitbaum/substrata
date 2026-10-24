@@ -47,3 +47,18 @@ An endpoint not in the directory is a minted `company:<slug>` or
    re-run the script (`test/graph.test.ts` fails when the file is stale).
 
 A hand-written relation with no other home goes in `config/substrata-relations.ts`.
+
+## One organisation, one node
+
+A minted id comes from the name a source printed, so a typesetting slip
+("NAC Kazatomp JSC") is a second node. `pnpm run research:alias-candidates`
+proposes pairs by named rules (`alias-match.ts`: legal form, spacing, a word
+cut short within one country, transliteration) with the evidence for each;
+nothing merges until the pair is written into `config/entity-aliases.ts` with
+a one-line reason from the rows. `aliases.ts` applies the table — in the USGS
+parser (re-run `research:usgs-relations`) and in the store for every other
+producer. A subsidiary is never an alias of its parent.
+
+`find.ts` turns a typed name into a node (directory, then the exact name
+without legal forms, then every typed word); the chat tools `related_to` and
+`how_connected` (`lib/chat-tools/graph.ts`) read the graph through it.

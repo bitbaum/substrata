@@ -134,6 +134,7 @@ export function useChatSession({
                 sources: data.sources,
                 web: data.web,
                 leads: data.leads,
+                tables: data.tables,
                 followUps: data.followUps,
                 trail: data.trail,
                 outside: data.outside,

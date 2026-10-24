@@ -21,6 +21,7 @@ import type { ToolEnv } from '../chat-tools/ledger';
 import { familyIn } from '../chat-tools/jobs';
 import { producerResourcesIn } from '../chat-tools/producers';
 import { resourceIn } from '../chat-tools/resources';
+import { graphCalls } from './graph-ask';
 import type { ToolRequest } from './parse';
 import { bottleneckIn, bottlenecksIn, companiesIn, countriesIn } from './question';
 
@@ -122,13 +123,19 @@ export function planLookups(
   const named = bottleneckIn(question);
   const bottleneck = named?.slug ?? pageBottleneck;
   const holdings = HOLDINGS.test(q);
-  const companies = companiesIn(question, holdings ? 4 : 2).filter((c) => c.slug !== pageCompany);
+  // A graph question names its firm itself: a fuzzy directory match ("Sumitomo" →
+  // Sumitomo Electric) is kept only when its whole name is in the question.
+  const graph = graphCalls(question);
+  const companies = companiesIn(question, holdings ? 4 : 2).filter(
+    (c) => c.slug !== pageCompany && (!graph.length || q.includes(c.name.toLowerCase())),
+  );
   const countries = countriesIn(question);
   const resource = resourceIn(question);
   const company = companies[0]?.slug ?? pageCompany;
 
-  const calls: ToolRequest[] = [];
-  let intent = false;
+  // Rung 3 first: who owns X, what X holds, how X connects to Y (graph-ask.ts).
+  const calls: ToolRequest[] = graph;
+  let intent = calls.length > 0;
   // Rung 2 of the answer ladder first: a country's mines, plants, operators and
   // owners are USGS facility rows. Asked live on 2026-10-24 which companies
   // mine uranium in Kazakhstan and who owns them, no tool read those rows and
