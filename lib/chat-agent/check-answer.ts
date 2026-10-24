@@ -33,6 +33,7 @@ import {
   type TableFacts,
 } from './table-guard';
 import { openWithSummary, tableProse } from './table-prose';
+import { attachCitations } from './attach-citations';
 import { defaultDeny } from './default-deny';
 import { withoutInternals } from './internal';
 import { dropUncited, oneGapEach, tableEntityWords, uncitedClaims, webCountIn } from './uncited';
@@ -109,7 +110,7 @@ export async function checkAnswer(opts: {
       gaps,
       webCount: webCountIn(opts.results),
       question: opts.question,
-      evidence: opts.results.join('\n'),
+      results: opts.results,
     });
   // Rung 6: every missing link the answer ended on is filed as demand.
   if (answer.trim())
@@ -139,8 +140,8 @@ export function finishInCode(
     gaps: MissingLink[];
     webCount: number;
     question: string;
-    /** Every tool result's text. Empty when nothing was looked up: then there is nothing to cite. */
-    evidence: string;
+    /** Every tool result. None looked up: nothing to cite, and default deny stands down. */
+    results: string[];
   },
 ): string {
   const { facts, gaps } = opts;
@@ -152,15 +153,20 @@ export function finishInCode(
     summary: facts?.summary,
   });
   // And in the reader's words only: no tool, no field, no reply to a send-back (internal.ts).
-  const honest = dropUncited(shaped, claims, gaps);
+  // A sentence one row vouches for gets that row's link (attach-citations.ts).
+  const honest = attachCitations(dropUncited(shaped, claims, gaps), opts.results, [
+    ...(facts?.summary ?? []),
+    ...gaps.map((g) => g.sentence),
+  ]);
+  const evidence = opts.results.join('\n');
   // Default deny: with tool results in hand, a sentence stays only when it is
   // cited or one of the kinds an honest answer is built from (default-deny.ts).
-  const backed = opts.evidence.trim()
+  const backed = evidence.trim()
     ? defaultDeny(honest, {
         question: opts.question,
         summary: facts?.summary ?? [],
         webCount: opts.webCount,
-        evidence: opts.evidence,
+        evidence,
       }).answer
     : honest;
   return withoutInternals(oneGapEach(backed, gaps));

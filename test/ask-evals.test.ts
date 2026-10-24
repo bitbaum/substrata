@@ -37,7 +37,7 @@ import { printedFormMismatches, unsupportedFigures } from '../lib/chat-agent/gro
 import { claimProblems, stripModelTables, tableFactsIn } from '../lib/chat-agent/table-guard';
 import { fixQuotes } from '../lib/chat-agent/table-prose';
 import { finishInCode } from '../lib/chat-agent/check-answer';
-import { gapSentences, tableEntityWords, uncitedClaims } from '../lib/chat-agent/uncited';
+import { GAP_SAYS, gapSentences, tableEntityWords, uncitedClaims } from '../lib/chat-agent/uncited';
 import { internalProblem } from '../lib/chat-agent/internal';
 import { readFileSync } from 'node:fs';
 import { emptyLedger } from '../lib/chat-tools/ledger';
@@ -90,6 +90,8 @@ interface EvalRow {
   mustFlag?: string[];
   /** The question shows no table (the guards must leave such an answer alone where it is honest). */
   noTable?: boolean;
+  /** The answer names every operator the tool returned (the summary does, in code). */
+  operatorsNamed?: boolean;
   /** Sentences the guards must remove; every other line of the recorded answer must survive. */
   keepAllExcept?: string[];
   /** A page-text recording whose answer had links the page text no longer shows. */
@@ -128,8 +130,8 @@ function leadClause(line: string): string {
 }
 
 test('the eval set is the one the ADR names', () => {
-  assert.equal(EVALS.length, 45);
-  assert.equal(EVALS.filter((r) => r.wall === false).length, 24, 'twenty-four no-wall questions');
+  assert.equal(EVALS.length, 46);
+  assert.equal(EVALS.filter((r) => r.wall === false).length, 25, 'twenty-five no-wall questions');
   assert.equal(new Set(EVALS.map((r) => r.id)).size, EVALS.length, 'ids are unique');
   const niger = EVALS.find((r) => r.id === 'niger-uranium');
   assert.ok(niger, 'niger-uranium is in the set');
@@ -196,10 +198,35 @@ function gradeRecorded(row: EvalRow, fresh: string[]) {
     question: row.question,
     // Page text has lost the answer's links: grading it under default deny would
     // grade the recording, not the answer. Its markdown twin is graded in full.
-    evidence: row.linksLost ? '' : results.join('\n'),
+    results: row.linksLost ? [] : results,
   });
   for (const k of row.mustKeep ?? []) assert.ok(final.includes(k), `keeps "${k}"`);
   for (const d of row.mustDrop ?? []) assert.ok(!final.includes(d), `drops "${d}"`);
+  if (row.operatorsNamed && facts)
+    // Named in code, from the rows the tool returned, whatever the prose did.
+    for (const r of facts.rows)
+      if (r.operator) assert.ok(final.includes(r.operator), `names the operator ${r.operator}`);
+  // Nothing points at nothing: no "would settle it" without its gap, no title over nothing.
+  if (/would settle/i.test(final)) assert.ok(GAP_SAYS.test(final), 'a settle sentence has its gap');
+  if (row.linksLost) return;
+  const titled = final
+    .replace(/```[\s\S]*?```/g, '')
+    .split('\n')
+    .map((l) => l.trim())
+    .filter(Boolean);
+  const title = (l: string) =>
+    /^#{1,6} /.test(l) ||
+    (l.split(/\s+/).length <= 8 &&
+      !/[.!?:;,\]]$/.test(l) &&
+      !/\d|\[W\d/.test(l.replace(/\b(19|20)\d{2}\b/g, '')));
+  titled.forEach((l, i) => {
+    if (!title(l)) return;
+    const next = titled[i + 1];
+    // A markdown heading over a deeper heading or a bold title is its sub-section.
+    const level = (x: string) => x.match(/^#+(?= )/)?.[0].length ?? 7;
+    const deeper = /^#{1,6} /.test(l) && Boolean(next) && level(next) > level(l);
+    assert.ok(next && (!title(next) || deeper), `a title over nothing: "${l}"`);
+  });
   if (row.keepAllExcept) {
     // Everything the recorded answer said survives except the named sentences.
     let rest = answer;
@@ -251,9 +278,9 @@ function gradeRecorded(row: EvalRow, fresh: string[]) {
     final.replace(/^#{1,6} .+\n+/, '').startsWith(facts.summary[0]),
     'the computed summary opens the answer (under a leading heading)',
   );
-  const named = facts.rows.filter(
-    (r) => r.operator && final.replace(/\s+/g, ' ').includes(r.operator),
-  ).length;
+  // The summary names a short table's operators itself; the prose may not redo them.
+  const prose = facts.summary.reduce((t, x) => t.split(x).join(''), final).replace(/\s+/g, ' ');
+  const named = facts.rows.filter((r) => r.operator && prose.includes(r.operator)).length;
   assert.ok(named < 4, `the prose redoes ${named} of the table's rows`);
   assert.equal(fixQuotes(final, facts), final, 'every quote of a cell is the printed cell');
   for (const [bad, good] of row.mustFixQuote ?? []) {

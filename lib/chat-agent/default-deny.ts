@@ -73,6 +73,8 @@ const POINTER =
 
 const YEAR = /^(19|20)\d{2}$/;
 
+const TABLE_TALK = /\b(rows?|printed|owners?|shares?|stakes?|capacit(y|ies)|operators?)\b/i;
+
 /** Common words a sentence opens with: never a name. */
 const STARTERS =
   /^(?:\*\*)?(a|an|the|this|these|that|those|it|here|there|in|for|to|as|we|you|your|our|below|above|see|note|what|which|who|how|why|when|where|if|each|some|no|so|and|also|both|one|answer|short answer)\b/i;
@@ -125,7 +127,10 @@ export function kindOf(
   if (headingLike || (POINTER.test(s) && (!names || SOURCE_NAMED.test(s)))) return 'transition';
   // A sentence with no figure, no name and no claim word says nothing about the
   // world ("Here is what the sources hold."): it opens with a common word, not a name.
-  if (!names && STARTERS.test(s)) return 'transition';
+  // …but one that talks about the table's rows, owners or shares is a claim
+  // about the table, and only the computed summary may make it ("No owner is
+  // printed for the other three rows", seen live, Russia).
+  if (!names && STARTERS.test(s) && !TABLE_TALK.test(s)) return 'transition';
   return null;
 }
 
@@ -197,20 +202,61 @@ export function defaultDeny(
       if (!listed) carrying = /:\s*$/.test(last) && /would|leads?|unchecked|following/i.test(last);
     }
   }
-  // A heading left over nothing (its section all dropped) goes too.
-  const lines = out;
-  const nextText = (i: number) => lines.slice(i + 1).find((l) => l.trim()) ?? '';
-  const text = lines
-    .filter((l, i) => {
-      const level = l.match(/^(#{1,6}) /)?.[1].length;
+  return { answer: tidy(out), dropped };
+}
+
+/**
+ * What is left once sentences have gone, cleaned so nothing points at nothing:
+ * - a "what would settle it" sentence goes when no gap sentence survived to say
+ *   what is missing (seen live, Russia: "…would settle it." after its gap went);
+ * - a heading, a bold title or a short title-like line goes when nothing but
+ *   another heading follows it (Russia: "Rare earths", "USGS Minerals Yearbook
+ *   2022, Russia chapter", "Nickel …" over nothing);
+ * - a ")" with no "(" goes ("…in the table below).", seen live, Peru).
+ */
+function tidy(lines: string[]): string {
+  let out = lines.map((l) => {
+    let line = l;
+    while ((line.match(/\)/g) ?? []).length > (line.match(/\(/g) ?? []).length)
+      line = line.replace(/\)(?=[.!?:]?\s*$)|\)(?![\s\S]*\))/, '');
+    return line;
+  });
+  if (!GAP_SAYS.test(out.join('\n')))
+    out = out
+      .map((l) =>
+        l
+          .split(SPLIT)
+          .filter((x) => !SETTLE.test(x))
+          .join(' '),
+      )
+      .filter((l, i) => l.trim() || !lines[i].trim());
+  const titleLevel = (l: string): number => {
+    const md = l.match(/^(#{1,6}) /)?.[1].length;
+    if (md) return md;
+    const t = l.trim();
+    // A code fence, and anything it holds, is never a title.
+    if (/^`{3}/.test(t) || /^[{["]/.test(t)) return 0;
+    if (!t || /\[W\d+\]|\]\(|\d/.test(t.replace(/\b(19|20)\d{2}\b/g, ''))) return 0;
+    if (/^\*\*[^*]+\*\*:?$/.test(t)) return 7;
+    return t.split(/\s+/).length <= 8 && !/[.!?:;,]$/.test(t) ? 7 : 0;
+  };
+  // Repeat: dropping one orphan can orphan the title above it.
+  for (let changed = true; changed;) {
+    changed = false;
+    const next = (i: number) => out.slice(i + 1).find((l) => l.trim()) ?? '';
+    out = out.filter((l, i) => {
+      const level = titleLevel(l);
       if (!level) return true;
-      const next = nextText(i);
-      const nextLevel = next.match(/^(#{1,6}) /)?.[1].length;
+      const n = next(i);
+      const nLevel = titleLevel(n);
       // Kept over text, or over a deeper heading (its sub-section); dropped over nothing.
-      return Boolean(next) && (!nextLevel || nextLevel > level);
-    })
+      const keep = Boolean(n) && (!nLevel || (nLevel > level && level < 7));
+      if (!keep) changed = true;
+      return keep;
+    });
+  }
+  return out
     .join('\n')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
-  return { answer: text, dropped };
 }

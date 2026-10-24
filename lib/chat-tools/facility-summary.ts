@@ -48,6 +48,9 @@ function holdersOf(owners: string, iso2: string): Map<string, Holding> {
 const list = (xs: string[]) =>
   xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} and ${xs[xs.length - 1]}`;
 
+/** Up to this many rows, the summary names every operator. */
+const SHORT_TABLE = 5;
+
 /** "30%": the share as the yearbook prints a stake. */
 const pct = (n: number) => `${n}%`;
 
@@ -62,9 +65,10 @@ export function facilitySummary(table: AnswerTable, iso2: string): string[] {
   const groups = [...byCommodity].sort((a, b) => b[1] - a[1]);
   const out = [
     groups.length === 1
-      ? `The table has ${n} rows, all for “${groups[0][0]}”.`
+      ? `The table has ${n} ${n === 1 ? 'row' : 'rows'}, ${n === 1 ? 'for' : 'all for'} “${groups[0][0]}”.`
       : `The table has ${n} rows: ${list(groups.map(([c, k]) => `${k} for “${c}”`))}.`,
   ];
+
   const owners = new Map<string, { name: string; rows: number; shares: number[]; none: number }>();
   for (const r of table.rows) {
     if (!r.owners) continue;
@@ -88,6 +92,13 @@ export function facilitySummary(table: AnswerTable, iso2: string): string[] {
     const none = o.none ? `; no share is printed for ${o.none}` : '';
     out.push(`${o.name} is named as an owner in ${o.rows} of the ${n} rows${range}${none}.`);
   }
+  // A short table is named in full, operators as printed: the answer then names
+  // them in code, whatever the prose does.
+  const operators = [...new Set(table.rows.map((r) => r.operator).filter((o): o is string => !!o))];
+  if (n <= SHORT_TABLE && operators.length)
+    out.push(
+      `Operators, as printed: ${list(operators)}${/\.$/.test(operators[operators.length - 1]) ? '' : '.'}`,
+    );
   return out;
 }
 
