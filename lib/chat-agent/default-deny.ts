@@ -243,6 +243,17 @@ function tidy(lines: string[]): string {
           .join(' '),
       )
       .filter((l, i) => l.trim() || !lines[i].trim());
+  // A gap sentence carries no "(source)" of the model's: there is nothing to source.
+  out = out.map((l) => (GAP_SAYS.test(l) ? l.replace(/\s*\(?\[source\]\([^)]*\)\)?/gi, '') : l));
+  // A sentence that announces what follows ("…the operator shown in the table
+  // below is:", seen live, Zimbabwe) goes when nothing follows it: no list
+  // item, no table, no code block.
+  out = out.map((l, i) => {
+    if (!/:\s*$/.test(l)) return l;
+    const next = out.slice(i + 1).find((x) => x.trim()) ?? '';
+    if (/^\s*([-*•]|\d+\.)\s|^\s*```|^\s*\|/.test(next)) return l;
+    return l.replace(/(^|(?<=[.!?])\s+)[^.!?]*:\s*$/, '').trimEnd();
+  });
   const titleLevel = (l: string): number => {
     const md = l.match(/^(#{1,6}) /)?.[1].length;
     if (md) return md;

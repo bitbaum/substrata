@@ -1,0 +1,69 @@
+Which companies mine lithium in Zimbabwe?
+Thought for 8s
+
+The table has 1 row, for “Lithium”. Operators, as printed: Bikita Minerals (Private) Ltd.
+
+As recorded in the USGS Minerals Yearbook 2019 (status: Sourced, a primary statistical source; company structure as of that year), the operator shown in the table below is:
+
+Capacity is capacity, not production, and names no buyers.
+
+According to the USGS Mineral Commodity Summaries 2026 (status: Sourced, primary statistical source), Zimbabwe's mine production for Lithium in 2025 was 28,000 t (estimated), representing a 9.7% world share and ranking 4th globally out of a world total of 290,000 t.
+
+Australia
+92,000
+32%
+China
+62,000
+21%
+Chile
+56,000
+19%
+Zimbabwe
+28,000
+9.7%
+Argentina
+23,000
+7.9%
+Brazil
+12,000
+4.1%
+Mali
+9,400
+3.2%
+Canada
+5,600
+1.9%
+Lithium mine production, 2025
+Lithium mine production, 2025
+Row	Value (t)	Share	Note
+Australia	92,000	32%	
+China	62,000	21%	
+Chile	56,000	19%	
+Zimbabwe	28,000	9.7%	
+Argentina	23,000	7.9%	
+Brazil	12,000	4.1%	
+Mali	9,400	3.2%	
+Canada	5,600	1.9%	
+
+The specific facility-level operators and ownership structures active in Zimbabwe after 2019 are not in our sources (source). You can send evidence to get newer operations tracked.
+
+Lithium facilities in Zimbabwe — USGS Minerals Yearbook 2019
+Operator	Location	Capacity, as printed
+Bikita Minerals (Private) Ltd.	Bikita Mine, 60 kilometers east of Masvingo	80000 metric tons
+
+Every cell is copied from the USGS table as printed. Capacity is capacity, not production. The table names no buyers. USGS Minerals Yearbook, volume III (Area Reports: International), country chapters, Table 2. Structure of the mineral industry (Table 2) ↗
+
+Copy
+Listen
+Try again
+Show me Zimbabwe's lithium production trend
+What companies process Zimbabwean lithium?
+What is USGS Minerals Yearbook 2019: Zimbabwe, lithium facilities recorded as holding?
+Who is recorded as producing Battery-grade lithium chemicals?
+←
+Substrata
+Ask Substrata
+
+Have a source we should hold? Send evidence
+
+Free models, shared · Use your own AI key
