@@ -482,5 +482,105 @@
       "### Unchecked web leads"
     ],
     "mustDrop": ["Companies: Akbastau JV"]
+  },
+  {
+    "id": "kazakh-uranium-uncited-buyers-live",
+    "facet": "facilities",
+    "question": "Which companies mine uranium in Kazakhstan, who owns them, and who do they sell to?",
+    "mustMention": ["country:kz"],
+    "expectedTools": ["producers_in", "resource_production"],
+    "expectedHits": [],
+    "wall": false,
+    "firstTool": "producers_in",
+    "expectedGaps": ["buyers"],
+    "summaryHolds": [
+      "NAC Kazatomprom JSC is named as an owner in 16 of the 17 rows; its stated shares range from 30% to 100%.",
+      "16 for “Uranium, U content” and 1 for “Rare earth elements, recovered from uranium-ore residue”"
+    ],
+    "recordedTool": "test/fixtures/kz-uranium-producers-in-2026-10-24.json",
+    "recordedAnswer": "test/fixtures/ask-live4-kz-uranium-2026-10-24.md",
+    "recordedWeb": 5,
+    "mustDrop": ["sell uranium under bilateral supply contracts"],
+    "mustKeep": [
+      "The buyers of Kazakhstan's uranium output are not in our sources.",
+      "A source that would settle it"
+    ],
+    "leadsKept": [1, 2, 3, 4, 5]
+  },
+  {
+    "id": "kazakh-uranium-uncited-buyers-live-page",
+    "facet": "facilities",
+    "question": "Which companies mine uranium in Kazakhstan, who owns them, and who do they sell to?",
+    "mustMention": ["country:kz"],
+    "expectedTools": ["producers_in", "resource_production"],
+    "expectedHits": [],
+    "wall": false,
+    "firstTool": "producers_in",
+    "expectedGaps": ["buyers"],
+    "summaryHolds": [
+      "NAC Kazatomprom JSC is named as an owner in 16 of the 17 rows; its stated shares range from 30% to 100%.",
+      "16 for “Uranium, U content” and 1 for “Rare earth elements, recovered from uranium-ore residue”"
+    ],
+    "recordedTool": "test/fixtures/kz-uranium-producers-in-2026-10-24.json",
+    "recordedAnswer": "test/fixtures/ask-live4-kz-uranium-2026-10-24.txt",
+    "recordedWeb": 5,
+    "recordedSlice": ["Thought for", "Uranium facilities in Kazakhstan — USGS"],
+    "mustDrop": ["sell uranium under bilateral supply contracts"],
+    "mustKeep": ["The buyers of Kazakhstan's uranium output are not in our sources."],
+    "leadsKept": [1, 2, 3, 4, 5]
+  },
+  {
+    "id": "chile-lithium-buyers-live",
+    "facet": "facilities",
+    "question": "Who operates the lithium plants in Chile, and who buys their lithium?",
+    "mustMention": ["country:cl"],
+    "expectedTools": ["producers_in"],
+    "expectedHits": [],
+    "wall": false,
+    "firstTool": "producers_in",
+    "expectedGaps": ["buyers"],
+    "recordedTool": "test/fixtures/cl-lithium-buyers-producers-in-2026-10-24.json",
+    "recordedAnswer": "test/fixtures/ask-live-cl-lithium-buyers-2026-10-24.md",
+    "recordedWeb": 5,
+    "summaryHolds": [
+      "Albemarle Corp. is named as an owner in 2 of the 4 rows; its stated share is 100% in each."
+    ],
+    "mustDrop": ["major commercial purchasers of Chilean lithium", "capacity: 44,000 metric tons"],
+    "mustKeep": ["The buyers of Chile's lithium output are not in our sources."],
+    "leadsKept": [1, 2, 3, 4, 5]
+  },
+  {
+    "id": "chile-lithium-owners-live",
+    "facet": "facilities",
+    "question": "Who produces lithium in Chile and who owns them?",
+    "mustMention": ["country:cl"],
+    "expectedTools": ["producers_in"],
+    "expectedHits": [],
+    "wall": false,
+    "firstTool": "producers_in",
+    "expectedGaps": [],
+    "recordedTool": "test/fixtures/cl-lithium-owners-producers-in-2026-10-24.json",
+    "recordedAnswer": "test/fixtures/ask-live-cl-lithium-owners-2026-10-24.txt",
+    "recordedSlice": ["Thought for", "Lithium facilities in Chile — USGS"],
+    "mustDrop": [],
+    "mustKeep": [
+      "These rows list the facilities, capacities, and the exact ownership stakes",
+      "the downstream buyers of the Chilean lithium chemicals are not captured"
+    ]
+  },
+  {
+    "id": "russia-rare-earth-nickel-live",
+    "facet": "facilities",
+    "question": "Which companies produce rare earths and nickel in Russia?",
+    "mustMention": ["country:ru"],
+    "expectedTools": ["producers_in"],
+    "expectedHits": [],
+    "wall": false,
+    "firstTool": "producers_in",
+    "expectedGaps": [],
+    "recordedTool": "test/fixtures/ru-rare-earth-nickel-producers-in-2026-10-24.json",
+    "recordedAnswer": "test/fixtures/ask-live-ru-rare-earth-nickel-2026-10-24.md",
+    "noTable": true,
+    "mustKeep": ["**OAO Apatit**", "300000 metric tons"]
   }
 ]

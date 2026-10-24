@@ -202,7 +202,14 @@ test('the Kazakhstan question: web searched for the buyers, the wall sent back, 
   assert.match(systems[0], /unchecked leads \[W#\]/);
   assert.equal(calls, 2, 'the wall went back once');
   assert.match(asks[1], /the producers_in rows above carry them/);
-  assert.match(data.answer, /JV Inkai LLP/);
+  // The rows are the table's (built in code); the prose's uncited retelling of one
+  // goes, and the computed summary opens the answer (table-prose.ts, uncited.ts).
+  assert.ok(
+    data.tables?.some((t) => t.rows.some((r) => r.operator === 'JV Inkai LLP')),
+    'JV Inkai LLP is in the table under the answer',
+  );
+  assert.match(data.answer, /^The table has 17 rows/);
+  assert.match(data.answer, /The buyers of Kazakhstan's uranium output are not in our sources\./);
   assert.equal(data.web.length, 1, 'the web passage travels as a lead, apart from the records');
   assert.deepEqual(filed, [
     { question: KZ, entity: 'country:kz', box: 'buyers', topics: ['uranium', 'kz', 'buyers'] },

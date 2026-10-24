@@ -35,7 +35,9 @@ import { runPlan } from '../lib/chat-agent/lookups';
 import { missingLinks, wallProblem } from '../lib/chat-agent/ladder';
 import { printedFormMismatches, unsupportedFigures } from '../lib/chat-agent/grounding';
 import { claimProblems, stripModelTables, tableFactsIn } from '../lib/chat-agent/table-guard';
-import { fixQuotes, openWithSummary, tableProse } from '../lib/chat-agent/table-prose';
+import { fixQuotes } from '../lib/chat-agent/table-prose';
+import { finishInCode } from '../lib/chat-agent/check-answer';
+import { tableEntityWords, uncitedClaims } from '../lib/chat-agent/uncited';
 import { readFileSync } from 'node:fs';
 import { emptyLedger } from '../lib/chat-tools/ledger';
 import { GRADE_LABEL } from '../lib/graph/index';
@@ -85,6 +87,12 @@ interface EvalRow {
   summaryHolds?: string[];
   /** Parts of the recorded answer the aggregate check must flag (the table is stripped first). */
   mustFlag?: string[];
+  /** The question shows no table (the guards must leave such an answer alone where it is honest). */
+  noTable?: boolean;
+  /** How many web pages the recorded answer's lookups fetched: its [W#] may cite up to this. */
+  recordedWeb?: number;
+  /** Web leads the final answer must still show. */
+  leadsKept?: number[];
   /** Markers around the answer in a recorded page (its first line is skipped). */
   recordedSlice?: [string, string];
   /** Text the final answer must keep (missing links, web leads) and must not. */
@@ -115,8 +123,8 @@ function leadClause(line: string): string {
 }
 
 test('the eval set is the one the ADR names', () => {
-  assert.equal(EVALS.length, 37);
-  assert.equal(EVALS.filter((r) => r.wall === false).length, 16, 'sixteen no-wall questions');
+  assert.equal(EVALS.length, 42);
+  assert.equal(EVALS.filter((r) => r.wall === false).length, 21, 'twenty-one no-wall questions');
   assert.equal(new Set(EVALS.map((r) => r.id)).size, EVALS.length, 'ids are unique');
   const niger = EVALS.find((r) => r.id === 'niger-uranium');
   assert.ok(niger, 'niger-uranium is in the set');
@@ -159,11 +167,12 @@ function gradeRecorded(row: EvalRow, fresh: string[]) {
   const file = (p: string) => readFileSync(new URL(`../${p}`, import.meta.url), 'utf8');
   const { results } = JSON.parse(file(row.recordedTool!)) as { results: string[] };
   const facts = tableFactsIn(results);
-  assert.ok(facts, 'the recorded result says a table is shown');
   // The tools still compute what was recorded: a drift here means re-record.
-  assert.deepEqual(tableFactsIn(fresh), facts, 'the live tools compute the recorded summary');
+  assert.deepEqual(tableFactsIn(fresh), facts, 'the live tools compute the recorded result');
+  if (row.noTable) assert.equal(facts, null, 'no table is shown for this question');
+  else assert.ok(facts, 'the recorded result says a table is shown');
   for (const s of row.summaryHolds ?? [])
-    assert.ok(facts.summary.join(' ').includes(s), `the summary holds "${s}"`);
+    assert.ok(facts!.summary.join(' ').includes(s), `the summary holds "${s}"`);
   const recordedPage = file(row.recordedAnswer!);
   // A page recorded as the reader saw it: the answer is the span between two markers, verbatim.
   const answer = row.recordedSlice
@@ -172,6 +181,30 @@ function gradeRecorded(row: EvalRow, fresh: string[]) {
         recordedPage.indexOf(row.recordedSlice[1]),
       )
     : recordedPage;
+  const gaps = missingLinks(row.question, results);
+  const webCount = row.recordedWeb ?? 0;
+  // What the reader gets in the end: every check made in code, after every revision.
+  const final = finishInCode(answer, { facts, gaps, webCount });
+  for (const k of row.mustKeep ?? []) assert.ok(final.includes(k), `keeps "${k}"`);
+  for (const d of row.mustDrop ?? []) assert.ok(!final.includes(d), `drops "${d}"`);
+  // (A recorded answer with no table is graded on the guards leaving it alone, not on its wall.)
+  if (!row.noTable) assert.ok(!wallProblem(final, results), 'what the reader gets is not a wall');
+  // Nothing made up: no uncited claim on a missing link or about a firm the table names.
+  assert.deepEqual(
+    uncitedClaims(final, {
+      gaps,
+      entities: tableEntityWords(facts),
+      webCount,
+      summary: facts?.summary,
+    }),
+    [],
+    'no uncited claim survives',
+  );
+  for (const g of gaps)
+    assert.ok(final.includes('not in our sources'), `the ${g.box} gap is said precisely`);
+  for (const l of row.leadsKept ?? []) assert.ok(final.includes(`[W${l}]`), `lead [W${l}] kept`);
+  if (!facts) return;
+
   const stripped = stripModelTables(answer, facts.printedOnce);
   assert.ok(!/^\s*\|/m.test(stripped), 'the model’s own table is stripped');
   const claims = claimProblems(stripped, facts.summary).join('\n');
@@ -186,21 +219,17 @@ function gradeRecorded(row: EvalRow, fresh: string[]) {
     [],
     'the summary itself passes',
   );
-
-  // With a code table shown, the facts are code's: what the reader gets in the end.
-  const final = openWithSummary(tableProse(answer, facts), facts.summary);
+  for (const s of facts.summary)
+    assert.equal(final.split(s).length - 1, 1, `the summary is said once: "${s}"`);
   assert.ok(
     final.replace(/^#{1,6} .+\n+/, '').startsWith(facts.summary[0]),
     'the computed summary opens the answer (under a leading heading)',
   );
-  assert.ok(!wallProblem(final, results), 'what the reader gets is not a wall');
   const named = facts.rows.filter(
     (r) => r.operator && final.replace(/\s+/g, ' ').includes(r.operator),
   ).length;
   assert.ok(named < 4, `the prose redoes ${named} of the table's rows`);
   assert.equal(fixQuotes(final, facts), final, 'every quote of a cell is the printed cell');
-  for (const k of row.mustKeep ?? []) assert.ok(final.includes(k), `keeps "${k}"`);
-  for (const d of row.mustDrop ?? []) assert.ok(!final.includes(d), `drops "${d}"`);
   for (const [bad, good] of row.mustFixQuote ?? []) {
     assert.ok(answer.replace(/\s+/g, ' ').includes(bad), `the recorded answer misquotes: "${bad}"`);
     assert.ok(fixQuotes(answer, facts).includes(good), `the quote is put back: "${good}"`);

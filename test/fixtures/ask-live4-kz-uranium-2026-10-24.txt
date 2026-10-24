@@ -1,0 +1,102 @@
+Which companies mine uranium in Kazakhstan, who owns them, and who do they sell to?
+Thought for 17s
+
+The table has 17 rows: 16 for “Uranium, U content” and 1 for “Rare earth elements, recovered from uranium-ore residue”. NAC Kazatomprom JSC is named as an owner in 16 of the 17 rows; its stated shares range from 30% to 100%. Uranium One Inc. is named as an owner in 2 of the 17 rows; its stated shares range from 20% to 50%.
+
+All facility details, locations, and owners appear in the table below, sourced from the USGS Minerals Yearbook, volume III (Area Reports: International), country chapters (2023 chapter on /world/kz). The capacity figure "24000 metric tons" is printed once for the uranium mining operations together, and capacity is capacity, not production.
+
+Kazakhstan's mine production is 23,270 t, which represents a 38.6% world share of total global production of 60,213 t in 2024, ranking 1 globally, according to the WNA, World Nuclear Association, World Uranium Mining Production, updated 2026-10-09: Uranium on the Uranium page (status: Sourced).
+
+Kazakhstan
+23,270
+39%
+Canada
+14,309
+24%
+Namibia
+7,333
+12%
+Australia
+4,598
+7.6%
+Uzbekistan
+≈
+4,000
+6.6%
+Russia
+2,738
+4.5%
+China
+≈
+1,600
+2.7%
+Niger
+962
+1.6%
+Uranium mine production, 2024
+Uranium mine production, 2024
+Row	Value (t)	Share	Note
+Kazakhstan	23,270	39%	
+Canada	14,309	24%	
+Namibia	7,333	12%	
+Australia	4,598	7.6%	
+Uzbekistan	4,000 (estimated)	6.6%	
+Russia	2,738	4.5%	
+China	1,600 (estimated)	2.7%	
+Niger	962	1.6%	
+
+The buyers of Kazakhstan's uranium output are not in our sources. A source that would settle it: offtake and supply agreements disclosed in the producers' annual reports and filings, customs and trade records (UN Comtrade), and the buyers' own procurement disclosures.
+
+Outside the corpus — Kazatomprom and its operating joint ventures sell uranium under bilateral supply contracts to electric power utilities and nuclear fuel cycle companies across North America, Europe, and East Asia, or deliver unrefined product to partner-owned conversion and fuel fabrication facilities abroad.
+
+Nearby, Substrata tracks the fuel cycle bottleneck Uranium conversion and enrichment, which assesses conversion and enrichment as binding within two years (binding score 11/12; status: Analyst judgement, not a sourced fact). In that chain:
+
+U3O8 spot price, month-end (UxC/TradeTech avg): 89.68 USD/lb U3O8 (2026-08, Cameco, Uranium Price page, status: Sourced).
+UF6 conversion spot price (quarter-end, TradeTech/UxC avg): 64.5 USD/kgU (North America, 2026-06-30, Cameco 2026 Q2 MD&A, status: Sourced).
+Enrichment (SWU) spot price indicator: 200 USD/SWU (World, 2026-06-30, Centrus Energy 10-Q Q2 2026 (SEC), status: Sourced).
+Unchecked web leads on buyers
+
+These are unchecked web pages, not part of the corpus:
+
+[W1] Kazakhstan Rewrote the Rules on Its Uranium. China Is Built to Meet ... — Reports China is the largest buyer of Kazakh uranium, with utilities stockpiling through long-dated contracts.
+[W2] Kazakhstan's 10% Production Cut & the $90/lb Uranium Contract Force Utilities to Finance Western Development - Article | Crux Investor — Discusses long-term utility contracting and supply impacts from Kazatomprom target adjustments.
+[W3] Kazatomprom announces 1H2026 Financial Results — Covers commercial updates and regulatory transitions from licensing to subsoil use agreements.
+[W4] Kazakhstan's Uranium Advantage Is Difficult to Replicate — Mentions deliveries into Asian and European nuclear power markets.
+[W5] Uranium's Next Threshold — Notes international commercial flows and acid supply linkages with Russia.
+
+If you have primary offtake contracts or trade filings detailing specific customer allocations, you can send evidence to get them tracked.
+
+Uranium facilities in Kazakhstan — USGS Minerals Yearbook 2023
+Operator	Owners and shares, as printed	Commodity, as printed	Location	Capacity, as printed
+Summit Atom Rare Earth Co. LLP (SARECO LLP)	ATEK LLC, 100% (Depannez Properties Ltd., 74.34%, and private investors, 25.66%)	Rare earth elements, recovered from uranium-ore residue	Plant in Stepnogorsk, Aqmola Province	1500 metric tons
+Akbastau JV	NAC Kazatomprom JSC, 50%, and Uranium One Inc., 50%	Uranium, U content	—	—
+APPAK LLP	NAC Kazatomprom JSC, 65%; Sumitomo Corp., 25%; Kansai Electric Power Co. Inc., 10%	Uranium, U content	—	—
+Baiken-U LLP	NAC Kazatomprom JSC, 52.5%, and Energy Asia (BVI) Ltd., 47.5%	Uranium, U content	—	—
+JV Akbastau JSC	NAC Kazatomprom JSC, 50%, and One Group JSC, 50%	Uranium, U content	—	—
+JV Budyonovskoye LLP	NAC Kazatomprom JSC, 51%, and Stepnogorsk Mining and Chemical Plant LLP, 49%	Uranium, U content	—	—
+JV Inkai LLP	NAC Kazatomprom JSC, 60%, and Cameco Corp., 40%	Uranium, U content	—	—
+JV Katco LLP	JSC ORANO Mining, 51%, and NAC Kazatomprom JSC, 49%	Uranium, U content	—	—
+Locations of these 16 ventures (one list, as printed)
+Capacity of all 16 together (as printed)
+Show all 17
+
+Every cell is copied from the USGS table as printed. Capacity is capacity, not production. The table names no buyers. USGS Minerals Yearbook, volume III (Area Reports: International), country chapters, Table 2. Structure of the mineral industry (Table 2) ↗
+
+Looked outside the corpus
+
+5 web pages · not checked by Substrata
+Copy
+Listen
+Try again
+Show buyer market share
+Get recent export data
+Explain the conversion bottleneck
+What is USGS Minerals Yearbook 2023: Kazakhstan, uranium facilities recorded as holding?
+Who is recorded as producing Uranium conversion and enrichment?
+←
+Substrata
+Ask Substrata
+
+Have a source we should hold? Send evidence
+
+Free models, shared · Use your own AI key
