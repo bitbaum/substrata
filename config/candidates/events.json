@@ -24,6 +24,29 @@
   },
   {
     "evidence": "candidate",
+    "asOf": "2024-12-03",
+    "source": {
+      "url": "https://www.mofcom.gov.cn/zcfb/zc/art/2024/art_a362d9e4d4944ff3854b76c572899e7e.html",
+      "quote": "原则上不予许可镓、锗、锑、超硬材料相关两用物项对美国出口；对石墨两用物项对美国出口，实施更严格的最终用户和最终用途审查。",
+      "readOn": "2026-10-24"
+    },
+    "submittedBy": {
+      "agent": "data-agent",
+      "model": "unrecorded",
+      "runId": "search-rank-2026-10-24"
+    },
+    "id": "2024-12-03-mofcom-announcement-46-gallium-germanium-us",
+    "date": "2024-12-03",
+    "headline": "MOFCOM Announcement No. 46 of 2024: China in principle denies export licences for gallium and germanium items to the US",
+    "kind": "policy",
+    "effect": "tightens",
+    "bottlenecks": ["Gallium, refined"],
+    "participants": [],
+    "jurisdictions": ["CN", "US"],
+    "primary": true
+  },
+  {
+    "evidence": "candidate",
     "asOf": "2025-01-17",
     "source": {
       "url": "https://world-nuclear-news.org/articles/investment-agreement-signed-for-mongolian-uranium-project",

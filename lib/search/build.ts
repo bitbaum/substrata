@@ -4,8 +4,9 @@
  * from static config and built once per process.
  */
 import { createVocabulary, type Vocabulary } from '@bitbaum/searchkit';
+import { nameKeys } from '../rank-priority';
 import { searchDocuments, type SearchDoc } from './corpus';
-import { words } from './text';
+import { STOP, words } from './text';
 
 export interface Indexed {
   doc: SearchDoc;
@@ -16,6 +17,8 @@ export interface Indexed {
   body: Map<string, number>;
   normTitle: string;
   normAka: string[];
+  /** Name, head of the name and other spellings, as word runs (`lib/rank-priority.ts`). */
+  keys: string[];
 }
 
 export interface SearchIndex {
@@ -32,6 +35,11 @@ export interface SearchIndex {
   rankDocs: number;
   /** Every word, counted by documents, so the commoner completion comes first. */
   vocab: Vocabulary;
+  /**
+   * Country names and other spellings as the query reads them (stop words
+   * out): a run of the query equal to one is a single unit (`queryUnits`).
+   */
+  unitKeys: Set<string>;
 }
 
 function normPhrase(text: string): string {
@@ -62,9 +70,23 @@ export function buildIndex(documents: SearchDoc[]): SearchIndex {
       body,
       normTitle: nameWords.join(' '),
       normAka: doc.aka.map(normPhrase),
+      keys: nameKeys(doc.title, doc.aka, words),
     };
   });
-  return { docs, df, rankDf, rankDocs, vocab: createVocabulary(df) };
+  const unitKeys = new Set(
+    docs
+      .filter((d) => d.doc.type === 'country')
+      .flatMap((d) =>
+        d.keys.map((k) =>
+          k
+            .split(' ')
+            .filter((w) => !STOP.has(w))
+            .join(' '),
+        ),
+      )
+      .filter((k) => k.includes(' ')),
+  );
+  return { docs, df, rankDf, rankDocs, vocab: createVocabulary(df), unitKeys };
 }
 
 let cached: SearchIndex | null = null;
