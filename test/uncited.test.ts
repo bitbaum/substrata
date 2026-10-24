@@ -97,6 +97,6 @@ test('a fetched page’s claim on the missing link is said as the page’s', () 
   assert.equal(claims.length, 1);
   assert.equal(
     dropUncited(bare, claims, gaps),
-    'According to an unchecked web page, China is the largest buyer of Kazakh uranium [W1].',
+    'According to a web page, China is the largest buyer of Kazakh uranium [W1].',
   );
 });

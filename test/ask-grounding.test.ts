@@ -54,10 +54,18 @@ test('a quantity in another unit than its row is flagged: "6 kt" where USGS says
   assert.deepEqual(unitMismatches('Russia exports 6 bcm.', evidence), []);
 });
 
-test('years, small counts, the reader’s own numbers and labelled background are left alone', () => {
+test('years, small counts and the reader’s own numbers are left alone; labelled background is not', () => {
   const answer =
-    'Three points for 2025. 1. Lead times are 128 weeks. Outside the corpus — CoWoS has been in volume since 2012 with 65 nm interposers.';
+    'Three points for 2025. 1. Lead times are 128 weeks. CoWoS has been in volume since 2012.';
   assert.deepEqual(unsupportedFigures(answer, EVIDENCE), []);
+  // Since 2026-10-24 (open-web-ask.md) a figure comes from a row or a dated web
+  // passage, never from memory — however the sentence is labelled.
+  for (const label of ['Outside the corpus —', 'From general knowledge, not checked:'])
+    assert.deepEqual(
+      unsupportedFigures(`${label} CoWoS uses 65 nm interposers.`, EVIDENCE),
+      ['65'],
+      label,
+    );
 });
 
 test('an answer with an invented figure is sent back once and the revision is what the reader gets', async () => {

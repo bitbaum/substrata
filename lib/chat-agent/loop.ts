@@ -1,28 +1,19 @@
 /**
- * Ask, as an assistant rather than a retrieval probe.
+ * Ask, as an assistant rather than a retrieval probe: the model reads where the
+ * reader is, calls the functions in `lib/chat-tools/` for what it needs, and
+ * answers from what came back, streamed as it is written.
  *
- * A tool loop over the corpus: the model reads where the reader is (the page,
- * the record on it, their followed rails), decides what it needs, calls the
- * functions in `lib/chat-tools/` for it, and answers from what came back — with
- * the answer streamed to the reader as it is written.
- *
- * The provider chain is ai-kit's; this file only adapts it. Three things here
- * are not obvious and are why it is shaped the way it is:
- *
- * 1. BOTH TOOL PROTOCOLS. About half of the free chain cannot emit a native
- *    tool call and writes `TOOL:`/`ARGS:` lines instead (see ai-kit's
- *    tool-protocol.ts). Text calls are parsed here from the finished turn, and
- *    `StreamGate` keeps those lines off the reader's screen while it arrives.
- *
- * 2. RESULTS GO BACK AS TEXT, as a plain user message rather than `role:
- *    "tool"`, because the chain can fall from one vendor to another between
- *    rounds and a call id minted by one is not something the next must accept.
- *
- * 3. SPEED IS THE ROUND COUNT. Every round is a full model call, so: the
- *    reader sees a status line before anything is fetched; calls in one round
- *    run in parallel; a question the page's own record answers skips tools
- *    entirely; verify mode fetches its evidence BEFORE the first round; and
- *    rounds are capped at three.
+ * The provider chain is ai-kit's; this file only adapts it. Why it is shaped so:
+ * 1. BOTH TOOL PROTOCOLS: half the free chain writes `TOOL:`/`ARGS:` lines
+ *    instead of native calls (ai-kit tool-protocol.ts); they are parsed from
+ *    the finished turn and `StreamGate` keeps them off the reader's screen.
+ * 2. RESULTS GO BACK AS TEXT, as a user message rather than `role: "tool"`:
+ *    the chain can fall to another vendor between rounds, and a call id
+ *    minted by one is not something the next must accept.
+ * 3. SPEED IS THE ROUND COUNT: a status line before anything is fetched,
+ *    calls in a round in parallel, the page's own record skips tools, verify
+ *    mode fetches its evidence first, rounds capped at three. The web, when
+ *    the question needs it (route.ts), is read beside the corpus lookups.
  *
  * When the free budget is gone the reader is told so, in those words, with the
  * records already read listed under it — never a fabricated answer.
@@ -48,6 +39,7 @@ import { checkAnswer } from './check-answer';
 import { runLookups, runPlan } from './lookups';
 import type { GapFiler } from './gaps';
 import { planLookups } from './plan';
+import { routeQuestion } from './route';
 import { LOOP_LIMITS, systemPrompt } from './prompt';
 import type { ModelTurn, ModelTurnResult } from './turn';
 import { gatherEvidence, verdictOf, verifyQuestion, type VerifyRequest } from './verify';
@@ -84,13 +76,23 @@ export async function runAgent(input: {
   // Before anything is fetched: the reader sees that it started.
   emit({ type: 'status', text: openingStatus(input.context, input.verify) });
   const ledger = emptyLedger();
-  const env: ToolEnv = { ...input.env, ledger };
+  const env: ToolEnv = {
+    ...input.env,
+    ledger,
+    // "Reading reuters.com…": seen while it works, kept in the thought row after.
+    step: (label) => {
+      ledger.trail.push(label);
+      emit({ type: 'tool', label });
+    },
+  };
   const question = input.verify ? verifyQuestion(input.verify) : input.question;
   // The lookups the question obviously needs, made before any model round
   // (plan.ts). A plan outranks "the page answers it": "what is new here" needs the leads.
   const plan = input.verify
     ? { calls: [], confident: false, webQuery: '' }
     : planLookups(question, input.context, env);
+  // Which sources the question needs (route.ts): the web is searched beside the corpus, up front.
+  const route = input.verify ? undefined : routeQuestion(question, input.today);
   const pageOnly =
     !input.verify &&
     !plan.calls.length &&
@@ -98,14 +100,13 @@ export async function runAgent(input: {
   const [preload, evidence, looked] = await Promise.all([
     preloadPage(input.context, env),
     input.verify ? gatherEvidence(input.verify, env) : Promise.resolve(undefined),
-    runPlan(plan, question, input.context, env, emit),
+    runPlan(plan, question, input.context, env, emit, route),
   ]);
   const lookedUp = looked.results; // an empty or partial lookup already opened the web (runPlan)
   const allResults = [...lookedUp]; // every result the answer rests on: the wall check, the gap
   const planEmpty = looked.empty;
   const noTools = pageOnly || (plan.confident && !planEmpty);
-  // A tool the planner already ran unfiltered has given its whole list; offered
-  // again, models re-asked for it (2 of 12 questions, 2026-10-02), a round each.
+  // A tool the planner ran unfiltered is not offered again (models re-asked, 2026-10-02).
   const tools = toolDefinitions(env).filter(
     (t) => !plan.calls.some((c) => c.name === t.function.name && c.args === '{}'),
   );
@@ -115,6 +116,7 @@ export async function runAgent(input: {
     lookedUp: lookedUp.length ? lookedUp.join('\n\n') : undefined,
     lookedUpEmpty: planEmpty,
     web: looked.web,
+    openWorld: Boolean(route?.web),
     gaps: looked.gaps,
     tools: noTools ? [] : tools,
     byok: input.byok,
@@ -139,8 +141,7 @@ export async function runAgent(input: {
   let replies: string[] = [];
   let model: string | undefined;
   let shown = '';
-  // Model calls are the latency: one when the lookups already answer; two when
-  // a page record or planned lookups are in hand; four for a question from nowhere.
+  // Model calls are the latency: one, two with a record in hand, four from nowhere.
   let lastRound = noTools
     ? 0
     : planEmpty
@@ -148,8 +149,7 @@ export async function runAgent(input: {
       : plan.calls.length || preload
         ? 1
         : MAX_ROUNDS;
-  // One extra round, once, for a model that asks for a tool when tools are no
-  // longer offered: its lookup is run and it is told to write.
+  // Once: a model asking for a tool when none are offered gets it run, then writes.
   let bonusUsed = false;
   let cutShort = '';
 

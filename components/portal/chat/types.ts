@@ -10,7 +10,16 @@ export type Source = {
   kind: string;
 };
 
-export type WebFinding = { title: string; url: string; excerpt: string; cited?: boolean };
+export type WebFinding = {
+  title: string;
+  url: string;
+  excerpt: string;
+  cited?: boolean;
+  /** Only the engine's snippet: the page itself could not be read. */
+  unread?: boolean;
+  /** The page's own date, when it has one. */
+  published?: string;
+};
 
 export type Verdict = 'Supported' | 'Contradicted' | 'Outdated' | 'Unverifiable';
 

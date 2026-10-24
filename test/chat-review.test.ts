@@ -232,7 +232,8 @@ test('the review scope is read from the prompt and the tool registry, not typed 
   assert.match(withWeb, /search_corpus, get_bottleneck/);
   assert.match(withWeb, /web_search/);
   assert.doesNotMatch(without, /web_search/);
-  assert.match(without, /Outside the corpus/);
+  assert.match(without, /From general knowledge, not checked/);
+  assert.match(withWeb, /searched beside the corpus/);
   const sentences = withWeb.split(/(?<=\.)\s+(?=[A-Z])/).length;
   assert.ok(sentences >= 3 && sentences <= 6, `${sentences} sentences`);
 });

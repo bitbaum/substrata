@@ -12,6 +12,7 @@ import { withAliases } from '../chat-tools/tool';
 import { isPageRecord, type AgentEvent } from './answer';
 import { safeArgs, type ToolRequest } from './parse';
 import type { Plan } from './plan';
+import type { Route } from './route';
 import { missingLinks, webStatusOf, type MissingLink, type WebStatus } from './ladder';
 
 const call = (name: string, args: Record<string, unknown>): ToolRequest => ({
@@ -20,19 +21,20 @@ const call = (name: string, args: Record<string, unknown>): ToolRequest => ({
 });
 
 /**
- * The planned lookups, run — and the web searched for the question too, before
- * any model sees it, when the corpus answered only part of it.
+ * The planned lookups, run — and, when the question needs the world outside
+ * (route.ts), the web searched IN PARALLEL, before any model sees it.
  *
- * Two triggers, both decided in code. Seen live (2026-10-22, twice): told
- * "call web_search now", the fallback model answered "not in Substrata's
- * database" instead — so an EMPTY lookup opens the web here, not by request.
- * And seen live on 2026-10-24: "Which companies mine uranium in Kazakhstan,
- * who owns them, and who do they sell to?" planned two lookups that both came
- * back with rows, so nothing was empty; the plan was confident, so the model
- * was offered no tools at all; and the buyers — which no tool holds — ended
- * in a wall with the web never tried. So a part of the question that nothing
- * covered (ladder.ts `missingLinks`) opens the web too: one bounded lookup,
- * for that part.
+ * History. The web used to open only after a failure: an EMPTY lookup (seen
+ * live 2026-10-22: told "call web_search now", the fallback model answered
+ * "not in Substrata's database" instead), or a part of the question no
+ * lookup covered (ladder.ts `missingLinks`; 2026-10-24, the buyers of
+ * Kazakhstan's uranium). Both triggers stay. But the owner read the chats the
+ * same day and found an Ask that behaved like a database front-end: asked for
+ * Kazatomprom's 2026 guidance or its competitors' share prices, corpus rows
+ * came back, nothing was "empty", and the web was never read. So the route
+ * decides up front, and the search costs no extra wait: it runs beside the
+ * corpus lookups. A missing link the first search did not target gets one
+ * more, aimed at it.
  *
  * The web's outcome is returned in its four states, because "not configured",
  * "could not reach it", "found nothing" and "found pages" are four different
@@ -44,20 +46,30 @@ export async function runPlan(
   context: ReaderContext,
   env: ToolEnv,
   emit: (event: AgentEvent) => void,
+  route?: Pick<Route, 'web' | 'query'>,
 ): Promise<{ results: string[]; empty: boolean; web?: WebStatus; gaps: MissingLink[] }> {
-  if (!plan.calls.length) return { results: [], empty: false, gaps: [] };
-  const results = await runLookups(plan.calls, context, env, emit);
+  const upFront = Boolean(route?.web);
+  if (!plan.calls.length && !upFront) return { results: [], empty: false, gaps: [] };
+  const search = (query: string) => runLookups([call('web_search', { query })], context, env, emit);
+  const [results, early] = await Promise.all([
+    plan.calls.length ? runLookups(plan.calls, context, env, emit) : Promise.resolve([]),
+    upFront && env.web ? search(route!.query) : Promise.resolve([] as string[]),
+  ]);
   const empty = results.some(lookupIsEmpty);
   const gaps = missingLinks(question, results);
-  if (!empty && !gaps.length) return { results, empty, gaps };
+  if (!empty && !gaps.length && !upFront) return { results, empty, gaps };
   if (!env.web) return { results, empty, web: 'off', gaps };
-  const found = await runLookups(
-    [call('web_search', { query: gaps[0]?.search ?? (plan.webQuery || question) })],
-    context,
-    env,
-    emit,
-  );
-  return { results: [...results, ...found], empty, web: webStatusOf(found[0]), gaps };
+  let web = early.length ? webStatusOf(early[0]) : undefined;
+  const found = [...early];
+  // A missing link gets a search aimed at it, unless the first search could not reach the web.
+  const gapQuery = gaps[0]?.search;
+  if ((gapQuery && web !== 'could_not_look') || (!early.length && (empty || gaps.length))) {
+    const more = await search(gapQuery ?? (plan.webQuery || question));
+    const status = webStatusOf(more[0]);
+    found.push(...more);
+    web = web === 'found' || status === 'found' ? 'found' : (web ?? status);
+  }
+  return { results: [...results, ...found], empty, web, gaps };
 }
 
 export async function runLookups(
