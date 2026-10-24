@@ -60,7 +60,7 @@ export function corpusRelations(): CorpusEdges {
         skip(`holder is ${party.skip}`);
         continue;
       }
-      if (party.minted) names[party.id] = h.name;
+      if (party.minted) names[party.id] = party.name ?? h.name;
       const evidence: RelationEvidence = {
         source: h.source,
         quote: holderQuote(h),

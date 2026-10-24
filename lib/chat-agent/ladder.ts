@@ -125,8 +125,10 @@ function facilityRows(reads: Read[]): FacilityRow[] {
     );
 }
 
-/** Keys a result carries when it names buyers — today's tools never do; the graph tool (rung 3) will. */
+/** Keys a result carries when it names buyers: related_to's `buyers` once supply edges exist. */
 const BUYER_KEYS = ['buyers', 'ships_to', 'buys_from', 'customers', 'listed_makers_downstream'];
+/** Keys related_to fills with the holders of an entity. */
+const OWNER_KEYS = ['owners', 'shareholders'];
 const FINANCE_KEYS = ['financiers', 'finances', 'lenders', 'investors'];
 
 function hasListed(reads: Read[], keys: string[]): boolean {
@@ -141,7 +143,9 @@ function covered(box: LadderBox, reads: Read[]): boolean {
   if (box === 'owners')
     return (
       rows.some((f) => f.read_as?.some((c) => c.owner)) ||
-      reads.some((r) => r.tool === 'ownership' && !lookupIsEmpty(JSON.stringify(r.value)))
+      reads.some((r) => r.tool === 'ownership' && !lookupIsEmpty(JSON.stringify(r.value))) ||
+      // The relation graph (related_to): owners or shareholders it listed, with their sources.
+      reads.some((r) => r.tool === 'related_to' && hasListed([r], OWNER_KEYS))
     );
   if (box === 'buyers') return hasListed(reads, BUYER_KEYS);
   return hasListed(reads, FINANCE_KEYS);

@@ -101,8 +101,7 @@ export async function runAgent(input: {
     runPlan(plan, question, input.context, env, emit),
   ]);
   const lookedUp = looked.results; // an empty or partial lookup already opened the web (runPlan)
-  // Every tool result this answer is built from, for the wall check and the gap.
-  const allResults = [...lookedUp];
+  const allResults = [...lookedUp]; // every result the answer rests on: the wall check, the gap
   const planEmpty = looked.empty;
   const noTools = pageOnly || (plan.confident && !planEmpty);
   // A tool the planner already ran unfiltered has given its whole list; offered
@@ -282,6 +281,7 @@ export async function runAgent(input: {
     sources,
     web: ledger.web,
     leads: ledger.leads,
+    ...(ledger.tables.length ? { tables: ledger.tables } : {}),
     followUps: followUpsFor(sources.map((s) => ({ title: s.title, kind: s.kind }))),
     trail: ledger.trail,
     outside: ledger.web.length > 0,

@@ -4,6 +4,7 @@ import type { JobFilter, JobRow } from '../careers-query';
 import type { Filing } from '../filings';
 import type { StoredItem } from '../science-read';
 import type { WebFinding, WebLookup } from '../chat-web';
+import type { AnswerTable } from '../chat/answer-table';
 
 /** A corpus row the answer read, for the "records read" list under it. */
 export interface RecordRef {
@@ -24,10 +25,12 @@ export interface Ledger {
   web: WebFinding[];
   /** One line per call, in order, for the reader: "Looked up ASML". */
   trail: string[];
+  /** Tables built in code from tool rows, drawn under the answer (lib/chat/answer-table.ts). */
+  tables: AnswerTable[];
 }
 
 export function emptyLedger(): Ledger {
-  return { records: new Map(), leads: [], web: [], trail: [] };
+  return { records: new Map(), leads: [], web: [], trail: [], tables: [] };
 }
 
 export interface ToolEnv {
