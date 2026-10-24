@@ -1,0 +1,102 @@
+{
+  "https://api.gleif.org/api/v1/lei-records/213800N83GBAZJ4ER974": {
+    "contentType": "application/json",
+    "file": "gleif-213800N83GBAZJ4ER974.json"
+  },
+  "https://api.gleif.org/api/v1/lei-records/353800AARAPM3AYH4I04": {
+    "contentType": "application/json",
+    "file": "gleif-353800AARAPM3AYH4I04.json"
+  },
+  "https://api.gleif.org/api/v1/lei-records/353800AARAPM3AYH4I04/direct-children?page%5Bsize%5D=10": {
+    "contentType": "application/json",
+    "file": "gleif-353800AARAPM3AYH4I04-direct-children.json"
+  },
+  "https://api.gleif.org/api/v1/lei-records/353800AARAPM3AYH4I04/direct-parent-relationship": {
+    "contentType": "application/json",
+    "file": "gleif-353800AARAPM3AYH4I04-direct-parent-relationship.json"
+  },
+  "https://api.gleif.org/api/v1/lei-records/353800AARAPM3AYH4I04/ultimate-parent-relationship": {
+    "contentType": "application/json",
+    "file": "gleif-353800AARAPM3AYH4I04-ultimate-parent-relationship.json"
+  },
+  "https://api.gleif.org/api/v1/lei-records/353800PX8Q64N86H5W41": {
+    "contentType": "application/json",
+    "file": "gleif-353800PX8Q64N86H5W41.json"
+  },
+  "https://api.gleif.org/api/v1/lei-records/5493008JG5TXJP2JSY44": {
+    "contentType": "application/json",
+    "file": "gleif-5493008JG5TXJP2JSY44.json"
+  },
+  "https://api.gleif.org/api/v1/lei-records/5493008JG5TXJP2JSY44/direct-children?page%5Bsize%5D=10": {
+    "contentType": "application/json",
+    "file": "gleif-5493008JG5TXJP2JSY44-direct-children.json"
+  },
+  "https://api.gleif.org/api/v1/lei-records/5493008JG5TXJP2JSY44/direct-parent-relationship": {
+    "contentType": "application/json",
+    "file": "gleif-5493008JG5TXJP2JSY44-direct-parent-relationship.json"
+  },
+  "https://api.gleif.org/api/v1/lei-records/5493008JG5TXJP2JSY44/ultimate-parent-relationship": {
+    "contentType": "application/json",
+    "file": "gleif-5493008JG5TXJP2JSY44-ultimate-parent-relationship.json"
+  },
+  "https://comtradeapi.un.org/files/v1/app/reference/partnerAreas.json": {
+    "contentType": "application/json",
+    "file": "comtrade-partner-areas-excerpt.json",
+    "note": "excerpt: the seven partner entries the KZ fixture needs, as served"
+  },
+  "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=284410&flowCode=X": {
+    "contentType": "application/json; charset=utf-8",
+    "file": "comtrade-kz-284410-2024.json"
+  },
+  "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=284410&flowCode=X&partnerCode=156": {
+    "contentType": "application/json; charset=utf-8",
+    "file": "comtrade-kz-284410-2024-p156.json"
+  },
+  "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=284410&flowCode=X&partnerCode=643": {
+    "contentType": "application/json; charset=utf-8",
+    "file": "comtrade-kz-284410-2024-p643.json"
+  },
+  "https://data.sec.gov/submissions/CIK0001801368.json": {
+    "contentType": "application/json",
+    "file": "edgar-submissions-CIK0001801368-excerpt.json",
+    "note": "excerpt: the three newest filings and the two newest 10-K and DEF 14A, rows kept whole"
+  },
+  "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3FitemLabel%20%3Fprop%20%3Fvalue%20%3FvalueLabel%20%3Fiso%20WHERE%20%7B%0A%20%20%7B%20BIND(wd%3AQ15108623%20AS%20%3Fitem)%20VALUES%20%3Fp%20%7B%20wdt%3AP127%20wdt%3AP749%20wdt%3AP137%20wdt%3AP17%20%7D%20%3Fitem%20%3Fp%20%3Fvalue%20.%20%7D%0A%20%20UNION%20%7B%20BIND(wd%3AQ15108623%20AS%20%3Fvalue)%20VALUES%20%3Fp%20%7B%20wdt%3AP127%20wdt%3AP749%20%7D%20%3Fitem%20%3Fp%20%3Fvalue%20.%0A%20%20%20%20%20%20%20%20%20%20%3Fitem%20wdt%3AP31%2Fwdt%3AP279*%20wd%3AQ43229%20.%20%7D%0A%20%20BIND(STRAFTER(STR(%3Fp)%2C%20%22direct%2F%22)%20AS%20%3Fprop)%0A%20%20OPTIONAL%20%7B%20%3Fvalue%20wdt%3AP297%20%3Fiso%20.%20%7D%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22.%20%7D%0A%7D%20LIMIT%2060": {
+    "contentType": "application/sparql-results+json;charset=utf-8",
+    "file": "wikidata-sparql-Q15108623.json"
+  },
+  "https://www.kazatomprom.kz/en/investors/finansovaya_otchetnost": {
+    "contentType": "text/html; charset=utf-8",
+    "file": "kazatomprom-updates-links.html",
+    "note": "excerpt: the trading-update PDF links on the page"
+  },
+  "https://www.kazatomprom.kz/en/investors/godovie_otcheti": {
+    "contentType": "text/html; charset=utf-8",
+    "file": "kazatomprom-annual-links.html",
+    "note": "excerpt: the PDF links on the page"
+  },
+  "https://www.kazatomprom.kz/storage/27/trading_update_2q26_eng.pdf": {
+    "contentType": "application/pdf",
+    "file": "kazatomprom-2q26-trading-update-p6.pdf",
+    "note": "excerpt: page 6 of the published PDF, split with pdfseparate"
+  },
+  "https://www.sec.gov/Archives/edgar/data/1801368/000180136826000008/mp-20251231.htm": {
+    "contentType": "text/html",
+    "file": "edgar-mp-10k-2025-excerpt.html",
+    "note": "excerpt: the passage around the quoted sentence or table, HTML as served"
+  },
+  "https://www.sec.gov/Archives/edgar/data/1801368/000180136826000020/mp-20260423.htm": {
+    "contentType": "text/html",
+    "file": "edgar-mp-def14a-2026-excerpt.html",
+    "note": "excerpt: the passage around the quoted sentence or table, HTML as served"
+  },
+  "https://www.sec.gov/files/company_tickers.json": {
+    "contentType": "application/json",
+    "file": "edgar-company-tickers-excerpt.json",
+    "note": "excerpt: three entries of the full file"
+  },
+  "https://www.wikidata.org/wiki/Special:EntityData/Q15108623.json": {
+    "contentType": "application/json; charset=utf-8",
+    "file": "wikidata-entity-Q15108623.json"
+  }
+}

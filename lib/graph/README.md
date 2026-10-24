@@ -37,6 +37,8 @@ An endpoint not in the directory is a minted `company:<slug>` or
    (`--schema` prints the shape). The quote must appear on the source page;
    the endpoints must already exist on the site or in
    `research/usgs-relations.json`. Rows land in `config/candidates/relations.json`.
+   A source adapter can draft these rows for you, quotes included:
+   `pnpm exec tsx scripts/research/run-task.ts <task-id>` (`lib/sources/README.md`).
 2. **A row the corpus already holds.** Ownership holders and facility
    operators are read by `from-corpus.ts`; add the holder or the operator to
    its config file with its source, and the edge follows.

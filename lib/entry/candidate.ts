@@ -36,6 +36,16 @@ export interface CandidateSource {
   quote: string;
   /** YYYY-MM-DD, the day the page was read. */
   readOn: string;
+  /** Where in the source: "page 17" of a PDF, a table and row. */
+  locator?: string;
+}
+
+/** Which source adapter (lib/sources) proposed the row, from which fetch, and when. */
+export interface Provenance {
+  adapter: string;
+  /** ISO timestamp of the fetch. */
+  fetchedAt: string;
+  url: string;
 }
 
 export interface SubmittedBy {
@@ -50,6 +60,8 @@ export interface CandidateCommon {
   asOf: string;
   source: CandidateSource;
   submittedBy: SubmittedBy;
+  /** Present on every row a source adapter made; absent on a hand-written one. */
+  provenance?: Provenance;
 }
 
 /**
@@ -115,7 +127,7 @@ function omit<T extends object, K extends keyof T>(row: T, keys: readonly K[]): 
   return copy as Omit<T, K>;
 }
 
-const COMMON = ['evidence', 'asOf', 'source', 'submittedBy'] as const;
+const COMMON = ['evidence', 'asOf', 'source', 'submittedBy', 'provenance'] as const;
 
 /** Everything but the common part, which each fold below rewrites into the row's own fields. */
 function rowPart<T extends CandidateCommon>(c: T): Omit<T, keyof CandidateCommon> {
@@ -253,7 +265,14 @@ export function relationFromCandidate(c: RelationCandidate): Relation {
     ...(c.share ? { share: c.share } : {}),
     ...(c.volume ? { volume: c.volume } : {}),
     asOf: c.asOf,
-    evidence: [{ source: c.source.url, quote: c.source.quote, readOn: c.source.readOn }],
+    evidence: [
+      {
+        source: c.source.url,
+        quote: c.source.quote,
+        readOn: c.source.readOn,
+        ...(c.source.locator ? { locator: c.source.locator } : {}),
+      },
+    ],
     origin: 'candidate',
   };
 }

@@ -13,3 +13,6 @@ next-env.d.ts
 # Python bytecode from scripts/research/*.py
 __pycache__/
 .cache/
+
+# Source-adapter response cache (lib/sources/http.ts).
+.tmp/

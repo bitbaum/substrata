@@ -55,10 +55,54 @@ candidates: until a person promotes them the task stays in the queue and says
 "N candidate rows wait for review", because candidate rows never fill a box. Do not try to make a
 box "full" by adding weak rows: a lead, a guess or an inferred share is never a row.
 
-The source must be a readable HTML or text page. The gate reads it with
-ai-kit's reader, which does not open PDFs: a figure only in a PDF table is a
-"skipped" row (reason: "PDF only") until someone finds an HTML page that
-states it.
+The source may be an HTML page, a JSON API response or a **PDF** (annual
+reports, NI 43-101 technical reports, yearbooks). For a PDF, copy the sentence
+as it reads on the rendered page: the gate forgives line breaks and a word
+hyphenated across a line end, nothing else, and prints the page it found the
+quote on (`ok <key> (page 17)`). Put that page in `source.locator`
+("page 17"). A scanned PDF with no text layer cannot be quoted: report the row
+as "skipped" (reason: "scan, no text").
+
+## The adapter workflow — do this first for every task
+
+Some boxes have a **source adapter** (`lib/sources/README.md`): a script that
+reads a free registry or filing — UN Comtrade, SEC EDGAR, GLEIF, Wikidata,
+Kazatomprom's reports — and proposes candidate rows with their quotes already
+cut from the fetched text. Your job is then to check, not to type. In order:
+
+1. **Run the task in dry run.** It prints the instruction, the allowed
+   sources, and every adapter's proposed rows and skipped records:
+
+   ```bash
+   pnpm exec tsx scripts/research/run-task.ts country:kz#trade --out rows.json
+   ```
+
+2. **If an adapter says `not run: pass --lei …` (or `--qid`, `--cik`)**, list
+   the candidates and choose only when exactly one is plainly the subject (same
+   legal name, same country). If none or several fit, do not choose: report it.
+
+   ```bash
+   pnpm exec tsx scripts/research/run-task.ts --find-lei "Shin-Etsu Handotai"
+   pnpm exec tsx scripts/research/run-task.ts company:shin-etsu-handotai#owners --lei 353800AARAPM3AYH4I04
+   ```
+
+3. **Read every proposed row against its quote.** Each says whether it
+   `fills this box` or is `related; does not fill this box`. Delete from
+   rows.json any row whose quote does not say what the row says; never edit a
+   quote, a grade or a number to make it fit. A `lead` stays a lead.
+
+4. **Gate them**: `pnpm exec tsx scripts/research/add.ts relations rows.json --dry-run`,
+   then the same with `--branch` (or `run-task.ts … --write`, which runs the
+   same add.ts with every check). Rows carry `provenance` (which adapter, when,
+   which URL) — leave it as it is.
+
+5. **Then the box by hand** for whatever the adapters skipped, from the task's
+   allowed sources, with the normal rules below. Copy the `skipped:` lines into
+   your report: they are the next person's starting point ("regions are not
+   entities", "not an entity on the site").
+
+When `run-task.ts` says no adapter covers the box, work it by hand from the
+task's `instruction`, as below.
 
 ## Run it
 
