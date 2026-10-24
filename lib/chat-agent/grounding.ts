@@ -121,6 +121,33 @@ export function unitMismatches(answer: string, evidence: string): string[] {
   return [...out];
 }
 
+// ---------------------------------------------------------------------------
+// Printed form. Seen live 2026-10-24: the yearbook prints "50%" and "24000";
+// the answer wrote "50 %" and "24 000". The digits match, so the checks above
+// pass, but a quote that is not the printed token is not a quote.
+// ---------------------------------------------------------------------------
+
+const SPACED_PERCENT = /(?<![\w.])(\d+(?:\.\d+)?)(?:[ \u00a0\u202f]+%|\s?(?:percent|per cent)\b)/gi;
+const GROUPED = /(?<![\w.,])\d{1,3}(?:[ \u00a0\u202f,]\d{3})+(?![\d])/g;
+
+/** Answer tokens that re-format a figure the rows print another way ("50 %" for "50%"). */
+export function printedFormMismatches(answer: string, evidence: string): string[] {
+  const out = new Set<string>();
+  for (const m of answer.matchAll(SPACED_PERCENT))
+    if (evidence.includes(`${m[1]}%`)) out.add(m[0].trim());
+  for (const m of answer.matchAll(GROUPED)) {
+    const token = m[0];
+    if (evidence.includes(token)) continue;
+    const bare = token.replace(/[ \u00a0\u202f,]/g, '');
+    const grouped = new RegExp(
+      `(?<![\\d.])${bare.replace(/(\d)(?=(\d{3})+$)/g, '$1[ ,\\u00a0\\u202f]')}(?!\\d)`,
+    );
+    if (new RegExp(`(?<![\\d.,])${bare}(?![\\d])`).test(evidence) && !grouped.test(evidence))
+      out.add(token);
+  }
+  return [...out];
+}
+
 /** Sentences the answer itself marks as background: its own claim, labelled. */
 function claimedText(answer: string): string {
   return answer
@@ -136,7 +163,10 @@ function claimedText(answer: string): string {
 export function unsupportedFigures(answer: string, evidence: string): string[] {
   const known = numbersIn(evidence);
   const claimed = claimedText(answer);
-  const out = new Set<string>(unitMismatches(claimed, evidence));
+  const out = new Set<string>([
+    ...unitMismatches(claimed, evidence),
+    ...printedFormMismatches(claimed, evidence),
+  ]);
   for (const m of claimed.matchAll(FIGURE)) {
     const value = canonical(m[1], m[2]);
     const n = Number(value);
@@ -171,7 +201,7 @@ export async function reviseUnsupported(opts: {
         { role: 'assistant', content: answer },
         {
           role: 'user',
-          content: `Check before I read this: these figures in your answer appear in none of the looked-up rows, or are written in a unit the row does not use: ${figures.join(', ')}. Rewrite the whole answer: a quantity from a row is copied exactly as its \`display\` gives it — same number, same unit, never converted or abbreviated; a figure from no row is removed — or, only if it is well-established general knowledge, kept in a sentence that starts "Outside the corpus —". Keep every figure that IS in the rows, with its source. No tools.`,
+          content: `Check before I read this: these figures in your answer appear in none of the looked-up rows, or are written in a unit or a form the row does not use: ${figures.join(', ')}. Rewrite the whole answer: a figure from a row is copied exactly as the row prints it ("50%", never "50 %"; "24000", never "24 000"), a quantity exactly as its \`display\` gives it — same number, same unit, never converted or abbreviated; a figure from no row is removed — or, only if it is well-established general knowledge, kept in a sentence that starts "Outside the corpus —". Keep every figure that IS in the rows, with its source. No tools.`,
         },
       ],
       onText,

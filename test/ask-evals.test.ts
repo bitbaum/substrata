@@ -33,7 +33,9 @@ import { retrieve } from '../lib/index/retrieve';
 import { pureResults } from '../lib/quality/pure';
 import { runPlan } from '../lib/chat-agent/lookups';
 import { missingLinks, wallProblem } from '../lib/chat-agent/ladder';
-import { unsupportedFigures } from '../lib/chat-agent/grounding';
+import { printedFormMismatches, unsupportedFigures } from '../lib/chat-agent/grounding';
+import { claimProblems, stripModelTables, tableFactsIn } from '../lib/chat-agent/table-guard';
+import { readFileSync } from 'node:fs';
 import { emptyLedger } from '../lib/chat-tools/ledger';
 import { GRADE_LABEL } from '../lib/graph/index';
 
@@ -75,6 +77,15 @@ interface EvalRow {
     grade: 'stated' | 'corroborated' | 'derived' | 'lead';
     reading: string;
   }[];
+  /** A tool result recorded from a real run (test/fixtures/), and an answer recorded live over it. */
+  recordedTool?: string;
+  recordedAnswer?: string;
+  /** Text the computed `summary` must hold. */
+  summaryHolds?: string[];
+  /** Parts of the recorded answer the aggregate check must flag (the table is stripped first). */
+  mustFlag?: string[];
+  /** Re-formatted printed figures the grounding check must flag ("50 %"). */
+  mustFlagForms?: string[];
   /** A re-united quantity the grounding check must catch, and its verbatim form it must pass. */
   unitGuard?: { wrong: string; right: string };
 }
@@ -96,8 +107,8 @@ function leadClause(line: string): string {
 }
 
 test('the eval set is the one the ADR names', () => {
-  assert.equal(EVALS.length, 33);
-  assert.equal(EVALS.filter((r) => r.wall === false).length, 12, 'twelve no-wall questions');
+  assert.equal(EVALS.length, 35);
+  assert.equal(EVALS.filter((r) => r.wall === false).length, 14, 'fourteen no-wall questions');
   assert.equal(new Set(EVALS.map((r) => r.id)).size, EVALS.length, 'ids are unique');
   const niger = EVALS.find((r) => r.id === 'niger-uranium');
   assert.ok(niger, 'niger-uranium is in the set');
@@ -134,6 +145,34 @@ console.log(
 );
 
 const GENERIC_WALL = 'That is not recorded in the corpus.';
+
+/** An answer recorded live over a tool result recorded from a real run: what the checks must do to it. */
+function gradeRecorded(row: EvalRow, fresh: string[]) {
+  const file = (p: string) => readFileSync(new URL(`../${p}`, import.meta.url), 'utf8');
+  const { results } = JSON.parse(file(row.recordedTool!)) as { results: string[] };
+  const facts = tableFactsIn(results);
+  assert.ok(facts, 'the recorded result says a table is shown');
+  // The tools still compute what was recorded: a drift here means re-record.
+  assert.deepEqual(tableFactsIn(fresh), facts, 'the live tools compute the recorded summary');
+  for (const s of row.summaryHolds ?? [])
+    assert.ok(facts.summary.join(' ').includes(s), `the summary holds "${s}"`);
+  const answer = file(row.recordedAnswer!);
+  const stripped = stripModelTables(answer, facts.printedOnce);
+  assert.ok(!/^\s*\|/m.test(stripped), 'the model’s own table is stripped');
+  const claims = claimProblems(stripped, facts.summary).join('\n');
+  for (const f of row.mustFlag ?? []) assert.ok(claims.includes(f), `flags "${f}"`);
+  // Reported as written (a narrow no-break space stays one); compared as plain spaces.
+  const forms = printedFormMismatches(answer, results.join('\n')).map((f) =>
+    f.replace(/[\u00a0\u202f]/g, ' '),
+  );
+  for (const f of row.mustFlagForms ?? []) assert.ok(forms.includes(f), `flags the form "${f}"`);
+  assert.deepEqual(
+    claimProblems(facts.summary.join(' '), facts.summary),
+    [],
+    'the summary itself passes',
+  );
+  assert.ok(!wallProblem(stripped, results), 'what is left is not a wall');
+}
 
 interface RelationRowShape {
   grade: string;
@@ -195,6 +234,7 @@ for (const row of EVALS.filter((r) => r.wall === false || r.unitGuard)) {
           'the verbatim form passes',
         );
       }
+      if (row.recordedTool) gradeRecorded(row, looked.results);
       if (row.wall !== false) return;
       const gaps = missingLinks(row.question, looked.results);
       assert.deepEqual(

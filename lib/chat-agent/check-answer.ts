@@ -4,7 +4,12 @@
  *
  * 1. The wall (ladder.ts): rows came back, and the answer only says what is
  *    missing, or says rows it was handed are missing.
- * 2. Figures from nowhere and re-united quantities (grounding.ts).
+ * 2. A table the reader already has, redone in prose: the model's own table
+ *    and per-row repeats of a once-printed figure are stripped, and counts or
+ *    share aggregates it made up are replaced by the computed summary
+ *    (table-guard.ts).
+ * 3. Figures from nowhere, re-united quantities and reformatted printed
+ *    figures (grounding.ts).
  *
  * Then every missing link the answer ended on is filed (gaps.ts).
  *
@@ -17,6 +22,13 @@ import { fileGap, type GapFiler } from './gaps';
 import { reviseUnsupported, unsupportedFigures, withoutSentencesHolding } from './grounding';
 import { missingLinks, reviseWall, wallProblem, type MissingLink } from './ladder';
 import { finalAnswer } from './parse';
+import {
+  claimProblems,
+  replaceClaims,
+  reviseClaims,
+  stripModelTables,
+  tableFactsIn,
+} from './table-guard';
 import type { ModelTurn } from './turn';
 
 export async function checkAnswer(opts: {
@@ -52,6 +64,30 @@ export async function checkAnswer(opts: {
       onText,
     });
     if (revised) answer = finalAnswer(revised).answer;
+  }
+
+  const facts = tableFactsIn(opts.results);
+  if (facts && answer.trim()) {
+    answer = stripModelTables(answer, facts.printedOnce);
+    const claims = claimProblems(answer, facts.summary);
+    if (claims.length) {
+      emit({ type: 'reset' });
+      emit({ type: 'status', text: 'Checking the counts against the table…' });
+      calls++;
+      const revised = await reviseClaims({
+        messages,
+        answer,
+        claims,
+        summary: facts.summary,
+        turn,
+        onText,
+      });
+      const next = revised
+        ? stripModelTables(finalAnswer(revised).answer, facts.printedOnce)
+        : answer;
+      const left = claimProblems(next, facts.summary);
+      answer = left.length ? replaceClaims(next, left, facts.summary) : next;
+    }
   }
 
   const figures = unsupportedFigures(answer, messages.map((m) => String(m.content)).join('\n'));
