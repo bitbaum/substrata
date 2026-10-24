@@ -144,3 +144,16 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Dossier completeness: the country name is the row's tap target. */
+.quality-dossier .fresh-name {
+  display: flex;
+  align-items: center;
+  min-height: var(--size-target);
+}
+@media (max-width: 760px) {
+  /* Box names are longer than the score criteria; let the label wrap. */
+  .quality-dossier td {
+    white-space: normal;
+  }
+}

@@ -36,6 +36,7 @@ export const EN = {
   'profile.countryRules.title': 'Rules it sets',
   'profile.access.title': 'Where it restricts, and is restricted',
   'profile.countryEvents.title': 'What has happened',
+  'profile.dossier.title': 'What we know, and what is missing',
   'profile.why.title': 'Why it holds things up',
   'profile.severity.title': 'Severity',
   'profile.producers.title': 'Who makes it',

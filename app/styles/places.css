@@ -213,6 +213,16 @@
 .place-row-aside.is-loosens {
   color: var(--color-status-positive);
 }
+/* Dossier boxes (lib/dossier): the same three bands as the quality scores. */
+.place-row-aside.is-full {
+  color: var(--color-status-positive);
+}
+.place-row-aside.is-thin {
+  color: var(--color-status-warning);
+}
+.place-row-aside.is-empty {
+  color: var(--color-fg-muted);
+}
 
 /* The world ranking is a table of seven columns; stacked into the series
    table's phone blocks it became unlabelled numbers ("839,000 +7% ~100% 1st

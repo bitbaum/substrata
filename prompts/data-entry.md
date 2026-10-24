@@ -20,8 +20,40 @@ Numbers: value + unit + year + basis ('reported'|'estimated'); never a bare numb
 and list it under "skipped" with the reason. Shape: `add.ts <facet> --schema`.
 Run `add.ts --dry-run` and fix every exit code before opening the PR.
 
-Task: <one line: what to add, for which bottlenecks / countries / companies>.
+Task: <one line: what to add, for which bottlenecks / countries / companies — or a task's `instruction` from scripts/research/gaps.ts>.
 ```
+
+## Working from a task
+
+Usually you are handed one task from the work queue rather than a free-form
+line. The queue is every empty or thin box of every dossier (country, company,
+resource, lab), computed from the rows that exist (`lib/dossier`):
+
+```bash
+# The next ten tasks, in the order the owner wants them done.
+pnpm exec tsx scripts/research/gaps.ts --limit 10
+# One country, one box, or one kind; --out also writes the JSON to a file.
+pnpm exec tsx scripts/research/gaps.ts --entity country:kz --box facilities
+pnpm exec tsx scripts/research/gaps.ts --kind company --out tasks.json
+```
+
+Each task is a JSON record. Read these fields and nothing else decides what you do:
+
+| field | what you do with it |
+| --- | --- |
+| `missing` | the one sentence you are closing |
+| `href` | open it first; never add a row the page already shows |
+| `allowedSources` | look ONLY in these source families, in this order |
+| `writeTo` | the facet and file your rows go to; `add.ts <facet> --schema` gives the shape |
+| `example` | the shape of a good row. Its quote is a placeholder: copy yours from the page |
+| `blockedBy` | when set, write nothing: report `skipped` with that reason and stop |
+| `instruction` | all of the above as one block, ready to paste under the prompt |
+
+Then it is the same gate as always: write the rows, run `add.ts <facet> rows.json
+--dry-run` until it exits 0, run it without `--dry-run`, open the PR. Your rows are
+candidates: until a person promotes them the task stays in the queue and says
+"N candidate rows wait for review", because candidate rows never fill a box. Do not try to make a
+box "full" by adding weak rows: a lead, a guess or an inferred share is never a row.
 
 The source must be a readable HTML or text page. The gate reads it with
 ai-kit's reader, which does not open PDFs: a figure only in a PDF table is a

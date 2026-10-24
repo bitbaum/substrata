@@ -20,6 +20,7 @@ import { places, facilitySupply } from './facility';
 import { dependencies } from './dependencies';
 import { produces, companies } from './country';
 import { rules as countryRules, access, countryEvents } from './country-rules';
+import { dossier } from './dossier';
 
 /**
  * The registry. A new section is one definition plus one entry here.
@@ -35,6 +36,7 @@ import { rules as countryRules, access, countryEvents } from './country-rules';
  *   40+ what governs it, what would change it, what was predicted, who funds it
  *   80  what has happened
  *   84+ what it connects to
+ *   86  what the corpus knows and lacks (the dossier)
  *   89  the sources a company page rests on, after what they support
  *   90  discussion, last, because it responds to everything above
  *
@@ -86,6 +88,7 @@ export const PROFILE_MODULES: AnyProfileModule[] = [
   countryEvents,
   // Every kind that has them
   dependencies,
+  dossier,
   timeline,
   role,
   related,
