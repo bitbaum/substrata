@@ -211,8 +211,19 @@ test('tasks: one per empty or thin box, each with a sentence, sources and an ins
   const events = tasks.find((t) => t.box === 'events')!;
   assert.equal(events.blockedBy, null);
   assert.ok(events.instruction.includes('scripts/research/add.ts events --schema'));
-  // Kazakhstan has no jurisdiction in the instruments register yet: said, not hidden.
-  assert.match(tasks.find((t) => t.box === 'law_licensing')!.blockedBy ?? '', /JURISDICTIONS/);
+  // Every map country is a jurisdiction, so Kazakhstan's law can be recorded:
+  // the task says what to record and where, a law firm only as secondary.
+  const law = tasks.find((t) => t.box === 'law_licensing')!;
+  assert.equal(law.blockedBy, null);
+  assert.match(law.instruction, /Record one instrument per row/);
+  assert.match(law.instruction, /subsoil or mining law/);
+  assert.match(law.instruction, /official gazette/);
+  assert.match(law.instruction, /OECD Inventory of Export Restrictions/);
+  assert.match(
+    law.instruction,
+    /law firm's summary of the primary law, only as a secondary source/,
+  );
+  assert.ok(law.instruction.includes('add.ts instruments --schema'));
 });
 
 test('the queue is ordered by demand, then the owner’s countries, unblocked first', () => {
@@ -222,7 +233,7 @@ test('the queue is ordered by demand, then the owner’s countries, unblocked fi
   const ne = tasks.filter((t) => t.entity === 'country:ne');
   const firstBlocked = ne.findIndex((t) => t.blockedBy !== null);
   assert.ok(
-    ne.slice(firstBlocked).every((t) => t.blockedBy !== null),
+    firstBlocked === -1 || ne.slice(firstBlocked).every((t) => t.blockedBy !== null),
     'blocked tasks trail',
   );
 

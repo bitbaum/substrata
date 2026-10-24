@@ -22,11 +22,9 @@ import { PRODUCER_ROLES, type ProducerRole } from '@/config/substrata-coverage';
 import type { FacilityKind } from '@/config/substrata-facilities';
 import type { HolderKind, OwnershipStatus } from '@/config/substrata-ownership';
 import {
-  JURISDICTIONS,
   type InstrumentEffect,
   type InstrumentKind,
   type InstrumentStatus,
-  type JurisdictionId,
 } from '@/config/substrata-policy';
 import type { Stage, Unit } from '@/config/substrata-quantities';
 import { TECHNOLOGIES, type TechnologyId } from '@/config/substrata-taxonomy';
@@ -51,6 +49,7 @@ import {
   url,
   iso2Upper,
   countryPlace,
+  jurisdictionId,
   bottleneckName,
   bottleneckSlug,
   companySlug,
@@ -144,7 +143,7 @@ export const FacilityEntry = Candidate.extend({
 
 export const InstrumentEntry = Candidate.extend({
   id: z.string().regex(/^[a-z0-9-]+$/, 'a slug'),
-  jurisdiction: z.enum(tuple<JurisdictionId>(JURISDICTIONS.map((j) => j.id))),
+  jurisdiction: jurisdictionId,
   title: z.string().min(3),
   body: z.string().min(2).describe('The issuing body, as it names itself.'),
   kind: z.enum(

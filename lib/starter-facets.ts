@@ -17,6 +17,7 @@ import {
   INSTRUMENTS,
   INSTRUMENT_KIND_LABEL,
   JURISDICTIONS,
+  isListedJurisdiction,
   type InstrumentKind,
   type JurisdictionId,
 } from '@/config/substrata-policy';
@@ -159,7 +160,7 @@ const KIND_WORD: Partial<Record<InstrumentKind, string>> = {
  * kind ("tariff") fit a tile; this way all twelve do.
  */
 function policyCandidates(): Starter[] {
-  return INSTRUMENTS.map((i) => ({
+  return INSTRUMENTS.filter((i) => isListedJurisdiction(i.jurisdiction)).map((i) => ({
     facet: 'policy' as const,
     label: `${shortJurisdiction(i.jurisdiction)} ${i.date.slice(0, 4)} ${KIND_WORD[i.kind] ?? INSTRUMENT_KIND_LABEL[i.kind].toLowerCase()}: what changes?`,
     question: `What does "${i.title}" change, and for whom — which bottlenecks and which companies does it touch?`,
