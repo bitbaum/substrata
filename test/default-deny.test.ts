@@ -104,3 +104,25 @@ test('a section whose source line carries a link cites its list', () => {
   ].join('\n');
   assert.deepEqual(defaultDeny(answer, ctx).dropped, []);
 });
+
+test('what a cut leaves behind is tidied: pointers, unmatched brackets, a lone emphasis mark', () => {
+  const answer = [
+    'Capacity is capacity, not production. See the table below',
+    '',
+    'Nickel (2022) See the table below',
+    '',
+    '*(Note: USGS prints no capacity for either row, and capacity is not production.',
+    '',
+    'The full details appear in the table below).',
+  ].join('\n');
+  assert.equal(
+    defaultDeny(answer, ctx).answer,
+    [
+      'Capacity is capacity, not production.',
+      '',
+      'Note: USGS prints no capacity for either row, and capacity is not production.',
+      '',
+      'The full details appear in the table below.',
+    ].join('\n'),
+  );
+});

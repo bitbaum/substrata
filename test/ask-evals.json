@@ -662,5 +662,38 @@
       "What is missing",
       "USGS Minerals Yearbook 2022, Russia chapter"
     ]
+  },
+  {
+    "id": "russia-rare-earth-nickel-tables-live",
+    "facet": "facilities",
+    "question": "Which companies produce rare earths and nickel in Russia?",
+    "mustMention": ["country:ru"],
+    "expectedTools": ["producers_in"],
+    "expectedHits": [],
+    "wall": false,
+    "firstTool": "producers_in",
+    "expectedGaps": [],
+    "recordedTool": "test/fixtures/ru-rare-earth-nickel-producers-in-2026-10-24.json",
+    "recordedAnswer": "test/fixtures/ask-live-ru-rare-earth-nickel-tables-2026-10-24.txt",
+    "recordedSlice": ["Thought for", "\nRare earths facilities in Russia"],
+    "operatorsNamed": true,
+    "mustDrop": ["See the table below", "Nickel (2022)"]
+  },
+  {
+    "id": "mozambique-graphite-live",
+    "facet": "facilities",
+    "question": "Which companies mine graphite in Mozambique?",
+    "mustMention": ["country:mz"],
+    "expectedTools": ["producers_in"],
+    "expectedHits": [],
+    "wall": false,
+    "firstTool": "producers_in",
+    "expectedGaps": [],
+    "recordedTool": "test/fixtures/mz-graphite-producers-in-2026-10-24.json",
+    "recordedAnswer": "test/fixtures/ask-live-mz-graphite-2026-10-24.txt",
+    "recordedSlice": ["Thought for", "\nChina\n1,400,000"],
+    "operatorsNamed": true,
+    "mustKeep": ["Note: USGS prints no capacity for either row, and capacity is not production."],
+    "mustDrop": ["*(Note", "(Note"]
   }
 ]
