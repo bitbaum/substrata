@@ -29,6 +29,10 @@ export const RELATION_TYPES = [
   'researches',
   'employs',
   'competes_with',
+  // Rule-made leads only (lib/coverage/rules.ts), never counted: two operators
+  // with a stated parent in common, and a minted name that matches a registry record.
+  'shares_parent_with',
+  'may_be_same_as',
 ] as const;
 export type RelationType = (typeof RELATION_TYPES)[number];
 
@@ -56,9 +60,10 @@ export interface RelationEvidence {
  * Where a relation entered the corpus. `curated` is a hand-written row or one
  * derived from a hand-written row; `candidate` came through
  * `config/candidates/relations.json` and nobody has promoted it; `research` was
- * parsed by a committed script from a committed research file.
+ * parsed by a committed script from a committed research file; `rule` was
+ * proposed by an inference rule (lib/coverage/rules.ts) and is never counted.
  */
-export const RELATION_ORIGINS = ['curated', 'candidate', 'research'] as const;
+export const RELATION_ORIGINS = ['curated', 'candidate', 'research', 'rule'] as const;
 export type RelationOrigin = (typeof RELATION_ORIGINS)[number];
 
 export interface Relation {
@@ -76,7 +81,10 @@ export interface Relation {
   asOf: string;
   /** One entry per independent source. `stated` needs one, `corroborated` two or more. */
   evidence: RelationEvidence[];
-  /** Only for `derived`: the relation ids this follows from, and the rule that fired. */
+  /**
+   * For `derived` (required) and a rule-made `lead`: the relation ids this
+   * follows from, and the rule that fired.
+   */
   derivedFrom?: string[];
   rule?: string;
   /** Where the row came from. A reader filtering to reviewed rows drops `candidate`. */

@@ -38,6 +38,15 @@ export function relationById(id: string, s: GraphStore = graphStore()): Relation
   return s.byId.get(id);
 }
 
+/**
+ * Rule proposals touching `id` (lib/coverage/rules.ts): `derived` and `lead`
+ * relations with their chain, kept out of every walk and count above until a
+ * person promotes one. A page may show them, labelled, beside the stated rows.
+ */
+export function proposalsFor(id: string, s: GraphStore = graphStore()): Relation[] {
+  return s.proposals.filter((r) => r.from === id || r.to === id);
+}
+
 /** Relations leaving `id`: what it operates, owns, supplies. */
 export function relationsFrom(id: string, f: RelationFilter = {}, s = graphStore()): Relation[] {
   return (s.from.get(id) ?? []).filter((r) => keep(r, f));
@@ -119,6 +128,8 @@ const VERB: Record<RelationType, string> = {
   researches: 'researches',
   employs: 'employs',
   competes_with: 'competes with',
+  shares_parent_with: 'shares a stated parent with',
+  may_be_same_as: 'may be the same organisation as',
 };
 
 export const GRADE_LABEL: Record<EvidenceGrade, string> = {
@@ -154,7 +165,7 @@ export interface PrintedEvidence {
     locator?: string;
     reading: string;
   }[];
-  /** For a derived relation: the rule, and the evidence of each relation it follows from. */
+  /** For a derived relation or a rule-made lead: the rule, and the evidence of each relation it follows from. */
   rule?: string;
   chain?: PrintedEvidence[];
 }
@@ -185,7 +196,7 @@ export function relationEvidence(r: Relation, s: GraphStore = graphStore()): Pri
       ...(e.locator ? { locator: e.locator } : {}),
       reading: READING_LABEL[e.reading ?? 'verbatim'],
     })),
-    ...(r.grade === 'derived'
+    ...(r.derivedFrom?.length
       ? {
           rule: r.rule,
           chain: (r.derivedFrom ?? []).flatMap((id) => {
@@ -209,6 +220,7 @@ export function graphStats(s: GraphStore = graphStore()) {
     byType: tally((r) => r.type),
     byGrade: tally((r) => r.grade),
     byOrigin: tally((r) => r.origin ?? 'curated'),
+    proposals: s.proposals.length,
     conflicts: s.conflicts,
     corpusSkipped: s.skipped,
     usgs: {

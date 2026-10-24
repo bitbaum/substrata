@@ -31,6 +31,8 @@ import {
 export const SHARE_TYPES: readonly RelationType[] = ['owns', 'finances'];
 /** Edge types that carry a flow. */
 export const VOLUME_TYPES: readonly RelationType[] = ['supplies', 'buys_from', 'ships_to'];
+/** Edge types only an inference rule proposes, and only as a lead. */
+export const LEAD_ONLY_TYPES: readonly RelationType[] = ['shares_parent_with', 'may_be_same_as'];
 
 /** Grades from weakest to strongest, for `minGrade` filters. */
 export const GRADE_ORDER: readonly EvidenceGrade[] = ['lead', 'derived', 'stated', 'corroborated'];
@@ -101,9 +103,16 @@ export function relationProblems(r: Relation, today = new Date()): string[] {
   }
   const sources = new Set(r.evidence.map((e) => e.source));
 
+  if (LEAD_ONLY_TYPES.includes(r.type) && r.grade !== 'lead')
+    out.push(`a ${r.type} relation is only ever a lead`);
   if (r.grade === 'derived') {
     if (!r.derivedFrom?.length) out.push('a derived relation must name derivedFrom');
     if (!r.rule?.trim()) out.push('a derived relation must name its rule');
+  } else if (r.grade === 'lead' && (r.derivedFrom || r.rule)) {
+    // A lead a rule proposed names its chain like a derived relation does.
+    if (!r.derivedFrom?.length || !r.rule?.trim())
+      out.push('a rule-made lead names both derivedFrom and its rule');
+    if (r.evidence.length === 0) out.push('a lead needs a source and a quote');
   } else {
     if (r.derivedFrom || r.rule) out.push('only a derived relation carries derivedFrom or rule');
     if (r.evidence.length === 0) out.push(`a ${r.grade} relation needs a source and a quote`);
