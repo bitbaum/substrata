@@ -23,7 +23,7 @@ import { resourceIn } from '../chat-tools/resources';
 import { producerResource } from '../chat-tools/producers';
 import { lookupIsEmpty } from './lookups';
 import { companiesIn, countriesIn } from './question';
-import type { ModelTurn } from './turn';
+import { REVISION_RULE, type ModelTurn } from './turn';
 
 /**
  * The dossier boxes a missing link fills. Named to match the dossier
@@ -268,11 +268,11 @@ export function wallInstruction(problem: WallProblem, links: MissingLink[]): str
   const why =
     problem.kind === 'refusal-only'
       ? 'your answer only says what is missing, but the lookups above returned rows'
-      : `your answer says ${problem.what.map((w) => WHAT[w]).join(' and ')} are not in the sources, but the producers_in rows above carry them (the \`companies\` cell, exactly as USGS prints it)`;
+      : `your answer says ${problem.what.map((w) => WHAT[w]).join(' and ')} are not in the sources, but the USGS facility table above names them, exactly as printed`;
   const missing = links.length
     ? ` What is genuinely missing: ${links.map((l) => `${l.sentence} A source that would settle it: ${l.settles}.`).join(' ')}`
     : '';
-  return `Check before I read this: ${why}. Rewrite the whole answer. First state what the sources DO say — names, owners with their stakes, figures — copying each \`companies\` cell and each \`display\` or \`capacity\` exactly, with links. Then, for the part that is missing, name the single missing link in one sentence and say which kind of source would settle it. If web results [W#] are above, show them under their own heading as unchecked leads, never as corpus rows.${missing} Never answer only "not in the corpus". No tools.`;
+  return `Check before I read this: ${why}. Rewrite the whole answer. First state what the sources DO say — names, owners with their stakes, figures — copying each company entry, stake, capacity and figure exactly as printed, with links. Then, for the part that is missing, name the single missing link in one sentence and say which kind of source would settle it. If web results [W#] are above, show them under their own heading as unchecked leads, never as corpus rows.${missing} Never answer only "not in the corpus". No tools. ${REVISION_RULE}`;
 }
 
 /** Send a wall back once. The revised text, or null when the revision failed. */

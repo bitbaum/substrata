@@ -37,7 +37,8 @@ import { printedFormMismatches, unsupportedFigures } from '../lib/chat-agent/gro
 import { claimProblems, stripModelTables, tableFactsIn } from '../lib/chat-agent/table-guard';
 import { fixQuotes } from '../lib/chat-agent/table-prose';
 import { finishInCode } from '../lib/chat-agent/check-answer';
-import { tableEntityWords, uncitedClaims } from '../lib/chat-agent/uncited';
+import { gapSentences, tableEntityWords, uncitedClaims } from '../lib/chat-agent/uncited';
+import { internalProblem } from '../lib/chat-agent/internal';
 import { readFileSync } from 'node:fs';
 import { emptyLedger } from '../lib/chat-tools/ledger';
 import { GRADE_LABEL } from '../lib/graph/index';
@@ -123,8 +124,8 @@ function leadClause(line: string): string {
 }
 
 test('the eval set is the one the ADR names', () => {
-  assert.equal(EVALS.length, 42);
-  assert.equal(EVALS.filter((r) => r.wall === false).length, 21, 'twenty-one no-wall questions');
+  assert.equal(EVALS.length, 44);
+  assert.equal(EVALS.filter((r) => r.wall === false).length, 23, 'twenty-three no-wall questions');
   assert.equal(new Set(EVALS.map((r) => r.id)).size, EVALS.length, 'ids are unique');
   const niger = EVALS.find((r) => r.id === 'niger-uranium');
   assert.ok(niger, 'niger-uranium is in the set');
@@ -201,7 +202,10 @@ function gradeRecorded(row: EvalRow, fresh: string[]) {
     'no uncited claim survives',
   );
   for (const g of gaps)
-    assert.ok(final.includes('not in our sources'), `the ${g.box} gap is said precisely`);
+    assert.equal(gapSentences(final, g.box).length, 1, `the ${g.box} gap is said once, precisely`);
+  // The reader's words only: no tool or field, no reply to a send-back.
+  for (const line of final.replace(/```[\s\S]*?```/g, '').split('\n'))
+    assert.equal(internalProblem(line), null, `internal: ${line}`);
   for (const l of row.leadsKept ?? []) assert.ok(final.includes(`[W${l}]`), `lead [W${l}] kept`);
   if (!facts) return;
 

@@ -19,7 +19,7 @@
  *   sentences go and the summary takes their place.
  */
 import type { ChatMessage } from '@bitbaum/ai-kit';
-import type { ModelTurn } from './turn';
+import { REVISION_RULE, type ModelTurn } from './turn';
 
 export interface TableFacts {
   /** The computed sentences the model was told to copy. */
@@ -150,7 +150,7 @@ export function replaceClaims(answer: string, claims: string[], summary: string[
 }
 
 export function claimInstruction(claims: string[], summary: string[]): string {
-  return `Check before I read this: these sentences state a count, a range or a "largest / at least / up to / majority" that was not computed from the rows: ${claims.map((c) => `"${c}"`).join('; ')}. Rewrite the whole answer without them. Use these sentences instead, copied exactly — they are counted from the rows: ${summary.map((s) => `"${s}"`).join(' ')} Do not write a table or list the rows; the reader sees them in the table below. Quote any share exactly as printed ("50%", not "50 %"). No tools.`;
+  return `Check before I read this: these sentences state a count, a range or a "largest / at least / up to / majority" that was not computed from the rows: ${claims.map((c) => `"${c}"`).join('; ')}. Rewrite the whole answer without them. Use these sentences instead, copied exactly — they are counted from the rows: ${summary.map((s) => `"${s}"`).join(' ')} Do not write a table or list the rows; the reader sees them in the table below. Quote any share exactly as printed ("50%", not "50 %"). No tools. ${REVISION_RULE}`;
 }
 
 /** Send aggregates of the model's own back once; null when the revision failed. */

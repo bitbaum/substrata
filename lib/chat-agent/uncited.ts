@@ -133,10 +133,56 @@ export function uncitedClaims(
 }
 
 /** The answer without them; the gap sentences stand where the first one was, unless already said. */
+/** Words that name each link, however a sentence paraphrases it. */
+const BOX_WORDS: Record<LadderBox, RegExp> = {
+  buyers:
+    /\b(buyers?|customers?|purchasers?|offtake|off-take|clients?|who buys|sold to|sells? to)\b/i,
+  finance: /\b(financ\w*|funders?|lenders?|investors?)\b/i,
+  owners: /\b(owners?|ownership|shareholders?|stakes?|who owns)\b/i,
+  facilities: /\b(operators?|operating compan(y|ies)|mining compan(y|ies)|facilit(y|ies))\b/i,
+};
+
+/** The sentences that say this link is missing, in any words (the live Chile answer said it twice). */
+export function gapSentences(answer: string, box: LadderBox): string[] {
+  return answer
+    .split(/(?<=[.!?])\s+|\n+/)
+    .filter(
+      (s) =>
+        BOX_WORDS[box].test(s) &&
+        /not in (our|the) (sources|corpus|data|records)|(is|are) not (recorded|tracked|captured|covered)/i.test(
+          s,
+        ),
+    );
+}
+
+const saysGap = (answer: string, box: LadderBox) => gapSentences(answer, box).length > 0;
+
+/**
+ * Each missing link said once: the first sentence that says it stays (the
+ * computed one, where code put it), a paraphrase of it later goes — seen live
+ * on Chile, 2026-10-24, the same gap twice in a row.
+ */
+export function oneGapEach(answer: string, gaps: MissingLink[]): string {
+  let out = answer;
+  for (const g of gaps)
+    for (const extra of gapSentences(out, g.box).slice(1)) {
+      // The paraphrase and the "what would settle it" sentence that follows it.
+      const at = out.indexOf(extra);
+      const after = out
+        .slice(at + extra.length)
+        .match(/^\s*A source that would settle it:[^\n]*?[.!?](?=\s|$)/);
+      out = out.slice(0, at) + out.slice(at + extra.length + (after?.[0].length ?? 0));
+    }
+  return out
+    .replace(/[ \t]+\n/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
 export function dropUncited(answer: string, claims: Uncited[], gaps: MissingLink[]): string {
   if (!claims.length) return answer;
   const missing = gaps
-    .filter((g) => !answer.includes(g.sentence))
+    .filter((g) => !saysGap(answer, g.box))
     .map((g) => `${g.sentence} A source that would settle it: ${g.settles}.`)
     .join(' ');
   let out = answer;

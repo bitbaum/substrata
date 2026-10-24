@@ -581,6 +581,41 @@
     "recordedTool": "test/fixtures/ru-rare-earth-nickel-producers-in-2026-10-24.json",
     "recordedAnswer": "test/fixtures/ask-live-ru-rare-earth-nickel-2026-10-24.md",
     "noTable": true,
-    "mustKeep": ["**OAO Apatit**", "300000 metric tons"]
+    "mustKeep": ["**OAO Apatit**", "300000 metric tons"],
+    "mustDrop": ["You are right", "read_as", "producers_in", "Rewriting below", "`companies`"]
+  },
+  {
+    "id": "russia-rare-earth-nickel-live-page",
+    "facet": "facilities",
+    "question": "Which companies produce rare earths and nickel in Russia?",
+    "mustMention": ["country:ru"],
+    "expectedTools": ["producers_in"],
+    "expectedHits": [],
+    "wall": false,
+    "firstTool": "producers_in",
+    "expectedGaps": [],
+    "recordedTool": "test/fixtures/ru-rare-earth-nickel-producers-in-2026-10-24.json",
+    "recordedAnswer": "test/fixtures/ask-live-ru-rare-earth-nickel-2026-10-24.txt",
+    "noTable": true,
+    "mustKeep": ["OAO Apatit", "300000 metric tons"],
+    "mustDrop": ["You are right", "read_as", "companies cell", "null"],
+    "recordedSlice": ["Thought for", "\nCopy\nListen"]
+  },
+  {
+    "id": "chile-lithium-gap-once-live",
+    "facet": "facilities",
+    "question": "Who produces lithium in Chile and who owns them, and who buys their lithium?",
+    "mustMention": ["country:cl"],
+    "expectedTools": ["producers_in"],
+    "expectedHits": [],
+    "wall": false,
+    "firstTool": "producers_in",
+    "expectedGaps": ["buyers"],
+    "recordedTool": "test/fixtures/cl-lithium-gap-twice-producers-in-2026-10-24.json",
+    "recordedAnswer": "test/fixtures/ask-live-cl-lithium-gap-twice-2026-10-24.md",
+    "recordedWeb": 5,
+    "mustKeep": ["The buyers of Chile's lithium output are not in our sources."],
+    "mustDrop": ["The buyers of Chile's output are not in our sources."],
+    "leadsKept": [1, 2, 3, 4, 5]
   }
 ]
