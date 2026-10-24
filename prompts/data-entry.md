@@ -15,6 +15,7 @@ You add ONE facet of data to Substrata. You may write only a JSON array for `scr
 You may not edit config/*.ts, lib/, or tests. You may not write evidence other than "candidate".
 Every row: a primary source URL (publisher, regulator, company filing, USGS/IAEA/EIA table), a quote of
 20–400 characters copied verbatim from that page, readOn = today, asOf = the date the fact is FOR.
+submittedBy.model is "unrecorded": never write a model name or id into a row.
 Numbers: value + unit + year + basis ('reported'|'estimated'); never a bare number. No share, rank or
 "largest" words — those are computed. If a source is paywalled or you cannot quote it, omit the row
 and list it under "skipped" with the reason. Shape: `add.ts <facet> --schema`.
@@ -94,12 +95,41 @@ cut from the fetched text. Your job is then to check, not to type. In order:
 4. **Gate them**: `pnpm exec tsx scripts/research/add.ts relations rows.json --dry-run`,
    then the same with `--branch` (or `run-task.ts … --write`, which runs the
    same add.ts with every check). Rows carry `provenance` (which adapter, when,
-   which URL) — leave it as it is.
+   which URL), `submittedBy.model: "deterministic-adapter"` and sometimes a
+   `note` (what a figure measures, why a row is a lead) — leave them as they are.
+
+   **Leads are not written by default.** The dry run prints `lead because: …`
+   under every lead, and `rows.json` and `--write` hold only `stated` rows.
+   Pass `--include-leads` only when the task asks for leads; a lead never fills
+   a box. A row already in the corpus or the sidecar is skipped — a trade flow
+   is matched by from, type, to, asOf and HS code, not by its wording — so
+   re-running a task proposes only what is new.
 
 5. **Then the box by hand** for whatever the adapters skipped, from the task's
-   allowed sources, with the normal rules below. Copy the `skipped:` lines into
-   your report: they are the next person's starting point ("regions are not
-   entities", "not an entity on the site").
+   allowed sources, with the normal rules below.
+
+6. **Paste the closing list into the PR description.** `run-task.ts` ends with
+   `--- paste into the PR description ---` and a plain-text list: the rows
+   written (or proposed, on a dry run) and every row skipped with its reason
+   ("regions are not entities", "a lead, not written without
+   --include-leads: …", "already in the corpus"). Paste it as it stands: it is
+   the reviewer's checklist and the next person's starting point.
+
+Comtrade rows: the quote is the raw record from `"reporterCode"` through
+`"netWgt"` (reporter, partner and weight are M49 codes; the locator names the
+countries). The weight is the mass of the goods declared under the HS code —
+for HS 2844 the uranium compound, not uranium content — and the row's `note`
+and `volume.commodity` say so. Never restate it as tonnes of uranium.
+
+## When a box cannot be filled honestly
+
+Say so, and stop. Report the task `skipped` with one line of reason ("the only
+source is paywalled", "the registry names a region, not a country", "no
+primary source states the buyer"). Do NOT force the fact into another facet
+or relation type to get a row in — a buyer that is only a region is not a
+`ships_to` to a country, a delivery point is not a buyer, a share you
+computed is not a stated share. An empty box with a true reason is a better
+result than a full one with a bent row.
 
 When `run-task.ts` says no adapter covers the box, work it by hand from the
 task's `instruction`, as below.
@@ -159,7 +189,7 @@ must already exist on the site; the gate checks.
   };
   submittedBy: {
     agent: string; // 1–∞ chars; Who ran it, e.g. "data-agent".
-    model: string; // 1–∞ chars; The model id the run used, exactly as its provider names it.
+    model: string; // 1–∞ chars; Write "unrecorded": repo files never name the model that ran. Adapters write "deterministic-adapter".
     runId: string; // 1–∞ chars; One id per session, the same on every row it writes.
   };
   material: string; // The material NAME the producer row sits under, e.g. "Gallium, refined".
@@ -183,7 +213,7 @@ must already exist on the site; the gate checks.
   };
   submittedBy: {
     agent: string; // 1–∞ chars; Who ran it, e.g. "data-agent".
-    model: string; // 1–∞ chars; The model id the run used, exactly as its provider names it.
+    model: string; // 1–∞ chars; Write "unrecorded": repo files never name the model that ran. Adapters write "deterministic-adapter".
     runId: string; // 1–∞ chars; One id per session, the same on every row it writes.
   };
   id: string; // /^\d{4}-\d{2}-\d{2}-[a-z0-9-]+$/
@@ -211,7 +241,7 @@ must already exist on the site; the gate checks.
   };
   submittedBy: {
     agent: string; // 1–∞ chars; Who ran it, e.g. "data-agent".
-    model: string; // 1–∞ chars; The model id the run used, exactly as its provider names it.
+    model: string; // 1–∞ chars; Write "unrecorded": repo files never name the model that ran. Adapters write "deterministic-adapter".
     runId: string; // 1–∞ chars; One id per session, the same on every row it writes.
   };
   material: string; // /^[a-z0-9-]+$/; A bottleneck SLUG, e.g. "gallium-refined" (the last part of /bottlenecks/<slug>).
@@ -247,7 +277,7 @@ must already exist on the site; the gate checks.
   };
   submittedBy: {
     agent: string; // 1–∞ chars; Who ran it, e.g. "data-agent".
-    model: string; // 1–∞ chars; The model id the run used, exactly as its provider names it.
+    model: string; // 1–∞ chars; Write "unrecorded": repo files never name the model that ran. Adapters write "deterministic-adapter".
     runId: string; // 1–∞ chars; One id per session, the same on every row it writes.
   };
   id: string; // /^[a-z0-9-]+$/
@@ -275,7 +305,7 @@ must already exist on the site; the gate checks.
   };
   submittedBy: {
     agent: string; // 1–∞ chars; Who ran it, e.g. "data-agent".
-    model: string; // 1–∞ chars; The model id the run used, exactly as its provider names it.
+    model: string; // 1–∞ chars; Write "unrecorded": repo files never name the model that ran. Adapters write "deterministic-adapter".
     runId: string; // 1–∞ chars; One id per session, the same on every row it writes.
   };
   id: string; // /^[a-z0-9-]+$/
@@ -313,7 +343,7 @@ must already exist on the site; the gate checks.
   };
   submittedBy: {
     agent: string; // 1–∞ chars; Who ran it, e.g. "data-agent".
-    model: string; // 1–∞ chars; The model id the run used, exactly as its provider names it.
+    model: string; // 1–∞ chars; Write "unrecorded": repo files never name the model that ran. Adapters write "deterministic-adapter".
     runId: string; // 1–∞ chars; One id per session, the same on every row it writes.
   };
   id: string; // /^[a-z0-9-]+$/
@@ -344,7 +374,7 @@ must already exist on the site; the gate checks.
   };
   submittedBy: {
     agent: string; // 1–∞ chars; Who ran it, e.g. "data-agent".
-    model: string; // 1–∞ chars; The model id the run used, exactly as its provider names it.
+    model: string; // 1–∞ chars; Write "unrecorded": repo files never name the model that ran. Adapters write "deterministic-adapter".
     runId: string; // 1–∞ chars; One id per session, the same on every row it writes.
   };
   company: string; // /^[a-z0-9-]+$/; A directory company SLUG (the last part of /markets/<slug>).
@@ -371,7 +401,7 @@ must already exist on the site; the gate checks.
   };
   submittedBy: {
     agent: string; // 1–∞ chars; Who ran it, e.g. "data-agent".
-    model: string; // 1–∞ chars; The model id the run used, exactly as its provider names it.
+    model: string; // 1–∞ chars; Write "unrecorded": repo files never name the model that ran. Adapters write "deterministic-adapter".
     runId: string; // 1–∞ chars; One id per session, the same on every row it writes.
   };
   series: string; // The id of a committed series in research/series.json.
@@ -393,12 +423,12 @@ must already exist on the site; the gate checks.
   asOf: string; // /^\d{4}(-\d{2}(-\d{2})?)?$/; The date the fact is FOR, at the precision the source gives.
   source: {
     url: string; // /^https?:\/\/\S+$/; The primary source page — publisher, regulator, filing, agency table.
-    quote: string; // 20–400 chars; Copied VERBATIM from the page at url. The gate re-reads the page and looks for it.
+    quote: string; // 20–800 chars; Copied VERBATIM from the page at url. The gate re-reads the page and looks for it. At most 400 characters by hand; only an adapter's record (with provenance) may run longer.
     readOn: string; // /^\d{4}-\d{2}-\d{2}$/; The day you read the page: today.
   };
   submittedBy: {
     agent: string; // 1–∞ chars; Who ran it, e.g. "data-agent".
-    model: string; // 1–∞ chars; The model id the run used, exactly as its provider names it.
+    model: string; // 1–∞ chars; Write "unrecorded": repo files never name the model that ran. Adapters write "deterministic-adapter".
     runId: string; // 1–∞ chars; One id per session, the same on every row it writes.
   };
   from: string; // /^(bottleneck|company|science|policy|country|capital|loop|facility|talent|learn|article):[a-z0-9-]+$/; Who or what the relation starts from, as an entity id.
@@ -415,6 +445,7 @@ must already exist on the site; the gate checks.
     period: string; // 1–∞ chars
     commodity?: string;
   };
+  note?: string; // 1–300 chars; What a reviewer must know to read the quote: what a figure measures, or why the row is only a lead. Never a fact the quote does not carry.
 }
 ```
 

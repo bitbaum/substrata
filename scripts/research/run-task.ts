@@ -4,19 +4,25 @@
  *   pnpm exec tsx scripts/research/run-task.ts <task-id>            e.g. country:kz#trade
  *   pnpm exec tsx scripts/research/run-task.ts --entity country:kz --box trade
  *        [--lei <LEI>] [--qid <Q…>] [--cik <n>] [--hs <code>] [--period <yyyy>] [--top <n>]
- *        [--run-id <id>] [--out rows.json] [--write]
+ *        [--run-id <id>] [--out rows.json] [--write] [--include-leads]
  *   pnpm exec tsx scripts/research/run-task.ts --find-lei "Name" | --find-qid "Name"
  *
  * Prints the task's instruction and allowed sources, then, for each adapter
  * that applies (lib/sources/registry.ts), the records it read, the candidate
- * rows it proposes (each marked whether it fills this box) and what it
- * skipped and why. Nothing is written. With --write the rows go through
- * `scripts/research/add.ts relations` — every check, the page re-read and the
- * quote found again — and only then into config/candidates/relations.json.
+ * rows it proposes (each marked whether it fills this box, and each lead with
+ * why it is one) and what it skipped and why. Nothing is written. With --write
+ * the rows go through `scripts/research/add.ts relations` — every check, the
+ * page re-read and the quote found again — and only then into
+ * config/candidates/relations.json.
+ *
+ * Leads are NOT written unless --include-leads is passed; rows already in the
+ * corpus or the sidecar are skipped. The run ends with a plain-text list —
+ * rows written, rows skipped with reasons — to paste into the PR description
+ * (./run-task-report.ts).
  *
  * Exit codes: 0 done, 1 usage or no such task, otherwise add.ts's on --write.
  */
-import { mkdtemp, writeFile } from 'node:fs/promises';
+import { mkdtemp, readFile, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -24,11 +30,14 @@ import { pathToFileURL } from 'node:url';
 import { boxDefinition } from '../../lib/dossier/definitions';
 import { emitTasks, type DossierTask } from '../../lib/dossier/tasks';
 import { relationCandidateId, type RelationCandidate } from '../../lib/entry/candidate';
+import { whyLead } from '../../lib/sources/proposal';
 import { readDocument } from '../../lib/sources/document';
 import { searchLei } from '../../lib/sources/gleif';
 import { countsFor, plansFor, runPlans, type RunOptions } from '../../lib/sources/registry';
 import { WIKIDATA_SPARQL, labelQuery } from '../../lib/sources/wikidata';
-import { run as addRun } from './add';
+import { run as addRun, knownKeys, type AddDeps } from './add';
+import { allRelations } from '../../lib/graph/index';
+import { flowKey, prReport, selectRows, type SkipLine } from './run-task-report';
 
 export interface RunTaskArgs extends Omit<RunOptions, 'runId'> {
   task?: string;
@@ -37,6 +46,8 @@ export interface RunTaskArgs extends Omit<RunOptions, 'runId'> {
   runId?: string;
   out?: string;
   write: boolean;
+  /** Write `lead` rows too. Off by default: a lead waits for a second source. */
+  includeLeads?: boolean;
   findLei?: string;
   findQid?: string;
 }
@@ -61,6 +72,7 @@ export function parseRunTaskArgs(argv: readonly string[]): RunTaskArgs {
   for (let i = 0; i < argv.length; i++) {
     const flag = argv[i];
     if (flag === '--write') a.write = true;
+    else if (flag === '--include-leads') a.includeLeads = true;
     else if (VALUE_FLAGS.includes(flag)) {
       const v = argv[++i];
       if (v === undefined) throw new Error(`${flag} needs a value`);
@@ -86,9 +98,29 @@ function show(label: string, value: unknown, log: (l: string) => void) {
   log(`${label}${typeof value === 'string' ? value : JSON.stringify(value, null, 2)}`);
 }
 
+/** Every relation id and flow key the corpus and the sidecar already hold. */
+async function knownRelations(candidatesDir?: string): Promise<Set<string>> {
+  const dir = candidatesDir ?? path.join(import.meta.dirname, '../../config/candidates');
+  const sidecar = JSON.parse(
+    await readFile(path.join(dir, 'relations.json'), 'utf8'),
+  ) as RelationCandidate[];
+  return new Set([
+    ...(await knownKeys('relations', candidatesDir)),
+    ...allRelations().map(flowKey),
+    ...sidecar.map(flowKey),
+  ]);
+}
+
+/** Seams for the test: the adapters' fetches, and add.ts's page reader and sidecar dir. */
+export interface MainDeps {
+  plan?: Partial<RunOptions>;
+  add?: AddDeps;
+}
+
 export async function main(
   argv: readonly string[],
   log: (l: string) => void = console.log,
+  deps: MainDeps = {},
 ): Promise<number> {
   let args: RunTaskArgs;
   try {
@@ -125,7 +157,7 @@ export async function main(
   log(`Allowed sources: ${task.allowedSources.map((s, i) => `${i + 1}. ${s}`).join('  ')}`);
   if (task.blockedBy) log(`Blocked: ${task.blockedBy}`);
   const runId = args.runId ?? `run-task-${new Date().toISOString().slice(0, 10)}`;
-  const plans = plansFor(task, { ...args, runId });
+  const plans = plansFor(task, { ...args, ...deps.plan, runId });
   if (!plans.length) {
     log(
       '\nNo source adapter covers this box yet. Work it by hand from the allowed sources (prompts/data-entry.md).',
@@ -135,6 +167,7 @@ export async function main(
   for (const p of plans.filter((x) => x.needs)) log(`\n[${p.adapter}] not run: ${p.needs}`);
   const queries = boxDefinition(task.kind, task.box)?.relations ?? [];
   const rows: RelationCandidate[] = [];
+  const skipped: SkipLine[] = [];
   for (const r of await runPlans(plans)) {
     log(
       `\n[${r.adapter}] ${r.records.length} record(s) read, ${r.rows.length} row(s) proposed, ${r.skipped.length} skipped`,
@@ -143,31 +176,53 @@ export async function main(
       const id = relationCandidateId(row);
       if (rows.some((x) => relationCandidateId(x) === id)) {
         // A relation's id is from|type|to|asOf plus the commodity a flow states, so a repeat is the same edge.
-        log(`  skipped: ${id} from ${row.source.url} — same relation id as a row above`);
+        const reason = 'same relation id as a row above';
+        log(`  skipped: ${id} from ${row.source.url} — ${reason}`);
+        skipped.push({ adapter: r.adapter, record: id, reason });
         continue;
       }
       const fills = countsFor(task, row, queries)
         ? 'fills this box'
         : 'related; does not fill this box';
       show(`  proposed (${fills}, ${row.grade}): `, row, log);
+      if (row.grade === 'lead') log(`  lead because: ${whyLead(row)}`);
       rows.push(row);
     }
-    for (const s of r.skipped) log(`  skipped: ${s.record} — ${s.reason}`);
+    for (const s of r.skipped) {
+      log(`  skipped: ${s.record} — ${s.reason}`);
+      skipped.push({ adapter: r.adapter, ...s });
+    }
   }
-  if (!rows.length) {
-    log('\nNo rows to propose. Report the task "skipped" with the reasons above.');
+  const chosen = selectRows(rows, {
+    known: await knownRelations(deps.add?.candidatesDir),
+    includeLeads: Boolean(args.includeLeads),
+  });
+  skipped.push(...chosen.skipped);
+  const report = (outcome: 'dry-run' | number) =>
+    log(
+      `\n--- paste into the PR description ---\n${prReport({ task: task.id, runId, outcome, rows: chosen.write, skipped })}`,
+    );
+  if (!chosen.write.length) {
+    log('\nNo rows to write. Report the task "skipped" with the reasons below.');
+    report('dry-run');
     return 0;
   }
   const file = args.out ?? path.join(await mkdtemp(path.join(tmpdir(), 'run-task-')), 'rows.json');
-  await writeFile(file, `${JSON.stringify(rows, null, 2)}\n`);
-  log(`\n${rows.length} row(s) saved to ${file}.`);
+  await writeFile(file, `${JSON.stringify(chosen.write, null, 2)}\n`);
+  const leads = chosen.write.filter((r) => r.grade === 'lead').length;
+  log(
+    `\n${chosen.write.length} row(s) saved to ${file}${args.includeLeads ? ` (${leads} lead(s), --include-leads)` : ' (leads held back; --include-leads writes them)'}.`,
+  );
   if (!args.write) {
     log(
       `Dry run: nothing written. Check them: pnpm exec tsx scripts/research/add.ts relations ${file} --dry-run`,
     );
+    report('dry-run');
     return 0;
   }
-  return addRun(['relations', file], { log });
+  const code = await addRun(['relations', file], { ...deps.add, log });
+  report(code);
+  return code;
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

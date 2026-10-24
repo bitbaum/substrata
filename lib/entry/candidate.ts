@@ -97,6 +97,8 @@ export type SeriesPointCandidate = CandidateOf<SeriesPoint, { series: string }>;
  */
 export type RelationCandidate = Pick<Relation, 'from' | 'to' | 'type' | 'share' | 'volume'> & {
   grade: 'stated' | 'lead';
+  /** For the reviewer: what a figure measures, or why the row is a lead. */
+  note?: string;
 } & CandidateCommon;
 
 export const FACETS = [

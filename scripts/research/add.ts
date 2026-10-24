@@ -96,6 +96,15 @@ function corpusKeys(facet: Facet): Set<string> {
   }
 }
 
+/** Every key the facet already holds, corpus and sidecar: what a new row may not repeat. */
+export async function knownKeys(facet: Facet, candidatesDir?: string): Promise<Set<string>> {
+  const dir = candidatesDir ?? path.join(ROOT, 'config/candidates');
+  const current = JSON.parse(
+    await readFile(path.join(dir, `${facet}.json`), 'utf8'),
+  ) as CandidateCommon[];
+  return new Set([...corpusKeys(facet), ...current.map(FACET_SPECS[facet].key)]);
+}
+
 /**
  * Read a source through lib/sources/document: HTML as readable text, JSON as
  * served, a PDF page by page. Three tries for a transient failure.

@@ -37,7 +37,8 @@ import { printedFormMismatches, unsupportedFigures } from '../lib/chat-agent/gro
 import { claimProblems, stripModelTables, tableFactsIn } from '../lib/chat-agent/table-guard';
 import { fixQuotes } from '../lib/chat-agent/table-prose';
 import { finishInCode } from '../lib/chat-agent/check-answer';
-import { tableEntityWords, uncitedClaims } from '../lib/chat-agent/uncited';
+import { gapSentences, tableEntityWords, uncitedClaims } from '../lib/chat-agent/uncited';
+import { internalProblem } from '../lib/chat-agent/internal';
 import { readFileSync } from 'node:fs';
 import { emptyLedger } from '../lib/chat-tools/ledger';
 import { GRADE_LABEL } from '../lib/graph/index';
@@ -89,6 +90,10 @@ interface EvalRow {
   mustFlag?: string[];
   /** The question shows no table (the guards must leave such an answer alone where it is honest). */
   noTable?: boolean;
+  /** Sentences the guards must remove; every other line of the recorded answer must survive. */
+  keepAllExcept?: string[];
+  /** A page-text recording whose answer had links the page text no longer shows. */
+  linksLost?: boolean;
   /** How many web pages the recorded answer's lookups fetched: its [W#] may cite up to this. */
   recordedWeb?: number;
   /** Web leads the final answer must still show. */
@@ -123,8 +128,8 @@ function leadClause(line: string): string {
 }
 
 test('the eval set is the one the ADR names', () => {
-  assert.equal(EVALS.length, 42);
-  assert.equal(EVALS.filter((r) => r.wall === false).length, 21, 'twenty-one no-wall questions');
+  assert.equal(EVALS.length, 45);
+  assert.equal(EVALS.filter((r) => r.wall === false).length, 24, 'twenty-four no-wall questions');
   assert.equal(new Set(EVALS.map((r) => r.id)).size, EVALS.length, 'ids are unique');
   const niger = EVALS.find((r) => r.id === 'niger-uranium');
   assert.ok(niger, 'niger-uranium is in the set');
@@ -184,9 +189,27 @@ function gradeRecorded(row: EvalRow, fresh: string[]) {
   const gaps = missingLinks(row.question, results);
   const webCount = row.recordedWeb ?? 0;
   // What the reader gets in the end: every check made in code, after every revision.
-  const final = finishInCode(answer, { facts, gaps, webCount });
+  const final = finishInCode(answer, {
+    facts,
+    gaps,
+    webCount,
+    question: row.question,
+    // Page text has lost the answer's links: grading it under default deny would
+    // grade the recording, not the answer. Its markdown twin is graded in full.
+    evidence: row.linksLost ? '' : results.join('\n'),
+  });
   for (const k of row.mustKeep ?? []) assert.ok(final.includes(k), `keeps "${k}"`);
   for (const d of row.mustDrop ?? []) assert.ok(!final.includes(d), `drops "${d}"`);
+  if (row.keepAllExcept) {
+    // Everything the recorded answer said survives except the named sentences.
+    let rest = answer;
+    for (const x of row.keepAllExcept) rest = rest.split(x).join('');
+    for (const line of rest
+      .split('\n')
+      .map((l) => l.trim())
+      .filter(Boolean))
+      assert.ok(final.includes(line), `survives: "${line}"`);
+  }
   // (A recorded answer with no table is graded on the guards leaving it alone, not on its wall.)
   if (!row.noTable) assert.ok(!wallProblem(final, results), 'what the reader gets is not a wall');
   // Nothing made up: no uncited claim on a missing link or about a firm the table names.
@@ -201,7 +224,10 @@ function gradeRecorded(row: EvalRow, fresh: string[]) {
     'no uncited claim survives',
   );
   for (const g of gaps)
-    assert.ok(final.includes('not in our sources'), `the ${g.box} gap is said precisely`);
+    assert.equal(gapSentences(final, g.box).length, 1, `the ${g.box} gap is said once, precisely`);
+  // The reader's words only: no tool or field, no reply to a send-back.
+  for (const line of final.replace(/```[\s\S]*?```/g, '').split('\n'))
+    assert.equal(internalProblem(line), null, `internal: ${line}`);
   for (const l of row.leadsKept ?? []) assert.ok(final.includes(`[W${l}]`), `lead [W${l}] kept`);
   if (!facts) return;
 

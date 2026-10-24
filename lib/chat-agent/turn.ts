@@ -153,3 +153,14 @@ export function byokTurn(
     }
   };
 }
+
+/**
+ * Said at the end of every send-back (the wall, the figures, the counts).
+ * Seen live on 2026-10-24: told its answer denied rows "the producers_in rows
+ * above carry", a model answered the instruction — "You are right: the
+ * `producers_in` rows do carry the `companies` cells … I summarized those out on
+ * the first pass" — to a reader who never saw it. A send-back names no tool and
+ * no field, and the rewrite speaks to the reader's question only.
+ */
+export const REVISION_RULE =
+  'Write the whole answer again for the reader, as if for the first time: they never saw this check or your first draft. Never reply to this message — no "you are right", no apology, no "rewriting below" — and never name a tool, a field, a row or a lookup; say what the sources say.';

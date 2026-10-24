@@ -33,7 +33,9 @@ import {
   type TableFacts,
 } from './table-guard';
 import { openWithSummary, tableProse } from './table-prose';
-import { dropUncited, tableEntityWords, uncitedClaims, webCountIn } from './uncited';
+import { defaultDeny } from './default-deny';
+import { withoutInternals } from './internal';
+import { dropUncited, oneGapEach, tableEntityWords, uncitedClaims, webCountIn } from './uncited';
 import type { ModelTurn } from './turn';
 
 export async function checkAnswer(opts: {
@@ -102,7 +104,13 @@ export async function checkAnswer(opts: {
     answer = revised ? finalAnswer(revised).answer : withoutSentencesHolding(answer, figures);
   }
   if (answer.trim())
-    answer = finishInCode(answer, { facts, gaps, webCount: webCountIn(opts.results) });
+    answer = finishInCode(answer, {
+      facts,
+      gaps,
+      webCount: webCountIn(opts.results),
+      question: opts.question,
+      evidence: opts.results.join('\n'),
+    });
   // Rung 6: every missing link the answer ended on is filed as demand.
   if (answer.trim())
     for (const gap of gaps)
@@ -118,11 +126,22 @@ export async function checkAnswer(opts: {
  * - with a code table shown, the computed summary opens the answer and
  *   nothing of the rows is redone (table-prose.ts);
  * - nothing made up: an uncited claim on a missing link, or about a firm the
- *   table names, gives way to the gap sentence (uncited.ts).
+ *   table names, gives way to the gap sentence (uncited.ts);
+ * - default deny: with tool results in hand, only cited sentences and the
+ *   recognised honest kinds survive (default-deny.ts);
+ * - the reader's words only: no tool or field names, no reply to a
+ *   send-back (internal.ts).
  */
 export function finishInCode(
   answer: string,
-  opts: { facts: TableFacts | null; gaps: MissingLink[]; webCount: number },
+  opts: {
+    facts: TableFacts | null;
+    gaps: MissingLink[];
+    webCount: number;
+    question: string;
+    /** Every tool result's text. Empty when nothing was looked up: then there is nothing to cite. */
+    evidence: string;
+  },
 ): string {
   const { facts, gaps } = opts;
   const shaped = facts ? openWithSummary(tableProse(answer, facts), facts.summary) : answer;
@@ -132,5 +151,17 @@ export function finishInCode(
     webCount: opts.webCount,
     summary: facts?.summary,
   });
-  return dropUncited(shaped, claims, gaps);
+  // And in the reader's words only: no tool, no field, no reply to a send-back (internal.ts).
+  const honest = dropUncited(shaped, claims, gaps);
+  // Default deny: with tool results in hand, a sentence stays only when it is
+  // cited or one of the kinds an honest answer is built from (default-deny.ts).
+  const backed = opts.evidence.trim()
+    ? defaultDeny(honest, {
+        question: opts.question,
+        summary: facts?.summary ?? [],
+        webCount: opts.webCount,
+        evidence: opts.evidence,
+      }).answer
+    : honest;
+  return withoutInternals(oneGapEach(backed, gaps));
 }
