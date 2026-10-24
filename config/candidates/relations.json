@@ -51,6 +51,502 @@
     "evidence": "candidate",
     "asOf": "2024",
     "source": {
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=156&period=2024&cmdCode=2504&flowCode=X&partnerCode=276",
+      "quote": "\"reporterCode\":156,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":276,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"2504\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":8986879.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":8,\"altQtyUnitAbbr\":null,\"altQty\":8986879.0,\"isAltQtyEstimated\":false,\"netWgt\":8986879.0",
+      "readOn": "2026-10-24",
+      "locator": "UN Comtrade record: reporterCode 156 = CN, partnerCode 276 = DE (M49)"
+    },
+    "submittedBy": {
+      "agent": "source-adapter:comtrade",
+      "model": "deterministic-adapter",
+      "runId": "run-task-2026-10-24"
+    },
+    "provenance": {
+      "adapter": "comtrade",
+      "fetchedAt": "2026-10-24T09:34:11.789Z",
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=156&period=2024&cmdCode=2504&flowCode=X&partnerCode=276"
+    },
+    "from": "country:cn",
+    "to": "country:de",
+    "type": "ships_to",
+    "grade": "stated",
+    "volume": {
+      "value": 8986879,
+      "unit": "kg",
+      "period": "2024",
+      "commodity": "HS 2504 natural graphite"
+    },
+    "note": "Net weight: the mass of the goods as declared, not the content of any one element in them."
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2024",
+    "source": {
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=156&period=2024&cmdCode=2504&flowCode=X&partnerCode=699",
+      "quote": "\"reporterCode\":156,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":699,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"2504\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":9003128.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":8,\"altQtyUnitAbbr\":null,\"altQty\":9003128.0,\"isAltQtyEstimated\":false,\"netWgt\":9003128.0",
+      "readOn": "2026-10-24",
+      "locator": "UN Comtrade record: reporterCode 156 = CN, partnerCode 699 = IN (M49)"
+    },
+    "submittedBy": {
+      "agent": "source-adapter:comtrade",
+      "model": "deterministic-adapter",
+      "runId": "run-task-2026-10-24"
+    },
+    "provenance": {
+      "adapter": "comtrade",
+      "fetchedAt": "2026-10-24T09:34:04.217Z",
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=156&period=2024&cmdCode=2504&flowCode=X&partnerCode=699"
+    },
+    "from": "country:cn",
+    "to": "country:in",
+    "type": "ships_to",
+    "grade": "stated",
+    "volume": {
+      "value": 9003128,
+      "unit": "kg",
+      "period": "2024",
+      "commodity": "HS 2504 natural graphite"
+    },
+    "note": "Net weight: the mass of the goods as declared, not the content of any one element in them."
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2024",
+    "source": {
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=156&period=2024&cmdCode=2504&flowCode=X&partnerCode=392",
+      "quote": "\"reporterCode\":156,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":392,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"2504\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":83453082.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":8,\"altQtyUnitAbbr\":null,\"altQty\":83453082.0,\"isAltQtyEstimated\":false,\"netWgt\":83453082.0",
+      "readOn": "2026-10-24",
+      "locator": "UN Comtrade record: reporterCode 156 = CN, partnerCode 392 = JP (M49)"
+    },
+    "submittedBy": {
+      "agent": "source-adapter:comtrade",
+      "model": "deterministic-adapter",
+      "runId": "run-task-2026-10-24"
+    },
+    "provenance": {
+      "adapter": "comtrade",
+      "fetchedAt": "2026-10-24T09:33:52.632Z",
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=156&period=2024&cmdCode=2504&flowCode=X&partnerCode=392"
+    },
+    "from": "country:cn",
+    "to": "country:jp",
+    "type": "ships_to",
+    "grade": "stated",
+    "volume": {
+      "value": 83453082,
+      "unit": "kg",
+      "period": "2024",
+      "commodity": "HS 2504 natural graphite"
+    },
+    "note": "Net weight: the mass of the goods as declared, not the content of any one element in them."
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2024",
+    "source": {
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=156&period=2024&cmdCode=8001&flowCode=X&partnerCode=392",
+      "quote": "\"reporterCode\":156,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":392,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"8001\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":2253378.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":8,\"altQtyUnitAbbr\":null,\"altQty\":2253378.0,\"isAltQtyEstimated\":false,\"netWgt\":2253378.0",
+      "readOn": "2026-10-24",
+      "locator": "UN Comtrade record: reporterCode 156 = CN, partnerCode 392 = JP (M49)"
+    },
+    "submittedBy": {
+      "agent": "source-adapter:comtrade",
+      "model": "deterministic-adapter",
+      "runId": "run-task-2026-10-24"
+    },
+    "provenance": {
+      "adapter": "comtrade",
+      "fetchedAt": "2026-10-24T09:34:52.754Z",
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=156&period=2024&cmdCode=8001&flowCode=X&partnerCode=392"
+    },
+    "from": "country:cn",
+    "to": "country:jp",
+    "type": "ships_to",
+    "grade": "stated",
+    "volume": {
+      "value": 2253378,
+      "unit": "kg",
+      "period": "2024",
+      "commodity": "HS 8001 unwrought tin"
+    },
+    "note": "Net weight: the mass of the goods as declared, not the content of any one element in them."
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2024",
+    "source": {
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=156&period=2024&cmdCode=2504&flowCode=X&partnerCode=410",
+      "quote": "\"reporterCode\":156,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":410,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"2504\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":32917517.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":8,\"altQtyUnitAbbr\":null,\"altQty\":32917517.0,\"isAltQtyEstimated\":false,\"netWgt\":32917517.0",
+      "readOn": "2026-10-24",
+      "locator": "UN Comtrade record: reporterCode 156 = CN, partnerCode 410 = KR (M49)"
+    },
+    "submittedBy": {
+      "agent": "source-adapter:comtrade",
+      "model": "deterministic-adapter",
+      "runId": "run-task-2026-10-24"
+    },
+    "provenance": {
+      "adapter": "comtrade",
+      "fetchedAt": "2026-10-24T09:33:56.194Z",
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=156&period=2024&cmdCode=2504&flowCode=X&partnerCode=410"
+    },
+    "from": "country:cn",
+    "to": "country:kr",
+    "type": "ships_to",
+    "grade": "stated",
+    "volume": {
+      "value": 32917517,
+      "unit": "kg",
+      "period": "2024",
+      "commodity": "HS 2504 natural graphite"
+    },
+    "note": "Net weight: the mass of the goods as declared, not the content of any one element in them."
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2024",
+    "source": {
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=156&period=2024&cmdCode=2846&flowCode=X&partnerCode=410",
+      "quote": "\"reporterCode\":156,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":410,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"2846\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":1853515.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":8,\"altQtyUnitAbbr\":null,\"altQty\":1853515.0,\"isAltQtyEstimated\":false,\"netWgt\":1853515.0",
+      "readOn": "2026-10-24",
+      "locator": "UN Comtrade record: reporterCode 156 = CN, partnerCode 410 = KR (M49)"
+    },
+    "submittedBy": {
+      "agent": "source-adapter:comtrade",
+      "model": "deterministic-adapter",
+      "runId": "run-task-2026-10-24"
+    },
+    "provenance": {
+      "adapter": "comtrade",
+      "fetchedAt": "2026-10-24T09:33:44.042Z",
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=156&period=2024&cmdCode=2846&flowCode=X&partnerCode=410"
+    },
+    "from": "country:cn",
+    "to": "country:kr",
+    "type": "ships_to",
+    "grade": "stated",
+    "volume": {
+      "value": 1853515,
+      "unit": "kg",
+      "period": "2024",
+      "commodity": "HS 2846 rare-earth metal compounds"
+    },
+    "note": "Net weight: the mass of the goods as declared, not the content of any one element in them."
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2024",
+    "source": {
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=156&period=2024&cmdCode=8001&flowCode=X&partnerCode=410",
+      "quote": "\"reporterCode\":156,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":410,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"8001\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":3271885.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":8,\"altQtyUnitAbbr\":null,\"altQty\":3271885.0,\"isAltQtyEstimated\":false,\"netWgt\":3271885.0",
+      "readOn": "2026-10-24",
+      "locator": "UN Comtrade record: reporterCode 156 = CN, partnerCode 410 = KR (M49)"
+    },
+    "submittedBy": {
+      "agent": "source-adapter:comtrade",
+      "model": "deterministic-adapter",
+      "runId": "run-task-2026-10-24"
+    },
+    "provenance": {
+      "adapter": "comtrade",
+      "fetchedAt": "2026-10-24T09:34:44.188Z",
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=156&period=2024&cmdCode=8001&flowCode=X&partnerCode=410"
+    },
+    "from": "country:cn",
+    "to": "country:kr",
+    "type": "ships_to",
+    "grade": "stated",
+    "volume": {
+      "value": 3271885,
+      "unit": "kg",
+      "period": "2024",
+      "commodity": "HS 8001 unwrought tin"
+    },
+    "note": "Net weight: the mass of the goods as declared, not the content of any one element in them."
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2024",
+    "source": {
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=156&period=2024&cmdCode=2846&flowCode=X&partnerCode=528",
+      "quote": "\"reporterCode\":156,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":528,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"2846\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":5602883.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":8,\"altQtyUnitAbbr\":null,\"altQty\":5602883.0,\"isAltQtyEstimated\":false,\"netWgt\":5602883.0",
+      "readOn": "2026-10-24",
+      "locator": "UN Comtrade record: reporterCode 156 = CN, partnerCode 528 = NL (M49)"
+    },
+    "submittedBy": {
+      "agent": "source-adapter:comtrade",
+      "model": "deterministic-adapter",
+      "runId": "run-task-2026-10-24"
+    },
+    "provenance": {
+      "adapter": "comtrade",
+      "fetchedAt": "2026-10-24T09:33:40.148Z",
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=156&period=2024&cmdCode=2846&flowCode=X&partnerCode=528"
+    },
+    "from": "country:cn",
+    "to": "country:nl",
+    "type": "ships_to",
+    "grade": "stated",
+    "volume": {
+      "value": 5602883,
+      "unit": "kg",
+      "period": "2024",
+      "commodity": "HS 2846 rare-earth metal compounds"
+    },
+    "note": "Net weight: the mass of the goods as declared, not the content of any one element in them."
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2024",
+    "source": {
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=156&period=2024&cmdCode=8001&flowCode=X&partnerCode=528",
+      "quote": "\"reporterCode\":156,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":528,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"8001\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":3611890.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":8,\"altQtyUnitAbbr\":null,\"altQty\":3611890.0,\"isAltQtyEstimated\":false,\"netWgt\":3611890.0",
+      "readOn": "2026-10-24",
+      "locator": "UN Comtrade record: reporterCode 156 = CN, partnerCode 528 = NL (M49)"
+    },
+    "submittedBy": {
+      "agent": "source-adapter:comtrade",
+      "model": "deterministic-adapter",
+      "runId": "run-task-2026-10-24"
+    },
+    "provenance": {
+      "adapter": "comtrade",
+      "fetchedAt": "2026-10-24T09:34:40.148Z",
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=156&period=2024&cmdCode=8001&flowCode=X&partnerCode=528"
+    },
+    "from": "country:cn",
+    "to": "country:nl",
+    "type": "ships_to",
+    "grade": "stated",
+    "volume": {
+      "value": 3611890,
+      "unit": "kg",
+      "period": "2024",
+      "commodity": "HS 8001 unwrought tin"
+    },
+    "note": "Net weight: the mass of the goods as declared, not the content of any one element in them."
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2024",
+    "source": {
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=156&period=2024&cmdCode=7403&flowCode=X&partnerCode=764",
+      "quote": "\"reporterCode\":156,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":764,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"7403\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":46679207.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":8,\"altQtyUnitAbbr\":null,\"altQty\":46679207.0,\"isAltQtyEstimated\":false,\"netWgt\":46679207.0",
+      "readOn": "2026-10-24",
+      "locator": "UN Comtrade record: reporterCode 156 = CN, partnerCode 764 = TH (M49)"
+    },
+    "submittedBy": {
+      "agent": "source-adapter:comtrade",
+      "model": "deterministic-adapter",
+      "runId": "run-task-2026-10-24"
+    },
+    "provenance": {
+      "adapter": "comtrade",
+      "fetchedAt": "2026-10-24T09:34:28.419Z",
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=156&period=2024&cmdCode=7403&flowCode=X&partnerCode=764"
+    },
+    "from": "country:cn",
+    "to": "country:th",
+    "type": "ships_to",
+    "grade": "stated",
+    "volume": {
+      "value": 46679207,
+      "unit": "kg",
+      "period": "2024",
+      "commodity": "HS 7403 refined copper, unwrought"
+    },
+    "note": "Net weight: the mass of the goods as declared, not the content of any one element in them."
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2024",
+    "source": {
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=156&period=2024&cmdCode=2504&flowCode=X&partnerCode=842",
+      "quote": "\"reporterCode\":156,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":842,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"2504\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":16115327.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":8,\"altQtyUnitAbbr\":null,\"altQty\":16115327.0,\"isAltQtyEstimated\":false,\"netWgt\":16115327.0",
+      "readOn": "2026-10-24",
+      "locator": "UN Comtrade record: reporterCode 156 = CN, partnerCode 842 = US (M49)"
+    },
+    "submittedBy": {
+      "agent": "source-adapter:comtrade",
+      "model": "deterministic-adapter",
+      "runId": "run-task-2026-10-24"
+    },
+    "provenance": {
+      "adapter": "comtrade",
+      "fetchedAt": "2026-10-24T09:34:01.677Z",
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=156&period=2024&cmdCode=2504&flowCode=X&partnerCode=842"
+    },
+    "from": "country:cn",
+    "to": "country:us",
+    "type": "ships_to",
+    "grade": "stated",
+    "volume": {
+      "value": 16115327,
+      "unit": "kg",
+      "period": "2024",
+      "commodity": "HS 2504 natural graphite"
+    },
+    "note": "Net weight: the mass of the goods as declared, not the content of any one element in them."
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2024",
+    "source": {
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=156&period=2024&cmdCode=7403&flowCode=X&partnerCode=704",
+      "quote": "\"reporterCode\":156,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":704,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"7403\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":59167429.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":8,\"altQtyUnitAbbr\":null,\"altQty\":59167429.0,\"isAltQtyEstimated\":false,\"netWgt\":59167429.0",
+      "readOn": "2026-10-24",
+      "locator": "UN Comtrade record: reporterCode 156 = CN, partnerCode 704 = VN (M49)"
+    },
+    "submittedBy": {
+      "agent": "source-adapter:comtrade",
+      "model": "deterministic-adapter",
+      "runId": "run-task-2026-10-24"
+    },
+    "provenance": {
+      "adapter": "comtrade",
+      "fetchedAt": "2026-10-24T09:34:24.426Z",
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=156&period=2024&cmdCode=7403&flowCode=X&partnerCode=704"
+    },
+    "from": "country:cn",
+    "to": "country:vn",
+    "type": "ships_to",
+    "grade": "stated",
+    "volume": {
+      "value": 59167429,
+      "unit": "kg",
+      "period": "2024",
+      "commodity": "HS 7403 refined copper, unwrought"
+    },
+    "note": "Net weight: the mass of the goods as declared, not the content of any one element in them."
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2024",
+    "source": {
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=156&period=2024&cmdCode=8001&flowCode=X&partnerCode=704",
+      "quote": "\"reporterCode\":156,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":704,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"8001\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":1243936.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":8,\"altQtyUnitAbbr\":null,\"altQty\":1243936.0,\"isAltQtyEstimated\":false,\"netWgt\":1243936.0",
+      "readOn": "2026-10-24",
+      "locator": "UN Comtrade record: reporterCode 156 = CN, partnerCode 704 = VN (M49)"
+    },
+    "submittedBy": {
+      "agent": "source-adapter:comtrade",
+      "model": "deterministic-adapter",
+      "runId": "run-task-2026-10-24"
+    },
+    "provenance": {
+      "adapter": "comtrade",
+      "fetchedAt": "2026-10-24T09:34:56.379Z",
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=156&period=2024&cmdCode=8001&flowCode=X&partnerCode=704"
+    },
+    "from": "country:cn",
+    "to": "country:vn",
+    "type": "ships_to",
+    "grade": "stated",
+    "volume": {
+      "value": 1243936,
+      "unit": "kg",
+      "period": "2024",
+      "commodity": "HS 8001 unwrought tin"
+    },
+    "note": "Net weight: the mass of the goods as declared, not the content of any one element in them."
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2024",
+    "source": {
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=417&period=2024&cmdCode=7108&flowCode=X&partnerCode=784",
+      "quote": "\"reporterCode\":417,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":784,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"7108\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":13.545,\"isQtyEstimated\":false,\"altQtyUnitCode\":8,\"altQtyUnitAbbr\":null,\"altQty\":13.545,\"isAltQtyEstimated\":false,\"netWgt\":14.0",
+      "readOn": "2026-10-24",
+      "locator": "UN Comtrade record: reporterCode 417 = KG, partnerCode 784 = AE (M49)"
+    },
+    "submittedBy": {
+      "agent": "source-adapter:comtrade",
+      "model": "deterministic-adapter",
+      "runId": "run-task-2026-10-24"
+    },
+    "provenance": {
+      "adapter": "comtrade",
+      "fetchedAt": "2026-10-24T09:33:07.465Z",
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=417&period=2024&cmdCode=7108&flowCode=X&partnerCode=784"
+    },
+    "from": "country:kg",
+    "to": "country:ae",
+    "type": "ships_to",
+    "grade": "stated",
+    "volume": {
+      "value": 14,
+      "unit": "kg",
+      "period": "2024",
+      "commodity": "HS 7108 gold, unwrought or semi-manufactured"
+    },
+    "note": "Net weight: the mass of the goods as declared, not the content of any one element in them."
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2024",
+    "source": {
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=417&period=2024&cmdCode=7108&flowCode=X&partnerCode=757",
+      "quote": "\"reporterCode\":417,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":757,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"7108\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":971.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":8,\"altQtyUnitAbbr\":null,\"altQty\":971.0,\"isAltQtyEstimated\":false,\"netWgt\":971.0",
+      "readOn": "2026-10-24",
+      "locator": "UN Comtrade record: reporterCode 417 = KG, partnerCode 757 = CH (M49)"
+    },
+    "submittedBy": {
+      "agent": "source-adapter:comtrade",
+      "model": "deterministic-adapter",
+      "runId": "run-task-2026-10-24"
+    },
+    "provenance": {
+      "adapter": "comtrade",
+      "fetchedAt": "2026-10-24T09:33:03.716Z",
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=417&period=2024&cmdCode=7108&flowCode=X&partnerCode=757"
+    },
+    "from": "country:kg",
+    "to": "country:ch",
+    "type": "ships_to",
+    "grade": "stated",
+    "volume": {
+      "value": 971,
+      "unit": "kg",
+      "period": "2024",
+      "commodity": "HS 7108 gold, unwrought or semi-manufactured"
+    },
+    "note": "Net weight: the mass of the goods as declared, not the content of any one element in them."
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2024",
+    "source": {
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=417&period=2024&cmdCode=7108&flowCode=X&partnerCode=826",
+      "quote": "\"reporterCode\":417,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":826,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"7108\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":14316.3,\"isQtyEstimated\":false,\"altQtyUnitCode\":8,\"altQtyUnitAbbr\":null,\"altQty\":14316.3,\"isAltQtyEstimated\":false,\"netWgt\":14957.0",
+      "readOn": "2026-10-24",
+      "locator": "UN Comtrade record: reporterCode 417 = KG, partnerCode 826 = GB (M49)"
+    },
+    "submittedBy": {
+      "agent": "source-adapter:comtrade",
+      "model": "deterministic-adapter",
+      "runId": "run-task-2026-10-24"
+    },
+    "provenance": {
+      "adapter": "comtrade",
+      "fetchedAt": "2026-10-24T09:32:58.363Z",
+      "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=417&period=2024&cmdCode=7108&flowCode=X&partnerCode=826"
+    },
+    "from": "country:kg",
+    "to": "country:gb",
+    "type": "ships_to",
+    "grade": "stated",
+    "volume": {
+      "value": 14957,
+      "unit": "kg",
+      "period": "2024",
+      "commodity": "HS 7108 gold, unwrought or semi-manufactured"
+    },
+    "note": "Net weight: the mass of the goods as declared, not the content of any one element in them."
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2024",
+    "source": {
       "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=284410&flowCode=X&partnerCode=124",
       "quote": "\"reporterCode\":398,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":124,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"284410\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":1843200.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":35,\"altQtyUnitAbbr\":null,\"altQty\":1347470.0,\"isAltQtyEstimated\":false,\"netWgt\":1843200.0",
       "readOn": "2026-10-24",

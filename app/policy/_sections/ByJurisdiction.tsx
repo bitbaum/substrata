@@ -1,10 +1,13 @@
 import Link from 'next/link';
 
-import { INSTRUMENTS, JURISDICTIONS } from '@/config/substrata-policy';
+import { INSTRUMENTS, LISTED_JURISDICTIONS } from '@/config/substrata-policy';
 import { Heading } from '@/components/portal/Shell';
 import { policyHref } from '@/lib/links';
 
-/** Section 03: every jurisdiction, and how many of its rules cut each way. */
+/**
+ * Section 03: every listed jurisdiction, and how many of its rules cut each way.
+ * A country from the map joins the curated ten once an enacted rule is recorded.
+ */
 export function ByJurisdiction() {
   return (
     <section className="mb-14">
@@ -29,7 +32,7 @@ export function ByJurisdiction() {
             </tr>
           </thead>
           <tbody className="divide-y divide-subtle">
-            {JURISDICTIONS.map((j) => {
+            {LISTED_JURISDICTIONS.map((j) => {
               const mine = INSTRUMENTS.filter((i) => i.jurisdiction === j.id);
               return (
                 <tr key={j.id} className="group align-top">

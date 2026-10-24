@@ -239,7 +239,9 @@ test('the kz Comtrade rows were migrated in place: new quote and ids, no old id,
       readFileSync(new URL('../config/candidates/relations.json', import.meta.url), 'utf8'),
     ),
   );
-  const comtrade = rows.filter((r) => r.provenance?.adapter === 'comtrade');
+  const comtrade = rows.filter(
+    (r) => r.provenance?.adapter === 'comtrade' && r.from === 'country:kz',
+  );
   assert.equal(comtrade.length, 9, 'the same nine flows the pilot wrote');
   for (const r of comtrade) {
     const id = relationCandidateId(r);
