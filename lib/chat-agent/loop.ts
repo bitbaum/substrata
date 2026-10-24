@@ -44,8 +44,9 @@ import {
   type AgentEvent,
 } from './answer';
 import { finalAnswer, renderCalls, toolRound } from './parse';
-import { reviseUnsupported, unsupportedFigures, withoutSentencesHolding } from './grounding';
+import { checkAnswer } from './check-answer';
 import { runLookups, runPlan } from './lookups';
+import type { GapFiler } from './gaps';
 import { planLookups } from './plan';
 import { LOOP_LIMITS, systemPrompt } from './prompt';
 import type { ModelTurn, ModelTurnResult } from './turn';
@@ -59,9 +60,7 @@ export {
   type AgentEvent,
 } from './answer';
 
-const MAX_ROUNDS = LOOP_LIMITS.rounds;
-
-const MAX_CALLS_PER_ROUND = LOOP_LIMITS.callsPerRound;
+const { rounds: MAX_ROUNDS, callsPerRound: MAX_CALLS_PER_ROUND } = LOOP_LIMITS;
 
 export async function runAgent(input: {
   question: string;
@@ -74,6 +73,7 @@ export async function runAgent(input: {
   verify?: VerifyRequest;
   today?: string;
   replies?: boolean; // suggested replies: the Ask panel only, never a factcheck
+  fileGap?: GapFiler; // where a named missing link is filed (gaps.ts); the bound one by default
 }): Promise<void> {
   const started = Date.now();
   let firstText: number | undefined;
@@ -100,7 +100,9 @@ export async function runAgent(input: {
     input.verify ? gatherEvidence(input.verify, env) : Promise.resolve(undefined),
     runPlan(plan, question, input.context, env, emit),
   ]);
-  const lookedUp = looked.results; // an empty lookup already opened the web (runPlan)
+  const lookedUp = looked.results; // an empty or partial lookup already opened the web (runPlan)
+  // Every tool result this answer is built from, for the wall check and the gap.
+  const allResults = [...lookedUp];
   const planEmpty = looked.empty;
   const noTools = pageOnly || (plan.confident && !planEmpty);
   // A tool the planner already ran unfiltered has given its whole list; offered
@@ -113,7 +115,8 @@ export async function runAgent(input: {
     preloaded: preload?.text,
     lookedUp: lookedUp.length ? lookedUp.join('\n\n') : undefined,
     lookedUpEmpty: planEmpty,
-    webSearched: looked.web,
+    web: looked.web,
+    gaps: looked.gaps,
     tools: noTools ? [] : tools,
     byok: input.byok,
     today: input.today,
@@ -190,6 +193,7 @@ export async function runAgent(input: {
         if (shown) emit({ type: 'reset' });
         if (input.env.signal?.aborted) return;
         const results = await runLookups(fresh, input.context, env, emit);
+        allResults.push(...results);
         messages.push(...toolRound(result.text, fresh, results, 'more'));
         continue;
       }
@@ -217,6 +221,7 @@ export async function runAgent(input: {
           env,
           emit,
         );
+        allResults.push(...results);
         messages.push(...toolRound('', stray, results, 'last'));
         continue;
       }
@@ -250,23 +255,18 @@ export async function runAgent(input: {
     return;
   }
 
-  // Figures from nowhere go back once (grounding.ts); the evidence is all it read.
-  const figures = input.verify
-    ? []
-    : unsupportedFigures(answer, messages.map((m) => String(m.content)).join('\n'));
-  if (answer.trim() && figures.length) {
-    emit({ type: 'reset' });
-    emit({ type: 'status', text: 'Checking the figures against the sources…' });
-    modelCalls++;
-    const revised = await reviseUnsupported({
-      messages,
-      answer,
-      figures,
-      turn: input.turn,
-      onText: (text) => emit({ type: 'delta', text }),
-    });
-    answer = revised ? finalAnswer(revised).answer : withoutSentencesHolding(answer, figures);
-  }
+  const checked = await checkAnswer({
+    answer,
+    question,
+    results: allResults,
+    messages,
+    verify: Boolean(input.verify),
+    turn: input.turn,
+    emit,
+    fileGap: input.fileGap,
+  });
+  answer = checked.answer;
+  modelCalls += checked.calls;
   answer = answer.trim() ? answer : (unwrittenAnswer(ledger) ?? '');
   if (!answer) {
     emit({

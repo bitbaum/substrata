@@ -11,6 +11,15 @@
  * `"pending": "PR n"` and is skipped, with the count printed: the row is the
  * spec for that PR. Remove `pending` in the PR that makes it pass.
  *
+ * Rows tagged `"wall": false` test the answer ladder
+ * (docs/architecture/2026-10-24-research-systems.md §1): their planned lookups
+ * are RUN, offline — every tool they plan reads committed research files, so
+ * the results are the ones production gets, minus the web — and the row fails
+ * when the rows a correct answer needs are not in hand, when a missing link is
+ * not named precisely, or when a refusal-only answer (`recordedWall`, or a
+ * plain "not recorded in the corpus") would get past the wall check. A
+ * question that cannot be answered is graded on its gap, not on its sorry.
+ *
  * See docs/architecture/2026-10-23-knowledge-system.md §1.3.
  */
 import { test } from 'node:test';
@@ -22,6 +31,10 @@ import { readerContext } from '../lib/chat-context';
 import { resolveEntity } from '../lib/entities/registry';
 import { retrieve } from '../lib/index/retrieve';
 import { pureResults } from '../lib/quality/pure';
+import { runPlan } from '../lib/chat-agent/lookups';
+import { missingLinks, wallProblem } from '../lib/chat-agent/ladder';
+import { unsupportedFigures } from '../lib/chat-agent/grounding';
+import { emptyLedger } from '../lib/chat-tools/ledger';
 
 interface EvalRow {
   id: string;
@@ -42,6 +55,18 @@ interface EvalRow {
   outsideCorpus?: boolean;
   /** The ADR PR this row waits for; skipped until then. */
   pending?: string;
+  /** `false`: the answer may never be only a refusal (the answer ladder). */
+  wall?: false;
+  /** The tool planned first. */
+  firstTool?: string;
+  /** Strings the offline lookups must return, verbatim. */
+  mustHold?: string[];
+  /** Ladder boxes the answer must name as missing, exactly. */
+  expectedGaps?: string[];
+  /** A refusal recorded live (or written to the shape of one) that the wall check must catch. */
+  recordedWall?: string;
+  /** A re-united quantity the grounding check must catch, and its verbatim form it must pass. */
+  unitGuard?: { wrong: string; right: string };
 }
 
 const EVALS = rows as EvalRow[];
@@ -61,7 +86,8 @@ function leadClause(line: string): string {
 }
 
 test('the eval set is the one the ADR names', () => {
-  assert.equal(EVALS.length, 20);
+  assert.equal(EVALS.length, 27);
+  assert.equal(EVALS.filter((r) => r.wall === false).length, 6, 'six no-wall questions');
   assert.equal(new Set(EVALS.map((r) => r.id)).size, EVALS.length, 'ids are unique');
   const niger = EVALS.find((r) => r.id === 'niger-uranium');
   assert.ok(niger, 'niger-uranium is in the set');
@@ -96,6 +122,59 @@ console.log(
     .map(([pr, ids]) => `${pr}: ${ids.join(', ')}`)
     .join('; ')})`,
 );
+
+const GENERIC_WALL = 'That is not recorded in the corpus.';
+
+for (const row of EVALS.filter((r) => r.wall === false || r.unitGuard)) {
+  test(
+    `ladder ${row.id}: ${row.question}`,
+    { skip: row.pending && `pending ${row.pending}` },
+    async () => {
+      const context = readerContext({ path: row.path });
+      const plan = planLookups(row.question, context, { leads });
+      if (row.firstTool) assert.equal(plan.calls[0]?.name, row.firstTool, 'planned first');
+      const looked = await runPlan(
+        plan,
+        row.question,
+        context,
+        { ledger: emptyLedger() },
+        () => {},
+      );
+      const text = looked.results.join('\n');
+      for (const s of row.mustHold ?? []) assert.ok(text.includes(s), `the lookups return "${s}"`);
+      if (row.unitGuard) {
+        assert.ok(
+          unsupportedFigures(row.unitGuard.wrong, text).length > 0,
+          'the re-unit is caught',
+        );
+        assert.deepEqual(
+          unsupportedFigures(row.unitGuard.right, text),
+          [],
+          'the verbatim form passes',
+        );
+      }
+      if (row.wall !== false) return;
+      const gaps = missingLinks(row.question, looked.results);
+      assert.deepEqual(
+        gaps.map((g) => g.box),
+        row.expectedGaps ?? [],
+        'the missing links, named',
+      );
+      for (const g of gaps) {
+        assert.match(g.sentence, /not in our sources/, 'a precise sentence, not a refusal');
+        assert.ok(g.settles.length > 20, 'says which source would settle it');
+        assert.ok(g.entity, 'files against an entity');
+      }
+      assert.equal(
+        looked.web,
+        gaps.length || looked.empty ? 'off' : undefined,
+        'the web rung is tried for a gap',
+      );
+      for (const wall of [row.recordedWall, GENERIC_WALL].filter((w): w is string => Boolean(w)))
+        assert.ok(wallProblem(wall, looked.results), `the wall check catches: ${wall}`);
+    },
+  );
+}
 
 for (const row of EVALS) {
   test(`eval ${row.id}: ${row.question}`, { skip: row.pending && `pending ${row.pending}` }, () => {

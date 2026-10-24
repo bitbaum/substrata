@@ -12,6 +12,7 @@ import { withAliases } from '../chat-tools/tool';
 import { isPageRecord, type AgentEvent } from './answer';
 import { safeArgs, type ToolRequest } from './parse';
 import type { Plan } from './plan';
+import { missingLinks, webStatusOf, type MissingLink, type WebStatus } from './ladder';
 
 const call = (name: string, args: Record<string, unknown>): ToolRequest => ({
   name,
@@ -19,12 +20,23 @@ const call = (name: string, args: Record<string, unknown>): ToolRequest => ({
 });
 
 /**
- * The planned lookups, run — and when one of them comes back empty and the
- * web is configured, the web searched for the question too, before any model
- * sees it. Seen live (2026-10-22, twice): told "call web_search now", the
- * fallback model answered "not in Substrata's database" instead. An empty
- * lookup opens the web in code, not by request; the model is then handed the
- * pages and asked to answer from them.
+ * The planned lookups, run — and the web searched for the question too, before
+ * any model sees it, when the corpus answered only part of it.
+ *
+ * Two triggers, both decided in code. Seen live (2026-10-22, twice): told
+ * "call web_search now", the fallback model answered "not in Substrata's
+ * database" instead — so an EMPTY lookup opens the web here, not by request.
+ * And seen live on 2026-10-24: "Which companies mine uranium in Kazakhstan,
+ * who owns them, and who do they sell to?" planned two lookups that both came
+ * back with rows, so nothing was empty; the plan was confident, so the model
+ * was offered no tools at all; and the buyers — which no tool holds — ended
+ * in a wall with the web never tried. So a part of the question that nothing
+ * covered (ladder.ts `missingLinks`) opens the web too: one bounded lookup,
+ * for that part.
+ *
+ * The web's outcome is returned in its four states, because "not configured",
+ * "could not reach it", "found nothing" and "found pages" are four different
+ * sentences to a reader, and silence is none of them.
  */
 export async function runPlan(
   plan: Plan,
@@ -32,18 +44,20 @@ export async function runPlan(
   context: ReaderContext,
   env: ToolEnv,
   emit: (event: AgentEvent) => void,
-): Promise<{ results: string[]; empty: boolean; web: boolean }> {
-  if (!plan.calls.length) return { results: [], empty: false, web: false };
+): Promise<{ results: string[]; empty: boolean; web?: WebStatus; gaps: MissingLink[] }> {
+  if (!plan.calls.length) return { results: [], empty: false, gaps: [] };
   const results = await runLookups(plan.calls, context, env, emit);
   const empty = results.some(lookupIsEmpty);
-  if (!empty || !env.web) return { results, empty, web: false };
+  const gaps = missingLinks(question, results);
+  if (!empty && !gaps.length) return { results, empty, gaps };
+  if (!env.web) return { results, empty, web: 'off', gaps };
   const found = await runLookups(
-    [call('web_search', { query: plan.webQuery || question })],
+    [call('web_search', { query: gaps[0]?.search ?? (plan.webQuery || question) })],
     context,
     env,
     emit,
   );
-  return { results: [...results, ...found], empty, web: true };
+  return { results: [...results, ...found], empty, web: webStatusOf(found[0]), gaps };
 }
 
 export async function runLookups(

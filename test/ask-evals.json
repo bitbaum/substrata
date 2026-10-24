@@ -172,5 +172,90 @@
     "expectedTools": [],
     "expectedHits": [],
     "outsideCorpus": true
+  },
+  {
+    "id": "kazakh-uranium-owners",
+    "facet": "facilities",
+    "question": "Which companies mine uranium in Kazakhstan, who owns them, and who do they sell to?",
+    "mustMention": ["country:kz"],
+    "expectedTools": ["producers_in", "resource_production"],
+    "expectedHits": [],
+    "wall": false,
+    "firstTool": "producers_in",
+    "mustHold": ["NAC Kazatomprom JSC", "Cameco Corp., 40%", "JSC ORANO Mining, 51%"],
+    "expectedGaps": ["buyers"],
+    "recordedWall": "Kazakhstan mined 23,270 t of uranium in 2024, 38.6% of world output. However, the mining entities, ownership details, and buyer relationships for Kazakh uranium are not recorded in the corpus."
+  },
+  {
+    "id": "chile-lithium-operators",
+    "facet": "facilities",
+    "question": "Who operates the lithium plants in Chile?",
+    "mustMention": ["country:cl"],
+    "expectedTools": ["producers_in"],
+    "expectedHits": [],
+    "wall": false,
+    "firstTool": "producers_in",
+    "mustHold": ["Albemarle Corp., 100%", "SQM Salar S.A."],
+    "expectedGaps": []
+  },
+  {
+    "id": "russia-rare-earth-nickel",
+    "facet": "facilities",
+    "question": "Which companies produce rare earths and nickel in Russia?",
+    "mustMention": ["country:ru"],
+    "expectedTools": ["producers_in"],
+    "expectedHits": [],
+    "wall": false,
+    "firstTool": "producers_in",
+    "mustHold": ["OAO Apatit", "PAO GMK Norilskiy Nickel (Nornickel)"],
+    "expectedGaps": []
+  },
+  {
+    "id": "china-gallium-producers",
+    "facet": "facilities",
+    "question": "Which companies produce gallium in China?",
+    "mustMention": ["country:cn"],
+    "expectedTools": ["producers_in"],
+    "expectedHits": [],
+    "wall": false,
+    "firstTool": "producers_in",
+    "mustHold": ["Aluminum Corporation of China (Chinalco)", "East Hope"],
+    "expectedGaps": []
+  },
+  {
+    "id": "canada-uranium-owners",
+    "facet": "facilities",
+    "question": "Which companies mine uranium in Canada, and who owns the mines?",
+    "mustMention": ["country:ca"],
+    "expectedTools": ["producers_in"],
+    "expectedHits": [],
+    "wall": false,
+    "firstTool": "producers_in",
+    "mustHold": ["Cameco Corp., 69.805%, and Orano, 30.195%", "McArthur River Mine"],
+    "expectedGaps": []
+  },
+  {
+    "id": "bolivia-lithium-unanswerable",
+    "facet": "facilities",
+    "question": "Who finances the lithium projects in Bolivia, and who buys their output?",
+    "mustMention": ["country:bo"],
+    "expectedTools": ["resource_production"],
+    "expectedHits": [],
+    "wall": false,
+    "mustHold": [],
+    "expectedGaps": ["buyers", "finance"],
+    "recordedWall": "The financing and buyers of Bolivian lithium are not in our database."
+  },
+  {
+    "id": "gallium-units",
+    "facet": "material",
+    "question": "Who produces gallium, and how concentrated is it?",
+    "mustMention": ["bottleneck:gallium-refined"],
+    "expectedTools": ["resource_production"],
+    "expectedHits": [],
+    "unitGuard": {
+      "wrong": "Russia produced 6 kt of gallium.",
+      "right": "Russia produced 6,000 kg (estimated) of gallium."
+    }
   }
 ]

@@ -73,6 +73,26 @@ export function facilitiesFor(iso2: string, resource: string): CountryFacilities
   };
 }
 
+/** Every USGS row for one country, any resource, or null when no chapter was read. */
+export function allFacilitiesFor(iso2: string): CountryFacilities | null {
+  const chapter = FILE.countries.find((c) => c.iso2 === iso2.toLowerCase());
+  if (!chapter) return null;
+  const { facilities, ...rest } = chapter;
+  return {
+    year: rest.year,
+    url: rest.url,
+    pdf: rest.pdf,
+    table: rest.table,
+    unit: rest.unit,
+    rows: facilities,
+  };
+}
+
+/** Every resource id the chapters file facility rows under. */
+export function facilityResources(): string[] {
+  return [...new Set(FILE.countries.flatMap((c) => c.facilities.map((f) => f.resource)))];
+}
+
 /** Every country a Minerals Yearbook chapter was read for. */
 export function yearbookCountries(): string[] {
   return FILE.countries.map((c) => c.iso2);
