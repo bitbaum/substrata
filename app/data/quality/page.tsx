@@ -5,6 +5,7 @@ import { Heading, Page, Shell } from '@/components/portal/Shell';
 import { PageHeader } from '@/components/portal/PageHeader';
 import { Figure } from '@/components/portal/Figure';
 import { DatasetSection } from '@/components/quality/DatasetSection';
+import { DossierTable } from '@/components/quality/DossierTable';
 import { ScoreTable, pctText } from '@/components/quality/ScoreTable';
 import { codeHref, methodHref } from '@/lib/methods';
 import { qualityReport } from '@/lib/quality/report';
@@ -76,9 +77,31 @@ export default async function QualityPage() {
           <ScoreTable cards={report.cards} />
         </section>
 
-        <section>
+        <section className="mb-12" id="dossiers">
           <Heading
             index="02"
+            title="Dossier completeness"
+            aside="The priority countries, box by box"
+          />
+          <DossierTable />
+          <p className="quality-note">
+            Every country is filled against the same seven boxes. A box is full, thin or empty by a
+            written rule over the rows that exist (
+            <a href={codeHref('lib/dossier/README.md')} rel="noopener noreferrer">
+              lib/dossier
+            </a>
+            ); the number is how many stated rows it counted. Candidate rows and rows worked out by
+            a rule never fill a box. A box no source in the repository feeds yet (trade, people and
+            labs) stays empty until one arrives; that says nothing about whether the facts exist.
+            Each empty or thin box is a task with its allowed sources:{' '}
+            <code>pnpm exec tsx scripts/research/gaps.ts --entity country:kz</code>. Know a source
+            for one? <a href={correctionUrl('a country dossier on /data/quality')}>Send it →</a>
+          </p>
+        </section>
+
+        <section>
+          <Heading
+            index="03"
             title="Each dataset"
             aside="Criteria, counts, trend and every failing row"
           />

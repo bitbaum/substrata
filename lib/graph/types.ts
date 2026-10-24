@@ -69,13 +69,24 @@ export interface Relation {
 export type BoxStatus = 'full' | 'thin' | 'empty';
 
 /**
+ * A raw resource (`resource:uranium`, keys from config/substrata-resources.ts).
+ * It has a page (/resources/<id>) and a dossier but no entity kind yet, so a
+ * task about it cannot be typed as an `EntityId`.
+ */
+export type ResourceSubjectId = `resource:${string}`;
+
+/** What a dossier or a task can be about: any entity, or a raw resource. */
+export type SubjectId = EntityId | ResourceSubjectId;
+
+/**
  * A piece of work: one empty or thin box, or one question the Ask could not
  * finish. This record is the whole interface to a cheaper model — it reads the
  * task, finds sources on the allowed list, and writes candidate rows.
  */
 export interface GapTask {
   id: string;
-  entity: EntityId;
+  /** Widened from `EntityId` so a resource's boxes can be tasks too; every EntityId still fits. */
+  entity: SubjectId;
   /** Which box of the entity's dossier, e.g. `facilities`, `owners`, `buyers`. */
   box: string;
   status: Exclude<BoxStatus, 'full'>;
