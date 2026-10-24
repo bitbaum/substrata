@@ -15,7 +15,7 @@
  * Every other node that also matched is returned, so the answer can say so
  * rather than silently choose.
  */
-import { resolveIn } from '@/lib/entities/registry';
+import { resolveInDirectory } from '@/lib/entities/registry';
 import { matchKey } from './alias-match';
 import { canonicalId } from './aliases';
 import { graphNode, graphStore, type GraphNode, type GraphStore } from './store';
@@ -81,7 +81,7 @@ export function findGraphNode(
   const nodes = index(s);
   const has = new Set(nodes.map((n) => n.id));
   for (const kind of ['company', 'country', 'capital'] as const) {
-    const hit = resolveIn(kind, name);
+    const hit = resolveInDirectory(kind, name);
     if (hit && has.has(canonicalId(hit.id)))
       return { node: graphNode(canonicalId(hit.id), s), how: 'directory', alsoMatched: [] };
   }

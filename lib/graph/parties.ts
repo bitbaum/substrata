@@ -15,7 +15,7 @@
  * country chapters write it; any other public body is skipped rather than
  * guessed at.
  */
-import { resolveEntity, resolveIn } from '@/lib/entities/registry';
+import { resolveDirectoryEntity, resolveEntity, resolveInDirectory } from '@/lib/entities/registry';
 import { aliasEntry } from './aliases';
 import { entityId, type EntityId } from '@/lib/entities/types';
 
@@ -83,7 +83,8 @@ export function bareName(name: string): string {
 
 function inRegistry(name: string): EntityId | undefined {
   for (const kind of ['company', 'capital'] as const) {
-    const hit = resolveIn(kind, name);
+    // Directory only: a stub is minted from this very function's output.
+    const hit = resolveInDirectory(kind, name);
     if (hit) return hit.id;
   }
   return undefined;
@@ -105,7 +106,7 @@ export function resolveParty(
   const government = name.match(/^(the )?government(?: of (.+))?$/i);
   if (government) {
     const country = government[2]
-      ? resolveIn('country', government[2].replace(/^the /i, ''))?.id
+      ? resolveInDirectory('country', government[2].replace(/^the /i, ''))?.id
       : context.iso2 && resolveEntity(entityId('country', context.iso2.toLowerCase()))?.id;
     return country ? { id: country, minted: false } : { skip: 'public body' };
   }
@@ -122,6 +123,10 @@ export function resolveParty(
   // Only a pair a person reviewed merges; the matcher only proposes.
   const alias = aliasEntry(minted);
   if (alias)
-    return { id: alias.canonical, minted: !resolveEntity(alias.canonical), name: alias.name };
+    return {
+      id: alias.canonical,
+      minted: !resolveDirectoryEntity(alias.canonical),
+      name: alias.name,
+    };
   return { id: minted, minted: true };
 }

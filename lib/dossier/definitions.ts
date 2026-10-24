@@ -18,8 +18,9 @@ import { COMPANY_BOXES } from './boxes/company';
 import { COUNTRY_BOXES } from './boxes/country';
 import { LAB_BOXES } from './boxes/lab';
 import { RESOURCE_BOXES } from './boxes/resource';
+import { SCIENCE_BOXES } from './boxes/science';
 
-export const DOSSIER_KINDS = ['country', 'company', 'resource', 'lab'] as const;
+export const DOSSIER_KINDS = ['country', 'company', 'resource', 'lab', 'science'] as const;
 export type DossierKind = (typeof DOSSIER_KINDS)[number];
 
 /** What one box counted, by grade, and in words. */
@@ -121,6 +122,7 @@ export const DOSSIER_DEFINITIONS: Record<DossierKind, readonly BoxDefinition[]> 
   company: COMPANY_BOXES,
   resource: RESOURCE_BOXES,
   lab: LAB_BOXES,
+  science: SCIENCE_BOXES,
 };
 
 export function boxesFor(kind: DossierKind): readonly BoxDefinition[] {

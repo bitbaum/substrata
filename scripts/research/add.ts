@@ -6,7 +6,7 @@
  *   pnpm exec tsx scripts/research/add.ts <facet> --json-schema    the same, as JSON Schema
  *
  * facet ∈ producers | events | endowments | facilities | instruments | science
- *         | ownership | series-points | relations
+ *         | ownership | series-points | relations | labs
  *
  * Input is a JSON array of rows (or one row) in the facet's shape, from a file
  * or stdin (`-`). Every row is, in order:
@@ -39,6 +39,7 @@ import { OWNERSHIP } from '../../config/substrata-ownership';
 import { INSTRUMENTS } from '../../config/substrata-policy';
 import { ENDOWMENTS } from '../../config/substrata-quantities';
 import { SCIENCE } from '../../config/substrata-science';
+import { LABS } from '../../config/substrata-labs';
 import { evidenceKey } from '../../config/substrata-evidence';
 import { FACETS, isFacet, type CandidateCommon, type Facet } from '../../lib/entry/candidate';
 import { FACET_SPECS } from '../../lib/entry/schemas';
@@ -90,6 +91,8 @@ function corpusKeys(facet: Facet): Set<string> {
       return new Set(corpusSeries().flatMap((s) => s.points.map((p) => `${s.id}/${p.date}`)));
     case 'relations':
       return new Set(allRelations().map((r) => r.id));
+    case 'labs':
+      return new Set(LABS.map((l) => l.id));
   }
 }
 

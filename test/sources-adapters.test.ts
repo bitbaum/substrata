@@ -152,7 +152,12 @@ test('wikidata: a lead on its own, stated only when a second source agrees', asy
   );
   assert.deepEqual(
     alone.rows.map((x) => [x.from, x.to, x.grade]),
-    [['company:asml', 'company:carl-zeiss-smt', 'lead']],
+    // Carl Zeiss AG is a stub company (named by an SEC filing row as a holder
+    // of Carl Zeiss SMT), so it is now an endpoint the adapter may name.
+    [
+      ['company:carl-zeiss-ag', 'company:carl-zeiss-smt', 'lead'],
+      ['company:asml', 'company:carl-zeiss-smt', 'lead'],
+    ],
   );
   assert.match(alone.rows[0].source.url, /Special:EntityData\/Q15108623\.json$/);
   const agreed = await runWikidata(
@@ -164,7 +169,7 @@ test('wikidata: a lead on its own, stated only when a second source agrees', asy
     },
     offline,
   );
-  assert.equal(agreed.rows[0].grade, 'stated');
+  assert.equal(agreed.rows.find((x) => x.from === 'company:asml')?.grade, 'stated');
   assert.ok(alone.skipped.some((s) => /no relation type for "country"/.test(s.reason)));
   everyRowIsAGoodCandidate(alone.rows, 'wikidata');
 });
@@ -186,7 +191,9 @@ test('edgar: MP Materials’ proxy names Hancock Prospecting at 7.8%; the rest s
     r.records.some((x) => x.kind === 'customer' && x.hit.name === 'Shenghe'),
     'read, but "Shenghe" alone is not the directory firm',
   );
-  // Hancock Prospecting is a graph node (a USGS owner string); the others are not on the site.
+  // Hancock Prospecting is a graph node (a USGS owner string) and BlackRock a
+  // stub company (named as a holder in the corpus's ownership rows); the
+  // other two are not on the site.
   assert.deepEqual(
     r.rows.map((x) => [x.from, x.type, x.to, x.share?.value, x.asOf, x.source.quote]),
     [
@@ -198,9 +205,17 @@ test('edgar: MP Materials’ proxy names Hancock Prospecting at 7.8%; the rest s
         '2026-04-24',
         'Hancock Prospecting Pty Limited (1) 13,861,212 7.8%',
       ],
+      [
+        'company:blackrock',
+        'owns',
+        'company:mp-materials',
+        6.7,
+        '2026-04-24',
+        'BlackRock, Inc. (4) 11,930,482 6.7%',
+      ],
     ],
   );
-  assert.equal(r.skipped.filter((s) => /holder/.test(s.record)).length, 3);
+  assert.equal(r.skipped.filter((s) => /holder/.test(s.record)).length, 2);
   everyRowIsAGoodCandidate(r.rows, 'edgar');
 });
 

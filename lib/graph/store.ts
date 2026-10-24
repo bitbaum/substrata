@@ -25,7 +25,7 @@
  * rule stops the build rather than reaching a page.
  */
 import { RELATIONS } from '@/config/substrata-relations';
-import { resolveEntity } from '@/lib/entities/registry';
+import { resolveDirectoryEntity, resolveEntity } from '@/lib/entities/registry';
 import type { EntityId } from '@/lib/entities/types';
 import usgsFile from '@/research/usgs-relations.json';
 import derivedFile from '@/research/derived-relations.json';
@@ -47,7 +47,7 @@ interface UsgsRelationsFile {
 export interface GraphNode {
   id: EntityId;
   name: string;
-  /** The directory entity, when there is one. */
+  /** The directory entity, when there is one. A stub (lib/entities/sources/company-stubs.ts) is not. */
   inDirectory: boolean;
   kind: string;
   /** Countries whose tables printed it (USGS nodes). */
@@ -165,11 +165,12 @@ export function graphStore(): GraphStore {
 export function graphNode(id: string, s: GraphStore = graphStore()): GraphNode {
   const entity = resolveEntity(id);
   const minted = s.nodes.get(id);
+  const profiled = resolveDirectoryEntity(id);
   const kind = id.slice(0, id.indexOf(':'));
   return {
     id: id as EntityId,
     name: entity?.name ?? minted?.name ?? id.slice(id.indexOf(':') + 1),
-    inDirectory: Boolean(entity),
+    inDirectory: Boolean(profiled),
     kind,
     iso2: minted?.iso2 ?? (kind === 'country' ? [id.slice(id.indexOf(':') + 1)] : []),
     ...(minted?.commodities ? { commodities: minted.commodities } : {}),

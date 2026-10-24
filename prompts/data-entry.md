@@ -417,3 +417,73 @@ must already exist on the site; the gate checks.
   };
 }
 ```
+
+<!-- BEGIN: labs facet and stub companies (lab entity kind) -->
+
+## Labs, and companies known only from the sources
+
+This block is maintained with the `lab` entity kind
+(`config/substrata-labs.ts`, `lib/entry/lab-schema.ts`). It sits at the end of
+the file on purpose; the sections above are edited separately.
+
+### `labs` — an institute, university group or national laboratory
+
+A **lab** is an organisation that researches or trains people for a tracked
+bottleneck. It fills the country dossier's *People and labs* box and its own
+four boxes (what it works on, where, how to join, funding). One row per lab:
+
+```bash
+pnpm exec tsx scripts/research/add.ts labs --schema
+pnpm exec tsx scripts/research/add.ts labs rows.json --dry-run
+```
+
+- **Source**: the lab's own page (or its university's) is best; a national
+  research funder's award list or a paper's affiliation line is next. The quote
+  must say what the lab works on — copy it verbatim.
+- **`worksOn`**: one entry per bottleneck the quote supports, by the site's
+  bottleneck NAME (`"Uranium conversion and enrichment"`). `what` is the line of
+  work in the source's own terms. No bottleneck the source does not support.
+- **`place`** is the lower-case country code; **`where`** only when the page
+  says (a city, a campus). **`url`** is the lab's own page.
+- **`join`** is a page where someone applies — a vacancy board, a doctoral or
+  fellowship programme — or `null`. Never a general contact page.
+- **No funding field.** A funder is a `finances` relation into `lab:<id>`
+  (`add.ts relations`), with its own quote naming the funder; the lab page shows
+  only those stated rows. Write the lab row first: the relation's endpoint must
+  exist.
+- `id` is a slug of the name as the lab writes it. A second row with the same
+  `id` exits 5.
+
+```ts
+{
+  // …the common part: evidence, asOf, source { url, quote, readOn, locator? }, submittedBy
+  id: string; // a slug of the name, e.g. "institute-of-nuclear-physics-almaty"
+  name: string; // as the lab writes it on its own page
+  type: "institute" | "university-group" | "national-lab";
+  place: string; // lower-case ISO 3166-1 alpha-2, e.g. "kz"
+  where?: string; // city or campus, only when the source says
+  worksOn: { bottleneck: string; what: string }[]; // at least one
+  url: string; // the lab's own page
+  join: string | null; // where someone applies, or null
+}
+```
+
+### Companies the site names but does not profile (stubs)
+
+Every operator or owner the USGS yearbook tables print — NAC Kazatomprom JSC,
+JV Inkai LLP, Uranium One Inc. — now has a page at `/markets/<slug>` that lists
+only the relations naming it ("We hold no profile for this company yet").
+These **stub companies** come from the relation graph at build time; you never
+write one. What changes for you:
+
+- An **event** may name a stub as a participant, by its name exactly as the
+  page prints it (`"NAC Kazatomprom JSC"`; not the reviewed alias spelling
+  `"NAC Kazatomp JSC"`).
+- A **relation** may use a stub's id as an endpoint (`company:nac-kazatomprom-jsc`),
+  including the holders the corpus's ownership rows name (`company:blackrock`).
+  Relation endpoints may also be `lab:<id>` once the lab row exists.
+- A stub is not in the directory: the `companySlug` and `companyName` fields
+  (ownership, facility operator) still take directory companies only. To give a
+  stub a profile, add a `producers` row for it with its source.
+
+<!-- END: labs facet and stub companies -->

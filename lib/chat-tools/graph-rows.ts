@@ -102,11 +102,13 @@ export type RelationRow = ReturnType<typeof relationRow>;
 /** The node in the records read, under its page (or its country's). */
 export function rememberNode(env: ToolEnv, n: GraphNode) {
   const page = nodePage(n);
-  // A minted firm has no page of its own: the record is its country's.
+  // A minted firm with no entity has no page of its own: the record is its
+  // country's. A stub company (lib/entities/sources/company-stubs.ts) has one.
   const country = n.iso2[0] && resolveEntity(`country:${n.iso2[0]}`)?.name;
+  const ownPage = n.inDirectory || resolveEntity(n.id) !== undefined;
   if (page)
     remember(env.ledger, {
-      title: n.inDirectory ? n.name : `Relations in ${country || 'the graph'}`,
+      title: ownPage ? n.name : `Relations in ${country || 'the graph'}`,
       href: page,
       kind: n.id.slice(0, n.id.indexOf(':')),
       evidence: 'Relation graph (sourced edges)',

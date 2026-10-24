@@ -62,8 +62,10 @@ import {
 } from './vocab';
 import { Candidate, Source, SubmittedBy } from './common-schema';
 import { RelationEntry } from './relation-schema';
+import { LabEntry } from './lab-schema';
+import type { LabCandidate } from './candidate';
 
-export { RelationEntry };
+export { RelationEntry, LabEntry };
 
 // =====================================================================
 // THE COMMON PART
@@ -250,4 +252,5 @@ export const FACET_SPECS: Record<Facet, FacetSpec> = {
     key: (r: SeriesPointCandidate) => `${r.series}/${r.date}`,
   },
   relations: { schema: RelationEntry, key: (r: RelationCandidate) => relationCandidateId(r) },
+  labs: { schema: LabEntry, key: (r: LabCandidate) => r.id },
 };

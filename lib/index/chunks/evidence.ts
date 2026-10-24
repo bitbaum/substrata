@@ -44,6 +44,9 @@ export const LABEL_EVIDENCE: Readonly<Record<string, IndexEvidence>> = {
   // Countries: shares computed from tables, or the directory's blurb.
   'computed from USGS and EIA tables': 'computed',
   'directory, not a finding': 'directory',
+  // Company stubs: every sentence is a relation read from a quoted table cell
+  // or filing; nothing else is said about the firm (lib/entities/sources/company-stubs.ts).
+  stub: 'sourced',
 };
 
 /**

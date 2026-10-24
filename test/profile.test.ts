@@ -19,6 +19,7 @@ import { connectionsFor } from '../lib/profile/modules/shared';
 import { AROUND_GROUPS, aroundFor } from '../lib/profile/modules/science-around';
 import { neighbors } from '../lib/graph';
 import { COMPANY_SECTION_IMPORTANCE, COMPANY_SECTION_ORDER } from '../lib/company-sections';
+import { sampleOf } from './fixtures/sample-entity';
 
 test('module ids are unique and ordering is deterministic', () => {
   const ids = PROFILE_MODULES.map((m) => m.id);
@@ -34,7 +35,7 @@ test('module ids are unique and ordering is deterministic', () => {
 
 test('discussion reaches every kind, because a claim is tested by being argued with', () => {
   for (const kind of ENTITY_KINDS) {
-    const entity = entitiesOfKind(kind)[0];
+    const entity = sampleOf(kind);
     assert.ok(entity, `no ${kind} entity`);
     const ids = modulesFor(entity).map((m) => m.id);
     assert.ok(ids.includes('discussion'), `${kind} has no discussion module`);
@@ -91,7 +92,7 @@ test('a new module appears on every kind it declares, with no page edit', () => 
   });
 
   for (const kind of ENTITY_KINDS) {
-    const entity = entitiesOfKind(kind)[0];
+    const entity = sampleOf(kind);
     const declared = leadership.applies(entity.kind);
     assert.equal(
       declared,
@@ -180,7 +181,7 @@ test('every kind reads in the same order, so profiles are comparable', () => {
   // One importance scale across kinds: identity, judgement, who is involved,
   // what governs it, what has happened, connections, discussion.
   for (const kind of ENTITY_KINDS) {
-    const entity = entitiesOfKind(kind)[0];
+    const entity = sampleOf(kind);
     const ids = modulesFor(entity).map((m) => m.id);
     if (ids.includes('timeline') && ids.includes('discussion'))
       assert.ok(

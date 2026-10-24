@@ -15,7 +15,7 @@ import {
   type IndustryId,
   type TechnologyId,
 } from '@/config/substrata-taxonomy';
-import { resolveEntity, resolveIn } from '@/lib/entities/registry';
+import { resolveEntity, resolveIn, resolveInDirectory } from '@/lib/entities/registry';
 import { ENTITY_KINDS, type EntityId } from '@/lib/entities/types';
 import usgsRelations from '../../research/usgs-relations.json';
 import { BOTTLENECK_NAMES } from '@/lib/event-rules';
@@ -61,11 +61,18 @@ export const bottleneckSlug = z
 export const companySlug = z
   .string()
   .regex(/^[a-z0-9-]+$/, 'a company slug')
-  .refine((slug) => resolveIn('company', slug)?.key === slug, 'not a company in the directory')
+  // Directory only: a stub company (named by the graph, no profile) has no row to extend.
+  .refine(
+    (slug) => resolveInDirectory('company', slug)?.key === slug,
+    'not a company in the directory',
+  )
   .describe('A directory company SLUG (the last part of /markets/<slug>).');
 export const companyName = z
   .string()
-  .refine((name) => resolveIn('company', name) !== undefined, 'not a company in the directory')
+  .refine(
+    (name) => resolveInDirectory('company', name) !== undefined,
+    'not a company in the directory',
+  )
   .describe('A company name exactly as the directory spells it.');
 
 export const COVERED_MATERIALS = new Set(COVERAGE.map((entry) => entry.material));
@@ -80,8 +87,9 @@ export const technologies = z.array(z.enum(tuple<TechnologyId>(TECHNOLOGIES.map(
 export const industries = z.array(z.enum(tuple<IndustryId>(INDUSTRIES.map((i) => i.id))));
 
 /**
- * A relation endpoint: a directory entity, or a node a committed research file
- * already names (research/usgs-relations.json). A candidate cannot mint a new
+ * A relation endpoint: an entity on the site — a directory entity, a stub
+ * company the graph names, a lab — or a node a committed research file already
+ * names (research/usgs-relations.json). A candidate cannot mint a new
  * endpoint: a typo would become a firm.
  */
 const GRAPH_NODES = new Set(Object.keys((usgsRelations as { nodes: object }).nodes));

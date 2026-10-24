@@ -28,7 +28,12 @@ Import the folder's `index` explicitly: `@/lib/graph` resolves to the older
 `minGrade: 'stated'` keeps stated and corroborated. `origin` is `curated`,
 `candidate` (not yet promoted) or `research` (parsed by a committed script).
 An endpoint not in the directory is a minted `company:<slug>` or
-`facility:usgs-<site>`: an id the graph uses and nothing more — no profile.
+`facility:usgs-<site>`. A minted company that a counted relation touches is a
+**stub company** (`lib/entities/sources/company-stubs.ts`): an entity with a
+page at `/markets/<slug>` that lists only the relations naming it, ranked below
+profiled companies in search. The graph's own producers resolve names against
+the directory only (`resolveInDirectory`), so the stubs never change the graph
+they are built from.
 
 ## Three ways to add an edge
 

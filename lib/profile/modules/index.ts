@@ -22,6 +22,7 @@ import { produces, companies } from './country';
 import { rules as countryRules, access, countryEvents } from './country-rules';
 import { dossier } from './dossier';
 import { coverage } from './coverage';
+import { labWork, labJoin, labFunding } from './lab';
 
 /**
  * The registry. A new section is one definition plus one entry here.
@@ -88,6 +89,10 @@ export const PROFILE_MODULES: AnyProfileModule[] = [
   countryRules,
   access,
   countryEvents,
+  // Lab
+  labWork,
+  labJoin,
+  labFunding,
   // Every kind that has them
   dependencies,
   dossier,

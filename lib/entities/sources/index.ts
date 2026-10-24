@@ -4,6 +4,8 @@ import { source as article } from './article';
 import { source as bottleneck } from './bottleneck';
 import { source as capital } from './capital';
 import { source as company } from './company';
+import { source as companyStubs } from './company-stubs';
+import { source as lab } from './lab';
 import { source as country } from './country';
 import { source as facility } from './facility';
 import { source as learn } from './learn';
@@ -28,6 +30,12 @@ import { source as talent } from './talent';
 export interface EntitySource {
   kind: EntityKind;
   build(): Entity[];
+  /**
+   * A kind that may build nothing yet, with the date and the reason
+   * (knowledge-system ADR §5: a kind lands before its data). Without it, an
+   * empty kind fails test/entities.test.ts.
+   */
+  allowEmpty?: { since: string; reason: string };
 }
 
 export const ENTITY_SOURCES: EntitySource[] = [
@@ -42,4 +50,13 @@ export const ENTITY_SOURCES: EntitySource[] = [
   learn,
   country,
   article,
+  lab,
 ];
+
+/**
+ * Sources built AFTER the directory, from what the directory resolves: the
+ * company stubs read the relation graph, whose producers resolve names against
+ * the directory (lib/entities/registry.ts builds the two passes). A derived
+ * source extends a kind the directory already declares; it never adds one.
+ */
+export const DERIVED_SOURCES: EntitySource[] = [companyStubs];

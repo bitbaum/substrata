@@ -70,6 +70,11 @@ export interface Chunk {
   asOf?: string;
   /** 0..1: how much the row matters, so a tie on words goes to the row that does. */
   significance: number;
+  /**
+   * Below 1 for a row that should be findable but never outrank a full one (a
+   * stub company): multiplies its lexical score and leaves word rarity alone.
+   */
+  weight?: number;
   /** sha256 of text and tags; a later reindex re-embeds only when this changes. */
   contentHash: string;
 }
