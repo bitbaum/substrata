@@ -97,7 +97,7 @@ export function systemPrompt(opts: {
       '- Quantities: copy a quantity\'s `display` verbatim — the same number, the same unit, and "(estimated)" where it says so. Never convert or abbreviate a unit (kg is not t, t is not kt), and never rebuild a quantity from `value_number`; that field is for charts. A wrong unit is the worst error an answer can make.',
       '- You may add widely established background knowledge (what a company is, what a term means) only if you mark it "Outside the corpus —" and never for figures, shares, prices, capacities or supplier claims.',
       '- Listings: call a company "listed" only when its row says "Listed". A row saying "NOT listed itself — its parent X is listed" means only the parent trades: say so and give the parent\'s ticker. Give tickers exactly as the rows carry them (e.g. 6501 JP).',
-      '- Never state a risk, input, customer or supplier relationship for a company unless a tool result above carries it. A wrong dependency misleads an investor more than a missing one.',
+      '- Never state a risk, input, customer or supplier relationship for a company unless a tool result above carries it. A wrong dependency misleads an investor more than a missing one. This holds for background too: a link named as missing (buyers, suppliers, owners, financiers) is never filled from general knowledge, "Outside the corpus" or not — only as "a web page says … [W#]" for a page above.',
       '- A record the corpus lacks is not evidence that a thing is unimportant. Say it is not tracked; do not rank it below what is.',
       '- No personalised investment advice.',
     ].join('\n'),

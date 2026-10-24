@@ -1,0 +1,35 @@
+Who produces lithium in Chile and who owns them?
+Thought for 1s
+
+The table has 4 rows: 2 for “Lithium carbonate”, 1 for “Lithium chloride” and 1 for “Lithium hydroxide”. Albemarle Corp. is named as an owner in 2 of the 4 rows; its stated share is 100% in each. Sociedad Química y Minera de Chile S.A. is named as an owner in 2 of the 4 rows; its stated share is 100% in each.
+
+Sociedad Química y Minera de Chile S.A. is named as an owner in 2 of the 4 rows; its stated share is 100% in each.
+
+These rows list the facilities, capacities, and the exact ownership stakes as printed in the USGS Minerals Yearbook 2019 (primary statistical source). No buyer information is included in the source.
+
+Missing link: the downstream buyers of the Chilean lithium chemicals are not captured in our current records. A supply-chain disclosure from the producers or trade-flow data would fill that gap.
+
+Lithium facilities in Chile — USGS Minerals Yearbook 2019
+Operator	Owners and shares, as printed	Commodity, as printed	Location	Capacity, as printed
+Rockwood Litio Ltda.	Albemarle Corp., 100%	Lithium carbonate	La Negra I and II plants, Antofagasta Region	44,000 metric tons
+SQM Salar S.A.	Sociedad Química y Minera de Chile S.A. (SQM), 100%	Lithium carbonate	Salar del Carmen plant, Antofagasta Region	70,000 metric tons
+Rockwood Litio Ltda.	Albemarle Corp., 100%	Lithium chloride	La Negra I and II plants, Antofagasta Region	6,000 metric tons
+SQM Salar S.A.	Sociedad Química y Minera de Chile S.A. (SQM), 100%	Lithium hydroxide	Salar del Carmen plant, Antofagasta Region	13500 metric tons
+
+Every cell is copied from the USGS table as printed. Capacity is capacity, not production. The table names no buyers. USGS Minerals Yearbook, volume III (Area Reports: International), country chapters, Table 2. Structure of the mineral industry (Table 2) ↗
+
+Copy
+Listen
+Try again
+Show the price trend for battery‑grade lithium
+What are the main export ports
+Explain the bottleneck assessment
+What is USGS Minerals Yearbook 2019: Chile, lithium facilities recorded as holding?
+Who is recorded as producing Battery-grade lithium chemicals?
+←
+Substrata
+Ask Substrata
+
+Have a source we should hold? Send evidence
+
+Free models, shared · Use your own AI key

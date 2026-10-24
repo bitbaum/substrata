@@ -25,8 +25,15 @@ import { fileGap, type GapFiler } from './gaps';
 import { reviseUnsupported, unsupportedFigures, withoutSentencesHolding } from './grounding';
 import { missingLinks, reviseWall, wallProblem, type MissingLink } from './ladder';
 import { finalAnswer } from './parse';
-import { claimProblems, replaceClaims, reviseClaims, tableFactsIn } from './table-guard';
+import {
+  claimProblems,
+  replaceClaims,
+  reviseClaims,
+  tableFactsIn,
+  type TableFacts,
+} from './table-guard';
 import { openWithSummary, tableProse } from './table-prose';
+import { dropUncited, tableEntityWords, uncitedClaims, webCountIn } from './uncited';
 import type { ModelTurn } from './turn';
 
 export async function checkAnswer(opts: {
@@ -94,9 +101,8 @@ export async function checkAnswer(opts: {
     const revised = await reviseUnsupported({ messages, answer, figures, turn, onText });
     answer = revised ? finalAnswer(revised).answer : withoutSentencesHolding(answer, figures);
   }
-  // Last, so no revision undoes it: with a code table shown, the computed
-  // summary opens the answer and nothing of the rows is redone (table-prose.ts).
-  if (facts && answer.trim()) answer = openWithSummary(tableProse(answer, facts), facts.summary);
+  if (answer.trim())
+    answer = finishInCode(answer, { facts, gaps, webCount: webCountIn(opts.results) });
   // Rung 6: every missing link the answer ended on is filed as demand.
   if (answer.trim())
     for (const gap of gaps)
@@ -105,4 +111,26 @@ export async function checkAnswer(opts: {
         opts.fileGap,
       );
   return { answer, calls, gaps };
+}
+
+/**
+ * The last word, in code, after every revision so none can undo it:
+ * - with a code table shown, the computed summary opens the answer and
+ *   nothing of the rows is redone (table-prose.ts);
+ * - nothing made up: an uncited claim on a missing link, or about a firm the
+ *   table names, gives way to the gap sentence (uncited.ts).
+ */
+export function finishInCode(
+  answer: string,
+  opts: { facts: TableFacts | null; gaps: MissingLink[]; webCount: number },
+): string {
+  const { facts, gaps } = opts;
+  const shaped = facts ? openWithSummary(tableProse(answer, facts), facts.summary) : answer;
+  const claims = uncitedClaims(shaped, {
+    gaps,
+    entities: tableEntityWords(facts),
+    webCount: opts.webCount,
+    summary: facts?.summary,
+  });
+  return dropUncited(shaped, claims, gaps);
 }

@@ -34,6 +34,9 @@ function rowsIn(line: string, facts: TableFacts): Set<number> {
   facts.rows.forEach((r, i) => {
     if (r.operator && r.operator.length >= 5 && low.includes(r.operator.toLowerCase())) hit.add(i);
     else if (r.owner && low.includes(r.owner.toLowerCase())) hit.add(i);
+    // A figure printed once for many rows may be stated once (table-guard handles its repeats).
+    else if (!facts.printedOnce.includes(r.capacity ?? '') && capacityIn(line, r.capacity))
+      hit.add(i);
     else if (r.owner && tokens(r.owner).length >= 5 && similar(line, r.owner) >= 0.8) hit.add(i);
   });
   return hit;
@@ -46,8 +49,18 @@ function similar(text: string, cell: string): number {
   return want.length ? want.filter((w) => have.has(w)).length / want.length : 0;
 }
 
+/** A row's capacity given in the line, however its digits are grouped ("44,000" or "44 000"). */
+function capacityIn(line: string, capacity: string | null | undefined): boolean {
+  const n = capacity?.match(/^[\d,.\s]+/)?.[0].replace(/[,\s]/g, '');
+  if (!n || n.replace(/\D/g, '').length < 3) return false;
+  return (line.match(/\d[\d,.\s\u00a0\u202f]*\d/g) ?? []).some(
+    (m) => m.replace(/[,\s\u00a0\u202f]/g, '') === n,
+  );
+}
+
 const FILLER_LINE = /^\s*([-*•>]|\d+\.)?\s*$/;
-const RUN_MIN = 4;
+/** Rows a run must repeat to go: four, or all but one of a smaller table. */
+const runMin = (rows: number) => Math.min(4, Math.max(2, rows - 1));
 
 /** The prose without runs of lines that redo the table's rows. */
 export function stripRowRuns(answer: string, facts: TableFacts): string {
@@ -55,7 +68,7 @@ export function stripRowRuns(answer: string, facts: TableFacts): string {
   const lines = answer.split('\n');
   const drop = new Set<number>();
   const close = (start: number, end: number, rows: Set<number>) => {
-    if (rows.size < RUN_MIN) return;
+    if (rows.size < runMin(facts.rows.length)) return;
     for (let i = start; i <= end; i++) drop.add(i);
     // What introduced it goes with it: a sentence ending "…verbatim as:", or a
     // heading over nothing now ("Uranium mining companies … and their owners"),
@@ -131,19 +144,45 @@ export function fixQuotes(answer: string, facts: TableFacts): string {
   });
 }
 
-const plain = (s: string) => s.replace(/[*_`]/g, '').replace(/\s+/g, ' ').trim();
-
 /** The computed summary as the answer's first paragraph (after a leading heading). */
 export function openWithSummary(answer: string, summary: string[]): string {
   if (!summary.length) return answer;
-  let body = answer;
-  for (const s of summary) {
-    const at = body.indexOf(s);
-    if (at >= 0) body = body.slice(0, at) + body.slice(at + s.length);
+  // Where the model copied the summary itself — "The summary sentences are:" then the
+  // sentences in quotes (seen live, Chile, 2026-10-24) — the copy, its quote marks
+  // and the line that introduced it all go: the summary is said once, first.
+  const lines = answer.split('\n');
+  const drop = new Set<number>();
+  lines.forEach((line, i) => {
+    let rest = line;
+    for (const s of summary) rest = rest.split(s).join('');
+    if (rest === line) return;
+    lines[i] = rest;
+    if (/^[\s“”"'‘’«»\-–—*•>]*$/.test(rest)) {
+      drop.add(i);
+      for (let j = i - 1; j >= 0; j--) {
+        if (/^[\s“”"'‘’«»\-–—*•>]*$/.test(lines[j])) {
+          drop.add(j);
+          continue;
+        }
+        if (/:\s*$/.test(lines[j])) drop.add(j);
+        break;
+      }
+    }
+  });
+  // A line of nothing but quote marks or dashes is what is left of a copy made
+  // earlier (the recorded Chile answer); it goes, with the "…are:" it hangs from.
+  const kept = lines.filter((_, i) => !drop.has(i));
+  for (let i = 0; i < kept.length; i++) {
+    if (!/^[\s“”"'‘’«»\-–—*•]+$/.test(kept[i]) || !kept[i].trim()) continue;
+    kept[i] = '';
+    for (let j = i - 1; j >= 0; j--) {
+      if (!kept[j].trim()) continue;
+      if (/:\s*$/.test(kept[j]))
+        kept[j] = kept[j].replace(/(^|(?<=[.!?])\s+)[^.!?]*:\s*$/, '').trimEnd();
+      break;
+    }
   }
-  body = body
-    .split('\n')
-    .filter((l, i, all) => plain(l) || plain(all[i - 1] ?? '') || i === 0)
+  const body = kept
     .join('\n')
     .replace(/^[ \t]+|[ \t]+$/gm, '')
     .replace(/\n{3,}/g, '\n\n')
@@ -157,5 +196,8 @@ export function openWithSummary(answer: string, summary: string[]): string {
 
 /** Everything the prose may not do when a code table is shown, undone in code. */
 export function tableProse(answer: string, facts: TableFacts): string {
-  return fixQuotes(stripRowRuns(stripModelTables(answer, facts.printedOnce), facts), facts);
+  // Models write no-break and narrow no-break spaces inside names and copied
+  // sentences ("Sociedad\u202fQuímica"); every check here compares exact text.
+  const spaced = answer.replace(/[\u00a0\u202f\u2009]/g, ' ');
+  return fixQuotes(stripRowRuns(stripModelTables(spaced, facts.printedOnce), facts), facts);
 }

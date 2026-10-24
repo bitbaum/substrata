@@ -27,7 +27,7 @@ export interface TableFacts {
   /** Cells printed once for several rows ("24000 metric tons"). */
   printedOnce: string[];
   /** The table's rows as the tool read them: operator and owners, verbatim. */
-  rows: { operator: string | null; owner: string | null }[];
+  rows: { operator: string | null; owner: string | null; capacity?: string | null }[];
   /** The source cells whole (the `companies` cell of each facility row). */
   cells: string[];
 }
@@ -45,6 +45,7 @@ export function tableFactsIn(results: string[]): TableFacts | null {
         printed_once?: string[];
         facilities?: {
           companies?: string;
+          capacity?: string | null;
           read_as?: { operator: string | null; owner: string | null }[];
         }[];
       };
@@ -54,7 +55,7 @@ export function tableFactsIn(results: string[]): TableFacts | null {
       facts.printedOnce.push(...(v.printed_once ?? []));
       for (const f of v.facilities ?? []) {
         if (f.companies) facts.cells.push(f.companies);
-        facts.rows.push(...(f.read_as ?? []));
+        facts.rows.push(...(f.read_as ?? []).map((r) => ({ ...r, capacity: f.capacity ?? null })));
       }
     } catch {
       // A result cut short for length carries no facts.
