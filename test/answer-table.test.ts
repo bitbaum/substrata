@@ -29,7 +29,10 @@ async function tableFor(country: string, resource: string) {
 test('the Kazakh uranium cell becomes one row per venture, every cell verbatim', async () => {
   const { table, table_shown } = await tableFor('Kazakhstan', 'uranium');
   assert.ok(table && isAnswerTable(table));
-  assert.ok(table_shown && /do not paste/i.test(table_shown), 'the model is told not to paste');
+  assert.ok(
+    table_shown && /do not write a table/i.test(table_shown),
+    'the model is told not to redo the table',
+  );
   const cells = allFacilitiesFor('kz')!.rows.filter((r) => r.resource === 'uranium');
   const ventures = table.rows.filter((r) => r.commodity === 'Uranium, U content');
   assert.equal(ventures.length, 16);

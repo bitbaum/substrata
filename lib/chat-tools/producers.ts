@@ -24,6 +24,7 @@ import {
 } from '../resources/producers';
 import { resolveIn } from '../entities/registry';
 import { countryHref } from '@/lib/world/pages';
+import { tableFields } from './facility-summary';
 import { facilityTable } from './facility-table';
 import { remember } from './ledger';
 import { resourceIn } from './resources';
@@ -259,13 +260,10 @@ export const PRODUCER_TOOLS: ChatTool[] = [
           : {}),
         source,
         note: '`companies` is the cell exactly as USGS prints it; quote owners and stakes from it verbatim. `read_as` only splits it into operator and owner. Copy `capacity` exactly — same number, same unit. Capacity is not production, and these rows name no buyers.',
-        // Many rows: the reader gets them as a table under the answer, built
-        // here from the same rows (registry.ts routes `table` to the answer,
-        // never to the model).
-        ...(table && {
-          table,
-          table_shown: `The reader sees all ${table.rows.length} rows as a table under your answer (operator, owners and shares as printed, location, capacity, year). Do NOT paste the companies cell or list every row: say in two or three sentences what the table shows — how many operators, who holds stakes in most of them, the largest stakes — quoting any name and share you mention exactly, and refer to "the table below".`,
-        }),
+        // Many rows: the reader gets them as a table under the answer (registry.ts
+        // routes `table` there, never to the model); the model gets the computed
+        // `summary` to copy and the rules for the rest (facility-summary.ts).
+        ...tableFields(table, iso2),
         status: `Sourced (USGS Minerals Yearbook ${chapter.year}, a primary statistical source; company structure as of that year)`,
       };
     },

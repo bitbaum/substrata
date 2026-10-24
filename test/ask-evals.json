@@ -392,5 +392,43 @@
     ],
     "expectedGaps": [],
     "recordedWall": "The owners of Gazprom are not in our database."
+  },
+  {
+    "id": "kazakh-uranium-table-redone-live",
+    "facet": "facilities",
+    "question": "Which companies mine uranium in Kazakhstan, who owns them, and who do they sell to?",
+    "mustMention": ["country:kz"],
+    "expectedTools": ["producers_in", "resource_production"],
+    "expectedHits": [],
+    "wall": false,
+    "firstTool": "producers_in",
+    "expectedGaps": ["buyers"],
+    "recordedTool": "test/fixtures/kz-uranium-producers-in-2026-10-24.json",
+    "recordedAnswer": "test/fixtures/ask-live-kz-uranium-2026-10-24.md",
+    "summaryHolds": [
+      "NAC Kazatomprom JSC is named as an owner in 16 of the 17 rows; its stated shares range from 30% to 100%.",
+      "16 for “Uranium, U content” and 1 for “Rare earth elements, recovered from uranium-ore residue”"
+    ],
+    "mustFlag": ["17 distinct operators", "The largest single stake listed is"],
+    "mustFlagForms": ["24 000"]
+  },
+  {
+    "id": "kazakh-uranium-table-redone-owner",
+    "facet": "facilities",
+    "question": "Which companies mine uranium in Kazakhstan, who owns them, and who do they sell to?",
+    "mustMention": ["country:kz"],
+    "expectedTools": ["producers_in", "resource_production"],
+    "expectedHits": [],
+    "wall": false,
+    "firstTool": "producers_in",
+    "expectedGaps": ["buyers"],
+    "recordedTool": "test/fixtures/kz-uranium-producers-in-2026-10-24.json",
+    "recordedAnswer": "test/fixtures/ask-owner-kz-uranium-2026-10-24.md",
+    "summaryHolds": [
+      "NAC Kazatomprom JSC is named as an owner in 16 of the 17 rows; its stated shares range from 30% to 100%.",
+      "16 for “Uranium, U content” and 1 for “Rare earth elements, recovered from uranium-ore residue”"
+    ],
+    "mustFlag": ["17 mining joint-ventures", "(up to 50%)", "at least 49%"],
+    "mustFlagForms": ["50 %", "24 000"]
   }
 ]
