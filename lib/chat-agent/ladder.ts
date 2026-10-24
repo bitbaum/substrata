@@ -65,7 +65,7 @@ function subjectOf(question: string): Subject | undefined {
   return undefined;
 }
 
-const ASKS: Record<LadderBox, RegExp> = {
+export const ASKS: Record<LadderBox, RegExp> = {
   facilities:
     /\b(which compan(y|ies)|what compan(y|ies)|who (mines?|operates?|runs?|produces?|extracts?|refines?)|operators?|operating compan(y|ies)|mining compan(y|ies)|miners?|producers?|facilit(y|ies)|mines? (are|is) there)\b/i,
   owners:
