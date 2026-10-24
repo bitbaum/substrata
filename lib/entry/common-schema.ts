@@ -15,7 +15,22 @@ export const Source = z.object({
     .max(400)
     .describe('Copied VERBATIM from the page at url. The gate re-reads the page and looks for it.'),
   readOn: isoDate.describe('The day you read the page: today.'),
+  locator: z
+    .string()
+    .min(1)
+    .max(120)
+    .optional()
+    .describe('Where in the source, e.g. "page 17" of a PDF. add.ts prints the page it found.'),
 });
+
+/** Set by a source adapter (lib/sources), never by hand: which adapter read what, and when. */
+export const Provenance = z
+  .object({
+    adapter: z.string().min(1),
+    fetchedAt: z.iso.datetime(),
+    url: url.describe('The exact URL the adapter fetched (an API call, a PDF).'),
+  })
+  .strict();
 
 export const SubmittedBy = z.object({
   agent: z.string().min(1).describe('Who ran it, e.g. "data-agent".'),
@@ -28,4 +43,5 @@ export const Candidate = z.object({
   asOf: factDate,
   source: Source,
   submittedBy: SubmittedBy,
+  provenance: Provenance.optional(),
 });

@@ -12,10 +12,12 @@
  * or stdin (`-`). Every row is, in order:
  *   1. parsed with the facet schema (lib/entry/schemas.ts)            exit 2
  *   2. checked against what is already there, corpus and sidecar      exit 5
- *   3. its source.url read (ai-kit's SSRF-guarded reader, 3 tries,
- *      15 s each); an unreadable page                                 exit 3
- *   4. its source.quote found verbatim on that page after whitespace
- *      and typography folding (lib/event-rules.ts `verbatimIn`)      exit 4
+ *   3. its source.url read (lib/sources/document.ts: SSRF-guarded,
+ *      3 tries; HTML as text, JSON as served, PDF page by page);
+ *      an unreadable source                                           exit 3
+ *   4. its source.quote found verbatim in that text after whitespace
+ *      and typography folding (lib/event-rules.ts `verbatimIn`); in a
+ *      PDF also across line-end hyphenation, and the page is printed  exit 4
  * Nothing is written unless every row passes. Then the rows are appended to
  * `config/candidates/<facet>.json`, the file sorted by row key, and with
  * `--branch` committed on `data/<facet>-<key>` with a PR body printed.
@@ -30,8 +32,6 @@ import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
-import { readPage } from '@bitbaum/ai-kit/web';
-
 import { COVERAGE } from '../../config/substrata-coverage';
 import { EVENTS } from '../../config/substrata-events';
 import { FACILITIES } from '../../config/substrata-facilities';
@@ -44,6 +44,8 @@ import { FACETS, isFacet, type CandidateCommon, type Facet } from '../../lib/ent
 import { FACET_SPECS } from '../../lib/entry/schemas';
 import { printedSchema, shapeOf } from '../../lib/entry/shape';
 import { verbatimIn } from '../../lib/event-rules';
+import { readDocument } from '../../lib/sources/document';
+import { findQuoteInPages } from '../../lib/sources/pdf';
 import { corpusSeries } from '../../lib/series';
 import { allRelations } from '../../lib/graph/index';
 
@@ -52,8 +54,8 @@ const ROOT = path.resolve(HERE, '../..');
 
 export const EXIT = { ok: 0, usage: 1, schema: 2, unreachable: 3, quote: 4, duplicate: 5 } as const;
 
-/** What the page reader returns: its text, or why it could not be read. */
-export type PageRead = { ok: true; text: string } | { ok: false; reason: string };
+/** What the page reader returns: its text (a PDF's also page by page), or why it could not be read. */
+export type PageRead = { ok: true; text: string; pages?: string[] } | { ok: false; reason: string };
 
 export interface AddDeps {
   /** Read a source page. Defaults to ai-kit's SSRF-guarded reader. */
@@ -91,18 +93,29 @@ function corpusKeys(facet: Facet): Set<string> {
   }
 }
 
-const TRANSIENT = new Set(['timeout', 'network', 'rate_limited']);
-
+/**
+ * Read a source through lib/sources/document: HTML as readable text, JSON as
+ * served, a PDF page by page. Three tries for a transient failure.
+ */
 async function readSource(url: string): Promise<PageRead> {
   let last = 'not read';
   for (let attempt = 1; attempt <= 3; attempt++) {
-    const page = await readPage(url, { timeoutMs: 15_000, maxChars: 2_000_000 });
-    if (page.ok) return { ok: true, text: page.text };
-    last = `${page.failure.kind}: ${page.failure.reason}`;
-    if (!TRANSIENT.has(page.failure.kind)) break;
+    const doc = await readDocument(url);
+    if (doc.ok) return { ok: true, text: doc.text, ...(doc.pages ? { pages: doc.pages } : {}) };
+    last = doc.reason;
+    if (!doc.transient) break;
     await new Promise((r) => setTimeout(r, 1000 * attempt));
   }
   return { ok: false, reason: last };
+}
+
+/** Where the quote stands: `''` on a page, ` (page N)` in a PDF, or null when absent. */
+function quoteAt(quote: string, page: { text: string; pages?: string[] }): string | null {
+  if (page.pages) {
+    const hit = findQuoteInPages(quote, page.pages);
+    return hit ? (hit.page ? ` (page ${hit.page})` : ' (across a page break)') : null;
+  }
+  return verbatimIn(quote, page.text) === null ? null : '';
 }
 
 async function readStdin(): Promise<string> {
@@ -210,11 +223,12 @@ export async function run(argv: string[], deps: AddDeps = {}): Promise<number> {
     if (!page.ok) {
       unreachable = true;
       log(`UNREACHABLE  ${spec.key(row)}: ${url} — ${page.reason}`);
-    } else if (verbatimIn(quote, page.text) === null) {
-      absent = true;
-      log(`QUOTE ABSENT  ${spec.key(row)}: the quote is not word for word on ${url}`);
     } else {
-      log(`ok  ${spec.key(row)}`);
+      const at = quoteAt(quote, page);
+      if (at === null) {
+        absent = true;
+        log(`QUOTE ABSENT  ${spec.key(row)}: the quote is not word for word on ${url}`);
+      } else log(`ok  ${spec.key(row)}${at}`);
     }
   }
   if (unreachable) return EXIT.unreachable;

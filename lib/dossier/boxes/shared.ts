@@ -7,8 +7,8 @@ import type { WriteTo } from '../definitions';
 
 const ADD = 'pnpm exec tsx scripts/research/add.ts';
 
-/** The candidate path for a facet, or the graph's relation file. */
-export function writeTo(facet: Facet | 'relations'): WriteTo {
+/** The candidate path for a facet (`relations` is one: config/candidates/relations.json). */
+export function writeTo(facet: Facet): WriteTo {
   return {
     facet,
     file: `config/candidates/${facet}.json`,

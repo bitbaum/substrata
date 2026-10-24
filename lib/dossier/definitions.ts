@@ -63,7 +63,7 @@ export interface WriteTo {
    * (config/candidates/relations.json); null when no candidate path exists
    * and the box is filled by a person or a regenerating script.
    */
-  facet: Facet | 'relations' | null;
+  facet: Facet | null;
   file: string;
   /** The command a model or a person runs. */
   command: string;
