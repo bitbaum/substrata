@@ -22,7 +22,7 @@
  *
  * Exit codes: 0 done, 1 usage or no such task, otherwise add.ts's on --write.
  */
-import { mkdtemp, writeFile } from 'node:fs/promises';
+import { mkdtemp, readFile, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -36,7 +36,8 @@ import { searchLei } from '../../lib/sources/gleif';
 import { countsFor, plansFor, runPlans, type RunOptions } from '../../lib/sources/registry';
 import { WIKIDATA_SPARQL, labelQuery } from '../../lib/sources/wikidata';
 import { run as addRun, knownKeys, type AddDeps } from './add';
-import { prReport, selectRows, type SkipLine } from './run-task-report';
+import { allRelations } from '../../lib/graph/index';
+import { flowKey, prReport, selectRows, type SkipLine } from './run-task-report';
 
 export interface RunTaskArgs extends Omit<RunOptions, 'runId'> {
   task?: string;
@@ -95,6 +96,19 @@ export function findTask(args: RunTaskArgs): DossierTask | undefined {
 
 function show(label: string, value: unknown, log: (l: string) => void) {
   log(`${label}${typeof value === 'string' ? value : JSON.stringify(value, null, 2)}`);
+}
+
+/** Every relation id and flow key the corpus and the sidecar already hold. */
+async function knownRelations(candidatesDir?: string): Promise<Set<string>> {
+  const dir = candidatesDir ?? path.join(import.meta.dirname, '../../config/candidates');
+  const sidecar = JSON.parse(
+    await readFile(path.join(dir, 'relations.json'), 'utf8'),
+  ) as RelationCandidate[];
+  return new Set([
+    ...(await knownKeys('relations', candidatesDir)),
+    ...allRelations().map(flowKey),
+    ...sidecar.map(flowKey),
+  ]);
 }
 
 /** Seams for the test: the adapters' fetches, and add.ts's page reader and sidecar dir. */
@@ -180,7 +194,7 @@ export async function main(
     }
   }
   const chosen = selectRows(rows, {
-    known: await knownKeys('relations', deps.add?.candidatesDir),
+    known: await knownRelations(deps.add?.candidatesDir),
     includeLeads: Boolean(args.includeLeads),
   });
   skipped.push(...chosen.skipped);

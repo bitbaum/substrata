@@ -3,13 +3,17 @@
  * report it ends with. Pure, so the test drives it without a network:
  *
  *   - a row already in the corpus or the sidecar is skipped, so a re-run
- *     proposes only what is new (add.ts would refuse the whole batch, exit 5);
+ *     proposes only what is new (add.ts would refuse the whole batch, exit 5).
+ *     A trade flow is matched by its FLOW (from, type, to, asOf, HS code),
+ *     not only by id, so renaming a commodity can never re-propose a stored
+ *     flow under a new id;
  *   - a `lead` is held back unless the worker passes --include-leads, and the
  *     run says why each one is a lead;
  *   - the closing list (rows written, rows skipped with reasons) is plain
  *     text a worker pastes into the PR description as it stands.
  */
 import { relationCandidateId, type RelationCandidate } from '../../lib/entry/candidate';
+import type { Relation } from '../../lib/graph/types';
 import { whyLead } from '../../lib/sources/proposal';
 
 /** A record or row that did not become a written row, and why. */
@@ -18,6 +22,16 @@ export interface SkipLine {
   adapter?: string;
   record: string;
   reason: string;
+}
+
+/**
+ * What makes two rows the same fact: a flow whose commodity starts with an HS
+ * code is one flow per (from, type, to, asOf, HS code), whatever words follow
+ * the code; anything else is its relation id.
+ */
+export function flowKey(r: Pick<Relation, 'from' | 'to' | 'type' | 'asOf' | 'volume'>): string {
+  const hs = r.volume?.commodity?.match(/^HS\s*(\d+)/i)?.[1];
+  return hs ? `${r.from}|${r.type}|${r.to}|${r.asOf}|hs:${hs}` : relationCandidateId(r);
 }
 
 export interface Selection {
@@ -29,6 +43,7 @@ export interface Selection {
 /** Which proposed rows go to add.ts, and every one that does not, with its reason. */
 export function selectRows(
   rows: readonly RelationCandidate[],
+  /** `known`: the relation ids AND flow keys already in the corpus or sidecar. */
   opts: { known: ReadonlySet<string>; includeLeads: boolean },
 ): Selection {
   const write: RelationCandidate[] = [];
@@ -36,7 +51,7 @@ export function selectRows(
   for (const row of rows) {
     const id = relationCandidateId(row);
     const adapter = row.provenance?.adapter;
-    if (opts.known.has(id))
+    if (opts.known.has(id) || opts.known.has(flowKey(row)))
       skipped.push({
         adapter,
         record: id,

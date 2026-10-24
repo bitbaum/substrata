@@ -52,18 +52,18 @@
     "asOf": "2024",
     "source": {
       "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=284410&flowCode=X&partnerCode=124",
-      "quote": "\"cmdCode\":\"284410\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":1843200.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":35,\"altQtyUnitAbbr\":null,\"altQty\":1347470.0,\"isAltQtyEstimated\":false,\"netWgt\":1843200.0",
+      "quote": "\"reporterCode\":398,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":124,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"284410\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":1843200.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":35,\"altQtyUnitAbbr\":null,\"altQty\":1347470.0,\"isAltQtyEstimated\":false,\"netWgt\":1843200.0",
       "readOn": "2026-10-24",
-      "locator": "UN Comtrade record, partner code 124"
+      "locator": "UN Comtrade record: reporterCode 398 = KZ, partnerCode 124 = CA (M49)"
     },
     "submittedBy": {
       "agent": "source-adapter:comtrade",
-      "model": "none (deterministic adapter)",
+      "model": "deterministic-adapter",
       "runId": "run-task-2026-10-24"
     },
     "provenance": {
       "adapter": "comtrade",
-      "fetchedAt": "2026-10-24T07:54:12.424Z",
+      "fetchedAt": "2026-10-24T08:23:01.942Z",
       "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=284410&flowCode=X&partnerCode=124"
     },
     "from": "country:kz",
@@ -74,26 +74,27 @@
       "value": 1843200,
       "unit": "kg",
       "period": "2024",
-      "commodity": "HS 284410"
-    }
+      "commodity": "HS 284410 natural uranium and compounds"
+    },
+    "note": "Net weight: HS 2844 covers uranium compounds, so this is the compound’s mass, not uranium content."
   },
   {
     "evidence": "candidate",
     "asOf": "2024",
     "source": {
       "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=284410&flowCode=X&partnerCode=156",
-      "quote": "\"cmdCode\":\"284410\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":11224600.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":35,\"altQtyUnitAbbr\":null,\"altQty\":9443600.0,\"isAltQtyEstimated\":false,\"netWgt\":11224600.0",
+      "quote": "\"reporterCode\":398,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":156,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"284410\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":11224600.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":35,\"altQtyUnitAbbr\":null,\"altQty\":9443600.0,\"isAltQtyEstimated\":false,\"netWgt\":11224600.0",
       "readOn": "2026-10-24",
-      "locator": "UN Comtrade record, partner code 156"
+      "locator": "UN Comtrade record: reporterCode 398 = KZ, partnerCode 156 = CN (M49)"
     },
     "submittedBy": {
       "agent": "source-adapter:comtrade",
-      "model": "none (deterministic adapter)",
+      "model": "deterministic-adapter",
       "runId": "run-task-2026-10-24"
     },
     "provenance": {
       "adapter": "comtrade",
-      "fetchedAt": "2026-10-24T07:53:54.651Z",
+      "fetchedAt": "2026-10-24T08:23:05.264Z",
       "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=284410&flowCode=X&partnerCode=156"
     },
     "from": "country:kz",
@@ -104,26 +105,27 @@
       "value": 11224600,
       "unit": "kg",
       "period": "2024",
-      "commodity": "HS 284410"
-    }
+      "commodity": "HS 284410 natural uranium and compounds"
+    },
+    "note": "Net weight: HS 2844 covers uranium compounds, so this is the compound’s mass, not uranium content."
   },
   {
     "evidence": "candidate",
     "asOf": "2024",
     "source": {
       "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=7403&flowCode=X&partnerCode=156",
-      "quote": "\"cmdCode\":\"7403\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":311918344.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":8,\"altQtyUnitAbbr\":null,\"altQty\":311918344.0,\"isAltQtyEstimated\":false,\"netWgt\":311918344.0",
+      "quote": "\"reporterCode\":398,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":156,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"7403\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":311918344.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":8,\"altQtyUnitAbbr\":null,\"altQty\":311918344.0,\"isAltQtyEstimated\":false,\"netWgt\":311918344.0",
       "readOn": "2026-10-24",
-      "locator": "UN Comtrade record, partner code 156"
+      "locator": "UN Comtrade record: reporterCode 398 = KZ, partnerCode 156 = CN (M49)"
     },
     "submittedBy": {
       "agent": "source-adapter:comtrade",
-      "model": "none (deterministic adapter)",
+      "model": "deterministic-adapter",
       "runId": "run-task-2026-10-24"
     },
     "provenance": {
       "adapter": "comtrade",
-      "fetchedAt": "2026-10-24T07:54:18.629Z",
+      "fetchedAt": "2026-10-24T08:23:09.304Z",
       "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=7403&flowCode=X&partnerCode=156"
     },
     "from": "country:kz",
@@ -134,26 +136,27 @@
       "value": 311918344,
       "unit": "kg",
       "period": "2024",
-      "commodity": "HS 7403"
-    }
+      "commodity": "HS 7403 refined copper, unwrought"
+    },
+    "note": "Net weight: the mass of the goods as declared, not the content of any one element in them."
   },
   {
     "evidence": "candidate",
     "asOf": "2024",
     "source": {
       "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=284410&flowCode=X&partnerCode=251",
-      "quote": "\"cmdCode\":\"284410\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":1895580.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":35,\"altQtyUnitAbbr\":null,\"altQty\":1501210.0,\"isAltQtyEstimated\":false,\"netWgt\":1895580.0",
+      "quote": "\"reporterCode\":398,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":251,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"284410\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":1895580.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":35,\"altQtyUnitAbbr\":null,\"altQty\":1501210.0,\"isAltQtyEstimated\":false,\"netWgt\":1895580.0",
       "readOn": "2026-10-24",
-      "locator": "UN Comtrade record, partner code 251"
+      "locator": "UN Comtrade record: reporterCode 398 = KZ, partnerCode 251 = FR (M49)"
     },
     "submittedBy": {
       "agent": "source-adapter:comtrade",
-      "model": "none (deterministic adapter)",
+      "model": "deterministic-adapter",
       "runId": "run-task-2026-10-24"
     },
     "provenance": {
       "adapter": "comtrade",
-      "fetchedAt": "2026-10-24T07:54:06.792Z",
+      "fetchedAt": "2026-10-24T08:23:13.310Z",
       "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=284410&flowCode=X&partnerCode=251"
     },
     "from": "country:kz",
@@ -164,26 +167,27 @@
       "value": 1895580,
       "unit": "kg",
       "period": "2024",
-      "commodity": "HS 284410"
-    }
+      "commodity": "HS 284410 natural uranium and compounds"
+    },
+    "note": "Net weight: HS 2844 covers uranium compounds, so this is the compound’s mass, not uranium content."
   },
   {
     "evidence": "candidate",
     "asOf": "2024",
     "source": {
       "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=7403&flowCode=X&partnerCode=440",
-      "quote": "\"cmdCode\":\"7403\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":438670.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":8,\"altQtyUnitAbbr\":null,\"altQty\":438670.0,\"isAltQtyEstimated\":false,\"netWgt\":438670.0",
+      "quote": "\"reporterCode\":398,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":440,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"7403\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":438670.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":8,\"altQtyUnitAbbr\":null,\"altQty\":438670.0,\"isAltQtyEstimated\":false,\"netWgt\":438670.0",
       "readOn": "2026-10-24",
-      "locator": "UN Comtrade record, partner code 440"
+      "locator": "UN Comtrade record: reporterCode 398 = KZ, partnerCode 440 = LT (M49)"
     },
     "submittedBy": {
       "agent": "source-adapter:comtrade",
-      "model": "none (deterministic adapter)",
+      "model": "deterministic-adapter",
       "runId": "run-task-2026-10-24"
     },
     "provenance": {
       "adapter": "comtrade",
-      "fetchedAt": "2026-10-24T07:54:37.282Z",
+      "fetchedAt": "2026-10-24T08:23:17.389Z",
       "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=7403&flowCode=X&partnerCode=440"
     },
     "from": "country:kz",
@@ -194,26 +198,27 @@
       "value": 438670,
       "unit": "kg",
       "period": "2024",
-      "commodity": "HS 7403"
-    }
+      "commodity": "HS 7403 refined copper, unwrought"
+    },
+    "note": "Net weight: the mass of the goods as declared, not the content of any one element in them."
   },
   {
     "evidence": "candidate",
     "asOf": "2024",
     "source": {
       "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=7403&flowCode=X&partnerCode=428",
-      "quote": "\"cmdCode\":\"7403\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":5776555.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":8,\"altQtyUnitAbbr\":null,\"altQty\":5776555.0,\"isAltQtyEstimated\":false,\"netWgt\":5776555.0",
+      "quote": "\"reporterCode\":398,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":428,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"7403\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":5776555.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":8,\"altQtyUnitAbbr\":null,\"altQty\":5776555.0,\"isAltQtyEstimated\":false,\"netWgt\":5776555.0",
       "readOn": "2026-10-24",
-      "locator": "UN Comtrade record, partner code 428"
+      "locator": "UN Comtrade record: reporterCode 398 = KZ, partnerCode 428 = LV (M49)"
     },
     "submittedBy": {
       "agent": "source-adapter:comtrade",
-      "model": "none (deterministic adapter)",
+      "model": "deterministic-adapter",
       "runId": "run-task-2026-10-24"
     },
     "provenance": {
       "adapter": "comtrade",
-      "fetchedAt": "2026-10-24T07:54:26.649Z",
+      "fetchedAt": "2026-10-24T08:23:21.302Z",
       "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=7403&flowCode=X&partnerCode=428"
     },
     "from": "country:kz",
@@ -224,26 +229,27 @@
       "value": 5776555,
       "unit": "kg",
       "period": "2024",
-      "commodity": "HS 7403"
-    }
+      "commodity": "HS 7403 refined copper, unwrought"
+    },
+    "note": "Net weight: the mass of the goods as declared, not the content of any one element in them."
   },
   {
     "evidence": "candidate",
     "asOf": "2024",
     "source": {
       "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=284410&flowCode=X&partnerCode=643",
-      "quote": "\"cmdCode\":\"284410\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":9974990.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":35,\"altQtyUnitAbbr\":null,\"altQty\":8865300.0,\"isAltQtyEstimated\":false,\"netWgt\":9974990.0",
+      "quote": "\"reporterCode\":398,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":643,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"284410\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":9974990.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":35,\"altQtyUnitAbbr\":null,\"altQty\":8865300.0,\"isAltQtyEstimated\":false,\"netWgt\":9974990.0",
       "readOn": "2026-10-24",
-      "locator": "UN Comtrade record, partner code 643"
+      "locator": "UN Comtrade record: reporterCode 398 = KZ, partnerCode 643 = RU (M49)"
     },
     "submittedBy": {
       "agent": "source-adapter:comtrade",
-      "model": "none (deterministic adapter)",
+      "model": "deterministic-adapter",
       "runId": "run-task-2026-10-24"
     },
     "provenance": {
       "adapter": "comtrade",
-      "fetchedAt": "2026-10-24T07:53:59.154Z",
+      "fetchedAt": "2026-10-24T08:23:25.383Z",
       "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=284410&flowCode=X&partnerCode=643"
     },
     "from": "country:kz",
@@ -254,26 +260,27 @@
       "value": 9974990,
       "unit": "kg",
       "period": "2024",
-      "commodity": "HS 284410"
-    }
+      "commodity": "HS 284410 natural uranium and compounds"
+    },
+    "note": "Net weight: HS 2844 covers uranium compounds, so this is the compound’s mass, not uranium content."
   },
   {
     "evidence": "candidate",
     "asOf": "2024",
     "source": {
       "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=7403&flowCode=X&partnerCode=792",
-      "quote": "\"cmdCode\":\"7403\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":156281160.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":8,\"altQtyUnitAbbr\":null,\"altQty\":156281160.0,\"isAltQtyEstimated\":false,\"netWgt\":156281160.0",
+      "quote": "\"reporterCode\":398,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":792,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"7403\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":156281160.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":8,\"altQtyUnitAbbr\":null,\"altQty\":156281160.0,\"isAltQtyEstimated\":false,\"netWgt\":156281160.0",
       "readOn": "2026-10-24",
-      "locator": "UN Comtrade record, partner code 792"
+      "locator": "UN Comtrade record: reporterCode 398 = KZ, partnerCode 792 = TR (M49)"
     },
     "submittedBy": {
       "agent": "source-adapter:comtrade",
-      "model": "none (deterministic adapter)",
+      "model": "deterministic-adapter",
       "runId": "run-task-2026-10-24"
     },
     "provenance": {
       "adapter": "comtrade",
-      "fetchedAt": "2026-10-24T07:54:23.181Z",
+      "fetchedAt": "2026-10-24T08:23:29.299Z",
       "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=7403&flowCode=X&partnerCode=792"
     },
     "from": "country:kz",
@@ -284,26 +291,27 @@
       "value": 156281160,
       "unit": "kg",
       "period": "2024",
-      "commodity": "HS 7403"
-    }
+      "commodity": "HS 7403 refined copper, unwrought"
+    },
+    "note": "Net weight: the mass of the goods as declared, not the content of any one element in them."
   },
   {
     "evidence": "candidate",
     "asOf": "2024",
     "source": {
       "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=284410&flowCode=X&partnerCode=842",
-      "quote": "\"cmdCode\":\"284410\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":2619180.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":35,\"altQtyUnitAbbr\":null,\"altQty\":1969230.0,\"isAltQtyEstimated\":false,\"netWgt\":2619180.0",
+      "quote": "\"reporterCode\":398,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":842,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"284410\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":8,\"qtyUnitAbbr\":null,\"qty\":2619180.0,\"isQtyEstimated\":false,\"altQtyUnitCode\":35,\"altQtyUnitAbbr\":null,\"altQty\":1969230.0,\"isAltQtyEstimated\":false,\"netWgt\":2619180.0",
       "readOn": "2026-10-24",
-      "locator": "UN Comtrade record, partner code 842"
+      "locator": "UN Comtrade record: reporterCode 398 = KZ, partnerCode 842 = US (M49)"
     },
     "submittedBy": {
       "agent": "source-adapter:comtrade",
-      "model": "none (deterministic adapter)",
+      "model": "deterministic-adapter",
       "runId": "run-task-2026-10-24"
     },
     "provenance": {
       "adapter": "comtrade",
-      "fetchedAt": "2026-10-24T07:54:02.709Z",
+      "fetchedAt": "2026-10-24T08:23:33.593Z",
       "url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=398&period=2024&cmdCode=284410&flowCode=X&partnerCode=842"
     },
     "from": "country:kz",
@@ -314,7 +322,8 @@
       "value": 2619180,
       "unit": "kg",
       "period": "2024",
-      "commodity": "HS 284410"
-    }
+      "commodity": "HS 284410 natural uranium and compounds"
+    },
+    "note": "Net weight: HS 2844 covers uranium compounds, so this is the compound’s mass, not uranium content."
   }
 ]
