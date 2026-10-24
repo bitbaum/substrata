@@ -39,6 +39,10 @@ import { fixQuotes } from '../lib/chat-agent/table-prose';
 import { finishInCode } from '../lib/chat-agent/check-answer';
 import { GAP_SAYS, gapSentences, tableEntityWords, uncitedClaims } from '../lib/chat-agent/uncited';
 import { internalProblem } from '../lib/chat-agent/internal';
+import { routeQuestion } from '../lib/chat-agent/route';
+import { opensWithCorpusGap, CORPUS_GAP } from '../lib/chat-agent/open-first';
+import { webFigureProblems } from '../lib/chat-agent/web-figures';
+import { kindOf } from '../lib/chat-agent/default-deny';
 import { readFileSync } from 'node:fs';
 import { emptyLedger } from '../lib/chat-tools/ledger';
 import { GRADE_LABEL } from '../lib/graph/index';
@@ -111,6 +115,17 @@ interface EvalRow {
   mustFlagForms?: string[];
   /** A re-united quantity the grounding check must catch, and its verbatim form it must pass. */
   unitGuard?: { wrong: string; right: string };
+  /** Which sources the router sends the question to (route.ts): `web` searches beside the corpus. */
+  route?: 'web' | 'corpus';
+  /** Text the routed web query must hold ("October 2026" for "this month"). */
+  queryHolds?: string[];
+  /** An answer that opened with what the corpus lacks: the reader must get the answer first. */
+  recordedOpening?: string;
+  recordedNote?: string;
+  /** A figure cited [W1] that the passage does not print is caught; one it prints passes. */
+  webFigureGuard?: { passage: string; wrong: string; right: string };
+  /** Marked general knowledge: kept without a figure, dropped with one. */
+  background?: { kept: string; dropped: string };
 }
 
 const EVALS = rows as EvalRow[];
@@ -130,7 +145,8 @@ function leadClause(line: string): string {
 }
 
 test('the eval set is the one the ADR names', () => {
-  assert.equal(EVALS.length, 49);
+  assert.equal(EVALS.length, 55);
+  assert.equal(EVALS.filter((r) => r.route === 'web').length, 6, 'six open-web questions');
   assert.equal(EVALS.filter((r) => r.wall === false).length, 28, 'twenty-eight no-wall questions');
   assert.equal(new Set(EVALS.map((r) => r.id)).size, EVALS.length, 'ids are unique');
   const niger = EVALS.find((r) => r.id === 'niger-uranium');
@@ -427,6 +443,46 @@ for (const row of EVALS) {
           hit.matched < OUTSIDE_MATCH,
           `${hit.chunk.id} holds ${Math.round(hit.matched * 100)}% of an off-topic question's words`,
         );
+    }
+  });
+}
+
+/**
+ * The open-web rows (docs/architecture/2026-10-24-open-web-ask.md): the router
+ * sends each to the web beside the corpus; a recorded answer that opened with
+ * what the corpus lacks reaches the reader answer-first; a figure cited [W#]
+ * must be in that passage; marked background carries no figure.
+ */
+for (const row of EVALS.filter((r) => r.route)) {
+  test(`open web ${row.id}: ${row.question}`, () => {
+    const route = routeQuestion(row.question, '2026-10-24');
+    assert.equal(route.web, row.route === 'web', `routed to ${row.route} (${route.reasons})`);
+    for (const q of row.queryHolds ?? [])
+      assert.ok(route.query.includes(q), `the query "${route.query}" holds "${q}"`);
+    if (row.recordedOpening) {
+      const answer = readFileSync(new URL(`../${row.recordedOpening}`, import.meta.url), 'utf8');
+      assert.ok(opensWithCorpusGap(answer), 'the recording opened with what the corpus lacks');
+      const final = finishInCode(answer, {
+        facts: null,
+        gaps: [],
+        webCount: 2,
+        question: row.question,
+        results: [],
+      });
+      assert.ok(!opensWithCorpusGap(final), `the reader gets the answer first: ${final}`);
+      assert.ok(!/unchecked web results/i.test(final), 'no heading fences the web off');
+      const gapLines = final.split(/(?<=[.!?])\s+|\n+/).filter((x) => CORPUS_GAP.test(x));
+      assert.ok(gapLines.length <= 2, 'the corpus gap is said at the end, briefly');
+    }
+    if (row.webFigureGuard) {
+      const passages = new Map([[1, row.webFigureGuard.passage]]);
+      assert.ok(webFigureProblems(row.webFigureGuard.wrong, passages).length > 0, 'caught');
+      assert.deepEqual(webFigureProblems(row.webFigureGuard.right, passages), [], 'passes');
+    }
+    if (row.background) {
+      const ctx = { question: row.question, summary: [], webCount: 0, evidence: '' };
+      assert.equal(kindOf(row.background.kept, ctx, []), 'background');
+      assert.equal(kindOf(row.background.dropped, ctx, []), null);
     }
   });
 }

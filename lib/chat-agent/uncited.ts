@@ -115,7 +115,7 @@ export function uncitedClaims(
           sentence,
           why: `gives a web page's ${leadBox} claim as fact`,
           // Kept as written after the attribution: a name keeps its capital.
-          reword: `According to an unchecked web page, ${sentence}`,
+          reword: `According to a web page, ${sentence}`,
         });
         continue;
       }

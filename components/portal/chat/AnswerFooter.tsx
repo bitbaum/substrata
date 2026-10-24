@@ -6,7 +6,8 @@ import type { Turn } from './types';
 /**
  * What sits under an answer, in chatkit's `renderFooter` slot: Substrata's
  * evidence, which no generic chat has. Two registers that are never merged —
- * unreviewed sweep leads and unchecked web pages. The corpus records the
+ * unreviewed sweep leads and the web pages read for the answer (each cited
+ * claim by claim in the answer as a chip; listed here with its date). The corpus records the
  * answer read are the thought row ABOVE it ("Thought for 12s › Read 3
  * records", `thinking.ts`), the way every chat app shows what it did; a
  * record count under the answer was a stray line nobody could place.
@@ -21,30 +22,22 @@ export function AnswerFooter({ turn }: { turn: Turn }) {
   const leads = turn.leads ?? [];
   const web = turn.web ?? [];
   const tables = turn.tables ?? [];
-  if (
-    !tables.length &&
-    !leads.length &&
-    !web.length &&
-    !turn.verdict &&
-    !turn.outside &&
-    !turn.degraded
-  )
+  if (!tables.length && !leads.length && !web.length && !turn.verdict && !turn.degraded)
     return null;
 
   return (
     <div className="answer-footer">
       {/* The rows the answer rests on, as a table built from the tool rows — first, right under the prose. */}
       {tables.length > 0 && <AnswerTables tables={tables} />}
-      {(turn.verdict || turn.outside || turn.degraded) && (
+      {(turn.verdict || turn.degraded) && (
         <p className="answer-tags">
           {turn.verdict && (
             <span className={`answer-verdict is-${turn.verdict.toLowerCase()}`}>
               {turn.verdict}
             </span>
           )}{' '}
-          {/* Said on screen, not implied: an answer past the corpus must not
-              look like one that stayed inside it. */}
-          {turn.outside && <span className="answer-tag">Looked outside the corpus</span>}{' '}
+          {/* Web pages are marked claim by claim now — a chip linked to the
+              page (lib/chat/web-citations.ts) — and listed below as read. */}
           {turn.degraded && <span className="answer-tag">No AI answer</span>}
         </p>
       )}
@@ -72,16 +65,18 @@ export function AnswerFooter({ turn }: { turn: Turn }) {
 
       {web.length > 0 && (
         <details className="answer-block">
-          <summary>
-            {web.length} web page{web.length === 1 ? '' : 's'} · not checked by Substrata
-          </summary>
+          <summary>Web pages read · not checked by Substrata ({web.length})</summary>
           <ul>
             {web.map((finding, index) => (
               <li key={finding.url}>
                 <a href={finding.url} target="_blank" rel="noreferrer nofollow">
                   [W{index + 1}] {finding.cited ? 'Cited source: ' : ''}
                   {finding.title} ↗
-                </a>
+                </a>{' '}
+                <span className="answer-evidence">
+                  {finding.published ? `dated ${finding.published}` : 'undated'}
+                  {finding.unread ? ' · search snippet only' : ''}
+                </span>
                 {finding.excerpt && <blockquote>{finding.excerpt}</blockquote>}
               </li>
             ))}

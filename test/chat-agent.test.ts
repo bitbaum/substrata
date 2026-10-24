@@ -151,7 +151,7 @@ test('web results are fenced as unchecked and numbered for [W#] citation', async
     }),
   });
   const data = JSON.parse((await runTool('web_search', { query: 'gallium' }, env)).result);
-  assert.match(data.warning, /UNCHECKED/);
+  assert.match(data.warning, /NOT CHECKED BY SUBSTRATA/);
   assert.equal(data.results[0].cite_as, 'W1');
   assert.equal(env.ledger.web.length, 1);
 });
@@ -491,7 +491,7 @@ test('an empty planned lookup searches the web before the model is asked', async
     labels.some((l) => /Searching the web/.test(l)),
     `the web was searched: ${labels}`,
   );
-  assert.match(system, /answer from the web_search result above/);
+  assert.match(system, /from the web_search result above/);
   assert.equal(data.outside, true, 'the answer says it went outside the corpus');
   assert.equal(data.web.length, 1);
 });
@@ -518,7 +518,7 @@ test('the prompt turns an empty lookup into a search or marked background, never
     lookedUpEmpty: true,
     tools: toolDefinitions(envWith({ web: async () => ({ status: 'nothing' as const }) })),
   });
-  assert.match(withWeb, /does not track this yet/);
+  assert.match(withWeb, /does not track it yet/);
   assert.match(withWeb, /call web_search now/);
   const searched = systemPrompt({
     context: readerContext({}),
@@ -527,14 +527,14 @@ test('the prompt turns an empty lookup into a search or marked background, never
     web: 'found',
     tools: toolDefinitions(envWith({ web: async () => ({ status: 'nothing' as const }) })),
   });
-  assert.match(searched, /answer from the web_search result above/);
+  assert.match(searched, /from the web_search result above/);
   const without = systemPrompt({
     context: readerContext({}),
     lookedUp: '[search_corpus] {"results":[]}',
     lookedUpEmpty: true,
     tools: toolDefinitions(envWith()),
   });
-  assert.match(without, /Outside the corpus/);
+  assert.match(without, /From general knowledge, not checked/);
   assert.match(without, /Send evidence/);
   assert.doesNotMatch(without, /call web_search now/);
 });

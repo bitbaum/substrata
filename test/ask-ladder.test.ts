@@ -196,10 +196,15 @@ test('the Kazakhstan question: web searched for the buyers, the wall sent back, 
     },
     emit: (e) => events.push(e),
   });
-  assert.deepEqual(searched, ['Kazakhstan uranium offtake buyers supply contracts']);
+  // The route searches the question beside the corpus lookups (route.ts); the
+  // missing link the lookups name then gets a search of its own.
+  assert.deepEqual(searched, [
+    'companies mine uranium in Kazakhstan, who owns them, and who they sell to',
+    'Kazakhstan uranium offtake buyers supply contracts',
+  ]);
   assert.match(systems[0], /What the sources do not hold/);
   assert.match(systems[0], /The buyers of Kazakhstan's uranium output are not in our sources/);
-  assert.match(systems[0], /unchecked leads \[W#\]/);
+  assert.match(systems[0], /cited \[W#\]/);
   assert.equal(calls, 2, 'the wall went back once');
   assert.match(asks[1], /the USGS facility table above names them/);
   assert.ok(

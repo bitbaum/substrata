@@ -14,7 +14,8 @@
  *
  * A sentence survives when it is:
  * - CITED: a markdown link (a corpus page or a primary source), a [F#]/[R#]
- *   marker, or a [W#] for a page the lookups fetched — said as the page's
+ *   marker, or a [W#] for a page the lookups read whose passage prints every
+ *   figure the sentence gives (web-figures.ts) — said as the page's
  *   (uncited.ts rewords a bare one) or a lead's title line; or it sits in a
  *   section whose "Source: …" / "All of the above: …" line carries a link;
  * - a FIGURE SAID WITH ITS SOURCE: it names its source ("according to the
@@ -23,6 +24,8 @@
  * - the computed SUMMARY, a GAP sentence for a link the QUESTION asked about,
  *   a WHAT-WOULD-SETTLE-IT sentence for one, the CAPACITY caveat, the
  *   web-LEAD heading or intro, an EVIDENCE invitation;
+ * - BACKGROUND the answer marks as general knowledge (labels.ts), with no
+ *   figure and no buyer, supplier, owner or financier link in it;
  * - a TRANSITION with no content of its own: a heading-like line, or a
  *   pointer to the table below, with no figure, no name and no claim word.
  *
@@ -32,6 +35,9 @@
 import { numbersIn } from './grounding';
 import { ASKS, LADDER_BOXES, type LadderBox } from './ladder';
 import { BOX_WORDS, GAP_SAYS } from './uncited';
+import { tidy } from './default-deny-tidy';
+import { BACKGROUND_LABEL } from './labels';
+import { unbackedWebFigures } from './web-figures';
 
 export interface DenyContext {
   /** The question: a gap is said only for a link it asked about. */
@@ -41,6 +47,8 @@ export interface DenyContext {
   webCount: number;
   /** Every tool result's text, to find a figure in. */
   evidence: string;
+  /** Each read web page's passage by its [W#] number (web-figures.ts): a cited figure must be in it. */
+  web?: Map<number, string>;
 }
 
 export type Kind =
@@ -52,12 +60,16 @@ export type Kind =
   | 'capacity caveat'
   | 'lead heading'
   | 'evidence invitation'
+  | 'background'
   | 'transition';
 
 /** Words that make a sentence a claim about the world, whatever else it is. */
 const CLAIMY =
   /\b(many|most|typically|usually|generally|often|mostly|largest|biggest|major|leading|dominant|main|top|world'?s|globally|owns?|owned|sells?|sold|buys?|bought|suppl(y|ies|ied)|exports?|imports?|produces?|produced|mines?|mined|controls?|holds?|accounts? for|ranks?|ranking|dominates?|depends?|relies?|contracts?|agreements?|customers?|buyers?|investors?|purchasers?)\b/i;
 
+/** Background may explain; it never names who sells to, buys from, owns or finances whom. */
+const LINKS_CLAIM =
+  /\b(sells?|sold|buys?|bought|suppl(y|ies|ied|iers?)|customers?|buyers?|offtake|owns?|owned|owners?|stakes?|shareholders?|financ\w*|investors?|lenders?|contracts?|agreements?)\b/i;
 const LINK = /\[[^\]]+\]\((https?:\/\/|\/)[^)]+\)|\[(F|R)\d+\]/;
 const SOURCE_NAMED =
   /\b(according to|as printed in|as reported (by|in)|reports?|reported|printed|usgs|minerals yearbook|world nuclear association|wna|energy institute|eia|iea|oecd)\b|\(sourced\)/i;
@@ -98,11 +110,16 @@ export function kindOf(
   ctx: DenyContext,
   asked: LadderBox[],
   sectionCited = false,
+  /** The line opens with the general-knowledge label (labels.ts). */
+  background = false,
 ): Kind | null {
   const s = sentence.trim();
   if (!s) return 'transition';
   if (ctx.summary.some((x) => s.includes(x) || (s.length > 20 && x.includes(s)))) return 'summary';
-  if (LINK.test(s) || wCited(s, ctx.webCount) || sectionCited) return 'cited';
+  // A web page cited for a figure it does not print cites nothing (web-figures.ts).
+  if (wCited(s, ctx.webCount))
+    return ctx.web && unbackedWebFigures(s, ctx.web).length ? null : 'cited';
+  if (LINK.test(s) || sectionCited) return 'cited';
   const boxes = boxesIn(s);
   const unasked = boxes.some((b) => !asked.includes(b));
   // A gap is said only for a link the question asked about (the Russia answer
@@ -111,6 +128,9 @@ export function kindOf(
   if (SETTLE.test(s)) return unasked ? null : 'what would settle it';
   if (CAVEAT.test(s)) return 'capacity caveat';
   if (INVITE.test(s)) return 'evidence invitation';
+  // Marked background: kept with no figure and no supplier, buyer or owner link in it.
+  if (background || BACKGROUND_LABEL.test(s))
+    return figures(s).length || LINKS_CLAIM.test(s) ? null : 'background';
   const nums = figures(s);
   if (LEADS.test(s) && !nums.length) return 'lead heading';
   if (nums.length && SOURCE_NAMED.test(s)) {
@@ -137,14 +157,20 @@ export function kindOf(
 const CLAUSE = /;\s+|,\s+(?=(however|but)\b)|\s+[—–-]\s+(?=(however|but)\b)/i;
 
 /** The parts of a sentence that survive on their own, rejoined; '' when none do. */
-function surviving(s: string, ctx: DenyContext, asked: LadderBox[], sectionCited: boolean): string {
-  const whole = kindOf(s, ctx, asked, sectionCited);
+function surviving(
+  s: string,
+  ctx: DenyContext,
+  asked: LadderBox[],
+  sectionCited: boolean,
+  bg = false,
+): string {
+  const whole = kindOf(s, ctx, asked, sectionCited, bg);
   const clauses = s.split(CLAUSE).filter((c) => c && !/^(however|but)$/i.test(c));
   if (whole === 'cited' || whole === 'summary' || (whole && clauses.length < 2)) return s;
   if (clauses.length < 2) return '';
   const kept = clauses
     .map((c) => c.replace(/^(however|but),?\s+/i, '').trim())
-    .filter((c) => kindOf(c, ctx, asked, sectionCited));
+    .filter((c) => kindOf(c, ctx, asked, sectionCited, bg));
   if (!kept.length) return '';
   // Every clause stands on its own: the sentence stands as written.
   if (kept.length === clauses.length) return s;
@@ -179,6 +205,7 @@ export function defaultDeny(
         continue;
       }
       const lead = raw.match(/^\s*(?:[-*•>]|\d+\.)?\s*/)?.[0] ?? '';
+      const bg = BACKGROUND_LABEL.test(raw);
       // A link's title may hold a full stop: mask links while splitting.
       const links: string[] = [];
       const masked = raw
@@ -192,7 +219,7 @@ export function defaultDeny(
       // to it, as long as they bring no figure of their own.
       const listed: boolean = carrying && lead.trim() !== '' && !figures(raw).length;
       const kept: string[] = sentences.map((x) => {
-        const k: string = listed ? x : surviving(x, ctx, asked, sectionCited);
+        const k: string = listed ? x : surviving(x, ctx, asked, sectionCited, bg);
         if (k !== x) dropped.push(x);
         return k;
       });
@@ -203,84 +230,4 @@ export function defaultDeny(
     }
   }
   return { answer: tidy(out), dropped };
-}
-
-/**
- * What is left once sentences have gone, cleaned so nothing points at nothing:
- * - a "what would settle it" sentence goes when no gap sentence survived to say
- *   what is missing (seen live, Russia: "…would settle it." after its gap went);
- * - a heading, a bold title or a short title-like line goes when nothing but
- *   another heading follows it (Russia: "Rare earths", "USGS Minerals Yearbook
- *   2022, Russia chapter", "Nickel …" over nothing);
- * - a ")" with no "(" goes ("…in the table below).", seen live, Peru).
- */
-function tidy(lines: string[]): string {
-  let out = lines.map((l) => {
-    if (/^\s*```/.test(l) || /^\s*[{["]/.test(l)) return l;
-    // A pointer left without its sentence ("…(source). See the table below",
-    // "Nickel (2022) See the table below", seen live, Russia) points at the
-    // table the reader is already under: it goes.
-    let line = l.replace(/\s*\bsee the table below\b(?![^.!?]*[.!?]\s*\S)[.!?]?\s*$/i, '');
-    // A title with nothing but the pointer after it ("Nickel (2022)") goes with it.
-    if (line !== l && line.trim().split(/\s+/).length <= 8 && !/[.!?:]$/.test(line.trim()))
-      line = '';
-    while ((line.match(/\)/g) ?? []).length > (line.match(/\(/g) ?? []).length)
-      line = line.replace(/\)(?=[.!?:]?\s*$)|\)(?![\s\S]*\))/, '');
-    // An opening with no close ("*(Note: USGS prints no capacity…", seen live,
-    // Mozambique): the "(" goes, and a lone "*" of emphasis that never closes.
-    while ((line.match(/\(/g) ?? []).length > (line.match(/\)/g) ?? []).length)
-      line = line.replace(/^(\s*(?:[-*•>]\s+)?\**)\(|\((?![\s\S]*\()/, '$1');
-    if ((line.replace(/\*\*/g, '').match(/\*/g) ?? []).length % 2)
-      line = line.replace(/^(\s*(?:[-•>]\s+)?)\*(?!\*)/, '$1');
-    return line;
-  });
-  if (!GAP_SAYS.test(out.join('\n')))
-    out = out
-      .map((l) =>
-        l
-          .split(SPLIT)
-          .filter((x) => !SETTLE.test(x))
-          .join(' '),
-      )
-      .filter((l, i) => l.trim() || !lines[i].trim());
-  // A gap sentence carries no "(source)" of the model's: there is nothing to source.
-  out = out.map((l) => (GAP_SAYS.test(l) ? l.replace(/\s*\(?\[source\]\([^)]*\)\)?/gi, '') : l));
-  // A sentence that announces what follows ("…the operator shown in the table
-  // below is:", seen live, Zimbabwe) goes when nothing follows it: no list
-  // item, no table, no code block.
-  out = out.map((l, i) => {
-    if (!/:\s*$/.test(l)) return l;
-    const next = out.slice(i + 1).find((x) => x.trim()) ?? '';
-    if (/^\s*([-*•]|\d+\.)\s|^\s*```|^\s*\|/.test(next)) return l;
-    return l.replace(/(^|(?<=[.!?])\s+)[^.!?]*:\s*$/, '').trimEnd();
-  });
-  const titleLevel = (l: string): number => {
-    const md = l.match(/^(#{1,6}) /)?.[1].length;
-    if (md) return md;
-    const t = l.trim();
-    // A code fence, and anything it holds, is never a title.
-    if (/^`{3}/.test(t) || /^[{["]/.test(t)) return 0;
-    if (!t || /\[W\d+\]|\]\(|\d/.test(t.replace(/\b(19|20)\d{2}\b/g, ''))) return 0;
-    if (/^\*\*[^*]+\*\*:?$/.test(t)) return 7;
-    return t.split(/\s+/).length <= 8 && !/[.!?:;,]$/.test(t) ? 7 : 0;
-  };
-  // Repeat: dropping one orphan can orphan the title above it.
-  for (let changed = true; changed;) {
-    changed = false;
-    const next = (i: number) => out.slice(i + 1).find((l) => l.trim()) ?? '';
-    out = out.filter((l, i) => {
-      const level = titleLevel(l);
-      if (!level) return true;
-      const n = next(i);
-      const nLevel = titleLevel(n);
-      // Kept over text, or over a deeper heading (its sub-section); dropped over nothing.
-      const keep = Boolean(n) && (!nLevel || (nLevel > level && level < 7));
-      if (!keep) changed = true;
-      return keep;
-    });
-  }
-  return out
-    .join('\n')
-    .replace(/\n{3,}/g, '\n\n')
-    .trim();
 }

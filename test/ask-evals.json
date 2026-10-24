@@ -478,11 +478,8 @@
     ],
     "mustFlag": [],
     "mustFlagForms": [],
-    "mustKeep": [
-      "The buyers of Kazakhstan's uranium output are not in our sources.",
-      "### Unchecked web leads"
-    ],
-    "mustDrop": ["Companies: Akbastau JV"]
+    "mustKeep": ["The buyers of Kazakhstan's uranium output are not in our sources."],
+    "mustDrop": ["Companies: Akbastau JV", "### Unchecked web leads"]
   },
   {
     "id": "kazakh-uranium-uncited-buyers-live",
@@ -712,5 +709,80 @@
     "operatorsNamed": true,
     "mustKeep": ["Capacity is capacity, not production"],
     "mustDrop": ["the operator shown in the table below is:"]
+  },
+  {
+    "id": "kz-guidance-open-web",
+    "facet": "company",
+    "question": "What did Kazatomprom say about 2026 production guidance?",
+    "mustMention": [],
+    "expectedTools": [],
+    "expectedHits": [],
+    "route": "web",
+    "recordedOpening": "test/fixtures/ask-live-kz-guidance-2026-10-24.md",
+    "recordedNote": "Reconstructed 2026-10-24 from the live page text of the owner's reproduction (opening and headings as shown on https://substrata.orangecat.ch/chat), not a byte-for-byte recording.",
+    "webFigureGuard": {
+      "passage": "Synthetic test passage (example.org): the company now expects 2026 production of 25,000 to 26,500 tU on a 100% basis.",
+      "wrong": "Kazatomprom now guides 27,000 tU for 2026 [W1].",
+      "right": "Kazatomprom now expects 2026 production of 25,000 to 26,500 tU on a 100% basis [W1]."
+    }
+  },
+  {
+    "id": "kz-competitors-share-prices",
+    "facet": "company",
+    "question": "Who are Kazatomprom's main competitors and how have their share prices moved this month?",
+    "mustMention": [],
+    "expectedTools": [],
+    "expectedHits": [],
+    "route": "web",
+    "recordedOpening": "test/fixtures/ask-live-kz-competitors-2026-10-24.md",
+    "recordedNote": "Reconstructed 2026-10-24 from the live page text of the owner's reproduction (opening and headings as shown on https://substrata.orangecat.ch/chat), not a byte-for-byte recording.",
+    "queryHolds": ["October 2026"]
+  },
+  {
+    "id": "cameco-mcarthur-news",
+    "facet": "events",
+    "question": "What is the latest news on the Cameco McArthur River production?",
+    "mustMention": [],
+    "expectedTools": [],
+    "expectedHits": [],
+    "route": "web",
+    "queryHolds": ["2026"]
+  },
+  {
+    "id": "rare-earths-outside-china",
+    "facet": "material",
+    "question": "Who are the largest rare earth producers outside China and what are they doing?",
+    "mustMention": [],
+    "expectedTools": [],
+    "expectedHits": [],
+    "route": "web"
+  },
+  {
+    "id": "explain-conversion-plant",
+    "facet": "science",
+    "question": "Explain what a uranium conversion plant does",
+    "mustMention": [],
+    "expectedTools": [],
+    "expectedHits": [],
+    "route": "web",
+    "background": {
+      "kept": "From general knowledge, not checked: a conversion plant turns uranium concentrate into uranium hexafluoride, the gas enrichment plants take.",
+      "dropped": "From general knowledge, not checked: conversion plants run at about 90% utilisation."
+    }
+  },
+  {
+    "id": "kz-share-price-today",
+    "facet": "capital",
+    "question": "What is Kazatomprom's share price today?",
+    "mustMention": [],
+    "expectedTools": [],
+    "expectedHits": [],
+    "route": "web",
+    "queryHolds": ["October 2026"],
+    "webFigureGuard": {
+      "passage": "Synthetic test passage (example.org), dated 2026-10-23: shares closed at 41.20 on the AIX.",
+      "wrong": "Kazatomprom trades at about 38.50 [W1].",
+      "right": "As of 2026-10-23, Kazatomprom shares closed at 41.20 on the AIX, according to [W1]."
+    }
   }
 ]

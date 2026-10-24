@@ -10,8 +10,9 @@
  * or mark them as outside the corpus.
  *
  * Deliberately lenient — a false alarm costs a model call, a miss costs the
- * reader's trust. Years, small counts, numbers the reader typed, and anything
- * in a sentence marked "Outside the corpus" are never questioned.
+ * reader's trust. Years, small counts and numbers the reader typed are never
+ * questioned. Labelled background is (since 2026-10-24, open-web-ask.md):
+ * figures come from a corpus row or a dated web passage, never from memory.
  */
 import type { ChatMessage } from '@bitbaum/ai-kit';
 import { REVISION_RULE, type ModelTurn } from './turn';
@@ -148,12 +149,13 @@ export function printedFormMismatches(answer: string, evidence: string): string[
   return [...out];
 }
 
-/** Sentences the answer itself marks as background: its own claim, labelled. */
+/**
+ * The text whose figures are checked: all of it. Background marked "Outside
+ * the corpus" used to be exempt; seen in the owner's review on 2026-10-24, a
+ * figure is exactly what memory gets wrong, so none is exempt any more.
+ */
 function claimedText(answer: string): string {
-  return answer
-    .split(/(?<=[.!?])\s+|\n+/)
-    .filter((sentence) => !/outside the corpus|außerhalb des korpus/i.test(sentence))
-    .join('\n');
+  return answer;
 }
 
 /**
@@ -201,7 +203,7 @@ export async function reviseUnsupported(opts: {
         { role: 'assistant', content: answer },
         {
           role: 'user',
-          content: `Check before I read this: these figures in your answer appear in none of the looked-up rows, or are written in a unit or a form the row does not use: ${figures.join(', ')}. Rewrite the whole answer: a figure from a row is copied exactly as the row prints it ("50%", never "50 %"; "24000", never "24 000"), a quantity exactly as the source states it — same number, same unit, never converted or abbreviated; a figure from no row is removed — or, only if it is well-established general knowledge, kept in a sentence that starts "Outside the corpus —". Keep every figure that IS in the rows, with its source. No tools. ${REVISION_RULE}`,
+          content: `Check before I read this: these figures in your answer appear in none of the looked-up rows, or are written in a unit or a form the row does not use: ${figures.join(', ')}. Rewrite the whole answer: a figure from a row is copied exactly as the row prints it ("50%", never "50 %"; "24000", never "24 000"), a quantity exactly as the source states it — same number, same unit, never converted or abbreviated; a figure from a web passage is copied exactly as that passage [W#] prints it and cited to it; a figure from no row and no passage is removed, and the sentence says what the sources did show instead. Keep every figure that IS in the rows or passages, with its source. No tools. ${REVISION_RULE}`,
         },
       ],
       onText,

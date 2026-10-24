@@ -12,6 +12,7 @@ import {
 } from '@bitbaum/chatkit/react';
 import { HOME_LINK } from '@/config/site-nav';
 import { answerRow } from '@/lib/ask-row';
+import { webCitations } from '@/lib/chat/web-citations';
 import { chatHref, loadThread, saveThread } from '@/lib/ask-thread';
 import type { CheckRequest } from '@/lib/ask-bridge';
 import { useAiKey } from './ai-key/useAiKey';
@@ -99,7 +100,8 @@ export function ResearchChat({
   const messages: ChatMessageData[] = chat.turns.map((t) => ({
     id: t.id,
     role: t.role,
-    content: t.content,
+    // A web page the answer cites is a source chip linked to the page (lib/chat/web-citations.ts).
+    ...webCitations(t.content, t.role === 'assistant' ? t.web : undefined),
     // ONE row under the latest answer: the model's suggested replies first,
     // then the questions built from the records it read (`lib/ask-row.ts`).
     // chatkit shows it under the latest answer only, never while a turn runs,

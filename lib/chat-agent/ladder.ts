@@ -226,7 +226,7 @@ function sentences(answer: string): string[] {
         .replace(/^\s*[-•\d.]+\s*/, '')
         .trim(),
     )
-    .filter((s) => s.length > 0 && !/^outside the corpus/i.test(s)); // labelled background denies nothing
+    .filter((s) => s.length > 0 && !/^(outside the corpus|from general knowledge)/i.test(s)); // labelled background denies nothing
 }
 
 /** A gap sentence that denies operators or owners — checked against rows that carry them. */
@@ -272,7 +272,7 @@ export function wallInstruction(problem: WallProblem, links: MissingLink[]): str
   const missing = links.length
     ? ` What is genuinely missing: ${links.map((l) => `${l.sentence} A source that would settle it: ${l.settles}.`).join(' ')}`
     : '';
-  return `Check before I read this: ${why}. Rewrite the whole answer. First state what the sources DO say — names, owners with their stakes, figures — copying each company entry, stake, capacity and figure exactly as printed, with links. Then, for the part that is missing, name the single missing link in one sentence and say which kind of source would settle it. If web results [W#] are above, show them under their own heading as unchecked leads, never as corpus rows.${missing} Never answer only "not in the corpus". No tools. ${REVISION_RULE}`;
+  return `Check before I read this: ${why}. Rewrite the whole answer. First state what the sources DO say — names, owners with their stakes, figures — copying each company entry, stake, capacity and figure exactly as printed, with links. Then, for the part that is missing, name the single missing link in one sentence and say which kind of source would settle it. If web passages [W#] are above, use them in the answer, cited [W#] after each claim, never as corpus rows.${missing} Never answer only "not in the corpus". No tools. ${REVISION_RULE}`;
 }
 
 /** Send a wall back once. The revised text, or null when the revision failed. */

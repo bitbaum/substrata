@@ -120,5 +120,5 @@ test('web citations are W, never F', () => {
   assert.match(rendered, /\[W1\]/);
   assert.match(rendered, /\[W2\]/);
   assert.ok(!/\[F\d/.test(rendered), 'web material used a corpus citation marker');
-  assert.match(rendered, /cite it as \[W1\], \[W2\]/);
+  assert.match(rendered, /cite each\s+claim as \[W1\], \[W2\]/);
 });

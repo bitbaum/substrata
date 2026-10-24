@@ -40,7 +40,9 @@ export interface ToolEnv {
   rails?: string[];
   /** Injected so tests need neither a database nor a network. */
   leads?: (q: { bottlenecks?: string[]; query?: string; days?: number }) => Promise<LeadHit[]>;
-  web?: (query: string, signal?: AbortSignal) => Promise<WebLookup>;
+  web?: (query: string, signal?: AbortSignal, onRead?: (url: string) => void) => Promise<WebLookup>;
+  /** A step the reader sees while it works ("Reading reuters.com…"), and keeps in the thought row. */
+  step?: (label: string) => void;
   /** Read one cited source for the passage bearing on a claim (verify mode). */
   read?: (url: string, claim: string, signal?: AbortSignal) => Promise<WebFinding | null>;
   /** Open roles from the job board (careers-query `openJobs`). */

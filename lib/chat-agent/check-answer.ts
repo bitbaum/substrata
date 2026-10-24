@@ -35,6 +35,8 @@ import {
 import { openWithSummary, tableProse } from './table-prose';
 import { attachCitations } from './attach-citations';
 import { defaultDeny } from './default-deny';
+import { answerFirst } from './open-first';
+import { webFigureProblems, webPassagesIn } from './web-figures';
 import { withoutInternals } from './internal';
 import { dropUncited, oneGapEach, tableEntityWords, uncitedClaims, webCountIn } from './uncited';
 import type { ModelTurn } from './turn';
@@ -96,7 +98,14 @@ export async function checkAnswer(opts: {
     }
   }
 
-  const figures = unsupportedFigures(answer, messages.map((m) => String(m.content)).join('\n'));
+  // Figures from nowhere, and figures cited to a web page that does not print them (web-figures.ts).
+  const passages = webPassagesIn(opts.results);
+  const figures = [
+    ...new Set([
+      ...unsupportedFigures(answer, messages.map((m) => String(m.content)).join('\n')),
+      ...webFigureProblems(answer, passages),
+    ]),
+  ];
   if (answer.trim() && figures.length) {
     emit({ type: 'reset' });
     emit({ type: 'status', text: 'Checking the figures against the sources…' });
@@ -167,7 +176,9 @@ export function finishInCode(
         summary: facts?.summary ?? [],
         webCount: opts.webCount,
         evidence,
+        web: webPassagesIn(opts.results),
       }).answer
     : honest;
-  return withoutInternals(oneGapEach(backed, gaps));
+  // The answer first; a corpus gap at the end, once; no heading fencing the web off (open-first.ts).
+  return answerFirst(withoutInternals(oneGapEach(backed, gaps)));
 }
