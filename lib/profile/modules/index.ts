@@ -21,6 +21,7 @@ import { dependencies } from './dependencies';
 import { produces, companies } from './country';
 import { rules as countryRules, access, countryEvents } from './country-rules';
 import { dossier } from './dossier';
+import { coverage } from './coverage';
 
 /**
  * The registry. A new section is one definition plus one entry here.
@@ -37,6 +38,7 @@ import { dossier } from './dossier';
  *   80  what has happened
  *   84+ what it connects to
  *   86  what the corpus knows and lacks (the dossier)
+ *   87  how complete the picture is (the coverage ratio, lib/coverage)
  *   89  the sources a company page rests on, after what they support
  *   90  discussion, last, because it responds to everything above
  *
@@ -89,6 +91,7 @@ export const PROFILE_MODULES: AnyProfileModule[] = [
   // Every kind that has them
   dependencies,
   dossier,
+  coverage,
   timeline,
   role,
   related,

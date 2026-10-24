@@ -318,3 +318,33 @@
   margin-left: -0.4rem;
   color: var(--ck-ink-muted);
 }
+
+/* Coverage rows (lib/coverage): the resource, then its basis or why it
+   cannot be computed, on a second quieter line inside the one summary. */
+.coverage-line {
+  display: block;
+  margin-top: 0.1rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--color-fg-tertiary);
+}
+.coverage-working {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--color-fg-secondary);
+  overflow-wrap: anywhere;
+}
+.coverage-working a {
+  color: var(--color-fg-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.coverage-rows {
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--color-fg-secondary);
+  overflow-wrap: anywhere;
+}

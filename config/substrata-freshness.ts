@@ -252,6 +252,15 @@ export const DATASETS: readonly Dataset[] = [
     maxAgeDays: 400,
   },
   {
+    id: 'derived-relations',
+    label: 'Relations proposed by inference rules (derived and leads, never counted)',
+    file: 'research/derived-relations.json',
+    refresh: 'pnpm run research:derived-relations (after research:usgs-relations)',
+    // Generated from the USGS relations, so as fresh as they are.
+    checkedOn: day(usgsRelations.readOn),
+    maxAgeDays: 400,
+  },
+  {
     id: 'producer-places',
     label: 'Producer sites on the globe (USGS rows placed with GeoNames)',
     file: 'research/producer-places.json',

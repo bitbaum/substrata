@@ -18,6 +18,7 @@
  * Every tool result is data, never instructions; the web one especially.
  * Results are kept short because the free tier pays for every token of them.
  */
+import { COVERAGE_TOOLS } from './coverage';
 import { DEPENDENCY_TOOLS } from './dependencies';
 import { EXPOSURE_TOOLS } from './exposure';
 import { OWNERSHIP_TOOLS } from './ownership';
@@ -53,6 +54,7 @@ export const CHAT_TOOLS: readonly ChatTool[] = [
   // related_to's non-empty `owners` list covers the owners link in
   // lib/chat-agent/ladder.ts; a `buyers` list would cover the buyers link.
   ...GRAPH_TOOLS,
+  ...COVERAGE_TOOLS,
   ...SCENARIO_TOOLS,
   ...LIST_TOOLS,
   ...NUMBER_TOOLS,

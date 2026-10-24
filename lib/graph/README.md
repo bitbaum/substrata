@@ -50,6 +50,13 @@ An endpoint not in the directory is a minted `company:<slug>` or
 
 A hand-written relation with no other home goes in `config/substrata-relations.ts`.
 
+**Rule proposals** (`research/derived-relations.json`, written by
+`pnpm run research:derived-relations` from `lib/coverage/rules.ts`) are
+`derived` or `lead` only, carry their rule and chain, and load into
+`store.proposals` — validated, but never walked, counted or indexed.
+`proposalsFor(id)` reads them. `shares_parent_with` and `may_be_same_as` are
+rule-only types and are always leads.
+
 ## One organisation, one node
 
 A minted id comes from the name a source printed, so a typesetting slip
