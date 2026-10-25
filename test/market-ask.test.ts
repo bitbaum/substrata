@@ -124,11 +124,8 @@ test('fundamentals and companies outside the seed answer with a reason, never a 
   const nv = JSON.parse(
     (await runTool('fundamentals', { company: 'NVIDIA', metrics: 'revenue' }, env)).result,
   );
-  assert.equal(nv.metrics[0].annual.at(-1).value, '215.94 billion USD');
-  assert.match(
-    nv.metrics[0].growth_year_on_year.at(-1),
-    /^\+[\d.]+%, fiscal year ending 2026-01-25/,
-  );
+  assert.equal(nv.metrics[0].annual_newest_first[0].value, '215.94 billion USD');
+  assert.match(nv.metrics[0].growth_year_on_year[0], /^\+[\d.]+%, fiscal year ending 2026-01-25/);
   const tel = JSON.parse(
     (await runTool('fundamentals', { company: 'Tokyo Electron' }, env)).result,
   );

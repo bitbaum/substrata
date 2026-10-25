@@ -125,21 +125,27 @@ export const MARKET_TOOLS: readonly ChatTool[] = [
         company: c.name,
         ...(pageOf(c) ? { page: pageOf(c) } : {}),
         filer: `${f.entityName} (SEC CIK ${f.cik})`,
+        // Fiscal years end on different dates by company: compare them as labelled.
         metrics: metrics.map((m) =>
           'unavailable' in m
             ? { metric: m.label, unavailable: m.reason }
             : {
                 metric: m.label,
-                annual: m.annual.slice(-5).map((p) => ({
-                  period: `fiscal year ending ${p.end}`,
-                  value: fmt(m, p),
-                  form: p.form,
-                  filing: p.url,
-                })),
+                // Newest first: a result cut for length keeps the head of each list.
+                annual_newest_first: [...m.annual]
+                  .reverse()
+                  .slice(0, 5)
+                  .map((p) => ({
+                    period: `fiscal year ending ${p.end}`,
+                    value: fmt(m, p),
+                    form: p.form,
+                    filing: p.url,
+                  })),
                 ...(m.metric === 'revenue' || m.metric === 'netIncome'
                   ? {
                       growth_year_on_year: annualGrowth(m)
-                        .slice(-4)
+                        .reverse()
+                        .slice(0, 4)
                         .map(
                           (g) => `${g.display}, fiscal year ending ${g.to.end} vs ${g.from.end}`,
                         ),
@@ -147,12 +153,15 @@ export const MARKET_TOOLS: readonly ChatTool[] = [
                   : {}),
                 ...(m.quarterly.length
                   ? {
-                      latest_quarters: m.quarterly.slice(-4).map((p) => ({
-                        period: `${p.start} to ${p.end}`,
-                        value: fmt(m, p),
-                        form: p.form,
-                        filing: p.url,
-                      })),
+                      latest_quarters: [...m.quarterly]
+                        .reverse()
+                        .slice(0, 4)
+                        .map((p) => ({
+                          period: `${p.start} to ${p.end}`,
+                          value: fmt(m, p),
+                          form: p.form,
+                          filing: p.url,
+                        })),
                     }
                   : {}),
                 reported_as: m.annual.at(-1)?.concept ?? m.quarterly.at(-1)?.concept,
