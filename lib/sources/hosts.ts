@@ -93,6 +93,21 @@ export const ALLOWED_HOSTS: readonly HostRule[] = [
     maxBytes: 64 * MB,
     timeoutMs: 600_000,
   },
+  // Thematic fund holdings files (lib/sources/etf-holdings.ts): one file per
+  // fund per day, published by the issuer for anyone to download.
+  ...[
+    'assets.ark-funds.com',
+    'assets.globalxetfs.com',
+    'www.ftportfolios.com',
+    'www.defianceetfs.com',
+    'www.ssga.com',
+  ].map((host) => ({
+    host,
+    family: 'etf-holdings',
+    minIntervalMs: 1500,
+    userAgent: USER_AGENT,
+    maxBytes: 4 * MB,
+  })),
 ];
 
 export function hostRule(url: string): HostRule | undefined {

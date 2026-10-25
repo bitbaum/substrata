@@ -25,6 +25,7 @@ import sanctions from '../research/sanctions.json';
 import producers from '../research/usgs-producers.json';
 import producerPlaces from '../research/producer-places.json';
 import usgsRelations from '../research/usgs-relations.json';
+import universe from '../research/universe.json';
 import { ASSESSMENTS } from './substrata-assessment';
 
 export type FeedId =
@@ -153,6 +154,15 @@ const day = (iso: string | null | undefined) => (iso ?? '').slice(0, 10);
 const oldest = (dates: readonly string[]) => [...dates].sort()[0] ?? '';
 
 export const DATASETS: readonly Dataset[] = [
+  {
+    id: 'universe',
+    label: 'Company universe evidence (fund holdings, EDGAR, GLEIF, Wikidata)',
+    file: 'research/universe.json',
+    refresh: 'pnpm exec tsx scripts/research/universe.ts',
+    checkedOn: day(universe.readOn),
+    // Monthly (config/universe-themes.ts REFRESH); a fund row also ages out on its own clock.
+    maxAgeDays: 45,
+  },
   {
     id: 'listings',
     label: 'Tickers and listings',

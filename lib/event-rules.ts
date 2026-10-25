@@ -14,7 +14,7 @@ import { CHOKEPOINTS, COVERAGE } from '@/config/substrata-coverage';
 import { PARTICIPANTS } from '@/config/substrata-participants';
 import type { CoverageEvent, EventEffect, EventKind } from '@/config/substrata-events';
 import { resolveIn } from '@/lib/entities/registry';
-import { isStub } from '@/lib/entities/types';
+import { isIdentified, isStub } from '@/lib/entities/types';
 
 export const EVENT_KINDS: readonly EventKind[] = [
   'capacity',
@@ -128,7 +128,7 @@ const inDirectory = inSet(PARTICIPANT_NAMES);
 function isParticipant(name: string): boolean {
   if (inDirectory(name)) return true;
   const stub = resolveIn('company', name);
-  return stub !== undefined && isStub(stub) && stub.name === name;
+  return stub !== undefined && (isStub(stub) || isIdentified(stub)) && stub.name === name;
 }
 
 /**

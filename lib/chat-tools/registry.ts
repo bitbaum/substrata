@@ -39,6 +39,7 @@ import { RESOURCE_TOOLS } from './resources';
 import { SCENARIO_TOOLS } from './scenario';
 import { withAliases, type Args, type ChatTool } from './tool';
 import { TRADE_RULE_TOOLS } from './trade-rules';
+import { UNIVERSE_TOOLS } from './universe';
 import { WEB_TOOLS } from './web';
 
 /** Every tool, in the order the model is offered them. */
@@ -47,6 +48,8 @@ export const CHAT_TOOLS: readonly ChatTool[] = [
   ...DEPENDENCY_TOOLS,
   ...EXPOSURE_TOOLS,
   ...OWNERSHIP_TOOLS,
+  // Why a company is or is not covered: the written admission rule.
+  ...UNIVERSE_TOOLS,
   ...RESOURCE_TOOLS,
   ...PRODUCER_TOOLS,
   ...TRADE_RULE_TOOLS,

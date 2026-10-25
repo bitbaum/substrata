@@ -11,18 +11,8 @@ import usgsRelations from '../../research/usgs-relations.json';
 
 const NODES = (usgsRelations as { nodes: Record<string, { name: string; kind: string }> }).nodes;
 
-const LEGAL_SUFFIX =
-  /\b(?:corp|corporation|inc|incorporated|jsc|llp|llc|ltd|limited|ag|plc|sa|nv|pte|pty|gmbh|co|holding|holdings)\b\.?/gi;
-
-/** Lower case, legal suffixes and punctuation dropped: "Cameco Corp." → "cameco". */
-export function nameKey(name: string): string {
-  return name
-    .toLowerCase()
-    .replace(/[“”"«»]/g, '')
-    .replace(LEGAL_SUFFIX, ' ')
-    .replace(/[^\p{L}\p{N}]+/gu, ' ')
-    .trim();
-}
+export { nameKey } from './name-key';
+import { nameKey } from './name-key';
 
 let byKey: Map<string, string[]> | null = null;
 

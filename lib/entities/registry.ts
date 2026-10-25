@@ -7,7 +7,7 @@
  * disagree about what exists or what it is called.
  */
 import { DERIVED_SOURCES, ENTITY_SOURCES } from './sources';
-import { isStub, type Entity, type EntityKind } from './types';
+import { isIdentified, isStub, type Entity, type EntityKind } from './types';
 
 /**
  * The corpus, built once and indexed.
@@ -108,13 +108,22 @@ export function resolveIn(kind: Entity['kind'], keyOrName: string): Entity | und
  */
 export function resolveInDirectory(kind: Entity['kind'], keyOrName: string): Entity | undefined {
   const hit = resolveIn(kind, keyOrName);
-  return hit && !isStub(hit) ? hit : undefined;
+  return hit && !isDerived(hit) ? hit : undefined;
+}
+
+/**
+ * Built in the derived pass (a stub, or a tier B company from lib/universe),
+ * so never part of what the graph resolves against: the graph must read the
+ * same whether or not the derived pass has run.
+ */
+function isDerived(entity: Entity): boolean {
+  return isStub(entity) || isIdentified(entity);
 }
 
 /** Resolve by id, profiled entities only (see `resolveInDirectory`). */
 export function resolveDirectoryEntity(id: string): Entity | undefined {
   const hit = resolveEntity(id);
-  return hit && !isStub(hit) ? hit : undefined;
+  return hit && !isDerived(hit) ? hit : undefined;
 }
 
 /**

@@ -20,6 +20,7 @@ import { printedAs } from '@/lib/graph/aliases';
 import { countryNameOf } from '@/lib/world/pages';
 import { marketHref } from '../../links';
 import { STUB_EVIDENCE, type Entity, type EntityId } from '../types';
+import { identifiedSlugs } from './company-universe';
 
 /** Counted relations touching `id`, both directions, in id order. */
 export function stubRelations(id: string): Relation[] {
@@ -133,6 +134,8 @@ function companyStubs(): Entity[] {
     for (const id of [r.from, r.to])
       if (id.startsWith('company:') && !graphNode(id, s).inDirectory) ids.add(id);
   }
+  // A stub the universe has identified (tier B, same slug) is built there instead.
+  for (const id of ids) if (identifiedSlugs().has(id.slice('company:'.length))) ids.delete(id);
   return [...ids].sort().map(stub);
 }
 

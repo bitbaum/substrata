@@ -13,7 +13,9 @@ import { database } from '@/lib/db';
 import { parseFollows } from '@/lib/follows';
 import { EntityProfile, type ExtraSection } from '@/components/portal/EntityProfile';
 import { resolveEntity, resolveIn } from '@/lib/entities/registry';
-import { isStub, type Entity } from '@/lib/entities/types';
+import { isIdentified, isStub, type Entity } from '@/lib/entities/types';
+import { universeEntry } from '@/lib/universe/store';
+import { IdentifiedCompany } from './_sections/IdentifiedCompany';
 import { aliasEntry } from '@/lib/graph/aliases';
 import { StubCompany } from './_sections/StubCompany';
 import { t } from '@/lib/i18n/messages';
@@ -33,7 +35,7 @@ interface RouteParams {
 
 /**
  * Directory companies are built ahead; the ~1,200 stub companies (named only
- * by the relation graph) render on first request, so the build stays the size
+ * by the relation graph) and the tier B companies (lib/universe) render on first request, so the build stays the size
  * it was. `dynamicParams` is Next's default; it is stated because the stubs
  * depend on it.
  */
@@ -49,12 +51,18 @@ function stubOf(slug: string): Entity | undefined {
   return entity && isStub(entity) ? entity : undefined;
 }
 
+/** A tier B company: admitted to the universe on cited evidence, not profiled. */
+function identifiedOf(slug: string): Entity | undefined {
+  const entity = resolveEntity(`company:${slug}`);
+  return entity && isIdentified(entity) ? entity : undefined;
+}
+
 export async function generateMetadata({ params }: RouteParams): Promise<Metadata> {
   const { slug } = await params;
   const p = participantBySlug(slug);
   if (!p) {
-    const stub = stubOf(slug);
-    return stub ? { title: stub.name, description: stub.summary } : {};
+    const other = identifiedOf(slug) ?? stubOf(slug);
+    return other ? { title: other.name, description: other.summary } : {};
   }
   const profile = companyProfile(slug);
   const held = profile?.held.map((h) => h.bottleneck.name) ?? [];
@@ -82,8 +90,10 @@ export default async function ParticipantPage({ params }: RouteParams) {
     // A reviewed alias (config/entity-aliases.ts) is the same firm: one page.
     const alias = aliasEntry(`company:${slug}`);
     if (alias) permanentRedirect(`/markets/${alias.canonical.slice('company:'.length)}`);
+    const identified = identifiedOf(slug);
+    const entry = identified ? universeEntry(slug) : undefined;
     const stub = stubOf(slug);
-    if (!stub) notFound();
+    if (!stub && !(identified && entry)) notFound();
     return (
       <Shell>
         <Page sections>
@@ -95,7 +105,11 @@ export default async function ParticipantPage({ params }: RouteParams) {
               Markets
             </Link>
           </nav>
-          <StubCompany entity={stub} />
+          {identified && entry ? (
+            <IdentifiedCompany entity={identified} entry={entry} />
+          ) : (
+            <StubCompany entity={stub!} />
+          )}
         </Page>
       </Shell>
     );
