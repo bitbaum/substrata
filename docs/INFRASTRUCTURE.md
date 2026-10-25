@@ -99,6 +99,36 @@ Analysis outputs must name that digest and distinguish corpus counts from
 claims about the entire market. Do not mutate a captured snapshot to correct
 research; correct the source corpus, redeploy, and capture a new digest.
 
+## Market data
+
+`lib/market-data/` holds share prices, reported financials and holders for the
+listed companies in its seed (`lib/market-data/identity.ts`, keyed by
+`{exchange, symbol}` and CIK — the seam the company universe will replace).
+`016-market-data.sql` creates `research_price_points` / `research_price_runs`
+(daily closes) and `research_market_snapshots` / `research_market_fact_runs`
+(SEC EDGAR fundamentals and holders per CIK). Apply it with
+`scripts/provision-service.py scripts/db/016-market-data.sql`, then backfill
+once from a checkout with the runtime `DATABASE_URL` (ssh tunnel):
+`pnpm exec tsx scripts/research/market-data.ts --backfill`.
+
+`POST /api/cron/prices` (same `CRON_SECRET` gate as `/api/cron/series`) fetches
+every seed listing's closes, then refreshes the EDGAR snapshots in the time
+left. It needs a box timer, which is not installed yet: add one beside the
+other `appcron-substrata-*` timers (Loki's `install-app-crons.sh`), calling the
+route through `/opt/_appcron/run.sh` as they do, daily after the US close:
+
+```
+appcron-substrata-prices.timer   OnCalendar=*-*-* 22:07:00 UTC   → POST /api/cron/prices
+```
+
+Until then `/data/freshness` shows "Share prices" and "Company financials and
+holders" as not installed, and the Ask reads prices and filings live, cached
+in process.
+
+Prices come from Yahoo Finance's chart endpoint under its personal-use terms:
+end-of-day, split-adjusted closes, labelled delayed, never exported. Why that
+source, what was rejected and its failure modes: `lib/market-data/prices/chain.ts`.
+
 ## From lead to event
 
 `010-event-drafts.sql` backs the drafter. It reads a lead's page and asks a

@@ -145,7 +145,7 @@ function leadClause(line: string): string {
 }
 
 test('the eval set is the one the ADR names', () => {
-  assert.equal(EVALS.length, 55);
+  assert.equal(EVALS.length, 59);
   assert.equal(EVALS.filter((r) => r.route === 'web').length, 6, 'six open-web questions');
   assert.equal(EVALS.filter((r) => r.wall === false).length, 28, 'twenty-eight no-wall questions');
   assert.equal(new Set(EVALS.map((r) => r.id)).size, EVALS.length, 'ids are unique');

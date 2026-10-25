@@ -84,6 +84,23 @@ export const ALLOWED_HOSTS: readonly HostRule[] = [
     userAgent: USER_AGENT,
     maxBytes: 4 * MB,
   },
+  // Yahoo Finance chart endpoint: daily closes for lib/market-data/prices (one
+  // call per ticker per day). query2 is the same service on another edge, tried
+  // when query1 refuses. Terms and why this source: lib/market-data/prices/chain.ts.
+  {
+    host: 'query1.finance.yahoo.com',
+    family: 'market',
+    minIntervalMs: 1000,
+    userAgent: USER_AGENT,
+    maxBytes: 2 * MB,
+  },
+  {
+    host: 'query2.finance.yahoo.com',
+    family: 'market',
+    minIntervalMs: 1000,
+    userAgent: USER_AGENT,
+    maxBytes: 2 * MB,
+  },
   // Kazatomprom investor relations: the site and its PDF storage.
   {
     host: 'www.kazatomprom.kz',

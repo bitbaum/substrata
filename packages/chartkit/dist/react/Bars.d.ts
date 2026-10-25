@@ -39,6 +39,8 @@ export interface ShareBarsProps {
     caption: string;
     /** 0–1: the rest, drawn last in the line colour and listed as "Other". */
     other?: number;
+    /** What the rest is called in the legend, when "Other" would not say what it is. */
+    otherLabel?: string;
 }
 /**
  * One 100% stacked bar with a legend row under it. The largest segment
@@ -46,5 +48,5 @@ export interface ShareBarsProps {
  * container query, so the same markup decides at every width); every
  * segment is named in the legend.
  */
-export declare function ShareBars({ rows, caption, other }: ShareBarsProps): import("react").JSX.Element;
+export declare function ShareBars({ rows, caption, other, otherLabel }: ShareBarsProps): import("react").JSX.Element;
 //# sourceMappingURL=Bars.d.ts.map

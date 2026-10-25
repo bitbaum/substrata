@@ -104,7 +104,9 @@ test('Ask can answer "who owns X" for a listed, a private and an unknown company
   assert.ok(asml.holders.some((h: { name: string }) => /BlackRock/.test(h.name)));
   assert.match(asml.holders[0].share, /%$/);
   assert.match(asml.holders[0].source, /^https:\/\/www\.sec\.gov\//);
-  assert.ok('other_holders_and_public_float' in asml);
+  // The rest is typed and named for what it is — never a bare "Other 87%".
+  assert.equal(asml.rest.label, 'Other holders (each below 5%; not itemised in filings)');
+  assert.match(asml.rest.what_it_is, /less than 5%/);
   assert.match(asml.page, /^\/markets\/asml#ownership$/);
 
   const sibelco = await json('ownership', { company: 'Sibelco' });

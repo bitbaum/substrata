@@ -54,3 +54,5 @@ public/geo/
 research/usgs-relations.json
 # Recorded source responses: kept byte for byte as served (quotes are spans of them).
 test/fixtures/sources/
+# Recorded market-data responses (scripts/research/market-data.ts --fixtures), kept as served.
+test/fixtures/market/

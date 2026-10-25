@@ -5,6 +5,8 @@ import type { Filing } from '../filings';
 import type { StoredItem } from '../science-read';
 import type { WebFinding, WebLookup } from '../chat-web';
 import type { AnswerTable } from '../chat/answer-table';
+import type { AnswerChart } from '../chat/answer-chart';
+import type { FetchDeps } from '../sources/http';
 
 /** A corpus row the answer read, for the "records read" list under it. */
 export interface RecordRef {
@@ -27,10 +29,12 @@ export interface Ledger {
   trail: string[];
   /** Tables built in code from tool rows, drawn under the answer (lib/chat/answer-table.ts). */
   tables: AnswerTable[];
+  /** Charts built in code from tool rows (prices, holders), drawn under the answer (lib/chat/answer-chart.ts). */
+  charts: AnswerChart[];
 }
 
 export function emptyLedger(): Ledger {
-  return { records: new Map(), leads: [], web: [], trail: [], tables: [] };
+  return { records: new Map(), leads: [], web: [], trail: [], tables: [], charts: [] };
 }
 
 export interface ToolEnv {
@@ -49,6 +53,8 @@ export interface ToolEnv {
   jobs?: (filter: JobFilter, limit: number) => Promise<{ jobs: JobRow[]; total: number }>;
   /** Collected papers and grants on one bottleneck (science-read `itemsFor`). */
   science?: (bottleneck: string, limit: number) => Promise<StoredItem[]>;
+  /** How market-data reads reach their sources; tests pass recorded responses (test/fixtures/market). */
+  market?: FetchDeps;
   /** SEC filings by these registrants (filings-store `filingsFor`). */
   filings?: (ciks: readonly number[], days: number) => Promise<Filing[]>;
 }

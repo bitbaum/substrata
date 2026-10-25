@@ -1,5 +1,6 @@
 'use client';
 
+import { AnswerCharts } from './AnswerCharts';
 import { AnswerTables } from './AnswerTables';
 import type { Turn } from './types';
 
@@ -22,12 +23,21 @@ export function AnswerFooter({ turn }: { turn: Turn }) {
   const leads = turn.leads ?? [];
   const web = turn.web ?? [];
   const tables = turn.tables ?? [];
-  if (!tables.length && !leads.length && !web.length && !turn.verdict && !turn.degraded)
+  const charts = turn.charts ?? [];
+  if (
+    !charts.length &&
+    !tables.length &&
+    !leads.length &&
+    !web.length &&
+    !turn.verdict &&
+    !turn.degraded
+  )
     return null;
 
   return (
     <div className="answer-footer">
       {/* The rows the answer rests on, as a table built from the tool rows — first, right under the prose. */}
+      {charts.length > 0 && <AnswerCharts charts={charts} />}
       {tables.length > 0 && <AnswerTables tables={tables} />}
       {(turn.verdict || turn.degraded) && (
         <p className="answer-tags">

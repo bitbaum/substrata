@@ -784,5 +784,37 @@
       "wrong": "Kazatomprom trades at about 38.50 [W1].",
       "right": "As of 2026-10-23, Kazatomprom shares closed at 41.20 on the AIX, according to [W1]."
     }
+  },
+  {
+    "id": "nvidia-price-1y",
+    "facet": "company",
+    "question": "How has NVIDIA stock done over the last year?",
+    "mustMention": ["company:nvidia"],
+    "expectedTools": ["price_history"],
+    "expectedHits": ["entity:company:nvidia#0"]
+  },
+  {
+    "id": "nvidia-owners",
+    "facet": "company",
+    "question": "Who owns NVIDIA?",
+    "mustMention": ["company:nvidia"],
+    "expectedTools": ["holders", "related_to"],
+    "expectedHits": ["entity:company:nvidia#0"]
+  },
+  {
+    "id": "amd-nvidia-revenue",
+    "facet": "company",
+    "question": "Compare AMD and NVIDIA revenue growth",
+    "mustMention": ["company:amd", "company:nvidia"],
+    "expectedTools": ["fundamentals"],
+    "expectedHits": ["entity:company:amd#0", "entity:company:nvidia#0"]
+  },
+  {
+    "id": "tsmc-market-cap",
+    "facet": "company",
+    "question": "What is TSMC's market cap trend?",
+    "mustMention": ["company:tsmc"],
+    "expectedTools": ["price_history"],
+    "expectedHits": ["entity:company:tsmc#0"]
   }
 ]

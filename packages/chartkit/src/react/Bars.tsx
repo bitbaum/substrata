@@ -103,6 +103,8 @@ export interface ShareBarsProps {
   caption: string;
   /** 0–1: the rest, drawn last in the line colour and listed as "Other". */
   other?: number;
+  /** What the rest is called in the legend, when "Other" would not say what it is. */
+  otherLabel?: string;
 }
 
 /**
@@ -111,12 +113,12 @@ export interface ShareBarsProps {
  * container query, so the same markup decides at every width); every
  * segment is named in the legend.
  */
-export function ShareBars({ rows, caption, other }: ShareBarsProps) {
+export function ShareBars({ rows, caption, other, otherLabel = "Other" }: ShareBarsProps) {
   const ordered = [...rows].sort((a, b) => b.share - a.share);
   const largest = ordered[0];
   const segments = [
     ...ordered.map((r, i) => ({ ...r, index: (i % 6) + 1, other: false })),
-    ...(other ? [{ label: "Other", share: other, href: undefined, index: 0, other: true }] : []),
+    ...(other ? [{ label: otherLabel, share: other, href: undefined, index: 0, other: true }] : []),
   ];
   const table = {
     head: ["Row", "Share"],

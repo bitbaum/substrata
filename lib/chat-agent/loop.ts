@@ -15,8 +15,7 @@
  *    mode fetches its evidence first, rounds capped at three. The web, when
  *    the question needs it (route.ts), is read beside the corpus lookups.
  *
- * When the free budget is gone the reader is told so, in those words, with the
- * records already read listed under it — never a fabricated answer.
+ * Out of free budget, the reader is told so, with the records read — never a fabricated answer.
  */
 import { StreamInterrupted, type ChatMessage } from '@bitbaum/ai-kit';
 import type { ByokConfig } from '../byok';
@@ -27,6 +26,7 @@ import { followUpsFor } from '../chat-query';
 import type { ChatTurn } from '../chat/types';
 import {
   answerableFromPage,
+  extrasOf,
   failureEvent,
   openingStatus,
   sourcesOf,
@@ -281,7 +281,7 @@ export async function runAgent(input: {
     sources,
     web: ledger.web,
     leads: ledger.leads,
-    ...(ledger.tables.length ? { tables: ledger.tables } : {}),
+    ...extrasOf(ledger),
     followUps: followUpsFor(sources.map((s) => ({ title: s.title, kind: s.kind }))),
     trail: ledger.trail,
     outside: ledger.web.length > 0,

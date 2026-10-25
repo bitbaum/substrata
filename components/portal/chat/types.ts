@@ -1,4 +1,5 @@
 import type { AnswerTable } from '@/lib/chat/answer-table';
+import type { AnswerChart } from '@/lib/chat/answer-chart';
 
 export type Source = {
   number: number;
@@ -44,6 +45,8 @@ export type Answer = {
   leads?: Lead[];
   /** Rows the tools returned, as tables built in code — never by the model. */
   tables?: AnswerTable[];
+  /** Charts built in code from tool rows — never by the model. */
+  charts?: AnswerChart[];
   /** Questions this assistant can answer, built from what it looked up. */
   followUps?: string[];
   /** What it looked up, in order. */
@@ -67,6 +70,7 @@ export type Turn = {
   web?: WebFinding[];
   leads?: Lead[];
   tables?: AnswerTable[];
+  charts?: AnswerChart[];
   followUps?: string[];
   trail?: string[];
   outside?: boolean;

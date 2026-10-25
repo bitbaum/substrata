@@ -22,6 +22,7 @@ import { familyIn } from '../chat-tools/jobs';
 import { producerResourcesIn } from '../chat-tools/producers';
 import { resourceIn } from '../chat-tools/resources';
 import { graphCalls } from './graph-ask';
+import { marketCalls } from './market-ask';
 import type { ToolRequest } from './parse';
 import { bottleneckIn, bottlenecksIn, companiesIn, countriesIn } from './question';
 
@@ -134,7 +135,8 @@ export function planLookups(
   const company = companies[0]?.slug ?? pageCompany;
 
   // Rung 3 first: who owns X, what X holds, how X connects to Y (graph-ask.ts).
-  const calls: ToolRequest[] = graph;
+  // Then a listed company's prices, financials and holders (market-ask.ts).
+  const calls: ToolRequest[] = [...graph, ...marketCalls(question)];
   let intent = calls.length > 0;
   // Rung 2 of the answer ladder first: a country's mines, plants, operators and
   // owners are USGS facility rows. Asked live on 2026-10-24 which companies
