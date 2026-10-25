@@ -4327,14 +4327,14 @@
           "source": "https://www.sec.gov/Archives/edgar/data/937966/000093796621000003/pressreleasequarterlyresul.htm",
           "publisher": "ASML Q4 and full-year 2020 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2021-01-20",
-          "quote": "€4.2 billion, including €1.1 billion from EUV systems (net six units).",
+          "quote": "Our fourth-quarter net bookings came in at €4.2 billion, including €1.1 billion from EUV systems (net six units).",
           "primary": true
         },
         {
           "date": "2025-Q4",
           "value": 7.4,
-          "source": "https://www.asml.com/en/news/press-releases/2026/q4-2025-financial-results",
-          "publisher": "ASML Q4 2025 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000162828026003701/pressreleasefinancialresul.htm",
+          "publisher": "ASML Q4 2025 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2026-01-28",
           "quote": "Quarterly net bookings in Q4 of €13.2 billion of which €7.4 billion is EUV",
           "primary": true
@@ -4342,8 +4342,8 @@
         {
           "date": "2025-Q3",
           "value": 3.6,
-          "source": "https://www.asml.com/en/news/press-releases/2025/q3-2025-financial-results",
-          "publisher": "ASML Q3 2025 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000162828025045043/pressreleasequarterlyresul.htm",
+          "publisher": "ASML Q3 2025 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2025-10-15",
           "quote": "Quarterly net bookings in Q3 of €5.4 billion 2 of which €3.6 billion is EUV",
           "primary": true
@@ -4351,8 +4351,8 @@
         {
           "date": "2025-Q2",
           "value": 2.3,
-          "source": "https://www.asml.com/en/news/press-releases/2025/q2-2025-financial-results",
-          "publisher": "ASML Q2 2025 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000162828025034992/pressreleasequarterlyresul.htm",
+          "publisher": "ASML Q2 2025 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2025-07-16",
           "quote": "Quarterly net bookings in Q2 of €5.5 billion 2 of which €2.3 billion is EUV",
           "primary": true
@@ -4360,8 +4360,8 @@
         {
           "date": "2025-Q1",
           "value": 1.2,
-          "source": "https://www.asml.com/en/news/press-releases/2025/q1-2025-financial-results",
-          "publisher": "ASML Q1 2025 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000093796625000014/pressreleasequarterlyresul.htm",
+          "publisher": "ASML Q1 2025 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2025-04-16",
           "quote": "Quarterly net bookings in Q1 of €3.9 billion 2 of which €1.2 billion is EUV",
           "primary": true
@@ -4369,8 +4369,8 @@
         {
           "date": "2024-Q4",
           "value": 3.0,
-          "source": "https://www.asml.com/en/news/press-releases/2025/q4-2024-financial-results",
-          "publisher": "ASML Q4 2024 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000093796625000003/pressreleasequarterlyresul.htm",
+          "publisher": "ASML Q4 2024 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2025-01-29",
           "quote": "Quarterly net bookings in Q4 of €7.1 billion 2 of which €3.0 billion is EUV",
           "primary": true
@@ -4449,8 +4449,8 @@
         {
           "date": "2025-Q4",
           "value": 13.2,
-          "source": "https://www.asml.com/en/news/press-releases/2026/q4-2025-financial-results",
-          "publisher": "ASML Q4 2025 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000162828026003701/pressreleasefinancialresul.htm",
+          "publisher": "ASML Q4 2025 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2026-01-28",
           "quote": "Quarterly net bookings in Q4 of €13.2 billion of which €7.4 billion is EUV",
           "primary": true
@@ -4458,8 +4458,8 @@
         {
           "date": "2025",
           "value": 28.035,
-          "source": "https://www.asml.com/en/news/press-releases/2026/q4-2025-financial-results",
-          "publisher": "ASML Q4 2025 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000162828026003701/pressreleasefinancialresul.htm",
+          "publisher": "ASML Q4 2025 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2026-01-28",
           "quote": "Net bookings 2 5,399 13,158 18,899 3 28,035 3",
           "primary": true,
@@ -4468,8 +4468,8 @@
         {
           "date": "2024",
           "value": 18.899,
-          "source": "https://www.asml.com/en/news/press-releases/2026/q4-2025-financial-results",
-          "publisher": "ASML Q4 2025 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000162828026003701/pressreleasefinancialresul.htm",
+          "publisher": "ASML Q4 2025 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2026-01-28",
           "quote": "Net bookings 2 5,399 13,158 18,899 3 28,035 3",
           "primary": true,
@@ -4491,8 +4491,8 @@
         {
           "date": "2025-12-31",
           "value": 38.8,
-          "source": "https://www.asml.com/en/news/press-releases/2026/q4-2025-financial-results",
-          "publisher": "ASML Q4 2025 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000162828026003701/pressreleasefinancialresul.htm",
+          "publisher": "ASML Q4 2025 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2026-01-28",
           "quote": "Backlog at the end of 2025 of €38.8 billion",
           "primary": true,
@@ -4501,8 +4501,8 @@
         {
           "date": "2025-09-30",
           "value": 35.938,
-          "source": "https://www.asml.com/en/news/press-releases/2026/q4-2025-financial-results",
-          "publisher": "ASML Q4 2025 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000162828026003701/pressreleasefinancialresul.htm",
+          "publisher": "ASML Q4 2025 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2026-01-28",
           "quote": "Backlog 4 35,938 38,797",
           "primary": true,
@@ -4544,8 +4544,8 @@
         {
           "date": "2025",
           "value": 300,
-          "source": "https://www.asml.com/en/news/press-releases/2026/q4-2025-financial-results",
-          "publisher": "ASML Q4 2025 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000162828026003701/pressreleasefinancialresul.htm",
+          "publisher": "ASML Q4 2025 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2026-01-28",
           "quote": "New lithography systems sold (units) 66 94 380 300",
           "primary": true,
@@ -4554,8 +4554,8 @@
         {
           "date": "2024",
           "value": 380,
-          "source": "https://www.asml.com/en/news/press-releases/2026/q4-2025-financial-results",
-          "publisher": "ASML Q4 2025 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000162828026003701/pressreleasefinancialresul.htm",
+          "publisher": "ASML Q4 2025 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2026-01-28",
           "quote": "New lithography systems sold (units) 66 94 380 300",
           "primary": true,
@@ -4564,8 +4564,8 @@
         {
           "date": "2026-Q2",
           "value": 86,
-          "source": "https://www.asml.com/en/news/press-releases/2026/q2-2026-financial-results",
-          "publisher": "ASML Q2 2026 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000162828026048235/pressreleasefinancialresul.htm",
+          "publisher": "ASML Q2 2026 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2026-07-15",
           "quote": "New lithography systems sold (units) 67 86",
           "primary": true,
@@ -4574,8 +4574,8 @@
         {
           "date": "2026-Q1",
           "value": 67,
-          "source": "https://www.asml.com/en/news/press-releases/2026/q2-2026-financial-results",
-          "publisher": "ASML Q2 2026 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000162828026048235/pressreleasefinancialresul.htm",
+          "publisher": "ASML Q2 2026 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2026-07-15",
           "quote": "New lithography systems sold (units) 67 86",
           "primary": true,
@@ -4597,8 +4597,8 @@
         {
           "date": "2026",
           "value": 65,
-          "source": "https://www.asml.com/en/news/press-releases/2026/q2-2026-financial-results",
-          "publisher": "ASML Q2 2026 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000162828026048235/pressreleasefinancialresul.htm",
+          "publisher": "ASML Q2 2026 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2026-07-15",
           "quote": "we are planning to add 30% to our 2026 low NA EUV capacity of around 65 for 2027, and we are investigating to increase capacity with another 30% for 2028",
           "primary": true,
@@ -4620,8 +4620,8 @@
         {
           "date": "2025-Q1",
           "value": 5,
-          "source": "https://www.asml.com/en/news/press-releases/2025/q1-2025-financial-results",
-          "publisher": "ASML Q1 2025 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000093796625000014/pressreleasequarterlyresul.htm",
+          "publisher": "ASML Q1 2025 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2025-04-16",
           "quote": "In the first quarter, we shipped our fifth High NA system, and we now have these systems at three customers.",
           "primary": true,
@@ -7248,7 +7248,7 @@
           "source": "https://sicc.cc/en/article385.html",
           "publisher": "SICC company news (citing Fuji Keizai)",
           "published": "2026-03-24",
-          "quote": "the company achieved a breakthrough in the 8-inch S iC substrate market, capturing a market share of 51.3%, far exceeding other competitors.",
+          "quote": "the company achieved a breakthrough in the 8-inch SiC substrate market, capturing a market share of 51.3%, far exceeding other competitors.",
           "primary": true,
           "note": "Company claim citing Fuji Keizai; context is N-type (conductive) substrates, NOT semi-insulating"
         }
@@ -7272,7 +7272,7 @@
           "source": "https://sicc.cc/en/article385.html",
           "publisher": "SICC company news (citing Fuji Keizai)",
           "published": "2026-03-24",
-          "quote": "SICC’s global market share in the N- type S i C substrates rose sharply in 2025, surging from 12% in 2023 to 27.6% and surpassing Wolfspeed.",
+          "quote": "SICC’s global market share in the N- type SiC substrates rose sharply in 2025, surging from 12% in 2023 to 27.6% and surpassing Wolfspeed.",
           "primary": true,
           "note": "N-type (conductive), not semi-insulating"
         },
@@ -7282,7 +7282,7 @@
           "source": "https://sicc.cc/en/article385.html",
           "publisher": "SICC company news (citing Fuji Keizai)",
           "published": "2026-03-24",
-          "quote": "SICC’s global market share in the N- type S i C substrates rose sharply in 2025, surging from 12% in 2023 to 27.6% and surpassing Wolfspeed.",
+          "quote": "SICC’s global market share in the N- type SiC substrates rose sharply in 2025, surging from 12% in 2023 to 27.6% and surpassing Wolfspeed.",
           "primary": true,
           "note": "N-type (conductive), not semi-insulating"
         }
