@@ -31,6 +31,27 @@ export interface Route {
   reasons: string[];
   /** What the web engine is asked. */
   query: string;
+  /**
+   * An analytical or forward-looking question (an outlook, a forecast, "what
+   * if", a comparison over time, implications): it gets research mode
+   * (research.ts) — a plan of sub-questions, a wider read, a fixed answer shape.
+   */
+  analysis: boolean;
+}
+
+/**
+ * Analysis, not lookup. Decided 2026-10-25: asked "what do you think will be
+ * the demand for neon in the future?", the Ask read six pages and answered
+ * with one US table. A question about the future, a counterfactual, a
+ * comparison of effects or the implications of something is a research
+ * question and is answered as an analyst would (docs/architecture/2026-10-25-research-mode.md).
+ */
+const ANALYSIS =
+  /\b(outlook|forecasts?|projections?|projected|prospects?|trajector(y|ies)|long[- ]term|in the (future|coming (years|decade))|next (decade|few years|\d+ years)|by (20[3-9]\d)|will (be|become|grow|rise|fall|happen|demand)|what (do you think|will happen)|future (demand|supply|of)|demand (for|on|in) [^?]*\b(future|grow|ahead|outlook)|what (would|could) happen|what (would|could|might) [^?]{3,60} do to|what happens (to|if|when)|what if|if [^?]{3,60} (is|are|were|was|gets?) (cut|banned|blocked|halted|lost|stopped)|implications?|scenarios?|(compare|comparison of|versus|vs\.?) [^?]*\b(impact|effects?|over time|consequences?|outcomes?)|impact of [^?]*\b(controls?|bans?|restrictions?|tariffs?|sanctions?|shortages?)|when (could|will|might|would) [^?]*\b(commercial|available|scale|viable|ready|arrive))\b/i;
+
+/** Whether a question is analytical or forward-looking (see ANALYSIS). Pure. */
+export function isAnalysis(question: string): boolean {
+  return ANALYSIS.test(question);
 }
 
 /** Signals that the answer lives in the world, not only in the corpus. */
@@ -116,14 +137,21 @@ export function routeQuestion(
   const query = searchQueryFor(question, today);
   const reasons = OPEN_WORLD.filter(([re]) => re.test(question)).map(([, why]) => why);
   if (OFF_TOPIC.test(question) && !reasons.includes('prices'))
-    return { corpus: true, web: false, reasons: ['off-topic'], query };
+    return { corpus: true, web: false, reasons: ['off-topic'], query, analysis: false };
   // About Substrata itself, with no sign of the world outside: the corpus is the answer.
   if (ABOUT_SUBSTRATA.test(question) && !reasons.some((r) => r !== 'explanation'))
-    return { corpus: true, web: false, reasons: ['about Substrata itself'], query };
+    return {
+      corpus: true,
+      web: false,
+      reasons: ['about Substrata itself'],
+      query,
+      analysis: false,
+    };
   return {
     corpus: true,
     web: true,
     reasons: reasons.length ? reasons : ['the corpus may cover only part of it'],
     query,
+    analysis: isAnalysis(question),
   };
 }

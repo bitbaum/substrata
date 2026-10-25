@@ -12,8 +12,8 @@
  *    minted by one is not something the next must accept.
  * 3. SPEED IS THE ROUND COUNT: a status line before anything is fetched,
  *    calls in a round in parallel, the page's own record skips tools, verify
- *    mode fetches its evidence first, rounds capped at three. The web, when
- *    the question needs it (route.ts), is read beside the corpus lookups.
+ *    mode fetches its evidence first, rounds capped at three. The web is read
+ *    beside the corpus (route.ts); an analysis question goes to research.ts.
  *
  * When the free budget is gone the reader is told so, in those words, with the
  * records already read listed under it — never a fabricated answer.
@@ -40,6 +40,7 @@ import { runLookups, runPlan } from './lookups';
 import type { GapFiler } from './gaps';
 import { planLookups } from './plan';
 import { routeQuestion } from './route';
+import { runResearch } from './research';
 import { LOOP_LIMITS, systemPrompt } from './prompt';
 import type { ModelTurn, ModelTurnResult } from './turn';
 import { gatherEvidence, verdictOf, verifyQuestion, type VerifyRequest } from './verify';
@@ -73,15 +74,13 @@ export async function runAgent(input: {
     if (event.type === 'delta' && firstText === undefined) firstText = Date.now() - started;
     input.emit(event);
   };
-  // Before anything is fetched: the reader sees that it started.
-  emit({ type: 'status', text: openingStatus(input.context, input.verify) });
+  emit({ type: 'status', text: openingStatus(input.context, input.verify) }); // before any fetch
   const ledger = emptyLedger();
   const env: ToolEnv = {
     ...input.env,
     ledger,
-    // "Reading reuters.com…": seen while it works, kept in the thought row after.
     step: (label) => {
-      ledger.trail.push(label);
+      ledger.trail.push(label); // "Reading reuters.com…": seen while it works, kept after
       emit({ type: 'tool', label });
     },
   };
@@ -93,6 +92,7 @@ export async function runAgent(input: {
     : planLookups(question, input.context, env);
   // Which sources the question needs (route.ts): the web is searched beside the corpus, up front.
   const route = input.verify ? undefined : routeQuestion(question, input.today);
+  if (route?.analysis && input.env.web) return runResearch(input);
   const pageOnly =
     !input.verify &&
     !plan.calls.length &&

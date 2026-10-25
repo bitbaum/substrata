@@ -8,6 +8,13 @@
  */
 export const GENERAL_KNOWLEDGE = 'From general knowledge, not checked:';
 
-/** A sentence (or the line it opens) the answer marks as its own background knowledge. */
+/**
+ * Research mode's label for the analyst's own reasoning (research-shape.ts):
+ * a view, a condition, a leading indicator — held to the background rules
+ * (no figure, no supplier, buyer, owner or financier link), never a forecast.
+ */
+export const REASONING = 'Reasoning, not a sourced forecast:';
+
+/** A sentence (or the line it opens) the answer marks as its own background knowledge or reasoning. */
 export const BACKGROUND_LABEL =
-  /^\s*(?:[-*•>]\s*)?(?:\*\*|_)?(from general knowledge(?:, not checked)?|outside the corpus|außerhalb des korpus)\b/i;
+  /^\s*(?:[-*•>]\s*)?(?:\*\*|_)?(from general knowledge(?:, not checked)?|outside the corpus|außerhalb des korpus|reasoning, not a sourced forecast)\b/i;
