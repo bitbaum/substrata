@@ -8,7 +8,7 @@
  * text used for ranking and retrieval.
  */
 import { allEntities } from './entities/registry';
-import { isStub, type EntityKind } from './entities/types';
+import { isIdentified, isStub, type Entity, type EntityKind } from './entities/types';
 
 export interface ResearchDocument {
   id: string;
@@ -30,6 +30,16 @@ export interface ResearchDocument {
 /** A stub company's weight in every ranking (search, retrieval): present, below anything profiled. */
 export const STUB_WEIGHT = 0.6;
 
+/** A tier B company (identified, not profiled): above a stub, below a profiled company. */
+export const IDENTIFIED_WEIGHT = 0.8;
+
+/** The ranking weight an entity carries, when it is not a full one. */
+export function entityWeight(entity: Pick<Entity, 'evidence'>): number | undefined {
+  if (isStub(entity)) return STUB_WEIGHT;
+  if (isIdentified(entity)) return IDENTIFIED_WEIGHT;
+  return undefined;
+}
+
 export function researchDocuments(): ResearchDocument[] {
   return allEntities().map((entity) => ({
     id: entity.id,
@@ -40,7 +50,7 @@ export function researchDocuments(): ResearchDocument[] {
     sources: entity.sources,
     evidence: entity.evidence,
     topics: entity.topics,
-    ...(isStub(entity) ? { weight: STUB_WEIGHT } : {}),
+    ...(entityWeight(entity) ? { weight: entityWeight(entity) } : {}),
   }));
 }
 

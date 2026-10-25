@@ -112,6 +112,7 @@ export const FACETS = [
   'series-points',
   'relations',
   'labs',
+  'universe',
 ] as const;
 
 export type Facet = (typeof FACETS)[number];

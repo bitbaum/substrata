@@ -5,6 +5,7 @@ import { source as bottleneck } from './bottleneck';
 import { source as capital } from './capital';
 import { source as company } from './company';
 import { source as companyStubs } from './company-stubs';
+import { source as companyUniverse } from './company-universe';
 import { source as lab } from './lab';
 import { source as country } from './country';
 import { source as facility } from './facility';
@@ -59,4 +60,4 @@ export const ENTITY_SOURCES: EntitySource[] = [
  * the directory (lib/entities/registry.ts builds the two passes). A derived
  * source extends a kind the directory already declares; it never adds one.
  */
-export const DERIVED_SOURCES: EntitySource[] = [companyStubs];
+export const DERIVED_SOURCES: EntitySource[] = [companyUniverse, companyStubs];

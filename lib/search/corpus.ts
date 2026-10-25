@@ -7,8 +7,8 @@
 import { GLOSSARY } from '@/config/substrata-glossary';
 import { EVENTS, EVENT_EFFECT_LABEL, EVENT_KIND_LABEL } from '@/config/substrata-events';
 import { allEntities } from '../entities/registry';
-import { isStub, type EntityKind } from '../entities/types';
-import { STUB_WEIGHT } from '../research-index';
+import { isIdentified, isStub, type EntityKind } from '../entities/types';
+import { IDENTIFIED_WEIGHT, STUB_WEIGHT } from '../research-index';
 import { glossaryHref } from '../links';
 import { allLearn, allNotes, type Note } from '../notes';
 import type { SearchType } from '../search-types';
@@ -90,7 +90,9 @@ export function searchDocuments(): SearchDoc[] {
     href: e.href,
     ...(isStub(e)
       ? { meta: 'named in sources · no profile yet', weight: STUB_WEIGHT }
-      : { meta: e.evidence }),
+      : isIdentified(e)
+        ? { meta: 'identified · not profiled', weight: IDENTIFIED_WEIGHT }
+        : { meta: e.evidence }),
   }));
 
   const events: SearchDoc[] = EVENTS.map((ev) => ({

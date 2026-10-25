@@ -4,7 +4,7 @@ An adapter may call these hosts and no others (`lib/sources/hosts.ts`, which
 `test/sources.test.ts` keeps in step with this page). Every request carries a
 descriptive user agent naming the repository and a contact; responses are
 cached under `.tmp/sources/` for a day so a re-run, and add.ts's check right
-after it, read the same bytes. Checked from the build sandbox on 2026-10-24.
+after it, read the same bytes. Checked from the build sandbox on 2026-10-24; the fund hosts on 2026-10-25.
 
 | Host | Adapter | What it is | Terms we keep | Pace |
 | --- | --- | --- | --- | --- |
@@ -15,6 +15,11 @@ after it, read the same bytes. Checked from the build sandbox on 2026-10-24.
 | `www.wikidata.org` | wikidata | entity JSON (`Special:EntityData`) | as above | 1 s |
 | `comtradeapi.un.org` | comtrade | public preview API and reference files | no key for `/public/v1/preview` (500 rows a call); a 429 is waited out | 4 s |
 | `www.kazatomprom.kz` | kazatomprom | investor-relations pages and report PDFs | public company disclosures; PDFs up to 64 MB | 2 s |
+| `assets.ark-funds.com` | etf-holdings | ARK's daily holdings CSV per fund | published for download to the public; one file per fund per run | 1.5 s |
+| `assets.globalxetfs.com` | etf-holdings | Global X daily full-holdings CSV per fund (dated file name) | as above; a missing day answers 404 and the adapter tries the day before | 1.5 s |
+| `www.ftportfolios.com` | etf-holdings | First Trust fund holdings page (HTML table) | public page; read as served | 1.5 s |
+| `www.defianceetfs.com` | etf-holdings | Defiance full-holdings page (HTML table) | public page; read as served | 1.5 s |
+| `www.ssga.com` | etf-holdings | State Street SPDR daily holdings spreadsheet (xlsx) | published for download; no market value column, so it counts for theme only | 1.5 s |
 
 Not on the list, and why:
 

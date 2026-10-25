@@ -4,8 +4,7 @@
  * entity is in at least one chunk — and the one the planner's hits name.
  */
 import { allEntities } from '../../entities/registry';
-import { isStub } from '../../entities/types';
-import { STUB_WEIGHT } from '../../research-index';
+import { entityWeight } from '../../research-index';
 import { chunkId, makeChunk, splitText, type Chunk } from '../chunk';
 import { indexEvidence } from './evidence';
 import { entitySignificance } from './significance';
@@ -28,7 +27,7 @@ export function entityChunks(): Chunk[] {
         ...(entity.sources[0] ? { sourceUrl: entity.sources[0] } : {}),
         evidence,
         significance,
-        ...(isStub(entity) ? { weight: STUB_WEIGHT } : {}),
+        ...(entityWeight(entity) ? { weight: entityWeight(entity) } : {}),
       }),
     );
   });

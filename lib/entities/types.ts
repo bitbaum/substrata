@@ -81,3 +81,14 @@ export function isStub(entity: Pick<Entity, 'evidence'>): boolean {
 export function entityId(kind: EntityKind, key: string): EntityId {
   return `${kind}:${key}`;
 }
+
+/**
+ * The evidence word a tier B company carries: identity, theme and size are
+ * each cited (lib/universe), and no role in any chain is claimed. Its page
+ * shows why it is admitted and nothing the sources do not say.
+ */
+export const IDENTIFIED_EVIDENCE = 'identified; not profiled';
+
+export function isIdentified(entity: Pick<Entity, 'evidence'>): boolean {
+  return entity.evidence === IDENTIFIED_EVIDENCE;
+}

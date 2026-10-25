@@ -20,6 +20,7 @@ import { GRAPH_METHODS } from './methods-graph';
 import { CAREER_METHODS } from './methods-careers';
 import { AI_METHODS } from './methods-ai';
 import { FRESHNESS_METHODS } from './methods-freshness';
+import { UNIVERSE_METHODS } from './methods-universe';
 import { RESOURCE_METHODS } from './methods-resources';
 import { QUALITY_METHODS } from './methods-quality';
 
@@ -275,6 +276,7 @@ export const METHODS = {
   ...SERIES_METHODS,
   ...CAREER_METHODS,
   ...FRESHNESS_METHODS,
+  ...UNIVERSE_METHODS,
   ...RESOURCE_METHODS,
 } as const satisfies Record<string, Method>;
 
