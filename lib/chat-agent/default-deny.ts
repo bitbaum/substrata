@@ -49,6 +49,12 @@ export interface DenyContext {
   evidence: string;
   /** Each read web page's passage by its [W#] number (web-figures.ts): a cited figure must be in it. */
   web?: Map<number, string>;
+  /**
+   * Headings of sections whose lines are the answer's own reasoning (research
+   * mode: "What would change this", "Confidence and gaps"): each line is held
+   * to the labelled-background rule — no figure, no link claim — never let through.
+   */
+  reasoningSections?: RegExp;
 }
 
 export type Kind =
@@ -196,6 +202,8 @@ export function defaultDeny(
   const sections = answer.split(/\n(?=#{1,6} )/);
   for (const section of sections) {
     const sectionCited = SECTION_SOURCE.test(section);
+    const heading = section.match(/^\s*#{1,6} (.+)/)?.[1] ?? '';
+    const reasoning = Boolean(heading && ctx.reasoningSections?.test(heading));
     let fence = false;
     let carrying: boolean = false;
     for (const raw of section.split('\n')) {
@@ -205,7 +213,7 @@ export function defaultDeny(
         continue;
       }
       const lead = raw.match(/^\s*(?:[-*•>]|\d+\.)?\s*/)?.[0] ?? '';
-      const bg = BACKGROUND_LABEL.test(raw);
+      const bg = reasoning || BACKGROUND_LABEL.test(raw);
       // A link's title may hold a full stop: mask links while splitting.
       const links: string[] = [];
       const masked = raw

@@ -52,6 +52,8 @@ export async function checkAnswer(opts: {
   emit: (event: AgentEvent) => void;
   /** Where each missing link is filed (gaps.ts); the bound filer when absent. */
   fileGap?: GapFiler;
+  /** Research mode: sections whose lines are labelled reasoning (default-deny.ts). */
+  reasoningSections?: RegExp;
 }): Promise<{ answer: string; calls: number; gaps: MissingLink[] }> {
   const { messages, turn, emit } = opts;
   let answer = opts.answer;
@@ -120,6 +122,7 @@ export async function checkAnswer(opts: {
       webCount: webCountIn(opts.results),
       question: opts.question,
       results: opts.results,
+      reasoningSections: opts.reasoningSections,
     });
   // Rung 6: every missing link the answer ended on is filed as demand.
   if (answer.trim())
@@ -151,6 +154,7 @@ export function finishInCode(
     question: string;
     /** Every tool result. None looked up: nothing to cite, and default deny stands down. */
     results: string[];
+    reasoningSections?: RegExp;
   },
 ): string {
   const { facts, gaps } = opts;
@@ -177,6 +181,7 @@ export function finishInCode(
         webCount: opts.webCount,
         evidence,
         web: webPassagesIn(opts.results),
+        reasoningSections: opts.reasoningSections,
       }).answer
     : honest;
   // The answer first; a corpus gap at the end, once; no heading fencing the web off (open-first.ts).

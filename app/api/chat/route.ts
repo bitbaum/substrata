@@ -5,6 +5,7 @@ import { readerKey } from '@/lib/reader-key';
 import { runAgent, type AgentEvent } from '@/lib/chat-agent/loop';
 import { byokTurn, freeCooldown, freeLinks, streamedTurn } from '@/lib/chat-agent/turn';
 import { verifyFromBody } from '@/lib/chat-agent/verify';
+import { isAnalysis } from '@/lib/chat-agent/route';
 import { readerContext } from '@/lib/chat-context';
 import { lookUp, readSource, webLookupEnabled } from '@/lib/chat-web';
 import { currentSession } from '@/lib/auth';
@@ -121,10 +122,16 @@ export async function POST(request: Request) {
     const context = readerContext({ path: onPath, topic, follows: await followsOf() });
     // The free tier's budgets are small and shared; a reader's own frontier
     // key is metered by nobody but them, so it gets room to think.
+    // Research mode writes six sections (research.ts): more room, same caps otherwise.
+    const analysis = typeof question === 'string' && !verify && isAnalysis(question);
     const limits = byok
-      ? { maxTokens: 4096, timeoutMs: 60_000, signal: request.signal }
+      ? { maxTokens: analysis ? 6000 : 4096, timeoutMs: 60_000, signal: request.signal }
       : // 1800 cut answers mid-word once reasoning took its share (2026-10-02).
-        { maxTokens: 2400, timeoutMs: 25_000, signal: request.signal };
+        {
+          maxTokens: analysis ? 3600 : 2400,
+          timeoutMs: analysis ? 40_000 : 25_000,
+          signal: request.signal,
+        };
     const turn = byok
       ? byokTurn(byok, limits)
       : streamedTurn({
@@ -196,7 +203,10 @@ export async function POST(request: Request) {
               filings: process.env.DATABASE_URL
                 ? (ciks, days) => filingsFor(ciks, days)
                 : undefined,
-              web: webLookupEnabled() ? (query, signal) => lookUp(query, signal) : undefined,
+              // onRead: "Reading <site>…" in the reader's steps (it was dropped here before).
+              web: webLookupEnabled()
+                ? (query, signal, onRead) => lookUp(query, signal, process.env, undefined, onRead)
+                : undefined,
               read: (url, claim, signal) => readSource(url, claim, signal),
             },
           });
