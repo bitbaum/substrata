@@ -34,6 +34,11 @@ name: Re-check data
 # and auto-merge would have nothing green to merge.
 
 on:
+  # TEMPORARY: a dispatch needs this file on main, and the first run must land
+  # on the PR that adds it. Removed in the commit after that run.
+  push:
+    branches: [claude/chat-design-products-n133h8-recheck]
+    paths: [.github/workflows/recheck-data.yml]
   schedule:
     # The 3rd of each month at 04:23 UTC: well inside the 30-day limits.
     - cron: '23 4 3 * *'
@@ -66,7 +71,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
-          ref: ${{ inputs.branch || 'main' }}
+          ref: ${{ inputs.branch || (github.event_name == 'push' && github.ref_name) || 'main' }}
           token: ${{ secrets.FLEET_PAT || github.token }}
 
       # Same install as ci.yml: pnpm before setup-node, store outside node_modules.
@@ -105,7 +110,7 @@ jobs:
 
       - name: Commit what was re-checked
         env:
-          BRANCH: ${{ inputs.branch }}
+          BRANCH: ${{ inputs.branch || (github.event_name == 'push' && github.ref_name) || '' }}
         run: |
           if git diff --quiet -- research/; then
             echo 'Nothing moved.' >> "$GITHUB_STEP_SUMMARY"
