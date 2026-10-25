@@ -174,7 +174,8 @@ export const DATASETS: readonly Dataset[] = [
     id: 'claims',
     label: 'Claims checked against series',
     file: 'research/claims.json',
-    refresh: 'Re-check each claim against its series and update checkedOn',
+    refresh:
+      'After the series are re-read, re-check every claim (dates the file only if all hold): pnpm tsx scripts/research/check-claims.ts --write',
     checkedOn: day(claims.checkedOn),
     maxAgeDays: 30,
   },
