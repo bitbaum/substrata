@@ -42,7 +42,7 @@
     "@bitbaum/accountkit": "github:bitbaum/accountkit#v0.2.1",
     "@bitbaum/ai-kit": "^1.21.0",
     "@bitbaum/chartkit": "workspace:*",
-    "@bitbaum/chatkit": "^0.15.1",
+    "@bitbaum/chatkit": "^0.15.2",
     "@bitbaum/design-tokens": "github:bitbaum/design-tokens#8e786a43220d267ccf6b5cd6119a012f1a52dfff",
     "@bitbaum/geo-kit": "github:bitbaum/geo-kit#a337aec928cf7804fecf459c308d366b90f4b2fa",
     "@bitbaum/searchkit": "github:bitbaum/searchkit#v0.2.2",

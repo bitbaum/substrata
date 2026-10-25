@@ -18,8 +18,8 @@ importers:
         specifier: workspace:*
         version: link:packages/chartkit
       '@bitbaum/chatkit':
-        specifier: ^0.15.1
-        version: 0.15.1(react@19.3.1)
+        specifier: ^0.15.2
+        version: 0.15.2(react@19.3.1)
       '@bitbaum/design-tokens':
         specifier: github:bitbaum/design-tokens#8e786a43220d267ccf6b5cd6119a012f1a52dfff
         version: https://codeload.github.com/bitbaum/design-tokens/tar.gz/8e786a43220d267ccf6b5cd6119a012f1a52dfff
@@ -275,8 +275,8 @@ packages:
       react:
         optional: true
 
-  '@bitbaum/chatkit@0.15.1':
-    resolution: {integrity: sha512-/w64ZUGQB7QI7BMyg/+5tE1hIPF2Xa4gzkdswfpn2X0uwnMfx9wnzxyNbo6sHMFj6xolHz3y8fMlF3IV/RsJ+A==}
+  '@bitbaum/chatkit@0.15.2':
+    resolution: {integrity: sha512-40H3i+Ny6Ze6P2ksU7DG3DQCjR1MGSK0x6iNwyFTM/D2JZWTeRm7GmnKIJm5yOt0r9J2XMZRg0sf8Ks1LbrXyw==}
     engines: {node: '>=20'}
     hasBin: true
     peerDependencies:
@@ -2959,7 +2959,7 @@ snapshots:
     optionalDependencies:
       react: 19.3.1
 
-  '@bitbaum/chatkit@0.15.1(react@19.3.1)':
+  '@bitbaum/chatkit@0.15.2(react@19.3.1)':
     dependencies:
       react: 19.3.1
 
