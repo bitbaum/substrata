@@ -4176,8 +4176,8 @@
         {
           "date": "2020",
           "value": 31,
-          "source": "https://www.asml.com/en/news/press-releases/2021/asml-reports-eur-14dot0-billion-net-sales-and-eur3dot6-billion-net-income-in-2020",
-          "publisher": "ASML Q4 and full-year 2020 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000093796621000003/pressreleasequarterlyresul.htm",
+          "publisher": "ASML Q4 and full-year 2020 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2021-01-20",
           "quote": "The total net sales for the year was €14.0 billion, including €4.5 billion from 31 EUV systems.",
           "primary": true
@@ -4243,8 +4243,8 @@
         {
           "date": "2020",
           "value": 4.5,
-          "source": "https://www.asml.com/en/news/press-releases/2021/asml-reports-eur-14dot0-billion-net-sales-and-eur3dot6-billion-net-income-in-2020",
-          "publisher": "ASML Q4 and full-year 2020 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000093796621000003/pressreleasequarterlyresul.htm",
+          "publisher": "ASML Q4 and full-year 2020 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2021-01-20",
           "quote": "The total net sales for the year was €14.0 billion, including €4.5 billion from 31 EUV systems.",
           "primary": true
@@ -4284,8 +4284,8 @@
         {
           "date": "2020-Q4",
           "value": 9,
-          "source": "https://www.asml.com/en/news/press-releases/2021/asml-reports-eur-14dot0-billion-net-sales-and-eur3dot6-billion-net-income-in-2020",
-          "publisher": "ASML Q4 and full-year 2020 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000093796621000003/pressreleasequarterlyresul.htm",
+          "publisher": "ASML Q4 and full-year 2020 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2021-01-20",
           "quote": "We shipped nine EUV systems and recognized revenue for eight systems in the fourth quarter.",
           "primary": true
@@ -4293,8 +4293,8 @@
         {
           "date": "2019-Q4",
           "value": 8,
-          "source": "https://www.asml.com/en/news/press-releases/2020/q4--and-full-year-2019-financial-results",
-          "publisher": "ASML Q4 and full-year 2019 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000093796620000003/pressreleasequarterlyresul.htm",
+          "publisher": "ASML Q4 and full-year 2019 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2020-01-22",
           "quote": "We shipped eight EUV systems in the fourth quarter and we received orders for nine EUV systems.",
           "primary": true
@@ -4324,10 +4324,10 @@
         {
           "date": "2020-Q4",
           "value": 1.1,
-          "source": "https://www.asml.com/en/news/press-releases/2021/asml-reports-eur-14dot0-billion-net-sales-and-eur3dot6-billion-net-income-in-2020",
-          "publisher": "ASML Q4 and full-year 2020 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000093796621000003/pressreleasequarterlyresul.htm",
+          "publisher": "ASML Q4 and full-year 2020 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2021-01-20",
-          "quote": "Our fourth-quarter net bookings came in at €4.2 billion, including €1.1 billion from EUV systems (net six units).",
+          "quote": "€4.2 billion, including €1.1 billion from EUV systems (net six units).",
           "primary": true
         },
         {
@@ -4378,8 +4378,8 @@
         {
           "date": "2024-Q2",
           "value": 2.5,
-          "source": "https://www.asml.com/en/news/press-releases/2024/q2-2024-financial-results",
-          "publisher": "ASML Q2 2024 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000093796624000019/pressreleasequarterlyresul.htm",
+          "publisher": "ASML Q2 2024 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2024-07-17",
           "quote": "Quarterly net bookings in Q2 of €5.6 billion 2 of which €2.5 billion is EUV",
           "primary": true
@@ -4427,8 +4427,8 @@
         {
           "date": "2019",
           "value": 6.2,
-          "source": "https://www.asml.com/en/news/press-releases/2020/q4--and-full-year-2019-financial-results",
-          "publisher": "ASML Q4 and full-year 2019 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000093796620000003/pressreleasequarterlyresul.htm",
+          "publisher": "ASML Q4 and full-year 2019 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2020-01-22",
           "quote": "We recorded an order intake for EUV of €6.2 billion during the year",
           "primary": true
