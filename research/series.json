@@ -4125,7 +4125,7 @@
       "direction": "up-loosens",
       "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025",
@@ -4193,7 +4193,7 @@
       "kind": "output",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025",
@@ -4260,7 +4260,7 @@
       "kind": "output",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2023",
@@ -4422,7 +4422,7 @@
       "kind": "orders",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2019",
