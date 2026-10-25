@@ -18,17 +18,22 @@ import { restrictionChunks } from './chunks/restriction';
 import { scienceChunks } from './chunks/science';
 import { seriesChunks } from './chunks/series';
 
-/** One producer per facet; the record type makes a facet without one a build error. */
-export const PRODUCERS: Record<Facet, () => Chunk[]> = {
+/**
+ * One producer per facet; the record type makes a facet without one a build error.
+ * Each is handed the build's `now`: the facets that move with the calendar
+ * (event recency, the date-dependent quality checks) must read the same day
+ * the memo is keyed by, or a caller that pins `now` would still get today's.
+ */
+export const PRODUCERS: Record<Facet, (now: Date) => Chunk[]> = {
   entity: entityChunks,
-  event: () => eventChunks(),
+  event: (now) => eventChunks(now),
   series: seriesChunks,
   policy: policyChunks,
   science: scienceChunks,
   restriction: restrictionChunks,
   quantity: quantityChunks,
   ranking: rankingChunks,
-  quality: () => qualityChunks(),
+  quality: (now) => qualityChunks(now),
   relation: relationChunks,
 };
 
@@ -45,7 +50,7 @@ export function buildChunks(now = new Date()): Chunk[] {
   const chunks: Chunk[] = [];
   const ids = new Set<string>();
   for (const facet of FACETS) {
-    for (const chunk of PRODUCERS[facet]()) {
+    for (const chunk of PRODUCERS[facet](now)) {
       // A duplicate id would make one row overwrite another in the store; fail loudly instead.
       if (ids.has(chunk.id)) throw new Error(`duplicate chunk id ${chunk.id}`);
       ids.add(chunk.id);
