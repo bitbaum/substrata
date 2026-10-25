@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checkedOn": "2026-09-24",
+  "checkedOn": "2026-10-25",
   "listings": {
     "asml": {
       "status": "listed",
@@ -18,7 +18,7 @@
         "cik": 937966,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=937966"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "tokyo-electron": {
       "status": "listed",
@@ -30,7 +30,7 @@
         "source": "https://www.openfigi.com/id/BBG000BB59S7"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "hitachi-energy": {
       "status": "parent",
@@ -50,7 +50,7 @@
         "cik": 47710,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=47710"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "linde": {
       "status": "listed",
@@ -68,17 +68,17 @@
         "cik": 1707925,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1707925"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "sibelco": {
       "status": "none-found",
       "query": "Sibelco",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "the-quartz-corp": {
       "status": "none-found",
       "query": "The Quartz Corp",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "lynas-rare-earths": {
       "status": "listed",
@@ -90,7 +90,7 @@
         "source": "https://www.openfigi.com/id/BBG000BSCDH5"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "exxonmobil": {
       "status": "listed",
@@ -108,7 +108,7 @@
         "cik": 2115436,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2115436"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "impala-platinum": {
       "status": "listed",
@@ -120,7 +120,7 @@
         "source": "https://www.openfigi.com/id/BBG000BTZK82"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "mp-materials": {
       "status": "listed",
@@ -138,7 +138,7 @@
         "cik": 1801368,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1801368"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "nornickel": {
       "status": "listed",
@@ -150,12 +150,12 @@
         "source": "https://www.openfigi.com/id/BBG000J40474"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "qatarenergy": {
       "status": "none-found",
       "query": "QatarEnergy",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "sibanye-stillwater": {
       "status": "listed",
@@ -173,7 +173,7 @@
         "cik": 1786909,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1786909"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "yunnan-tin": {
       "status": "listed",
@@ -185,7 +185,7 @@
         "source": "https://www.openfigi.com/id/BBG000GC3M76"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "minsur": {
       "status": "listed",
@@ -197,7 +197,7 @@
         "source": "https://www.openfigi.com/id/BBG000DNP4H0"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "pt-timah": {
       "status": "listed",
@@ -209,7 +209,7 @@
         "source": "https://www.openfigi.com/id/BBG000BCYPV3"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "gazprom": {
       "status": "listed",
@@ -221,12 +221,12 @@
         "source": "https://www.openfigi.com/id/BBG000BV8964"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "russian-quartz": {
       "status": "none-found",
       "query": "Russian Quartz",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "shenghe-resources": {
       "status": "listed",
@@ -238,7 +238,7 @@
         "source": "https://www.openfigi.com/id/BBG000PQJZQ8"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "chalco": {
       "status": "listed",
@@ -256,7 +256,7 @@
         "cik": 1161611,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1161611"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "china-northern-rare-earth": {
       "status": "listed",
@@ -268,12 +268,12 @@
         "source": "https://www.openfigi.com/id/BBG000BTZ0V0"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "hemlock-semiconductor": {
       "status": "none-found",
       "query": "Hemlock Semiconductor",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "tokuyama": {
       "status": "listed",
@@ -285,7 +285,7 @@
         "source": "https://www.openfigi.com/id/BBG000BK6372"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "wacker-chemie": {
       "status": "listed",
@@ -297,7 +297,7 @@
         "source": "https://www.openfigi.com/id/BBG000BLCJ23"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "5n-plus": {
       "status": "listed",
@@ -309,7 +309,7 @@
         "source": "https://www.openfigi.com/id/BBG000TXWLZ5"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "air-liquide": {
       "status": "listed",
@@ -320,14 +320,8 @@
         "figi": "BBG000BLGLW1",
         "source": "https://www.openfigi.com/id/BBG000BLGLW1"
       },
-      "us": {
-        "ticker": "AIQUF",
-        "exchange": "OTC",
-        "name": "L AIR LIQUIDE SA /FI",
-        "cik": 1161167,
-        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1161167"
-      },
-      "checkedOn": "2026-09-24"
+      "us": null,
+      "checkedOn": "2026-10-25"
     },
     "air-products": {
       "status": "listed",
@@ -345,17 +339,17 @@
         "cik": 2969,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2969"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "heraeus": {
       "status": "private",
       "note": "Family-owned.",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "iceblick": {
       "status": "none-found",
       "query": "Iceblick",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "johnson-matthey": {
       "status": "listed",
@@ -367,7 +361,7 @@
         "source": "https://www.openfigi.com/id/BBG000BDNS10"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "oci": {
       "status": "listed",
@@ -379,7 +373,7 @@
         "source": "https://www.openfigi.com/id/BBG01BPC7CD2"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "umicore": {
       "status": "listed",
@@ -391,7 +385,7 @@
         "source": "https://www.openfigi.com/id/BBG000BN6FD2"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "agc": {
       "status": "listed",
@@ -403,7 +397,7 @@
         "source": "https://www.openfigi.com/id/BBG000BG8RD9"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "aurubis": {
       "status": "listed",
@@ -415,12 +409,12 @@
         "source": "https://www.openfigi.com/id/BBG000BGKM37"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "baosteel-gases": {
       "status": "none-found",
       "query": "Baosteel Gases",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "chemours": {
       "status": "listed",
@@ -438,22 +432,22 @@
         "cik": 1627223,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1627223"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "china-rare-earth-group": {
       "status": "none-found",
       "query": "China Rare Earth Group",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "cryoin-engineering": {
       "status": "none-found",
       "query": "Cryoin Engineering",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "east-hope-group": {
       "status": "none-found",
       "query": "East Hope Group",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "jiangsu-pacific-quartz": {
       "status": "listed",
@@ -465,17 +459,17 @@
         "source": "https://www.openfigi.com/id/BBG002WFY9G2"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "malaysia-smelting-corporation": {
       "status": "none-found",
       "query": "Malaysia Smelting Corporation",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "messer": {
       "status": "private",
       "note": "Family-owned.",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "mitsubishi-materials": {
       "status": "listed",
@@ -493,12 +487,12 @@
         "cik": 1460447,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1460447"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "nyrstar": {
       "status": "none-found",
       "query": "Nyrstar",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "rio-tinto": {
       "status": "listed",
@@ -516,7 +510,7 @@
         "cik": 863064,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=863064"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "solvay": {
       "status": "listed",
@@ -528,7 +522,7 @@
         "source": "https://www.openfigi.com/id/BBG00FRSNLW8"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "syensqo": {
       "status": "listed",
@@ -546,32 +540,32 @@
         "cik": 2004340,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2004340"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "zhuhai-fangyuan": {
       "status": "none-found",
       "query": "Zhuhai Fangyuan",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "less-common-metals": {
       "status": "none-found",
       "query": "Less Common Metals",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "momentive-technologies": {
       "status": "none-found",
       "query": "Momentive Technologies",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "shin-etsu-handotai": {
       "status": "none-found",
       "query": "Shin-Etsu Handotai",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "shin-etsu-quartz": {
       "status": "none-found",
       "query": "Shin-Etsu Quartz",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "sumco": {
       "status": "listed",
@@ -583,7 +577,7 @@
         "source": "https://www.openfigi.com/id/BBG000JSLPJ8"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "coherent": {
       "status": "listed",
@@ -601,7 +595,7 @@
         "cik": 820318,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=820318"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "neo-performance-materials": {
       "status": "listed",
@@ -613,7 +607,7 @@
         "source": "https://www.openfigi.com/id/BBG00HZRFTV0"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "element-six": {
       "status": "parent",
@@ -627,12 +621,12 @@
         "source": "https://www.openfigi.com/id/BBG000BWF7M0"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "faraday-factory-japan": {
       "status": "none-found",
       "query": "Faraday Factory Japan",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "ferrotec": {
       "status": "listed",
@@ -644,7 +638,7 @@
         "source": "https://www.openfigi.com/id/BBG000HDXTG5"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "fujikura": {
       "status": "listed",
@@ -662,7 +656,7 @@
         "cik": 2043424,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2043424"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "globalwafers": {
       "status": "listed",
@@ -674,12 +668,12 @@
         "source": "https://www.openfigi.com/id/BBG007D2WSJ8"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "indium-corporation": {
       "status": "none-found",
       "query": "Indium Corporation",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "nippon-steel": {
       "status": "listed",
@@ -691,7 +685,7 @@
         "source": "https://www.openfigi.com/id/BBG000BG9X54"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "posco": {
       "status": "listed",
@@ -709,7 +703,7 @@
         "cik": 889132,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=889132"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "resonac": {
       "status": "listed",
@@ -721,7 +715,7 @@
         "source": "https://www.openfigi.com/id/BBG000BG05J9"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "siltronic": {
       "status": "listed",
@@ -733,7 +727,7 @@
         "source": "https://www.openfigi.com/id/BBG000BPX086"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "sk-siltron": {
       "status": "parent",
@@ -747,7 +741,7 @@
         "source": "https://www.openfigi.com/id/BBG000C2JFR8"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "wolfspeed": {
       "status": "listed",
@@ -765,7 +759,7 @@
         "cik": 895419,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=895419"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "amsc": {
       "status": "listed",
@@ -783,17 +777,17 @@
         "cik": 880807,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=880807"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "applied-diamond": {
       "status": "none-found",
       "query": "Applied Diamond",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "baosteel": {
       "status": "none-found",
       "query": "Baosteel",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "cleveland-cliffs": {
       "status": "listed",
@@ -811,17 +805,17 @@
         "cik": 764065,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=764065"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "diamond-materials": {
       "status": "none-found",
       "query": "Diamond Materials",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "engineered-fluids": {
       "status": "none-found",
       "query": "Engineered Fluids",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "furuya-metal": {
       "status": "listed",
@@ -833,22 +827,22 @@
         "source": "https://www.openfigi.com/id/BBG000C2TQ11"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "jfe-steel": {
       "status": "none-found",
       "query": "JFE Steel",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "metox": {
       "status": "none-found",
       "query": "MetOx",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "shanghai-superconductor": {
       "status": "none-found",
       "query": "Shanghai Superconductor",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "sicc": {
       "status": "listed",
@@ -866,7 +860,7 @@
         "cik": 2098860,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2098860"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "sk-siltron-css": {
       "status": "parent",
@@ -880,7 +874,7 @@
         "source": "https://www.openfigi.com/id/BBG000C2JFR8"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "stalprodukt": {
       "status": "listed",
@@ -892,7 +886,7 @@
         "source": "https://www.openfigi.com/id/BBG000CJ7P92"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "sumitomo-electric": {
       "status": "listed",
@@ -910,27 +904,27 @@
         "cik": 95227,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=95227"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "superpower": {
       "status": "none-found",
       "query": "SuperPower",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "tanaka-kikinzoku": {
       "status": "none-found",
       "query": "Tanaka Kikinzoku",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "tankeblue": {
       "status": "none-found",
       "query": "TankeBlue",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "theva": {
       "status": "none-found",
       "query": "THEVA",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "thyssenkrupp-electrical-steel": {
       "status": "parent",
@@ -944,17 +938,17 @@
         "source": "https://www.openfigi.com/id/BBG000BHPST9"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "carl-zeiss-smt": {
       "status": "private",
       "note": "Part of Carl Zeiss AG, owned by the Carl Zeiss Foundation.",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "jsr": {
       "status": "none-found",
       "query": "JSR",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "shin-etsu-chemical": {
       "status": "listed",
@@ -972,7 +966,7 @@
         "cik": 1442651,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1442651"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "tokyo-ohka-kogyo": {
       "status": "listed",
@@ -990,12 +984,12 @@
         "cik": 2066601,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2066601"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "trumpf": {
       "status": "private",
       "note": "Family-owned.",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "applied-materials": {
       "status": "listed",
@@ -1013,7 +1007,7 @@
         "cik": 6951,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=6951"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "asm-international": {
       "status": "listed",
@@ -1025,7 +1019,7 @@
         "source": "https://www.openfigi.com/id/BBG000F5L454"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "kla": {
       "status": "listed",
@@ -1043,7 +1037,7 @@
         "cik": 319201,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=319201"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "lam-research": {
       "status": "listed",
@@ -1061,7 +1055,7 @@
         "cik": 707549,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=707549"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "canon": {
       "status": "listed",
@@ -1079,7 +1073,7 @@
         "cik": 16988,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=16988"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "nikon": {
       "status": "listed",
@@ -1091,7 +1085,7 @@
         "source": "https://www.openfigi.com/id/BBG000BGS2B4"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "tsmc": {
       "status": "listed",
@@ -1109,7 +1103,7 @@
         "cik": 1046179,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1046179"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "intel-foundry": {
       "status": "parent",
@@ -1129,7 +1123,7 @@
         "cik": 50863,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=50863"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "samsung-foundry": {
       "status": "parent",
@@ -1143,7 +1137,7 @@
         "source": "https://www.openfigi.com/id/BBG000BCY2S8"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "smic": {
       "status": "listed",
@@ -1155,7 +1149,7 @@
         "source": "https://www.openfigi.com/id/BBG000LB4NH8"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "globalfoundries": {
       "status": "listed",
@@ -1173,7 +1167,7 @@
         "cik": 1709048,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1709048"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "umc": {
       "status": "listed",
@@ -1191,7 +1185,7 @@
         "cik": 1033767,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1033767"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "sk-hynix": {
       "status": "listed",
@@ -1209,7 +1203,7 @@
         "cik": 2120882,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2120882"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "tsmc-advanced-packaging": {
       "status": "parent",
@@ -1229,7 +1223,7 @@
         "cik": 1046179,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1046179"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "micron": {
       "status": "listed",
@@ -1247,7 +1241,7 @@
         "cik": 723125,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=723125"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "samsung-memory": {
       "status": "parent",
@@ -1261,7 +1255,7 @@
         "source": "https://www.openfigi.com/id/BBG000BCY2S8"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "amkor": {
       "status": "listed",
@@ -1279,7 +1273,7 @@
         "cik": 1047127,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1047127"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "ase-technology": {
       "status": "listed",
@@ -1297,7 +1291,7 @@
         "cik": 1122411,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1122411"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "nvidia": {
       "status": "listed",
@@ -1315,7 +1309,7 @@
         "cik": 1045810,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1045810"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "amd": {
       "status": "listed",
@@ -1333,7 +1327,7 @@
         "cik": 2488,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2488"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "broadcom": {
       "status": "listed",
@@ -1351,7 +1345,7 @@
         "cik": 1730168,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1730168"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "marvell": {
       "status": "listed",
@@ -1369,7 +1363,7 @@
         "cik": 1835632,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1835632"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "vertiv": {
       "status": "listed",
@@ -1387,7 +1381,7 @@
         "cik": 1674101,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1674101"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "arista-networks": {
       "status": "listed",
@@ -1405,7 +1399,7 @@
         "cik": 1596532,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1596532"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "supermicro": {
       "status": "listed",
@@ -1423,7 +1417,7 @@
         "cik": 1375365,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1375365"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "ge-vernova": {
       "status": "listed",
@@ -1441,7 +1435,7 @@
         "cik": 1996810,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1996810"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "siemens-energy": {
       "status": "listed",
@@ -1459,7 +1453,7 @@
         "cik": 1830056,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1830056"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "mitsubishi-electric": {
       "status": "listed",
@@ -1471,7 +1465,7 @@
         "source": "https://www.openfigi.com/id/BBG000BGHX91"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "nkt": {
       "status": "listed",
@@ -1483,7 +1477,7 @@
         "source": "https://www.openfigi.com/id/BBG000BSCYF1"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "prysmian": {
       "status": "listed",
@@ -1495,7 +1489,7 @@
         "source": "https://www.openfigi.com/id/BBG000R58W81"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "abb": {
       "status": "listed",
@@ -1513,7 +1507,7 @@
         "cik": 1091587,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1091587"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "schneider-electric": {
       "status": "listed",
@@ -1525,7 +1519,7 @@
         "source": "https://www.openfigi.com/id/BBG000BBWCH2"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "harmonic-drive-systems": {
       "status": "listed",
@@ -1537,7 +1531,7 @@
         "source": "https://www.openfigi.com/id/BBG000BCZPZ8"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "nabtesco": {
       "status": "listed",
@@ -1549,7 +1543,7 @@
         "source": "https://www.openfigi.com/id/BBG000Q04VG0"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "renishaw": {
       "status": "listed",
@@ -1561,7 +1555,7 @@
         "source": "https://www.openfigi.com/id/BBG000BDZV65"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "abb-robotics": {
       "status": "parent",
@@ -1581,7 +1575,7 @@
         "cik": 1091587,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1091587"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "fanuc": {
       "status": "listed",
@@ -1592,8 +1586,14 @@
         "figi": "BBG000BM3TW6",
         "source": "https://www.openfigi.com/id/BBG000BM3TW6"
       },
-      "us": null,
-      "checkedOn": "2026-09-24"
+      "us": {
+        "ticker": "FANUF",
+        "exchange": "OTC",
+        "name": "Fanuc Ltd",
+        "cik": 1446596,
+        "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1446596"
+      },
+      "checkedOn": "2026-10-25"
     },
     "yaskawa": {
       "status": "listed",
@@ -1605,7 +1605,7 @@
         "source": "https://www.openfigi.com/id/BBG000BDCF47"
       },
       "us": null,
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "kuka": {
       "status": "parent",
@@ -1625,7 +1625,7 @@
         "cik": 2039784,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2039784"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "amazon-web-services": {
       "status": "parent",
@@ -1645,12 +1645,12 @@
         "cik": 1018724,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1018724"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "anthropic": {
       "status": "private",
       "note": "Privately held.",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "google": {
       "status": "parent",
@@ -1670,7 +1670,7 @@
         "cik": 1652044,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1652044"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "meta": {
       "status": "listed",
@@ -1688,7 +1688,7 @@
         "cik": 1326801,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1326801"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "microsoft": {
       "status": "listed",
@@ -1706,17 +1706,17 @@
         "cik": 789019,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=789019"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "openai": {
       "status": "private",
       "note": "Privately held.",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "xai": {
       "status": "private",
       "note": "Privately held.",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "coreweave": {
       "status": "listed",
@@ -1734,7 +1734,7 @@
         "cik": 1769628,
         "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1769628"
       },
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     }
   }
 }

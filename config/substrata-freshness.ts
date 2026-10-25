@@ -27,6 +27,7 @@ import producerPlaces from '../research/producer-places.json';
 import usgsRelations from '../research/usgs-relations.json';
 import universe from '../research/universe.json';
 import { ASSESSMENTS } from './substrata-assessment';
+import { oldestLookedAt, type Unconfirmed } from '../lib/freshness/unconfirmed';
 
 export type FeedId =
   'sweep' | 'source' | 'filings' | 'science' | 'series' | 'drafts' | 'jobs' | 'quality';
@@ -148,10 +149,13 @@ export interface Dataset {
   checkedOn: string;
   /** Past this, the build fails: a committed file this old is not shown as current. */
   maxAgeDays: number;
+  /** Rows tried and not confirmed (lib/freshness/unconfirmed.ts): shown, never counted as fresh. */
+  unconfirmed?: readonly Unconfirmed[];
 }
 
 const day = (iso: string | null | undefined) => (iso ?? '').slice(0, 10);
 const oldest = (dates: readonly string[]) => [...dates].sort()[0] ?? '';
+const boardRows = Object.entries(jobBoards.companies).map(([id, r]) => ({ id, ...r }));
 
 export const DATASETS: readonly Dataset[] = [
   {
@@ -175,15 +179,16 @@ export const DATASETS: readonly Dataset[] = [
     id: 'series-quotes',
     label: 'Series read from sources (oldest quote check)',
     file: 'research/series.json',
-    refresh: 'Re-read each source and match the quote: pnpm tsx scripts/research/check-series.ts',
-    checkedOn: oldest(series.series.map((s) => s.checkedOn)),
+    refresh: 'pnpm tsx scripts/research/check-series.ts --write (dates only what it found)',
+    checkedOn: oldestLookedAt(series.series, series.unconfirmed),
+    unconfirmed: series.unconfirmed,
     maxAgeDays: 30,
   },
   {
     id: 'claims',
     label: 'Claims checked against series',
     file: 'research/claims.json',
-    refresh: 'Re-check each claim against its series and update checkedOn',
+    refresh: 'pnpm tsx scripts/research/check-claims.ts --write (after the series)',
     checkedOn: day(claims.checkedOn),
     maxAgeDays: 30,
   },
@@ -191,8 +196,9 @@ export const DATASETS: readonly Dataset[] = [
     id: 'job-boards',
     label: 'Which board each company hires on',
     file: 'research/job-boards.json',
-    refresh: 'Re-check each careers page and update checkedOn',
-    checkedOn: day(jobBoards.checkedOn),
+    refresh: 'pnpm tsx scripts/research/check-job-boards.ts --write (dates what held)',
+    checkedOn: oldestLookedAt(boardRows, jobBoards.unconfirmed),
+    unconfirmed: jobBoards.unconfirmed,
     maxAgeDays: 30,
   },
   {

@@ -113,12 +113,19 @@ export async function pageText(
       await rm(dir, { recursive: true, force: true });
     }
   }
+  return htmlText(body.toString('utf8'));
+}
+
+/** A page's HTML as the text a reader sees: tags become spaces, except where they cannot. */
+export function htmlText(html: string): string {
   return (
-    body
-      .toString('utf8')
+    html
       // RSS and XHTML wrap text in CDATA; stripped as a tag, the text would go with it.
       .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, ' $1 ')
       .replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/gi, ' ')
+      // A word split between two style runs ("EU</font><font …>V", as SEC filings
+      // print them) renders as one word; any other tag is a space.
+      .replace(/([a-z])<\/(font|span)><\2\b[^>]*>(?=[a-z])/gi, '$1')
       .replace(/<[^>]+>/g, ' ')
   );
 }

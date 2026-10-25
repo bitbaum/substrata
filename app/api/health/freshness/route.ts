@@ -34,6 +34,7 @@ export async function GET() {
         checkedOn: d.dataset.checkedOn,
         ageDays: d.ageDays,
         maxAgeDays: d.dataset.maxAgeDays,
+        unconfirmed: d.dataset.unconfirmed ?? [],
       })),
       reviewQueue: report.queue,
     },

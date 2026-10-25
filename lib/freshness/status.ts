@@ -66,16 +66,18 @@ export function ageDays(isoDay: string, now: Date = new Date()): number {
 /**
  * A committed dataset's state: fresh for the first three quarters of its
  * allowed age, late ("due") after that, stale once past it — which is also
- * the point where the build fails.
+ * the point where the build fails. A dataset with rows on its `unconfirmed`
+ * list is late however recent: those rows were tried, not confirmed.
  */
 export function datasetState(
-  dataset: Pick<Dataset, 'checkedOn' | 'maxAgeDays'>,
+  dataset: Pick<Dataset, 'checkedOn' | 'maxAgeDays' | 'unconfirmed'>,
   now = new Date(),
 ): FreshState {
   const age = ageDays(dataset.checkedOn, now);
   if (!Number.isFinite(age)) return 'unknown';
   if (age > dataset.maxAgeDays) return 'stale';
-  if (age > dataset.maxAgeDays * 0.75) return 'late';
+  // Rows tried and not confirmed are never "fresh": the dataset needs attention.
+  if (age > dataset.maxAgeDays * 0.75 || (dataset.unconfirmed?.length ?? 0) > 0) return 'late';
   return 'fresh';
 }
 
