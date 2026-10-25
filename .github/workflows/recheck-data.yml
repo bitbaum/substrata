@@ -11,8 +11,11 @@ name: Re-check data
 #
 # This runs the re-check scripts and nothing else. Each one moves a date ONLY
 # for what it re-read and found in this run (see each script's header); a
-# source that is gone or unreachable keeps its old date and is listed in the
-# PR, where a person fixes the row. No date is ever written by this file.
+# source that is gone or unreachable keeps its old date and goes on its file's
+# `unconfirmed` list with the reason (lib/freshness/unconfirmed.ts), shown on
+# /data/freshness. That entry expires in a month like any date, so a row that
+# is never confirmed turns the build red again unless this keeps trying. No
+# date is ever written by this file.
 #
 #   check-series.ts --write      every quote in research/series.json
 #   check-claims.ts --write      research/claims.json, once its series are re-read
@@ -25,8 +28,7 @@ name: Re-check data
 # Where the result goes: a dispatch with `branch` set commits onto that branch
 # (so a PR that needs fresh data gets it); otherwise onto a new branch
 # bot/recheck-data-<date>, with a PR to main. Auto-merge ships that PR when CI
-# is green, and CI is red while any row is still stale, so a PR with unchecked
-# rows waits for a person.
+# is green; the PR body lists every row that was not confirmed.
 #
 # TOKEN: FLEET_PAT when the org secret exists, else GITHUB_TOKEN — the same
 # convention as auto-merge.yml. Prefer the PAT: a push or a PR made with

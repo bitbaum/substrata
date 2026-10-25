@@ -19,10 +19,13 @@
  *   that is still so — the page links no careers page, or the site still does
  *   not answer, or every host the evidence names still does not answer.
  *
- * `--write` sets `checkedOn` to today ONLY on records that held in this run,
- * and the file's own `checkedOn` (what config/substrata-freshness.ts judges)
- * to the OLDEST record date — never newer than its least recently checked row.
- * Every record that did not hold keeps its date and is listed for a person.
+ * `--write` sets `checkedOn` to today ONLY on records that held in this run.
+ * Every record that did not hold keeps its date and goes on the file's
+ * `unconfirmed` list with the reason and today's date (lib/freshness/
+ * unconfirmed.ts) — shown on /data/freshness, counted as tried, never as
+ * fresh, and expiring like any date; a record that holds later leaves it.
+ * The file's own `checkedOn` stays the oldest row's real check; the gate
+ * (config/substrata-freshness.ts) is what counts the tries.
  * `--only=<slug,slug>` limits the run.
  *
  * The browser is the workspace's Playwright (a dev dependency of
@@ -33,6 +36,11 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 
 import { AGENTS } from '../../lib/quality/page-text';
+import {
+  oldestLookedAt,
+  updateUnconfirmed,
+  type Unconfirmed,
+} from '../../lib/freshness/unconfirmed';
 
 const FILE = new URL('../../research/job-boards.json', import.meta.url);
 
@@ -217,11 +225,12 @@ async function main() {
   const file = JSON.parse(readFileSync(FILE, 'utf8')) as {
     version: number;
     checkedOn: string;
+    unconfirmed: Unconfirmed[];
     companies: Record<string, BoardRecord>;
   };
   const today = new Date().toISOString().slice(0, 10);
-  const failed: string[] = [];
-  let held = 0;
+  const confirmed: string[] = [];
+  const failed: { id: string; reason: string }[] = [];
   const only = process.argv
     .find((a) => a.startsWith('--only='))
     ?.slice(7)
@@ -229,22 +238,25 @@ async function main() {
   for (const [slug, record] of Object.entries(file.companies)) {
     if (only && !only.includes(slug)) continue;
     const problem = await check(record);
-    if (problem) failed.push(`${slug} [${record.ats}] ${problem}`);
+    if (problem) failed.push({ id: slug, reason: `${record.ats}: ${problem}` });
     else {
-      held += 1;
+      confirmed.push(slug);
       if (write) record.checkedOn = today;
     }
   }
   await closeBrowser();
-  console.log(`${held} records held; ${failed.length} not confirmed`);
-  for (const line of failed) console.log(`NOT CONFIRMED  ${line}`);
+  console.log(`${confirmed.length} records held; ${failed.length} not confirmed`);
+  for (const f of failed) console.log(`NOT CONFIRMED  ${f.id} [${f.reason}]`);
   if (write) {
-    file.checkedOn = Object.values(file.companies)
-      .map((r) => r.checkedOn)
-      .sort()[0];
+    file.unconfirmed = updateUnconfirmed(file.unconfirmed ?? [], { confirmed, failed }, today);
+    // The file's own date stays the oldest REAL check; only the gate counts tries.
+    file.checkedOn = oldestLookedAt(
+      Object.entries(file.companies).map(([id, r]) => ({ id, ...r })),
+      [],
+    );
     writeFileSync(FILE, `${JSON.stringify(file, null, 2)}\n`);
     console.log(
-      `records held re-dated ${today}; file checkedOn = oldest record, ${file.checkedOn}`,
+      `records held re-dated ${today}; ${file.unconfirmed.length} listed unconfirmed; file checkedOn ${file.checkedOn}`,
     );
   }
 }
