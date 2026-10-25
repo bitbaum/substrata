@@ -168,3 +168,28 @@
     justify-self: start;
   }
 }
+
+.fresh-unconfirmed td {
+  border-left: 3px solid var(--color-status-warning);
+}
+
+.fresh-unconfirmed-list {
+  margin: 0.4rem 0 0;
+  padding-left: 1.1rem;
+  list-style: disc;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--color-fg-secondary);
+  overflow-wrap: anywhere;
+}
+
+/* On a phone the note spans the card: no label column beside it. */
+@media (max-width: 760px) {
+  .fresh-table .fresh-unconfirmed td {
+    display: block;
+    padding-left: 0.6rem;
+  }
+  .fresh-table .fresh-unconfirmed td::before {
+    content: none;
+  }
+}

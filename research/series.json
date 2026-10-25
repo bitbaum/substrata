@@ -1,5 +1,12 @@
 {
   "version": 1,
+  "unconfirmed": [
+    {
+      "id": "us-employment-semiconductor-related-device-manufacturing",
+      "reason": "8 of 8 points not confirmed: data.bls.gov answered HTTP 503",
+      "triedOn": "2026-10-25"
+    }
+  ],
   "series": [
     {
       "id": "ge-vernova-gas-power-equipment-backlog-slot-reservation",
@@ -11,7 +18,7 @@
       "direction": "up-tightens",
       "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-03-31",
@@ -79,7 +86,7 @@
       "kind": "backlog",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-03-31",
@@ -146,7 +153,7 @@
       "kind": "backlog",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-03-31",
@@ -213,7 +220,7 @@
       "kind": "capacity",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2026-Q3",
@@ -256,7 +263,7 @@
       "kind": "orders",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2022",
@@ -309,7 +316,7 @@
       "kind": "orders",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2022",
@@ -362,7 +369,7 @@
       "kind": "backlog",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2022-12-31",
@@ -425,7 +432,7 @@
       "kind": "backlog",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2024-03-31",
@@ -538,7 +545,7 @@
       "kind": "orders",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-06-30",
@@ -561,7 +568,7 @@
       "kind": "backlog",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2024-03-31",
@@ -594,7 +601,7 @@
       "kind": "orders",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-03",
@@ -627,7 +634,7 @@
       "kind": "queue",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2022-12-31",
@@ -678,7 +685,7 @@
       "kind": "queue",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2022-12-31",
@@ -728,7 +735,7 @@
       "direction": "up-tightens",
       "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2008",
@@ -777,7 +784,7 @@
       "kind": "lead-time",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2022",
@@ -810,7 +817,7 @@
       "kind": "queue",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2022-12-31",
@@ -863,7 +870,7 @@
       "kind": "lead-time",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2010",
@@ -887,7 +894,7 @@
       "kind": "lead-time",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2024",
@@ -912,7 +919,7 @@
       "direction": "up-tightens",
       "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2021",
@@ -955,7 +962,7 @@
       "kind": "lead-time",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-Q2",
@@ -977,7 +984,7 @@
       "kind": "other",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025",
@@ -1000,7 +1007,7 @@
       "kind": "other",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025",
@@ -1022,7 +1029,7 @@
       "kind": "other",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2024",
@@ -1045,7 +1052,7 @@
       "kind": "price",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025",
@@ -1068,7 +1075,7 @@
       "kind": "price",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025",
@@ -1090,7 +1097,7 @@
       "kind": "price",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2024",
@@ -1113,7 +1120,7 @@
       "kind": "other",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025",
@@ -1136,7 +1143,7 @@
       "kind": "capacity",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-08",
@@ -1158,7 +1165,7 @@
       "kind": "capacity",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-09",
@@ -1191,7 +1198,7 @@
       "kind": "other",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2023",
@@ -1214,7 +1221,7 @@
       "kind": "other",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2024",
@@ -1238,7 +1245,7 @@
       "direction": "up-loosens",
       "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2024",
@@ -1261,7 +1268,7 @@
       "kind": "other",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2019",
@@ -1284,7 +1291,7 @@
       "kind": "other",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2020",
@@ -1306,7 +1313,7 @@
       "kind": "capacity",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-08",
@@ -1340,7 +1347,7 @@
       "direction": "up-tightens",
       "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2024-12-31",
@@ -1401,7 +1408,7 @@
       "kind": "backlog",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2024-12-31",
@@ -1453,7 +1460,7 @@
       "kind": "backlog",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-12-31",
@@ -1495,7 +1502,7 @@
       "kind": "lead-time",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-Q2",
@@ -1517,7 +1524,7 @@
       "kind": "backlog",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2024-12-31",
@@ -1590,7 +1597,7 @@
       "kind": "backlog",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2022-12-31",
@@ -1653,7 +1660,7 @@
       "kind": "trade",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2021",
@@ -1712,7 +1719,7 @@
       "kind": "price",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2021",
@@ -1776,7 +1783,7 @@
       "direction": "up-tightens",
       "describes": "Germanium, filed under gallium: China controls exports of both under one 2023 announcement (see the policy page), and both are recovered as by-products of other metals.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2021",
@@ -1850,7 +1857,7 @@
       "direction": "up-tightens",
       "describes": "Germanium, filed under gallium: China controls exports of both under one 2023 announcement (see the policy page), and both are recovered as by-products of other metals.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2021",
@@ -1924,7 +1931,7 @@
       "direction": "neutral",
       "describes": "Germanium, filed under gallium: China controls exports of both under one 2023 announcement (see the policy page), and both are recovered as by-products of other metals.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2021",
@@ -1988,7 +1995,7 @@
       "direction": "up-tightens",
       "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2021",
@@ -2051,7 +2058,7 @@
       "kind": "trade",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2021",
@@ -2114,7 +2121,7 @@
       "kind": "output",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2021",
@@ -2179,7 +2186,7 @@
       "headline": true,
       "describes": "Oxide, not metal: USGS publishes no dysprosium metal price.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2021",
@@ -2253,7 +2260,7 @@
       "direction": "up-tightens",
       "describes": "Oxide, not metal; terbium is the other heavy rare earth in high-temperature magnets.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2021",
@@ -2327,7 +2334,7 @@
       "direction": "up-loosens",
       "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2021",
@@ -2396,7 +2403,7 @@
       "kind": "trade",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2021",
@@ -2455,7 +2462,7 @@
       "kind": "price",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2021",
@@ -2519,7 +2526,7 @@
       "direction": "up-tightens",
       "describes": "Ordinary refined tin, not seven-nines EUV droplet grade: there is no public price series for that grade.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2021",
@@ -2593,7 +2600,7 @@
       "direction": "up-tightens",
       "describes": "Ordinary refined tin, not seven-nines EUV droplet grade: there is no public price series for that grade.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2021",
@@ -2667,7 +2674,7 @@
       "direction": "up-tightens",
       "describes": "Unfabricated ruthenium; no public price exists for sputtering or ALD grade.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2021",
@@ -2740,7 +2747,7 @@
       "kind": "trade",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2021",
@@ -2800,7 +2807,7 @@
       "direction": "up-loosens",
       "describes": "All ground high-purity quartz sold or used in the US, a USGS estimate rounded to 100,000 t — not crucible grade only.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2021",
@@ -2863,7 +2870,7 @@
       "kind": "price",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2020",
@@ -2927,7 +2934,7 @@
       "direction": "neutral",
       "describes": "All grades of neon, not only excimer-laser grade.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2021",
@@ -2991,7 +2998,7 @@
       "direction": "up-tightens",
       "describes": "All grades of neon, not only excimer-laser grade.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2021",
@@ -3055,7 +3062,7 @@
       "direction": "up-tightens",
       "describes": "All grades of neon, not only excimer-laser grade.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2021",
@@ -3119,7 +3126,7 @@
       "direction": "up-tightens",
       "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2024-06-30",
@@ -3212,7 +3219,7 @@
       "kind": "price",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2024-06-30",
@@ -3315,7 +3322,7 @@
       "kind": "price",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025",
@@ -3337,7 +3344,7 @@
       "kind": "price",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2024-03",
@@ -3461,7 +3468,7 @@
       "direction": "up-tightens",
       "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2009-04",
@@ -3594,7 +3601,7 @@
       "kind": "price",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2024-Q1",
@@ -3667,7 +3674,7 @@
       "kind": "output",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2024-Q1",
@@ -3761,7 +3768,7 @@
       "direction": "up-loosens",
       "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-04",
@@ -3840,7 +3847,7 @@
       "direction": "up-loosens",
       "describes": "Germanium, filed under gallium: China controls exports of both under one 2023 announcement (see the policy page), and both are recovered as by-products of other metals.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-04",
@@ -3894,7 +3901,7 @@
       "direction": "up-loosens",
       "describes": "Germanium, filed under gallium: China controls exports of both under one 2023 announcement (see the policy page), and both are recovered as by-products of other metals.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-09",
@@ -3937,7 +3944,7 @@
       "kind": "trade",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2022",
@@ -3990,7 +3997,7 @@
       "kind": "trade",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2023",
@@ -4034,7 +4041,7 @@
       "direction": "up-loosens",
       "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-03",
@@ -4093,7 +4100,7 @@
       "kind": "trade",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-06",
@@ -4125,7 +4132,7 @@
       "direction": "up-loosens",
       "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025",
@@ -4176,8 +4183,8 @@
         {
           "date": "2020",
           "value": 31,
-          "source": "https://www.asml.com/en/news/press-releases/2021/asml-reports-eur-14dot0-billion-net-sales-and-eur3dot6-billion-net-income-in-2020",
-          "publisher": "ASML Q4 and full-year 2020 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000093796621000003/pressreleasequarterlyresul.htm",
+          "publisher": "ASML Q4 and full-year 2020 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2021-01-20",
           "quote": "The total net sales for the year was €14.0 billion, including €4.5 billion from 31 EUV systems.",
           "primary": true
@@ -4193,7 +4200,7 @@
       "kind": "output",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025",
@@ -4243,8 +4250,8 @@
         {
           "date": "2020",
           "value": 4.5,
-          "source": "https://www.asml.com/en/news/press-releases/2021/asml-reports-eur-14dot0-billion-net-sales-and-eur3dot6-billion-net-income-in-2020",
-          "publisher": "ASML Q4 and full-year 2020 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000093796621000003/pressreleasequarterlyresul.htm",
+          "publisher": "ASML Q4 and full-year 2020 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2021-01-20",
           "quote": "The total net sales for the year was €14.0 billion, including €4.5 billion from 31 EUV systems.",
           "primary": true
@@ -4260,7 +4267,7 @@
       "kind": "output",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2023",
@@ -4284,8 +4291,8 @@
         {
           "date": "2020-Q4",
           "value": 9,
-          "source": "https://www.asml.com/en/news/press-releases/2021/asml-reports-eur-14dot0-billion-net-sales-and-eur3dot6-billion-net-income-in-2020",
-          "publisher": "ASML Q4 and full-year 2020 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000093796621000003/pressreleasequarterlyresul.htm",
+          "publisher": "ASML Q4 and full-year 2020 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2021-01-20",
           "quote": "We shipped nine EUV systems and recognized revenue for eight systems in the fourth quarter.",
           "primary": true
@@ -4293,8 +4300,8 @@
         {
           "date": "2019-Q4",
           "value": 8,
-          "source": "https://www.asml.com/en/news/press-releases/2020/q4--and-full-year-2019-financial-results",
-          "publisher": "ASML Q4 and full-year 2019 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000093796620000003/pressreleasequarterlyresul.htm",
+          "publisher": "ASML Q4 and full-year 2019 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2020-01-22",
           "quote": "We shipped eight EUV systems in the fourth quarter and we received orders for nine EUV systems.",
           "primary": true
@@ -4310,7 +4317,7 @@
       "kind": "orders",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2021-Q4",
@@ -4324,8 +4331,8 @@
         {
           "date": "2020-Q4",
           "value": 1.1,
-          "source": "https://www.asml.com/en/news/press-releases/2021/asml-reports-eur-14dot0-billion-net-sales-and-eur3dot6-billion-net-income-in-2020",
-          "publisher": "ASML Q4 and full-year 2020 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000093796621000003/pressreleasequarterlyresul.htm",
+          "publisher": "ASML Q4 and full-year 2020 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2021-01-20",
           "quote": "Our fourth-quarter net bookings came in at €4.2 billion, including €1.1 billion from EUV systems (net six units).",
           "primary": true
@@ -4333,8 +4340,8 @@
         {
           "date": "2025-Q4",
           "value": 7.4,
-          "source": "https://www.asml.com/en/news/press-releases/2026/q4-2025-financial-results",
-          "publisher": "ASML Q4 2025 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000162828026003701/pressreleasefinancialresul.htm",
+          "publisher": "ASML Q4 2025 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2026-01-28",
           "quote": "Quarterly net bookings in Q4 of €13.2 billion of which €7.4 billion is EUV",
           "primary": true
@@ -4342,8 +4349,8 @@
         {
           "date": "2025-Q3",
           "value": 3.6,
-          "source": "https://www.asml.com/en/news/press-releases/2025/q3-2025-financial-results",
-          "publisher": "ASML Q3 2025 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000162828025045043/pressreleasequarterlyresul.htm",
+          "publisher": "ASML Q3 2025 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2025-10-15",
           "quote": "Quarterly net bookings in Q3 of €5.4 billion 2 of which €3.6 billion is EUV",
           "primary": true
@@ -4351,8 +4358,8 @@
         {
           "date": "2025-Q2",
           "value": 2.3,
-          "source": "https://www.asml.com/en/news/press-releases/2025/q2-2025-financial-results",
-          "publisher": "ASML Q2 2025 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000162828025034992/pressreleasequarterlyresul.htm",
+          "publisher": "ASML Q2 2025 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2025-07-16",
           "quote": "Quarterly net bookings in Q2 of €5.5 billion 2 of which €2.3 billion is EUV",
           "primary": true
@@ -4360,8 +4367,8 @@
         {
           "date": "2025-Q1",
           "value": 1.2,
-          "source": "https://www.asml.com/en/news/press-releases/2025/q1-2025-financial-results",
-          "publisher": "ASML Q1 2025 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000093796625000014/pressreleasequarterlyresul.htm",
+          "publisher": "ASML Q1 2025 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2025-04-16",
           "quote": "Quarterly net bookings in Q1 of €3.9 billion 2 of which €1.2 billion is EUV",
           "primary": true
@@ -4369,8 +4376,8 @@
         {
           "date": "2024-Q4",
           "value": 3.0,
-          "source": "https://www.asml.com/en/news/press-releases/2025/q4-2024-financial-results",
-          "publisher": "ASML Q4 2024 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000093796625000003/pressreleasequarterlyresul.htm",
+          "publisher": "ASML Q4 2024 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2025-01-29",
           "quote": "Quarterly net bookings in Q4 of €7.1 billion 2 of which €3.0 billion is EUV",
           "primary": true
@@ -4378,8 +4385,8 @@
         {
           "date": "2024-Q2",
           "value": 2.5,
-          "source": "https://www.asml.com/en/news/press-releases/2024/q2-2024-financial-results",
-          "publisher": "ASML Q2 2024 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000093796624000019/pressreleasequarterlyresul.htm",
+          "publisher": "ASML Q2 2024 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2024-07-17",
           "quote": "Quarterly net bookings in Q2 of €5.6 billion 2 of which €2.5 billion is EUV",
           "primary": true
@@ -4422,13 +4429,13 @@
       "kind": "orders",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2019",
           "value": 6.2,
-          "source": "https://www.asml.com/en/news/press-releases/2020/q4--and-full-year-2019-financial-results",
-          "publisher": "ASML Q4 and full-year 2019 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000093796620000003/pressreleasequarterlyresul.htm",
+          "publisher": "ASML Q4 and full-year 2019 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2020-01-22",
           "quote": "We recorded an order intake for EUV of €6.2 billion during the year",
           "primary": true
@@ -4444,13 +4451,13 @@
       "kind": "orders",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-Q4",
           "value": 13.2,
-          "source": "https://www.asml.com/en/news/press-releases/2026/q4-2025-financial-results",
-          "publisher": "ASML Q4 2025 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000162828026003701/pressreleasefinancialresul.htm",
+          "publisher": "ASML Q4 2025 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2026-01-28",
           "quote": "Quarterly net bookings in Q4 of €13.2 billion of which €7.4 billion is EUV",
           "primary": true
@@ -4458,8 +4465,8 @@
         {
           "date": "2025",
           "value": 28.035,
-          "source": "https://www.asml.com/en/news/press-releases/2026/q4-2025-financial-results",
-          "publisher": "ASML Q4 2025 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000162828026003701/pressreleasefinancialresul.htm",
+          "publisher": "ASML Q4 2025 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2026-01-28",
           "quote": "Net bookings 2 5,399 13,158 18,899 3 28,035 3",
           "primary": true,
@@ -4468,8 +4475,8 @@
         {
           "date": "2024",
           "value": 18.899,
-          "source": "https://www.asml.com/en/news/press-releases/2026/q4-2025-financial-results",
-          "publisher": "ASML Q4 2025 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000162828026003701/pressreleasefinancialresul.htm",
+          "publisher": "ASML Q4 2025 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2026-01-28",
           "quote": "Net bookings 2 5,399 13,158 18,899 3 28,035 3",
           "primary": true,
@@ -4486,13 +4493,13 @@
       "kind": "backlog",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-12-31",
           "value": 38.8,
-          "source": "https://www.asml.com/en/news/press-releases/2026/q4-2025-financial-results",
-          "publisher": "ASML Q4 2025 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000162828026003701/pressreleasefinancialresul.htm",
+          "publisher": "ASML Q4 2025 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2026-01-28",
           "quote": "Backlog at the end of 2025 of €38.8 billion",
           "primary": true,
@@ -4501,8 +4508,8 @@
         {
           "date": "2025-09-30",
           "value": 35.938,
-          "source": "https://www.asml.com/en/news/press-releases/2026/q4-2025-financial-results",
-          "publisher": "ASML Q4 2025 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000162828026003701/pressreleasefinancialresul.htm",
+          "publisher": "ASML Q4 2025 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2026-01-28",
           "quote": "Backlog 4 35,938 38,797",
           "primary": true,
@@ -4539,13 +4546,13 @@
       "kind": "output",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025",
           "value": 300,
-          "source": "https://www.asml.com/en/news/press-releases/2026/q4-2025-financial-results",
-          "publisher": "ASML Q4 2025 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000162828026003701/pressreleasefinancialresul.htm",
+          "publisher": "ASML Q4 2025 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2026-01-28",
           "quote": "New lithography systems sold (units) 66 94 380 300",
           "primary": true,
@@ -4554,8 +4561,8 @@
         {
           "date": "2024",
           "value": 380,
-          "source": "https://www.asml.com/en/news/press-releases/2026/q4-2025-financial-results",
-          "publisher": "ASML Q4 2025 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000162828026003701/pressreleasefinancialresul.htm",
+          "publisher": "ASML Q4 2025 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2026-01-28",
           "quote": "New lithography systems sold (units) 66 94 380 300",
           "primary": true,
@@ -4564,8 +4571,8 @@
         {
           "date": "2026-Q2",
           "value": 86,
-          "source": "https://www.asml.com/en/news/press-releases/2026/q2-2026-financial-results",
-          "publisher": "ASML Q2 2026 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000162828026048235/pressreleasefinancialresul.htm",
+          "publisher": "ASML Q2 2026 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2026-07-15",
           "quote": "New lithography systems sold (units) 67 86",
           "primary": true,
@@ -4574,8 +4581,8 @@
         {
           "date": "2026-Q1",
           "value": 67,
-          "source": "https://www.asml.com/en/news/press-releases/2026/q2-2026-financial-results",
-          "publisher": "ASML Q2 2026 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000162828026048235/pressreleasefinancialresul.htm",
+          "publisher": "ASML Q2 2026 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2026-07-15",
           "quote": "New lithography systems sold (units) 67 86",
           "primary": true,
@@ -4592,13 +4599,13 @@
       "kind": "capacity",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2026",
           "value": 65,
-          "source": "https://www.asml.com/en/news/press-releases/2026/q2-2026-financial-results",
-          "publisher": "ASML Q2 2026 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000162828026048235/pressreleasefinancialresul.htm",
+          "publisher": "ASML Q2 2026 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2026-07-15",
           "quote": "we are planning to add 30% to our 2026 low NA EUV capacity of around 65 for 2027, and we are investigating to increase capacity with another 30% for 2028",
           "primary": true,
@@ -4615,13 +4622,13 @@
       "kind": "output",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-Q1",
           "value": 5,
-          "source": "https://www.asml.com/en/news/press-releases/2025/q1-2025-financial-results",
-          "publisher": "ASML Q1 2025 financial results",
+          "source": "https://www.sec.gov/Archives/edgar/data/937966/000093796625000014/pressreleasequarterlyresul.htm",
+          "publisher": "ASML Q1 2025 financial results (press release as filed with the SEC, Form 6-K)",
           "published": "2025-04-16",
           "quote": "In the first quarter, we shipped our fifth High NA system, and we now have these systems at three customers.",
           "primary": true,
@@ -4658,7 +4665,7 @@
       "kind": "output",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025",
@@ -4711,7 +4718,7 @@
       "kind": "workforce",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025",
@@ -4733,7 +4740,7 @@
       "kind": "other",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025",
@@ -4755,7 +4762,7 @@
       "kind": "other",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-04-01",
@@ -4777,7 +4784,7 @@
       "kind": "other",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2021-Q4",
@@ -4961,7 +4968,7 @@
       "kind": "other",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2021-Q4",
@@ -5146,7 +5153,7 @@
       "direction": "neutral",
       "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2023-Q3",
@@ -5267,7 +5274,7 @@
       "kind": "other",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2026-Q2",
@@ -5289,7 +5296,7 @@
       "kind": "capacity",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025",
@@ -5330,7 +5337,7 @@
       "kind": "other",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025",
@@ -5365,7 +5372,7 @@
       "headline": true,
       "describes": "TSMC does not publish CoWoS capacity; these are press estimates, labelled by when they were made.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2024",
@@ -5399,7 +5406,7 @@
       "direction": "up-loosens",
       "describes": "TSMC does not publish CoWoS capacity; these are press estimates, labelled by when they were made.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-12",
@@ -5442,7 +5449,7 @@
       "kind": "other",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2026-06",
@@ -5475,7 +5482,7 @@
       "kind": "capacity",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2027",
@@ -5499,7 +5506,7 @@
       "direction": "neutral",
       "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2026-Q1",
@@ -5532,7 +5539,7 @@
       "kind": "other",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2026-Q1",
@@ -5555,7 +5562,7 @@
       "kind": "output",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025",
@@ -5587,7 +5594,7 @@
       "kind": "other",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2024-Q3",
@@ -5619,7 +5626,7 @@
       "kind": "other",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2024-Q2",
@@ -5642,7 +5649,7 @@
       "kind": "lead-time",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-04",
@@ -5664,7 +5671,7 @@
       "kind": "other",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-12",
@@ -5687,7 +5694,7 @@
       "kind": "output",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-02",
@@ -5710,7 +5717,7 @@
       "kind": "other",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2023",
@@ -5753,7 +5760,7 @@
       "kind": "other",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2024",
@@ -5786,7 +5793,7 @@
       "kind": "other",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-12",
@@ -5829,7 +5836,7 @@
       "kind": "other",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-12",
@@ -5874,7 +5881,7 @@
       "headline": true,
       "describes": "Daqo sells mostly solar-grade polysilicon. Its price is a proxy for the polysilicon market, not an electronic-grade (11N) price.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2019-Q4",
@@ -6158,7 +6165,7 @@
       "direction": "up-loosens",
       "describes": "Daqo sells mostly solar-grade polysilicon. Its price is a proxy for the polysilicon market, not an electronic-grade (11N) price.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2019-Q4",
@@ -6441,7 +6448,7 @@
       "kind": "other",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025",
@@ -6499,7 +6506,7 @@
       "kind": "capacity",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-05",
@@ -6521,7 +6528,7 @@
       "kind": "workforce",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-12-31",
@@ -6544,7 +6551,7 @@
       "headline": true,
       "describes": "SEMI figures for silicon wafers of every diameter, not only 300 mm prime wafers.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2026-Q2",
@@ -6698,7 +6705,7 @@
       "direction": "up-loosens",
       "describes": "SEMI figures for silicon wafers of every diameter, not only 300 mm prime wafers.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025",
@@ -6742,7 +6749,7 @@
       "direction": "up-loosens",
       "describes": "SEMI figures for silicon wafers of every diameter, not only 300 mm prime wafers.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025",
@@ -6776,7 +6783,7 @@
       "direction": "up-tightens",
       "headline": true,
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2030",
@@ -6799,7 +6806,7 @@
       "kind": "workforce",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2023",
@@ -6832,7 +6839,7 @@
       "kind": "workforce",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2030",
@@ -6855,7 +6862,7 @@
       "kind": "workforce",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2030",
@@ -6964,7 +6971,7 @@
       "direction": "neutral",
       "describes": "All TSMC employees, not only process engineers.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-12-31",
@@ -7037,7 +7044,7 @@
       "kind": "workforce",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-12-31",
@@ -7060,7 +7067,7 @@
       "kind": "capacity",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2023",
@@ -7133,7 +7140,7 @@
       "kind": "other",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025",
@@ -7155,7 +7162,7 @@
       "kind": "other",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025",
@@ -7186,7 +7193,7 @@
       "kind": "other",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025",
@@ -7217,7 +7224,7 @@
       "kind": "other",
       "direction": "neutral",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2022",
@@ -7240,7 +7247,7 @@
       "direction": "neutral",
       "describes": "Conductive (N-type) and all-type SiC substrates. No dated figure was found for semi-insulating 200 mm substrates specifically.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025",
@@ -7248,7 +7255,7 @@
           "source": "https://sicc.cc/en/article385.html",
           "publisher": "SICC company news (citing Fuji Keizai)",
           "published": "2026-03-24",
-          "quote": "the company achieved a breakthrough in the 8-inch S iC substrate market, capturing a market share of 51.3%, far exceeding other competitors.",
+          "quote": "the company achieved a breakthrough in the 8-inch SiC substrate market, capturing a market share of 51.3%, far exceeding other competitors.",
           "primary": true,
           "note": "Company claim citing Fuji Keizai; context is N-type (conductive) substrates, NOT semi-insulating"
         }
@@ -7264,7 +7271,7 @@
       "direction": "neutral",
       "describes": "Conductive (N-type) and all-type SiC substrates. No dated figure was found for semi-insulating 200 mm substrates specifically.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025",
@@ -7272,7 +7279,7 @@
           "source": "https://sicc.cc/en/article385.html",
           "publisher": "SICC company news (citing Fuji Keizai)",
           "published": "2026-03-24",
-          "quote": "SICC’s global market share in the N- type S i C substrates rose sharply in 2025, surging from 12% in 2023 to 27.6% and surpassing Wolfspeed.",
+          "quote": "SICC’s global market share in the N- type SiC substrates rose sharply in 2025, surging from 12% in 2023 to 27.6% and surpassing Wolfspeed.",
           "primary": true,
           "note": "N-type (conductive), not semi-insulating"
         },
@@ -7282,7 +7289,7 @@
           "source": "https://sicc.cc/en/article385.html",
           "publisher": "SICC company news (citing Fuji Keizai)",
           "published": "2026-03-24",
-          "quote": "SICC’s global market share in the N- type S i C substrates rose sharply in 2025, surging from 12% in 2023 to 27.6% and surpassing Wolfspeed.",
+          "quote": "SICC’s global market share in the N- type SiC substrates rose sharply in 2025, surging from 12% in 2023 to 27.6% and surpassing Wolfspeed.",
           "primary": true,
           "note": "N-type (conductive), not semi-insulating"
         }
@@ -7298,7 +7305,7 @@
       "direction": "neutral",
       "describes": "Conductive (N-type) and all-type SiC substrates. No dated figure was found for semi-insulating 200 mm substrates specifically.",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025",
@@ -7321,7 +7328,7 @@
       "kind": "capacity",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2022",
@@ -7389,7 +7396,7 @@
       "kind": "capacity",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2026",
@@ -7412,7 +7419,7 @@
       "kind": "other",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2024-05",
