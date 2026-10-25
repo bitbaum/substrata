@@ -201,9 +201,10 @@ async function check(r: BoardRecord): Promise<string | null> {
   const drawn = await rendered(r.careersUrl);
   if (!page.ok && !drawn.ok) return `careers page: ${page.why}; ${drawn.why}`;
   if (api || (drawn.ok && mark.test(drawn.text))) return null;
-  // The system is often one click in (a job's Apply button): the tenant the
-  // evidence names must still answer, and still be that system.
-  for (const at of (r.evidence.match(PLACES) ?? []).filter((t) => mark.test(t))) {
+  // The system is often one click in (a job's Apply button, a jobs subdomain):
+  // a site the evidence names must still answer, and still show that system.
+  const places = [...new Set(r.evidence.match(PLACES) ?? [])].filter((t) => !t.includes('...'));
+  for (const at of places.slice(0, 5)) {
     const tenant = await open(`https://${at.replace(/[./]+$/, '')}`);
     if (tenant.ok && (mark.test(tenant.at) || mark.test(tenant.html))) return null;
   }

@@ -112,7 +112,7 @@
       "ats": "in-house",
       "board": null,
       "evidence": "chalco.com.cn/rlzy/rczp/ (人才招聘 announcements) returns 200 but behind an Aliyun WAF JS challenge so content not readable; search shows announcements with e-mail application; group (Chinalco) also uses chinalco.iguopin.com",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "china-northern-rare-earth": {
       "careersUrl": "https://www.reht.com/index/Lxwm.do?TYPE_CODE=020901&LB=1",
@@ -756,7 +756,7 @@
       "ats": "in-house",
       "board": null,
       "evidence": "Careers pages (careers-us/-eu/-singapore) list positions on own site; apply by email (e.g. jobNNN@aseus.com); no ATS",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "nvidia": {
       "careersUrl": "https://jobs.nvidia.com/careers",
@@ -805,7 +805,7 @@
       "ats": "successfactors",
       "board": null,
       "evidence": "supermicro.com/en/jobs links jobs.supermicro.com, a SuccessFactors RMK site (successfactors.com/career?company=supermicro)",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "ge-vernova": {
       "careersUrl": "https://careers.gevernova.com/",
@@ -952,7 +952,7 @@
       "ats": "ashby",
       "board": "openai",
       "evidence": "openai.com/careers/search links jobs.ashbyhq.com/openai/<id>/application",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "xai": {
       "careersUrl": "https://x.ai/careers",
