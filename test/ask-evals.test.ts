@@ -137,6 +137,14 @@ const EVALS = rows as EvalRow[];
 const leads = async () => [];
 const TOP_HITS = 5;
 const MENTION_HITS = 8;
+/**
+ * Retrieval is ranked on a fixed day. Event recency and the date-dependent
+ * quality findings move with the calendar; on 2026-10-25 a lapsed 30-day
+ * re-read put 139 "quote-checked-recently" findings into the index and one
+ * pushed science:high-na-euv to sixth. These rows test ranking, not the
+ * calendar — staleness has its own gates (test/freshness.test.ts, quality.test.ts).
+ */
+const EVAL_NOW = new Date('2026-10-24T12:00:00Z');
 /** An off-topic question's hits must each hold under half its words. */
 const OUTSIDE_MATCH = 0.5;
 
@@ -405,7 +413,7 @@ for (const row of EVALS) {
     for (const tool of row.expectedTools)
       assert.ok(planned.includes(tool), `planned ${tool} (got ${planned.join(', ') || 'none'})`);
 
-    const hits = retrieve(row.question, { k: MENTION_HITS, entityHints: hints });
+    const hits = retrieve(row.question, { k: MENTION_HITS, entityHints: hints, now: EVAL_NOW });
     const top = hits.slice(0, TOP_HITS).map((h) => h.chunk.id);
     for (const id of row.expectedHits)
       assert.ok(top.includes(id), `${id} in the top ${TOP_HITS} (got ${top.join(', ')})`);
