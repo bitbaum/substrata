@@ -4310,7 +4310,7 @@
       "kind": "orders",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2021-Q4",
@@ -4444,7 +4444,7 @@
       "kind": "orders",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-Q4",
@@ -4486,7 +4486,7 @@
       "kind": "backlog",
       "direction": "up-tightens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-12-31",
@@ -4539,7 +4539,7 @@
       "kind": "output",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025",
@@ -4592,7 +4592,7 @@
       "kind": "capacity",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2026",
@@ -4615,7 +4615,7 @@
       "kind": "output",
       "direction": "up-loosens",
       "check": "Read from the source by an agent; quote matched mechanically against the fetched page; not yet reviewed by a person",
-      "checkedOn": "2026-09-24",
+      "checkedOn": "2026-10-25",
       "points": [
         {
           "date": "2025-Q1",

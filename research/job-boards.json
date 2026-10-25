@@ -182,7 +182,7 @@
       "ats": "unknown",
       "board": null,
       "evidence": "iceblick.com serves only a parking redirect to /lander; no careers page found anywhere official",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "johnson-matthey": {
       "careersUrl": "https://matthey.com/careers",
@@ -238,14 +238,14 @@
       "ats": "other:iguopin",
       "board": null,
       "evidence": "Official site regcc.cn (note: crecg.com is China Railway Engineering) has 招聘动态 section; social recruitment platform regccsz.iguopin.com titled 招聘官网 (found via search)",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "cryoin-engineering": {
       "careersUrl": "https://cryoin.com/en/",
       "ats": "unknown",
       "board": null,
       "evidence": "cryoin.com shows 'Account Suspended'; no careers page",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "east-hope-group": {
       "careersUrl": "https://www.easthope.cn/",
@@ -315,7 +315,7 @@
       "ats": "unknown",
       "board": null,
       "evidence": "Could not identify/reach an official site (fangyuan.com.cn does not resolve, 2026-09-26) or careers page; not guessed",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "less-common-metals": {
       "careersUrl": "https://lesscommonmetals.com/about-us/careers/",
@@ -385,14 +385,14 @@
       "ats": "other:ukg-ready",
       "board": null,
       "evidence": "Careers page links secure4.saashr.com/ta/6164782.careers (UKG Ready)",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "fujikura": {
       "careersUrl": "https://www.fujikura.co.jp/recruit/",
       "ats": "other:jobcan",
       "board": null,
       "evidence": "fujikura.co.jp/recruit -> recruit.fujikura.co.jp/career which links recruit.jobcan.jp/fujikura",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "globalwafers": {
       "careersUrl": "https://www.gw-semi.com/careers/",
@@ -455,14 +455,14 @@
       "ats": "other:adp-workforce-now",
       "board": null,
       "evidence": "Careers lists /vacancy/ pages whose apply goes to workforcenow.adp.com (cid=2eb2f7fe-...)",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "applied-diamond": {
       "careersUrl": "https://usapplieddiamond.com/",
       "ats": "unknown",
       "board": null,
       "evidence": "usapplieddiamond.com has no careers/jobs link; Ashby 'applied' board is unrelated",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "baosteel": {
       "careersUrl": "https://baowugroup-zhaopin.51job.com/index04.html",
@@ -483,14 +483,14 @@
       "ats": "unknown",
       "board": null,
       "evidence": "diamond-materials.com has no careers/jobs section in nav or footer",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "engineered-fluids": {
       "careersUrl": "https://www.engineeredfluids.com/",
       "ats": "unknown",
       "board": null,
       "evidence": "/careers redirects to the homepage; no careers/jobs link on the site and none found via search",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "furuya-metal": {
       "careersUrl": "https://recruit.furuyametals.co.jp/",
@@ -553,7 +553,7 @@
       "ats": "unknown",
       "board": null,
       "evidence": "superpower-inc.com (Furukawa Electric subsidiary) has no careers link. Ashby board 'superpower' is a different company (Superpower health startup, telehealth roles), NOT this one",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "tanaka-kikinzoku": {
       "careersUrl": "https://www.tanaka.co.jp/recruit/",
@@ -588,14 +588,14 @@
       "ats": "workday",
       "board": null,
       "evidence": "SMT career page links ZEISS group job search (jd=SMT filter); ZEISS group Workday tenant zeissgroup.wd3.myworkdayjobs.com/External serves ZEISS-branded jobs (job search page is JS-rendered, link to tenant not seen directly)",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "asml": {
       "careersUrl": "https://www.asml.com/en/careers/find-your-job",
       "ats": "workday",
       "board": null,
       "evidence": "Job pages on asml.com have applyUrl https://asml.wd3.myworkdayjobs.com/ASMLEXT1/...",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "jsr": {
       "careersUrl": "https://www.jsr.co.jp/rc/career/",
@@ -693,7 +693,7 @@
       "ats": "workday",
       "board": null,
       "evidence": "Parent Samsung Semiconductor careers; its job search index returns links to sec.wd3.myworkdayjobs.com/Samsung_Careers (US)",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "smic": {
       "careersUrl": "https://www.smics.com/en/",
@@ -742,7 +742,7 @@
       "ats": "workday",
       "board": null,
       "evidence": "Parent Samsung Semiconductor careers; job search index links sec.wd3.myworkdayjobs.com/Samsung_Careers",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "amkor": {
       "careersUrl": "https://amkor.com/careers/united-states/",
@@ -777,7 +777,7 @@
       "ats": "workday",
       "board": null,
       "evidence": "Careers page is JS-rendered (no static link seen); Broadcom Workday tenant broadcom.wd1.myworkdayjobs.com/External_Career returns 200 Broadcom-branded (found via search)",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "marvell": {
       "careersUrl": "https://www.marvell.com/company/careers.html",
@@ -910,7 +910,7 @@
       "ats": "successfactors",
       "board": null,
       "evidence": "kuka.com vacancy 'Apply now' goes to jobs.kuka.com/job-invite/<id>, a SuccessFactors RMK site (successfactors.com assets)",
-      "checkedOn": "2026-09-24"
+      "checkedOn": "2026-10-25"
     },
     "amazon-web-services": {
       "careersUrl": "https://www.amazon.jobs/en/",
