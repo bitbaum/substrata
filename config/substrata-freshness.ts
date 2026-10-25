@@ -165,7 +165,8 @@ export const DATASETS: readonly Dataset[] = [
     id: 'series-quotes',
     label: 'Series read from sources (oldest quote check)',
     file: 'research/series.json',
-    refresh: 'Re-read each source and match the quote: pnpm tsx scripts/research/check-series.ts',
+    refresh:
+      'Re-read each source and match the quote, dating only series whose every quote was found: pnpm tsx scripts/research/check-series.ts --write',
     checkedOn: oldest(series.series.map((s) => s.checkedOn)),
     maxAgeDays: 30,
   },
@@ -181,7 +182,8 @@ export const DATASETS: readonly Dataset[] = [
     id: 'job-boards',
     label: 'Which board each company hires on',
     file: 'research/job-boards.json',
-    refresh: 'Re-check each careers page and update checkedOn',
+    refresh:
+      'Re-open each careers page, dating only records that still hold: pnpm tsx scripts/research/check-job-boards.ts --write',
     checkedOn: day(jobBoards.checkedOn),
     maxAgeDays: 30,
   },
