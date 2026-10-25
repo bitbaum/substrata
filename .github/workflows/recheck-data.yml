@@ -92,6 +92,9 @@ jobs:
       - name: Claims (after the series)
         run: pnpm tsx scripts/research/check-claims.ts --write | tee -a report.txt
 
+      # Careers pages drawn by script are read in Chromium (check-job-boards.ts).
+      - run: pnpm --filter @bitbaum/chartkit exec playwright install --with-deps chromium
+
       - name: Job boards
         run: pnpm tsx scripts/research/check-job-boards.ts --write | tee -a report.txt
 
