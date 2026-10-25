@@ -1,5 +1,12 @@
 {
   "version": 1,
+  "unconfirmed": [
+    {
+      "id": "us-employment-semiconductor-related-device-manufacturing",
+      "reason": "8 of 8 points not confirmed: data.bls.gov answered HTTP 503",
+      "triedOn": "2026-10-25"
+    }
+  ],
   "series": [
     {
       "id": "ge-vernova-gas-power-equipment-backlog-slot-reservation",

@@ -1,6 +1,38 @@
 {
   "version": 1,
   "checkedOn": "2026-09-24",
+  "unconfirmed": [
+    {
+      "id": "air-products",
+      "reason": "workday: careers page: HTTP 403; HTTP 403 in a browser",
+      "triedOn": "2026-10-25"
+    },
+    {
+      "id": "baosteel-gases",
+      "reason": "unknown: the page now links index04.html",
+      "triedOn": "2026-10-25"
+    },
+    {
+      "id": "element-six",
+      "reason": "smartrecruiters: neither the careers page (drawn in a browser) nor the tenant it names shows smartrecruiters",
+      "triedOn": "2026-10-25"
+    },
+    {
+      "id": "tanaka-kikinzoku",
+      "reason": "other:axol: careers page: HTTP 504; HTTP 504 in a browser",
+      "triedOn": "2026-10-25"
+    },
+    {
+      "id": "umc",
+      "reason": "in-house: careers page: HTTP 403; HTTP 403 in a browser",
+      "triedOn": "2026-10-25"
+    },
+    {
+      "id": "yaskawa",
+      "reason": "other:axol: neither the careers page (drawn in a browser) nor the tenant it names shows other:axol",
+      "triedOn": "2026-10-25"
+    }
+  ],
   "companies": {
     "sibelco": {
       "careersUrl": "https://www.sibelco.com/en/careers/career-opportunities",
@@ -412,8 +444,8 @@
       "careersUrl": "https://www.nipponsteel.com/recruit/",
       "ats": "other:axol",
       "board": null,
-      "evidence": "nipponsteel.com/recruit pages link job.axol.jp/.../nipponsteel entries (axol)",
-      "checkedOn": "2026-09-24"
+      "evidence": "www.nipponsteel.com/recruit links www.nipponsteel.com/recruit/hq/ (global group staff hiring), whose entry and my-page buttons go to job.axol.jp/bx/s/nipponsteel_27 (axol). The recruit page's yelloop.jp link is an alumni network, not a job board (re-opened 2026-10-25)",
+      "checkedOn": "2026-10-25"
     },
     "posco": {
       "careersUrl": "https://recruit.posco.com/h22a01-front/",
