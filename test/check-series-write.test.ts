@@ -34,3 +34,12 @@ test('nothing named, nothing changed; an unknown id is an error, not a silent sk
   assert.equal(redate(FILE, new Set(), '2026-10-25'), FILE);
   assert.throws(() => redate(FILE, new Set(['c']), '2026-10-25'), /series c/);
 });
+
+test('a word split across two style runs reads as one word; a footnote run does not join', async () => {
+  const { htmlText, normalise } = await import('../lib/quality/page-text');
+  const read = (html: string) => normalise(htmlText(html));
+  assert.equal(read('is EU</font><font style="x">V</font>'), 'is euv');
+  assert.equal(read('came in a</span><span class="y">t €4.2'), 'came in at €4.2');
+  assert.equal(read('billion</font><font>2</font> of which'), 'billion 2 of which');
+  assert.equal(read('<td>Net</td><td>bookings</td>'), 'net bookings');
+});
