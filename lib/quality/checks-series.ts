@@ -7,6 +7,7 @@ import { corpusSeries } from '@/lib/series';
 import { OFFICIAL_SERIES } from '@/config/substrata-official-series';
 import { DATASETS } from '@/config/substrata-freshness';
 import { ageDays } from '@/lib/freshness/status';
+import { lookedAt } from '@/lib/freshness/unconfirmed';
 import { bottleneckHref, seriesHref } from '@/lib/links';
 import { judge, type CheckResult } from './types';
 
@@ -59,7 +60,9 @@ export function quoteCarries(quote: string, value: number): boolean {
 export function seriesChecks(now = new Date()): CheckResult[] {
   const series = corpusSeries();
   const points = series.flatMap((s) => s.points.map((p) => ({ s, p, row: `${s.id} ${p.date}` })));
-  const maxAge = DATASETS.find((d) => d.id === 'series-quotes')?.maxAgeDays ?? 30;
+  const declared = DATASETS.find((d) => d.id === 'series-quotes');
+  const maxAge = declared?.maxAgeDays ?? 30;
+  const unconfirmed = declared?.unconfirmed ?? [];
   const held = new Set([...series, ...OFFICIAL_SERIES].map((s) => s.bottleneck));
   return [
     judge(
@@ -129,11 +132,11 @@ export function seriesChecks(now = new Date()): CheckResult[] {
         dataset: 'series',
         criterion: 'freshness',
         check: 'series/quote-checked-recently',
-        label: `Each series' quotes were re-read within ${maxAge} days`,
+        label: `Each series' quotes were re-read within ${maxAge} days, or tried and listed as unconfirmed`,
       },
       series,
       (s) =>
-        ageDays(s.checkedOn, now) <= maxAge
+        ageDays(lookedAt(s.id, s.checkedOn, unconfirmed), now) <= maxAge
           ? null
           : { row: s.id, problem: `last read ${s.checkedOn}`, page: seriesHref(s.id) },
     ),

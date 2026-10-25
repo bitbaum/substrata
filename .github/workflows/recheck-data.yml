@@ -1,0 +1,140 @@
+name: Re-check data
+
+# WHY THIS FILE EXISTS
+#
+# Committed research files say when they were last checked, and the build fails
+# when one passes its limit (config/substrata-freshness.ts, test/freshness.test.ts).
+# The box's quality run re-reads sources too, but it records verdicts in the
+# database and never writes these files — a deployed box does not commit. So
+# until this workflow, the dates moved only when someone ran the scripts on a
+# laptop, and on 2026-10-25 main went red by the calendar alone.
+#
+# This runs the re-check scripts and nothing else. Each one moves a date ONLY
+# for what it re-read and found in this run (see each script's header); a
+# source that is gone or unreachable keeps its old date and goes on its file's
+# `unconfirmed` list with the reason (lib/freshness/unconfirmed.ts), shown on
+# /data/freshness. That entry expires in a month like any date, so a row that
+# is never confirmed turns the build red again unless this keeps trying. No
+# date is ever written by this file.
+#
+#   check-series.ts --write      every quote in research/series.json
+#   check-claims.ts --write      research/claims.json, once its series are re-read
+#   check-job-boards.ts --write  every careers page in research/job-boards.json
+#   research:listings            every SEC + OpenFIGI listing. ~70 minutes,
+#                                because OpenFIGI's keyless search allows five a
+#                                minute — so it runs on the monthly schedule and
+#                                on a dispatch only when asked (input `listings`).
+#
+# Where the result goes: a dispatch with `branch` set commits onto that branch
+# (so a PR that needs fresh data gets it); otherwise onto a new branch
+# bot/recheck-data-<date>, with a PR to main. Auto-merge ships that PR when CI
+# is green; the PR body lists every row that was not confirmed.
+#
+# TOKEN: FLEET_PAT when the org secret exists, else GITHUB_TOKEN — the same
+# convention as auto-merge.yml. Prefer the PAT: a push or a PR made with
+# GITHUB_TOKEN triggers no workflows, so CI would never run on the data commit
+# and auto-merge would have nothing green to merge.
+
+on:
+  schedule:
+    # The 3rd of each month at 04:23 UTC: well inside the 30-day limits.
+    - cron: '23 4 3 * *'
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Commit onto this branch (empty: open a new bot/recheck-data-<date> PR)'
+        required: false
+        default: ''
+      listings:
+        description: 'Also re-search every listing (~70 minutes)'
+        type: boolean
+        required: false
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: recheck-data-${{ inputs.branch || 'main' }}
+  cancel-in-progress: false
+
+jobs:
+  recheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    env:
+      GH_TOKEN: ${{ secrets.FLEET_PAT || github.token }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.branch || 'main' }}
+          token: ${{ secrets.FLEET_PAT || github.token }}
+
+      # Same install as ci.yml: pnpm before setup-node, store outside node_modules.
+      - uses: pnpm/action-setup@v6
+      - run: pnpm config set store-dir ~/.pnpm-store --global
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: '.nvmrc'
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      # pdftotext: several sources are PDFs; without it they read as "cannot read here".
+      - run: sudo apt-get update -q && sudo apt-get install -y -q poppler-utils
+
+      - name: Series quotes
+        run: pnpm tsx scripts/research/check-series.ts --write | tee -a report.txt
+
+      - name: Claims (after the series)
+        run: pnpm tsx scripts/research/check-claims.ts --write | tee -a report.txt
+
+      # Careers pages drawn by script are read in Chromium (check-job-boards.ts).
+      - run: pnpm --filter @bitbaum/chartkit exec playwright install --with-deps chromium
+
+      - name: Job boards
+        run: pnpm tsx scripts/research/check-job-boards.ts --write | tee -a report.txt
+
+      - name: Listings
+        if: github.event_name == 'schedule' || inputs.listings
+        run: pnpm run research:listings 2>&1 | tee -a report.txt
+
+      - name: Report
+        run: |
+          {
+            echo '## Re-check'
+            echo '```'
+            grep -E 'quotes found|records held|every claim|problems|checkedOn|^(MISS|UNREACHABLE|NOT )' report.txt || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit what was re-checked
+        env:
+          BRANCH: ${{ inputs.branch }}
+        run: |
+          if git diff --quiet -- research/; then
+            echo 'Nothing moved.' >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          day=$(date -u +%F)
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          target="$BRANCH"
+          if [ -z "$target" ]; then
+            target="bot/recheck-data-$day"
+            git switch -c "$target"
+          fi
+          git add research/
+          git commit -q -m "data: re-check $day (scheduled re-read)" \
+            -m "Dates moved only for what was re-read and found in this run; see the workflow summary for every row that was not."
+          git push origin "HEAD:$target"
+          if [ -z "$BRANCH" ]; then
+            {
+              echo "The monthly re-read (\`.github/workflows/recheck-data.yml\`). Each script moved a date only for what it re-read and found today; every row below kept its old date and needs a person."
+              echo
+              echo '```'
+              grep -E '^(MISS|UNREACHABLE|NOT )' report.txt || echo 'every row was re-read and found'
+              echo '```'
+            } > body.md
+            gh pr create --base main --head "$target" --title "data: re-check $day" --body-file body.md
+          fi
