@@ -1,0 +1,79 @@
+{
+  "blocks": {
+    "shell": {
+      "package": "@bitbaum/sitekit",
+      "status": "pending",
+      "bindings": [],
+      "gap": {
+        "owner": "fleet-remediation",
+        "reason": "Public content uses SiteSections through an npm alias, while the persistent map/research navigation and shell render locally. Global shell adoption is still pending.",
+        "replacementCondition": "Shared renderer/slots adopted with product browser fixtures in the UI migration wave."
+      }
+    },
+    "identity": {
+      "package": "@bitbaum/accountkit",
+      "bindings": [
+        {
+          "file": "lib/auth.ts",
+          "symbols": ["orangecatClient", "orangecatProvider", "syncOcSession"]
+        }
+      ]
+    },
+    "publishing": {
+      "package": "bip-kit",
+      "status": "pending",
+      "bindings": [],
+      "gap": {
+        "owner": "fleet-remediation",
+        "reason": "Collection reading uses bip-kit but canonical roadmap/changelog pages still render locally. Shared page rendering is not yet established.",
+        "replacementCondition": "Shared renderer/slots adopted with product browser fixtures in the UI migration wave."
+      }
+    },
+    "design": {
+      "package": "@bitbaum/design-tokens",
+      "bindings": [
+        {
+          "file": "app/layout.tsx",
+          "symbols": []
+        }
+      ]
+    },
+    "ai": {
+      "package": "@bitbaum/ai-kit",
+      "bindings": [
+        {
+          "file": "lib/byok-ask.ts",
+          "symbols": ["complete"]
+        }
+      ]
+    },
+    "chat": {
+      "package": "@bitbaum/chatkit",
+      "bindings": [
+        {
+          "file": "components/portal/ResearchChat.tsx",
+          "symbols": ["ChatScreen", "ChatThread", "Composer"]
+        }
+      ]
+    },
+    "charts": {
+      "package": "@bitbaum/chartkit",
+      "bindings": [
+        {
+          "file": "lib/profile/modules/country.tsx",
+          "symbols": ["BarChart"]
+        },
+        {
+          "file": "components/portal/chat/chartRenderers.tsx",
+          "symbols": ["BarChart", "LineChart", "ShareBars", "StatTiles", "Timeline"]
+        }
+      ]
+    }
+  },
+  "migration": {
+    "scope": "This wave retires the local ChartKit fork for immutable ChartKit 0.1.1, consumes ChatKit 0.15.3 with Unicode-aware CJK word-boundary checks, and adds actual app browser evidence. Pending blocks are missing adoption, not exceptions or successful composition. Existing OrangeCat/NextAuth adapter remains; account-method conformance and broader AI transport migration remain separate plan work."
+  },
+  "productOwned": {
+    "domain": "Research tools, evidence/citations, supply-chain graphs and narrative answers remain Substrata domain behavior."
+  }
+}
