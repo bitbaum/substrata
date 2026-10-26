@@ -20,7 +20,7 @@ const SPLIT =
  */
 export function tidy(lines: string[]): string {
   let out = lines.map((l) => {
-    if (/^\s*```/.test(l) || /^\s*[{["]/.test(l)) return l;
+    if (/^\s*```/.test(l) || /^\s*[{["|]/.test(l)) return l;
     // A pointer left without its sentence ("…(source). See the table below",
     // "Nickel (2022) See the table below", seen live, Russia) points at the
     // table the reader is already under: it goes.
@@ -62,8 +62,8 @@ export function tidy(lines: string[]): string {
     const md = l.match(/^(#{1,6}) /)?.[1].length;
     if (md) return md;
     const t = l.trim();
-    // A code fence, and anything it holds, is never a title.
-    if (/^`{3}/.test(t) || /^[{["]/.test(t)) return 0;
+    // A code fence, and anything it holds, is never a title; nor is a table row.
+    if (/^`{3}/.test(t) || /^[{["|]/.test(t)) return 0;
     if (!t || /\[W\d+\]|\]\(|\d/.test(t.replace(/\b(19|20)\d{2}\b/g, ''))) return 0;
     if (/^\*\*[^*]+\*\*:?$/.test(t)) return 7;
     return t.split(/\s+/).length <= 8 && !/[.!?:;,]$/.test(t) ? 7 : 0;

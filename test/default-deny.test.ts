@@ -150,3 +150,31 @@ test('the last leftovers: an announcement of nothing, and a "(source)" on a gap'
     ].join('\n'),
   );
 });
+
+test('a table keeps its header and rule with every cited row, and loses only uncited rows', () => {
+  const table = [
+    '| Sector | Support | Evidence |',
+    '|--------|---------|----------|',
+    '| Raw materials | A raw materials fund for mining and recycling [W2] | Web passage |',
+    '| Grid | Energy infrastructure financing in general | Corpus entry |',
+  ].join('\n');
+  const { answer, dropped } = defaultDeny(table, ctx);
+  assert.deepEqual(answer.split('\n'), [
+    '| Sector | Support | Evidence |',
+    '|--------|---------|----------|',
+    '| Raw materials | A raw materials fund for mining and recycling [W2] | Web passage |',
+  ]);
+  assert.deepEqual(dropped, [
+    '| Grid | Energy infrastructure financing in general | Corpus entry |',
+  ]);
+});
+
+test('a table with no row left goes whole, never as a bare rule', () => {
+  const { answer } = defaultDeny('| A | B |\n|---|---|\n| uncited claim | 40% |', ctx);
+  assert.doesNotMatch(answer, /\|/);
+});
+
+test('a line opening in bold is not taken for a bullet', () => {
+  const { answer } = defaultDeny('**What the sources show** [W1]', ctx);
+  assert.equal(answer.trim(), '**What the sources show** [W1]');
+});
