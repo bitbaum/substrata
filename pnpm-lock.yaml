@@ -24,11 +24,11 @@ importers:
         specifier: github:bitbaum/design-tokens#8e786a43220d267ccf6b5cd6119a012f1a52dfff
         version: https://codeload.github.com/bitbaum/design-tokens/tar.gz/8e786a43220d267ccf6b5cd6119a012f1a52dfff
       '@bitbaum/geo-kit':
-        specifier: github:bitbaum/geo-kit#a337aec928cf7804fecf459c308d366b90f4b2fa
-        version: https://codeload.github.com/bitbaum/geo-kit/tar.gz/a337aec928cf7804fecf459c308d366b90f4b2fa
+        specifier: github:bitbaum/geo-kit#fce36b959056799d500371181468844aed7ed513
+        version: https://codeload.github.com/bitbaum/geo-kit/tar.gz/fce36b959056799d500371181468844aed7ed513
       '@bitbaum/searchkit':
-        specifier: github:bitbaum/searchkit#v0.2.2
-        version: git+https://github.com/bitbaum/searchkit.git#09532b1974c7cb92f38c98decaeed334f3ffea72(react@19.3.1)
+        specifier: github:bitbaum/searchkit#09532b1974c7cb92f38c98decaeed334f3ffea72
+        version: https://codeload.github.com/bitbaum/searchkit/tar.gz/09532b1974c7cb92f38c98decaeed334f3ffea72(react@19.3.1)
       '@bitbaum/whenkit':
         specifier: github:bitbaum/whenkit#v0.3.2
         version: https://codeload.github.com/bitbaum/whenkit/tar.gz/f5e0a24208187091c2ca792008cdd7695a19910f(react@19.3.1)
@@ -271,8 +271,8 @@ packages:
     version: 1.2.0
     engines: {node: '>=20'}
 
-  '@bitbaum/geo-kit@https://codeload.github.com/bitbaum/geo-kit/tar.gz/a337aec928cf7804fecf459c308d366b90f4b2fa':
-    resolution: {gitHosted: true, integrity: sha512-LwgeruTRUSNRNZX4h00rB+aSaN+gnRV3r+Dkx1mZ89RxaxvzOsTViWnBZ+Yrn3grm7jj66CMl4DvKG7gteXwWw==, tarball: https://codeload.github.com/bitbaum/geo-kit/tar.gz/a337aec928cf7804fecf459c308d366b90f4b2fa}
+  '@bitbaum/geo-kit@https://codeload.github.com/bitbaum/geo-kit/tar.gz/fce36b959056799d500371181468844aed7ed513':
+    resolution: {gitHosted: true, integrity: sha512-XsCtYqbH8d8dJa1DJWAi7pu5K5fOHoGY/T0e39lQ8GypGavjgxv1W6TBHRG7A/YW+88Ysac4Hh+xQmba1/9kXA==, tarball: https://codeload.github.com/bitbaum/geo-kit/tar.gz/fce36b959056799d500371181468844aed7ed513}
     version: 0.1.1
     engines: {node: '>=20'}
 
@@ -281,8 +281,8 @@ packages:
     version: 0.2.1
     engines: {node: '>=20'}
 
-  '@bitbaum/searchkit@git+https://github.com/bitbaum/searchkit.git#09532b1974c7cb92f38c98decaeed334f3ffea72':
-    resolution: {commit: 09532b1974c7cb92f38c98decaeed334f3ffea72, repo: https://github.com/bitbaum/searchkit.git, type: git}
+  '@bitbaum/searchkit@https://codeload.github.com/bitbaum/searchkit/tar.gz/09532b1974c7cb92f38c98decaeed334f3ffea72':
+    resolution: {gitHosted: true, tarball: https://codeload.github.com/bitbaum/searchkit/tar.gz/09532b1974c7cb92f38c98decaeed334f3ffea72}
     version: 0.2.2
     peerDependencies:
       react: '>=18'
@@ -3023,11 +3023,11 @@ snapshots:
 
   '@bitbaum/design-tokens@https://codeload.github.com/bitbaum/design-tokens/tar.gz/8e786a43220d267ccf6b5cd6119a012f1a52dfff': {}
 
-  '@bitbaum/geo-kit@https://codeload.github.com/bitbaum/geo-kit/tar.gz/a337aec928cf7804fecf459c308d366b90f4b2fa': {}
+  '@bitbaum/geo-kit@https://codeload.github.com/bitbaum/geo-kit/tar.gz/fce36b959056799d500371181468844aed7ed513': {}
 
   '@bitbaum/listkit@https://codeload.github.com/bitbaum/listkit/tar.gz/cca70801aacbbf5310c976b0610ca469ba869e97': {}
 
-  '@bitbaum/searchkit@git+https://github.com/bitbaum/searchkit.git#09532b1974c7cb92f38c98decaeed334f3ffea72(react@19.3.1)':
+  '@bitbaum/searchkit@https://codeload.github.com/bitbaum/searchkit/tar.gz/09532b1974c7cb92f38c98decaeed334f3ffea72(react@19.3.1)':
     optionalDependencies:
       react: 19.3.1
 
