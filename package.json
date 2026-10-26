@@ -41,7 +41,7 @@
     "@bitbaum/accountkit": "github:bitbaum/accountkit#9c8d93ade6945615b5204d8eaad5c717078b7e17",
     "@bitbaum/ai-kit": "^1.21.4",
     "@bitbaum/chartkit": "github:bitbaum/chartkit#55da9bdcee82eac9473d77a1316af322a6e3b20c",
-    "@bitbaum/chatkit": "^0.15.3",
+    "@bitbaum/chatkit": "^0.17.0",
     "@bitbaum/design-tokens": "github:bitbaum/design-tokens#8e786a43220d267ccf6b5cd6119a012f1a52dfff",
     "@bitbaum/geo-kit": "github:bitbaum/geo-kit#fce36b959056799d500371181468844aed7ed513",
     "@bitbaum/searchkit": "github:bitbaum/searchkit#09532b1974c7cb92f38c98decaeed334f3ffea72",
