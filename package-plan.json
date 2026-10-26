@@ -2,13 +2,7 @@
   "blocks": {
     "shell": {
       "package": "@bitbaum/sitekit",
-      "status": "pending",
-      "bindings": [],
-      "gap": {
-        "owner": "fleet-remediation",
-        "reason": "Public content uses SiteSections through an npm alias, while the persistent map/research navigation and shell render locally. Global shell adoption is still pending.",
-        "replacementCondition": "Shared renderer/slots adopted with product browser fixtures in the UI migration wave."
-      }
+      "exception": "Substrata's desktop needs a persistent research/map workspace sidebar, mobile tabs, reviewer controls and a command palette. The shared masthead would duplicate those controls and cannot represent this navigation model; SiteKit still renders its typed hosted-content sections below."
     },
     "identity": {
       "package": "@bitbaum/accountkit",
@@ -21,13 +15,7 @@
     },
     "publishing": {
       "package": "bip-kit",
-      "status": "pending",
-      "bindings": [],
-      "gap": {
-        "owner": "fleet-remediation",
-        "reason": "Collection reading uses bip-kit but canonical roadmap/changelog pages still render locally. Shared page rendering is not yet established.",
-        "replacementCondition": "Shared renderer/slots adopted with product browser fixtures in the UI migration wave."
-      }
+      "exception": "BipKit's release roadmap and changelog templates do not model Substrata's evidence-led research updates. BipKit is used for authored learning and notes articles; the custom roadmap remains a research feed, not a product release log."
     },
     "design": {
       "package": "@bitbaum/design-tokens",
@@ -56,6 +44,28 @@
         }
       ]
     },
+    "hosted-content": {
+      "package": "@bitbaum/sitekit",
+      "bindings": [
+        {
+          "file": "app/[...path]/page.tsx",
+          "symbols": ["SiteSections"]
+        }
+      ]
+    },
+    "articles": {
+      "package": "bip-kit",
+      "bindings": [
+        {
+          "file": "app/notes/[slug]/page.tsx",
+          "symbols": ["ArticleBody"]
+        },
+        {
+          "file": "app/learn/[slug]/page.tsx",
+          "symbols": ["ArticleBody"]
+        }
+      ]
+    },
     "charts": {
       "package": "@bitbaum/chartkit",
       "bindings": [
@@ -66,6 +76,56 @@
         {
           "file": "components/portal/chat/chartRenderers.tsx",
           "symbols": ["BarChart", "LineChart", "ShareBars", "StatTiles", "Timeline"]
+        }
+      ]
+    },
+    "dates": {
+      "package": "@bitbaum/whenkit",
+      "bindings": [
+        {
+          "file": "components/ui/date-input.tsx",
+          "symbols": ["DateInput"],
+          "usageFiles": ["components/review/LeadDraft.tsx"]
+        }
+      ]
+    },
+    "lists": {
+      "package": "@bitbaum/listkit",
+      "bindings": [
+        {
+          "file": "components/portal/Board.tsx",
+          "symbols": ["writeQuery"]
+        }
+      ]
+    },
+    "search": {
+      "package": "@bitbaum/searchkit",
+      "bindings": [
+        {
+          "file": "lib/search/expand.ts",
+          "symbols": ["candidates"]
+        },
+        {
+          "file": "lib/search/build.ts",
+          "symbols": ["createVocabulary"]
+        }
+      ]
+    },
+    "threads": {
+      "package": "threadkit",
+      "bindings": [
+        {
+          "file": "lib/page-thread.ts",
+          "symbols": ["canWrite", "visibleMessages"]
+        }
+      ]
+    },
+    "geography": {
+      "package": "@bitbaum/geo-kit",
+      "bindings": [
+        {
+          "file": "components/portal/globe-resource.ts",
+          "symbols": ["loadGeographyManifest", "loadGeographyResources"]
         }
       ]
     }
