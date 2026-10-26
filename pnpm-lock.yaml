@@ -15,8 +15,8 @@ importers:
         specifier: ^1.21.4
         version: 1.21.4(react@19.3.1)
       '@bitbaum/chartkit':
-        specifier: workspace:*
-        version: link:packages/chartkit
+        specifier: github:bitbaum/chartkit#55da9bdcee82eac9473d77a1316af322a6e3b20c
+        version: https://codeload.github.com/bitbaum/chartkit/tar.gz/55da9bdcee82eac9473d77a1316af322a6e3b20c(react@19.3.1)
       '@bitbaum/chatkit':
         specifier: ^0.15.3
         version: 0.15.3(react@19.3.1)
@@ -114,6 +114,9 @@ importers:
       espree:
         specifier: ^11.2.0
         version: 11.2.0
+      playwright-core:
+        specifier: ^1.64.1
+        version: 1.64.1
       prettier:
         specifier: 3.9.10
         version: 3.9.10
@@ -126,51 +129,6 @@ importers:
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
-
-  packages/chartkit:
-    devDependencies:
-      '@bitbaum/design-tokens':
-        specifier: github:bitbaum/design-tokens#5c31f48743dabf9294bf9380a15862b4efbc68a0
-        version: https://codeload.github.com/bitbaum/design-tokens/tar.gz/5c31f48743dabf9294bf9380a15862b4efbc68a0
-      '@eslint/js':
-        specifier: ^10.0.1
-        version: 10.0.1(eslint@10.13.0(jiti@2.7.0))
-      '@types/node':
-        specifier: ^26.4.0
-        version: 26.6.5
-      '@types/react':
-        specifier: ^19.2.18
-        version: 19.3.0
-      '@types/react-dom':
-        specifier: ^19.2.3
-        version: 19.3.0(@types/react@19.3.0)
-      esbuild:
-        specifier: ^0.28.2
-        version: 0.28.2
-      eslint:
-        specifier: ^10.13.0
-        version: 10.13.0(jiti@2.7.0)
-      globals:
-        specifier: ^17.11.0
-        version: 17.13.0
-      playwright:
-        specifier: 1.64.1
-        version: 1.64.1
-      prettier:
-        specifier: ^3.9.6
-        version: 3.9.10
-      react:
-        specifier: ^19.2.8
-        version: 19.3.1
-      react-dom:
-        specifier: ^19.2.8
-        version: 19.3.1(react@19.3.1)
-      typescript:
-        specifier: ^6.0.3
-        version: 6.0.3
-      typescript-eslint:
-        specifier: ^8.72.0
-        version: 8.72.0(eslint@10.13.0(jiti@2.7.0))(typescript@6.0.3)
 
 packages:
 
@@ -294,17 +252,19 @@ packages:
       react:
         optional: true
 
+  '@bitbaum/chartkit@https://codeload.github.com/bitbaum/chartkit/tar.gz/55da9bdcee82eac9473d77a1316af322a6e3b20c':
+    resolution: {gitHosted: true, integrity: sha512-xw2WCeHaRp11GqthmxwoyRmc4PmybHDx/9yCbm4lhzMRJ/lS71zQT69IH5WOnCKuMr19I+1Ui5Axp1/Qkjj/MA==, tarball: https://codeload.github.com/bitbaum/chartkit/tar.gz/55da9bdcee82eac9473d77a1316af322a6e3b20c}
+    version: 0.1.1
+    engines: {node: '>=20'}
+    peerDependencies:
+      react: ^19
+
   '@bitbaum/chatkit@0.15.3':
     resolution: {integrity: sha512-kOj3xYT0VTNVfGppGuUYiFoAYaFsLdsNKdXWrkEvYnBa/UJqSH+3LSmpiI+C9aAyFh1kBlhyrJAxYETltP2/BA==}
     engines: {node: '>=20'}
     hasBin: true
     peerDependencies:
       react: '>=18'
-
-  '@bitbaum/design-tokens@https://codeload.github.com/bitbaum/design-tokens/tar.gz/5c31f48743dabf9294bf9380a15862b4efbc68a0':
-    resolution: {gitHosted: true, integrity: sha512-+mbpCQtD9yphGFDOIDP0HSRabf/w4loKc0OYd1bfFAr7GBSiVGk7IRzukbKOuxGuH3WVkYgsHM7m2RXiEfKhIA==, tarball: https://codeload.github.com/bitbaum/design-tokens/tar.gz/5c31f48743dabf9294bf9380a15862b4efbc68a0}
-    version: 1.2.0
-    engines: {node: '>=20'}
 
   '@bitbaum/design-tokens@https://codeload.github.com/bitbaum/design-tokens/tar.gz/8e786a43220d267ccf6b5cd6119a012f1a52dfff':
     resolution: {gitHosted: true, integrity: sha512-henmOzj7OGmR4+HstNareRk7leYKNZ7sZbyr66OrGAnTA5m3yK18Wvq7qfQejO678lUydaYI4ifLLGbkrPj3tQ==, tarball: https://codeload.github.com/bitbaum/design-tokens/tar.gz/8e786a43220d267ccf6b5cd6119a012f1a52dfff}
@@ -544,15 +504,6 @@ packages:
   '@eslint/core@1.2.1':
     resolution: {integrity: sha512-MwcE1P+AZ4C6DWlpin/OmOA54mmIZ/+xZuJiQd4SyB29oAJjN30UW9wkKNptW2ctp4cEsvhlLY/CsQ1uoHDloQ==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
-
-  '@eslint/js@10.0.1':
-    resolution: {integrity: sha512-zeR9k5pd4gxjZ0abRoIaxdc7I3nDktoXZk2qOv9gCNWx3mVwEn32VRhyLaRsDiJjTs0xq/T8mfPtyuXu7GWBcA==}
-    engines: {node: ^20.19.0 || ^22.13.0 || >=24}
-    peerDependencies:
-      eslint: ^10.0.0
-    peerDependenciesMeta:
-      eslint:
-        optional: true
 
   '@eslint/object-schema@3.0.5':
     resolution: {integrity: sha512-vqTaUEgxzm+YDSdElad6PiRoX4t8VGDjCtt05zn4nU810UIx/uNEV7/lZJ6KwFThKZOzOxzXy48da+No7HZaMw==}
@@ -1785,10 +1736,6 @@ packages:
     resolution: {integrity: sha512-ob/2LcVVaVGCYN+r14cnwnoDPUufjiYgSqRhiFD0Q1iI4Odora5RE8Iv1D24hAz5oMophRGkGz+yuvQmmUMnMw==}
     engines: {node: '>=18'}
 
-  globals@17.13.0:
-    resolution: {integrity: sha512-RwMTC61u7hrG3ZJMkZQOK4JLJrKS8QtoTii63EmWvFXHqycY9FObBJQCbsLxSO8kjKhWE5kV1GC+Vb1g3RI0Zg==}
-    engines: {node: '>=18'}
-
   globalthis@1.0.4:
     resolution: {integrity: sha512-DpLKbNU4WylpxJykQujfCcwYWiV/Jhm50Goo0wrVILAv5jOr9d+H+UR3PhSCD2rCCEIg0uc+G+muBTwD54JhDQ==}
     engines: {node: '>= 0.4'}
@@ -2499,11 +2446,6 @@ packages:
     engines: {node: '>=20'}
     hasBin: true
 
-  playwright@1.64.1:
-    resolution: {integrity: sha512-HCrVhHr5QQuwYoswEUGTb7gGp522yflbv/ST8nF4sFWGuLjQCt17Q/EubpGGSNKYn1tsTCPZxqHhHCfVURu7UA==}
-    engines: {node: '>=20'}
-    hasBin: true
-
   possible-typed-array-names@1.1.0:
     resolution: {integrity: sha512-/+5VFTchJDoVj3bhoqi6UeymcD00DAwb1nJwamzPvHEszJ4FpF6SNNbUbOS8yI56qHzdV8eK0qEfOSiodkTdxg==}
     engines: {node: '>= 0.4'}
@@ -3071,11 +3013,13 @@ snapshots:
     transitivePeerDependencies:
       - canvas
 
-  '@bitbaum/chatkit@0.15.3(react@19.3.1)':
+  '@bitbaum/chartkit@https://codeload.github.com/bitbaum/chartkit/tar.gz/55da9bdcee82eac9473d77a1316af322a6e3b20c(react@19.3.1)':
     dependencies:
       react: 19.3.1
 
-  '@bitbaum/design-tokens@https://codeload.github.com/bitbaum/design-tokens/tar.gz/5c31f48743dabf9294bf9380a15862b4efbc68a0': {}
+  '@bitbaum/chatkit@0.15.3(react@19.3.1)':
+    dependencies:
+      react: 19.3.1
 
   '@bitbaum/design-tokens@https://codeload.github.com/bitbaum/design-tokens/tar.gz/8e786a43220d267ccf6b5cd6119a012f1a52dfff': {}
 
@@ -3234,10 +3178,6 @@ snapshots:
   '@eslint/core@1.2.1':
     dependencies:
       '@types/json-schema': 7.0.15
-
-  '@eslint/js@10.0.1(eslint@10.13.0(jiti@2.7.0))':
-    optionalDependencies:
-      eslint: 10.13.0(jiti@2.7.0)
 
   '@eslint/object-schema@3.0.5': {}
 
@@ -4540,8 +4480,6 @@ snapshots:
 
   globals@16.4.0: {}
 
-  globals@17.13.0: {}
-
   globalthis@1.0.4:
     dependencies:
       define-properties: 1.2.1
@@ -5440,10 +5378,6 @@ snapshots:
   picomatch@4.0.7: {}
 
   playwright-core@1.64.1: {}
-
-  playwright@1.64.1:
-    dependencies:
-      playwright-core: 1.64.1
 
   possible-typed-array-names@1.1.0: {}
 

@@ -20,11 +20,12 @@
  *     at the same x, or the chart is a list of unrelated bars.
  *
  * Needs a Playwright build: set PLAYWRIGHT_CORE to its path if it is not
- * resolvable from here, and CHROMIUM_PATH to a Chromium. Not part of
- * `pnpm run verify`: CI installs no browser. The parts that need none are
+ * resolvable from here, and CHROMIUM_PATH to a Chromium. The separate
+ * browser-smoke workflow runs this against the built app. The parts that need none are
  * test/places.test.ts.
  */
 import { createRequire } from 'node:module';
+import { mkdirSync } from 'node:fs';
 import { parseArgs } from 'node:util';
 import { BROKEN_WORDS_SOURCE } from '@bitbaum/chatkit/audit';
 import { CHART_DEFECTS_SOURCE } from '@bitbaum/chartkit/audit';
@@ -45,6 +46,8 @@ const browser = await chromium.launch(
   process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {},
 );
 const failures = [];
+const artifacts = 'layout-artifacts/places';
+mkdirSync(artifacts, { recursive: true });
 
 for (const path of values.pages.split(',')) {
   for (const [width, scheme] of [320, 390, 1440].flatMap((w) => [
@@ -129,6 +132,10 @@ for (const path of values.pages.split(',')) {
     for (const xs of facts.tracks)
       if (new Set(xs).size > 1) fail(`bars start at different x: ${[...new Set(xs)]}`);
     if (facts.tiles === 0) fail('no at-a-glance tiles rendered');
+    await page.screenshot({
+      path: `${artifacts}/${path.replace(/[^a-z0-9]/gi, '-')}-${width}-${scheme}.png`,
+      fullPage: true,
+    });
     await context.close();
   }
 }

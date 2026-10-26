@@ -2,6 +2,11 @@
 
 What changed on substrata.orangecat.ch, newest first, in the words of someone using it. Every entry corresponds to a merged pull request and the numbers are the ones in the commits; fixes are listed with the same weight as features. This file is what the fleet map (`loki.orangecat.ch/api/fleet/map`) reads, and `/changelog` on the site renders from the map.
 
+## 2026-10-25
+
+### Changed
+- Charts now install from the released ChartKit package. Country percentages retain their world-wide scale, and the same shared figures continue to render research answers, resource rankings and profiles. Phone/desktop layouts in both themes are checked on the actual app.
+
 ## 2026-10-12
 
 ### Changed

@@ -16,3 +16,6 @@ __pycache__/
 
 # Source-adapter response cache (lib/sources/http.ts).
 .tmp/
+
+# Public chart/layout browser evidence is uploaded by CI.
+layout-artifacts/

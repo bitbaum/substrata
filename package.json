@@ -33,15 +33,14 @@
     "check:places-layout": "node scripts/ux/places-layout.mjs",
     "check:profile-layout": "node scripts/ux/profile-layout.mjs",
     "check:file-inputs": "chatkit-check-file-inputs app components lib",
-    "verify": "pnpm run format:check && pnpm run type-check && pnpm run lint && pnpm run check:file-inputs && pnpm run test && pnpm run verify:packages",
-    "verify:packages": "pnpm --filter @bitbaum/chartkit run verify",
+    "verify": "pnpm run format:check && pnpm run type-check && pnpm run lint && pnpm run check:file-inputs && pnpm run test",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
   "dependencies": {
     "@bitbaum/accountkit": "github:bitbaum/accountkit#9c8d93ade6945615b5204d8eaad5c717078b7e17",
     "@bitbaum/ai-kit": "^1.21.4",
-    "@bitbaum/chartkit": "workspace:*",
+    "@bitbaum/chartkit": "github:bitbaum/chartkit#55da9bdcee82eac9473d77a1316af322a6e3b20c",
     "@bitbaum/chatkit": "^0.15.3",
     "@bitbaum/design-tokens": "github:bitbaum/design-tokens#8e786a43220d267ccf6b5cd6119a012f1a52dfff",
     "@bitbaum/geo-kit": "github:bitbaum/geo-kit#a337aec928cf7804fecf459c308d366b90f4b2fa",
@@ -79,6 +78,7 @@
     "prettier": "3.9.10",
     "tailwindcss": "^4",
     "tsx": "^4.23.15",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "playwright-core": "^1.64.1"
   }
 }
