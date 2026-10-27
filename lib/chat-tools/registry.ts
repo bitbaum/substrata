@@ -22,6 +22,7 @@ import { COVERAGE_TOOLS } from './coverage';
 import { DEPENDENCY_TOOLS } from './dependencies';
 import { EXPOSURE_TOOLS } from './exposure';
 import { OWNERSHIP_TOOLS } from './ownership';
+import { MARKET_TOOLS } from './market';
 import { FILING_TOOLS } from './filings';
 import { GRAPH_TOOLS } from './graph';
 import { JOB_TOOLS } from './jobs';
@@ -32,6 +33,7 @@ import { WRITING_TOOLS } from './writing';
 import { LEAD_TOOLS } from './leads';
 import type { ToolEnv } from './ledger';
 import { isAnswerTable } from '../chat/answer-table';
+import { isAnswerChart } from '../chat/answer-chart';
 import { LIST_TOOLS } from './lists';
 import { RECORD_TOOLS } from './records';
 import { PRODUCER_TOOLS } from './producers';
@@ -48,6 +50,7 @@ export const CHAT_TOOLS: readonly ChatTool[] = [
   ...DEPENDENCY_TOOLS,
   ...EXPOSURE_TOOLS,
   ...OWNERSHIP_TOOLS,
+  ...MARKET_TOOLS,
   // Why a company is or is not covered: the written admission rule.
   ...UNIVERSE_TOOLS,
   ...RESOURCE_TOOLS,
@@ -120,16 +123,22 @@ export async function runTool(
 }
 
 /**
- * A result's `table` goes to the answer, not to the model: the reader gets it
- * drawn under the prose (lib/chat/answer-table.ts), and the model, which has
- * the same rows in `facilities`, is spared paying for them twice.
+ * A result's `table` and `chart` go to the answer, not to the model: the reader
+ * gets them drawn under the prose (lib/chat/answer-table.ts, answer-chart.ts),
+ * and the model, which has the same figures in the result, is spared paying
+ * for them twice.
  */
 function routeTable(out: unknown, env: ToolEnv): unknown {
-  if (!out || typeof out !== 'object' || !('table' in out)) return out;
-  const { table, ...rest } = out as { table?: unknown };
+  if (!out || typeof out !== 'object' || !('table' in out || 'chart' in out)) return out;
+  const { table, chart, ...rest } = out as { table?: unknown; chart?: unknown };
   if (isAnswerTable(table) && !env.ledger.tables.some((t) => t.id === table.id))
     env.ledger.tables.push(table);
-  return rest;
+  if (isAnswerChart(chart) && !env.ledger.charts.some((c) => c.id === chart.id))
+    env.ledger.charts.push(chart);
+  return {
+    ...rest,
+    ...(chart ? { chart_shown: 'The reader sees this chart under your answer.' } : {}),
+  };
 }
 
 /** Halve every long list, deep. */

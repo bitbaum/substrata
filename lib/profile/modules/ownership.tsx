@@ -84,8 +84,8 @@ const ownership: ProfileModule<OwnershipData> = {
         {bars.length > 0 && (
           <ShareBars
             rows={bars}
-            other={view.rest !== null ? view.rest / 100 : undefined}
-            caption={`Named holders of ${view.parent ?? name} as a share of its stock, each read from the document on its row below; "Other" is the rest, public float included.`}
+            other={view.remainder ? view.remainder.percent / 100 : undefined}
+            caption={`Named holders of ${view.parent ?? name} as a share of its stock, each read from the document on its row below.${view.remainder ? ` “Other” is ${view.remainder.short.toLowerCase()}: ${view.remainder.explanation}` : ''}`}
           />
         )}
         {view.holders.length > 0 && (

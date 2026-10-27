@@ -17,6 +17,7 @@ import {
   type OwnershipStatus,
 } from '@/config/substrata-ownership';
 import { listingFor, type Listing } from './listings';
+import { REMAINDER_EXPLANATION, type Remainder } from './market-data/holders/build';
 
 export interface OwnershipView {
   status: OwnershipStatus;
@@ -34,6 +35,12 @@ export interface OwnershipView {
   namedTotal: number | null;
   /** 100 minus the named shares, only when every named holder is sourced. */
   rest: number | null;
+  /**
+   * The same rest, typed: what it is called and what it means. A page draws
+   * `remainder.short` in a legend and `remainder.explanation` beside it —
+   * never a bare "Other 87%" (George, 2026-10-25).
+   */
+  remainder: Remainder | null;
   /** Whether there is any row at all — a company with none shows no section. */
   recorded: boolean;
 }
@@ -78,6 +85,15 @@ export function ownershipView(slug: string): OwnershipView {
     leads,
     namedTotal,
     rest,
+    remainder:
+      rest === null
+        ? null
+        : {
+            label: 'Other holders (each below 5%; not itemised in filings)',
+            short: 'Others, each below 5%',
+            percent: Number(rest.toFixed(2)),
+            explanation: REMAINDER_EXPLANATION,
+          },
     recorded: Boolean(row),
   };
 }

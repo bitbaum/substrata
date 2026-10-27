@@ -27,10 +27,20 @@ import producerPlaces from '../research/producer-places.json';
 import usgsRelations from '../research/usgs-relations.json';
 import universe from '../research/universe.json';
 import { ASSESSMENTS } from './substrata-assessment';
+import { MARKET_SEED_CHECKED_ON } from './market-seed';
 import { oldestLookedAt, type Unconfirmed } from '../lib/freshness/unconfirmed';
 
 export type FeedId =
-  'sweep' | 'source' | 'filings' | 'science' | 'series' | 'drafts' | 'jobs' | 'quality';
+  | 'sweep'
+  | 'source'
+  | 'filings'
+  | 'science'
+  | 'series'
+  | 'drafts'
+  | 'jobs'
+  | 'quality'
+  | 'prices'
+  | 'market-facts';
 
 export interface Feed {
   id: FeedId;
@@ -118,6 +128,26 @@ export const FEEDS: readonly Feed[] = [
     failedWhen: 'failed > 0 AND series = 0',
   },
   {
+    id: 'prices',
+    label: 'Share prices',
+    what: 'Daily closes (split-adjusted, end of day) for the listed companies in the market seed, from Yahoo Finance’s chart endpoint.',
+    shows: { label: 'Share-price charts in Ask', href: '/chat' },
+    table: 'research_price_runs',
+    // Daily at :07 past 22 UTC, after the US close (appcron-substrata-prices; docs/INFRASTRUCTURE.md).
+    everyHours: 24,
+    failedWhen: 'failed > 0 AND tickers = 0',
+  },
+  {
+    id: 'market-facts',
+    label: 'Company financials and holders',
+    what: 'XBRL financial statements, proxy ownership tables, Schedules 13G/13D and Forms 4 from SEC EDGAR for the market seed’s SEC filers.',
+    shows: { label: 'Financials and holders in Ask', href: '/chat' },
+    table: 'research_market_fact_runs',
+    // Same run as the prices, in the time left after them.
+    everyHours: 24,
+    failedWhen: 'looked > 0 AND failed >= looked',
+  },
+  {
     id: 'source',
     label: 'Producer sourcing',
     what: 'Searches for a primary source for each unsourced producer row; candidates wait for review.',
@@ -183,6 +213,15 @@ export const DATASETS: readonly Dataset[] = [
     checkedOn: oldestLookedAt(series.series, series.unconfirmed),
     unconfirmed: series.unconfirmed,
     maxAgeDays: 30,
+  },
+  {
+    id: 'market-seed',
+    label: 'Market tickers and SEC ids (seed until the company universe lands)',
+    file: 'config/market-seed.ts',
+    refresh:
+      'Re-check each listing against SEC company_tickers.json and the price source; update MARKET_SEED_CHECKED_ON',
+    checkedOn: MARKET_SEED_CHECKED_ON,
+    maxAgeDays: 90,
   },
   {
     id: 'claims',

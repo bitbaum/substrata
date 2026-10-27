@@ -63,10 +63,14 @@ export const OWNERSHIP_TOOLS: readonly ChatTool[] = [
           source: h.source,
           ...(h.note ? { note: h.note } : {}),
         })),
-        ...(view.rest !== null
+        ...(view.remainder
           ? {
-              other_holders_and_public_float: `${Number(view.rest.toFixed(2))}%`,
-              other_pct: Number(view.rest.toFixed(2)),
+              rest: {
+                label: view.remainder.label,
+                percent: `${view.remainder.percent}%`,
+                what_it_is: view.remainder.explanation,
+              },
+              other_pct: view.remainder.percent,
             }
           : {}),
         ...(view.holders.length === 0

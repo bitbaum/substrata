@@ -6,6 +6,9 @@ import { findBottleneck, findCompany } from '../chat-tools/resolve';
 import type { ReaderContext } from '../chat-context';
 import type { ChatSource } from '../chat/types';
 import type { AnswerTable } from '../chat/answer-table';
+import { extrasOf, type AnswerChart } from '../chat/answer-chart';
+
+export { extrasOf };
 import type { EntityKind } from '../entities/types';
 import { safeArgs, type ToolRequest } from './parse';
 import type { Verdict } from './verify';
@@ -25,6 +28,8 @@ export interface AgentAnswer {
   leads: Ledger['leads'];
   /** Tables built in code from the tool rows, drawn under the prose (lib/chat/answer-table.ts). */
   tables?: AnswerTable[];
+  /** Charts built in code from tool rows (lib/chat/answer-chart.ts). */
+  charts?: AnswerChart[];
   followUps: string[];
   /** The tool calls made, in order, as the reader-facing labels. */
   trail: string[];
@@ -125,7 +130,7 @@ export function failureEvent(
         web: ledger.web,
         leads: ledger.leads,
         // No AI answer, but the rows were read: the table still shows them.
-        ...(ledger.tables.length ? { tables: ledger.tables } : {}),
+        ...extrasOf(ledger),
         followUps: [],
         trail: ledger.trail,
         outside: ledger.web.length > 0,

@@ -158,7 +158,7 @@ function leadClause(line: string): string {
 }
 
 test('the eval set is the one the ADR names', () => {
-  assert.equal(EVALS.length, 60);
+  assert.equal(EVALS.length, 64);
   assert.equal(EVALS.filter((r) => r.route === 'web').length, 11, 'eleven open-web questions');
   assert.equal(EVALS.filter((r) => r.analysis).length, 5, 'five research-mode questions');
   assert.equal(EVALS.filter((r) => r.wall === false).length, 28, 'twenty-eight no-wall questions');
