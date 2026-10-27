@@ -6,14 +6,24 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q2443609",
+    "cik": "877212",
+    "isin": "US9892071054",
     "ticker": "ZBRA",
     "exchange": "US",
     "sedol": "2989356",
-    "cik": "877212"
+    "domain": "zebra.com",
+    "lei": "PO0I32GKZ3HZMMDPZZ08"
   },
   "areas": [
     {
       "area": "frontier-ai"
+    },
+    {
+      "area": "robot-sensors"
+    },
+    {
+      "area": "industrial-robots"
     }
   ],
   "evidence": [
@@ -83,10 +93,68 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Zebra_Technologies",
+      "quote": "Zebra Technologies Corporation (ZBR), commonly known as Zebra, is an American multinational technology conglomerate corporation, specializing in smart data capture systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2443609",
+      "quote": "Zebra Technologies (Q2443609) — Wikidata item: Q2443609",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:robot-sensors",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Zebra_Technologies",
+      "quote": "Zebra Technologies Corporation (ZBR), commonly known as Zebra, is an American multinational technology conglomerate corporation, specializing in smart data capture systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:industrial-robots",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Zebra_Technologies",
+      "quote": "Zebra Technologies Corporation (ZBR), commonly known as Zebra, is an American multinational technology conglomerate corporation, specializing in smart data capture systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2443609",
+      "quote": "Zebra Technologies (Q2443609) — headquarters location: Lincolnshire",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2443609",
+      "quote": "Zebra Technologies (Q2443609) — official website: zebra.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2443609",
+      "quote": "Zebra Technologies (Q2443609) — Legal Entity Identifier: PO0I32GKZ3HZMMDPZZ08",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Zebra Technologies Corporation (ZBR), commonly known as Zebra, is an American multinational technology conglomerate corporation, specializing in smart data capture systems.",
+  "hq": "Lincolnshire"
 }

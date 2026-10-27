@@ -46,7 +46,8 @@ test('the migration kept the list: same slugs, tiers, themes and evidence as the
     const a = afterBy.get(b.slug);
     assert.ok(a, `${b.slug} is not registered`);
     assert.equal(a.tier, b.tier, `${b.slug} tier`);
-    assert.deepEqual(a.themes, b.themes, `${b.slug} themes`);
+    // Enrichment may add a theme (a lab also in robotics); it never drops one.
+    for (const t of b.themes) assert.ok(a.themes.includes(t), `${b.slug} theme ${t}`);
     assert.deepEqual(a.admittedBy, b.admittedBy, `${b.slug} evidence`);
     assert.equal(a.name, b.name);
     assert.equal(a.country, b.country);
@@ -97,8 +98,19 @@ test('areas form a tree of at most three levels and name real bottlenecks', () =
 test('area members roll up their descendants; gaps are derived, not stored', () => {
   const cs = registeredCompanies();
   assert.ok(membersOf('compute-semiconductors', cs).length > 50);
-  const gaps = gapsOf(cs[0]).map((g) => g.field);
-  assert.ok(gaps.includes('summary'), 'a migrated company has no "what it is" yet');
+  const bare = cs.find((c) => !c.summary);
+  assert.ok(bare, 'some company still has no cited description');
+  assert.ok(
+    gapsOf(bare)
+      .map((g) => g.field)
+      .includes('summary'),
+  );
+  const described = cs.find((c) => c.summary)!;
+  assert.ok(
+    !gapsOf(described)
+      .map((g) => g.field)
+      .includes('summary'),
+  );
 });
 
 test('company:add resolves identity from Wikipedia and Wikidata and cites only what it fetched', async () => {
@@ -119,7 +131,11 @@ test('company:add resolves identity from Wikipedia and Wikidata and cites only w
         : {
             results: {
               bindings: [
-                { l: { value: 'Acme Robotics' }, hqL: { value: 'Columbus' }, cc: { value: 'us' } },
+                {
+                  l: { value: 'Acme Robotics' },
+                  hq: { value: 'Columbus|US' },
+                  nhq: { value: '1' },
+                },
               ],
             },
           },

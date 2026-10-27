@@ -1,0 +1,66 @@
+{
+  "slug": "tekever",
+  "name": "Tekever",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q24293069",
+    "domain": "tekever.com"
+  },
+  "areas": [
+    {
+      "area": "defence-autonomy"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Tekever",
+      "quote": "Tekever is an IT, aerospace, defence and security technologies company based in the Lisbon region and UK.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q24293069",
+      "quote": "Tekever (Q24293069) — Wikidata item: Q24293069",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:defence-autonomy",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Tekever",
+      "quote": "Tekever is an IT, aerospace, defence and security technologies company based in the Lisbon region and UK.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q24293069",
+      "quote": "Tekever (Q24293069) — country (ISO 3166-1 alpha-2): PT",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q24293069",
+      "quote": "Tekever (Q24293069) — official website: tekever.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Tekever is an IT, aerospace, defence and security technologies company based in the Lisbon region and UK.",
+  "country": "PT"
+}

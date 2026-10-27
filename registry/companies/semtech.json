@@ -6,18 +6,22 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q3459777",
+    "cik": "88941",
     "lei": "549300J7WUY317SW6O61",
     "isin": "US8168501018",
-    "cik": "88941",
-    "qid": "Q3459777",
     "ticker": "SMTC",
     "exchange": "US",
     "cusip": "816850101",
-    "sedol": "2795542"
+    "sedol": "2795542",
+    "domain": "semtech.com"
   },
   "areas": [
     {
       "area": "compute-semiconductors"
+    },
+    {
+      "area": "silicon-photonics"
     }
   ],
   "evidence": [
@@ -133,10 +137,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Semtech",
+      "quote": "Semtech Corporation is an American supplier of analog and mixed-signal semiconductors and advanced algorithms for consumer, enterprise computing, communications and industrial end-markets.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:silicon-photonics",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Semtech",
+      "quote": "Semtech Corporation is an American supplier of analog and mixed-signal semiconductors and advanced algorithms for consumer, enterprise computing, communications and industrial end-markets.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q3459777",
+      "quote": "Semtech Corporation (Q3459777) — headquarters location: Camarillo",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q3459777",
+      "quote": "Semtech Corporation (Q3459777) — official website: semtech.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Semtech Corporation is an American supplier of analog and mixed-signal semiconductors and advanced algorithms for consumer, enterprise computing, communications and industrial end-markets.",
+  "hq": "Camarillo"
 }

@@ -6,17 +6,21 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q112892574",
+    "isin": "US87151X1019",
     "ticker": "SYM",
     "exchange": "US",
     "cusip": "87151X101",
-    "isin": "US87151X1019",
     "sedol": "BPG82M8",
     "cik": "1837240",
-    "qid": "Q112892574"
+    "domain": "symbotic.com"
   },
   "areas": [
     {
       "area": "robotics"
+    },
+    {
+      "area": "industrial-robots"
     }
   ],
   "evidence": [
@@ -157,10 +161,35 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Symbotic",
+      "quote": "Symbotic Inc. is an American robotics warehouse automation company based in Wilmington, Massachusetts.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:industrial-robots",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Symbotic",
+      "quote": "Symbotic Inc. is an American robotics warehouse automation company based in Wilmington, Massachusetts.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q112892574",
+      "quote": "Symbotic (Q112892574) — official website: symbotic.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Symbotic Inc. is an American robotics warehouse automation company based in Wilmington, Massachusetts."
 }

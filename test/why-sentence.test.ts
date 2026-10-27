@@ -2,10 +2,14 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
+import { registeredCompany } from '../lib/registry/load';
 import { universeEntries } from '../lib/universe/store';
 import { whySentence } from '../lib/universe/why-sentence';
 
-const tierB = universeEntries().filter((e) => e.tier === 'B');
+// A company registered by hand (not migrated from the filter) has no fund rows: the page words it from its own summary.
+const byFilter = (e: { slug: string; registered?: boolean }) =>
+  !e.registered || registeredCompany(e.slug)?.origin.by === 'migration';
+const tierB = universeEntries().filter((e) => e.tier === 'B' && byFilter(e));
 
 test('a tier B sentence names its funds, its size and its identifiers, and no chain role', () => {
   assert.ok(tierB.length > 100);

@@ -12,7 +12,8 @@
     "qid": "Q25831370",
     "ticker": "APPF",
     "exchange": "US",
-    "cusip": "03783C100"
+    "cusip": "03783C100",
+    "domain": "appfolioinc.com"
   },
   "areas": [
     {
@@ -108,10 +109,27 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q25831370",
+      "quote": "AppFolio (Q25831370) — official website: appfolioinc.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/AppFolio",
+      "quote": "AppFolio, Inc. is an American company founded in 2006 that offers software-as-a-service (SaaS) applications and services to the real estate industry.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "AppFolio, Inc. is an American company founded in 2006 that offers software-as-a-service (SaaS) applications and services to the real estate industry."
 }

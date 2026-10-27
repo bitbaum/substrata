@@ -1,18 +1,25 @@
 {
   "slug": "nexans-s-a",
   "name": "Nexans S.A.",
-  "aliases": [],
+  "aliases": ["Nexans"],
   "kind": "public",
   "status": "active",
   "country": "FR",
   "ids": {
     "ticker": "NEX",
     "exchange": "FP",
-    "cusip": "F65277109"
+    "cusip": "F65277109",
+    "qid": "Q141644",
+    "isin": "FR0000044448",
+    "domain": "nexans.com",
+    "lei": "96950015FU78G84UIV14"
   },
   "areas": [
     {
       "area": "power-storage-grid"
+    },
+    {
+      "area": "grid-equipment"
     }
   ],
   "evidence": [
@@ -59,10 +66,60 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Nexans",
+      "quote": "A. is a global company in the cable and optical fibre industry headquartered in Paris, France.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q141644",
+      "quote": "Nexans (Q141644) — Wikidata item: Q141644",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Nexans",
+      "quote": "A. is a global company in the cable and optical fibre industry headquartered in Paris, France.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q141644",
+      "quote": "Nexans (Q141644) — headquarters location: Paris",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q141644",
+      "quote": "Nexans (Q141644) — official website: nexans.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q141644",
+      "quote": "Nexans (Q141644) — Legal Entity Identifier: 96950015FU78G84UIV14",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "A. is a global company in the cable and optical fibre industry headquartered in Paris, France.",
+  "hq": "Paris"
 }

@@ -1,0 +1,75 @@
+{
+  "slug": "01-ai",
+  "name": "01.AI",
+  "aliases": [],
+  "kind": "lab",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q130692307",
+    "domain": "01.ai"
+  },
+  "areas": [
+    {
+      "area": "frontier-labs"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/01.AI",
+      "quote": "AI is an artificial intelligence (AI) company based in Beijing, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q130692307",
+      "quote": "01.AI (Q130692307) — Wikidata item: Q130692307",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:frontier-labs",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/01.AI",
+      "quote": "AI is an artificial intelligence (AI) company based in Beijing, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q130692307",
+      "quote": "01.AI (Q130692307) — headquarters location: Beijing",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q130692307",
+      "quote": "01.AI (Q130692307) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q130692307",
+      "quote": "01.AI (Q130692307) — official website: 01.ai",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "AI is an artificial intelligence (AI) company based in Beijing, China.",
+  "hq": "Beijing",
+  "country": "CN"
+}

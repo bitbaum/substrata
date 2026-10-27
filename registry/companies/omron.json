@@ -6,14 +6,21 @@
   "status": "active",
   "country": "JP",
   "ids": {
+    "qid": "Q501376",
+    "isin": "JP3197800000",
     "ticker": "6645",
     "exchange": "JP",
     "sedol": "6659428",
-    "cusip": "J61374120"
+    "cusip": "J61374120",
+    "domain": "omron.co.jp",
+    "lei": "549300ZHW0TR2QZ0NY83"
   },
   "areas": [
     {
       "area": "robotics"
+    },
+    {
+      "area": "industrial-robots"
     }
   ],
   "evidence": [
@@ -72,10 +79,60 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Omron",
+      "quote": "Omron Corporation , styled as OMRON, is a Japanese electronics company based in Kyoto, Japan.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q501376",
+      "quote": "Omron (Q501376) — Wikidata item: Q501376",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:industrial-robots",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Omron",
+      "quote": "Omron Corporation , styled as OMRON, is a Japanese electronics company based in Kyoto, Japan.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q501376",
+      "quote": "Omron (Q501376) — headquarters location: Shimogyō-ku",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q501376",
+      "quote": "Omron (Q501376) — official website: omron.co.jp",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q501376",
+      "quote": "Omron (Q501376) — Legal Entity Identifier: 549300ZHW0TR2QZ0NY83",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Omron Corporation , styled as OMRON, is a Japanese electronics company based in Kyoto, Japan.",
+  "hq": "Shimogyō-ku"
 }

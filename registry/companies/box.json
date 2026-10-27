@@ -13,7 +13,8 @@
     "sedol": "BVB3BV2",
     "cik": "1372612",
     "qid": "Q4951483",
-    "cusip": "10316T104"
+    "cusip": "10316T104",
+    "domain": "box.com"
   },
   "areas": [
     {
@@ -133,10 +134,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4951483",
+      "quote": "Box (Q4951483) — headquarters location: Redwood City",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4951483",
+      "quote": "Box (Q4951483) — official website: box.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Box%2C_Inc.",
+      "quote": "Box, Inc. is an American public company based in Redwood City, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Redwood City",
+  "summary": "Box, Inc. is an American public company based in Redwood City, California."
 }

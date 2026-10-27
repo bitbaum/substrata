@@ -6,14 +6,15 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q173395",
+    "cik": "858877",
     "lei": "549300LKFJ962MZ46593",
     "isin": "US17275R1023",
     "ticker": "CSCO",
     "exchange": "US",
     "sedol": "2198163",
-    "cik": "858877",
-    "qid": "Q173395",
-    "cusip": "17275R102"
+    "cusip": "17275R102",
+    "domain": "cisco.com"
   },
   "areas": [
     {
@@ -27,6 +28,9 @@
     },
     {
       "area": "quantum"
+    },
+    {
+      "area": "ai-cloud-platforms"
     }
   ],
   "evidence": [
@@ -214,10 +218,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Cisco",
+      "quote": ", doing business as Cisco, is an American multinational technology conglomerate corporation that develops, manufactures, and sells hardware, software, telecommunications equipment and other high-technology services and products focused on networking, cybersecurity and AI.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Cisco",
+      "quote": ", doing business as Cisco, is an American multinational technology conglomerate corporation that develops, manufactures, and sells hardware, software, telecommunications equipment and other high-technology services and products focused on networking, cybersecurity and AI.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q173395",
+      "quote": "Cisco (Q173395) — headquarters location: San Jose",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q173395",
+      "quote": "Cisco (Q173395) — official website: cisco.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": ", doing business as Cisco, is an American multinational technology conglomerate corporation that develops, manufactures, and sells hardware, software, telecommunications equipment and other high-technology services and products focused on networking, cybersecurity and AI.",
+  "hq": "San Jose"
 }

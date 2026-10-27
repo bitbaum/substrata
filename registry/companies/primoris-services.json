@@ -12,7 +12,8 @@
     "qid": "Q20714950",
     "ticker": "PRIM",
     "exchange": "US",
-    "cusip": "74164F103"
+    "cusip": "74164F103",
+    "domain": "prim.com"
   },
   "areas": [
     {
@@ -96,10 +97,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q20714950",
+      "quote": "Primoris Services Corporation (Q20714950) — headquarters location: Dallas",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q20714950",
+      "quote": "Primoris Services Corporation (Q20714950) — official website: prim.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Primoris_Services_Corporation",
+      "quote": "Primoris Services Corporation is a publicly traded specialty construction and infrastructure company based in the United States, with a particular focus on pipelines for natural gas, wastewater and water.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Dallas",
+  "summary": "Primoris Services Corporation is a publicly traded specialty construction and infrastructure company based in the United States, with a particular focus on pipelines for natural gas, wastewater and water."
 }

@@ -13,7 +13,8 @@
     "ticker": "CRS",
     "exchange": "US",
     "cusip": "144285103",
-    "sedol": "2177504"
+    "sedol": "2177504",
+    "domain": "cartech.com"
   },
   "areas": [
     {
@@ -97,10 +98,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5045738",
+      "quote": "Carpenter Technology Corporation (Q5045738) — headquarters location: Reading",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5045738",
+      "quote": "Carpenter Technology Corporation (Q5045738) — official website: cartech.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Carpenter_Technology_Corporation",
+      "quote": "Carpenter Technology Corporation develops, manufactures, and distributes stainless steels and corrosion-resistant nickel, copper and titanium alloys as well as powdered alloys for 3D additive manufacturing.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Reading",
+  "summary": "Carpenter Technology Corporation develops, manufactures, and distributes stainless steels and corrosion-resistant nickel, copper and titanium alloys as well as powdered alloys for 3D additive manufacturing."
 }

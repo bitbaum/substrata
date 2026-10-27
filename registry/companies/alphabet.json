@@ -6,14 +6,15 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q20800404",
+    "cik": "1652044",
     "lei": "5493006MHB84DD0ZWV18",
     "isin": "US02079K1079",
     "ticker": "GOOG",
     "exchange": "US",
     "cusip": "02079K107",
     "sedol": "BYVY8G0",
-    "cik": "1652044",
-    "qid": "Q20800404"
+    "domain": "abc.xyz"
   },
   "areas": [
     {
@@ -27,6 +28,9 @@
     },
     {
       "area": "quantum"
+    },
+    {
+      "area": "ai-cloud-platforms"
     }
   ],
   "evidence": [
@@ -285,10 +289,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Alphabet_Inc.",
+      "quote": "Alphabet Inc. is an American multinational technology conglomerate holding company headquartered in Mountain View, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Alphabet_Inc.",
+      "quote": "Alphabet Inc. is an American multinational technology conglomerate holding company headquartered in Mountain View, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q20800404",
+      "quote": "Alphabet Inc. (Q20800404) — headquarters location: Mountain View",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q20800404",
+      "quote": "Alphabet Inc. (Q20800404) — official website: abc.xyz",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Alphabet Inc. is an American multinational technology conglomerate holding company headquartered in Mountain View, California.",
+  "hq": "Mountain View"
 }

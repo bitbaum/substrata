@@ -1,0 +1,59 @@
+{
+  "slug": "neura-robotics",
+  "name": "Neura Robotics",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q133867186"
+  },
+  "areas": [
+    {
+      "area": "humanoids"
+    },
+    {
+      "area": "industrial-robots"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Neura_Robotics",
+      "quote": "Neura Robotics is a German robotics company headquartered in Metzingen, Baden-Württemberg.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q133867186",
+      "quote": "Neura Robotics (Q133867186) — Wikidata item: Q133867186",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:humanoids",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Neura_Robotics",
+      "quote": "Neura Robotics is a German robotics company headquartered in Metzingen, Baden-Württemberg.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:industrial-robots",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Neura_Robotics",
+      "quote": "Neura Robotics is a German robotics company headquartered in Metzingen, Baden-Württemberg.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Neura Robotics is a German robotics company headquartered in Metzingen, Baden-Württemberg."
+}

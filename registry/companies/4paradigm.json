@@ -1,0 +1,48 @@
+{
+  "slug": "4paradigm",
+  "name": "4Paradigm",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q126477137"
+  },
+  "areas": [
+    {
+      "area": "ai-software-tooling"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/4Paradigm",
+      "quote": ", Ltd. doing business as 4Paradigm is a Chinese company publicly listed in Hong Kong that focuses on providing artificial intelligence (AI) tools and applications in China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q126477137",
+      "quote": "4Paradigm (Q126477137) — Wikidata item: Q126477137",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/4Paradigm",
+      "quote": ", Ltd. doing business as 4Paradigm is a Chinese company publicly listed in Hong Kong that focuses on providing artificial intelligence (AI) tools and applications in China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": ", Ltd. doing business as 4Paradigm is a Chinese company publicly listed in Hong Kong that focuses on providing artificial intelligence (AI) tools and applications in China."
+}

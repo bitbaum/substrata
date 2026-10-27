@@ -6,14 +6,15 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q478214",
+    "cik": "1318605",
     "lei": "54930043XZGB27CTOV49",
     "isin": "US88160R1014",
     "ticker": "TSLA",
     "exchange": "US",
     "cusip": "88160R101",
     "sedol": "B616C79",
-    "cik": "1318605",
-    "qid": "Q478214"
+    "domain": "tesla.com"
   },
   "areas": [
     {
@@ -27,6 +28,15 @@
     },
     {
       "area": "mobility"
+    },
+    {
+      "area": "humanoids"
+    },
+    {
+      "area": "robot-batteries"
+    },
+    {
+      "area": "autonomous-vehicles"
     }
   ],
   "evidence": [
@@ -274,10 +284,60 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Tesla%2C_Inc.",
+      "quote": "Tesla, Inc. is an American multinational automotive and clean energy company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:humanoids",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Tesla%2C_Inc.",
+      "quote": "Tesla, Inc. is an American multinational automotive and clean energy company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:robot-batteries",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Tesla%2C_Inc.",
+      "quote": "Tesla, Inc. is an American multinational automotive and clean energy company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Tesla%2C_Inc.",
+      "quote": "Tesla, Inc. is an American multinational automotive and clean energy company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q478214",
+      "quote": "Tesla (Q478214) — headquarters location: Austin",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q478214",
+      "quote": "Tesla (Q478214) — official website: tesla.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Tesla, Inc. is an American multinational automotive and clean energy company.",
+  "hq": "Austin"
 }

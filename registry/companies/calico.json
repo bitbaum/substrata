@@ -1,0 +1,75 @@
+{
+  "slug": "calico",
+  "name": "Calico",
+  "aliases": [],
+  "kind": "subsidiary",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q14932155",
+    "domain": "calicolabs.com"
+  },
+  "areas": [
+    {
+      "area": "longevity"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Calico_(company)",
+      "quote": "Calico Life Sciences LLC is an American biotechnology company with a focus on the biology of aging, attempting to devise interventions that may enable people to lead longer and healthier lives.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q14932155",
+      "quote": "Calico (Q14932155) — Wikidata item: Q14932155",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:longevity",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Calico_(company)",
+      "quote": "Calico Life Sciences LLC is an American biotechnology company with a focus on the biology of aging, attempting to devise interventions that may enable people to lead longer and healthier lives.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q14932155",
+      "quote": "Calico (Q14932155) — headquarters location: San Francisco",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q14932155",
+      "quote": "Calico (Q14932155) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q14932155",
+      "quote": "Calico (Q14932155) — official website: calicolabs.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Calico Life Sciences LLC is an American biotechnology company with a focus on the biology of aging, attempting to devise interventions that may enable people to lead longer and healthier lives.",
+  "hq": "San Francisco",
+  "country": "US"
+}

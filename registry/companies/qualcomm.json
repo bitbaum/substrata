@@ -6,14 +6,15 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q544847",
+    "cik": "804328",
     "lei": "H1J8DDZKZP6H7RWC0H53",
     "isin": "US7475251036",
     "ticker": "QCOM",
     "exchange": "US",
     "sedol": "2714923",
-    "cik": "804328",
-    "qid": "Q544847",
-    "cusip": "747525103"
+    "cusip": "747525103",
+    "domain": "qualcomm.com"
   },
   "areas": [
     {
@@ -30,6 +31,9 @@
     },
     {
       "area": "quantum"
+    },
+    {
+      "area": "ai-accelerators"
     }
   ],
   "evidence": [
@@ -217,10 +221,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Qualcomm",
+      "quote": "Qualcomm Incorporated is an American multinational technology corporation headquartered in San Diego, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-accelerators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Qualcomm",
+      "quote": "Qualcomm Incorporated is an American multinational technology corporation headquartered in San Diego, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q544847",
+      "quote": "Qualcomm (Q544847) — headquarters location: San Diego",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q544847",
+      "quote": "Qualcomm (Q544847) — official website: qualcomm.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Qualcomm Incorporated is an American multinational technology corporation headquartered in San Diego, California.",
+  "hq": "San Diego"
 }

@@ -1,0 +1,66 @@
+{
+  "slug": "knds",
+  "name": "KNDS",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q19966744",
+    "domain": "knds.com"
+  },
+  "areas": [
+    {
+      "area": "defence-tech"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/KNDS",
+      "quote": ", is a European defence industry holding company, which is the result of a merger between Krauss-Maffei Wegmann and Nexter Systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q19966744",
+      "quote": "KNDS (Q19966744) — Wikidata item: Q19966744",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q19966744",
+      "quote": "KNDS (Q19966744) — headquarters location: Amsterdam",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q19966744",
+      "quote": "KNDS (Q19966744) — official website: https://www.knds.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:defence-tech",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/KNDS",
+      "quote": ", is a European defence industry holding company, which is the result of a merger between Krauss-Maffei Wegmann and Nexter Systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": ", is a European defence industry holding company, which is the result of a merger between Krauss-Maffei Wegmann and Nexter Systems.",
+  "hq": "Amsterdam"
+}

@@ -6,13 +6,14 @@
   "status": "active",
   "country": "GB",
   "ids": {
-    "lei": "2138001E66EELTE7Y904",
-    "isin": "US0420682058",
-    "cik": "0001973239",
     "qid": "Q296782",
+    "isin": "US0420682058",
+    "lei": "2138001E66EELTE7Y904",
+    "cik": "0001973239",
     "ticker": "ARM",
     "exchange": "US",
-    "cusip": "042068205"
+    "cusip": "042068205",
+    "domain": "arm.com"
   },
   "areas": [
     {
@@ -20,6 +21,12 @@
     },
     {
       "area": "quantum"
+    },
+    {
+      "area": "ai-accelerators"
+    },
+    {
+      "area": "eda-ip"
     }
   ],
   "evidence": [
@@ -122,10 +129,52 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country GB as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Arm_Holdings",
+      "quote": "Arm Holdings plc is a British semiconductor and software design company headquartered in Cambridge, whose primary business is the design of central processing unit (CPU) cores that implement the ARM architecture family of instruction sets.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-accelerators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Arm_Holdings",
+      "quote": "Arm Holdings plc is a British semiconductor and software design company headquartered in Cambridge, whose primary business is the design of central processing unit (CPU) cores that implement the ARM architecture family of instruction sets.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:eda-ip",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Arm_Holdings",
+      "quote": "Arm Holdings plc is a British semiconductor and software design company headquartered in Cambridge, whose primary business is the design of central processing unit (CPU) cores that implement the ARM architecture family of instruction sets.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q296782",
+      "quote": "Arm Holdings (Q296782) — headquarters location: Cambridge",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q296782",
+      "quote": "Arm Holdings (Q296782) — official website: arm.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Arm Holdings plc is a British semiconductor and software design company headquartered in Cambridge, whose primary business is the design of central processing unit (CPU) cores that implement the ARM architecture family of instruction sets.",
+  "hq": "Cambridge"
 }

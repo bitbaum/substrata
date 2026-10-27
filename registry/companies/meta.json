@@ -11,14 +11,15 @@
   "status": "active",
   "country": "US",
   "ids": {
-    "ticker": "META",
-    "exchange": "Nasdaq",
+    "qid": "Q380",
     "cik": "1326801",
     "lei": "BQ4BKCS1HXDV9HN80Z93",
     "isin": "US30303M1027",
+    "ticker": "META",
+    "exchange": "Nasdaq",
     "sedol": "B7TL820",
-    "qid": "Q380",
-    "cusip": "30303M102"
+    "cusip": "30303M102",
+    "domain": "meta.com"
   },
   "areas": [
     {
@@ -26,6 +27,9 @@
     },
     {
       "area": "robotics"
+    },
+    {
+      "area": "ai-cloud-platforms"
     }
   ],
   "evidence": [
@@ -128,10 +132,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Meta_Platforms",
+      "quote": ", headquartered in Menlo Park, California, is an American multinational technology company and is one of the Big Tech companies.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Meta_Platforms",
+      "quote": ", headquartered in Menlo Park, California, is an American multinational technology company and is one of the Big Tech companies.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q380",
+      "quote": "Meta Platforms (Q380) — headquarters location: Menlo Park",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q380",
+      "quote": "Meta Platforms (Q380) — official website: meta.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": ", headquartered in Menlo Park, California, is an American multinational technology company and is one of the Big Tech companies.",
+  "hq": "Menlo Park"
 }

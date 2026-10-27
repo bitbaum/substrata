@@ -1,0 +1,76 @@
+{
+  "slug": "ant-group",
+  "name": "Ant Group",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q21979415",
+    "domain": "antgroup.com",
+    "isin": "CNE1000044N1"
+  },
+  "areas": [
+    {
+      "area": "ai-software-tooling"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Ant_Group",
+      "quote": "Ant Group, formerly known as Ant Financial, is an affiliate company of the Chinese conglomerate Alibaba Group.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q21979415",
+      "quote": "Ant Group (Q21979415) — Wikidata item: Q21979415",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q21979415",
+      "quote": "Ant Group (Q21979415) — headquarters location: Shanghai Free-Trade Zone",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q21979415",
+      "quote": "Ant Group (Q21979415) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q21979415",
+      "quote": "Ant Group (Q21979415) — official website: https://www.antgroup.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Ant_Group",
+      "quote": "Ant Group, formerly known as Ant Financial, is an affiliate company of the Chinese conglomerate Alibaba Group.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Ant Group, formerly known as Ant Financial, is an affiliate company of the Chinese conglomerate Alibaba Group.",
+  "country": "CN",
+  "hq": "Shanghai Free-Trade Zone"
+}

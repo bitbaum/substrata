@@ -12,14 +12,15 @@
   "status": "active",
   "country": "TW",
   "ids": {
-    "ticker": "2330",
-    "exchange": "TT",
+    "qid": "Q713418",
     "cik": "1046179",
     "lei": "549300KB6NK5SBD14S87",
     "isin": "US8740391003",
+    "ticker": "2330",
+    "exchange": "TT",
     "cusip": "874039100",
     "sedol": "2113382",
-    "qid": "Q713418"
+    "domain": "tsmc.com"
   },
   "areas": [
     {
@@ -33,6 +34,9 @@
     },
     {
       "area": "quantum"
+    },
+    {
+      "area": "foundry"
     }
   ],
   "evidence": [
@@ -194,10 +198,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country TW as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/TSMC",
+      "quote": "Taiwan Semiconductor Manufacturing Company Limited is a Taiwanese multinational semiconductor contract manufacturing and design company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:foundry",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/TSMC",
+      "quote": "Taiwan Semiconductor Manufacturing Company Limited is a Taiwanese multinational semiconductor contract manufacturing and design company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q713418",
+      "quote": "TSMC (Q713418) — headquarters location: Hsinchu Science Park",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q713418",
+      "quote": "TSMC (Q713418) — official website: tsmc.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Taiwan Semiconductor Manufacturing Company Limited is a Taiwanese multinational semiconductor contract manufacturing and design company.",
+  "hq": "Hsinchu Science Park"
 }

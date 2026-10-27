@@ -1,0 +1,94 @@
+{
+  "slug": "jd-com",
+  "name": "JD.com",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q3598926",
+    "domain": "jd.com",
+    "cik": "1549802",
+    "lei": "549300HVTWB0GJZ16V92",
+    "isin": "US47215P1066"
+  },
+  "areas": [
+    {
+      "area": "ai-software-tooling"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/JD.com",
+      "quote": ", also known as Jingdong Group, formerly called 360buy, is a Chinese multinational technology company specializing in e-commerce, retail, Internet, and technology.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q3598926",
+      "quote": "JD.com (Q3598926) — Wikidata item: Q3598926",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q3598926",
+      "quote": "JD.com (Q3598926) — headquarters location: Beijing",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q3598926",
+      "quote": "JD.com (Q3598926) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q3598926",
+      "quote": "JD.com (Q3598926) — official website: https://jd.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q3598926",
+      "quote": "JD.com (Q3598926) — SEC Central Index Key: 1549802",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q3598926",
+      "quote": "JD.com (Q3598926) — Legal Entity Identifier: 549300HVTWB0GJZ16V92",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/JD.com",
+      "quote": ", also known as Jingdong Group, formerly called 360buy, is a Chinese multinational technology company specializing in e-commerce, retail, Internet, and technology.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": ", also known as Jingdong Group, formerly called 360buy, is a Chinese multinational technology company specializing in e-commerce, retail, Internet, and technology.",
+  "country": "CN",
+  "hq": "Beijing"
+}

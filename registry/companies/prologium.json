@@ -1,0 +1,75 @@
+{
+  "slug": "prologium",
+  "name": "ProLogium",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q51121678",
+    "domain": "prologium.com"
+  },
+  "areas": [
+    {
+      "area": "energy-storage"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/ProLogium",
+      "quote": "Founded in 2006, ProLogium Technology is a Taiwanese solid-state battery developer and manufacturer.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q51121678",
+      "quote": "ProLogium Technology Co., Ltd. (Q51121678) — Wikidata item: Q51121678",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:energy-storage",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/ProLogium",
+      "quote": "Founded in 2006, ProLogium Technology is a Taiwanese solid-state battery developer and manufacturer.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q51121678",
+      "quote": "ProLogium Technology Co., Ltd. (Q51121678) — headquarters location: Taoyuan",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q51121678",
+      "quote": "ProLogium Technology Co., Ltd. (Q51121678) — country (ISO 3166-1 alpha-2): TW",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q51121678",
+      "quote": "ProLogium Technology Co., Ltd. (Q51121678) — official website: prologium.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Founded in 2006, ProLogium Technology is a Taiwanese solid-state battery developer and manufacturer.",
+  "hq": "Taoyuan",
+  "country": "TW"
+}

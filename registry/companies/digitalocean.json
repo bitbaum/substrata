@@ -17,7 +17,8 @@
     "sedol": "BNC23Q1",
     "cik": "1582961",
     "qid": "Q17052116",
-    "cusip": "25402D102"
+    "cusip": "25402D102",
+    "domain": "digitalocean.com"
   },
   "areas": [
     {
@@ -137,10 +138,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17052116",
+      "quote": "DigitalOcean (Q17052116) — headquarters location: New York City",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17052116",
+      "quote": "DigitalOcean (Q17052116) — official website: digitalocean.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/DigitalOcean",
+      "quote": "DigitalOcean Holdings, Inc. is an American multinational technology company and cloud service provider.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "New York City",
+  "summary": "DigitalOcean Holdings, Inc. is an American multinational technology company and cloud service provider."
 }

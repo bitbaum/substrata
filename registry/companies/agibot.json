@@ -1,0 +1,75 @@
+{
+  "slug": "agibot",
+  "name": "AgiBot",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q131901025",
+    "domain": "agibot.com"
+  },
+  "areas": [
+    {
+      "area": "humanoids"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/AgiBot",
+      "quote": "AgiBot is a Chinese robotics company headquartered in Shanghai.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q131901025",
+      "quote": "AgiBot (Q131901025) — Wikidata item: Q131901025",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:humanoids",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/AgiBot",
+      "quote": "AgiBot is a Chinese robotics company headquartered in Shanghai.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q131901025",
+      "quote": "AgiBot (Q131901025) — headquarters location: Pudong",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q131901025",
+      "quote": "AgiBot (Q131901025) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q131901025",
+      "quote": "AgiBot (Q131901025) — official website: agibot.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "AgiBot is a Chinese robotics company headquartered in Shanghai.",
+  "hq": "Pudong",
+  "country": "CN"
+}

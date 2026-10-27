@@ -1,0 +1,59 @@
+{
+  "slug": "contextual-ai",
+  "name": "Contextual AI",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q135245580"
+  },
+  "areas": [
+    {
+      "area": "ai-software-tooling"
+    },
+    {
+      "area": "frontier-labs"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Contextual_AI",
+      "quote": "Contextual AI is an AI software company based in Mountain View, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q135245580",
+      "quote": "Contextual AI (Q135245580) — Wikidata item: Q135245580",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Contextual_AI",
+      "quote": "Contextual AI is an AI software company based in Mountain View, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:frontier-labs",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Contextual_AI",
+      "quote": "Contextual AI is an AI software company based in Mountain View, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Contextual AI is an AI software company based in Mountain View, California."
+}

@@ -12,7 +12,8 @@
     "qid": "Q7261135",
     "ticker": "P",
     "exchange": "US",
-    "cusip": "74624M102"
+    "cusip": "74624M102",
+    "domain": "purestorage.com"
   },
   "areas": [
     {
@@ -123,10 +124,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7261135",
+      "quote": "Pure Storage (Q7261135) — headquarters location: Mountain View",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7261135",
+      "quote": "Pure Storage (Q7261135) — official website: purestorage.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Everpure",
+      "quote": "Everpure, Inc. is an American publicly traded technology company headquartered in Santa Clara, California, United States.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Mountain View",
+  "summary": "Everpure, Inc. is an American publicly traded technology company headquartered in Santa Clara, California, United States."
 }

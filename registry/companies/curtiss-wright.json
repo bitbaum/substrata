@@ -6,14 +6,15 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q1138291",
     "lei": "TEL51ETZWP7D0ZM4X325",
     "isin": "US2315611010",
     "cik": "26324",
-    "qid": "Q1138291",
     "ticker": "CW",
     "exchange": "US",
     "cusip": "231561101",
-    "sedol": "2241205"
+    "sedol": "2241205",
+    "domain": "curtisswright.com"
   },
   "areas": [
     {
@@ -109,10 +110,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Curtiss-Wright",
+      "quote": "The Curtiss-Wright Corporation is an American manufacturer and services provider headquartered in Davidson, North Carolina, with factories and operations in and outside the United States.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1138291",
+      "quote": "Curtiss-Wright (Q1138291) — headquarters location: Charlotte",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1138291",
+      "quote": "Curtiss-Wright (Q1138291) — official website: curtisswright.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "The Curtiss-Wright Corporation is an American manufacturer and services provider headquartered in Davidson, North Carolina, with factories and operations in and outside the United States.",
+  "hq": "Charlotte"
 }

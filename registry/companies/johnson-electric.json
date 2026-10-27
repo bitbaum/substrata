@@ -1,0 +1,75 @@
+{
+  "slug": "johnson-electric",
+  "name": "Johnson Electric",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q826687",
+    "domain": "johnsonelectric.com"
+  },
+  "areas": [
+    {
+      "area": "actuators"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Johnson_Electric",
+      "quote": "Johnson Electric (德昌電機控股有限公司) is a provider of motors, actuators, motion subsystems and related electro-mechanical components for automotive, industrial and medical applications.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q826687",
+      "quote": "Johnson Electric (Q826687) — Wikidata item: Q826687",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:actuators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Johnson_Electric",
+      "quote": "Johnson Electric (德昌電機控股有限公司) is a provider of motors, actuators, motion subsystems and related electro-mechanical components for automotive, industrial and medical applications.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q826687",
+      "quote": "Johnson Electric (Q826687) — headquarters location: Hong Kong",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q826687",
+      "quote": "Johnson Electric (Q826687) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q826687",
+      "quote": "Johnson Electric (Q826687) — official website: johnsonelectric.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Johnson Electric (德昌電機控股有限公司) is a provider of motors, actuators, motion subsystems and related electro-mechanical components for automotive, industrial and medical applications.",
+  "hq": "Hong Kong",
+  "country": "CN"
+}

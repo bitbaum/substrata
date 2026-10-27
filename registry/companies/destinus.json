@@ -1,0 +1,66 @@
+{
+  "slug": "destinus",
+  "name": "Destinus",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q117323559",
+    "domain": "destinus.ch"
+  },
+  "areas": [
+    {
+      "area": "defence-autonomy"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Destinus",
+      "quote": "Destinus Group BV is a private European aerospace company specialising in aerospace, defence and energy founded in 2021 in Payerne, Switzerland.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q117323559",
+      "quote": "Destinus (Q117323559) — Wikidata item: Q117323559",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:defence-autonomy",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Destinus",
+      "quote": "Destinus Group BV is a private European aerospace company specialising in aerospace, defence and energy founded in 2021 in Payerne, Switzerland.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q117323559",
+      "quote": "Destinus (Q117323559) — country (ISO 3166-1 alpha-2): CH",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q117323559",
+      "quote": "Destinus (Q117323559) — official website: destinus.ch",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Destinus Group BV is a private European aerospace company specialising in aerospace, defence and energy founded in 2021 in Payerne, Switzerland.",
+  "country": "CH"
+}

@@ -1,0 +1,85 @@
+{
+  "slug": "arcelor-mittal",
+  "name": "Arcelor Mittal",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q27893",
+    "isin": "LU1598757687",
+    "domain": "corporate.arcelormittal.com",
+    "cik": "1243429",
+    "lei": "2EULGUTUI56JI9SAL165"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q27893",
+      "quote": "ArcelorMittal (Q27893) — Wikidata item: Q27893",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:advanced-materials",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/ArcelorMittal",
+      "quote": ", headquartered in Luxembourg City, is a multinational steel manufacturing corporation, with operations in iron ore and coke mining as well as scrap recycling.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q27893",
+      "quote": "ArcelorMittal (Q27893) — headquarters location: Luxembourg",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q27893",
+      "quote": "ArcelorMittal (Q27893) — country (ISO 3166-1 alpha-2): LU",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q27893",
+      "quote": "ArcelorMittal (Q27893) — official website: corporate.arcelormittal.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q27893",
+      "quote": "ArcelorMittal (Q27893) — SEC Central Index Key: 1243429",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q27893",
+      "quote": "ArcelorMittal (Q27893) — Legal Entity Identifier: 2EULGUTUI56JI9SAL165",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "hq": "Luxembourg",
+  "country": "LU"
+}

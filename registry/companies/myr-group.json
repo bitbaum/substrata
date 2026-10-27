@@ -12,7 +12,8 @@
     "qid": "Q110128797",
     "ticker": "MYRG",
     "exchange": "US",
-    "cusip": "55405W104"
+    "cusip": "55405W104",
+    "domain": "myrgroup.com"
   },
   "areas": [
     {
@@ -108,10 +109,27 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q110128797",
+      "quote": "MYR Group Inc. (Q110128797) — official website: myrgroup.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/MYR_Group_Inc.",
+      "quote": "MYR Group Inc. is an American corporation that offers electrical construction services for transmission and distribution lines, substations, commercial and industrial buildings, and renewable energy.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "MYR Group Inc. is an American corporation that offers electrical construction services for transmission and distribution lines, substations, commercial and industrial buildings, and renewable energy."
 }

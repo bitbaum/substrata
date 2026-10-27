@@ -13,7 +13,8 @@
     "ticker": "GE",
     "exchange": "US",
     "cusip": "369604301",
-    "sedol": "BL59CR9"
+    "sedol": "BL59CR9",
+    "domain": "geaerospace.com"
   },
   "areas": [
     {
@@ -97,10 +98,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1485061",
+      "quote": "GE Aerospace (Q1485061) — headquarters location: Evendale",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1485061",
+      "quote": "GE Aerospace (Q1485061) — official website: geaerospace.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/GE_Aerospace",
+      "quote": "General Electric Company is an American aircraft engine supplier that is headquartered in Evendale, Ohio, outside Cincinnati.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Evendale",
+  "summary": "General Electric Company is an American aircraft engine supplier that is headquartered in Evendale, Ohio, outside Cincinnati."
 }

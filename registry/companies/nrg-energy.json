@@ -1,0 +1,85 @@
+{
+  "slug": "nrg-energy",
+  "name": "NRG Energy",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q6955139",
+    "isin": "US6293775085",
+    "domain": "nrg.com",
+    "cik": "1013871",
+    "lei": "5E2UPK5SW04M13XY7I38"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/NRG_Energy",
+      "quote": "NRG Energy, Inc. is an American energy company, headquartered in Houston, Texas.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q6955139",
+      "quote": "NRG Energy (Q6955139) — Wikidata item: Q6955139",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:power-storage-grid",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/NRG_Energy",
+      "quote": "NRG Energy, Inc. is an American energy company, headquartered in Houston, Texas.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q6955139",
+      "quote": "NRG Energy (Q6955139) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q6955139",
+      "quote": "NRG Energy (Q6955139) — official website: nrg.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q6955139",
+      "quote": "NRG Energy (Q6955139) — SEC Central Index Key: 1013871",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q6955139",
+      "quote": "NRG Energy (Q6955139) — Legal Entity Identifier: 5E2UPK5SW04M13XY7I38",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "NRG Energy, Inc. is an American energy company, headquartered in Houston, Texas.",
+  "country": "US"
+}

@@ -6,14 +6,22 @@
   "status": "active",
   "country": "JP",
   "ids": {
+    "qid": "Q53247",
+    "isin": "JP3866800000",
     "ticker": "6752",
     "exchange": "JP",
     "sedol": "6572707",
-    "cusip": "J6354Y104"
+    "cusip": "J6354Y104",
+    "domain": "holdings.panasonic",
+    "cik": "63271",
+    "lei": "254900GE1G59KGWPHX32"
   },
   "areas": [
     {
       "area": "power-storage-grid"
+    },
+    {
+      "area": "robot-batteries"
     }
   ],
   "evidence": [
@@ -84,10 +92,68 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Panasonic",
+      "quote": "Panasonic Holdings Corporation, colloquially known as Panasonic, is a Japanese multinational electronics manufacturer, headquartered in Kadoma, Osaka, Japan.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q53247",
+      "quote": "Panasonic Holdings Corporation (Q53247) — Wikidata item: Q53247",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:robot-batteries",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Panasonic",
+      "quote": "Panasonic Holdings Corporation, colloquially known as Panasonic, is a Japanese multinational electronics manufacturer, headquartered in Kadoma, Osaka, Japan.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q53247",
+      "quote": "Panasonic Holdings Corporation (Q53247) — headquarters location: Kadoma",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q53247",
+      "quote": "Panasonic Holdings Corporation (Q53247) — official website: holdings.panasonic",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q53247",
+      "quote": "Panasonic Holdings Corporation (Q53247) — SEC Central Index Key: 63271",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q53247",
+      "quote": "Panasonic Holdings Corporation (Q53247) — Legal Entity Identifier: 254900GE1G59KGWPHX32",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Panasonic Holdings Corporation, colloquially known as Panasonic, is a Japanese multinational electronics manufacturer, headquartered in Kadoma, Osaka, Japan.",
+  "hq": "Kadoma"
 }

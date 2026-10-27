@@ -6,13 +6,20 @@
   "status": "active",
   "country": "IT",
   "ids": {
+    "qid": "Q1964784",
+    "isin": "IT0004176001",
     "ticker": "PRY",
     "exchange": "IM",
-    "cusip": "T7630L105"
+    "cusip": "T7630L105",
+    "domain": "prysmian.com",
+    "lei": "529900X0H1IO3RS1A464"
   },
   "areas": [
     {
       "area": "power-storage-grid"
+    },
+    {
+      "area": "grid-equipment"
     }
   ],
   "evidence": [
@@ -70,10 +77,60 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Prysmian_Group",
+      "quote": "A. is a multinational company with headquarters in Milan, Italy, specializing in the production of electrical cables for use in the energy and telecom sectors and for optical fibres.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1964784",
+      "quote": "Prysmian Group (Q1964784) — Wikidata item: Q1964784",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Prysmian_Group",
+      "quote": "A. is a multinational company with headquarters in Milan, Italy, specializing in the production of electrical cables for use in the energy and telecom sectors and for optical fibres.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1964784",
+      "quote": "Prysmian Group (Q1964784) — headquarters location: Milan",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1964784",
+      "quote": "Prysmian Group (Q1964784) — official website: prysmian.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1964784",
+      "quote": "Prysmian Group (Q1964784) — Legal Entity Identifier: 529900X0H1IO3RS1A464",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "A. is a multinational company with headquarters in Milan, Italy, specializing in the production of electrical cables for use in the energy and telecom sectors and for optical fibres.",
+  "hq": "Milan"
 }

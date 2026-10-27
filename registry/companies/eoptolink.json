@@ -1,0 +1,48 @@
+{
+  "slug": "eoptolink",
+  "name": "Eoptolink",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q130559547"
+  },
+  "areas": [
+    {
+      "area": "silicon-photonics"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Eoptolink",
+      "quote": "Eoptolink is a publicly listed Chinese company headquartered in Chengdu that engages in the manufacture and sale of optical modules.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q130559547",
+      "quote": "Eoptolink (Q130559547) — Wikidata item: Q130559547",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:silicon-photonics",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Eoptolink",
+      "quote": "Eoptolink is a publicly listed Chinese company headquartered in Chengdu that engages in the manufacture and sale of optical modules.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Eoptolink is a publicly listed Chinese company headquartered in Chengdu that engages in the manufacture and sale of optical modules."
+}

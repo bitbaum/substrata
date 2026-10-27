@@ -12,7 +12,8 @@
     "qid": "Q7334682",
     "ticker": "RNG",
     "exchange": "US",
-    "cusip": "76680R206"
+    "cusip": "76680R206",
+    "domain": "ringcentral.com"
   },
   "areas": [
     {
@@ -108,10 +109,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7334682",
+      "quote": "RingCentral (Q7334682) — headquarters location: Belmont",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7334682",
+      "quote": "RingCentral (Q7334682) — official website: ringcentral.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/RingCentral",
+      "quote": "RingCentral, Inc. is an American provider of AI-powered cloud-based communication and collaboration products and services.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Belmont",
+  "summary": "RingCentral, Inc. is an American provider of AI-powered cloud-based communication and collaboration products and services."
 }

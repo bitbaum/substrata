@@ -1,0 +1,75 @@
+{
+  "slug": "terrapower",
+  "name": "TerraPower",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q4050859",
+    "domain": "terrapower.com"
+  },
+  "areas": [
+    {
+      "area": "fission-smr"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/TerraPower",
+      "quote": "TerraPower, LLC is an American nuclear reactor design and development engineering company headquartered in Bellevue, Washington.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4050859",
+      "quote": "TerraPower (Q4050859) — Wikidata item: Q4050859",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:fission-smr",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/TerraPower",
+      "quote": "TerraPower, LLC is an American nuclear reactor design and development engineering company headquartered in Bellevue, Washington.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4050859",
+      "quote": "TerraPower (Q4050859) — headquarters location: Bellevue",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4050859",
+      "quote": "TerraPower (Q4050859) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4050859",
+      "quote": "TerraPower (Q4050859) — official website: terrapower.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "TerraPower, LLC is an American nuclear reactor design and development engineering company headquartered in Bellevue, Washington.",
+  "hq": "Bellevue",
+  "country": "US"
+}

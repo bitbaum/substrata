@@ -6,18 +6,22 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q44294",
+    "cik": "37996",
     "lei": "20S05OYHG0MQM4VUIC57",
     "isin": "US3453708600",
     "ticker": "F",
     "exchange": "US",
     "sedol": "2615468",
-    "cik": "37996",
-    "qid": "Q44294",
-    "cusip": "345370860"
+    "cusip": "345370860",
+    "domain": "ford.com"
   },
   "areas": [
     {
       "area": "mobility"
+    },
+    {
+      "area": "autonomous-vehicles"
     }
   ],
   "evidence": [
@@ -121,10 +125,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Ford_Motor_Company",
+      "quote": "The Ford Motor Company is an American multinational automobile manufacturer headquartered in Dearborn, Michigan, United States.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Ford_Motor_Company",
+      "quote": "The Ford Motor Company is an American multinational automobile manufacturer headquartered in Dearborn, Michigan, United States.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q44294",
+      "quote": "Ford Motor Company (Q44294) — headquarters location: Dearborn",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q44294",
+      "quote": "Ford Motor Company (Q44294) — official website: ford.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "The Ford Motor Company is an American multinational automobile manufacturer headquartered in Dearborn, Michigan, United States.",
+  "hq": "Dearborn"
 }

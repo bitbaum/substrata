@@ -1,18 +1,23 @@
 {
   "slug": "jiangxi-copper-h",
   "name": "Jiangxi Copper Co Ltd-H",
-  "aliases": [],
+  "aliases": ["Jiangxi Copper"],
   "kind": "public",
   "status": "active",
   "country": "HK",
   "ids": {
     "ticker": "358",
     "exchange": "HK",
-    "sedol": "6000305"
+    "sedol": "6000305",
+    "qid": "Q1518015",
+    "isin": "CNE1000003K3"
   },
   "areas": [
     {
       "area": "advanced-materials"
+    },
+    {
+      "area": "critical-minerals"
     }
   ],
   "evidence": [
@@ -59,10 +64,35 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Jiangxi_Copper",
+      "quote": "Jiangxi Copper Company Limited is the largest integrated copper producer in China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1518015",
+      "quote": "Jiangxi Copper Company Limited (Q1518015) — Wikidata item: Q1518015",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Jiangxi_Copper",
+      "quote": "Jiangxi Copper Company Limited is the largest integrated copper producer in China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Jiangxi Copper Company Limited is the largest integrated copper producer in China."
 }

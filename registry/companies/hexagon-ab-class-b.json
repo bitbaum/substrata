@@ -1,18 +1,26 @@
 {
   "slug": "hexagon-ab-class-b",
   "name": "Hexagon AB (Class B)",
-  "aliases": [],
+  "aliases": ["Hexagon AB"],
   "kind": "public",
   "status": "active",
   "country": "SE",
   "ids": {
     "ticker": "HEXAB",
     "exchange": "SS",
-    "cusip": "W4R431112"
+    "cusip": "W4R431112",
+    "qid": "Q820970",
+    "isin": "SE0000103699",
+    "domain": "hexagon.com",
+    "cik": "1414531",
+    "lei": "549300WJFW6ILNI4TA80"
   },
   "areas": [
     {
       "area": "robotics"
+    },
+    {
+      "area": "robot-sensors"
     }
   ],
   "evidence": [
@@ -59,10 +67,68 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hexagon_AB",
+      "quote": "Hexagon AB is a multinational industrial technology company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q820970",
+      "quote": "Hexagon AB (Q820970) — Wikidata item: Q820970",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:robot-sensors",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hexagon_AB",
+      "quote": "Hexagon AB is a multinational industrial technology company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q820970",
+      "quote": "Hexagon AB (Q820970) — headquarters location: Stockholm",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q820970",
+      "quote": "Hexagon AB (Q820970) — official website: hexagon.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q820970",
+      "quote": "Hexagon AB (Q820970) — SEC Central Index Key: 1414531",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q820970",
+      "quote": "Hexagon AB (Q820970) — Legal Entity Identifier: 549300WJFW6ILNI4TA80",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Hexagon AB is a multinational industrial technology company.",
+  "hq": "Stockholm"
 }

@@ -1,0 +1,39 @@
+{
+  "slug": "space-pioneer",
+  "name": "Space Pioneer",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q108123328"
+  },
+  "areas": [
+    {
+      "area": "launch"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q108123328",
+      "quote": "Space Pioneer (Q108123328) — Wikidata item: Q108123328",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:launch",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Space_Pioneer",
+      "quote": ", is a Chinese aerospace company developing reusable orbital rocket technology—both launch vehicles and liquid rocket engines—to access the market for low-cost space launch services.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  }
+}

@@ -12,7 +12,8 @@
     "qid": "Q17082991",
     "ticker": "NTSK",
     "exchange": "US",
-    "cusip": "64119N608"
+    "cusip": "64119N608",
+    "domain": "netskope.com"
   },
   "areas": [
     {
@@ -96,10 +97,27 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17082991",
+      "quote": "Netskope, Inc (Q17082991) — headquarters location: Santa Clara",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17082991",
+      "quote": "Netskope, Inc (Q17082991) — official website: netskope.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Santa Clara"
 }

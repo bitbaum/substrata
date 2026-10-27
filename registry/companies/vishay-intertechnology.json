@@ -12,7 +12,8 @@
     "qid": "Q2528284",
     "ticker": "VSH",
     "exchange": "US",
-    "cusip": "928298108"
+    "cusip": "928298108",
+    "domain": "vpgsensors.com"
   },
   "areas": [
     {
@@ -108,10 +109,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2528284",
+      "quote": "Vishay Intertechnology (Q2528284) — headquarters location: Malvern",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2528284",
+      "quote": "Vishay Intertechnology (Q2528284) — official website: vpgsensors.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Vishay_Intertechnology",
+      "quote": "Vishay Intertechnology, Inc. is an American manufacturer of discrete semiconductors and passive electronic components founded by Polish-born businessman Felix Zandman.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Malvern",
+  "summary": "Vishay Intertechnology, Inc. is an American manufacturer of discrete semiconductors and passive electronic components founded by Polish-born businessman Felix Zandman."
 }

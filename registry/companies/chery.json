@@ -1,0 +1,85 @@
+{
+  "slug": "chery",
+  "name": "Chery",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q591001",
+    "isin": "CNE1000073Z4",
+    "domain": "cheryinternational.com",
+    "lei": "300300F08E6VWZVSVM95"
+  },
+  "areas": [
+    {
+      "area": "electric-vehicles"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Chery",
+      "quote": "Chery Automobile Co., trading as Chery, is a Chinese automobile manufacturer.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q591001",
+      "quote": "Chery (Q591001) — Wikidata item: Q591001",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:electric-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Chery",
+      "quote": "Chery Automobile Co., trading as Chery, is a Chinese automobile manufacturer.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q591001",
+      "quote": "Chery (Q591001) — headquarters location: Wuhu",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q591001",
+      "quote": "Chery (Q591001) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q591001",
+      "quote": "Chery (Q591001) — official website: cheryinternational.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q591001",
+      "quote": "Chery (Q591001) — Legal Entity Identifier: 300300F08E6VWZVSVM95",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Chery Automobile Co., trading as Chery, is a Chinese automobile manufacturer.",
+  "hq": "Wuhu",
+  "country": "CN"
+}

@@ -1,0 +1,66 @@
+{
+  "slug": "tii-falcon",
+  "name": "TII Falcon",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q103813517",
+    "domain": "tii.ae"
+  },
+  "areas": [
+    {
+      "area": "frontier-labs"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Technology_Innovation_Institute",
+      "quote": "The Technology Innovation Institute (TII) is an Abu Dhabi government funded research institution that operates in the areas of artificial intelligence, quantum computing, autonomous robotics, cryptography, advanced materials, digital science, directed energy, secure systems, and more recently also: biotechnology, renewable and sustainable energy, and propulsion and space.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q103813517",
+      "quote": "Technology Innovation Institute (Q103813517) — Wikidata item: Q103813517",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q103813517",
+      "quote": "Technology Innovation Institute (Q103813517) — country (ISO 3166-1 alpha-2): AE",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q103813517",
+      "quote": "Technology Innovation Institute (Q103813517) — official website: https://www.tii.ae",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:frontier-labs",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Technology_Innovation_Institute",
+      "quote": "The Technology Innovation Institute (TII) is an Abu Dhabi government funded research institution that operates in the areas of artificial intelligence, quantum computing, autonomous robotics, cryptography, advanced materials, digital science, directed energy, secure systems, and more recently also: biotechnology, renewable and sustainable energy, and propulsion and space.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "The Technology Innovation Institute (TII) is an Abu Dhabi government funded research institution that operates in the areas of artificial intelligence, quantum computing, autonomous robotics, cryptography, advanced materials, digital science, directed energy, secure systems, and more recently also: biotechnology, renewable and sustainable energy, and propulsion and space.",
+  "country": "AE"
+}

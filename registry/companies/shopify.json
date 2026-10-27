@@ -6,17 +6,22 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q7501150",
+    "cik": "1594805",
+    "isin": "US82509L1070",
     "ticker": "SHOP",
     "exchange": "US",
     "sedol": "BXDZ9Z0",
-    "cik": "1594805",
-    "qid": "Q7501150",
-    "isin": "US82509L1070",
-    "cusip": "82509L107"
+    "cusip": "82509L107",
+    "domain": "shopify.com",
+    "lei": "549300HGQ43STJLLP808"
   },
   "areas": [
     {
       "area": "frontier-ai"
+    },
+    {
+      "area": "ai-software-tooling"
     }
   ],
   "evidence": [
@@ -145,10 +150,52 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Shopify",
+      "quote": "Shopify Inc. is a Canadian multinational e-commerce company headquartered in Ottawa, Ontario, that operates a cloud e-commerce management platform (CEMP) for retail point-of-sale systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Shopify",
+      "quote": "Shopify Inc. is a Canadian multinational e-commerce company headquartered in Ottawa, Ontario, that operates a cloud e-commerce management platform (CEMP) for retail point-of-sale systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7501150",
+      "quote": "Shopify (Q7501150) — headquarters location: Ottawa",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7501150",
+      "quote": "Shopify (Q7501150) — official website: shopify.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7501150",
+      "quote": "Shopify (Q7501150) — Legal Entity Identifier: 549300HGQ43STJLLP808",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Shopify Inc. is a Canadian multinational e-commerce company headquartered in Ottawa, Ontario, that operates a cloud e-commerce management platform (CEMP) for retail point-of-sale systems.",
+  "hq": "Ottawa"
 }

@@ -1,0 +1,76 @@
+{
+  "slug": "murata-manufacturing",
+  "name": "Murata Manufacturing",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q613325",
+    "isin": "JP3914400001",
+    "domain": "murata.com",
+    "lei": "529900QZG6DL8ZRI7140"
+  },
+  "areas": [
+    {
+      "area": "robot-batteries"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q613325",
+      "quote": "Murata Manufacturing (Q613325) — Wikidata item: Q613325",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:robot-batteries",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Murata_Manufacturing",
+      "quote": ", Ltd. is a Japanese manufacturer of electronic components, based in Nagaokakyo, Kyoto.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q613325",
+      "quote": "Murata Manufacturing (Q613325) — headquarters location: Nagaokakyō-shi",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q613325",
+      "quote": "Murata Manufacturing (Q613325) — country (ISO 3166-1 alpha-2): JP",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q613325",
+      "quote": "Murata Manufacturing (Q613325) — official website: murata.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q613325",
+      "quote": "Murata Manufacturing (Q613325) — Legal Entity Identifier: 529900QZG6DL8ZRI7140",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "hq": "Nagaokakyō-shi",
+  "country": "JP"
+}

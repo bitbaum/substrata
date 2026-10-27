@@ -1,0 +1,84 @@
+{
+  "slug": "exotec",
+  "name": "Exotec",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q106178442",
+    "domain": "exotec.com",
+    "lei": "969500QWRGJ6XFFKTF22"
+  },
+  "areas": [
+    {
+      "area": "industrial-robots"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Exotec",
+      "quote": "Exotec is a French company that develops robots and software for warehouses and fulfillment centers.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q106178442",
+      "quote": "Exotec (Q106178442) — Wikidata item: Q106178442",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:industrial-robots",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Exotec",
+      "quote": "Exotec is a French company that develops robots and software for warehouses and fulfillment centers.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q106178442",
+      "quote": "Exotec (Q106178442) — headquarters location: Wasquehal",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q106178442",
+      "quote": "Exotec (Q106178442) — country (ISO 3166-1 alpha-2): FR",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q106178442",
+      "quote": "Exotec (Q106178442) — official website: exotec.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q106178442",
+      "quote": "Exotec (Q106178442) — Legal Entity Identifier: 969500QWRGJ6XFFKTF22",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Exotec is a French company that develops robots and software for warehouses and fulfillment centers.",
+  "hq": "Wasquehal",
+  "country": "FR"
+}

@@ -6,11 +6,14 @@
   "status": "active",
   "country": "GB",
   "ids": {
+    "qid": "Q739416",
+    "isin": "GB0002634946",
     "ticker": "BA/",
     "exchange": "LN",
     "sedol": "0263494",
-    "qid": "Q739416",
-    "isin": "GB0002634946"
+    "domain": "baesystems.com",
+    "cik": "1422152",
+    "lei": "8SVCSVKSGDWMW2QHOH83"
   },
   "areas": [
     {
@@ -84,10 +87,52 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country GB as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/BAE_Systems",
+      "quote": "BAE Systems plc is a British multinational aerospace, arms and information security company, based in London.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q739416",
+      "quote": "BAE Systems (Q739416) — headquarters location: Farnborough",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q739416",
+      "quote": "BAE Systems (Q739416) — official website: baesystems.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q739416",
+      "quote": "BAE Systems (Q739416) — SEC Central Index Key: 1422152",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q739416",
+      "quote": "BAE Systems (Q739416) — Legal Entity Identifier: 8SVCSVKSGDWMW2QHOH83",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "BAE Systems plc is a British multinational aerospace, arms and information security company, based in London.",
+  "hq": "Farnborough"
 }

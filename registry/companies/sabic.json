@@ -1,0 +1,76 @@
+{
+  "slug": "sabic",
+  "name": "SABIC",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q903219",
+    "isin": "SA0007879121",
+    "domain": "sabic.com"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/SABIC",
+      "quote": "Saudi Basic Industries Corporation, known as SABIC, is a Saudi chemical manufacturing company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q903219",
+      "quote": "SABIC (Q903219) — Wikidata item: Q903219",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:advanced-materials",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/SABIC",
+      "quote": "Saudi Basic Industries Corporation, known as SABIC, is a Saudi chemical manufacturing company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q903219",
+      "quote": "SABIC (Q903219) — headquarters location: Riyadh",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q903219",
+      "quote": "SABIC (Q903219) — country (ISO 3166-1 alpha-2): SA",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q903219",
+      "quote": "SABIC (Q903219) — official website: sabic.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Saudi Basic Industries Corporation, known as SABIC, is a Saudi chemical manufacturing company.",
+  "hq": "Riyadh",
+  "country": "SA"
+}

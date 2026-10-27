@@ -12,7 +12,8 @@
     "qid": "Q116550003",
     "ticker": "GXO",
     "exchange": "US",
-    "cusip": "36262G101"
+    "cusip": "36262G101",
+    "domain": "gxo.com"
   },
   "areas": [
     {
@@ -96,10 +97,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q116550003",
+      "quote": "GXO, Inc. (Q116550003) — headquarters location: Greenwich",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q116550003",
+      "quote": "GXO, Inc. (Q116550003) — official website: gxo.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/GXO_Logistics",
+      "quote": "GXO Logistics, Inc. is an American multinational contract logistics company that manages outsourced supply chains and warehousing, and reverse logistics in over thirty countries.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Greenwich",
+  "summary": "GXO Logistics, Inc. is an American multinational contract logistics company that manages outsourced supply chains and warehousing, and reverse logistics in over thirty countries."
 }

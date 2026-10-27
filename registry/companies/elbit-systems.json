@@ -6,13 +6,15 @@
   "status": "active",
   "country": "IL",
   "ids": {
+    "qid": "Q1325369",
+    "isin": "IL0010811243",
     "ticker": "ESLT",
     "exchange": "US",
     "cusip": "M3760D101",
     "sedol": "6308913",
-    "qid": "Q1325369",
-    "isin": "IL0010811243",
-    "cik": "1027664"
+    "cik": "1027664",
+    "domain": "elbitsystems.com",
+    "lei": "529900Q9CB1REUMZSS32"
   },
   "areas": [
     {
@@ -23,6 +25,9 @@
     },
     {
       "area": "defence-tech"
+    },
+    {
+      "area": "defence-autonomy"
     }
   ],
   "evidence": [
@@ -151,10 +156,52 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country IL as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Elbit_Systems",
+      "quote": "Elbit Systems Ltd. is an Israel-based international military technology company and defense contractor.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:defence-autonomy",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Elbit_Systems",
+      "quote": "Elbit Systems Ltd. is an Israel-based international military technology company and defense contractor.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1325369",
+      "quote": "Elbit Systems Ltd. (Q1325369) — headquarters location: Haifa",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1325369",
+      "quote": "Elbit Systems Ltd. (Q1325369) — official website: elbitsystems.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1325369",
+      "quote": "Elbit Systems Ltd. (Q1325369) — Legal Entity Identifier: 529900Q9CB1REUMZSS32",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Elbit Systems Ltd. is an Israel-based international military technology company and defense contractor.",
+  "hq": "Haifa"
 }

@@ -1,0 +1,67 @@
+{
+  "slug": "screen-holdings",
+  "name": "Screen Holdings",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q11435639",
+    "isin": "JP3494600004",
+    "domain": "screen.co.jp",
+    "lei": "353800ND89FTQ9XQ0R07"
+  },
+  "areas": [
+    {
+      "area": "semiconductor-equipment"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q11435639",
+      "quote": "SCREEN Holdings (Q11435639) — Wikidata item: Q11435639",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:semiconductor-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Screen_Holdings",
+      "quote": ", Ltd. (株式会社SCREENホールディングス) is a Japanese semiconductor and electronics company, headquartered in Kyoto, engaged in the manufacture and sale of equipment for the manufacturing of semiconductors, flat panel displays, storage media and precision technology manufacturing equipment.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q11435639",
+      "quote": "SCREEN Holdings (Q11435639) — country (ISO 3166-1 alpha-2): JP",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q11435639",
+      "quote": "SCREEN Holdings (Q11435639) — official website: screen.co.jp",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q11435639",
+      "quote": "SCREEN Holdings (Q11435639) — Legal Entity Identifier: 353800ND89FTQ9XQ0R07",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "country": "JP"
+}

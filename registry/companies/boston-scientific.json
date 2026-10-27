@@ -1,0 +1,94 @@
+{
+  "slug": "boston-scientific",
+  "name": "Boston Scientific",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q894585",
+    "isin": "US1011371077",
+    "domain": "bostonscientific.com",
+    "cik": "885725",
+    "lei": "Y6ZDD9FP4P8JSSJMW954"
+  },
+  "areas": [
+    {
+      "area": "neurotech-bci"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Boston_Scientific",
+      "quote": "Boston Scientific Corporation (BSC) is an American biotechnology and biomedical engineering firm and multinational manufacturer of medical devices used in interventional medical specialties, including interventional radiology, interventional cardiology, peripheral interventions, neuromodulation, neurovascular intervention, electrophysiology, cardiac surgery, vascular surgery, e",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q894585",
+      "quote": "Boston Scientific (Q894585) — Wikidata item: Q894585",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:neurotech-bci",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Boston_Scientific",
+      "quote": "Boston Scientific Corporation (BSC) is an American biotechnology and biomedical engineering firm and multinational manufacturer of medical devices used in interventional medical specialties, including interventional radiology, interventional cardiology, peripheral interventions, neuromodulation, neurovascular intervention, electrophysiology, cardiac surgery, vascular surgery, e",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q894585",
+      "quote": "Boston Scientific (Q894585) — headquarters location: Marlborough",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q894585",
+      "quote": "Boston Scientific (Q894585) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q894585",
+      "quote": "Boston Scientific (Q894585) — official website: bostonscientific.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q894585",
+      "quote": "Boston Scientific (Q894585) — SEC Central Index Key: 885725",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q894585",
+      "quote": "Boston Scientific (Q894585) — Legal Entity Identifier: Y6ZDD9FP4P8JSSJMW954",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Boston Scientific Corporation (BSC) is an American biotechnology and biomedical engineering firm and multinational manufacturer of medical devices used in interventional medical specialties, including interventional radiology, interventional cardiology, peripheral interventions, neuromodulation, neurovascular intervention, electrophysiology, cardiac surgery, vascular surgery, e",
+  "hq": "Marlborough",
+  "country": "US"
+}

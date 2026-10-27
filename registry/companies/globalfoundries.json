@@ -6,13 +6,20 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q691592",
+    "cik": "1709048",
+    "isin": "KYG393871085",
     "ticker": "GFS",
     "exchange": "Nasdaq",
-    "cik": "1709048"
+    "domain": "gf.com",
+    "lei": "549300BA76VK784VMX48"
   },
   "areas": [
     {
       "area": "compute-semiconductors"
+    },
+    {
+      "area": "foundry"
     }
   ],
   "evidence": [
@@ -81,10 +88,60 @@
       "readOn": "",
       "asOf": "",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/GlobalFoundries",
+      "quote": "GlobalFoundries Inc. is a multinational semiconductor technology development, design and contract manufacturing company domiciled in the Cayman Islands and headquartered in Malta, New York.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q691592",
+      "quote": "GlobalFoundries (Q691592) — Wikidata item: Q691592",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:foundry",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/GlobalFoundries",
+      "quote": "GlobalFoundries Inc. is a multinational semiconductor technology development, design and contract manufacturing company domiciled in the Cayman Islands and headquartered in Malta, New York.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q691592",
+      "quote": "GlobalFoundries (Q691592) — headquarters location: Malta",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q691592",
+      "quote": "GlobalFoundries (Q691592) — official website: gf.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q691592",
+      "quote": "GlobalFoundries (Q691592) — Legal Entity Identifier: 549300BA76VK784VMX48",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "GlobalFoundries Inc. is a multinational semiconductor technology development, design and contract manufacturing company domiciled in the Cayman Islands and headquartered in Malta, New York.",
+  "hq": "Malta"
 }

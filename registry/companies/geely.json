@@ -1,0 +1,67 @@
+{
+  "slug": "geely",
+  "name": "Geely",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q739000",
+    "isin": "KYG3777B1032",
+    "domain": "geely.com"
+  },
+  "areas": [
+    {
+      "area": "autonomous-vehicles"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q739000",
+      "quote": "Geely (Q739000) — Wikidata item: Q739000",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Geely",
+      "quote": ", Ltd. (ZGH), commonly known as Geely Holding, is a Chinese multinational automotive conglomerate headquartered in Hangzhou, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q739000",
+      "quote": "Geely (Q739000) — headquarters location: Hangzhou",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q739000",
+      "quote": "Geely (Q739000) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q739000",
+      "quote": "Geely (Q739000) — official website: geely.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "hq": "Hangzhou",
+  "country": "CN"
+}

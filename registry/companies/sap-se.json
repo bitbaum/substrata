@@ -1,7 +1,7 @@
 {
   "slug": "sap-se",
   "name": "Sap SE",
-  "aliases": ["Sap SE (Adr)"],
+  "aliases": ["Sap SE (Adr)", "SAP"],
   "kind": "public",
   "status": "active",
   "country": "DE",
@@ -12,7 +12,9 @@
     "exchange": "US",
     "sedol": "2775135",
     "cusip": "D66992104",
-    "cik": "1000184"
+    "cik": "1000184",
+    "qid": "Q552581",
+    "domain": "sap.com"
   },
   "areas": [
     {
@@ -20,6 +22,9 @@
     },
     {
       "area": "power-storage-grid"
+    },
+    {
+      "area": "ai-software-tooling"
     }
   ],
   "evidence": [
@@ -136,10 +141,52 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country DE as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/SAP",
+      "quote": "SAP SE is a German multinational software company based in Walldorf, Baden-Württemberg, that is the world's largest vendor of enterprise software.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q552581",
+      "quote": "SAP (Q552581) — Wikidata item: Q552581",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q552581",
+      "quote": "SAP (Q552581) — headquarters location: Walldorf",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q552581",
+      "quote": "SAP (Q552581) — official website: https://www.sap.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/SAP",
+      "quote": "SAP SE is a German multinational software company based in Walldorf, Baden-Württemberg, that is the world's largest vendor of enterprise software.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "SAP SE is a German multinational software company based in Walldorf, Baden-Württemberg, that is the world's largest vendor of enterprise software.",
+  "hq": "Walldorf"
 }

@@ -1,0 +1,84 @@
+{
+  "slug": "arianespace",
+  "name": "Arianespace",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q309867",
+    "domain": "arianespace.com",
+    "lei": "969500B2PQXYGMSYBV58"
+  },
+  "areas": [
+    {
+      "area": "launch"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Arianespace",
+      "quote": "Arianespace SA is a French company founded in March 1980 as the world's first commercial launch service provider.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q309867",
+      "quote": "Arianespace (Q309867) — Wikidata item: Q309867",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:launch",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Arianespace",
+      "quote": "Arianespace SA is a French company founded in March 1980 as the world's first commercial launch service provider.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q309867",
+      "quote": "Arianespace (Q309867) — headquarters location: Évry-Courcouronnes",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q309867",
+      "quote": "Arianespace (Q309867) — country (ISO 3166-1 alpha-2): FR",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q309867",
+      "quote": "Arianespace (Q309867) — official website: arianespace.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q309867",
+      "quote": "Arianespace (Q309867) — Legal Entity Identifier: 969500B2PQXYGMSYBV58",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Arianespace SA is a French company founded in March 1980 as the world's first commercial launch service provider.",
+  "hq": "Évry-Courcouronnes",
+  "country": "FR"
+}

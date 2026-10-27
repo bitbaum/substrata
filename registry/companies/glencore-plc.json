@@ -6,13 +6,20 @@
   "status": "active",
   "country": "GB",
   "ids": {
+    "qid": "Q169339",
+    "isin": "JE00B4T3BW64",
     "ticker": "GLEN",
     "exchange": "LN",
-    "sedol": "B4T3BW6"
+    "sedol": "B4T3BW6",
+    "domain": "glencore.com",
+    "lei": "2138002658CPO9NBH955"
   },
   "areas": [
     {
       "area": "advanced-materials"
+    },
+    {
+      "area": "critical-minerals"
     }
   ],
   "evidence": [
@@ -59,10 +66,60 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Glencore",
+      "quote": "Glencore plc is an Anglo-Swiss multinational commodity trading and mining company with headquarters in Baar, Switzerland.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q169339",
+      "quote": "Glencore (Q169339) — Wikidata item: Q169339",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Glencore",
+      "quote": "Glencore plc is an Anglo-Swiss multinational commodity trading and mining company with headquarters in Baar, Switzerland.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q169339",
+      "quote": "Glencore (Q169339) — headquarters location: Baar",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q169339",
+      "quote": "Glencore (Q169339) — official website: glencore.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q169339",
+      "quote": "Glencore (Q169339) — Legal Entity Identifier: 2138002658CPO9NBH955",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Glencore plc is an Anglo-Swiss multinational commodity trading and mining company with headquarters in Baar, Switzerland.",
+  "hq": "Baar"
 }

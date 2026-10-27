@@ -1,0 +1,94 @@
+{
+  "slug": "carrier-global",
+  "name": "Carrier Global",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q731912",
+    "isin": "US14448C1045",
+    "domain": "corporate.carrier.com",
+    "cik": "1783180",
+    "lei": "549300GUSOAN8YCR8P16"
+  },
+  "areas": [
+    {
+      "area": "data-centre-cooling"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Carrier_Global",
+      "quote": "Carrier Global Corporation is an American multinational heating, ventilation, and air conditioning (HVAC), refrigeration, and fire and security equipment corporation based in Palm Beach Gardens, Florida.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q731912",
+      "quote": "Carrier Corporation (Q731912) — Wikidata item: Q731912",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:data-centre-cooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Carrier_Global",
+      "quote": "Carrier Global Corporation is an American multinational heating, ventilation, and air conditioning (HVAC), refrigeration, and fire and security equipment corporation based in Palm Beach Gardens, Florida.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q731912",
+      "quote": "Carrier Corporation (Q731912) — headquarters location: Farmington",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q731912",
+      "quote": "Carrier Corporation (Q731912) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q731912",
+      "quote": "Carrier Corporation (Q731912) — official website: corporate.carrier.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q731912",
+      "quote": "Carrier Corporation (Q731912) — SEC Central Index Key: 1783180",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q731912",
+      "quote": "Carrier Corporation (Q731912) — Legal Entity Identifier: 549300GUSOAN8YCR8P16",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Carrier Global Corporation is an American multinational heating, ventilation, and air conditioning (HVAC), refrigeration, and fire and security equipment corporation based in Palm Beach Gardens, Florida.",
+  "hq": "Farmington",
+  "country": "US"
+}

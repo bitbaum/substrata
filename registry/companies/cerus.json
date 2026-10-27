@@ -12,7 +12,8 @@
     "exchange": "US",
     "cusip": "157085101",
     "cik": "1020214",
-    "qid": "Q107564729"
+    "qid": "Q107564729",
+    "domain": "cerus.com"
   },
   "areas": [
     {
@@ -96,10 +97,27 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q107564729",
+      "quote": "Cerus Corporation (Q107564729) — official website: cerus.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Cerus_Corporation",
+      "quote": "Cerus Corporation is an American multinational biotechnology company headquartered in Concord, California that develops and provides a treatment system to pathogen-reduce human blood products for the healthcare industry.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Cerus Corporation is an American multinational biotechnology company headquartered in Concord, California that develops and provides a treatment system to pathogen-reduce human blood products for the healthcare industry."
 }

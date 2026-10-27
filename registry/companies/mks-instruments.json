@@ -6,17 +6,21 @@
   "status": "active",
   "country": "US",
   "ids": {
-    "lei": "549300KEQATBHAGVF505",
-    "isin": "US55306N1046",
-    "cik": "1049502",
     "qid": "Q30283915",
+    "isin": "US55306N1046",
+    "lei": "549300KEQATBHAGVF505",
+    "cik": "1049502",
     "ticker": "MKSI",
     "exchange": "US",
-    "cusip": "55306N104"
+    "cusip": "55306N104",
+    "domain": "mks.com"
   },
   "areas": [
     {
       "area": "quantum"
+    },
+    {
+      "area": "semiconductor-equipment"
     }
   ],
   "evidence": [
@@ -96,10 +100,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/MKS_Instruments",
+      "quote": "MKS Inc. is a technology company that supplies instruments, subsystems, systems, process control technologies, and specialty chemical products used in manufacturing semiconductor chips, printed circuit board, advanced packaging (semiconductor), and specialty industrial applications.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:semiconductor-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/MKS_Instruments",
+      "quote": "MKS Inc. is a technology company that supplies instruments, subsystems, systems, process control technologies, and specialty chemical products used in manufacturing semiconductor chips, printed circuit board, advanced packaging (semiconductor), and specialty industrial applications.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q30283915",
+      "quote": "MKS Instruments (Q30283915) — headquarters location: Andover",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q30283915",
+      "quote": "MKS Instruments (Q30283915) — official website: mks.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "MKS Inc. is a technology company that supplies instruments, subsystems, systems, process control technologies, and specialty chemical products used in manufacturing semiconductor chips, printed circuit board, advanced packaging (semiconductor), and specialty industrial applications.",
+  "hq": "Andover"
 }

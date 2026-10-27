@@ -11,14 +11,15 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q16858667",
+    "cik": "1069258",
     "lei": "5493000EKBN0UY1F3F88",
     "isin": "US50077B2079",
     "ticker": "KTOS",
     "exchange": "US",
     "cusip": "50077B207",
     "sedol": "2512149",
-    "cik": "1069258",
-    "qid": "Q16858667"
+    "domain": "sat.com"
   },
   "areas": [
     {
@@ -165,10 +166,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Kratos_Defense_%26_Security_Solutions",
+      "quote": "Kratos Defense & Security Solutions, Inc. is an American technology company with manufacturing concentrations in weapons and military electronics.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q16858667",
+      "quote": "Kratos Defense & Security Solutions (Q16858667) — headquarters location: San Diego",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q16858667",
+      "quote": "Kratos Defense & Security Solutions (Q16858667) — official website: sat.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Kratos Defense & Security Solutions, Inc. is an American technology company with manufacturing concentrations in weapons and military electronics.",
+  "hq": "San Diego"
 }

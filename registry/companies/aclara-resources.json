@@ -1,0 +1,48 @@
+{
+  "slug": "aclara-resources",
+  "name": "Aclara Resources",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q139407926"
+  },
+  "areas": [
+    {
+      "area": "rare-earths-magnets"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Aclara_Resources",
+      "quote": "Aclara Resources is a rare-earth elements company with mining projects in Brazil and Chile and mineral processing projects in the United States.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q139407926",
+      "quote": "Aclara Resources (Q139407926) — Wikidata item: Q139407926",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:rare-earths-magnets",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Aclara_Resources",
+      "quote": "Aclara Resources is a rare-earth elements company with mining projects in Brazil and Chile and mineral processing projects in the United States.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Aclara Resources is a rare-earth elements company with mining projects in Brazil and Chile and mineral processing projects in the United States."
+}

@@ -1,0 +1,75 @@
+{
+  "slug": "cambricon-technologies",
+  "name": "Cambricon Technologies",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q48890160",
+    "domain": "cambricon.com"
+  },
+  "areas": [
+    {
+      "area": "ai-accelerators"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Cambricon_Technologies",
+      "quote": "Cambricon Technologies is a partially state-owned publicly listed Chinese technology company headquartered in Beijing.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q48890160",
+      "quote": "Cambricon Technologies Co., Ltd. (Q48890160) — Wikidata item: Q48890160",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-accelerators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Cambricon_Technologies",
+      "quote": "Cambricon Technologies is a partially state-owned publicly listed Chinese technology company headquartered in Beijing.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q48890160",
+      "quote": "Cambricon Technologies Co., Ltd. (Q48890160) — headquarters location: Haidian District",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q48890160",
+      "quote": "Cambricon Technologies Co., Ltd. (Q48890160) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q48890160",
+      "quote": "Cambricon Technologies Co., Ltd. (Q48890160) — official website: cambricon.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Cambricon Technologies is a partially state-owned publicly listed Chinese technology company headquartered in Beijing.",
+  "hq": "Haidian District",
+  "country": "CN"
+}

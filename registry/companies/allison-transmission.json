@@ -17,7 +17,8 @@
     "ticker": "ALSN",
     "exchange": "US",
     "cusip": "01973R101",
-    "sedol": "B4PZ892"
+    "sedol": "B4PZ892",
+    "domain": "allisontransmission.com"
   },
   "areas": [
     {
@@ -101,10 +102,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2036530",
+      "quote": "Allison Transmission (Q2036530) — headquarters location: Indianapolis",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2036530",
+      "quote": "Allison Transmission (Q2036530) — official website: allisontransmission.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Allison_Transmission",
+      "quote": "Allison Transmission Holdings, Inc. is an American manufacturer of commercial duty automatic transmissions and hybrid propulsion systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Indianapolis",
+  "summary": "Allison Transmission Holdings, Inc. is an American manufacturer of commercial duty automatic transmissions and hybrid propulsion systems."
 }

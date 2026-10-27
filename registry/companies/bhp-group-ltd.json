@@ -1,14 +1,19 @@
 {
   "slug": "bhp-group-ltd",
   "name": "BHP Group Ltd",
-  "aliases": [],
+  "aliases": ["BHP"],
   "kind": "public",
   "status": "active",
   "country": "AU",
   "ids": {
     "ticker": "BHP",
     "exchange": "AU",
-    "sedol": "6144690"
+    "sedol": "6144690",
+    "qid": "Q625713",
+    "isin": "AU000000BHP4",
+    "domain": "bhp.com",
+    "cik": "1171264",
+    "lei": "549300C116EOWV835768"
   },
   "areas": [
     {
@@ -16,6 +21,9 @@
     },
     {
       "area": "advanced-materials"
+    },
+    {
+      "area": "critical-minerals"
     }
   ],
   "evidence": [
@@ -86,10 +94,68 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/BHP",
+      "quote": "BHP Group Limited, founded as the Broken Hill Proprietary Company, is an Australian multinational mining and metals corporation.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q625713",
+      "quote": "BHP Group (Q625713) — Wikidata item: Q625713",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/BHP",
+      "quote": "BHP Group Limited, founded as the Broken Hill Proprietary Company, is an Australian multinational mining and metals corporation.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q625713",
+      "quote": "BHP Group (Q625713) — headquarters location: Melbourne",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q625713",
+      "quote": "BHP Group (Q625713) — official website: bhp.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q625713",
+      "quote": "BHP Group (Q625713) — SEC Central Index Key: 1171264",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q625713",
+      "quote": "BHP Group (Q625713) — Legal Entity Identifier: 549300C116EOWV835768",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "BHP Group Limited, founded as the Broken Hill Proprietary Company, is an Australian multinational mining and metals corporation.",
+  "hq": "Melbourne"
 }

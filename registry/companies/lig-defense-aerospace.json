@@ -9,7 +9,8 @@
     "ticker": "079550",
     "exchange": "KS",
     "sedol": "BZ0RDZ1",
-    "qid": "Q6458668"
+    "qid": "Q6458668",
+    "domain": "lignex1.com"
   },
   "areas": [
     {
@@ -83,10 +84,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country KR as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q6458668",
+      "quote": "LIG Defense&Aerospace (Q6458668) — headquarters location: Yongin",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q6458668",
+      "quote": "LIG Defense&Aerospace (Q6458668) — official website: lignex1.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/LIG_Defense_%26_Aerospace",
+      "quote": "LIG Defense & Aerospace, formerly known as LG Innotek and LIG Nex1 is a South Korean aerospace manufacturer and arms manufacturer.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Yongin",
+  "summary": "LIG Defense & Aerospace, formerly known as LG Innotek and LIG Nex1 is a South Korean aerospace manufacturer and arms manufacturer."
 }

@@ -8,24 +8,4 @@
  */
 import type { Considered } from '@/lib/universe/types';
 
-export const CONSIDERED: readonly Considered[] = [
-  {
-    name: 'Unitree Robotics',
-    looked: [
-      'Thematic fund holdings read here (not held)',
-      'Wikidata (rate-limited from the sandbox on 2026-10-25)',
-    ],
-    why: 'No fund read here holds it and no size figure was opened and quoted. A listing prospectus or exchange filing would carry identity and size together.',
-    on: '2026-10-25',
-  },
-  {
-    name: 'TerraPower',
-    looked: [
-      'DOE Advanced Reactor Demonstration Program page (renders its content by script; no text to quote)',
-      'NRC advanced reactor applicant page (same)',
-      'Thematic fund holdings read here (private: no fund files it)',
-    ],
-    why: 'Theme is clear (an ARDP awardee building Natrium) but the pages that say so could not be read as text, and no round or valuation was quoted. A DOE award notice or a stated round admits it.',
-    on: '2026-10-25',
-  },
-];
+export const CONSIDERED: readonly Considered[] = [];

@@ -12,7 +12,8 @@
     "qid": "Q55589254",
     "ticker": "GTLB",
     "exchange": "US",
-    "cusip": "37637K108"
+    "cusip": "37637K108",
+    "domain": "about.gitlab.com"
   },
   "areas": [
     {
@@ -108,10 +109,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q55589254",
+      "quote": "GitLab Inc. (Q55589254) — headquarters location: San Francisco",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q55589254",
+      "quote": "GitLab Inc. (Q55589254) — official website: about.gitlab.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/GitLab_Inc.",
+      "quote": "GitLab Inc. is an American company that operates and develops GitLab, an open-core DevOps software package that can develop, secure, and operate software.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "San Francisco",
+  "summary": "GitLab Inc. is an American company that operates and develops GitLab, an open-core DevOps software package that can develop, secure, and operate software."
 }

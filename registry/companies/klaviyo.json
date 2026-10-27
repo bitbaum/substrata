@@ -11,7 +11,8 @@
     "isin": "US49845K1016",
     "ticker": "KVYO",
     "exchange": "US",
-    "cusip": "49845K101"
+    "cusip": "49845K101",
+    "domain": "klaviyo.com"
   },
   "areas": [
     {
@@ -96,10 +97,27 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q106631196",
+      "quote": "Klaviyo (Q106631196) — official website: klaviyo.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Klaviyo",
+      "quote": "Klaviyo is an international SaaS technology company headquartered in Boston, Massachusetts, that provides an omnichannel, customer relationship management (CRM) platform with agentic AI features.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Klaviyo is an international SaaS technology company headquartered in Boston, Massachusetts, that provides an omnichannel, customer relationship management (CRM) platform with agentic AI features."
 }

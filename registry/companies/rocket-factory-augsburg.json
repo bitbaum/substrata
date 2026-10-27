@@ -1,0 +1,75 @@
+{
+  "slug": "rocket-factory-augsburg",
+  "name": "Rocket Factory Augsburg",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q108317599",
+    "domain": "rfa.space"
+  },
+  "areas": [
+    {
+      "area": "launch"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Rocket_Factory_Augsburg",
+      "quote": "Rocket Factory Augsburg AG (RFA) is a German NewSpace start-up located in Augsburg.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q108317599",
+      "quote": "Rocket Factory Augsburg AG (Q108317599) — Wikidata item: Q108317599",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:launch",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Rocket_Factory_Augsburg",
+      "quote": "Rocket Factory Augsburg AG (RFA) is a German NewSpace start-up located in Augsburg.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q108317599",
+      "quote": "Rocket Factory Augsburg AG (Q108317599) — headquarters location: Augsburg",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q108317599",
+      "quote": "Rocket Factory Augsburg AG (Q108317599) — country (ISO 3166-1 alpha-2): DE",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q108317599",
+      "quote": "Rocket Factory Augsburg AG (Q108317599) — official website: rfa.space",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Rocket Factory Augsburg AG (RFA) is a German NewSpace start-up located in Augsburg.",
+  "hq": "Augsburg",
+  "country": "DE"
+}

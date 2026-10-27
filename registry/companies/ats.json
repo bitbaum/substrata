@@ -1,7 +1,7 @@
 {
   "slug": "ats",
   "name": "ATS Corp.",
-  "aliases": ["Ats Corp"],
+  "aliases": ["Ats Corp", "AT&S"],
   "kind": "public",
   "status": "active",
   "country": "CA",
@@ -9,11 +9,18 @@
     "ticker": "ATS",
     "exchange": "CN",
     "sedol": "BP8JT73",
-    "cusip": "00217Y104"
+    "cusip": "00217Y104",
+    "qid": "Q298533",
+    "domain": "ats.net",
+    "lei": "529900EVOKN4LCCD9321",
+    "isin": "AT0000969985"
   },
   "areas": [
     {
       "area": "robotics"
+    },
+    {
+      "area": "advanced-packaging"
     }
   ],
   "evidence": [
@@ -84,10 +91,60 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/AT%26S",
+      "quote": "AT&S also known as AT & S Austria Technologie & Systemtechnik Aktiengesellschaft designs and manufactures high-end printed circuit boards and IC substrates for semiconductors.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q298533",
+      "quote": "AT&S (Q298533) — Wikidata item: Q298533",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q298533",
+      "quote": "AT&S (Q298533) — headquarters location: Leoben",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q298533",
+      "quote": "AT&S (Q298533) — official website: http://www.ats.net/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q298533",
+      "quote": "AT&S (Q298533) — Legal Entity Identifier: 529900EVOKN4LCCD9321",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:advanced-packaging",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/AT%26S",
+      "quote": "AT&S also known as AT & S Austria Technologie & Systemtechnik Aktiengesellschaft designs and manufactures high-end printed circuit boards and IC substrates for semiconductors.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "AT&S also known as AT & S Austria Technologie & Systemtechnik Aktiengesellschaft designs and manufactures high-end printed circuit boards and IC substrates for semiconductors.",
+  "hq": "Leoben"
 }

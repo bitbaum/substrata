@@ -6,11 +6,13 @@
   "status": "active",
   "country": "FR",
   "ids": {
+    "qid": "Q460487",
+    "isin": "FR0000121725",
     "ticker": "AM",
     "exchange": "FP",
     "sedol": "BMT9L19",
-    "qid": "Q460487",
-    "isin": "FR0000121725"
+    "domain": "dassault-aviation.com",
+    "lei": "969500CVFTUT88V8QN95"
   },
   "areas": [
     {
@@ -84,10 +86,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country FR as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Dassault_Aviation",
+      "quote": "Dassault Aviation SA is a French manufacturer of military aircraft and business jets.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q460487",
+      "quote": "Dassault Aviation (Q460487) — headquarters location: Paris",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q460487",
+      "quote": "Dassault Aviation (Q460487) — official website: dassault-aviation.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q460487",
+      "quote": "Dassault Aviation (Q460487) — Legal Entity Identifier: 969500CVFTUT88V8QN95",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Dassault Aviation SA is a French manufacturer of military aircraft and business jets.",
+  "hq": "Paris"
 }

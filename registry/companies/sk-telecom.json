@@ -1,0 +1,94 @@
+{
+  "slug": "sk-telecom",
+  "name": "SK Telecom",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q493145",
+    "domain": "sktelecom.com",
+    "cik": "1015650",
+    "lei": "9884003WEA1PHW006037",
+    "isin": "US78440P1084"
+  },
+  "areas": [
+    {
+      "area": "ai-software-tooling"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/SK_Telecom",
+      "quote": ", abbreviated as SKT, is a South Korean wireless telecommunications operator and former film distributor and is part of the SK Group, one of the country's largest chaebols.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q493145",
+      "quote": "SK Telecom (Q493145) — Wikidata item: Q493145",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q493145",
+      "quote": "SK Telecom (Q493145) — headquarters location: Jung District",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q493145",
+      "quote": "SK Telecom (Q493145) — country (ISO 3166-1 alpha-2): KR",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q493145",
+      "quote": "SK Telecom (Q493145) — official website: https://www.sktelecom.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q493145",
+      "quote": "SK Telecom (Q493145) — SEC Central Index Key: 1015650",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q493145",
+      "quote": "SK Telecom (Q493145) — Legal Entity Identifier: 9884003WEA1PHW006037",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/SK_Telecom",
+      "quote": ", abbreviated as SKT, is a South Korean wireless telecommunications operator and former film distributor and is part of the SK Group, one of the country's largest chaebols.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": ", abbreviated as SKT, is a South Korean wireless telecommunications operator and former film distributor and is part of the SK Group, one of the country's largest chaebols.",
+  "country": "KR",
+  "hq": "Jung District"
+}

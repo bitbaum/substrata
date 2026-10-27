@@ -12,7 +12,8 @@
     "ticker": "APPN",
     "exchange": "US",
     "cusip": "03782L101",
-    "cik": "1441683"
+    "cik": "1441683",
+    "domain": "appian.com"
   },
   "areas": [
     {
@@ -123,10 +124,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q56273983",
+      "quote": "Appian Corporation (Q56273983) — headquarters location: McLean",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q56273983",
+      "quote": "Appian Corporation (Q56273983) — official website: appian.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Appian_Corporation",
+      "quote": "Appian Corporation is an enterprise software company that specializes in process automation and AI agent orchestrations.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "McLean",
+  "summary": "Appian Corporation is an enterprise software company that specializes in process automation and AI agent orchestrations."
 }

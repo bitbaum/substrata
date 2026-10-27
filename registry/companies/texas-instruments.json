@@ -6,14 +6,15 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q193412",
+    "cik": "97476",
     "lei": "WDJNR2L6D8RWOEB8T652",
     "isin": "US8825081040",
-    "cik": "97476",
-    "qid": "Q193412",
     "ticker": "TXN",
     "exchange": "US",
     "cusip": "882508104",
-    "sedol": "2885409"
+    "sedol": "2885409",
+    "domain": "ti.com"
   },
   "areas": [
     {
@@ -24,6 +25,9 @@
     },
     {
       "area": "quantum"
+    },
+    {
+      "area": "foundry"
     }
   ],
   "evidence": [
@@ -175,10 +179,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Texas_Instruments",
+      "quote": "Texas Instruments Incorporated (TI) is an American multinational semiconductor company headquartered in Dallas, Texas.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:foundry",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Texas_Instruments",
+      "quote": "Texas Instruments Incorporated (TI) is an American multinational semiconductor company headquartered in Dallas, Texas.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q193412",
+      "quote": "Texas Instruments (Q193412) — headquarters location: Dallas",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q193412",
+      "quote": "Texas Instruments (Q193412) — official website: ti.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Texas Instruments Incorporated (TI) is an American multinational semiconductor company headquartered in Dallas, Texas.",
+  "hq": "Dallas"
 }

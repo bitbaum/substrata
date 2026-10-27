@@ -1,0 +1,94 @@
+{
+  "slug": "keysight",
+  "name": "Keysight",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q17551096",
+    "isin": "US49338L1035",
+    "domain": "keysight.com",
+    "cik": "1601046",
+    "lei": "549300GLKVIO8YRCYN02"
+  },
+  "areas": [
+    {
+      "area": "silicon-photonics"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Keysight",
+      "quote": "Keysight Technologies, Inc. is a global company headquartered in Santa Rosa, California, that manufactures hardware and software for engineering workflows across design, test, and emulation.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17551096",
+      "quote": "Keysight Technologies (Q17551096) — Wikidata item: Q17551096",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:silicon-photonics",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Keysight",
+      "quote": "Keysight Technologies, Inc. is a global company headquartered in Santa Rosa, California, that manufactures hardware and software for engineering workflows across design, test, and emulation.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17551096",
+      "quote": "Keysight Technologies (Q17551096) — headquarters location: Santa Rosa",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17551096",
+      "quote": "Keysight Technologies (Q17551096) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17551096",
+      "quote": "Keysight Technologies (Q17551096) — official website: keysight.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17551096",
+      "quote": "Keysight Technologies (Q17551096) — SEC Central Index Key: 1601046",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17551096",
+      "quote": "Keysight Technologies (Q17551096) — Legal Entity Identifier: 549300GLKVIO8YRCYN02",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Keysight Technologies, Inc. is a global company headquartered in Santa Rosa, California, that manufactures hardware and software for engineering workflows across design, test, and emulation.",
+  "hq": "Santa Rosa",
+  "country": "US"
+}

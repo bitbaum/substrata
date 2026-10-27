@@ -1,0 +1,75 @@
+{
+  "slug": "altos-labs",
+  "name": "Altos Labs",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q110701976",
+    "domain": "altoslabs.com"
+  },
+  "areas": [
+    {
+      "area": "longevity"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Altos_Labs",
+      "quote": "Altos Labs, Inc. is an American biotechnology research company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q110701976",
+      "quote": "Altos Labs (Q110701976) — Wikidata item: Q110701976",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:longevity",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Altos_Labs",
+      "quote": "Altos Labs, Inc. is an American biotechnology research company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q110701976",
+      "quote": "Altos Labs (Q110701976) — headquarters location: Redwood City",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q110701976",
+      "quote": "Altos Labs (Q110701976) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q110701976",
+      "quote": "Altos Labs (Q110701976) — official website: altoslabs.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Altos Labs, Inc. is an American biotechnology research company.",
+  "hq": "Redwood City",
+  "country": "US"
+}

@@ -6,17 +6,21 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q1318848",
+    "cik": "896878",
     "lei": "VI90HBPH7XSFMB9E4M29",
     "isin": "US4612021034",
-    "cik": "896878",
-    "qid": "Q1318848",
     "ticker": "INTU",
     "exchange": "US",
-    "cusip": "461202103"
+    "cusip": "461202103",
+    "domain": "intuit.com"
   },
   "areas": [
     {
       "area": "frontier-ai"
+    },
+    {
+      "area": "ai-software-tooling"
     }
   ],
   "evidence": [
@@ -108,10 +112,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Intuit",
+      "quote": "Intuit Inc. is an American financial technology company that develops financial software and services, including TurboTax and QuickBooks.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Intuit",
+      "quote": "Intuit Inc. is an American financial technology company that develops financial software and services, including TurboTax and QuickBooks.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1318848",
+      "quote": "Intuit (Q1318848) — headquarters location: Mountain View",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1318848",
+      "quote": "Intuit (Q1318848) — official website: intuit.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Intuit Inc. is an American financial technology company that develops financial software and services, including TurboTax and QuickBooks.",
+  "hq": "Mountain View"
 }

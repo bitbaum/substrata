@@ -1,0 +1,76 @@
+{
+  "slug": "tata-consultancy-services",
+  "name": "Tata Consultancy Services",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q13227919",
+    "domain": "tcs.com",
+    "isin": "INE467B01029"
+  },
+  "areas": [
+    {
+      "area": "ai-software-tooling"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Tata_Consultancy_Services",
+      "quote": "Tata Consultancy Services Limited (TCS) is an Indian multinational technology company specialising in information technology services and consulting.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q13227919",
+      "quote": "Tata Consultancy Services (Q13227919) — Wikidata item: Q13227919",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q13227919",
+      "quote": "Tata Consultancy Services (Q13227919) — headquarters location: Mumbai",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q13227919",
+      "quote": "Tata Consultancy Services (Q13227919) — country (ISO 3166-1 alpha-2): IN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q13227919",
+      "quote": "Tata Consultancy Services (Q13227919) — official website: https://www.tcs.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Tata_Consultancy_Services",
+      "quote": "Tata Consultancy Services Limited (TCS) is an Indian multinational technology company specialising in information technology services and consulting.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Tata Consultancy Services Limited (TCS) is an Indian multinational technology company specialising in information technology services and consulting.",
+  "country": "IN",
+  "hq": "Mumbai"
+}

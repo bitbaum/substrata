@@ -6,14 +6,15 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q502940",
+    "cik": "40533",
     "lei": "9C1X8XOOTYY2FNYTVH06",
     "isin": "US3695501086",
     "ticker": "GD",
     "exchange": "US",
     "sedol": "2365161",
-    "cik": "40533",
-    "qid": "Q502940",
-    "cusip": "369550108"
+    "cusip": "369550108",
+    "domain": "gd.com"
   },
   "areas": [
     {
@@ -136,10 +137,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/General_Dynamics",
+      "quote": "General Dynamics Corporation (GD) is an American industrial and technology company based in Reston, Virginia.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q502940",
+      "quote": "General Dynamics (Q502940) — headquarters location: Reston",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q502940",
+      "quote": "General Dynamics (Q502940) — official website: gd.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "General Dynamics Corporation (GD) is an American industrial and technology company based in Reston, Virginia.",
+  "hq": "Reston"
 }

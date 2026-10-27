@@ -6,11 +6,13 @@
   "status": "active",
   "country": "DE",
   "ids": {
+    "qid": "Q21236526",
+    "isin": "DE000HAG0005",
     "ticker": "HAG",
     "exchange": "GR",
     "sedol": "BN0SDX8",
-    "qid": "Q21236526",
-    "isin": "DE000HAG0005"
+    "domain": "hensoldt.net",
+    "lei": "894500686FYLLZD3M624"
   },
   "areas": [
     {
@@ -84,10 +86,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country DE as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hensoldt",
+      "quote": "Hensoldt AG is a German multinational corporation headquartered in Munich which focuses on sensor technologies for protection and surveillance missions in the defence, security and aerospace sectors.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q21236526",
+      "quote": "Hensoldt AG (Q21236526) — headquarters location: Taufkirchen",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q21236526",
+      "quote": "Hensoldt AG (Q21236526) — official website: hensoldt.net",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q21236526",
+      "quote": "Hensoldt AG (Q21236526) — Legal Entity Identifier: 894500686FYLLZD3M624",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Hensoldt AG is a German multinational corporation headquartered in Munich which focuses on sensor technologies for protection and surveillance missions in the defence, security and aerospace sectors.",
+  "hq": "Taufkirchen"
 }

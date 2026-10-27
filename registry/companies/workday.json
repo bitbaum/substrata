@@ -13,7 +13,8 @@
     "sedol": "B8K6ZD1",
     "cik": "1327811",
     "qid": "Q8034666",
-    "cusip": "98138H101"
+    "cusip": "98138H101",
+    "domain": "workday.com"
   },
   "areas": [
     {
@@ -157,10 +158,27 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q8034666",
+      "quote": "Workday, Inc. (Q8034666) — headquarters location: Pleasanton",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q8034666",
+      "quote": "Workday, Inc. (Q8034666) — official website: workday.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Pleasanton"
 }

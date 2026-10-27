@@ -13,7 +13,8 @@
     "ticker": "PI",
     "exchange": "US",
     "cusip": "453204109",
-    "sedol": "BYYGJZ9"
+    "sedol": "BYYGJZ9",
+    "domain": "impinj.com"
   },
   "areas": [
     {
@@ -97,10 +98,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4041316",
+      "quote": "Impinj (Q4041316) — headquarters location: Seattle",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4041316",
+      "quote": "Impinj (Q4041316) — official website: impinj.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Impinj",
+      "quote": "Impinj, Inc. is an American manufacturer of radio-frequency identification (RFID) devices and software.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Seattle",
+  "summary": "Impinj, Inc. is an American manufacturer of radio-frequency identification (RFID) devices and software."
 }

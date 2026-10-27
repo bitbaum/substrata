@@ -17,7 +17,8 @@
     "qid": "Q104844406",
     "ticker": "S",
     "exchange": "US",
-    "cusip": "81730H109"
+    "cusip": "81730H109",
+    "domain": "sentinelone.com"
   },
   "areas": [
     {
@@ -140,10 +141,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q104844406",
+      "quote": "SentinelOne (Q104844406) — headquarters location: Mountain View",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q104844406",
+      "quote": "SentinelOne (Q104844406) — official website: sentinelone.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/SentinelOne",
+      "quote": "SentinelOne, Inc. is an American cybersecurity company listed on NYSE based in Mountain View, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Mountain View",
+  "summary": "SentinelOne, Inc. is an American cybersecurity company listed on NYSE based in Mountain View, California."
 }

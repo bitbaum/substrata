@@ -6,13 +6,19 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q136659556",
+    "isin": "US91733P1075",
     "cik": "1970622",
     "ticker": "USAR",
-    "exchange": "US"
+    "exchange": "US",
+    "domain": "usare.com"
   },
   "areas": [
     {
       "area": "advanced-materials"
+    },
+    {
+      "area": "rare-earths-magnets"
     }
   ],
   "evidence": [
@@ -70,10 +76,52 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/USA_Rare_Earth",
+      "quote": "USA Rare Earth, Inc. is an American mining and manufacturing company specializing in the extraction, processing, and production of rare-earth elements (REEs), particularly heavy rare-earth elements, and permanent magnets.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q136659556",
+      "quote": "USA Rare Earth (Q136659556) — Wikidata item: Q136659556",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:rare-earths-magnets",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/USA_Rare_Earth",
+      "quote": "USA Rare Earth, Inc. is an American mining and manufacturing company specializing in the extraction, processing, and production of rare-earth elements (REEs), particularly heavy rare-earth elements, and permanent magnets.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q136659556",
+      "quote": "USA Rare Earth (Q136659556) — headquarters location: Stillwater",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q136659556",
+      "quote": "USA Rare Earth (Q136659556) — official website: usare.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "USA Rare Earth, Inc. is an American mining and manufacturing company specializing in the extraction, processing, and production of rare-earth elements (REEs), particularly heavy rare-earth elements, and permanent magnets.",
+  "hq": "Stillwater"
 }

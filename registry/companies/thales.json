@@ -1,7 +1,7 @@
 {
   "slug": "thales",
   "name": "Thales SA",
-  "aliases": [],
+  "aliases": ["Thales Group"],
   "kind": "public",
   "status": "active",
   "country": "US",
@@ -9,7 +9,12 @@
     "ticker": "HO",
     "exchange": "US",
     "cusip": "4162791",
-    "sedol": "4162791"
+    "sedol": "4162791",
+    "qid": "Q1161666",
+    "domain": "thalesgroup.com",
+    "cik": "1722401",
+    "lei": "529900FNDVTQJOVVPZ19",
+    "isin": "FR0000121329"
   },
   "areas": [
     {
@@ -60,10 +65,60 @@
       "readOn": "2026-10-27",
       "asOf": "2026-01-02",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Thales_Group",
+      "quote": ", trading as Thales Group, is a French multinational aerospace and defence corporation specialising in electronics.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1161666",
+      "quote": "Thales Group (Q1161666) — Wikidata item: Q1161666",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1161666",
+      "quote": "Thales Group (Q1161666) — headquarters location: Meudon",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1161666",
+      "quote": "Thales Group (Q1161666) — official website: https://www.thalesgroup.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1161666",
+      "quote": "Thales Group (Q1161666) — SEC Central Index Key: 1722401",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1161666",
+      "quote": "Thales Group (Q1161666) — Legal Entity Identifier: 529900FNDVTQJOVVPZ19",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": ", trading as Thales Group, is a French multinational aerospace and defence corporation specialising in electronics.",
+  "hq": "Meudon"
 }

@@ -10,7 +10,9 @@
     "exchange": "LN",
     "sedol": "B45C9X4",
     "qid": "Q1069644",
-    "isin": "GB00B45C9X44"
+    "isin": "GB00B45C9X44",
+    "domain": "chemring.com",
+    "lei": "213800U9A54VQJ5P2J41"
   },
   "areas": [
     {
@@ -84,10 +86,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country DE as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1069644",
+      "quote": "Chemring Group (Q1069644) — headquarters location: Fareham",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1069644",
+      "quote": "Chemring Group (Q1069644) — official website: chemring.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1069644",
+      "quote": "Chemring Group (Q1069644) — Legal Entity Identifier: 213800U9A54VQJ5P2J41",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Chemring_Group",
+      "quote": "Chemring Group plc is a global business providing a range of advanced technology products and services to the aerospace, defence and security markets.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Fareham",
+  "summary": "Chemring Group plc is a global business providing a range of advanced technology products and services to the aerospace, defence and security markets."
 }

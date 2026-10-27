@@ -13,7 +13,8 @@
     "cusip": "40131M109",
     "sedol": "BFXC911",
     "cik": "1576280",
-    "qid": "Q53308751"
+    "qid": "Q53308751",
+    "domain": "guardanthealth.com"
   },
   "areas": [
     {
@@ -133,10 +134,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q53308751",
+      "quote": "Guardant Health (Q53308751) — headquarters location: Redwood City",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q53308751",
+      "quote": "Guardant Health (Q53308751) — official website: guardanthealth.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Guardant_Health",
+      "quote": "Guardant Health, Inc. is an American biotechnology company based in Palo Alto, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Redwood City",
+  "summary": "Guardant Health, Inc. is an American biotechnology company based in Palo Alto, California."
 }

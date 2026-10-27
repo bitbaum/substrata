@@ -13,7 +13,8 @@
     "ticker": "MVST",
     "exchange": "US",
     "cusip": "59516C106",
-    "sedol": "BN7DTZ0"
+    "sedol": "BN7DTZ0",
+    "domain": "microvast.com"
   },
   "areas": [
     {
@@ -97,10 +98,27 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q107473521",
+      "quote": "Microvast (Q107473521) — official website: microvast.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Microvast",
+      "quote": "Microvast Holdings, Inc. is a battery technology company headquartered in Stafford, Texas, and publicly traded on the NASDAQ Stock Exchange.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Microvast Holdings, Inc. is a battery technology company headquartered in Stafford, Texas, and publicly traded on the NASDAQ Stock Exchange."
 }
