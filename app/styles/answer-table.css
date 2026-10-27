@@ -152,3 +152,15 @@
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
+/* The company page the chart's figures belong on (lib/market-data/present.ts). */
+.answer-chart-open {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--size-target);
+  font-size: 0.875rem;
+  color: var(--color-fg-primary);
+  text-underline-offset: 0.2em;
+}
+.answer-chart-open:hover {
+  text-decoration: underline;
+}

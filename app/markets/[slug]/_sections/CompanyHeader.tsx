@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Link from 'next/link';
 
 import type { MarketParticipant } from '@/lib/participants';
@@ -8,9 +8,8 @@ import { hostOf } from '@/lib/desk';
 import { FollowButton } from '@/components/portal/FollowButton';
 import { AtAGlance } from './AtAGlance';
 import { Lede } from './Lede';
-import { Ticker } from '@/components/exposure/Ticker';
-import { listingFor } from '@/lib/listings';
 import { CheckThis } from '@/components/portal/CheckThis';
+import { Quote, QuoteLoading } from '@/components/company/Quote';
 
 /**
  * The header is derived. Every figure in it links to the rows it counts or to
@@ -57,9 +56,11 @@ export function CompanyHeader({
           <FollowButton type="company" id={p.slug} following={following} label={p.name} />
         )}
       </div>
+      <Suspense fallback={<QuoteLoading />}>
+        <Quote slug={p.slug} />
+      </Suspense>
       <p className="mt-2 text-sm">
-        <Ticker listing={listingFor(p.slug) ?? null} />{' '}
-        <a href="#take-part" className="ml-2 text-xs text-accent hover:underline">
+        <a href="#take-part" className="text-xs text-accent hover:underline">
           Work there, own part of it, buy from it ↓
         </a>
       </p>

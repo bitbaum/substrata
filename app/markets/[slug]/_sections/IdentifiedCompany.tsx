@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Link from 'next/link';
 
 import { EntityProfile, type ExtraSection } from '@/components/portal/EntityProfile';
@@ -8,6 +8,8 @@ import type { Entity } from '@/lib/entities/types';
 import { correctionUrl } from '@/lib/site';
 import { t } from '@/lib/i18n/messages';
 import { MARKET_DATA_SECTIONS, marketDataKey } from '@/lib/universe/market-data-seam';
+import { marketSections } from '@/components/company/marketSections';
+import { Quote, QuoteLoading } from '@/components/company/Quote';
 import type { UniverseEntry } from '@/lib/universe/types';
 import { countryHref, countryNameOf } from '@/lib/world/pages';
 import { Admissions } from './Admissions';
@@ -30,10 +32,12 @@ export function IdentifiedCompany({ entity, entry }: { entity: Entity; entry: Un
     {
       id: 'why-in',
       title: 'Why it is in Substrata',
-      importance: 5,
+      // After the market frame (price, key statistics, financials).
+      importance: 9,
       evidence: `${entry.admittedBy.length} cited rows`,
       node: <Admissions admittedBy={entry.admittedBy} />,
     },
+    ...marketSections({ slug: entry.slug, name: entity.name }),
     ...(key
       ? MARKET_DATA_SECTIONS.flatMap((s) => {
           const node = s.render(key);
@@ -74,6 +78,9 @@ export function IdentifiedCompany({ entity, entry }: { entity: Entity; entry: Un
         <h1 className="mt-3 max-w-3xl font-heading text-3xl font-semibold leading-tight tracking-display text-fg-primary wrap-anywhere sm:text-4xl">
           {entity.name}
         </h1>
+        <Suspense fallback={<QuoteLoading />}>
+          <Quote slug={entry.slug} />
+        </Suspense>
         {entity.aka.length > 0 && (
           <p className="mt-2 text-sm text-fg-tertiary wrap-anywhere">
             Also printed as {entity.aka.slice(0, 4).join(', ')}

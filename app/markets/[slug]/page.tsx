@@ -28,6 +28,7 @@ import { HiringSection, hiringOf } from './_sections/hiring';
 import { TakePartSection } from './_sections/take-part';
 import { takePartRoutes } from '@/lib/take-part';
 import { listingFor } from '@/lib/listings';
+import { marketSections } from '@/components/company/marketSections';
 
 interface RouteParams {
   params: Promise<{ slug: string }>;
@@ -148,6 +149,7 @@ export default async function ParticipantPage({ params }: RouteParams) {
   });
   const happened = profile.events.length + profile.relatedEvents.length + filings.length > 0;
   const extra: ExtraSection[] = [
+    ...marketSections({ slug: p.slug, name: p.name }),
     // Replaces the registry's "what has happened": same id and anchor, with
     // the SEC filings (per request) on the same axis as the events.
     ...(happened

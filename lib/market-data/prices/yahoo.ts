@@ -25,6 +25,13 @@ const SUFFIX: Record<Exchange, string> = {
   ASX: '.AX',
   // LSE's International Order Book, where Kazatomprom's GDRs trade in dollars.
   LSE: '.IL',
+  US: '',
+  London: '.L',
+  'Hong Kong': '.HK',
+  Korea: '.KS',
+  Taiwan: '.TW',
+  Toronto: '.TO',
+  SIX: '.SW',
 };
 
 export const yahooSymbol = (t: Ticker) => `${t.symbol}${SUFFIX[t.exchange]}`;
