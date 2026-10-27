@@ -1,12 +1,15 @@
 /**
  * The home box → /chat handoff (lib/chat/handoff.ts): a message handed over
- * once — words and attachments — never twice, and the shared draft. Storage
+ * once — words and attachments — never twice, and the review log's id for a
+ * chat. Storage
  * that refuses is said, never thrown.
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { loadDraft, saveDraft, savePending, sendHref, takePending } from '../lib/chat/handoff';
+import { savePending, sendHref, takePending } from '../lib/chat/handoff';
+import { logIdFor } from '../lib/chat/log-id';
+import { titleAfterAnswer } from '../components/portal/chat/askComposer';
 import { ATTACHMENT_ONLY_TEXT } from '../lib/chat/image';
 
 function memory(limit = Infinity) {
@@ -57,11 +60,20 @@ test('a store that refuses says so; nothing malformed comes back', () => {
   );
 });
 
-test('the shared draft: kept, cleared, and an empty draft when storage is blocked', () => {
-  const store = memory();
-  saveDraft('half a question', store);
-  assert.equal(loadDraft(store), 'half a question');
-  saveDraft('', store);
-  assert.equal(loadDraft(store), '');
-  assert.equal(loadDraft(null), '');
+test('a chat id maps to one stable uuid for the review log', () => {
+  const a = logIdFor('c_8f3k2');
+  assert.match(a, /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/);
+  assert.equal(logIdFor('c_8f3k2'), a, 'the same chat, the same id');
+  assert.notEqual(logIdFor('c_8f3k3'), a);
+});
+
+test('a screenshot-only chat is named after its answer; any other keeps its first message', () => {
+  assert.equal(
+    titleAfterAnswer({
+      text: ATTACHMENT_ONLY_TEXT,
+      answer: 'CoreWeave fell 31% in October [W1], less than the post says. More.',
+    }),
+    'CoreWeave fell 31% in October, less than the…',
+  );
+  assert.equal(titleAfterAnswer({ text: 'Who makes EUV scanners?', answer: 'ASML.' }), null);
 });

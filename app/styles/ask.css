@@ -147,10 +147,20 @@ body:has(.ask-dock-toggle) .site-footer {
 .companion .ck-input {
   min-height: var(--size-target);
 }
-.ask-sheet-body > .ck-screen {
+/* chatkit's ChatApp fills its frame: the sheet's body, or /chat's page. */
+.companion {
+  display: flex;
   flex: 1;
-  height: auto;
+  flex-direction: column;
+  min-width: 0;
   min-height: 0;
+}
+.companion > .ck-app {
+  flex: 1;
+  min-height: 0;
+}
+.ask-sheet-body > .companion {
+  height: auto;
 }
 @media (max-width: 767.98px) {
   .ask-sheet {
@@ -240,7 +250,7 @@ body:has(.ask-dock-toggle) .site-footer {
   }
 }
 @media (min-width: 768px) {
-  .companion-page > .ck-screen-viewport {
+  .companion-page .ck-app-viewport {
     height: calc(var(--ck-viewport-height, 100dvh) - var(--spacing-topbar));
   }
 }

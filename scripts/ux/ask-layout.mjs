@@ -412,7 +412,7 @@ for (const [width, scheme] of [320, 390, 1440].flatMap((w) => [
 
   // Expand: /chat with the same messages, from the same thread.
   await sheet.getByRole('button', { name: 'Expand', exact: true }).click();
-  await page.waitForURL(/\/chat\?thread=/, { timeout: 15_000 });
+  await page.waitForURL(/\/chat$/, { timeout: 15_000 });
   await page.locator('.ck-turn').first().waitFor({ timeout: 15_000 });
   const expanded = await page.evaluate(() =>
     [...document.querySelectorAll('.ck-turn')].map((t) =>

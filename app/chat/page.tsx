@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from 'next';
 import { ResearchChat } from '@/components/portal/ResearchChat';
 import { Shell } from '@/components/portal/Shell';
 import { startQuestion } from '@/lib/home-asks';
-import { isThreadId } from '@/lib/ask-thread';
 import { homeAsks, seedFor, starters } from '@/lib/starters';
 import { headers } from 'next/headers';
 
@@ -15,12 +14,10 @@ export const viewport: Viewport = {
 export default async function ChatPage({
   searchParams,
 }: {
-  searchParams: Promise<{ topic?: string; q?: string | string[]; thread?: string }>;
+  searchParams: Promise<{ topic?: string; q?: string | string[] }>;
 }) {
   const params = await searchParams;
   const topic = typeof params.topic === 'string' ? params.topic.slice(0, 200) : '';
-  // Expand on the panel: the thread waits in the tab's session store under this id.
-  const threadId = isThreadId(params.thread) ? params.thread : undefined;
   // The empty screen's questions: the day's, seeded with where the reader came
   // from, and never the four tiles the front page just showed.
   const now = new Date();
@@ -38,12 +35,7 @@ export default async function ChatPage({
           every other page. The widget's host directive for this region, left
           behind with the route. */}
       <div className="companion-page" data-fc-place="tab">
-        <ResearchChat
-          topic={topic}
-          start={startQuestion(params.q)}
-          threadId={threadId}
-          starters={asks}
-        />
+        <ResearchChat topic={topic} start={startQuestion(params.q)} starters={asks} />
       </div>
     </Shell>
   );

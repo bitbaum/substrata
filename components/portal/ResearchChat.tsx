@@ -2,38 +2,48 @@
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
-import { ChatScreen, ChatStarters, ChatThread, type ChatMessageData } from '@bitbaum/chatkit/react';
+import { useMemo, useRef, useState } from 'react';
+import { ChatApp } from '@bitbaum/chatkit/react';
+import { localConversationStore } from '@bitbaum/chatkit';
 import { HOME_LINK } from '@/config/site-nav';
-import { answerRow } from '@/lib/ask-row';
-import { webCitations } from '@/lib/chat/web-citations';
-import { chatHref, loadThread, saveThread } from '@/lib/ask-thread';
 import type { CheckRequest } from '@/lib/ask-bridge';
+import { SEND_PARAM } from '@/lib/chat/handoff';
+import { logIdFor } from '@/lib/chat/log-id';
 import { useAiKey } from './ai-key/useAiKey';
 import { AskPanel } from './AskPanel';
 import { AnswerFooter } from './chat/AnswerFooter';
-import { AskComposer } from './chat/AskComposer';
+import { askComposerProps, titleAfterAnswer } from './chat/askComposer';
 import { AskTools } from './chat/AskTools';
+import { askTransport } from './chat/askTransport';
 import { chartRenderers } from './chat/chartRenderers';
 import { ComposerBeside } from './chat/ComposerBeside';
 import { renderLink } from './chat/links';
-import { thinkingFor } from './chat/thinking';
+import type { Turn } from './chat/types';
 import { useAssistantStatus } from './chat/useAssistantStatus';
 import { useAutoAsk } from './chat/useAutoAsk';
-import { useChatSession } from './chat/useChatSession';
+import { useContribution } from './chat/useContribution';
+
+/** The device's chats, one store for the panel and /chat: Expand opens the same chat. */
+const STORE = localConversationStore({ key: 'substrata-ask' });
+/** Which chat was open, so a reload — or Expand — reopens it. */
+export const OPEN_CHAT_KEY = 'substrata-ask:open';
+
+/** The log ids of answers on screen, so a thumb reaches the turn it is about. */
+const logIds = new Map<string, string>();
 
 /**
- * Ask: the fleet's chat (`@bitbaum/chatkit` — composer, microphone, thread,
- * Copy/Retry, scroll) with Substrata's evidence in its slots. It replaced a
- * hand-built thread and composer that had a dictation button with no server
- * leg, no Retry or Copy, and a scroll that yanked the reader to the bottom on
- * every token. A fix to how chatting works belongs in bitbaum/chatkit.
+ * Ask: the fleet's chat app — chatkit's `ChatApp`, the same header (Chats ·
+ * title · New chat · …), chat list, temporary chat, titles, queue, Stop and
+ * reload as Heidi, Loki and OrangeCat — with Substrata's evidence in its
+ * slots: the transport (chat/askTransport.ts), charts drawn by chartkit, the
+ * tables, leads and web pages under each answer (AnswerFooter), the key and
+ * "Send evidence" beside the composer. A fix to how chatting works belongs in
+ * bitbaum/chatkit.
  *
- * Two frames, one chat: `compact` is the panel over a page (a sheet on a
- * phone, a right-hand panel on a desktop — `AskPanel`), and the page is
- * /chat. Both are chatkit's `ChatScreen`, so the thread scrolls inside the
- * frame and the composer rides above the keyboard in either. Expand hands
- * the thread to /chat whole (`lib/ask-thread.ts`).
+ * Two frames, one chat: `compact` is the panel over a page (AskPanel), the
+ * page is /chat. Both read the same device store and the same open chat, so
+ * Expand is only a bigger frame. Readers keep their chats on this device;
+ * Substrata keeps no conversations on its server.
  */
 export function ResearchChat({
   topic,
@@ -43,90 +53,50 @@ export function ResearchChat({
   onClose,
   pending,
   start,
-  threadId,
   starters,
 }: {
   topic: string;
   /** The page the reader is on, so the assistant can resolve "it" and "they". */
   onPath?: string;
-  /** The panel over a page, rather than the /chat page. */
   compact?: boolean;
-  /** The panel: shown or hidden (it stays mounted, so the thread survives Close). */
+  /** The panel: shown or hidden (it stays mounted, so the chat survives Close). */
   open?: boolean;
   onClose?: () => void;
-  /** A "Check this" request to run as soon as the panel is open. */
+  /** A "Check this" request to send as soon as the panel is open. */
   pending?: (CheckRequest & { id: number }) | null;
-  /** A question to ask as soon as the page opens — what the home page's Ask box sends. */
+  /** A question to send as soon as the page opens (`/chat?q=`). */
   start?: string;
-  /** /chat: a thread the panel handed over (`/chat?thread=`). */
-  threadId?: string;
-  /** The empty screen's questions: drawn from the corpus per facet (lib/starters.ts), by the server. */
+  /** The empty screen's questions: drawn from the corpus per facet (lib/starters.ts). */
   starters: readonly { label: string; question: string }[];
 }) {
   const router = useRouter();
   const { ai, models, model, setModel } = useAssistantStatus();
   const keys = useAiKey();
-  const chat = useChatSession({ topic, onPath, model, keyFields: keys.requestFields });
+  const contribution = useContribution(topic);
   const [keyOpen, setKeyOpen] = useState(false);
-  const inputRef = useRef<HTMLTextAreaElement>(null);
-
-  useAutoAsk(chat.ask, pending, start);
-
-  // Expand brought the thread here: pick it up whole, under the same
-  // conversation id. The URL keeps the id, so a reload finds it again.
-  const restored = useRef(false);
-  useEffect(() => {
-    if (!threadId || restored.current) return;
-    restored.current = true;
-    const handoff = loadThread(threadId);
-    if (handoff) chat.restore(handoff);
-    // Once, on arrival.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [threadId]);
-
-  /** The whole thread to /chat: nothing lost, the URL carrying only an id. */
-  const expand = () => {
-    const id = crypto.randomUUID();
-    saveThread({ id, conversationId: chat.conversationIdNow(), topic, onPath, turns: chat.turns });
-    onClose?.();
-    router.push(chatHref(id));
-  };
-
-  const messages: ChatMessageData[] = chat.turns.map((t) => ({
-    id: t.id,
-    role: t.role,
-    // A web page the answer cites is a source chip linked to the page (lib/chat/web-citations.ts).
-    // A question's attachments are named under it (pictures are never kept).
-    ...webCitations(
-      t.role === 'user' && t.attachments?.length
-        ? `${t.content}\n\nAttached: ${t.attachments.join(', ')}`
-        : t.content,
-      t.role === 'assistant' ? t.web : undefined,
-    ),
-    // ONE row under the latest answer: the model's suggested replies first,
-    // then the questions built from the records it read (`lib/ask-row.ts`).
-    // chatkit shows it under the latest answer only, never while a turn runs,
-    // and draws nothing at all when the row is empty.
-    replies: t.role === 'assistant' ? answerRow(t.replies, t.followUps) : undefined,
-    // "Thought for 12s › Read 3 records" above the answer (chat/thinking.ts).
-    thinking: thinkingFor(t),
-  }));
-  if (chat.error && !chat.busy)
-    messages.push({ id: 'failed', role: 'assistant', content: chat.error, failed: true });
-  const live = chat.live
-    ? {
-        text: chat.live.text,
-        status: chat.live.status,
-        steps: chat.live.steps.map((label) => ({ label })),
+  const root = useRef<HTMLDivElement>(null);
+  // A message arriving from elsewhere is a new question: it opens a new chat,
+  // not the one that was open (ChatApp reopens the remembered chat on load).
+  useState(() => {
+    if (typeof window === 'undefined') return;
+    const fresh = start || pending || new URL(window.location.href).searchParams.has(SEND_PARAM);
+    if (fresh)
+      try {
+        window.localStorage.removeItem(OPEN_CHAT_KEY);
+      } catch {
+        // Blocked storage: nothing was remembered either.
       }
-    : null;
-  const ask = (question: string) => void chat.ask(question);
-  const focusInput = () => {
-    inputRef.current?.focus();
-    inputRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  };
+  });
+  useAutoAsk(root, pending, start);
+
+  // ChatApp reads the newest transport at send time, so a changed model or key applies at once.
+  const keyFields = keys.requestFields;
+  const transport = useMemo(
+    () => askTransport({ topic, onPath, model: () => model, keyFields }),
+    [topic, onPath, model, keyFields],
+  );
+
   const toggleKey = () => setKeyOpen((v) => !v);
-  // The one quiet line under the composer: who answers, and the way to a key.
   const who = keys.active ? (
     `Answering with your own AI: ${keys.active.label}`
   ) : ai === 'down' ? (
@@ -140,128 +110,87 @@ export function ResearchChat({
     </>
   );
 
-  const thread = (
-    <ChatThread
-      messages={messages}
-      live={live}
-      onStop={chat.stop}
-      onRetry={chat.retry}
-      // A suggested reply or a follow-up goes exactly where a typed question goes.
-      onReply={ask}
-      labels={{ replies: 'Reply or ask next' }}
-      renderLink={renderLink}
-      // A chart block in an answer is drawn by @bitbaum/chartkit (chatkit 0.15).
-      renderers={chartRenderers}
-      // Copy · Listen · Share under every answer, the fleet's row (chatkit).
-      share={{ title: 'Ask Substrata' }}
-      // Thumbs under every answer (chatkit 0.14); a thumb down asks why.
-      onFeedback={chat.feedback}
-      renderFooter={(m) => {
-        const turn = chat.turns.find((t) => t.id === m.id);
-        return turn?.role === 'assistant' ? <AnswerFooter turn={turn} /> : null;
-      }}
-      empty={
-        <div className="ask-empty">
-          {!compact && (
-            <>
-              <h2>Ask about any bottleneck, company, country or rule.</h2>
-              <div className="ask-cta">
-                <button type="button" className="ask-cta-button" onClick={focusInput}>
-                  Ask a question now
-                </button>
-              </div>
-            </>
-          )}
-          <p>
-            Answers say which claims are sourced and which are judgement, and link every record they
-            read. Add a screenshot of a post with + and its claims are checked one by one.
-          </p>
-          <ChatStarters
-            starters={starters.map((s) => ({ label: s.label, prompt: s.question }))}
-            onPick={ask}
-          />
-        </div>
-      }
-    />
+  const app = (
+    <div ref={root} className={compact ? 'companion is-compact' : 'companion'}>
+      <ChatApp
+        name="Ask Substrata"
+        transport={transport}
+        store={STORE}
+        rememberKey={OPEN_CHAT_KEY}
+        makeTitle={titleAfterAnswer}
+        fill={compact ? 'parent' : 'viewport'}
+        starters={starters.map((s) => ({ label: s.label, prompt: s.question }))}
+        startersTitle="Ask about a bottleneck, a company or a rule — or add a screenshot of a post and its claims are checked."
+        composer={{
+          ...askComposerProps(),
+          density: 'compact',
+          tools: <AskTools keys={keys} keyOpen={keyOpen} onToggleKey={toggleKey} />,
+        }}
+        thread={{
+          renderLink,
+          renderers: chartRenderers,
+          // Copy · Listen · Share under every answer, the fleet's row.
+          share: { title: 'Ask Substrata' },
+          labels: { replies: 'Reply or ask next' },
+          renderFooter: (m) => {
+            if (m.role !== 'assistant' || m.failed) return null;
+            const turn = m as unknown as Turn & { logId?: string };
+            if (turn.logId) logIds.set(m.id, turn.logId);
+            return <AnswerFooter turn={turn} />;
+          },
+          onFeedback: (f) =>
+            void fetch('/api/chat/feedback', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                ...f,
+                conversationId: f.conversationId ? logIdFor(f.conversationId) : null,
+                messageId: logIds.get(f.messageId) ?? f.messageId,
+              }),
+            }).catch(() => {
+              // Thanks was already said; a lost thumb is not the reader's problem.
+            }),
+        }}
+        headerStart={
+          compact ? undefined : (
+            <Link href={HOME_LINK.href} className="ck-glass" aria-label="Back to Substrata">
+              <span aria-hidden="true">←</span>
+            </Link>
+          )
+        }
+        footnote={
+          <>
+            {who}
+            <span className="companion-beside">
+              <ComposerBeside
+                chat={contribution}
+                keys={keys}
+                keyOpen={keyOpen}
+                onKeyDone={() => setKeyOpen(false)}
+                models={models}
+                model={model}
+                setModel={setModel}
+              />
+            </span>
+          </>
+        }
+      />
+    </div>
   );
 
-  // THE composer (chat/AskComposer.tsx), one configuration on the home page,
-  // the panel and /chat: "+" for Camera · Photos · Files, microphone, send, a
-  // message queued while a turn runs. /api/chat reads pictures since
-  // 2026-10-27 (owner: "there was no way for me to attach the screenshots"):
-  // a screenshot is read by a model that can see, and its claims checked
-  // (lib/chat-agent/claim-check.ts).
-  const composer = (
-    <AskComposer
-      inputRef={inputRef}
-      onSend={(text, attachments) => chat.ask(text, undefined, chat.turns, attachments)}
-      sending={chat.busy}
-      onStop={chat.stop}
-      tools={<AskTools keys={keys} keyOpen={keyOpen} onToggleKey={toggleKey} />}
-    />
-  );
-
-  const beside = (
-    <ComposerBeside
-      chat={chat}
-      keys={keys}
-      keyOpen={keyOpen}
-      onKeyDone={() => setKeyOpen(false)}
-      models={models}
-      model={model}
-      setModel={setModel}
-    />
-  );
-
-  // The panel over a page: chatkit's screen filling the sheet (AskPanel),
-  // with no header of its own — the sheet's title row is the header.
   if (compact)
     return (
-      <AskPanel open={open} title="Ask Substrata" onClose={() => onClose?.()} onExpand={expand}>
-        <ChatScreen
-          fill="parent"
-          className="companion is-compact"
-          renderers={chartRenderers}
-          composer={
-            <>
-              {composer}
-              <div className="companion-beside">{beside}</div>
-            </>
-          }
-          footnote={who}
-        >
-          {thread}
-        </ChatScreen>
+      <AskPanel
+        open={open}
+        title="Ask Substrata"
+        onClose={() => onClose?.()}
+        onExpand={() => {
+          onClose?.();
+          router.push('/chat');
+        }}
+      >
+        {app}
       </AskPanel>
     );
-
-  // /chat: the fleet's whole-screen chat (chatkit ChatScreen, as Loki and
-  // Solon). The conversation is the display; a see-through header with the
-  // way back floats at the top, the composer floats at the bottom and rides
-  // above a phone keyboard (fill="viewport"); ChatScreen measures both and
-  // pads the thread, so the last line always rests above the composer.
-  return (
-    <ChatScreen
-      fill="viewport"
-      className="companion"
-      renderers={chartRenderers}
-      header={
-        <>
-          <Link href={HOME_LINK.href} className="ck-glass" aria-label="Back to Substrata">
-            <span aria-hidden="true">←</span> Substrata
-          </Link>
-          <span className="companion-title">Ask Substrata</span>
-        </>
-      }
-      composer={
-        <>
-          {composer}
-          <div className="companion-beside">{beside}</div>
-        </>
-      }
-      footnote={who}
-    >
-      {thread}
-    </ChatScreen>
-  );
+  return app;
 }

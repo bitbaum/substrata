@@ -3,31 +3,22 @@
  * not answer; it hands its message — words AND attachments — to /chat, which
  * sends it at once. The attachments travel through this tab's session store
  * under an id (`/chat?send=<id>`), read once and deleted: a picture never
- * reaches localStorage, the server's logs or a URL. The words in the box are
- * shared too (the draft), so a half-typed question follows the reader from
- * the panel to /chat.
+ * reaches the server's logs or a URL. /chat sends it through chatkit's
+ * composer (lib/chat/drive-composer.ts) as a new chat.
  *
- * Storage failures (a private window, a full quota) never block: the draft
- * is simply not remembered, and a message without attachments still goes by
- * `/chat?q=`. Which conversation is open, and the Chats list, are chatkit's
- * conversation store's (ChatApp), not this file's.
+ * A storage failure (a private window, a full quota) never blocks: a message
+ * without attachments still goes by `/chat?q=`, and one with attachments is
+ * kept in the box with a sentence. Which chat is open, and the Chats list,
+ * are chatkit's ChatApp's, not this file's.
  */
 import { MAX_IMAGES, type WireAttachment } from './image';
 
 type StorageLike = Pick<Storage, 'getItem' | 'setItem' | 'removeItem'>;
 
-export const DRAFT_KEY = 'substrata-ask-draft';
 const SEND_PREFIX = 'substrata-ask-send:';
 /** The query parameter /chat reads a handed-over message from. */
 export const SEND_PARAM = 'send';
 
-const local = (): StorageLike | null => {
-  try {
-    return typeof window === 'undefined' ? null : window.localStorage;
-  } catch {
-    return null;
-  }
-};
 const session = (): StorageLike | null => {
   try {
     return typeof window === 'undefined' ? null : window.sessionStorage;
@@ -52,14 +43,6 @@ function set(storage: StorageLike | null, key: string, value: string | null): bo
   } catch {
     return false;
   }
-}
-
-export function loadDraft(storage: StorageLike | null = local()): string {
-  return (get(storage, DRAFT_KEY) ?? '').slice(0, 4000);
-}
-
-export function saveDraft(text: string, storage: StorageLike | null = local()): void {
-  set(storage, DRAFT_KEY, text ? text.slice(0, 4000) : null);
 }
 
 /** A message handed from one surface to /chat. */

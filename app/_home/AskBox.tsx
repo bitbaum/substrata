@@ -3,7 +3,10 @@
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 
-import { AskComposer } from '@/components/portal/chat/AskComposer';
+import { Composer, type ComposerProps } from '@bitbaum/chatkit/react';
+
+import { askComposerProps } from '@/components/portal/chat/askComposer';
+import type { WireAttachment } from '@/lib/chat/image';
 import { OPEN_EVENT } from '@/lib/ask-bridge';
 import { savePending, sendHref } from '@/lib/chat/handoff';
 import { askHref, type HomeAsk } from '@/lib/home-asks';
@@ -32,10 +35,12 @@ export function AskBox({ asks }: { asks: readonly HomeAsk[] }) {
 
   return (
     <div className="home-ask">
-      <AskComposer
+      <Composer
+        {...(askComposerProps() as Omit<ComposerProps, 'onSend'>)}
         inputRef={input}
         density="comfortable"
-        onSend={(text, attachments) => {
+        onSend={(text, staged) => {
+          const attachments = staged as WireAttachment[];
           const id = savePending({ text, attachments });
           if (id) {
             router.push(sendHref(id));

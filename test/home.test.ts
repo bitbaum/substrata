@@ -170,11 +170,11 @@ test('the market strip: stored closes only, the day named, nothing without them'
   assert.match(page, /not live/, 'end of day, said');
 });
 
-test('the hero is one box — the same AskComposer as /chat — and the questions to start from', () => {
+test('the hero is one box — the composer configuration /chat uses — and the questions to start from', () => {
   const hero = read('app/_home/HomeHero.tsx');
   assert.match(hero, /<AskBox asks=\{asks\} \/>/);
   const box = read('app/_home/AskBox.tsx');
-  assert.match(box, /<AskComposer\b/);
+  assert.match(box, /\.\.\.\(askComposerProps\(\)/);
   assert.match(box, /savePending\(\{ text, attachments \}\)/, 'attachments travel to /chat');
   assert.equal((hero.match(/<h1/g) ?? []).length, 1);
 });
