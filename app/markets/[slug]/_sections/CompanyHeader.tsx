@@ -22,14 +22,22 @@ export function CompanyHeader({
   layerName,
   signedIn,
   following,
+  listed = false,
 }: {
   p: MarketParticipant;
   profile: CompanyProfile;
   layerName: string | undefined;
   signedIn: boolean;
   following: boolean;
+  /**
+   * A listed company reads like a quote page: name, quote, then the share
+   * price straight under it. Its role in the chain (the lede, the five tiles,
+   * the grade and its source) moves below Key statistics as its own section,
+   * "Role in the chain" (page.tsx). Every other company keeps it here, where
+   * it is the most there is to say.
+   */
+  listed?: boolean;
 }) {
-  const citation = p.directorySource ?? p.existenceVerifiedBy?.url ?? null;
   return (
     <header className="mb-4 border-b border-subtle pb-8">
       <p className="font-mono text-xs uppercase tracking-caps text-fg-tertiary">
@@ -64,6 +72,21 @@ export function CompanyHeader({
           Work there, own part of it, buy from it ↓
         </a>
       </p>
+      {!listed && <ChainRole p={p} profile={profile} />}
+    </header>
+  );
+}
+
+/**
+ * What the company is to the chain: the lede, the five tiles at a glance, why
+ * it is graded so, and where its role is cited from. In the header for a
+ * company with no listed share; a section of its own below Key statistics
+ * for a listed one.
+ */
+export function ChainRole({ p, profile }: { p: MarketParticipant; profile: CompanyProfile }) {
+  const citation = p.directorySource ?? p.existenceVerifiedBy?.url ?? null;
+  return (
+    <>
       <p className="mt-3 max-w-prose text-lg leading-relaxed text-fg-secondary">
         <Lede profile={profile} />
         <CheckThis className="is-inline" label="Check this" />
@@ -94,6 +117,6 @@ export function CompanyHeader({
           Report an error
         </a>
       </p>
-    </header>
+    </>
   );
 }
