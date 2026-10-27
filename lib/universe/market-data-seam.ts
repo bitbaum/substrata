@@ -27,7 +27,12 @@ export interface MarketDataSection {
   render: (key: MarketDataKey) => ReactNode | null;
 }
 
-/** Registered by lib/market-data (not in this change). Empty: a tier B page shows none. */
+/**
+ * Extra providers. Empty: the market frame itself (price, key statistics,
+ * financials, holders, business, peers) is rendered for every company page by
+ * components/company/marketSections.tsx, joined through
+ * lib/market-data/company.ts `marketCompanyFor`, which reads `marketDataKey`.
+ */
 export const MARKET_DATA_SECTIONS: MarketDataSection[] = [];
 
 export function marketDataKey(entry: Pick<UniverseEntry, 'ids'>): MarketDataKey | null {
