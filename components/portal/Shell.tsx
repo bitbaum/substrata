@@ -106,7 +106,7 @@ export function Page({
   sections?: boolean;
 }) {
   return (
-    <div className="mx-auto max-w-shell px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
+    <div className="page-column mx-auto max-w-shell px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
       {sections ? (
         <div className="section-nav-scope">
           <SectionNav />

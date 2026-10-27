@@ -18,6 +18,7 @@ Each section answers one question. Its heading says what it holds.
 | — | Header | Which company and line is this, and what did it last close at? | `lib/company-page/price-view.ts` over `priceHistory` |
 | 1 | Share price | How has the share done? | `prices/{store,compute}` |
 | 2 | Key statistics | How big is it, and is it growing? | `fundamentals` + `present.marketCap` |
+| 2a | Role in the chain (listed only) | What is it to the chain: bottlenecks held, grade, cited role? | `lib/company-profile`, `app/markets/[slug]/_sections/AtAGlance.tsx` |
 | 3 | Financials | Revenue and net income, year by year | `fundamentals` (annual XBRL) |
 | 4 | What it holds (tier A) | Which chokepoints does it control? | existing module |
 | 5 | Who owns it | Who holds the shares, and what is "the rest"? | `holders` (13G/13D, proxy, Form 4) |
@@ -26,11 +27,21 @@ Each section answers one question. Its heading says what it holds.
 | 8 | What has happened / filings | Events and SEC filings on one axis | existing |
 | 9 | Take part, hiring | How to work there, own part of it, buy from it | existing |
 
-- **Header.** Shows the name, `ticker · exchange · currency`, the last close
+- **Header.** A listed company reads like a quote page: the name, the quote,
+  and straight under it the share price's range row and chart. Its role in
+  the chain (the lede, the five tiles at a glance, why it is graded so and
+  where the role is cited) is a section of its own, **Role in the chain**,
+  after Key statistics (`ChainRole` in
+  `app/markets/[slug]/_sections/CompanyHeader.tsx`; its place is `chain-role` in
+  `lib/company-sections.ts`). A company with no listed share keeps all of it
+  in the header, where it is the most there is to say. The header shows the name, `ticker · exchange · currency`, the last close
   with its 1-day change and date, and the label "Delayed end-of-day · Yahoo
   Finance" with a link. Themes appear as links. The quote streams in its own
   Suspense boundary, so a slow price source never holds up the name.
-- **Share price.** A line chart with one row of equal cells for the range:
+- **Share price.** A line chart (chartkit `LineChart` with `markers="auto"`
+  and `area`: a range of more than 60 closes is a clean line over a light
+  fill, with each close's value on hover and keyboard focus; a short range
+  keeps a dot per close) with one row of equal cells for the range:
   `1M · 3M · 6M · YTD · 1Y · 5Y`. This is the only client island on the page.
   Under it, three figures for the chosen range: return, high to low, and max
   drawdown. Then the 52-week range of closes and a returns table for every
@@ -83,5 +94,10 @@ by slug, then the seed by ticker and venue, then a listing synthesised from
   with the reason. A box is never left empty.
 - Mobile first. At 390px there is no sideways scroll, every target is 44px,
   the range row is one row, and tables become stacked rows with one anatomy.
+- Nothing sits under a floating control. From 768px the page column keeps
+  a right gutter as wide as the Ask pill (`app/styles/ask.css`); on a phone
+  Ask is the top-bar button and the pill is not drawn. The Loki feedback
+  launcher is not Substrata's: it picks its own free spot, and the footer
+  keeps room for it on a phone.
 - Monochrome. Status colours are used only for gains and losses (`--ck-up`,
   `--ck-down`). Nothing is orange.

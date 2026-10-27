@@ -64,6 +64,12 @@ export function PriceRange({
           unit={currency}
           yFrom="data"
           height={240}
+          // A long range is a line with a light fill, as on a quote page: no
+          // dot per close (chartkit drops them above 60 points); each close
+          // still shows its value on hover and keyboard focus, and the table
+          // behind the chart holds them all. A short range keeps its dots.
+          markers="auto"
+          area
           caption={`${caption} Range: ${view.range}, ${view.points[0].x} to ${view.points.at(-1)!.x}.`}
         />
       ) : (
