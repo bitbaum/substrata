@@ -129,7 +129,10 @@ async function backfill() {
     `prices: ${prices.tickers} listings, ${prices.pointsNew} new, ${prices.pointsRevised} revised, ${prices.failed} failed`,
   );
   for (const e of prices.errors) console.log(`  ${e}`);
-  const facts = await refreshMarketFacts({ deadline: Date.now() + 30 * 60 * 1000 });
+  // The deploy's backfill has 40 minutes in all and prices take about 13 of them (2026-10-27,
+  // 715 listings): facts stop at 15 so the run ends in time to be recorded. The daily timer
+  // takes the rest, stalest first.
+  const facts = await refreshMarketFacts({ deadline: Date.now() + 15 * 60 * 1000 });
   console.log(`facts: ${facts.looked} looked, ${facts.stored} stored, ${facts.failed} failed`);
   console.log(`seed: ${MARKET_SEED.map((c) => tickerKey(c.ticker)).join(', ')}`);
 }
