@@ -54,11 +54,18 @@ export function SectionNav() {
   }, []);
 
   // Keep the marked entry visible in the phone strip as the reader scrolls.
+  // The strip's own scrollLeft only: scrollIntoView also scrolls the PAGE, and
+  // on a sticky strip it jumped the page back ~70px each time the section
+  // changed, so a finger swipe fought the page (owner, 2026-10-27).
   useEffect(() => {
     if (!current) return;
-    ref.current
-      ?.querySelector(`[data-target="${CSS.escape(current)}"]`)
-      ?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    const link = ref.current?.querySelector<HTMLElement>(`[data-target="${CSS.escape(current)}"]`);
+    const strip = link?.closest('ol');
+    if (!link || !strip || strip.scrollWidth <= strip.clientWidth) return;
+    const from = link.offsetLeft - strip.offsetLeft;
+    if (from < strip.scrollLeft) strip.scrollLeft = from;
+    else if (from + link.offsetWidth > strip.scrollLeft + strip.clientWidth)
+      strip.scrollLeft = from + link.offsetWidth - strip.clientWidth;
   }, [current]);
 
   const tops = entries.filter((e) => !e.sub).length;
