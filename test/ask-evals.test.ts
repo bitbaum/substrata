@@ -40,6 +40,7 @@ import { finishInCode } from '../lib/chat-agent/check-answer';
 import { GAP_SAYS, gapSentences, tableEntityWords, uncitedClaims } from '../lib/chat-agent/uncited';
 import { internalProblem } from '../lib/chat-agent/internal';
 import { routeQuestion } from '../lib/chat-agent/route';
+import { fallbackPlan } from '../lib/chat-agent/research-plan';
 import { opensWithCorpusGap, CORPUS_GAP } from '../lib/chat-agent/open-first';
 import { webFigureProblems } from '../lib/chat-agent/web-figures';
 import { kindOf } from '../lib/chat-agent/default-deny';
@@ -124,6 +125,10 @@ interface EvalRow {
   recordedNote?: string;
   /** A figure cited [W1] that the passage does not print is caught; one it prints passes. */
   webFigureGuard?: { passage: string; wrong: string; right: string };
+  /** Research mode (route.ts `analysis`): the router sends it there, and the code plan holds these ids. */
+  analysis?: boolean;
+  subQuestions?: string[];
+  note?: string;
   /** Marked general knowledge: kept without a figure, dropped with one. */
   background?: { kept: string; dropped: string };
 }
@@ -153,8 +158,9 @@ function leadClause(line: string): string {
 }
 
 test('the eval set is the one the ADR names', () => {
-  assert.equal(EVALS.length, 59);
-  assert.equal(EVALS.filter((r) => r.route === 'web').length, 6, 'six open-web questions');
+  assert.equal(EVALS.length, 64);
+  assert.equal(EVALS.filter((r) => r.route === 'web').length, 11, 'eleven open-web questions');
+  assert.equal(EVALS.filter((r) => r.analysis).length, 5, 'five research-mode questions');
   assert.equal(EVALS.filter((r) => r.wall === false).length, 28, 'twenty-eight no-wall questions');
   assert.equal(new Set(EVALS.map((r) => r.id)).size, EVALS.length, 'ids are unique');
   const niger = EVALS.find((r) => r.id === 'niger-uranium');
@@ -465,6 +471,16 @@ for (const row of EVALS.filter((r) => r.route)) {
   test(`open web ${row.id}: ${row.question}`, () => {
     const route = routeQuestion(row.question, '2026-10-24');
     assert.equal(route.web, row.route === 'web', `routed to ${row.route} (${route.reasons})`);
+    assert.equal(route.analysis, Boolean(row.analysis), `research mode: ${row.analysis}`);
+    if (row.analysis) {
+      const plan = fallbackPlan(row.question, '2026-10-25');
+      assert.ok(plan.subQuestions.length >= 3, 'the code plan asks at least three things');
+      for (const id of row.subQuestions ?? [])
+        assert.ok(
+          plan.subQuestions.some((s) => s.id === id),
+          `the code plan asks ${id}`,
+        );
+    }
     for (const q of row.queryHolds ?? [])
       assert.ok(route.query.includes(q), `the query "${route.query}" holds "${q}"`);
     if (row.recordedOpening) {

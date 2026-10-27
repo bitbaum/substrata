@@ -9,7 +9,7 @@
  */
 import { RESOURCE_KINDS, resourceLabel } from '@/config/substrata-resources';
 import { entitiesOfKind, resolveEntity } from '@/lib/entities/registry';
-import { isStub } from '@/lib/entities/types';
+import { isIdentified, isStub } from '@/lib/entities/types';
 import type { SubjectId } from '@/lib/graph/types';
 import type { DossierKind } from './definitions';
 
@@ -67,7 +67,7 @@ export function subjectsOf(kind: DossierKind): Subject[] {
   // every box of it reads "not in the directory", and the gap it stands for
   // is the country's companies box, which already names it.
   return entitiesOfKind(ENTITY_KIND_FOR[kind])
-    .filter((entity) => !isStub(entity))
+    .filter((entity) => !isStub(entity) && !isIdentified(entity))
     .map((entity) => ({
       id: entity.id,
       kind,

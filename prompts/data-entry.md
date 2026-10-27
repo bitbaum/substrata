@@ -518,3 +518,45 @@ write one. What changes for you:
   stub a profile, add a `producers` row for it with its source.
 
 <!-- END: labs facet and stub companies -->
+
+## Company universe evidence — `universe`
+
+A task with box `universe` (`company:<slug>#universe`, filed when someone asks
+about a company the site has not considered) asks for evidence on the three
+admission tests in `config/universe-themes.ts`: a **theme**, a **size figure**
+over its floor, and a **registry identifier**. The rule and the floors are
+printed at `/data/companies`. Most companies are filled by the adapters
+(`pnpm exec tsx scripts/research/universe.ts`); a row by hand is for what no
+adapter reads — a private company's round or valuation stated by the company
+or a lead investor, or a government programme list or award notice.
+
+```json
+{
+  "company": "example-reactor-co",
+  "name": "Example Reactor Co (shape only — every value here is a placeholder)",
+  "family": "statement",
+  "establishes": {
+    "size": { "basis": "private-round", "usd": 100000000 }
+  },
+  "evidence": "candidate",
+  "asOf": "2026-01-01",
+  "source": {
+    "url": "https://example.com/press-release",
+    "quote": "copy the sentence that states the amount, verbatim",
+    "readOn": "2026-10-25"
+  },
+  "submittedBy": { "agent": "data-agent", "model": "unrecorded", "runId": "…" }
+}
+```
+
+- One row per source; a row may establish theme, ids and size together when
+  one quote says all three.
+- `usd` is the amount the source states in US dollars. A figure in another
+  currency is skipped with the reason — never converted.
+- A news article repeating a figure is not enough: the company's own release,
+  an investor's release or a filing.
+- A theme from a programme list: `themeBasis: "programme"`, `themeLabel` names
+  the programme.
+- Wikidata never establishes a size.
+- If none of the three can be cited, write nothing and report "skipped"; a
+  person adds the name to `config/universe-considered.ts` with where you looked.

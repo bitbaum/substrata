@@ -47,6 +47,9 @@ export const LABEL_EVIDENCE: Readonly<Record<string, IndexEvidence>> = {
   // Company stubs: every sentence is a relation read from a quoted table cell
   // or filing; nothing else is said about the firm (lib/entities/sources/company-stubs.ts).
   stub: 'sourced',
+  // Tier B companies (lib/universe): identity, theme and size each read from a
+  // quoted row by an adapter, none of it promoted by a person.
+  'identified; not profiled': 'candidate',
 };
 
 /**

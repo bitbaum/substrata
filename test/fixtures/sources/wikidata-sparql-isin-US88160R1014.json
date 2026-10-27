@@ -1,0 +1,22 @@
+{
+  "head" : {
+    "vars" : [ "item", "isin", "label" ]
+  },
+  "results" : {
+    "bindings" : [ {
+      "item" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q478214"
+      },
+      "label" : {
+        "xml:lang" : "en",
+        "type" : "literal",
+        "value" : "Tesla"
+      },
+      "isin" : {
+        "type" : "literal",
+        "value" : "US88160R1014"
+      }
+    } ]
+  }
+}

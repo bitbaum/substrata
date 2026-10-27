@@ -15,7 +15,7 @@ import {
   resolveIn,
   resolveInDirectory,
 } from '../lib/entities/registry';
-import { isStub, STUB_EVIDENCE } from '../lib/entities/types';
+import { IDENTIFIED_EVIDENCE, isIdentified, isStub, STUB_EVIDENCE } from '../lib/entities/types';
 import { sourceLabel, stubRelations } from '../lib/entities/sources/company-stubs';
 import { graphNode, graphStore, isCounted } from '../lib/graph/index';
 import { buildStore } from '../lib/graph/store';
@@ -29,7 +29,7 @@ import type { CoverageEvent } from '../config/substrata-events';
 
 const stubs = entitiesOfKind('company').filter(isStub);
 
-test('the Kazakh uranium operators and owners are stub companies with a page', () => {
+test('the Kazakh uranium operators and owners are stub companies with a page (or promoted to tier B)', () => {
   for (const [id, name] of [
     ['company:nac-kazatomprom-jsc', 'NAC Kazatomprom JSC'],
     ['company:uranium-one-inc', 'Uranium One Inc.'],
@@ -38,7 +38,9 @@ test('the Kazakh uranium operators and owners are stub companies with a page', (
     const e = resolveEntity(id);
     assert.ok(e, `${id} does not resolve`);
     assert.equal(e.name, name);
-    assert.equal(e.evidence, STUB_EVIDENCE);
+    // Kazatomprom is also held by a uranium fund, so the universe identifies
+    // it (tier B, lib/universe): promoted in place, same slug, same sentence.
+    assert.ok([STUB_EVIDENCE, IDENTIFIED_EVIDENCE].includes(e.evidence), `${id}: ${e.evidence}`);
     assert.equal(e.href, `/markets/${id.slice('company:'.length)}`);
     assert.ok(e.topics.includes('kz'), `${id}: the Kazakhstan table printed it`);
     // Other sources may join (the pilot's own Kazatomprom rows do): the
@@ -115,9 +117,12 @@ test('search finds a stub by name and ranks it below a profiled company', () => 
   assert.equal(rio[0], 'company:rio-tinto', `a profiled company first: ${rio.join(', ')}`);
   const docs = searchDocuments().filter((d) => d.id.startsWith('company:'));
   for (const d of docs) {
-    const stub = isStub(resolveEntity(d.id)!);
-    assert.equal(d.weight !== undefined, stub, `${d.id}: weight`);
+    const e = resolveEntity(d.id)!;
+    const stub = isStub(e);
+    // A stub and a tier B company (identified, not profiled) both rank below a profile.
+    assert.equal(d.weight !== undefined, stub || isIdentified(e), `${d.id}: weight`);
     if (stub) assert.equal(d.meta, 'named in sources · no profile yet');
+    if (isIdentified(e)) assert.equal(d.meta, 'identified · not profiled');
   }
 });
 

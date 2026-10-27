@@ -2,6 +2,16 @@
 
 What changed on substrata.orangecat.ch, newest first, in the words of someone using it. Every entry corresponds to a merged pull request and the numbers are the ones in the commits; fixes are listed with the same weight as features. This file is what the fleet map (`loki.orangecat.ch/api/fleet/map`) reads, and `/changelog` on the site renders from the map.
 
+## 2026-10-26
+
+### Fixed
+- Tables in answers arrive as tables again. The check that removes unsourced sentences read each table row as a sentence and dropped the header row, which has no source of its own, so the reader saw "| :--- | :--- |" as text. A table is now judged as a table: a row stays when it cites a source, and the header stays with any row that does. A bold line at the start of a paragraph no longer loses its first asterisk either.
+
+## 2026-10-25
+
+### Changed
+- Charts now install from the released ChartKit package. Country percentages retain their world-wide scale, and the same shared figures continue to render research answers, resource rankings and profiles. Phone/desktop layouts in both themes are checked on the actual app.
+
 ## 2026-10-12
 
 ### Changed

@@ -62,9 +62,11 @@ import {
 import { Candidate, Source, SubmittedBy } from './common-schema';
 import { RelationEntry } from './relation-schema';
 import { LabEntry } from './lab-schema';
+import { UniverseEntrySchema } from './universe-schema';
+import type { UniverseRow } from '@/lib/universe/types';
 import type { LabCandidate } from './candidate';
 
-export { RelationEntry, LabEntry };
+export { RelationEntry, LabEntry, UniverseEntrySchema };
 
 // =====================================================================
 // THE COMMON PART
@@ -252,4 +254,8 @@ export const FACET_SPECS: Record<Facet, FacetSpec> = {
   },
   relations: { schema: RelationEntry, key: (r: RelationCandidate) => relationCandidateId(r) },
   labs: { schema: LabEntry, key: (r: LabCandidate) => r.id },
+  universe: {
+    schema: UniverseEntrySchema,
+    key: (r: UniverseRow) => `${r.company}/${r.source.url}`,
+  },
 };

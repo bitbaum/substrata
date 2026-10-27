@@ -1,0 +1,139 @@
+{
+  "blocks": {
+    "shell": {
+      "package": "@bitbaum/sitekit",
+      "exception": "Substrata's desktop needs a persistent research/map workspace sidebar, mobile tabs, reviewer controls and a command palette. The shared masthead would duplicate those controls and cannot represent this navigation model; SiteKit still renders its typed hosted-content sections below."
+    },
+    "identity": {
+      "package": "@bitbaum/accountkit",
+      "bindings": [
+        {
+          "file": "lib/auth.ts",
+          "symbols": ["orangecatClient", "orangecatProvider", "syncOcSession"]
+        }
+      ]
+    },
+    "publishing": {
+      "package": "bip-kit",
+      "exception": "BipKit's release roadmap and changelog templates do not model Substrata's evidence-led research updates. BipKit is used for authored learning and notes articles; the custom roadmap remains a research feed, not a product release log."
+    },
+    "design": {
+      "package": "@bitbaum/design-tokens",
+      "bindings": [
+        {
+          "file": "app/layout.tsx",
+          "symbols": []
+        }
+      ]
+    },
+    "ai": {
+      "package": "@bitbaum/ai-kit",
+      "bindings": [
+        {
+          "file": "lib/byok-ask.ts",
+          "symbols": ["complete"]
+        }
+      ]
+    },
+    "chat": {
+      "package": "@bitbaum/chatkit",
+      "bindings": [
+        {
+          "file": "components/portal/ResearchChat.tsx",
+          "symbols": ["ChatScreen", "ChatThread", "Composer"]
+        }
+      ]
+    },
+    "hosted-content": {
+      "package": "@bitbaum/sitekit",
+      "bindings": [
+        {
+          "file": "app/[...path]/page.tsx",
+          "symbols": ["SiteSections"]
+        }
+      ]
+    },
+    "articles": {
+      "package": "bip-kit",
+      "bindings": [
+        {
+          "file": "app/notes/[slug]/page.tsx",
+          "symbols": ["ArticleBody"]
+        },
+        {
+          "file": "app/learn/[slug]/page.tsx",
+          "symbols": ["ArticleBody"]
+        }
+      ]
+    },
+    "charts": {
+      "package": "@bitbaum/chartkit",
+      "bindings": [
+        {
+          "file": "lib/profile/modules/country.tsx",
+          "symbols": ["BarChart"]
+        },
+        {
+          "file": "components/portal/chat/chartRenderers.tsx",
+          "symbols": ["BarChart", "LineChart", "ShareBars", "StatTiles", "Timeline"]
+        }
+      ]
+    },
+    "dates": {
+      "package": "@bitbaum/whenkit",
+      "bindings": [
+        {
+          "file": "components/ui/date-input.tsx",
+          "symbols": ["DateInput"],
+          "usageFiles": ["components/review/LeadDraft.tsx"]
+        }
+      ]
+    },
+    "lists": {
+      "package": "@bitbaum/listkit",
+      "bindings": [
+        {
+          "file": "components/portal/Board.tsx",
+          "symbols": ["writeQuery"]
+        }
+      ]
+    },
+    "search": {
+      "package": "@bitbaum/searchkit",
+      "bindings": [
+        {
+          "file": "lib/search/expand.ts",
+          "symbols": ["candidates"]
+        },
+        {
+          "file": "lib/search/build.ts",
+          "symbols": ["createVocabulary"]
+        }
+      ]
+    },
+    "threads": {
+      "package": "threadkit",
+      "bindings": [
+        {
+          "file": "lib/page-thread.ts",
+          "symbols": ["canWrite", "visibleMessages"]
+        }
+      ]
+    },
+    "geography": {
+      "package": "@bitbaum/geo-kit",
+      "bindings": [
+        {
+          "file": "components/portal/globe-resource.ts",
+          "symbols": ["loadGeographyManifest", "loadGeographyResources"]
+        }
+      ]
+    }
+  },
+  "migration": {
+    "scope": "This wave retires the local ChartKit fork for immutable ChartKit 0.1.1, consumes ChatKit 0.15.3 with Unicode-aware CJK word-boundary checks, and adds actual app browser evidence. Pending blocks are missing adoption, not exceptions or successful composition. Existing OrangeCat/NextAuth adapter remains; account-method conformance and broader AI transport migration remain separate plan work."
+  },
+  "productOwned": {
+    "domain": "Research tools, evidence/citations, supply-chain graphs and narrative answers remain Substrata domain behavior."
+  }
+}

@@ -59,7 +59,9 @@ export default async function DataPage() {
           <p>
             <Link href="/data/quality">Data quality</Link>: every dataset scored against written
             criteria, with each failing row and its source.{' '}
-            <Link href="/data/freshness">Freshness</Link>: when each feed and file was last checked.
+            <Link href="/data/freshness">Freshness</Link>: when each feed and file was last checked.{' '}
+            <Link href="/data/companies">Companies</Link>: the rule that decides which companies are
+            covered, and why any name is in or out.
           </p>
           <h2>How fresh is this</h2>
           {/* Two different questions that a single "updated" date conflates: what

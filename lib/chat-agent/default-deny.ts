@@ -49,6 +49,12 @@ export interface DenyContext {
   evidence: string;
   /** Each read web page's passage by its [W#] number (web-figures.ts): a cited figure must be in it. */
   web?: Map<number, string>;
+  /**
+   * Headings of sections whose lines are the answer's own reasoning (research
+   * mode: "What would change this", "Confidence and gaps"): each line is held
+   * to the labelled-background rule — no figure, no link claim — never let through.
+   */
+  reasoningSections?: RegExp;
 }
 
 export type Kind =
@@ -154,6 +160,9 @@ export function kindOf(
   return null;
 }
 
+const TABLE_ROW = /^\s*\|.*\|\s*$/;
+const TABLE_RULE = /^\s*\|?\s*:?-{2,}:?\s*(\|\s*:?-{2,}:?\s*)*\|?\s*$/;
+
 const CLAUSE = /;\s+|,\s+(?=(however|but)\b)|\s+[—–-]\s+(?=(however|but)\b)/i;
 
 /** The parts of a sentence that survive on their own, rejoined; '' when none do. */
@@ -196,16 +205,45 @@ export function defaultDeny(
   const sections = answer.split(/\n(?=#{1,6} )/);
   for (const section of sections) {
     const sectionCited = SECTION_SOURCE.test(section);
+    const heading = section.match(/^\s*#{1,6} (.+)/)?.[1] ?? '';
+    const reasoning = Boolean(heading && ctx.reasoningSections?.test(heading));
     let fence = false;
     let carrying: boolean = false;
-    for (const raw of section.split('\n')) {
+    const lines = section.split('\n');
+    for (let li = 0; li < lines.length; li++) {
+      const raw = lines[li];
       if (/^\s*```/.test(raw)) fence = !fence;
+      // A table is judged as a table: each row stays whole when it is cited
+      // (or is one of the honest kinds), and the header and rule stay with any
+      // row that does. Read sentence by sentence, the uncited header row went
+      // and left the rule on top, so the reader saw "| :--- | :--- |" as prose
+      // (seen live, KfW).
+      if (!fence && TABLE_ROW.test(raw)) {
+        const block: string[] = [];
+        while (li < lines.length && TABLE_ROW.test(lines[li])) block.push(lines[li++]);
+        li--;
+        const ruled = block.length > 1 && TABLE_RULE.test(block[1]);
+        const head = ruled ? block.slice(0, 2) : [];
+        const rows = ruled ? block.slice(2) : block;
+        const kept = rows.filter((row) => {
+          const ok = kindOf(row, ctx, asked, sectionCited, reasoning) !== null;
+          if (!ok) dropped.push(row.trim());
+          return ok;
+        });
+        if (kept.length) out.push(...head, ...kept);
+        else dropped.push(...head.map((h) => h.trim()));
+        carrying = false;
+        continue;
+      }
       if (fence || /^\s*```/.test(raw) || /^\s*#{1,6} /.test(raw) || !raw.trim()) {
         out.push(raw);
         continue;
       }
-      const lead = raw.match(/^\s*(?:[-*•>]|\d+\.)?\s*/)?.[0] ?? '';
-      const bg = BACKGROUND_LABEL.test(raw);
+      // A marker is a marker only with a space after it: the "*" of a line that
+      // opens in **bold** is emphasis, and taking it as a bullet left
+      // "*What is missing**" (seen live, KfW).
+      const lead = raw.match(/^\s*(?:(?:[-*•>]|\d+\.)(?=\s))?\s*/)?.[0] ?? '';
+      const bg = reasoning || BACKGROUND_LABEL.test(raw);
       // A link's title may hold a full stop: mask links while splitting.
       const links: string[] = [];
       const masked = raw

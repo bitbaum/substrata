@@ -25,6 +25,7 @@ import sanctions from '../research/sanctions.json';
 import producers from '../research/usgs-producers.json';
 import producerPlaces from '../research/producer-places.json';
 import usgsRelations from '../research/usgs-relations.json';
+import universe from '../research/universe.json';
 import { ASSESSMENTS } from './substrata-assessment';
 import { MARKET_SEED_CHECKED_ON } from './market-seed';
 import { oldestLookedAt, type Unconfirmed } from '../lib/freshness/unconfirmed';
@@ -187,6 +188,15 @@ const oldest = (dates: readonly string[]) => [...dates].sort()[0] ?? '';
 const boardRows = Object.entries(jobBoards.companies).map(([id, r]) => ({ id, ...r }));
 
 export const DATASETS: readonly Dataset[] = [
+  {
+    id: 'universe',
+    label: 'Company universe evidence (fund holdings, EDGAR, GLEIF, Wikidata)',
+    file: 'research/universe.json',
+    refresh: 'pnpm exec tsx scripts/research/universe.ts',
+    checkedOn: day(universe.readOn),
+    // Monthly (config/universe-themes.ts REFRESH); a fund row also ages out on its own clock.
+    maxAgeDays: 45,
+  },
   {
     id: 'listings',
     label: 'Tickers and listings',

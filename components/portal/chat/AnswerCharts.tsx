@@ -14,8 +14,9 @@ export function AnswerCharts({ charts }: { charts: AnswerChart[] }) {
     <>
       {charts.filter(isAnswerChart).map((c) => (
         <figure key={c.id} className="answer-chart">
-          {renderChart(c.block, { otherLabel: c.otherLabel })}
+          {renderChart(c.block)}
           <figcaption className="answer-chart-source">
+            {c.otherLabel ? `“Other” is ${c.otherLabel.toLowerCase()}. ` : ''}
             {c.note} Source:{' '}
             <a href={c.source.url} rel="noreferrer" target="_blank">
               {c.source.label}

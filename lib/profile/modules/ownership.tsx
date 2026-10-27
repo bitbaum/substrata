@@ -85,8 +85,7 @@ const ownership: ProfileModule<OwnershipData> = {
           <ShareBars
             rows={bars}
             other={view.remainder ? view.remainder.percent / 100 : undefined}
-            otherLabel={view.remainder?.short}
-            caption={`Named holders of ${view.parent ?? name} as a share of its stock, each read from the document on its row below.${view.remainder ? ` ${view.remainder.short}: ${view.remainder.explanation}` : ''}`}
+            caption={`Named holders of ${view.parent ?? name} as a share of its stock, each read from the document on its row below.${view.remainder ? ` “Other” is ${view.remainder.short.toLowerCase()}: ${view.remainder.explanation}` : ''}`}
           />
         )}
         {view.holders.length > 0 && (

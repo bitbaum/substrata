@@ -816,5 +816,61 @@
     "mustMention": ["company:tsmc"],
     "expectedTools": ["price_history"],
     "expectedHits": ["entity:company:tsmc#0"]
+  },
+  {
+    "id": "neon-demand-outlook",
+    "facet": "material",
+    "question": "What do you think will be the demand for neon in the future? Give sources.",
+    "mustMention": [],
+    "expectedTools": [],
+    "expectedHits": [],
+    "route": "web",
+    "analysis": true,
+    "note": "Research mode (docs/architecture/2026-10-25-research-mode.md); whole runs with a fake web and model are in test/research-run.test.ts.",
+    "subQuestions": ["supply", "drivers", "risks", "prices", "forecasts"]
+  },
+  {
+    "id": "helium-demand-outlook",
+    "facet": "material",
+    "question": "What is the demand outlook for helium over the next decade?",
+    "mustMention": [],
+    "expectedTools": [],
+    "expectedHits": [],
+    "route": "web",
+    "analysis": true,
+    "note": "Research mode (docs/architecture/2026-10-25-research-mode.md); whole runs with a fake web and model are in test/research-run.test.ts."
+  },
+  {
+    "id": "smr-commercial-when",
+    "facet": "science",
+    "question": "When could small modular reactors be commercial?",
+    "mustMention": [],
+    "expectedTools": [],
+    "expectedHits": [],
+    "route": "web",
+    "analysis": true,
+    "note": "Research mode (docs/architecture/2026-10-25-research-mode.md); whole runs with a fake web and model are in test/research-run.test.ts."
+  },
+  {
+    "id": "ukraine-neon-cut-chips",
+    "facet": "events",
+    "question": "What happens to chip supply if Ukraine neon is cut again?",
+    "mustMention": [],
+    "expectedTools": [],
+    "expectedHits": [],
+    "route": "web",
+    "analysis": true,
+    "note": "Research mode (docs/architecture/2026-10-25-research-mode.md); whole runs with a fake web and model are in test/research-run.test.ts."
+  },
+  {
+    "id": "gallium-germanium-controls-compare",
+    "facet": "policy",
+    "question": "Compare gallium and germanium export controls impact",
+    "mustMention": [],
+    "expectedTools": [],
+    "expectedHits": [],
+    "route": "web",
+    "analysis": true,
+    "note": "Research mode (docs/architecture/2026-10-25-research-mode.md); whole runs with a fake web and model are in test/research-run.test.ts."
   }
 ]
