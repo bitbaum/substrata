@@ -34,6 +34,8 @@ export const COMPANY_SECTION_IMPORTANCE = {
   hiring: 58,
   'same-layer': 60,
   peers: 62,
+  // What the page could not fill: after the market frame, before the registry's own rest.
+  unknowns: 64,
   related: 88,
   sources: 89,
   discussion: 90,

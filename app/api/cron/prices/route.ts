@@ -7,7 +7,8 @@ export const maxDuration = 290;
 /**
  * The daily market-data run, called by a systemd timer through
  * `/opt/_appcron/run.sh` with `Authorization: Bearer $CRON_SECRET` — the same
- * gate as /api/cron/series. Daily closes for every seed listing first
+ * gate as /api/cron/series. Daily closes for every seed listing first, then the
+ * rest of the tracked universe lines, stalest first, within the time given
  * (research_price_runs), then, in the time left, the EDGAR fundamentals and
  * holders snapshots oldest first (research_market_fact_runs). Requires
  * scripts/db/016-market-data.sql.
@@ -20,7 +21,7 @@ export async function POST(request: Request) {
   }
   const started = Date.now();
   try {
-    const prices = await fetchAllPrices();
+    const prices = await fetchAllPrices({}, { deadline: started + 150_000 });
     const facts = await refreshMarketFacts({ deadline: started + 240_000 });
     return Response.json({ ok: true, prices, facts });
   } catch (error) {

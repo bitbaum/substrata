@@ -2,7 +2,7 @@ import { connection } from 'next/server';
 
 import { isUnavailable } from '@/lib/market-data/prices/series';
 import { quoteOf } from '@/lib/company-page/price-view';
-import { listingOf, pricesOf } from '@/lib/company-page/load';
+import { listingOf, pricesOf, expectNameOf } from '@/lib/company-page/load';
 import { Delta } from './parts';
 
 /**
@@ -22,7 +22,7 @@ export async function Quote({ slug }: { slug: string }) {
         </span>
       </p>
     );
-  const h = await pricesOf(c.ticker.exchange, c.ticker.symbol);
+  const h = await pricesOf(c.ticker.exchange, c.ticker.symbol, expectNameOf(c));
   const line = `${c.ticker.symbol} · ${c.ticker.exchange}`;
   if (isUnavailable(h))
     return (

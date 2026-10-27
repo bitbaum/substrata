@@ -2,7 +2,7 @@ import { connection } from 'next/server';
 
 import { NO_LISTING_SHORT } from '@/lib/market-data/company';
 import { keyStatCells } from '@/lib/company-page/key-stats';
-import { fundamentalsOf, listingOf, pricesOf } from '@/lib/company-page/load';
+import { fundamentalsOf, listingOf, pricesOf, expectNameOf } from '@/lib/company-page/load';
 import { EmptyState, SourceNote } from './parts';
 
 const FILING_SOURCES = [
@@ -25,7 +25,7 @@ export async function KeyStats({ slug, name }: { slug: string; name: string }) {
     );
   const [fund, prices] = await Promise.all([
     fundamentalsOf(slug),
-    pricesOf(c.ticker.exchange, c.ticker.symbol),
+    pricesOf(c.ticker.exchange, c.ticker.symbol, expectNameOf(c)),
   ]);
   const { cells, unavailable } = keyStatCells(c, fund!, prices);
   if (unavailable)

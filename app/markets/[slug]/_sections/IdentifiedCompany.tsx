@@ -12,6 +12,7 @@ import { marketSections } from '@/components/company/marketSections';
 import { Quote, QuoteLoading } from '@/components/company/Quote';
 import type { UniverseEntry } from '@/lib/universe/types';
 import { countryHref, countryNameOf } from '@/lib/world/pages';
+import { whySentence } from '@/lib/universe/why-sentence';
 import { Admissions } from './Admissions';
 import { StubSources } from './StubSources';
 
@@ -99,6 +100,10 @@ export function IdentifiedCompany({ entity, entry }: { entity: Entity; entry: Un
               </Link>
             </React.Fragment>
           ))}
+        </p>
+        <p className="mt-4 max-w-prose text-sm leading-relaxed text-fg-primary">
+          <span className="font-semibold">Why it is here: </span>
+          {whySentence(entry)}
         </p>
         <p className="mt-4 max-w-prose text-sm leading-relaxed text-fg-secondary">
           {tier.means} A thematic fund holding it shows interest in the theme, not a part in any

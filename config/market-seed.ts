@@ -24,7 +24,27 @@ export type Exchange =
   | 'Korea'
   | 'Taiwan'
   | 'Toronto'
-  | 'SIX';
+  | 'SIX'
+  // More venues a universe listing can name; the price source reads each by its suffix.
+  | 'Canada'
+  | 'TSX Venture'
+  | 'Sao Paulo'
+  | 'Madrid'
+  | 'Milan'
+  | 'Stockholm'
+  | 'Oslo'
+  | 'Copenhagen'
+  | 'Helsinki'
+  | 'Vienna'
+  | 'Brussels'
+  | 'Lisbon'
+  | 'Warsaw'
+  | 'Johannesburg'
+  | 'Shanghai'
+  | 'Shenzhen'
+  | 'Singapore'
+  | 'Tel Aviv'
+  | 'India';
 
 export interface Ticker {
   exchange: Exchange;
