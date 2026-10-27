@@ -84,6 +84,11 @@ test('Expand opens /chat on the same chat; messages from elsewhere start a new o
     /\.ck-send|\.ck-composer/,
     'nothing types into the composer from outside',
   );
+  assert.match(
+    chat,
+    /railQuery=\{compact \? 'not all' : undefined\}/,
+    'the panel’s chat list is a drawer',
+  );
 });
 
 test('"N records read" is the thought row above the answer, not a line under it', () => {

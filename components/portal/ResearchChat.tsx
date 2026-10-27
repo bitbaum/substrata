@@ -129,6 +129,9 @@ export function ResearchChat({
         deepLinkParam={compact ? undefined : 'q'}
         deepLinkAutoSend
         fill={compact ? 'parent' : 'viewport'}
+        // The panel is ~30rem wide whatever the window: its chat list is the
+        // drawer, never a rail that leaves the answer a 12rem column.
+        railQuery={compact ? 'not all' : undefined}
         starters={starters.map((s) => ({ label: s.label, prompt: s.question }))}
         startersTitle="Ask about a bottleneck, a company or a rule — or add a screenshot of a post and its claims are checked."
         composer={{
