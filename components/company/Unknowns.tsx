@@ -68,7 +68,7 @@ export async function Unknowns({ slug, name }: { slug: string; name: string }) {
                 })}
                 rel="noreferrer"
               >
-                Send evidence for it
+                Send evidence on {u.label.toLowerCase()}
               </a>
             </span>
           </li>
