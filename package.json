@@ -44,7 +44,7 @@
     "@bitbaum/accountkit": "^0.8.0",
     "@bitbaum/ai-kit": "^1.21.4",
     "@bitbaum/chartkit": "^0.3.0",
-    "@bitbaum/chatkit": "^0.20.0",
+    "@bitbaum/chatkit": "^0.20.1",
     "@bitbaum/design-tokens": "^1.2.0",
     "@bitbaum/geo-kit": "^0.1.1",
     "@bitbaum/searchkit": "^0.2.2",
