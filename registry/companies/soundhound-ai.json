@@ -6,14 +6,20 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q7564622",
+    "isin": "US8361001071",
     "ticker": "SOUN",
     "exchange": "US",
     "sedol": "BLDBS68",
-    "cik": "1840856"
+    "cik": "1840856",
+    "domain": "soundhound.com"
   },
   "areas": [
     {
       "area": "frontier-ai"
+    },
+    {
+      "area": "ai-software-tooling"
     }
   ],
   "evidence": [
@@ -83,10 +89,52 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/SoundHound_AI",
+      "quote": "SoundHound AI, Inc. is an American music and speech recognition company based in Santa Clara, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7564622",
+      "quote": "SoundHound (Q7564622) — Wikidata item: Q7564622",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/SoundHound_AI",
+      "quote": "SoundHound AI, Inc. is an American music and speech recognition company based in Santa Clara, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7564622",
+      "quote": "SoundHound (Q7564622) — headquarters location: Santa Clara",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7564622",
+      "quote": "SoundHound (Q7564622) — official website: soundhound.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "SoundHound AI, Inc. is an American music and speech recognition company based in Santa Clara, California.",
+  "hq": "Santa Clara"
 }

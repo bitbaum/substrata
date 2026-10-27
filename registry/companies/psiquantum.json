@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:quantum-computing",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/PsiQuantum",
+      "quote": "PsiQuantum, Corp. is an American quantum computing company based in Palo Alto, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q124031889",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q124031889",
-      "quote": "PsiQuantum (Q124031889) — official website: https://psiquantum.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:quantum-computing",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/PsiQuantum",
-      "quote": "PsiQuantum, Corp. is an American quantum computing company based in Palo Alto, California.",
+      "quote": "PsiQuantum (Q124031889) — official website: psiquantum.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "PsiQuantum, Corp. is an American quantum computing company based in Palo Alto, California.",
-  "country": "US",
-  "hq": "Palo Alto"
+  "hq": "Palo Alto",
+  "country": "US"
 }

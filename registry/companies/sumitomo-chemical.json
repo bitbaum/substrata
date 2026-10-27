@@ -7,9 +7,9 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q137803",
+    "isin": "JP3401400001",
     "domain": "sumitomo-chem.co.jp",
-    "lei": "353800RSAU9BD8U4DM91",
-    "isin": "JP3401400001"
+    "lei": "353800RSAU9BD8U4DM91"
   },
   "areas": [
     {
@@ -19,18 +19,18 @@
   "figures": [],
   "evidence": [
     {
-      "field": "summary",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Sumitomo_Chemical",
-      "quote": ", Ltd. is a major Japanese chemical company. The company is listed on the first section of the Tokyo Stock Exchange and is a constituent of the Nikkei 225 stock index.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "ids.qid",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q137803",
       "quote": "Sumitomo Chemical (Q137803) — Wikidata item: Q137803",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:semiconductor-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Sumitomo_Chemical",
+      "quote": ", Ltd. is a major Japanese chemical company. The company is listed on the first section of the Tokyo Stock Exchange and is a constituent of the Nikkei 225 stock index.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -54,7 +54,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q137803",
-      "quote": "Sumitomo Chemical (Q137803) — official website: https://www.sumitomo-chem.co.jp/",
+      "quote": "Sumitomo Chemical (Q137803) — official website: sumitomo-chem.co.jp",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -65,21 +65,12 @@
       "quote": "Sumitomo Chemical (Q137803) — Legal Entity Identifier: 353800RSAU9BD8U4DM91",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:semiconductor-equipment",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Sumitomo_Chemical",
-      "quote": ", Ltd. is a major Japanese chemical company. The company is listed on the first section of the Tokyo Stock Exchange and is a constituent of the Nikkei 225 stock index.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "company:add",
     "on": "2026-10-27"
   },
-  "summary": ", Ltd. is a major Japanese chemical company. The company is listed on the first section of the Tokyo Stock Exchange and is a constituent of the Nikkei 225 stock index.",
-  "country": "JP",
-  "hq": "Chūō"
+  "hq": "Chūō",
+  "country": "JP"
 }

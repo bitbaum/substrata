@@ -7,9 +7,9 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q412826",
+    "isin": "JP3119600009",
     "domain": "ajinomoto.co.jp",
-    "lei": "353800UT0TLROREPIC92",
-    "isin": "JP3119600009"
+    "lei": "353800UT0TLROREPIC92"
   },
   "areas": [
     {
@@ -19,18 +19,18 @@
   "figures": [],
   "evidence": [
     {
-      "field": "summary",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Ajinomoto",
-      "quote": ", Inc. is a Japanese multinational food and biotechnology corporation which produces seasonings, cooking oils, frozen foods, beverages, sweeteners, amino acids, insulating films, and pharmaceuticals.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "ids.qid",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q412826",
       "quote": "Ajinomoto (Q412826) — Wikidata item: Q412826",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:advanced-packaging",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Ajinomoto",
+      "quote": ", Inc. is a Japanese multinational food and biotechnology corporation which produces seasonings, cooking oils, frozen foods, beverages, sweeteners, amino acids, insulating films, and pharmaceuticals.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -54,7 +54,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q412826",
-      "quote": "Ajinomoto (Q412826) — official website: https://www.ajinomoto.co.jp/",
+      "quote": "Ajinomoto (Q412826) — official website: ajinomoto.co.jp",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -65,21 +65,12 @@
       "quote": "Ajinomoto (Q412826) — Legal Entity Identifier: 353800UT0TLROREPIC92",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:advanced-packaging",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Ajinomoto",
-      "quote": ", Inc. is a Japanese multinational food and biotechnology corporation which produces seasonings, cooking oils, frozen foods, beverages, sweeteners, amino acids, insulating films, and pharmaceuticals.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "company:add",
     "on": "2026-10-27"
   },
-  "summary": ", Inc. is a Japanese multinational food and biotechnology corporation which produces seasonings, cooking oils, frozen foods, beverages, sweeteners, amino acids, insulating films, and pharmaceuticals.",
-  "country": "JP",
-  "hq": "Ajinomoto Headquarters Building"
+  "hq": "Ajinomoto Headquarters Building",
+  "country": "JP"
 }

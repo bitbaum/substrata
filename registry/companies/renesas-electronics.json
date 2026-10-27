@@ -7,12 +7,12 @@
   "country": "JP",
   "ids": {
     "qid": "Q1196269",
-    "domain": "renesas.com",
-    "lei": "5299000EPC47VJQOFB81",
     "isin": "JP3164720009",
     "ticker": "6723",
     "exchange": "JP",
-    "cusip": "J4881V107"
+    "cusip": "J4881V107",
+    "domain": "renesas.com",
+    "lei": "5299000EPC47VJQOFB81"
   },
   "areas": [
     {
@@ -114,6 +114,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:foundry",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Renesas_Electronics",
+      "quote": "Renesas Electronics Corporation is a Japanese semiconductor manufacturer headquartered in Tokyo.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1196269",
@@ -125,7 +133,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1196269",
-      "quote": "Renesas Electronics (Q1196269) — official website: https://www.renesas.com/",
+      "quote": "Renesas Electronics (Q1196269) — official website: renesas.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -134,14 +142,6 @@
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1196269",
       "quote": "Renesas Electronics (Q1196269) — Legal Entity Identifier: 5299000EPC47VJQOFB81",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:foundry",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Renesas_Electronics",
-      "quote": "Renesas Electronics Corporation is a Japanese semiconductor manufacturer headquartered in Tokyo.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

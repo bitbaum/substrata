@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q81965",
-    "domain": "gm.com",
     "cik": "1467858",
     "lei": "54930070NSV60J38I987",
     "isin": "US37045V1008",
     "ticker": "GM",
     "exchange": "US",
     "sedol": "B665KZ5",
-    "cusip": "37045V100"
+    "cusip": "37045V100",
+    "domain": "gm.com"
   },
   "areas": [
     {
@@ -147,6 +147,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/General_Motors",
+      "quote": "General Motors Company (GM) is an American multinational automotive manufacturing company headquartered in Detroit, Michigan, United States.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q81965",
@@ -158,15 +166,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q81965",
-      "quote": "General Motors (Q81965) — official website: https://www.gm.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:autonomous-vehicles",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/General_Motors",
-      "quote": "General Motors Company (GM) is an American multinational automotive manufacturing company headquartered in Detroit, Michigan, United States.",
+      "quote": "General Motors (Q81965) — official website: gm.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q484930",
-    "domain": "analog.com",
     "cik": "6281",
     "lei": "GYVOE5EZ4GDAVTU4CQ61",
     "isin": "US0326541051",
     "ticker": "ADI",
     "exchange": "US",
     "cusip": "032654105",
-    "sedol": "2032067"
+    "sedol": "2032067",
+    "domain": "analog.com"
   },
   "areas": [
     {
@@ -204,6 +204,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:foundry",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Analog_Devices",
+      "quote": "Analog Devices, Inc. (ADI), also known simply as Analog, is an American multinational semiconductor company specializing in data conversion, signal processing, and power management technology, headquartered in Wilmington, Massachusetts.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q484930",
@@ -215,15 +223,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q484930",
-      "quote": "Analog Devices (Q484930) — official website: https://www.analog.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:foundry",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Analog_Devices",
-      "quote": "Analog Devices, Inc. (ADI), also known simply as Analog, is an American multinational semiconductor company specializing in data conversion, signal processing, and power management technology, headquartered in Wilmington, Massachusetts.",
+      "quote": "Analog Devices (Q484930) — official website: analog.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

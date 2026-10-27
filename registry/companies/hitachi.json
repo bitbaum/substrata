@@ -7,12 +7,12 @@
   "country": "JP",
   "ids": {
     "qid": "Q53238",
-    "domain": "hitachi.com",
-    "lei": "549300T6IPOCDWLKC615",
     "isin": "JP3788600009",
     "ticker": "6501",
     "exchange": "JP",
-    "cusip": "J20454112"
+    "cusip": "J20454112",
+    "domain": "hitachi.com",
+    "lei": "549300T6IPOCDWLKC615"
   },
   "areas": [
     {
@@ -102,30 +102,6 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q53238",
-      "quote": "Hitachi (Q53238) — headquarters location: Marunouchi",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "ids.domain",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q53238",
-      "quote": "Hitachi (Q53238) — official website: https://www.hitachi.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "ids.lei",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q53238",
-      "quote": "Hitachi (Q53238) — Legal Entity Identifier: 549300T6IPOCDWLKC615",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "area:grid-equipment",
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Hitachi",
@@ -138,6 +114,30 @@
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Hitachi",
       "quote": "Hitachi, Ltd. is a Japanese multinational conglomerate founded in 1910 and headquartered in Chiyoda, Tokyo.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q53238",
+      "quote": "Hitachi (Q53238) — headquarters location: Marunouchi",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q53238",
+      "quote": "Hitachi (Q53238) — official website: hitachi.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q53238",
+      "quote": "Hitachi (Q53238) — Legal Entity Identifier: 549300T6IPOCDWLKC615",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

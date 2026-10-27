@@ -7,12 +7,12 @@
   "country": "BE",
   "ids": {
     "qid": "Q902769",
-    "domain": "umicore.com",
-    "cik": "1477038",
-    "lei": "529900F3AIQECS8ZSV61",
     "isin": "BE0003884047",
     "ticker": "UMI",
-    "exchange": "BB"
+    "exchange": "BB",
+    "domain": "umicore.com",
+    "cik": "1477038",
+    "lei": "529900F3AIQECS8ZSV61"
   },
   "areas": [
     {
@@ -86,6 +86,22 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Umicore",
+      "quote": ", known as Union Minière before 2001, is a Belgian multinational materials technology company headquartered in Brussels, Belgium.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:energy-storage",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Umicore",
+      "quote": ", known as Union Minière before 2001, is a Belgian multinational materials technology company headquartered in Brussels, Belgium.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q902769",
@@ -97,7 +113,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q902769",
-      "quote": "Umicore (Q902769) — official website: http://www.umicore.com/",
+      "quote": "Umicore (Q902769) — official website: umicore.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -114,22 +130,6 @@
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q902769",
       "quote": "Umicore (Q902769) — Legal Entity Identifier: 529900F3AIQECS8ZSV61",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:critical-minerals",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Umicore",
-      "quote": ", known as Union Minière before 2001, is a Belgian multinational materials technology company headquartered in Brussels, Belgium.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:energy-storage",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Umicore",
-      "quote": ", known as Union Minière before 2001, is a Belgian multinational materials technology company headquartered in Brussels, Belgium.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

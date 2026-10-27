@@ -1,18 +1,23 @@
 {
   "slug": "hiwin-technologies",
   "name": "Hiwin Technologies Corp",
-  "aliases": [],
+  "aliases": ["Hiwin"],
   "kind": "public",
   "status": "active",
   "country": "TW",
   "ids": {
     "ticker": "2049",
     "exchange": "TT",
-    "sedol": "B1YMYT5"
+    "sedol": "B1YMYT5",
+    "qid": "Q15815687",
+    "domain": "hiwin.com.tw"
   },
   "areas": [
     {
       "area": "robotics"
+    },
+    {
+      "area": "actuators"
     }
   ],
   "evidence": [
@@ -59,10 +64,52 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/HIWIN",
+      "quote": "HIWIN is a major Taiwanese company which manufactures machinery components.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q15815687",
+      "quote": "Hiwin Technologies (Q15815687) — Wikidata item: Q15815687",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:actuators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/HIWIN",
+      "quote": "HIWIN is a major Taiwanese company which manufactures machinery components.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q15815687",
+      "quote": "Hiwin Technologies (Q15815687) — headquarters location: Taichung",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q15815687",
+      "quote": "Hiwin Technologies (Q15815687) — official website: hiwin.com.tw",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "HIWIN is a major Taiwanese company which manufactures machinery components.",
+  "hq": "Taichung"
 }

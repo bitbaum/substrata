@@ -37,6 +37,22 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:fission-smr",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/General_Atomics",
+      "quote": "General Atomics (GA) is an American energy and defense corporation headquartered in San Diego, California, that specializes in research and technology development in the fields of nuclear energy, unmanned aerial vehicles, and other electromagnetic sensors and systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:defence-autonomy",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/General_Atomics",
+      "quote": "General Atomics (GA) is an American energy and defense corporation headquartered in San Diego, California, that specializes in research and technology development in the fields of nuclear energy, unmanned aerial vehicles, and other electromagnetic sensors and systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1501547",
@@ -56,7 +72,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1501547",
-      "quote": "General Atomics (Q1501547) — official website: http://www.ga.com/",
+      "quote": "General Atomics (Q1501547) — official website: ga.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -67,22 +83,6 @@
       "quote": "General Atomics (Q1501547) — Legal Entity Identifier: 549300MXCCBCKUIL0P33",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:fission-smr",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/General_Atomics",
-      "quote": "General Atomics (GA) is an American energy and defense corporation headquartered in San Diego, California, that specializes in research and technology development in the fields of nuclear energy, unmanned aerial vehicles, and other electromagnetic sensors and systems.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:defence-autonomy",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/General_Atomics",
-      "quote": "General Atomics (GA) is an American energy and defense corporation headquartered in San Diego, California, that specializes in research and technology development in the fields of nuclear energy, unmanned aerial vehicles, and other electromagnetic sensors and systems.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -90,6 +90,6 @@
     "on": "2026-10-27"
   },
   "summary": "General Atomics (GA) is an American energy and defense corporation headquartered in San Diego, California, that specializes in research and technology development in the fields of nuclear energy, unmanned aerial vehicles, and other electromagnetic sensors and systems.",
-  "country": "US",
-  "hq": "San Diego"
+  "hq": "San Diego",
+  "country": "US"
 }

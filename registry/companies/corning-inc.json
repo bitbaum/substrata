@@ -7,10 +7,10 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q5842736",
+    "isin": "US2193501051",
     "domain": "corning.com",
     "cik": "24741",
-    "lei": "549300X2937PB0CJ7I56",
-    "isin": "US2193501051"
+    "lei": "549300X2937PB0CJ7I56"
   },
   "areas": [
     {
@@ -39,6 +39,22 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:advanced-materials",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Corning_Inc.",
+      "quote": "Corning Incorporated is an American multinational technology company specializing in glass, ceramics, and related materials and technologies including advanced optics, primarily for industrial and scientific applications.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:silicon-photonics",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Corning_Inc.",
+      "quote": "Corning Incorporated is an American multinational technology company specializing in glass, ceramics, and related materials and technologies including advanced optics, primarily for industrial and scientific applications.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q5842736",
@@ -58,7 +74,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q5842736",
-      "quote": "Corning Inc. (Q5842736) — official website: http://www.corning.com/",
+      "quote": "Corning Inc. (Q5842736) — official website: corning.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -77,22 +93,6 @@
       "quote": "Corning Inc. (Q5842736) — Legal Entity Identifier: 549300X2937PB0CJ7I56",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:advanced-materials",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Corning_Inc.",
-      "quote": "Corning Incorporated is an American multinational technology company specializing in glass, ceramics, and related materials and technologies including advanced optics, primarily for industrial and scientific applications.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:silicon-photonics",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Corning_Inc.",
-      "quote": "Corning Incorporated is an American multinational technology company specializing in glass, ceramics, and related materials and technologies including advanced optics, primarily for industrial and scientific applications.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -100,6 +100,6 @@
     "on": "2026-10-27"
   },
   "summary": "Corning Incorporated is an American multinational technology company specializing in glass, ceramics, and related materials and technologies including advanced optics, primarily for industrial and scientific applications.",
-  "country": "US",
-  "hq": "Corning"
+  "hq": "Corning",
+  "country": "US"
 }

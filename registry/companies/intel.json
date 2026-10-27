@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q248",
-    "domain": "intel.com",
     "cik": "50863",
     "lei": "KNX4USFCNGPY45LOCE31",
     "isin": "US4581401001",
     "ticker": "INTC",
     "exchange": "US",
     "sedol": "2463247",
-    "cusip": "458140100"
+    "cusip": "458140100",
+    "domain": "intel.com"
   },
   "areas": [
     {
@@ -255,6 +255,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:ai-accelerators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Intel",
+      "quote": "Intel Corporation is an American multinational technology company headquartered in Santa Clara, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q248",
@@ -266,15 +274,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q248",
-      "quote": "Intel (Q248) — official website: https://www.intel.com",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:ai-accelerators",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Intel",
-      "quote": "Intel Corporation is an American multinational technology company headquartered in Santa Clara, California.",
+      "quote": "Intel (Q248) — official website: intel.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

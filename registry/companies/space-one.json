@@ -17,18 +17,18 @@
   "figures": [],
   "evidence": [
     {
-      "field": "summary",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Space_One",
-      "quote": ", LTD. , or Space One (スペースワン), is a Japanese aerospace manufacturer, orbital launch service provider, and spaceport operator.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "ids.qid",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q119658212",
       "quote": "Space One (Q119658212) — Wikidata item: Q119658212",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:launch",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Space_One",
+      "quote": ", LTD. , or Space One (スペースワン), is a Japanese aerospace manufacturer, orbital launch service provider, and spaceport operator.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -52,15 +52,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q119658212",
-      "quote": "Space One (Q119658212) — official website: https://www.space-one.co.jp/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:launch",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Space_One",
-      "quote": ", LTD. , or Space One (スペースワン), is a Japanese aerospace manufacturer, orbital launch service provider, and spaceport operator.",
+      "quote": "Space One (Q119658212) — official website: space-one.co.jp",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -69,7 +61,6 @@
     "by": "company:add",
     "on": "2026-10-27"
   },
-  "summary": ", LTD. , or Space One (スペースワン), is a Japanese aerospace manufacturer, orbital launch service provider, and spaceport operator.",
-  "country": "JP",
-  "hq": "Shibakōen"
+  "hq": "Shibakōen",
+  "country": "JP"
 }

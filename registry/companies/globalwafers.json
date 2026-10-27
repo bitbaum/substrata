@@ -7,11 +7,11 @@
   "country": "TW",
   "ids": {
     "qid": "Q42260199",
-    "domain": "sas-globalwafers.com",
-    "lei": "529900V6RTNF3U5EGX67",
     "isin": "US37891E1038",
     "ticker": "6488",
-    "exchange": "TT"
+    "exchange": "TT",
+    "domain": "sas-globalwafers.com",
+    "lei": "529900V6RTNF3U5EGX67"
   },
   "areas": [
     {
@@ -82,6 +82,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:wafers-substrates",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/GlobalWafers",
+      "quote": ", Ltd. is a Taiwanese semiconductor company. As of 2022, they are the world's third largest silicon wafer supplier.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q42260199",
@@ -93,7 +101,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q42260199",
-      "quote": "GlobalWafers (Q42260199) — official website: https://www.sas-globalwafers.com/",
+      "quote": "GlobalWafers (Q42260199) — official website: sas-globalwafers.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -102,14 +110,6 @@
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q42260199",
       "quote": "GlobalWafers (Q42260199) — Legal Entity Identifier: 529900V6RTNF3U5EGX67",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:wafers-substrates",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/GlobalWafers",
-      "quote": ", Ltd. is a Taiwanese semiconductor company. As of 2022, they are the world's third largest silicon wafer supplier.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

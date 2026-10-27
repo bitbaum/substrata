@@ -33,18 +33,18 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "ids.domain",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q116741527",
-      "quote": "Biren Technology (Q116741527) — official website: https://www.birentech.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "area:ai-accelerators",
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Biren_Technology",
       "quote": "Shanghai Biren Intelligent Technology Co. is a Chinese fabless semiconductor design company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q116741527",
+      "quote": "Biren Technology (Q116741527) — official website: birentech.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

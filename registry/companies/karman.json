@@ -12,7 +12,8 @@
     "cik": "2040127",
     "qid": "Q132861262",
     "isin": "US4859241048",
-    "cusip": "485924104"
+    "cusip": "485924104",
+    "domain": "karman-sd.com"
   },
   "areas": [
     {
@@ -121,10 +122,27 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q132861262",
+      "quote": "Karman Holdings (Q132861262) — official website: karman-sd.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Karman_Holdings",
+      "quote": "Karman Holdings is an American fabricator of space and defense systems based in Huntington Beach, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Karman Holdings is an American fabricator of space and defense systems based in Huntington Beach, California."
 }

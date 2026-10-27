@@ -7,10 +7,10 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q1117761",
+    "isin": "AU000000ILU1",
     "domain": "iluka.com",
     "ticker": "ILU",
-    "exchange": "Australian Securities Exchange",
-    "isin": "AU000000ILU1"
+    "exchange": "Australian Securities Exchange"
   },
   "areas": [
     {
@@ -39,6 +39,22 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Iluka_Resources",
+      "quote": "Iluka Resources is an Australian resources company, specialising in mineral sands exploration, project development, operations and marketing.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:rare-earths-magnets",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Iluka_Resources",
+      "quote": "Iluka Resources is an Australian resources company, specialising in mineral sands exploration, project development, operations and marketing.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1117761",
@@ -58,7 +74,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1117761",
-      "quote": "Iluka Resources (Q1117761) — official website: http://www.iluka.com",
+      "quote": "Iluka Resources (Q1117761) — official website: iluka.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -69,22 +85,6 @@
       "quote": "Iluka Resources (Q1117761) — ticker symbol on Australian Securities Exchange: ILU",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:critical-minerals",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Iluka_Resources",
-      "quote": "Iluka Resources is an Australian resources company, specialising in mineral sands exploration, project development, operations and marketing.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:rare-earths-magnets",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Iluka_Resources",
-      "quote": "Iluka Resources is an Australian resources company, specialising in mineral sands exploration, project development, operations and marketing.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -92,6 +92,6 @@
     "on": "2026-10-27"
   },
   "summary": "Iluka Resources is an Australian resources company, specialising in mineral sands exploration, project development, operations and marketing.",
-  "country": "AU",
-  "hq": "Perth"
+  "hq": "Perth",
+  "country": "AU"
 }

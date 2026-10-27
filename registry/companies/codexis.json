@@ -7,9 +7,9 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q5140275",
+    "isin": "US1920051067",
     "domain": "codexis.com",
-    "cik": "1200375",
-    "isin": "US1920051067"
+    "cik": "1200375"
   },
   "areas": [
     {
@@ -35,6 +35,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:synthetic-biology",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Codexis",
+      "quote": "Codexis, Inc. is a protein engineering company that develops enzymes for pharmaceutical, food and medical applications.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q5140275",
@@ -54,7 +62,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q5140275",
-      "quote": "Codexis (Q5140275) — official website: http://www.codexis.com/",
+      "quote": "Codexis (Q5140275) — official website: codexis.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -65,14 +73,6 @@
       "quote": "Codexis (Q5140275) — SEC Central Index Key: 1200375",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:synthetic-biology",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Codexis",
-      "quote": "Codexis, Inc. is a protein engineering company that develops enzymes for pharmaceutical, food and medical applications.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -80,6 +80,6 @@
     "on": "2026-10-27"
   },
   "summary": "Codexis, Inc. is a protein engineering company that develops enzymes for pharmaceutical, food and medical applications.",
-  "country": "US",
-  "hq": "Redwood City"
+  "hq": "Redwood City",
+  "country": "US"
 }

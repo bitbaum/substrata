@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:fission-smr",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/GE_Vernova_Hitachi_Nuclear_Energy",
+      "quote": "GE Vernova Hitachi Nuclear Energy (GVH) is a provider of advanced reactors and nuclear services.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q5513286",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q5513286",
-      "quote": "GE Hitachi Nuclear Energy (Q5513286) — official website: https://nuclear.gepower.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:fission-smr",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/GE_Vernova_Hitachi_Nuclear_Energy",
-      "quote": "GE Vernova Hitachi Nuclear Energy (GVH) is a provider of advanced reactors and nuclear services.",
+      "quote": "GE Hitachi Nuclear Energy (Q5513286) — official website: nuclear.gepower.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "GE Vernova Hitachi Nuclear Energy (GVH) is a provider of advanced reactors and nuclear services.",
-  "country": "US",
-  "hq": "Wilmington"
+  "hq": "Wilmington",
+  "country": "US"
 }

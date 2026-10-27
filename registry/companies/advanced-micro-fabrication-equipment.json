@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:semiconductor-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Advanced_Micro-Fabrication_Equipment",
+      "quote": "Advanced Micro-Fabrication Equipment is a partially state-owned publicly listed Chinese company that manufactures semiconductor chip production equipment.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q104839222",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q104839222",
-      "quote": "Advanced Micro-Fabrication Equipment (Q104839222) — official website: https://www.amec-inc.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:semiconductor-equipment",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Advanced_Micro-Fabrication_Equipment",
-      "quote": "Advanced Micro-Fabrication Equipment is a partially state-owned publicly listed Chinese company that manufactures semiconductor chip production equipment.",
+      "quote": "Advanced Micro-Fabrication Equipment (Q104839222) — official website: amec-inc.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "Advanced Micro-Fabrication Equipment is a partially state-owned publicly listed Chinese company that manufactures semiconductor chip production equipment.",
-  "country": "CN",
-  "hq": "Shanghai"
+  "hq": "Shanghai",
+  "country": "CN"
 }

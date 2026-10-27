@@ -7,13 +7,13 @@
   "country": "US",
   "ids": {
     "qid": "Q97574745",
-    "domain": "ouster.com",
     "isin": "US68989M2026",
     "ticker": "OUST",
     "exchange": "US",
     "sedol": "BMHVMY7",
     "cik": "1816581",
-    "cusip": "68989M202"
+    "cusip": "68989M202",
+    "domain": "ouster.com"
   },
   "areas": [
     {
@@ -138,6 +138,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:robot-sensors",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Ouster_(company)",
+      "quote": "Ouster, Inc. is an American lidar technology company headquartered in San Francisco, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q97574745",
@@ -149,15 +157,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q97574745",
-      "quote": "Ouster (Q97574745) — official website: https://ouster.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:robot-sensors",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Ouster_(company)",
-      "quote": "Ouster, Inc. is an American lidar technology company headquartered in San Francisco, California.",
+      "quote": "Ouster (Q97574745) — official website: ouster.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

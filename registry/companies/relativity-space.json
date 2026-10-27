@@ -34,10 +34,10 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q54263821",
-      "quote": "Relativity Space (Q54263821) — headquarters location: Long Beach",
+      "field": "area:launch",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Relativity_Space",
+      "quote": "Relativity Space Inc. is an American aerospace manufacturing company headquartered in Long Beach, California.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -53,7 +53,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q54263821",
-      "quote": "Relativity Space (Q54263821) — official website: https://www.relativityspace.com/",
+      "quote": "Relativity Space (Q54263821) — official website: relativityspace.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -64,14 +64,6 @@
       "quote": "Relativity Space (Q54263821) — SEC Central Index Key: 1673976",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:launch",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Relativity_Space",
-      "quote": "Relativity Space Inc. is an American aerospace manufacturing company headquartered in Long Beach, California.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -79,6 +71,5 @@
     "on": "2026-10-27"
   },
   "summary": "Relativity Space Inc. is an American aerospace manufacturing company headquartered in Long Beach, California.",
-  "country": "US",
-  "hq": "Long Beach"
+  "country": "US"
 }

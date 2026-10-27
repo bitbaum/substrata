@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:fusion",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Pacific_Fusion",
+      "quote": "Pacific Fusion is an American energy company focused on developing fusion-based power sources, using a pulser-driven approach to high-yield, high-gain inertial fusion.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q140589203",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q140589203",
-      "quote": "Pacific Fusion (Q140589203) — official website: http://pacificfusion.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:fusion",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Pacific_Fusion",
-      "quote": "Pacific Fusion is an American energy company focused on developing fusion-based power sources, using a pulser-driven approach to high-yield, high-gain inertial fusion.",
+      "quote": "Pacific Fusion (Q140589203) — official website: pacificfusion.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "Pacific Fusion is an American energy company focused on developing fusion-based power sources, using a pulser-driven approach to high-yield, high-gain inertial fusion.",
-  "country": "US",
-  "hq": "Fremont"
+  "hq": "Fremont",
+  "country": "US"
 }

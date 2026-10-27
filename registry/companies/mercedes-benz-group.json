@@ -7,9 +7,9 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q27530",
+    "isin": "DE0007100000",
     "domain": "group.mercedes-benz.com",
-    "lei": "529900R27DL06UVNT076",
-    "isin": "DE0007100000"
+    "lei": "529900R27DL06UVNT076"
   },
   "areas": [
     {
@@ -35,6 +35,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Mercedes-Benz_Group",
+      "quote": "Mercedes-Benz Group AG is a German multinational automotive company headquartered in Stuttgart, Baden-Württemberg, Germany.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q27530",
@@ -54,7 +62,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q27530",
-      "quote": "Mercedes-Benz Group (Q27530) — official website: https://group.mercedes-benz.com/",
+      "quote": "Mercedes-Benz Group (Q27530) — official website: group.mercedes-benz.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -65,14 +73,6 @@
       "quote": "Mercedes-Benz Group (Q27530) — Legal Entity Identifier: 529900R27DL06UVNT076",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:autonomous-vehicles",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Mercedes-Benz_Group",
-      "quote": "Mercedes-Benz Group AG is a German multinational automotive company headquartered in Stuttgart, Baden-Württemberg, Germany.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -80,6 +80,6 @@
     "on": "2026-10-27"
   },
   "summary": "Mercedes-Benz Group AG is a German multinational automotive company headquartered in Stuttgart, Baden-Württemberg, Germany.",
-  "country": "DE",
-  "hq": "Stuttgart"
+  "hq": "Stuttgart",
+  "country": "DE"
 }

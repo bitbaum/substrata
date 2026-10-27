@@ -33,10 +33,10 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q15733006",
-      "quote": "Google DeepMind (Q15733006) — headquarters location: Googleplex",
+      "field": "area:frontier-labs",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Google_DeepMind",
+      "quote": "DeepMind Technologies Limited, trading as Google DeepMind or simply DeepMind, is a British-American artificial intelligence (AI) research laboratory which is a subsidiary of Alphabet Inc.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -52,15 +52,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q15733006",
-      "quote": "Google DeepMind (Q15733006) — official website: https://deepmind.google/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:frontier-labs",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Google_DeepMind",
-      "quote": "DeepMind Technologies Limited, trading as Google DeepMind or simply DeepMind, is a British-American artificial intelligence (AI) research laboratory which is a subsidiary of Alphabet Inc.",
+      "quote": "Google DeepMind (Q15733006) — official website: deepmind.google",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +62,5 @@
     "on": "2026-10-27"
   },
   "summary": "DeepMind Technologies Limited, trading as Google DeepMind or simply DeepMind, is a British-American artificial intelligence (AI) research laboratory which is a subsidiary of Alphabet Inc.",
-  "country": "GB",
-  "hq": "Googleplex"
+  "country": "GB"
 }

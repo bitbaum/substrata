@@ -7,13 +7,13 @@
   "country": "US",
   "ids": {
     "qid": "Q705392",
-    "domain": "seagate.com",
     "cik": "1137789",
-    "lei": "44WLCTE321JACKS7ED43",
     "isin": "IE00BKVD2N49",
     "ticker": "STX",
     "exchange": "US",
-    "sedol": "BKVD2N4"
+    "sedol": "BKVD2N4",
+    "domain": "seagate.com",
+    "lei": "44WLCTE321JACKS7ED43"
   },
   "areas": [
     {
@@ -111,6 +111,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:memory",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Seagate_Technology",
+      "quote": "Seagate Technology Holdings plc is an international data storage company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q705392",
@@ -122,7 +130,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q705392",
-      "quote": "Seagate Technology (Q705392) — official website: http://www.seagate.com",
+      "quote": "Seagate Technology (Q705392) — official website: seagate.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -131,14 +139,6 @@
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q705392",
       "quote": "Seagate Technology (Q705392) — Legal Entity Identifier: 44WLCTE321JACKS7ED43",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:memory",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Seagate_Technology",
-      "quote": "Seagate Technology Holdings plc is an international data storage company.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

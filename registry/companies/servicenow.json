@@ -6,14 +6,15 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q7455653",
+    "cik": "1373715",
     "lei": "549300HJTQM36M0E1G39",
     "isin": "US81762P1021",
     "ticker": "NOW",
     "exchange": "US",
     "sedol": "B80NXX8",
-    "cik": "1373715",
-    "qid": "Q7455653",
-    "cusip": "81762P102"
+    "cusip": "81762P102",
+    "domain": "servicenow.com"
   },
   "areas": [
     {
@@ -21,6 +22,9 @@
     },
     {
       "area": "robotics"
+    },
+    {
+      "area": "ai-software-tooling"
     }
   ],
   "evidence": [
@@ -184,10 +188,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/ServiceNow",
+      "quote": "ServiceNow, Inc. is an American software company that supplies cloud computing platforms for the creation and management of automated business workflows.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/ServiceNow",
+      "quote": "ServiceNow, Inc. is an American software company that supplies cloud computing platforms for the creation and management of automated business workflows.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7455653",
+      "quote": "ServiceNow (Q7455653) — headquarters location: Santa Clara",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7455653",
+      "quote": "ServiceNow (Q7455653) — official website: servicenow.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "ServiceNow, Inc. is an American software company that supplies cloud computing platforms for the creation and management of automated business workflows.",
+  "hq": "Santa Clara"
 }

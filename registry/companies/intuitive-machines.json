@@ -7,13 +7,13 @@
   "country": "US",
   "ids": {
     "qid": "Q60760151",
-    "domain": "intuitivemachines.com",
     "isin": "US46125A1007",
     "ticker": "LUNR",
     "exchange": "US",
     "cusip": "46125A100",
     "cik": "1844452",
-    "sedol": "BNHTR54"
+    "sedol": "BNHTR54",
+    "domain": "intuitivemachines.com"
   },
   "areas": [
     {
@@ -173,7 +173,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q60760151",
-      "quote": "Intuitive Machines (Q60760151) — official website: https://www.intuitivemachines.com/",
+      "quote": "Intuitive Machines (Q60760151) — official website: intuitivemachines.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

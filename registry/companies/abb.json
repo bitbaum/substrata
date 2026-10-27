@@ -1,7 +1,7 @@
 {
   "slug": "abb",
   "name": "ABB",
-  "aliases": ["ABB Ltd", "Abb Ltd"],
+  "aliases": ["ABB Ltd", "Abb Ltd", "ABB Group"],
   "kind": "public",
   "status": "active",
   "country": "CH",
@@ -10,7 +10,11 @@
     "exchange": "SW",
     "cik": "1091587",
     "sedol": "7108899",
-    "cusip": "H0010V101"
+    "cusip": "H0010V101",
+    "qid": "Q52825",
+    "isin": "CH0012221716",
+    "domain": "global.abb",
+    "lei": "5493000LKVGOO9PELI61"
   },
   "areas": [
     {
@@ -21,6 +25,9 @@
     },
     {
       "area": "quantum"
+    },
+    {
+      "area": "industrial-robots"
     }
   ],
   "evidence": [
@@ -137,10 +144,51 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/ABB",
+      "quote": "ABB Group is a Swedish-Swiss technology company, that operates in the fields of electrification and automation.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q52825",
+      "quote": "ABB Group (Q52825) — Wikidata item: Q52825",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:industrial-robots",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/ABB",
+      "quote": "ABB Group is a Swedish-Swiss technology company, that operates in the fields of electrification and automation.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q52825",
+      "quote": "ABB Group (Q52825) — official website: global.abb",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q52825",
+      "quote": "ABB Group (Q52825) — Legal Entity Identifier: 5493000LKVGOO9PELI61",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "ABB Group is a Swedish-Swiss technology company, that operates in the fields of electrification and automation."
 }

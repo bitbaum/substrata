@@ -7,10 +7,10 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q731912",
+    "isin": "US14448C1045",
     "domain": "corporate.carrier.com",
     "cik": "1783180",
-    "lei": "549300GUSOAN8YCR8P16",
-    "isin": "US14448C1045"
+    "lei": "549300GUSOAN8YCR8P16"
   },
   "areas": [
     {
@@ -36,6 +36,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:data-centre-cooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Carrier_Global",
+      "quote": "Carrier Global Corporation is an American multinational heating, ventilation, and air conditioning (HVAC), refrigeration, and fire and security equipment corporation based in Palm Beach Gardens, Florida.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q731912",
@@ -55,7 +63,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q731912",
-      "quote": "Carrier Corporation (Q731912) — official website: https://www.corporate.carrier.com",
+      "quote": "Carrier Corporation (Q731912) — official website: corporate.carrier.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -74,14 +82,6 @@
       "quote": "Carrier Corporation (Q731912) — Legal Entity Identifier: 549300GUSOAN8YCR8P16",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:data-centre-cooling",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Carrier_Global",
-      "quote": "Carrier Global Corporation is an American multinational heating, ventilation, and air conditioning (HVAC), refrigeration, and fire and security equipment corporation based in Palm Beach Gardens, Florida.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -89,6 +89,6 @@
     "on": "2026-10-27"
   },
   "summary": "Carrier Global Corporation is an American multinational heating, ventilation, and air conditioning (HVAC), refrigeration, and fire and security equipment corporation based in Palm Beach Gardens, Florida.",
-  "country": "US",
-  "hq": "Farmington"
+  "hq": "Farmington",
+  "country": "US"
 }

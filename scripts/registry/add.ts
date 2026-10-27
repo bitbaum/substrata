@@ -30,6 +30,7 @@ import {
 import { KINDS, type Company, type Kind } from '../../lib/registry/schema';
 
 const ROOT = process.cwd();
+const STOP = new Set(['ai', 'inc', 'the', 'of', 'and', 'co', 'ltd', 'corp']);
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 /** Polite fetch: one at a time, backs off on 429. */
@@ -37,10 +38,10 @@ const polite: Fetcher = async (url) => {
   for (let i = 0; i < 5; i++) {
     const res = await httpFetch(url);
     if (res.status !== 429) {
-      await sleep(700);
+      await sleep(Number(process.env.REGISTRY_DELAY ?? 700));
       return res;
     }
-    await sleep(3000 * (i + 1));
+    await sleep(8000 * (i + 1));
   }
   return httpFetch(url);
 };
@@ -124,7 +125,7 @@ export async function addOne(item: Item, today: string): Promise<string> {
   const words = (x: string) =>
     nameKey(x.replace(/\s*\(.*\)$/, ''))
       .split(' ')
-      .filter((w) => w.length > 2);
+      .filter((w) => w.length > 1 && !STOP.has(w));
   const titleWords = new Set(words(r.page.title));
   if (!words(item.name).some((w) => titleWords.has(w)))
     return `SKIP ${item.name}: the page "${r.page.title}" is about something else`;

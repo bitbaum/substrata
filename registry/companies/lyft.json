@@ -6,11 +6,10 @@
   "status": "active",
   "country": "US",
   "ids": {
-    "qid": "Q17077936",
-    "domain": "lyft.com",
-    "cik": "1759509",
     "lei": "549300H7I5VN334XVZ52",
     "isin": "US55087P1049",
+    "cik": "1759509",
+    "qid": "Q17077936",
     "ticker": "LYFT",
     "exchange": "US",
     "cusip": "55087P104",
@@ -19,9 +18,6 @@
   "areas": [
     {
       "area": "mobility"
-    },
-    {
-      "area": "autonomous-vehicles"
     }
   ],
   "evidence": [
@@ -101,44 +97,10 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
-    },
-    {
-      "field": "summary",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Lyft",
-      "quote": "Lyft, Inc. is an American company offering ride-hailing services, e-scooters, and bicycle-sharing systems in the United States and Canada, and, via its Freenow mobile app, Europe.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q17077936",
-      "quote": "Lyft (Q17077936) — headquarters location: San Francisco",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "ids.domain",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q17077936",
-      "quote": "Lyft (Q17077936) — official website: https://www.lyft.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:autonomous-vehicles",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Lyft",
-      "quote": "Lyft, Inc. is an American company offering ride-hailing services, e-scooters, and bicycle-sharing systems in the United States and Canada, and, via its Freenow mobile app, Europe.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  },
-  "summary": "Lyft, Inc. is an American company offering ride-hailing services, e-scooters, and bicycle-sharing systems in the United States and Canada, and, via its Freenow mobile app, Europe.",
-  "hq": "San Francisco"
+  }
 }

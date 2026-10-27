@@ -7,14 +7,14 @@
   "country": "KY",
   "ids": {
     "qid": "Q14772",
-    "domain": "baidu.com",
     "cik": "1329099",
     "lei": "254900AL64IANZYI1E02",
     "isin": "US0567521085",
     "ticker": "BIDU",
     "exchange": "US",
     "cusip": "056752108",
-    "sedol": "B0FXT17"
+    "sedol": "B0FXT17",
+    "domain": "baidu.com"
   },
   "areas": [
     {
@@ -228,6 +228,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Baidu",
+      "quote": "Baidu, Inc. is a Chinese multinational technology company specializing in Internet services and artificial intelligence.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q14772",
@@ -239,15 +247,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q14772",
-      "quote": "Baidu (Q14772) — official website: https://www.baidu.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:ai-cloud-platforms",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Baidu",
-      "quote": "Baidu, Inc. is a Chinese multinational technology company specializing in Internet services and artificial intelligence.",
+      "quote": "Baidu (Q14772) — official website: baidu.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

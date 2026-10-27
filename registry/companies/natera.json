@@ -12,7 +12,8 @@
     "isin": "US6323071042",
     "sedol": "BYQRG48",
     "cik": "1604821",
-    "qid": "Q6968762"
+    "qid": "Q6968762",
+    "domain": "natera.com"
   },
   "areas": [
     {
@@ -121,10 +122,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q6968762",
+      "quote": "Natera (Q6968762) — headquarters location: San Carlos",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q6968762",
+      "quote": "Natera (Q6968762) — official website: natera.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Natera",
+      "quote": "Natera, Inc. is a clinical genetic testing company based in Austin, Texas that specializes in non-invasive, cell-free DNA (cfDNA) testing technology, with a focus on women's health, cancer, and organ health.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "San Carlos",
+  "summary": "Natera, Inc. is a clinical genetic testing company based in Austin, Texas that specializes in non-invasive, cell-free DNA (cfDNA) testing technology, with a focus on women's health, cancer, and organ health."
 }

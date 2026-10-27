@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:satellites",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Exotrail",
+      "quote": "Exotrail is a space service company from Palaiseau, Ile-de-France, France, founded by Jean-Luc Maria, Paul Lascombes, David Henri and Nicolas Heitz in 2017.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q97189175",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q97189175",
-      "quote": "Exotrail (Q97189175) — official website: https://exotrail.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:satellites",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Exotrail",
-      "quote": "Exotrail is a space service company from Palaiseau, Ile-de-France, France, founded by Jean-Luc Maria, Paul Lascombes, David Henri and Nicolas Heitz in 2017.",
+      "quote": "Exotrail (Q97189175) — official website: exotrail.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "Exotrail is a space service company from Palaiseau, Ile-de-France, France, founded by Jean-Luc Maria, Paul Lascombes, David Henri and Nicolas Heitz in 2017.",
-  "country": "FR",
-  "hq": "Massy"
+  "hq": "Massy",
+  "country": "FR"
 }

@@ -36,6 +36,22 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:nuclear-fuel-cycle",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/China_National_Nuclear_Corporation",
+      "quote": "The China National Nuclear Corporation is a state-owned enterprise founded in 1955 in Beijing.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:fission-smr",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/China_National_Nuclear_Corporation",
+      "quote": "The China National Nuclear Corporation is a state-owned enterprise founded in 1955 in Beijing.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1073337",
@@ -55,23 +71,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1073337",
-      "quote": "China National Nuclear Corporation (Q1073337) — official website: https://en.cnnc.com.cn/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:nuclear-fuel-cycle",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/China_National_Nuclear_Corporation",
-      "quote": "The China National Nuclear Corporation is a state-owned enterprise founded in 1955 in Beijing.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:fission-smr",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/China_National_Nuclear_Corporation",
-      "quote": "The China National Nuclear Corporation is a state-owned enterprise founded in 1955 in Beijing.",
+      "quote": "China National Nuclear Corporation (Q1073337) — official website: en.cnnc.com.cn",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -81,6 +81,6 @@
     "on": "2026-10-27"
   },
   "summary": "The China National Nuclear Corporation is a state-owned enterprise founded in 1955 in Beijing.",
-  "country": "CN",
-  "hq": "Beijing"
+  "hq": "Beijing",
+  "country": "CN"
 }

@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:launch",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Galactic_Energy",
+      "quote": "Galactic Energy is a Chinese private space launch enterprise flying the Ceres-1 and developing the Pallas-1 and Ceres-2 orbital rockets.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q104635667",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q104635667",
-      "quote": "Galactic Energy (Q104635667) — official website: http://www.galactic-energy.cn/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:launch",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Galactic_Energy",
-      "quote": "Galactic Energy is a Chinese private space launch enterprise flying the Ceres-1 and developing the Pallas-1 and Ceres-2 orbital rockets.",
+      "quote": "Galactic Energy (Q104635667) — official website: galactic-energy.cn",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "Galactic Energy is a Chinese private space launch enterprise flying the Ceres-1 and developing the Pallas-1 and Ceres-2 orbital rockets.",
-  "country": "CN",
-  "hq": "Beijing"
+  "hq": "Beijing",
+  "country": "CN"
 }

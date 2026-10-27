@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:satellites",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Spacety",
+      "quote": "Spacety, officially called Changsha Tianyi Space Science and Technology Research Institute Co.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q111386234",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q111386234",
-      "quote": "Changsha Tianyi Space Science and Technology Research Institute Co. Ltd. (Q111386234) — official website: http://www.spacety.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:satellites",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Spacety",
-      "quote": "Spacety, officially called Changsha Tianyi Space Science and Technology Research Institute Co.",
+      "quote": "Changsha Tianyi Space Science and Technology Research Institute Co. Ltd. (Q111386234) — official website: spacety.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "Spacety, officially called Changsha Tianyi Space Science and Technology Research Institute Co.",
-  "country": "CN",
-  "hq": "Changsha"
+  "hq": "Changsha",
+  "country": "CN"
 }

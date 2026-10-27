@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q4836852",
-    "domain": "bwxt.com",
     "cik": "1486957",
     "lei": "549300NP85N265KWMS58",
     "isin": "US05605H1005",
     "ticker": "BWXT",
     "exchange": "US",
     "cusip": "05605H100",
-    "sedol": "BZ0W624"
+    "sedol": "BZ0W624",
+    "domain": "bwxt.com"
   },
   "areas": [
     {
@@ -180,22 +180,6 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q4836852",
-      "quote": "BWX Technologies (Q4836852) — headquarters location: Lynchburg",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "ids.domain",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q4836852",
-      "quote": "BWX Technologies (Q4836852) — official website: http://www.bwxt.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "area:fission-smr",
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/BWX_Technologies",
@@ -208,6 +192,22 @@
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/BWX_Technologies",
       "quote": "BWX Technologies, Inc. is an American company headquartered in Lynchburg, Virginia that supplies nuclear components and fuel internationally.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4836852",
+      "quote": "BWX Technologies (Q4836852) — headquarters location: Lynchburg",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4836852",
+      "quote": "BWX Technologies (Q4836852) — official website: bwxt.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

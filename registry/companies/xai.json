@@ -67,6 +67,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:frontier-labs",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/SpaceXAI",
+      "quote": "SpaceXSI, legally SpaceXAI LLC, formerly xAI, is an American artificial intelligence company founded by Elon Musk.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q120599684",
@@ -78,15 +86,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q120599684",
-      "quote": "SpaceXAI (Q120599684) — official website: https://x.ai",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:frontier-labs",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/SpaceXAI",
-      "quote": "SpaceXSI, legally SpaceXAI LLC, formerly xAI, is an American artificial intelligence company founded by Elon Musk.",
+      "quote": "SpaceXAI (Q120599684) — official website: x.ai",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

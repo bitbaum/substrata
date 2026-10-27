@@ -7,9 +7,9 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q585314",
+    "isin": "JP3148800000",
     "domain": "ibiden.co.jp",
-    "lei": "52990051DBFIQEY37C91",
-    "isin": "JP3148800000"
+    "lei": "52990051DBFIQEY37C91"
   },
   "areas": [
     {
@@ -19,18 +19,18 @@
   "figures": [],
   "evidence": [
     {
-      "field": "summary",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Ibiden",
-      "quote": ", Ltd. is a Japanese electronics company headquartered in Ogaki, Gifu prefecture that manufactures electronics-related products, such as printed circuit boards and IC packaging.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "ids.qid",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q585314",
       "quote": "Ibiden (Q585314) — Wikidata item: Q585314",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:advanced-packaging",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Ibiden",
+      "quote": ", Ltd. is a Japanese electronics company headquartered in Ogaki, Gifu prefecture that manufactures electronics-related products, such as printed circuit boards and IC packaging.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -54,7 +54,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q585314",
-      "quote": "Ibiden (Q585314) — official website: http://www.ibiden.co.jp/",
+      "quote": "Ibiden (Q585314) — official website: ibiden.co.jp",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -65,21 +65,12 @@
       "quote": "Ibiden (Q585314) — Legal Entity Identifier: 52990051DBFIQEY37C91",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:advanced-packaging",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Ibiden",
-      "quote": ", Ltd. is a Japanese electronics company headquartered in Ogaki, Gifu prefecture that manufactures electronics-related products, such as printed circuit boards and IC packaging.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "company:add",
     "on": "2026-10-27"
   },
-  "summary": ", Ltd. is a Japanese electronics company headquartered in Ogaki, Gifu prefecture that manufactures electronics-related products, such as printed circuit boards and IC packaging.",
-  "country": "JP",
-  "hq": "Ōgaki-shi"
+  "hq": "Ōgaki-shi",
+  "country": "JP"
 }

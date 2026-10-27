@@ -7,13 +7,13 @@
   "country": "JP",
   "ids": {
     "qid": "Q501376",
-    "domain": "omron.co.jp",
-    "lei": "549300ZHW0TR2QZ0NY83",
     "isin": "JP3197800000",
     "ticker": "6645",
     "exchange": "JP",
     "sedol": "6659428",
-    "cusip": "J61374120"
+    "cusip": "J61374120",
+    "domain": "omron.co.jp",
+    "lei": "549300ZHW0TR2QZ0NY83"
   },
   "areas": [
     {
@@ -97,6 +97,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:industrial-robots",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Omron",
+      "quote": "Omron Corporation , styled as OMRON, is a Japanese electronics company based in Kyoto, Japan.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q501376",
@@ -108,7 +116,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q501376",
-      "quote": "Omron (Q501376) — official website: https://www.omron.co.jp/",
+      "quote": "Omron (Q501376) — official website: omron.co.jp",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -117,14 +125,6 @@
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q501376",
       "quote": "Omron (Q501376) — Legal Entity Identifier: 549300ZHW0TR2QZ0NY83",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:industrial-robots",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Omron",
-      "quote": "Omron Corporation , styled as OMRON, is a Japanese electronics company based in Kyoto, Japan.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

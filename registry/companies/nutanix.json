@@ -12,7 +12,8 @@
     "qid": "Q16959629",
     "ticker": "NTNX",
     "exchange": "US",
-    "cusip": "67059N108"
+    "cusip": "67059N108",
+    "domain": "nutanix.com"
   },
   "areas": [
     {
@@ -123,10 +124,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q16959629",
+      "quote": "Nutanix (Q16959629) — headquarters location: San Jose",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q16959629",
+      "quote": "Nutanix (Q16959629) — official website: nutanix.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Nutanix",
+      "quote": "Nutanix, Inc. is an American cloud computing company that develops software for datacenters and hybrid multi-cloud deployments.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "San Jose",
+  "summary": "Nutanix, Inc. is an American cloud computing company that develops software for datacenters and hybrid multi-cloud deployments."
 }

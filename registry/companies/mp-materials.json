@@ -7,11 +7,11 @@
   "country": "US",
   "ids": {
     "qid": "Q105563992",
-    "domain": "mpmaterials.com",
     "isin": "US5533681012",
     "ticker": "MP",
     "exchange": "NYSE",
-    "cik": "1801368"
+    "cik": "1801368",
+    "domain": "mpmaterials.com"
   },
   "areas": [
     {
@@ -105,6 +105,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:rare-earths-magnets",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/MP_Materials",
+      "quote": "MP Materials Corp. is an American rare-earth materials company headquartered in Las Vegas, Nevada.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q105563992",
@@ -116,15 +124,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q105563992",
-      "quote": "MP Materials (Q105563992) — official website: http://mpmaterials.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:rare-earths-magnets",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/MP_Materials",
-      "quote": "MP Materials Corp. is an American rare-earth materials company headquartered in Las Vegas, Nevada.",
+      "quote": "MP Materials (Q105563992) — official website: mpmaterials.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

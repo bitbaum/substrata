@@ -7,13 +7,13 @@
   "country": "JP",
   "ids": {
     "qid": "Q1475699",
-    "domain": "keyence.com",
-    "lei": "529900M7PQBS7A89DZ11",
     "isin": "JP3236200006",
     "ticker": "6861",
     "exchange": "JP",
     "sedol": "6490995",
-    "cusip": "J32491102"
+    "cusip": "J32491102",
+    "domain": "keyence.com",
+    "lei": "529900M7PQBS7A89DZ11"
   },
   "areas": [
     {
@@ -109,6 +109,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:robot-sensors",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Keyence",
+      "quote": "Keyence Corporation is a Japan-based direct sales organization that develops and manufactures equipment for factory automation, sensors, measuring instruments, vision systems, barcode readers, laser markers and digital microscopes.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1475699",
@@ -120,7 +128,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1475699",
-      "quote": "Keyence (Q1475699) — official website: https://www.keyence.com/",
+      "quote": "Keyence (Q1475699) — official website: keyence.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -129,14 +137,6 @@
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1475699",
       "quote": "Keyence (Q1475699) — Legal Entity Identifier: 529900M7PQBS7A89DZ11",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:robot-sensors",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Keyence",
-      "quote": "Keyence Corporation is a Japan-based direct sales organization that develops and manufactures equipment for factory automation, sensors, measuring instruments, vision systems, barcode readers, laser markers and digital microscopes.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

@@ -33,10 +33,10 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q322733",
-      "quote": "Stäubli (Q322733) — headquarters location: Pfäffikon",
+      "field": "area:industrial-robots",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/St%C3%A4ubli",
+      "quote": "Stäubli is a Swiss industrial and mechatronic solution provider with four dedicated divisions: Electrical Connectors, Fluid Connectors, Robotics and Textile.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -44,7 +44,7 @@
       "field": "country",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q322733",
-      "quote": "Stäubli (Q322733) — country (ISO 3166-1 alpha-2): CH",
+      "quote": "Stäubli (Q322733) — country (ISO 3166-1 alpha-2): DE",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -52,15 +52,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q322733",
-      "quote": "Stäubli (Q322733) — official website: https://www.staubli.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:industrial-robots",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/St%C3%A4ubli",
-      "quote": "Stäubli is a Swiss industrial and mechatronic solution provider with four dedicated divisions: Electrical Connectors, Fluid Connectors, Robotics and Textile.",
+      "quote": "Stäubli (Q322733) — official website: staubli.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +62,5 @@
     "on": "2026-10-27"
   },
   "summary": "Stäubli is a Swiss industrial and mechatronic solution provider with four dedicated divisions: Electrical Connectors, Fluid Connectors, Robotics and Textile.",
-  "country": "CH",
-  "hq": "Pfäffikon"
+  "country": "DE"
 }

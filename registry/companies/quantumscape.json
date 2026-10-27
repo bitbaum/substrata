@@ -7,12 +7,12 @@
   "country": "US",
   "ids": {
     "qid": "Q99036143",
-    "domain": "quantumscape.com",
     "cik": "1811414",
     "isin": "US74767V1098",
     "ticker": "QS",
     "exchange": "US",
-    "sedol": "BMC73Z8"
+    "sedol": "BMC73Z8",
+    "domain": "quantumscape.com"
   },
   "areas": [
     {
@@ -95,6 +95,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:energy-storage",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/QuantumScape",
+      "quote": "QuantumScape Corporation is an American company that researches and develops solid-state rechargeable lithium metal batteries for use in electric cars.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q99036143",
@@ -106,15 +114,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q99036143",
-      "quote": "QuantumScape (Q99036143) — official website: https://www.quantumscape.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:energy-storage",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/QuantumScape",
-      "quote": "QuantumScape Corporation is an American company that researches and develops solid-state rechargeable lithium metal batteries for use in electric cars.",
+      "quote": "QuantumScape (Q99036143) — official website: quantumscape.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

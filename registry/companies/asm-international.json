@@ -7,11 +7,11 @@
   "country": "NL",
   "ids": {
     "qid": "Q2478569",
-    "domain": "asm.com",
-    "lei": "7245001I22ND6ZFHX623",
     "isin": "NL0000334118",
     "ticker": "ASM",
-    "exchange": "NA"
+    "exchange": "NA",
+    "domain": "asm.com",
+    "lei": "7245001I22ND6ZFHX623"
   },
   "areas": [
     {
@@ -97,6 +97,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:semiconductor-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/ASM_International",
+      "quote": "V. is a Dutch multinational corporation that designs, manufactures, sells, and services equipment used in the fabrication of semiconductor devices.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2478569",
@@ -108,7 +116,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2478569",
-      "quote": "ASM International (Q2478569) — official website: https://www.asm.com/",
+      "quote": "ASM International (Q2478569) — official website: asm.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -117,14 +125,6 @@
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2478569",
       "quote": "ASM International (Q2478569) — Legal Entity Identifier: 7245001I22ND6ZFHX623",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:semiconductor-equipment",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/ASM_International",
-      "quote": "V. is a Dutch multinational corporation that designs, manufactures, sells, and services equipment used in the fabrication of semiconductor devices.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

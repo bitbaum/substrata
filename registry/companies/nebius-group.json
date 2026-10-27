@@ -7,10 +7,10 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q47120756",
+    "isin": "NL0009805522",
     "domain": "nebius.group",
     "cik": "1513845",
-    "lei": "549300GGZHJ5Q1B18P93",
-    "isin": "NL0009805522"
+    "lei": "549300GGZHJ5Q1B18P93"
   },
   "areas": [
     {
@@ -20,18 +20,18 @@
   "figures": [],
   "evidence": [
     {
-      "field": "summary",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Nebius_Group",
-      "quote": ", headquartered in Amsterdam, is a technology company that provides artificial intelligence infrastructure.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "ids.qid",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q47120756",
       "quote": "Nebius Group (Q47120756) — Wikidata item: Q47120756",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Nebius_Group",
+      "quote": ", headquartered in Amsterdam, is a technology company that provides artificial intelligence infrastructure.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -47,7 +47,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q47120756",
-      "quote": "Nebius Group (Q47120756) — official website: https://nebius.group/",
+      "quote": "Nebius Group (Q47120756) — official website: nebius.group",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -66,20 +66,11 @@
       "quote": "Nebius Group (Q47120756) — Legal Entity Identifier: 549300GGZHJ5Q1B18P93",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:ai-cloud-platforms",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Nebius_Group",
-      "quote": ", headquartered in Amsterdam, is a technology company that provides artificial intelligence infrastructure.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "company:add",
     "on": "2026-10-27"
   },
-  "summary": ", headquartered in Amsterdam, is a technology company that provides artificial intelligence infrastructure.",
   "hq": "Amsterdam"
 }

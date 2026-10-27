@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q2743863",
-    "domain": "intuitive.com",
     "cik": "1035267",
     "lei": "54930052SRG011710797",
     "isin": "US46120E6023",
     "ticker": "ISRG",
     "exchange": "US",
     "cusip": "46120E602",
-    "sedol": "2871301"
+    "sedol": "2871301",
+    "domain": "intuitive.com"
   },
   "areas": [
     {
@@ -171,6 +171,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:industrial-robots",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Intuitive_Surgical",
+      "quote": "Intuitive Surgical, Inc. is an American biotechnology company that develops, manufactures, and markets robotic products designed to improve clinical outcomes of patients through minimally invasive surgery, most notably with the da Vinci Surgical System.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2743863",
@@ -182,15 +190,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2743863",
-      "quote": "Intuitive Surgical (Q2743863) — official website: https://www.intuitive.com",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:industrial-robots",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Intuitive_Surgical",
-      "quote": "Intuitive Surgical, Inc. is an American biotechnology company that develops, manufactures, and markets robotic products designed to improve clinical outcomes of patients through minimally invasive surgery, most notably with the da Vinci Surgical System.",
+      "quote": "Intuitive Surgical (Q2743863) — official website: intuitive.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

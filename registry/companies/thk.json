@@ -17,18 +17,18 @@
   "figures": [],
   "evidence": [
     {
-      "field": "summary",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/THK_Co.%2C_Ltd.",
-      "quote": ", Ltd. is a Japanese company that offers machine elements and modules in the field of mechanical engineering, robotics and automation.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "ids.qid",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q965361",
       "quote": "THK (Q965361) — Wikidata item: Q965361",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:actuators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/THK_Co.%2C_Ltd.",
+      "quote": ", Ltd. is a Japanese company that offers machine elements and modules in the field of mechanical engineering, robotics and automation.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -52,15 +52,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q965361",
-      "quote": "THK (Q965361) — official website: http://www.thk.com/jp/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:actuators",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/THK_Co.%2C_Ltd.",
-      "quote": ", Ltd. is a Japanese company that offers machine elements and modules in the field of mechanical engineering, robotics and automation.",
+      "quote": "THK (Q965361) — official website: thk.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -69,7 +61,6 @@
     "by": "company:add",
     "on": "2026-10-27"
   },
-  "summary": ", Ltd. is a Japanese company that offers machine elements and modules in the field of mechanical engineering, robotics and automation.",
-  "country": "JP",
-  "hq": "Tokyo"
+  "hq": "Tokyo",
+  "country": "JP"
 }

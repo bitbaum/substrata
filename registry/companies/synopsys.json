@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q2303478",
-    "domain": "synopsys.com",
     "cik": "883241",
     "lei": "QG7T915N9S0NY5UKNE63",
     "isin": "US8716071076",
     "ticker": "SNPS",
     "exchange": "US",
     "cusip": "871607107",
-    "sedol": "2867719"
+    "sedol": "2867719",
+    "domain": "synopsys.com"
   },
   "areas": [
     {
@@ -189,6 +189,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:eda-ip",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Synopsys",
+      "quote": "Synopsys, Inc. is an American multinational electronic design automation (EDA) company headquartered in Sunnyvale, California, that focuses on design and verification of silicon chips, electronic system-level design and verification, and reusable components.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2303478",
@@ -200,15 +208,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2303478",
-      "quote": "Synopsys (Q2303478) — official website: https://www.synopsys.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:eda-ip",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Synopsys",
-      "quote": "Synopsys, Inc. is an American multinational electronic design automation (EDA) company headquartered in Sunnyvale, California, that focuses on design and verification of silicon chips, electronic system-level design and verification, and reusable components.",
+      "quote": "Synopsys (Q2303478) — official website: synopsys.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

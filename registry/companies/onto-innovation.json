@@ -7,13 +7,13 @@
   "country": "US",
   "ids": {
     "qid": "Q7377461",
-    "domain": "ontoinnovation.com",
     "lei": "254900RXZVN73CHOO062",
     "isin": "US6833441057",
     "cik": "704532",
     "ticker": "ONTO",
     "exchange": "US",
-    "cusip": "683344105"
+    "cusip": "683344105",
+    "domain": "ontoinnovation.com"
   },
   "areas": [
     {
@@ -137,6 +137,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:advanced-packaging",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Onto_Innovation",
+      "quote": "Onto Innovation Inc. is an American semiconductor company formed in 2019 from the merger of Rudolph Technologies, Inc.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q7377461",
@@ -148,15 +156,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q7377461",
-      "quote": "Onto Innovation (Q7377461) — official website: https://ontoinnovation.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:advanced-packaging",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Onto_Innovation",
-      "quote": "Onto Innovation Inc. is an American semiconductor company formed in 2019 from the merger of Rudolph Technologies, Inc.",
+      "quote": "Onto Innovation (Q7377461) — official website: ontoinnovation.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

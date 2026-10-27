@@ -68,6 +68,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hitachi_Energy",
+      "quote": "Hitachi Energy Ltd. is a technology company headquartered in Zurich, Switzerland.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q107530770",
@@ -79,7 +87,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q107530770",
-      "quote": "Hitachi Energy (Q107530770) — official website: https://www.hitachienergy.com/",
+      "quote": "Hitachi Energy (Q107530770) — official website: hitachienergy.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -88,14 +96,6 @@
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q107530770",
       "quote": "Hitachi Energy (Q107530770) — Legal Entity Identifier: 5493001XCHZV2UM1TF97",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:grid-equipment",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Hitachi_Energy",
-      "quote": "Hitachi Energy Ltd. is a technology company headquartered in Zurich, Switzerland.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

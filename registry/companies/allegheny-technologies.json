@@ -13,7 +13,8 @@
     "sedol": "2526117",
     "cik": "1018963",
     "qid": "Q1361648",
-    "cusip": "01741R102"
+    "cusip": "01741R102",
+    "domain": "atimetals.com"
   },
   "areas": [
     {
@@ -112,10 +113,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1361648",
+      "quote": "Allegheny Technologies (Q1361648) — headquarters location: Pittsburgh",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1361648",
+      "quote": "Allegheny Technologies (Q1361648) — official website: atimetals.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Allegheny_Technologies",
+      "quote": "ATI Inc. is an American producer of specialty materials headquartered in Dallas, Texas.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Pittsburgh",
+  "summary": "ATI Inc. is an American producer of specialty materials headquartered in Dallas, Texas."
 }

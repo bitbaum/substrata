@@ -7,10 +7,10 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q30256699",
+    "isin": "US09075V1026",
     "domain": "biontech.de",
     "cik": "1776985",
-    "lei": "894500UZJ5LG1F8J1U58",
-    "isin": "US09075V1026"
+    "lei": "894500UZJ5LG1F8J1U58"
   },
   "areas": [
     {
@@ -36,6 +36,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:synthetic-biology",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/BioNTech",
+      "quote": "BioNTech SE is a German multinational biotechnology company headquartered in Mainz that develops immunotherapies and vaccines, particularly for cancer and infectious diseases.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q30256699",
@@ -55,7 +63,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q30256699",
-      "quote": "BioNTech (Q30256699) — official website: https://biontech.de/",
+      "quote": "BioNTech (Q30256699) — official website: biontech.de",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -74,14 +82,6 @@
       "quote": "BioNTech (Q30256699) — Legal Entity Identifier: 894500UZJ5LG1F8J1U58",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:synthetic-biology",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/BioNTech",
-      "quote": "BioNTech SE is a German multinational biotechnology company headquartered in Mainz that develops immunotherapies and vaccines, particularly for cancer and infectious diseases.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -89,6 +89,6 @@
     "on": "2026-10-27"
   },
   "summary": "BioNTech SE is a German multinational biotechnology company headquartered in Mainz that develops immunotherapies and vaccines, particularly for cancer and infectious diseases.",
-  "country": "DE",
-  "hq": "Mainz"
+  "hq": "Mainz",
+  "country": "DE"
 }

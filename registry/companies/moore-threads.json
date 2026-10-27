@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:ai-accelerators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Moore_Threads",
+      "quote": "Moore Threads Technology Co. Ltd is a Chinese company specializing in graphics processing unit (GPU) design.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q111937231",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q111937231",
-      "quote": "Moore Threads (Q111937231) — official website: https://www.mthreads.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:ai-accelerators",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Moore_Threads",
-      "quote": "Moore Threads Technology Co. Ltd is a Chinese company specializing in graphics processing unit (GPU) design.",
+      "quote": "Moore Threads (Q111937231) — official website: mthreads.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "Moore Threads Technology Co. Ltd is a Chinese company specializing in graphics processing unit (GPU) design.",
-  "country": "CN",
-  "hq": "Beijing"
+  "hq": "Beijing",
+  "country": "CN"
 }

@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q6907265",
-    "domain": "moog.com",
-    "cik": "67887",
     "lei": "549300WM2I4U7OBAHG07",
     "isin": "US6153942023",
     "ticker": "MOG/A",
     "exchange": "US",
     "sedol": "2601218",
-    "cusip": "615394202"
+    "cusip": "615394202",
+    "domain": "moog.com",
+    "cik": "67887"
   },
   "areas": [
     {
@@ -162,6 +162,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:actuators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Moog_Inc.",
+      "quote": "Moog Inc. is an American-based designer and manufacturer of electric, electro-hydraulic and hydraulic motion, controls and systems for applications in aerospace, defense, industrial and medical devices.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q6907265",
@@ -173,7 +181,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q6907265",
-      "quote": "Moog Inc. (Q6907265) — official website: https://www.moog.com/",
+      "quote": "Moog Inc. (Q6907265) — official website: moog.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -182,14 +190,6 @@
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q6907265",
       "quote": "Moog Inc. (Q6907265) — SEC Central Index Key: 67887",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:actuators",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Moog_Inc.",
-      "quote": "Moog Inc. is an American-based designer and manufacturer of electric, electro-hydraulic and hydraulic motion, controls and systems for applications in aerospace, defense, industrial and medical devices.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

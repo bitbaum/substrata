@@ -1,0 +1,85 @@
+{
+  "slug": "covestro",
+  "name": "Covestro",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q812142",
+    "isin": "DE0006062144",
+    "domain": "covestro.com",
+    "lei": "3912005AWHKLQ1CPLV11"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Covestro",
+      "quote": "Covestro AG is a German company producing polyurethane and polycarbonate raw materials.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q812142",
+      "quote": "Covestro (Q812142) — Wikidata item: Q812142",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:advanced-materials",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Covestro",
+      "quote": "Covestro AG is a German company producing polyurethane and polycarbonate raw materials.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q812142",
+      "quote": "Covestro (Q812142) — headquarters location: Leverkusen",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q812142",
+      "quote": "Covestro (Q812142) — country (ISO 3166-1 alpha-2): DE",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q812142",
+      "quote": "Covestro (Q812142) — official website: covestro.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q812142",
+      "quote": "Covestro (Q812142) — Legal Entity Identifier: 3912005AWHKLQ1CPLV11",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Covestro AG is a German company producing polyurethane and polycarbonate raw materials.",
+  "hq": "Leverkusen",
+  "country": "DE"
+}

@@ -7,8 +7,8 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q55635834",
-    "domain": "tianqilithium.com",
-    "isin": "CNE100005F09"
+    "isin": "CNE100005F09",
+    "domain": "tianqilithium.com"
   },
   "areas": [
     {
@@ -37,22 +37,6 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "country",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q55635834",
-      "quote": "Tianqi Lithium (Q55635834) — country (ISO 3166-1 alpha-2): CN",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "ids.domain",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q55635834",
-      "quote": "Tianqi Lithium (Q55635834) — official website: https://www.tianqilithium.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "area:energy-storage",
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Tianqi_Lithium",
@@ -65,6 +49,22 @@
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Tianqi_Lithium",
       "quote": "Tianqi Lithium Corp is a Chinese mining and manufacturing company based in Sichuan.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q55635834",
+      "quote": "Tianqi Lithium (Q55635834) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q55635834",
+      "quote": "Tianqi Lithium (Q55635834) — official website: tianqilithium.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

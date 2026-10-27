@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q780442",
-    "domain": "uber.com",
     "cik": "1543151",
     "lei": "549300B2FTG34FILDR98",
     "isin": "US90353T1007",
     "ticker": "UBER",
     "exchange": "US",
     "sedol": "BK6N347",
-    "cusip": "90353T100"
+    "cusip": "90353T100",
+    "domain": "uber.com"
   },
   "areas": [
     {
@@ -138,6 +138,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Uber",
+      "quote": "Uber Technologies, Inc. is an American multinational transportation company that provides ride-hailing services, courier services, food delivery, and freight transport.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q780442",
@@ -149,15 +157,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q780442",
-      "quote": "Uber (Q780442) — official website: https://www.uber.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:autonomous-vehicles",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Uber",
-      "quote": "Uber Technologies, Inc. is an American multinational transportation company that provides ride-hailing services, courier services, food delivery, and freight transport.",
+      "quote": "Uber (Q780442) — official website: uber.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

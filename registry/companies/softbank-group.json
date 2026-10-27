@@ -7,9 +7,9 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q201653",
+    "isin": "JP3436100006",
     "domain": "group.softbank",
-    "lei": "5493003BZYYYCDIO0R13",
-    "isin": "JP3436100006"
+    "lei": "5493003BZYYYCDIO0R13"
   },
   "areas": [
     {
@@ -35,6 +35,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/SoftBank_Group",
+      "quote": "SoftBank Group Corp. is a Japanese multinational investment holding company headquartered in Minato, Tokyo, that focuses on investment management.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q201653",
@@ -54,7 +62,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q201653",
-      "quote": "SoftBank Group (Q201653) — official website: https://group.softbank/",
+      "quote": "SoftBank Group (Q201653) — official website: group.softbank",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -65,14 +73,6 @@
       "quote": "SoftBank Group (Q201653) — Legal Entity Identifier: 5493003BZYYYCDIO0R13",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:ai-cloud-platforms",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/SoftBank_Group",
-      "quote": "SoftBank Group Corp. is a Japanese multinational investment holding company headquartered in Minato, Tokyo, that focuses on investment management.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -80,6 +80,6 @@
     "on": "2026-10-27"
   },
   "summary": "SoftBank Group Corp. is a Japanese multinational investment holding company headquartered in Minato, Tokyo, that focuses on investment management.",
-  "country": "JP",
-  "hq": "Minato"
+  "hq": "Minato",
+  "country": "JP"
 }

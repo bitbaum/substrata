@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q898208",
-    "domain": "honeywell.com",
     "cik": "773840",
     "lei": "ISRPG12PN4EIEOEMW547",
     "isin": "US4385162056",
     "ticker": "HON",
     "exchange": "US",
     "cusip": "438516106",
-    "sedol": "BN7RHC5"
+    "sedol": "BN7RHC5",
+    "domain": "honeywell.com"
   },
   "areas": [
     {
@@ -153,6 +153,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:quantum-computing",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Honeywell",
+      "quote": "Honeywell International Inc. was an American publicly traded, multinational automation corporation headquartered in Charlotte, North Carolina.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q898208",
@@ -164,15 +172,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q898208",
-      "quote": "Honeywell (Q898208) — official website: https://www.honeywell.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:quantum-computing",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Honeywell",
-      "quote": "Honeywell International Inc. was an American publicly traded, multinational automation corporation headquartered in Charlotte, North Carolina.",
+      "quote": "Honeywell (Q898208) — official website: honeywell.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

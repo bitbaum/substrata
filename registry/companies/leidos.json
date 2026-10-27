@@ -6,14 +6,15 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q502132",
+    "cik": "1336920",
     "lei": "549300IUTGTP6EJP8124",
     "isin": "US5253271028",
     "ticker": "LDOS",
     "exchange": "US",
     "sedol": "BDV82B8",
-    "cik": "1336920",
-    "qid": "Q502132",
-    "cusip": "525327102"
+    "cusip": "525327102",
+    "domain": "leidos.com"
   },
   "areas": [
     {
@@ -124,10 +125,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Leidos",
+      "quote": "Leidos Holdings, Inc. is an American defense, aviation, information technology, and biomedical research company headquartered in Reston, Virginia, that provides scientific, engineering, systems integration, and technical services.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q502132",
+      "quote": "Leidos (Q502132) — headquarters location: Reston",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q502132",
+      "quote": "Leidos (Q502132) — official website: leidos.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Leidos Holdings, Inc. is an American defense, aviation, information technology, and biomedical research company headquartered in Reston, Virginia, that provides scientific, engineering, systems integration, and technical services.",
+  "hq": "Reston"
 }

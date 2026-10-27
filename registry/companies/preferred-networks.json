@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:ai-accelerators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Preferred_Networks",
+      "quote": "Preferred Networks Inc. is a Japanese startup focused on the research and development of deep learning for IoT applications.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q53309069",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q53309069",
-      "quote": "Preferred Networks (Q53309069) — official website: https://www.preferred.jp/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:ai-accelerators",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Preferred_Networks",
-      "quote": "Preferred Networks Inc. is a Japanese startup focused on the research and development of deep learning for IoT applications.",
+      "quote": "Preferred Networks (Q53309069) — official website: preferred.jp",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "Preferred Networks Inc. is a Japanese startup focused on the research and development of deep learning for IoT applications.",
-  "country": "JP",
-  "hq": "Otemachi Building"
+  "hq": "Otemachi Building",
+  "country": "JP"
 }

@@ -7,10 +7,10 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q464092",
+    "isin": "US0255371017",
     "domain": "aep.com",
     "cik": "4904",
-    "lei": "1B4S6S7G0TW5EE83BO58",
-    "isin": "US0255371017"
+    "lei": "1B4S6S7G0TW5EE83BO58"
   },
   "areas": [
     {
@@ -36,10 +36,10 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q464092",
-      "quote": "American Electric Power (Q464092) — headquarters location: Jersey City",
+      "field": "area:power-storage-grid",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/American_Electric_Power",
+      "quote": "American Electric Power Company, Inc. is an American domestic electric utility company in the United States.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -55,7 +55,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q464092",
-      "quote": "American Electric Power (Q464092) — official website: https://www.aep.com",
+      "quote": "American Electric Power (Q464092) — official website: aep.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -74,14 +74,6 @@
       "quote": "American Electric Power (Q464092) — Legal Entity Identifier: 1B4S6S7G0TW5EE83BO58",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:power-storage-grid",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/American_Electric_Power",
-      "quote": "American Electric Power Company, Inc. is an American domestic electric utility company in the United States.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -89,6 +81,5 @@
     "on": "2026-10-27"
   },
   "summary": "American Electric Power Company, Inc. is an American domestic electric utility company in the United States.",
-  "country": "US",
-  "hq": "Jersey City"
+  "country": "US"
 }

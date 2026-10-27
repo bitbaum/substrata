@@ -7,11 +7,11 @@
   "country": "JP",
   "ids": {
     "qid": "Q1351484",
-    "domain": "tel.co.jp",
-    "lei": "549300H5LSF8DP3RIJ34",
     "isin": "JP3571400005",
     "ticker": "8035",
-    "exchange": "JP"
+    "exchange": "JP",
+    "domain": "tel.co.jp",
+    "lei": "549300H5LSF8DP3RIJ34"
   },
   "areas": [
     {
@@ -97,6 +97,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:semiconductor-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Tokyo_Electron",
+      "quote": "Tokyo Electron Limited , or TEL, is a Japanese electronics and semiconductor company headquartered in Akasaka, Minato-ku, Tokyo, Japan.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1351484",
@@ -108,7 +116,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1351484",
-      "quote": "Tokyo Electron (Q1351484) — official website: https://www.tel.co.jp/",
+      "quote": "Tokyo Electron (Q1351484) — official website: tel.co.jp",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -117,14 +125,6 @@
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1351484",
       "quote": "Tokyo Electron (Q1351484) — Legal Entity Identifier: 549300H5LSF8DP3RIJ34",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:semiconductor-equipment",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Tokyo_Electron",
-      "quote": "Tokyo Electron Limited , or TEL, is a Japanese electronics and semiconductor company headquartered in Akasaka, Minato-ku, Tokyo, Japan.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

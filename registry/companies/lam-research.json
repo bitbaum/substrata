@@ -7,13 +7,13 @@
   "country": "US",
   "ids": {
     "qid": "Q1342041",
-    "domain": "lamresearch.com",
     "cik": "707549",
     "lei": "549300I4GMO6D34U1T02",
     "isin": "US5128073062",
     "ticker": "LRCX",
     "exchange": "Nasdaq",
-    "cusip": "512807306"
+    "cusip": "512807306",
+    "domain": "lamresearch.com"
   },
   "areas": [
     {
@@ -160,6 +160,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:semiconductor-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Lam_Research",
+      "quote": "Lam Research Corporation is an American supplier of wafer-fabrication equipment and related services to the semiconductor industry.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1342041",
@@ -171,15 +179,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1342041",
-      "quote": "Lam Research (Q1342041) — official website: https://www.lamresearch.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:semiconductor-equipment",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Lam_Research",
-      "quote": "Lam Research Corporation is an American supplier of wafer-fabrication equipment and related services to the semiconductor industry.",
+      "quote": "Lam Research (Q1342041) — official website: lamresearch.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

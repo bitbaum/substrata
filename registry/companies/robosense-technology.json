@@ -1,14 +1,17 @@
 {
   "slug": "robosense-technology",
   "name": "Robosense Technology Co Ltd",
-  "aliases": [],
+  "aliases": ["RoboSense"],
   "kind": "public",
   "status": "active",
   "country": "HK",
   "ids": {
     "ticker": "2498",
     "exchange": "HK",
-    "sedol": "BNG5JM4"
+    "sedol": "BNG5JM4",
+    "qid": "Q132131275",
+    "isin": "KYG7611S1075",
+    "domain": "robosense.ai"
   },
   "areas": [
     {
@@ -16,6 +19,9 @@
     },
     {
       "area": "mobility"
+    },
+    {
+      "area": "robot-sensors"
     }
   ],
   "evidence": [
@@ -74,6 +80,30 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q132131275",
+      "quote": "RoboSense (Q132131275) — Wikidata item: Q132131275",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:robot-sensors",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/RoboSense",
+      "quote": ", Ltd is a publicly listed Chinese technology company that engages in the development and sales of lidar products such as sensors.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q132131275",
+      "quote": "RoboSense (Q132131275) — official website: robosense.ai",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {

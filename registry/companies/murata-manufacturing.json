@@ -7,9 +7,9 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q613325",
+    "isin": "JP3914400001",
     "domain": "murata.com",
-    "lei": "529900QZG6DL8ZRI7140",
-    "isin": "JP3914400001"
+    "lei": "529900QZG6DL8ZRI7140"
   },
   "areas": [
     {
@@ -19,18 +19,18 @@
   "figures": [],
   "evidence": [
     {
-      "field": "summary",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Murata_Manufacturing",
-      "quote": ", Ltd. is a Japanese manufacturer of electronic components, based in Nagaokakyo, Kyoto.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "ids.qid",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q613325",
       "quote": "Murata Manufacturing (Q613325) — Wikidata item: Q613325",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:robot-batteries",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Murata_Manufacturing",
+      "quote": ", Ltd. is a Japanese manufacturer of electronic components, based in Nagaokakyo, Kyoto.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -54,7 +54,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q613325",
-      "quote": "Murata Manufacturing (Q613325) — official website: https://www.murata.com/ja-jp",
+      "quote": "Murata Manufacturing (Q613325) — official website: murata.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -65,21 +65,12 @@
       "quote": "Murata Manufacturing (Q613325) — Legal Entity Identifier: 529900QZG6DL8ZRI7140",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:robot-batteries",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Murata_Manufacturing",
-      "quote": ", Ltd. is a Japanese manufacturer of electronic components, based in Nagaokakyo, Kyoto.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "company:add",
     "on": "2026-10-27"
   },
-  "summary": ", Ltd. is a Japanese manufacturer of electronic components, based in Nagaokakyo, Kyoto.",
-  "country": "JP",
-  "hq": "Nagaokakyō-shi"
+  "hq": "Nagaokakyō-shi",
+  "country": "JP"
 }

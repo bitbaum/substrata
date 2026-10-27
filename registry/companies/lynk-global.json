@@ -33,18 +33,18 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "ids.domain",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q107675681",
-      "quote": "Lynk (Q107675681) — official website: https://lynk.world",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "area:satellites",
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Lynk_Global",
       "quote": "Lynk Global is an American company developing a satellite-to-mobile-phone satellite constellation that aims to provide a \"cell tower in space\" capability for global mobile phone service coverage, including in underserved rural areas without cellular coverage.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q107675681",
+      "quote": "Lynk (Q107675681) — official website: lynk.world",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

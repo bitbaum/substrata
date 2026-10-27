@@ -7,12 +7,12 @@
   "country": "JP",
   "ids": {
     "qid": "Q855479",
-    "domain": "tdk.com",
-    "lei": "3538005O8WNU39U8NX03",
     "isin": "JP3538800008",
     "ticker": "6762",
     "exchange": "JP",
-    "sedol": "6869302"
+    "sedol": "6869302",
+    "domain": "tdk.com",
+    "lei": "3538005O8WNU39U8NX03"
   },
   "areas": [
     {
@@ -87,30 +87,6 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q855479",
-      "quote": "TDK (Q855479) — headquarters location: Minato",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "ids.domain",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q855479",
-      "quote": "TDK (Q855479) — official website: https://www.tdk.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "ids.lei",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q855479",
-      "quote": "TDK (Q855479) — Legal Entity Identifier: 3538005O8WNU39U8NX03",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "area:robot-sensors",
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/TDK",
@@ -123,6 +99,30 @@
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/TDK",
       "quote": "TDK Corporation is a Japanese multinational electronics corporation that manufactures electronic components and recording and data-storage media.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q855479",
+      "quote": "TDK (Q855479) — headquarters location: Minato",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q855479",
+      "quote": "TDK (Q855479) — official website: tdk.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q855479",
+      "quote": "TDK (Q855479) — Legal Entity Identifier: 3538005O8WNU39U8NX03",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

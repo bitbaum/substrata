@@ -1,0 +1,85 @@
+{
+  "slug": "infosys",
+  "name": "Infosys",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q26989",
+    "domain": "infosys.com",
+    "lei": "335800TYLGG93MM7PR89",
+    "isin": "US4567881085"
+  },
+  "areas": [
+    {
+      "area": "ai-software-tooling"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Infosys",
+      "quote": "Infosys Limited is an Indian multinational technology company that offers information technology, business consulting, and outsourcing services.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q26989",
+      "quote": "Infosys limited (Q26989) — Wikidata item: Q26989",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q26989",
+      "quote": "Infosys limited (Q26989) — headquarters location: Bengaluru",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q26989",
+      "quote": "Infosys limited (Q26989) — country (ISO 3166-1 alpha-2): IN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q26989",
+      "quote": "Infosys limited (Q26989) — official website: http://www.infosys.com/jp",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q26989",
+      "quote": "Infosys limited (Q26989) — Legal Entity Identifier: 335800TYLGG93MM7PR89",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Infosys",
+      "quote": "Infosys Limited is an Indian multinational technology company that offers information technology, business consulting, and outsourcing services.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Infosys Limited is an Indian multinational technology company that offers information technology, business consulting, and outsourcing services.",
+  "country": "IN",
+  "hq": "Bengaluru"
+}

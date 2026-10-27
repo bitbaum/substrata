@@ -7,12 +7,12 @@
   "country": "HK",
   "ids": {
     "qid": "Q109351566",
-    "domain": "horizon.cc",
     "isin": "KYG4602S1057",
     "ticker": "9660",
     "exchange": "HK",
     "sedol": "BS5YNY7",
-    "cusip": "G4602S105"
+    "cusip": "G4602S105",
+    "domain": "horizon.cc"
   },
   "areas": [
     {
@@ -114,22 +114,6 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q109351566",
-      "quote": "Horizon Robotics (Q109351566) — headquarters location: Beijing",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "ids.domain",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q109351566",
-      "quote": "Horizon Robotics (Q109351566) — official website: https://horizon.cc/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "area:ai-accelerators",
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Horizon_Robotics",
@@ -150,6 +134,22 @@
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Horizon_Robotics",
       "quote": "Horizon Robotics, Inc. is a Chinese technology company headquartered in Beijing.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q109351566",
+      "quote": "Horizon Robotics (Q109351566) — headquarters location: Beijing",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q109351566",
+      "quote": "Horizon Robotics (Q109351566) — official website: horizon.cc",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

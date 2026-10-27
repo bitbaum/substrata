@@ -67,6 +67,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:frontier-labs",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/OpenAI",
+      "quote": "OpenAI is an American artificial intelligence (AI) public benefit corporation (PBC) headquartered in San Francisco, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q21708200",
@@ -78,15 +86,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q21708200",
-      "quote": "OpenAI (Q21708200) — official website: https://openai.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:frontier-labs",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/OpenAI",
-      "quote": "OpenAI is an American artificial intelligence (AI) public benefit corporation (PBC) headquartered in San Francisco, California.",
+      "quote": "OpenAI (Q21708200) — official website: openai.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

@@ -34,6 +34,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:foundry",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/MediaTek",
+      "quote": "MediaTek Inc., sometimes informally abbreviated as MTK, is a Taiwanese fabless semiconductor company that designs and markets a range of semiconductor products, providing chips for wireless communications, high-definition television, handheld mobile devices like smartphones and tablet computers, navigation systems, consumer multimedia products and digital subscriber line servic",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q699848",
@@ -53,7 +61,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q699848",
-      "quote": "MediaTek (Q699848) — official website: https://www.mediatek.com/",
+      "quote": "MediaTek (Q699848) — official website: mediatek.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -64,14 +72,6 @@
       "quote": "MediaTek (Q699848) — Legal Entity Identifier: 254900UEGBK1I4DM4E14",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:foundry",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/MediaTek",
-      "quote": "MediaTek Inc., sometimes informally abbreviated as MTK, is a Taiwanese fabless semiconductor company that designs and markets a range of semiconductor products, providing chips for wireless communications, high-definition television, handheld mobile devices like smartphones and tablet computers, navigation systems, consumer multimedia products and digital subscriber line servic",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -79,6 +79,6 @@
     "on": "2026-10-27"
   },
   "summary": "MediaTek Inc., sometimes informally abbreviated as MTK, is a Taiwanese fabless semiconductor company that designs and markets a range of semiconductor products, providing chips for wireless communications, high-definition television, handheld mobile devices like smartphones and tablet computers, navigation systems, consumer multimedia products and digital subscriber line servic",
-  "country": "TW",
-  "hq": "Hsinchu City"
+  "hq": "Hsinchu City",
+  "country": "TW"
 }

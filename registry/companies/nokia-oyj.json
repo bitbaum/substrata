@@ -7,14 +7,14 @@
   "country": "FI",
   "ids": {
     "qid": "Q1418",
-    "domain": "nokia.com",
     "cik": "924613",
     "lei": "549300A0JPRWG1KI7U06",
     "isin": "US6549022043",
     "ticker": "NOK",
     "exchange": "US",
     "sedol": "2640891",
-    "cusip": "654902204"
+    "cusip": "654902204",
+    "domain": "nokia.com"
   },
   "areas": [
     {
@@ -123,6 +123,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Nokia",
+      "quote": "Nokia Corporation is a Finnish multinational telecommunications, information technology, and consumer electronics corporation, originally established as a pulp mill in 1865.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1418",
@@ -134,15 +142,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1418",
-      "quote": "Nokia (Q1418) — official website: https://www.nokia.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:ai-cloud-platforms",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Nokia",
-      "quote": "Nokia Corporation is a Finnish multinational telecommunications, information technology, and consumer electronics corporation, originally established as a pulp mill in 1865.",
+      "quote": "Nokia (Q1418) — official website: nokia.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

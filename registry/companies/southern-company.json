@@ -7,10 +7,10 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q2304693",
+    "isin": "US8425871071",
     "domain": "southerncompany.com",
     "cik": "92122",
-    "lei": "549300FC3G3YU2FBZD92",
-    "isin": "US8425871071"
+    "lei": "549300FC3G3YU2FBZD92"
   },
   "areas": [
     {
@@ -36,6 +36,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:power-storage-grid",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Southern_Company",
+      "quote": "Southern Company is an American gas and electric utility holding company based in the Southern United States.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2304693",
@@ -55,7 +63,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2304693",
-      "quote": "Southern Company (Q2304693) — official website: http://www.southerncompany.com/",
+      "quote": "Southern Company (Q2304693) — official website: southerncompany.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -74,14 +82,6 @@
       "quote": "Southern Company (Q2304693) — Legal Entity Identifier: 549300FC3G3YU2FBZD92",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:power-storage-grid",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Southern_Company",
-      "quote": "Southern Company is an American gas and electric utility holding company based in the Southern United States.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -89,6 +89,6 @@
     "on": "2026-10-27"
   },
   "summary": "Southern Company is an American gas and electric utility holding company based in the Southern United States.",
-  "country": "US",
-  "hq": "Atlanta"
+  "hq": "Atlanta",
+  "country": "US"
 }

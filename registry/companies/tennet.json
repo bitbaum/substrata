@@ -34,6 +34,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/TenneT",
+      "quote": "TenneT is a transmission system operator in the Netherlands and in a large part of Germany.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1127569",
@@ -45,7 +53,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1127569",
-      "quote": "TenneT (Q1127569) — official website: https://www.tennet.eu/",
+      "quote": "TenneT (Q1127569) — official website: tennet.eu",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -54,14 +62,6 @@
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1127569",
       "quote": "TenneT (Q1127569) — Legal Entity Identifier: 724500LTUWK3JQG63903",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:grid-equipment",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/TenneT",
-      "quote": "TenneT is a transmission system operator in the Netherlands and in a large part of Germany.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:quantum-computing",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/QuEra",
+      "quote": "QuEra Computing Inc. is an American quantum computing company based in Boston, Massachusetts.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q103804007",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q103804007",
-      "quote": "QuEra Computing Inc. (Q103804007) — official website: https://www.quera-computing.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:quantum-computing",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/QuEra",
-      "quote": "QuEra Computing Inc. is an American quantum computing company based in Boston, Massachusetts.",
+      "quote": "QuEra Computing Inc. (Q103804007) — official website: quera-computing.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "QuEra Computing Inc. is an American quantum computing company based in Boston, Massachusetts.",
-  "country": "US",
-  "hq": "Boston"
+  "hq": "Boston",
+  "country": "US"
 }

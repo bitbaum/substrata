@@ -34,6 +34,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:space",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Varda_Space_Industries",
+      "quote": "Varda Space Industries, Inc is an American privately held space research company headquartered in El Segundo, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q108352354",
@@ -53,7 +61,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q108352354",
-      "quote": "Varda Space Industries (Q108352354) — official website: https://www.varda.com/",
+      "quote": "Varda Space Industries (Q108352354) — official website: varda.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -64,14 +72,6 @@
       "quote": "Varda Space Industries (Q108352354) — SEC Central Index Key: 1839597",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:space",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Varda_Space_Industries",
-      "quote": "Varda Space Industries, Inc is an American privately held space research company headquartered in El Segundo, California.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -79,6 +79,6 @@
     "on": "2026-10-27"
   },
   "summary": "Varda Space Industries, Inc is an American privately held space research company headquartered in El Segundo, California.",
-  "country": "US",
-  "hq": "El Segundo"
+  "hq": "El Segundo",
+  "country": "US"
 }

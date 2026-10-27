@@ -7,14 +7,14 @@
   "country": "JP",
   "ids": {
     "qid": "Q2620239",
-    "domain": "yaskawa.co.jp",
-    "cik": "1297681",
-    "lei": "3538003K39GR98R0CK58",
     "isin": "JP3932000007",
     "ticker": "6506",
     "exchange": "JP",
     "sedol": "6986041",
-    "cusip": "J9690T102"
+    "cusip": "J9690T102",
+    "domain": "yaskawa.co.jp",
+    "cik": "1297681",
+    "lei": "3538003K39GR98R0CK58"
   },
   "areas": [
     {
@@ -109,6 +109,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:industrial-robots",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Yaskawa_Electric_Corporation",
+      "quote": "The Yaskawa Electric Corporation is a Japanese manufacturer of servos, motion controllers, AC motor drives, switches and industrial robots.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2620239",
@@ -120,7 +128,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2620239",
-      "quote": "Yaskawa Electric Corporation (Q2620239) — official website: http://www.yaskawa.co.jp/",
+      "quote": "Yaskawa Electric Corporation (Q2620239) — official website: yaskawa.co.jp",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -137,14 +145,6 @@
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2620239",
       "quote": "Yaskawa Electric Corporation (Q2620239) — Legal Entity Identifier: 3538003K39GR98R0CK58",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:industrial-robots",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Yaskawa_Electric_Corporation",
-      "quote": "The Yaskawa Electric Corporation is a Japanese manufacturer of servos, motion controllers, AC motor drives, switches and industrial robots.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

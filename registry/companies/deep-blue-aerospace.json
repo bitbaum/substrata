@@ -17,18 +17,18 @@
   "figures": [],
   "evidence": [
     {
-      "field": "summary",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Deep_Blue_Aerospace",
-      "quote": ", Ltd. is a private space launch enterprise founded in November 2016 by Huo Liang.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "ids.qid",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q110799961",
       "quote": "Deep Blue Aerospace (Q110799961) — Wikidata item: Q110799961",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:launch",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Deep_Blue_Aerospace",
+      "quote": ", Ltd. is a private space launch enterprise founded in November 2016 by Huo Liang.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -44,15 +44,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q110799961",
-      "quote": "Deep Blue Aerospace (Q110799961) — official website: http://www.dbaspace.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:launch",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Deep_Blue_Aerospace",
-      "quote": ", Ltd. is a private space launch enterprise founded in November 2016 by Huo Liang.",
+      "quote": "Deep Blue Aerospace (Q110799961) — official website: dbaspace.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -61,6 +53,5 @@
     "by": "company:add",
     "on": "2026-10-27"
   },
-  "summary": ", Ltd. is a private space launch enterprise founded in November 2016 by Huo Liang.",
   "country": "CN"
 }

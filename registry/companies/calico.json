@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:longevity",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Calico_(company)",
+      "quote": "Calico Life Sciences LLC is an American biotechnology company with a focus on the biology of aging, attempting to devise interventions that may enable people to lead longer and healthier lives.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q14932155",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q14932155",
-      "quote": "Calico (Q14932155) — official website: http://www.calicolabs.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:longevity",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Calico_(company)",
-      "quote": "Calico Life Sciences LLC is an American biotechnology company with a focus on the biology of aging, attempting to devise interventions that may enable people to lead longer and healthier lives.",
+      "quote": "Calico (Q14932155) — official website: calicolabs.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "Calico Life Sciences LLC is an American biotechnology company with a focus on the biology of aging, attempting to devise interventions that may enable people to lead longer and healthier lives.",
-  "country": "US",
-  "hq": "San Francisco"
+  "hq": "San Francisco",
+  "country": "US"
 }

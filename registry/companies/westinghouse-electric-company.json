@@ -34,6 +34,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:fission-smr",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Westinghouse_Electric_Company",
+      "quote": "Westinghouse Electric Company LLC is an American nuclear power company formed in 1999 from the nuclear power division of the original Westinghouse Electric Corporation.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1133735",
@@ -53,7 +61,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1133735",
-      "quote": "Westinghouse Electric Company (Q1133735) — official website: https://www.westinghousenuclear.com/",
+      "quote": "Westinghouse Electric Company (Q1133735) — official website: westinghousenuclear.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -64,14 +72,6 @@
       "quote": "Westinghouse Electric Company (Q1133735) — Legal Entity Identifier: 549300OK7IPGO6ZCOM18",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:fission-smr",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Westinghouse_Electric_Company",
-      "quote": "Westinghouse Electric Company LLC is an American nuclear power company formed in 1999 from the nuclear power division of the original Westinghouse Electric Corporation.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -79,6 +79,6 @@
     "on": "2026-10-27"
   },
   "summary": "Westinghouse Electric Company LLC is an American nuclear power company formed in 1999 from the nuclear power division of the original Westinghouse Electric Corporation.",
-  "country": "US",
-  "hq": "Cranberry Township"
+  "hq": "Cranberry Township",
+  "country": "US"
 }

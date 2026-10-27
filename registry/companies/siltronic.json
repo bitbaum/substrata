@@ -7,11 +7,11 @@
   "country": "DE",
   "ids": {
     "qid": "Q2286374",
-    "domain": "siltronic.com",
-    "lei": "5299003NKV26NNGHHR90",
     "isin": "DE000WAF3001",
     "ticker": "WAF",
-    "exchange": "GR"
+    "exchange": "GR",
+    "domain": "siltronic.com",
+    "lei": "5299003NKV26NNGHHR90"
   },
   "areas": [
     {
@@ -82,6 +82,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:wafers-substrates",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Siltronic",
+      "quote": "Siltronic AG is a German manufacturer of wafers made of hyperpure silicon headquartered in Munich.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2286374",
@@ -93,7 +101,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2286374",
-      "quote": "Siltronic (Q2286374) — official website: http://www.siltronic.com",
+      "quote": "Siltronic (Q2286374) — official website: siltronic.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -102,14 +110,6 @@
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2286374",
       "quote": "Siltronic (Q2286374) — Legal Entity Identifier: 5299003NKV26NNGHHR90",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:wafers-substrates",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Siltronic",
-      "quote": "Siltronic AG is a German manufacturer of wafers made of hyperpure silicon headquartered in Munich.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

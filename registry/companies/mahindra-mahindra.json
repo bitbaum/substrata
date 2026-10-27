@@ -7,9 +7,9 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q848059",
+    "isin": "USY541641194",
     "domain": "mahindra.com",
-    "lei": "3358003B573EV4KB4Z02",
-    "isin": "USY541641194"
+    "lei": "3358003B573EV4KB4Z02"
   },
   "areas": [
     {
@@ -35,6 +35,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:electric-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Mahindra_%26_Mahindra",
+      "quote": "Mahindra and Mahindra Limited is an Indian automobile manufacturing company, headquartered in Mumbai.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q848059",
@@ -54,7 +62,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q848059",
-      "quote": "Mahindra & Mahindra (Q848059) — official website: http://www.mahindra.com",
+      "quote": "Mahindra & Mahindra (Q848059) — official website: mahindra.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -65,14 +73,6 @@
       "quote": "Mahindra & Mahindra (Q848059) — Legal Entity Identifier: 3358003B573EV4KB4Z02",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:electric-vehicles",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Mahindra_%26_Mahindra",
-      "quote": "Mahindra and Mahindra Limited is an Indian automobile manufacturing company, headquartered in Mumbai.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -80,6 +80,6 @@
     "on": "2026-10-27"
   },
   "summary": "Mahindra and Mahindra Limited is an Indian automobile manufacturing company, headquartered in Mumbai.",
-  "country": "IN",
-  "hq": "Mumbai"
+  "hq": "Mumbai",
+  "country": "IN"
 }

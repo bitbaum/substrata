@@ -17,18 +17,18 @@
   "figures": [],
   "evidence": [
     {
-      "field": "summary",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/EVE_Energy",
-      "quote": ", Ltd. is a Chinese battery manufacturing company founded by Liu Jincheng in 2001 that specializes in the manufacturing of lithium-ion batteries for energy storage systems and electric vehicles.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "ids.qid",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q105966435",
       "quote": "EVE Energy Co., Ltd (Q105966435) — Wikidata item: Q105966435",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:energy-storage",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/EVE_Energy",
+      "quote": ", Ltd. is a Chinese battery manufacturing company founded by Liu Jincheng in 2001 that specializes in the manufacturing of lithium-ion batteries for energy storage systems and electric vehicles.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -52,15 +52,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q105966435",
-      "quote": "EVE Energy Co., Ltd (Q105966435) — official website: http://www.evebattery.com",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:energy-storage",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/EVE_Energy",
-      "quote": ", Ltd. is a Chinese battery manufacturing company founded by Liu Jincheng in 2001 that specializes in the manufacturing of lithium-ion batteries for energy storage systems and electric vehicles.",
+      "quote": "EVE Energy Co., Ltd (Q105966435) — official website: evebattery.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -69,7 +61,6 @@
     "by": "company:add",
     "on": "2026-10-27"
   },
-  "summary": ", Ltd. is a Chinese battery manufacturing company founded by Liu Jincheng in 2001 that specializes in the manufacturing of lithium-ion batteries for energy storage systems and electric vehicles.",
-  "country": "CN",
-  "hq": "Huizhou"
+  "hq": "Huizhou",
+  "country": "CN"
 }

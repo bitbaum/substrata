@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q22078063",
-    "domain": "snowflake.com",
     "cik": "1640147",
     "lei": "254900CJNSY1K7T53Z16",
     "isin": "US8334451098",
     "ticker": "SNOW",
     "exchange": "US",
     "sedol": "BN134B7",
-    "cusip": "833445109"
+    "cusip": "833445109",
+    "domain": "snowflake.com"
   },
   "areas": [
     {
@@ -201,6 +201,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Snowflake_Inc.",
+      "quote": "Snowflake Inc. is an American cloud-based artificial intelligence (AI) data platform company founded in San Mateo, California, and headquartered in Menlo Park.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q22078063",
@@ -212,15 +220,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q22078063",
-      "quote": "Snowflake Inc. (Q22078063) — official website: https://www.snowflake.com",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:ai-software-tooling",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Snowflake_Inc.",
-      "quote": "Snowflake Inc. is an American cloud-based artificial intelligence (AI) data platform company founded in San Mateo, California, and headquartered in Menlo Park.",
+      "quote": "Snowflake Inc. (Q22078063) — official website: snowflake.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

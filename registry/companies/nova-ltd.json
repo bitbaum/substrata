@@ -7,9 +7,9 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q7064069",
+    "isin": "IL0010845571",
     "domain": "novami.com",
-    "lei": "529900B2DSWE5V3SC292",
-    "isin": "IL0010845571"
+    "lei": "529900B2DSWE5V3SC292"
   },
   "areas": [
     {
@@ -19,18 +19,18 @@
   "figures": [],
   "evidence": [
     {
-      "field": "summary",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Nova_Ltd.",
-      "quote": ", formerly known as Nova Measuring Instruments, is a publicly traded company that provides advanced metrology solutions for semiconductor manufacturing.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "ids.qid",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q7064069",
       "quote": "Nova Ltd. (Q7064069) — Wikidata item: Q7064069",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:advanced-packaging",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Nova_Ltd.",
+      "quote": ", formerly known as Nova Measuring Instruments, is a publicly traded company that provides advanced metrology solutions for semiconductor manufacturing.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -54,7 +54,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q7064069",
-      "quote": "Nova Ltd. (Q7064069) — official website: https://www.novami.com",
+      "quote": "Nova Ltd. (Q7064069) — official website: novami.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -65,21 +65,12 @@
       "quote": "Nova Ltd. (Q7064069) — Legal Entity Identifier: 529900B2DSWE5V3SC292",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:advanced-packaging",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Nova_Ltd.",
-      "quote": ", formerly known as Nova Measuring Instruments, is a publicly traded company that provides advanced metrology solutions for semiconductor manufacturing.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "company:add",
     "on": "2026-10-27"
   },
-  "summary": ", formerly known as Nova Measuring Instruments, is a publicly traded company that provides advanced metrology solutions for semiconductor manufacturing.",
-  "country": "IL",
-  "hq": "Rehovot"
+  "hq": "Rehovot",
+  "country": "IL"
 }

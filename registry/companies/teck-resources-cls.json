@@ -1,18 +1,25 @@
 {
   "slug": "teck-resources-cls",
   "name": "Teck Resources Ltd-CLS",
-  "aliases": [],
+  "aliases": ["Teck Resources"],
   "kind": "public",
   "status": "active",
   "country": "CA",
   "ids": {
     "ticker": "TECK/B",
     "exchange": "CN",
-    "sedol": "2879327"
+    "sedol": "2879327",
+    "qid": "Q688725",
+    "isin": "CA8787422044",
+    "domain": "teck.com",
+    "lei": "T8KI5SQ2JRWHL7XY0E11"
   },
   "areas": [
     {
       "area": "advanced-materials"
+    },
+    {
+      "area": "critical-minerals"
     }
   ],
   "evidence": [
@@ -59,10 +66,60 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Teck_Resources",
+      "quote": "Teck Resources Limited is a diversified natural resources company headquartered in Vancouver, British Columbia, that is engaged in mining and mineral development, including coal for the steelmaking industry, copper, zinc, and energy.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q688725",
+      "quote": "Teck Resources (Q688725) — Wikidata item: Q688725",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Teck_Resources",
+      "quote": "Teck Resources Limited is a diversified natural resources company headquartered in Vancouver, British Columbia, that is engaged in mining and mineral development, including coal for the steelmaking industry, copper, zinc, and energy.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q688725",
+      "quote": "Teck Resources (Q688725) — headquarters location: Vancouver",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q688725",
+      "quote": "Teck Resources (Q688725) — official website: teck.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q688725",
+      "quote": "Teck Resources (Q688725) — Legal Entity Identifier: T8KI5SQ2JRWHL7XY0E11",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Teck Resources Limited is a diversified natural resources company headquartered in Vancouver, British Columbia, that is engaged in mining and mineral development, including coal for the steelmaking industry, copper, zinc, and energy.",
+  "hq": "Vancouver"
 }

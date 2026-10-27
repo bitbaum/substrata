@@ -7,9 +7,9 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q459367",
+    "isin": "DE000SHA0019",
     "domain": "schaeffler.com",
-    "lei": "549300Q7E782X7GC1P43",
-    "isin": "DE000SHA0019"
+    "lei": "549300Q7E782X7GC1P43"
   },
   "areas": [
     {
@@ -35,6 +35,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:actuators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Schaeffler_Group",
+      "quote": "Schaeffler Technologies AG & Co. KG, also known as the Schaeffler Group, is a German manufacturer of rolling element bearings for automotive, aerospace and industrial uses, including the FAG brand.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q459367",
@@ -54,7 +62,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q459367",
-      "quote": "Schaeffler Group (Q459367) — official website: https://www.schaeffler.com/",
+      "quote": "Schaeffler Group (Q459367) — official website: schaeffler.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -65,14 +73,6 @@
       "quote": "Schaeffler Group (Q459367) — Legal Entity Identifier: 549300Q7E782X7GC1P43",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:actuators",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Schaeffler_Group",
-      "quote": "Schaeffler Technologies AG & Co. KG, also known as the Schaeffler Group, is a German manufacturer of rolling element bearings for automotive, aerospace and industrial uses, including the FAG brand.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -80,6 +80,6 @@
     "on": "2026-10-27"
   },
   "summary": "Schaeffler Technologies AG & Co. KG, also known as the Schaeffler Group, is a German manufacturer of rolling element bearings for automotive, aerospace and industrial uses, including the FAG brand.",
-  "country": "DE",
-  "hq": "Herzogenaurach"
+  "hq": "Herzogenaurach",
+  "country": "DE"
 }

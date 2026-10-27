@@ -11,14 +11,14 @@
   "country": "US",
   "ids": {
     "qid": "Q2069106",
-    "domain": "pacb.com",
     "cik": "1299130",
-    "lei": "529900F1BWRE1M0KZN89",
     "isin": "US69404D1081",
     "ticker": "PACB",
     "exchange": "US",
     "cusip": "69404D108",
-    "sedol": "B4N8MH9"
+    "sedol": "B4N8MH9",
+    "domain": "pacb.com",
+    "lei": "529900F1BWRE1M0KZN89"
   },
   "areas": [
     {
@@ -140,6 +140,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:synthetic-biology",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Pacific_Biosciences",
+      "quote": "Pacific Biosciences of California, Inc. is an American biotechnology company founded in 2004 that develops and manufactures systems for gene sequencing and some novel real time biological observation.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2069106",
@@ -151,7 +159,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2069106",
-      "quote": "Pacific Biosciences (Q2069106) — official website: https://www.pacb.com/",
+      "quote": "Pacific Biosciences (Q2069106) — official website: pacb.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -160,14 +168,6 @@
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2069106",
       "quote": "Pacific Biosciences (Q2069106) — Legal Entity Identifier: 529900F1BWRE1M0KZN89",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:synthetic-biology",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Pacific_Biosciences",
-      "quote": "Pacific Biosciences of California, Inc. is an American biotechnology company founded in 2004 that develops and manufactures systems for gene sequencing and some novel real time biological observation.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

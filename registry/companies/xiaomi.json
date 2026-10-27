@@ -7,12 +7,12 @@
   "country": "HK",
   "ids": {
     "qid": "Q1636958",
-    "domain": "mi.com",
-    "lei": "2549001ACVFAZRNMKL32",
     "isin": "KYG9830T1067",
     "ticker": "1810",
     "exchange": "HK",
-    "sedol": "BG0ZMJ9"
+    "sedol": "BG0ZMJ9",
+    "domain": "mi.com",
+    "lei": "2549001ACVFAZRNMKL32"
   },
   "areas": [
     {
@@ -93,30 +93,6 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q1636958",
-      "quote": "Xiaomi (Q1636958) — headquarters location: Beijing",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "ids.domain",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q1636958",
-      "quote": "Xiaomi (Q1636958) — official website: https://www.mi.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "ids.lei",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q1636958",
-      "quote": "Xiaomi (Q1636958) — Legal Entity Identifier: 2549001ACVFAZRNMKL32",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "area:humanoids",
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Xiaomi",
@@ -145,6 +121,30 @@
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Xiaomi",
       "quote": "Xiaomi is a Chinese multinational corporation and technology company headquartered in Beijing, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1636958",
+      "quote": "Xiaomi (Q1636958) — headquarters location: Beijing",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1636958",
+      "quote": "Xiaomi (Q1636958) — official website: mi.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1636958",
+      "quote": "Xiaomi (Q1636958) — Legal Entity Identifier: 2549001ACVFAZRNMKL32",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

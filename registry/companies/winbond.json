@@ -7,8 +7,8 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q700305",
-    "domain": "winbond.com",
-    "isin": "US9726572095"
+    "isin": "US9726572095",
+    "domain": "winbond.com"
   },
   "areas": [
     {
@@ -34,10 +34,10 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q700305",
-      "quote": "Winbond (Q700305) — headquarters location: Taiwan",
+      "field": "area:memory",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Winbond",
+      "quote": "Winbond Electronics Corporation is a Taiwan-based corporation founded in 1987.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -53,15 +53,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q700305",
-      "quote": "Winbond (Q700305) — official website: http://www.winbond.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:memory",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Winbond",
-      "quote": "Winbond Electronics Corporation is a Taiwan-based corporation founded in 1987.",
+      "quote": "Winbond (Q700305) — official website: winbond.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -71,6 +63,5 @@
     "on": "2026-10-27"
   },
   "summary": "Winbond Electronics Corporation is a Taiwan-based corporation founded in 1987.",
-  "country": "TW",
-  "hq": "Taiwan"
+  "country": "TW"
 }

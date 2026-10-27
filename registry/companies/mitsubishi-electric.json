@@ -7,12 +7,12 @@
   "country": "JP",
   "ids": {
     "qid": "Q53257",
-    "domain": "klima.mitsubishielectric.com.tr",
-    "lei": "549300TRXM9Y6561AX39",
     "isin": "JP3902400005",
     "ticker": "6503",
     "exchange": "JP",
-    "cusip": "J43873116"
+    "cusip": "J43873116",
+    "domain": "klima.mitsubishielectric.com.tr",
+    "lei": "549300TRXM9Y6561AX39"
   },
   "areas": [
     {
@@ -125,6 +125,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Mitsubishi_Electric",
+      "quote": "Mitsubishi Electric Corporation is a Japanese multinational electronics and electrical equipment manufacturing company headquartered in Tokyo, Japan.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q53257",
@@ -136,7 +144,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q53257",
-      "quote": "Mitsubishi Electric (Q53257) — official website: https://klima.mitsubishielectric.com.tr/tr",
+      "quote": "Mitsubishi Electric (Q53257) — official website: klima.mitsubishielectric.com.tr",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -145,14 +153,6 @@
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q53257",
       "quote": "Mitsubishi Electric (Q53257) — Legal Entity Identifier: 549300TRXM9Y6561AX39",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:grid-equipment",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Mitsubishi_Electric",
-      "quote": "Mitsubishi Electric Corporation is a Japanese multinational electronics and electrical equipment manufacturing company headquartered in Tokyo, Japan.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

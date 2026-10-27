@@ -10,18 +10,22 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q17460900",
+    "cik": "1585521",
     "lei": "549300T9GCHU0ODOM055",
     "isin": "US98980L1017",
     "ticker": "ZM",
     "exchange": "US",
     "sedol": "BGSP7M9",
-    "cik": "1585521",
-    "qid": "Q17460900",
-    "cusip": "98980L101"
+    "cusip": "98980L101",
+    "domain": "zoom.com"
   },
   "areas": [
     {
       "area": "frontier-ai"
+    },
+    {
+      "area": "ai-software-tooling"
     }
   ],
   "evidence": [
@@ -137,10 +141,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Zoom_Communications",
+      "quote": "Zoom Communications, Inc. is an American communications technology company headquartered in San Jose, California, United States.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Zoom_Communications",
+      "quote": "Zoom Communications, Inc. is an American communications technology company headquartered in San Jose, California, United States.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17460900",
+      "quote": "Zoom Communications (Q17460900) — headquarters location: San Jose",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17460900",
+      "quote": "Zoom Communications (Q17460900) — official website: zoom.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Zoom Communications, Inc. is an American communications technology company headquartered in San Jose, California, United States.",
+  "hq": "San Jose"
 }

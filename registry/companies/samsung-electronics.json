@@ -7,13 +7,13 @@
   "country": "KR",
   "ids": {
     "qid": "Q20718",
-    "domain": "samsung.com",
-    "lei": "9884007ER46L6N7EI764",
     "isin": "KR7005930003",
     "ticker": "005930",
     "exchange": "KS",
     "sedol": "6771720",
-    "cusip": "Y74718100"
+    "cusip": "Y74718100",
+    "domain": "samsung.com",
+    "lei": "9884007ER46L6N7EI764"
   },
   "areas": [
     {
@@ -103,30 +103,6 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q20718",
-      "quote": "Samsung Electronics (Q20718) — headquarters location: Seoul",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "ids.domain",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q20718",
-      "quote": "Samsung Electronics (Q20718) — official website: https://samsung.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "ids.lei",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q20718",
-      "quote": "Samsung Electronics (Q20718) — Legal Entity Identifier: 9884007ER46L6N7EI764",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "area:foundry",
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Samsung_Electronics",
@@ -141,12 +117,27 @@
       "quote": ", Ltd. is a South Korean multinational consumer electronics and semiconductor corporation founded in 1969 and headquartered in Yeongtong District, Suwon, South Korea.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q20718",
+      "quote": "Samsung Electronics (Q20718) — official website: samsung.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q20718",
+      "quote": "Samsung Electronics (Q20718) — Legal Entity Identifier: 9884007ER46L6N7EI764",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
   },
-  "summary": ", Ltd. is a South Korean multinational consumer electronics and semiconductor corporation founded in 1969 and headquartered in Yeongtong District, Suwon, South Korea.",
-  "hq": "Seoul"
+  "summary": ", Ltd. is a South Korean multinational consumer electronics and semiconductor corporation founded in 1969 and headquartered in Yeongtong District, Suwon, South Korea."
 }

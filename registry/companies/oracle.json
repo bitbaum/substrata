@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q19900",
-    "domain": "oracle.com",
     "cik": "1341439",
     "lei": "1Z4GXXU7ZHVWFCD8TV52",
     "isin": "US68389X1054",
     "ticker": "ORCL",
     "exchange": "US",
     "sedol": "2661568",
-    "cusip": "68389X105"
+    "cusip": "68389X105",
+    "domain": "oracle.com"
   },
   "areas": [
     {
@@ -189,6 +189,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Oracle_Corporation",
+      "quote": "Oracle Corporation is an American multinational technology company headquartered in Austin, Texas.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q19900",
@@ -200,15 +208,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q19900",
-      "quote": "Oracle Corporation (Q19900) — official website: https://www.oracle.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:ai-cloud-platforms",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Oracle_Corporation",
-      "quote": "Oracle Corporation is an American multinational technology company headquartered in Austin, Texas.",
+      "quote": "Oracle Corporation (Q19900) — official website: oracle.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

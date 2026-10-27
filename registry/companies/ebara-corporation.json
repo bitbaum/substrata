@@ -7,9 +7,9 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q5331498",
+    "isin": "JP3165950001",
     "domain": "ebara.com",
-    "lei": "353800UV8U3SOMCDTI49",
-    "isin": "JP3165950001"
+    "lei": "353800UV8U3SOMCDTI49"
   },
   "areas": [
     {
@@ -35,6 +35,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:semiconductor-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Ebara_Corporation",
+      "quote": "Ebara Corporation is a publicly traded manufacturing company based in Tokyo, Japan which makes environmental and industrial machinery such as pumps and turbines.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q5331498",
@@ -54,7 +62,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q5331498",
-      "quote": "Ebara Corporation (Q5331498) — official website: http://www.ebara.com/en/",
+      "quote": "Ebara Corporation (Q5331498) — official website: ebara.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -65,14 +73,6 @@
       "quote": "Ebara Corporation (Q5331498) — Legal Entity Identifier: 353800UV8U3SOMCDTI49",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:semiconductor-equipment",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Ebara_Corporation",
-      "quote": "Ebara Corporation is a publicly traded manufacturing company based in Tokyo, Japan which makes environmental and industrial machinery such as pumps and turbines.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -80,6 +80,6 @@
     "on": "2026-10-27"
   },
   "summary": "Ebara Corporation is a publicly traded manufacturing company based in Tokyo, Japan which makes environmental and industrial machinery such as pumps and turbines.",
-  "country": "JP",
-  "hq": "Ota"
+  "hq": "Ota",
+  "country": "JP"
 }

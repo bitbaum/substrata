@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:fusion",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/First_Light_Fusion",
+      "quote": "First Light Fusion Ltd is a British inertial confinement fusion research company based in Oxfordshire, England.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q111487512",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q111487512",
-      "quote": "First Light Fusion (Q111487512) — official website: https://firstlightfusion.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:fusion",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/First_Light_Fusion",
-      "quote": "First Light Fusion Ltd is a British inertial confinement fusion research company based in Oxfordshire, England.",
+      "quote": "First Light Fusion (Q111487512) — official website: firstlightfusion.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "First Light Fusion Ltd is a British inertial confinement fusion research company based in Oxfordshire, England.",
-  "country": "GB",
-  "hq": "Yarnton"
+  "hq": "Yarnton",
+  "country": "GB"
 }

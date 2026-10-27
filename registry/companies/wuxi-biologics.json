@@ -7,8 +7,8 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q85816338",
-    "domain": "wuxibiologics.com",
-    "isin": "KYG970081173"
+    "isin": "KYG970081173",
+    "domain": "wuxibiologics.com"
   },
   "areas": [
     {
@@ -34,6 +34,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:synthetic-biology",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/WuXi_Biologics",
+      "quote": "WuXi Biologics is a global Contract Research Development and Manufacturing Organization (CRDMO) that provides open-access, integrated technology platforms for biologics drug development.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "country",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q85816338",
@@ -45,15 +53,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q85816338",
-      "quote": "WuXi Biologics (Q85816338) — official website: https://www.wuxibiologics.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:synthetic-biology",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/WuXi_Biologics",
-      "quote": "WuXi Biologics is a global Contract Research Development and Manufacturing Organization (CRDMO) that provides open-access, integrated technology platforms for biologics drug development.",
+      "quote": "WuXi Biologics (Q85816338) — official website: wuxibiologics.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

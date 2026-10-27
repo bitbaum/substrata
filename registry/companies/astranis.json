@@ -7,7 +7,7 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q96372482",
-    "domain": "orbit.ing",
+    "domain": "astranis.com",
     "cik": "1715660"
   },
   "areas": [
@@ -34,6 +34,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:satellites",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Astranis",
+      "quote": "Astranis Space Technologies Corp. is an American company specializing in geostationary communications satellites.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q96372482",
@@ -53,7 +61,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q96372482",
-      "quote": "Astranis (Q96372482) — official website: https://orbit.ing/",
+      "quote": "Astranis (Q96372482) — official website: astranis.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -64,14 +72,6 @@
       "quote": "Astranis (Q96372482) — SEC Central Index Key: 1715660",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:satellites",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Astranis",
-      "quote": "Astranis Space Technologies Corp. is an American company specializing in geostationary communications satellites.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -79,6 +79,6 @@
     "on": "2026-10-27"
   },
   "summary": "Astranis Space Technologies Corp. is an American company specializing in geostationary communications satellites.",
-  "country": "US",
-  "hq": "San Francisco"
+  "hq": "San Francisco",
+  "country": "US"
 }

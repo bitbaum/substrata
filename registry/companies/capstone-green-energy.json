@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Capstone_Green_Energy",
+      "quote": "Capstone Green Energy Corporation, formerly Capstone Turbine Corporation, was incorporated in 1988 as a California based gas turbine manufacturer that specializes in microturbine power along with heating and cooling cogeneration systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q5036376",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q5036376",
-      "quote": "Capstone Turbine (Q5036376) — official website: http://www.capstoneturbine.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:grid-equipment",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Capstone_Green_Energy",
-      "quote": "Capstone Green Energy Corporation, formerly Capstone Turbine Corporation, was incorporated in 1988 as a California based gas turbine manufacturer that specializes in microturbine power along with heating and cooling cogeneration systems.",
+      "quote": "Capstone Turbine (Q5036376) — official website: capstoneturbine.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "Capstone Green Energy Corporation, formerly Capstone Turbine Corporation, was incorporated in 1988 as a California based gas turbine manufacturer that specializes in microturbine power along with heating and cooling cogeneration systems.",
-  "country": "US",
-  "hq": "Chatsworth"
+  "hq": "Chatsworth",
+  "country": "US"
 }

@@ -12,14 +12,14 @@
   "country": "US",
   "ids": {
     "qid": "Q2047336",
-    "domain": "palantir.com",
     "cik": "1321655",
     "lei": "549300UVN46B3BBDHO85",
     "isin": "US69608A1088",
     "ticker": "PLTR",
     "exchange": "US",
     "cusip": "69608A108",
-    "sedol": "BN78DQ4"
+    "sedol": "BN78DQ4",
+    "domain": "palantir.com"
   },
   "areas": [
     {
@@ -221,6 +221,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Palantir",
+      "quote": "Palantir Technologies Inc. is an American publicly traded company that develops data integration and analytics software.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2047336",
@@ -232,15 +240,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2047336",
-      "quote": "Palantir Technologies (Q2047336) — official website: https://www.palantir.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:ai-software-tooling",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Palantir",
-      "quote": "Palantir Technologies Inc. is an American publicly traded company that develops data integration and analytics software.",
+      "quote": "Palantir Technologies (Q2047336) — official website: palantir.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

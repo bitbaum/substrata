@@ -6,14 +6,15 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q55080120",
+    "cik": "1734722",
     "lei": "5493000YP61KBELDHT53",
     "isin": "US90364P1057",
     "ticker": "PATH",
     "exchange": "US",
     "sedol": "BMD02L5",
-    "cik": "1734722",
-    "qid": "Q55080120",
-    "cusip": "90364P105"
+    "cusip": "90364P105",
+    "domain": "uipath.com"
   },
   "areas": [
     {
@@ -21,6 +22,9 @@
     },
     {
       "area": "robotics"
+    },
+    {
+      "area": "ai-software-tooling"
     }
   ],
   "evidence": [
@@ -136,10 +140,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/UiPath",
+      "quote": "UiPath Inc. is a Romanian-American multinational software company that develops artificial intelligence (AI) and agentic automation and orchestration software.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/UiPath",
+      "quote": "UiPath Inc. is a Romanian-American multinational software company that develops artificial intelligence (AI) and agentic automation and orchestration software.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q55080120",
+      "quote": "UiPath (Q55080120) — headquarters location: New York City",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q55080120",
+      "quote": "UiPath (Q55080120) — official website: uipath.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "UiPath Inc. is a Romanian-American multinational software company that develops artificial intelligence (AI) and agentic automation and orchestration software.",
+  "hq": "New York City"
 }

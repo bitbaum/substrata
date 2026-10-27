@@ -7,12 +7,12 @@
   "country": "JP",
   "ids": {
     "qid": "Q648280",
-    "domain": "mhi.com",
-    "lei": "353800TJ98PCAZROVE69",
     "isin": "JP3900000005",
     "ticker": "7011",
     "exchange": "JP",
-    "sedol": "6597067"
+    "sedol": "6597067",
+    "domain": "mhi.com",
+    "lei": "353800TJ98PCAZROVE69"
   },
   "areas": [
     {
@@ -87,30 +87,6 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q648280",
-      "quote": "Mitsubishi Heavy Industries (Q648280) — headquarters location: Minato",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "ids.domain",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q648280",
-      "quote": "Mitsubishi Heavy Industries (Q648280) — official website: https://www.mhi.com",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "ids.lei",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q648280",
-      "quote": "Mitsubishi Heavy Industries (Q648280) — Legal Entity Identifier: 353800TJ98PCAZROVE69",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "area:grid-equipment",
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Mitsubishi_Heavy_Industries",
@@ -123,6 +99,30 @@
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Mitsubishi_Heavy_Industries",
       "quote": "Mitsubishi Heavy Industries, Ltd. is a Japanese multinational engineering, electrical equipment and electronics corporation headquartered in Tokyo, Japan.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q648280",
+      "quote": "Mitsubishi Heavy Industries (Q648280) — headquarters location: Minato",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q648280",
+      "quote": "Mitsubishi Heavy Industries (Q648280) — official website: mhi.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q648280",
+      "quote": "Mitsubishi Heavy Industries (Q648280) — Legal Entity Identifier: 353800TJ98PCAZROVE69",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

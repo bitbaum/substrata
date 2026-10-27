@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q1155668",
-    "domain": "ru.nxp.com",
     "cik": "1413447",
-    "lei": "724500M9BY5293JDF951",
     "isin": "NL0009538784",
     "ticker": "NXPI",
     "exchange": "US",
     "sedol": "B505PN7",
-    "cusip": "N6596X109"
+    "cusip": "N6596X109",
+    "domain": "ru.nxp.com",
+    "lei": "724500M9BY5293JDF951"
   },
   "areas": [
     {
@@ -268,6 +268,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:foundry",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/NXP_Semiconductors",
+      "quote": "V. is a Dutch semiconductor manufacturing and design company with headquarters in Eindhoven, Netherlands.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1155668",
@@ -279,7 +287,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1155668",
-      "quote": "NXP Semiconductors (Q1155668) — official website: http://www.ru.nxp.com/",
+      "quote": "NXP Semiconductors (Q1155668) — official website: ru.nxp.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -288,14 +296,6 @@
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1155668",
       "quote": "NXP Semiconductors (Q1155668) — Legal Entity Identifier: 724500M9BY5293JDF951",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:foundry",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/NXP_Semiconductors",
-      "quote": "V. is a Dutch semiconductor manufacturing and design company with headquarters in Eindhoven, Netherlands.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

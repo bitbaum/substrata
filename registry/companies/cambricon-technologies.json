@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:ai-accelerators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Cambricon_Technologies",
+      "quote": "Cambricon Technologies is a partially state-owned publicly listed Chinese technology company headquartered in Beijing.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q48890160",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q48890160",
-      "quote": "Cambricon Technologies Co., Ltd. (Q48890160) — official website: http://www.cambricon.com/index.php?c=page&id=10",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:ai-accelerators",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Cambricon_Technologies",
-      "quote": "Cambricon Technologies is a partially state-owned publicly listed Chinese technology company headquartered in Beijing.",
+      "quote": "Cambricon Technologies Co., Ltd. (Q48890160) — official website: cambricon.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "Cambricon Technologies is a partially state-owned publicly listed Chinese technology company headquartered in Beijing.",
-  "country": "CN",
-  "hq": "Haidian District"
+  "hq": "Haidian District",
+  "country": "CN"
 }

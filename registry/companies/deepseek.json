@@ -17,18 +17,18 @@
   "figures": [],
   "evidence": [
     {
-      "field": "summary",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/DeepSeek",
-      "quote": ", doing business as DeepSeek, is a Chinese artificial intelligence (AI) company that develops open weights large language models (LLMs).",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "ids.qid",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q131577453",
       "quote": "DeepSeek (Q131577453) — Wikidata item: Q131577453",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:frontier-labs",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/DeepSeek",
+      "quote": ", doing business as DeepSeek, is a Chinese artificial intelligence (AI) company that develops open weights large language models (LLMs).",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -52,15 +52,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q131577453",
-      "quote": "DeepSeek (Q131577453) — official website: https://deepseek.com",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:frontier-labs",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/DeepSeek",
-      "quote": ", doing business as DeepSeek, is a Chinese artificial intelligence (AI) company that develops open weights large language models (LLMs).",
+      "quote": "DeepSeek (Q131577453) — official website: deepseek.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -69,7 +61,6 @@
     "by": "company:add",
     "on": "2026-10-27"
   },
-  "summary": ", doing business as DeepSeek, is a Chinese artificial intelligence (AI) company that develops open weights large language models (LLMs).",
-  "country": "CN",
-  "hq": "Hangzhou"
+  "hq": "Hangzhou",
+  "country": "CN"
 }

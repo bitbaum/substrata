@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:fusion",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Zap_Energy",
+      "quote": "Zap Energy is an American privately held company that aims to commercialize both fission and fusion power in compact-scale, liquid-metal-cooled modular energy systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q112228527",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q112228527",
-      "quote": "Zap Energy (Q112228527) — official website: https://www.zapenergy.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:fusion",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Zap_Energy",
-      "quote": "Zap Energy is an American privately held company that aims to commercialize both fission and fusion power in compact-scale, liquid-metal-cooled modular energy systems.",
+      "quote": "Zap Energy (Q112228527) — official website: zapenergy.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "Zap Energy is an American privately held company that aims to commercialize both fission and fusion power in compact-scale, liquid-metal-cooled modular energy systems.",
-  "country": "US",
-  "hq": "Seattle"
+  "hq": "Seattle",
+  "country": "US"
 }

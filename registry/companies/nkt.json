@@ -7,12 +7,12 @@
   "country": "DK",
   "ids": {
     "qid": "Q6954477",
-    "domain": "nkt.com",
-    "lei": "529900197LKWCEQ0NL18",
     "isin": "DK0010287663",
     "ticker": "NKT",
     "exchange": "DC",
-    "cusip": "K7037A107"
+    "cusip": "K7037A107",
+    "domain": "nkt.com",
+    "lei": "529900197LKWCEQ0NL18"
   },
   "areas": [
     {
@@ -95,6 +95,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/NKT_A%2FS",
+      "quote": "NKT A/S is a Danish power cable producer and accessory manufacturer based in Copenhagen.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q6954477",
@@ -106,7 +114,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q6954477",
-      "quote": "NKT (Q6954477) — official website: https://www.nkt.com",
+      "quote": "NKT (Q6954477) — official website: nkt.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -115,14 +123,6 @@
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q6954477",
       "quote": "NKT (Q6954477) — Legal Entity Identifier: 529900197LKWCEQ0NL18",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:grid-equipment",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/NKT_A%2FS",
-      "quote": "NKT A/S is a Danish power cable producer and accessory manufacturer based in Copenhagen.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

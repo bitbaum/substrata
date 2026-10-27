@@ -7,13 +7,13 @@
   "country": "US",
   "ids": {
     "qid": "Q5203294",
-    "domain": "dwavequantum.com",
     "cik": "1907982",
     "lei": "5493001U37G4PRD4GW95",
     "isin": "US26740W1099",
     "ticker": "QBTS",
     "exchange": "US",
-    "cusip": "26740W109"
+    "cusip": "26740W109",
+    "domain": "dwavequantum.com"
   },
   "areas": [
     {
@@ -110,6 +110,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:quantum-computing",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/D-Wave_Systems",
+      "quote": "D-Wave Quantum Inc. is a quantum computing company with locations in Palo Alto, California and Burnaby, British Columbia.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q5203294",
@@ -121,15 +129,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q5203294",
-      "quote": "D-Wave Systems (Q5203294) — official website: https://www.dwavequantum.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:quantum-computing",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/D-Wave_Systems",
-      "quote": "D-Wave Quantum Inc. is a quantum computing company with locations in Palo Alto, California and Burnaby, British Columbia.",
+      "quote": "D-Wave Systems (Q5203294) — official website: dwavequantum.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

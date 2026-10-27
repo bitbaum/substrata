@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q2068984",
-    "domain": "illumina.com",
     "cik": "1110803",
     "lei": "SQ95QG8SR5Q56LSNF682",
     "isin": "US4523271090",
     "ticker": "ILMN",
     "exchange": "US",
     "cusip": "452327109",
-    "sedol": "2613990"
+    "sedol": "2613990",
+    "domain": "illumina.com"
   },
   "areas": [
     {
@@ -186,6 +186,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:synthetic-biology",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Illumina%2C_Inc.",
+      "quote": "Illumina, Inc. is an American biotechnology company, headquartered in San Diego, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2068984",
@@ -197,15 +205,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2068984",
-      "quote": "Illumina (Q2068984) — official website: https://www.illumina.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:synthetic-biology",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Illumina%2C_Inc.",
-      "quote": "Illumina, Inc. is an American biotechnology company, headquartered in San Diego, California.",
+      "quote": "Illumina (Q2068984) — official website: illumina.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

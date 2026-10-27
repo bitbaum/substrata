@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q790060",
-    "domain": "broadcom.com",
     "cik": "1730168",
     "lei": "549300WV6GIDOZJTV909",
     "isin": "US11135F1012",
     "ticker": "AVGO",
     "exchange": "Nasdaq",
     "cusip": "11135F101",
-    "sedol": "BDZ78H9"
+    "sedol": "BDZ78H9",
+    "domain": "broadcom.com"
   },
   "areas": [
     {
@@ -218,22 +218,6 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q790060",
-      "quote": "Broadcom (Q790060) — headquarters location: Palo Alto",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "ids.domain",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q790060",
-      "quote": "Broadcom (Q790060) — official website: https://www.broadcom.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "area:ai-accelerators",
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Broadcom",
@@ -246,6 +230,22 @@
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Broadcom",
       "quote": "Broadcom Inc. is an American multinational designer, developer, manufacturer, and global supplier of a wide range of semiconductor and infrastructure software products.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q790060",
+      "quote": "Broadcom (Q790060) — headquarters location: Palo Alto",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q790060",
+      "quote": "Broadcom (Q790060) — official website: broadcom.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

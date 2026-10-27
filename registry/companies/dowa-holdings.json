@@ -7,9 +7,9 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q5302643",
+    "isin": "JP3638600001",
     "domain": "dowa.co.jp",
-    "lei": "353800ZSQZKFE140A689",
-    "isin": "JP3638600001"
+    "lei": "353800ZSQZKFE140A689"
   },
   "areas": [
     {
@@ -35,6 +35,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Dowa_Holdings",
+      "quote": "Dowa Holdings is a Japanese nonferrous metals manufacturer. The company is a component of the Nikkei 225 stock index.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q5302643",
@@ -54,7 +62,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q5302643",
-      "quote": "Dowa Holdings (Q5302643) — official website: http://www.dowa.co.jp/",
+      "quote": "Dowa Holdings (Q5302643) — official website: dowa.co.jp",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -65,14 +73,6 @@
       "quote": "Dowa Holdings (Q5302643) — Legal Entity Identifier: 353800ZSQZKFE140A689",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:critical-minerals",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Dowa_Holdings",
-      "quote": "Dowa Holdings is a Japanese nonferrous metals manufacturer. The company is a component of the Nikkei 225 stock index.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -80,6 +80,6 @@
     "on": "2026-10-27"
   },
   "summary": "Dowa Holdings is a Japanese nonferrous metals manufacturer. The company is a component of the Nikkei 225 stock index.",
-  "country": "JP",
-  "hq": "Tokyo"
+  "hq": "Tokyo",
+  "country": "JP"
 }

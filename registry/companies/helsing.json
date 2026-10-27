@@ -34,6 +34,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:defence-autonomy",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Helsing_(company)",
+      "quote": "Helsing SE is a German defence technology company based in Munich.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q127380521",
@@ -53,7 +61,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q127380521",
-      "quote": "Helsing (Q127380521) — official website: https://helsing.ai/",
+      "quote": "Helsing (Q127380521) — official website: helsing.ai",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -64,14 +72,6 @@
       "quote": "Helsing (Q127380521) — Legal Entity Identifier: 391200QIYOWD36F0DU18",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:defence-autonomy",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Helsing_(company)",
-      "quote": "Helsing SE is a German defence technology company based in Munich.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -79,6 +79,6 @@
     "on": "2026-10-27"
   },
   "summary": "Helsing SE is a German defence technology company based in Munich.",
-  "country": "DE",
-  "hq": "Munich"
+  "hq": "Munich",
+  "country": "DE"
 }

@@ -7,13 +7,13 @@
   "country": "US",
   "ids": {
     "qid": "Q7829730",
-    "domain": "towerjazz.com",
     "cik": "928876",
-    "lei": "54930086ZSNXZOUX0C54",
     "isin": "IL0010823792",
     "ticker": "TSEM",
     "exchange": "US",
-    "cusip": "M87915274"
+    "cusip": "M87915274",
+    "domain": "towerjazz.com",
+    "lei": "54930086ZSNXZOUX0C54"
   },
   "areas": [
     {
@@ -111,6 +111,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:foundry",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Tower_Semiconductor",
+      "quote": "(Nasdaq/TASE: TSEM) is an Israeli company that manufactures integrated circuits using specialty process technologies, including SiGe, BiCMOS, Silicon Photonics, SOI, mixed-signal and RFCMOS, CMOS image sensors, non-imaging sensors, power management (BCD), and non-volatile memory (NVM) as well as MEMS capabilities.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q7829730",
@@ -122,7 +130,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q7829730",
-      "quote": "Tower Semiconductor Ltd. (Q7829730) — official website: http://www.towerjazz.com",
+      "quote": "Tower Semiconductor Ltd. (Q7829730) — official website: towerjazz.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -131,14 +139,6 @@
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q7829730",
       "quote": "Tower Semiconductor Ltd. (Q7829730) — Legal Entity Identifier: 54930086ZSNXZOUX0C54",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:foundry",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Tower_Semiconductor",
-      "quote": "(Nasdaq/TASE: TSEM) is an Israeli company that manufactures integrated circuits using specialty process technologies, including SiGe, BiCMOS, Silicon Photonics, SOI, mixed-signal and RFCMOS, CMOS image sensors, non-imaging sensors, power management (BCD), and non-volatile memory (NVM) as well as MEMS capabilities.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

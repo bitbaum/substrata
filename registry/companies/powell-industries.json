@@ -35,6 +35,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Powell_Industries",
+      "quote": "Powell Industries, Inc. is a manufacturer of Integrated/Packaged Solutions and Electrical Equipment to monitor and control the distribution of electrical power in commercial and industrial markets founded in 1947.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q7236078",
@@ -54,7 +62,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q7236078",
-      "quote": "Powell Industries (Q7236078) — official website: https://www.powellind.com/",
+      "quote": "Powell Industries (Q7236078) — official website: powellind.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -73,14 +81,6 @@
       "quote": "Powell Industries (Q7236078) — Legal Entity Identifier: 549300V08RO7MX2UBN26",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:grid-equipment",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Powell_Industries",
-      "quote": "Powell Industries, Inc. is a manufacturer of Integrated/Packaged Solutions and Electrical Equipment to monitor and control the distribution of electrical power in commercial and industrial markets founded in 1947.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -88,6 +88,6 @@
     "on": "2026-10-27"
   },
   "summary": "Powell Industries, Inc. is a manufacturer of Integrated/Packaged Solutions and Electrical Equipment to monitor and control the distribution of electrical power in commercial and industrial markets founded in 1947.",
-  "country": "US",
-  "hq": "Houston"
+  "hq": "Houston",
+  "country": "US"
 }

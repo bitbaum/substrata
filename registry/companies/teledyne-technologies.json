@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q7696127",
-    "domain": "teledyne.com",
     "cik": "1094285",
     "lei": "549300VSMO9KYQWDND94",
     "isin": "US8793601050",
     "ticker": "TDY",
     "exchange": "US",
     "cusip": "879360105",
-    "sedol": "2503477"
+    "sedol": "2503477",
+    "domain": "teledyne.com"
   },
   "areas": [
     {
@@ -126,6 +126,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:robot-sensors",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Teledyne_Technologies",
+      "quote": "Teledyne Technologies Incorporated is an American industrial conglomerate.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q7696127",
@@ -137,15 +145,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q7696127",
-      "quote": "Teledyne Technologies (Q7696127) — official website: http://www.teledyne.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:robot-sensors",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Teledyne_Technologies",
-      "quote": "Teledyne Technologies Incorporated is an American industrial conglomerate.",
+      "quote": "Teledyne Technologies (Q7696127) — official website: teledyne.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

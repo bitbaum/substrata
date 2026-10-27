@@ -86,19 +86,26 @@ export interface WikidataRecord {
   label: string;
 }
 
+/**
+ * One deterministic row: aggregates (MIN) instead of LIMIT 1, so a company with several
+ * headquarters or listings never mixes one's country with another's, and the pairs
+ * (headquarters and its country; ticker and its exchange) are chosen together.
+ */
 function sparql(qid: string): string {
-  return `SELECT ?l ?hqL ?cc ?site ?tick ?exL ?isin ?cik ?lei ?par ?parL WHERE {
+  return `SELECT (SAMPLE(?lab) AS ?l) (MIN(CONCAT(?hqLab, "|", COALESCE(?cch, ""))) AS ?hq) (MIN(?ccc) AS ?own) (COUNT(DISTINCT ?hqLab) AS ?nhq) (COUNT(DISTINCT ?ccc) AS ?nown)
+  (MIN(?s) AS ?site) (MIN(CONCAT(?t, "|", COALESCE(?exLab, ""))) AS ?te) (MIN(?i) AS ?isin) (MIN(?k) AS ?cik)
+  (MIN(?g) AS ?lei) (MIN(CONCAT(STR(?pq), "|", ?pl)) AS ?par) WHERE {
   BIND(wd:${qid} AS ?c)
-  ?c rdfs:label ?l FILTER(lang(?l)="en")
-  OPTIONAL { ?c wdt:P159 ?hq . ?hq rdfs:label ?hqL FILTER(lang(?hqL)="en") }
-  OPTIONAL { { ?c wdt:P17 ?co } UNION { ?c wdt:P159 ?h2 . ?h2 wdt:P17 ?co } ?co wdt:P297 ?cc }
-  OPTIONAL { ?c wdt:P856 ?site }
-  OPTIONAL { ?c p:P249 ?ts . ?ts ps:P249 ?tick . OPTIONAL { ?ts pq:P414 ?ex . ?ex rdfs:label ?exL FILTER(lang(?exL)="en") } }
-  OPTIONAL { ?c wdt:P946 ?isin }
-  OPTIONAL { ?c wdt:P5531 ?cik }
-  OPTIONAL { ?c wdt:P1278 ?lei }
-  OPTIONAL { ?c wdt:P749 ?par . ?par rdfs:label ?parL FILTER(lang(?parL)="en") }
-} LIMIT 1`;
+  ?c rdfs:label ?lab FILTER(lang(?lab)="en")
+  OPTIONAL { ?c wdt:P159 ?h . ?h rdfs:label ?hqLab FILTER(lang(?hqLab)="en") OPTIONAL { ?h wdt:P17 ?co . ?co wdt:P297 ?cch } }
+  OPTIONAL { ?c wdt:P17 ?co2 . ?co2 wdt:P297 ?ccc }
+  OPTIONAL { ?c wdt:P856 ?s }
+  OPTIONAL { ?c p:P249 ?ts . ?ts ps:P249 ?t . OPTIONAL { ?ts pq:P414 ?ex . ?ex rdfs:label ?exLab FILTER(lang(?exLab)="en") } }
+  OPTIONAL { ?c wdt:P946 ?i }
+  OPTIONAL { ?c wdt:P5531 ?k }
+  OPTIONAL { ?c wdt:P1278 ?g }
+  OPTIONAL { ?c wdt:P749 ?pq . ?pq rdfs:label ?pl FILTER(lang(?pl)="en") }
+}`;
 }
 
 export async function wikidataRecord(
@@ -113,22 +120,30 @@ export async function wikidataRecord(
   const j = (await res.json()) as { results?: { bindings?: Record<string, { value: string }>[] } };
   const b = j.results?.bindings?.[0];
   if (!b) return null;
-  const v = (k: string) => b[k]?.value;
-  const par = v('par')?.match(/Q\d+$/)?.[0];
+  const v = (k: string) => b[k]?.value || undefined;
+  const [hq, hqCountry] = (v('hq') ?? '').split('|');
+  const [ticker, exchange] = (v('te') ?? '').split('|');
+  const [parQ, parLabel] = (v('par') ?? '').split('|');
   return {
     qid,
     url: `https://www.wikidata.org/wiki/${qid}`,
     label: v('l') ?? qid,
-    hq: v('hqL'),
-    country: v('cc')?.toUpperCase(),
+    // Several headquarters (or countries) on the item means Wikidata does not say which: a gap, not a pick.
+    hq: hq && v('nhq') === '1' ? hq : undefined,
+    country: (hq && v('nhq') === '1' && hqCountry
+      ? hqCountry
+      : v('nown') === '1'
+        ? v('own')
+        : undefined
+    )?.toUpperCase(),
     website: v('site'),
-    ticker: v('tick'),
-    exchange: v('exL'),
+    ticker: ticker || undefined,
+    exchange: exchange || undefined,
     isin: v('isin'),
     cik: v('cik')?.replace(/^0+/, ''),
     lei: v('lei'),
-    parentQid: par,
-    parent: v('parL'),
+    parentQid: parQ?.match(/Q\d+$/)?.[0],
+    parent: parLabel || undefined,
   };
 }
 

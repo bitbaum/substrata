@@ -34,6 +34,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:frontier-labs",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Mistral_AI",
+      "quote": "Mistral AI SAS is a French artificial intelligence (AI) company headquartered in Paris.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q119718658",
@@ -53,7 +61,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q119718658",
-      "quote": "Mistral AI (Q119718658) — official website: https://mistral.ai/fr",
+      "quote": "Mistral AI (Q119718658) — official website: mistral.ai",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -64,14 +72,6 @@
       "quote": "Mistral AI (Q119718658) — Legal Entity Identifier: 894500Q9JNDV9YXSOL64",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:frontier-labs",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Mistral_AI",
-      "quote": "Mistral AI SAS is a French artificial intelligence (AI) company headquartered in Paris.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -79,6 +79,6 @@
     "on": "2026-10-27"
   },
   "summary": "Mistral AI SAS is a French artificial intelligence (AI) company headquartered in Paris.",
-  "country": "FR",
-  "hq": "Paris"
+  "hq": "Paris",
+  "country": "FR"
 }

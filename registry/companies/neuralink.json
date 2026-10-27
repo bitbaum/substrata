@@ -33,10 +33,10 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q29043471",
-      "quote": "Neuralink (Q29043471) — headquarters location: California",
+      "field": "area:neurotech-bci",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Neuralink",
+      "quote": "Neuralink Corp. is an American neurotechnology company that is developing implantable brain–computer interfaces (BCIs).",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -52,15 +52,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q29043471",
-      "quote": "Neuralink (Q29043471) — official website: https://neuralink.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:neurotech-bci",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Neuralink",
-      "quote": "Neuralink Corp. is an American neurotechnology company that is developing implantable brain–computer interfaces (BCIs).",
+      "quote": "Neuralink (Q29043471) — official website: neuralink.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +62,5 @@
     "on": "2026-10-27"
   },
   "summary": "Neuralink Corp. is an American neurotechnology company that is developing implantable brain–computer interfaces (BCIs).",
-  "country": "US",
-  "hq": "California"
+  "country": "US"
 }

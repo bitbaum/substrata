@@ -1,0 +1,48 @@
+{
+  "slug": "autel-robotics",
+  "name": "Autel Robotics",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q123347438"
+  },
+  "areas": [
+    {
+      "area": "defence-autonomy"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Autel_Robotics",
+      "quote": "Autel Robotics is a Chinese consumer and commercial aerial drone manufacturer.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q123347438",
+      "quote": "Autel Robotics (Q123347438) — Wikidata item: Q123347438",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:defence-autonomy",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Autel_Robotics",
+      "quote": "Autel Robotics is a Chinese consumer and commercial aerial drone manufacturer.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Autel Robotics is a Chinese consumer and commercial aerial drone manufacturer."
+}

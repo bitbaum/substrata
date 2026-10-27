@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:humanoids",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Boston_Dynamics",
+      "quote": "Boston Dynamics, Inc. is an American engineering and robotics design company founded in 1992 as a spin-off from the Massachusetts Institute of Technology.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2298325",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2298325",
-      "quote": "Boston Dynamics (Q2298325) — official website: https://www.bostondynamics.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:humanoids",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Boston_Dynamics",
-      "quote": "Boston Dynamics, Inc. is an American engineering and robotics design company founded in 1992 as a spin-off from the Massachusetts Institute of Technology.",
+      "quote": "Boston Dynamics (Q2298325) — official website: bostondynamics.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "Boston Dynamics, Inc. is an American engineering and robotics design company founded in 1992 as a spin-off from the Massachusetts Institute of Technology.",
-  "country": "US",
-  "hq": "Waltham"
+  "hq": "Waltham",
+  "country": "US"
 }

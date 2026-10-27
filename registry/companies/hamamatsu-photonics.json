@@ -7,8 +7,8 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q5644023",
-    "domain": "hamamatsu.com",
-    "isin": "JP3771800004"
+    "isin": "JP3771800004",
+    "domain": "hamamatsu.com"
   },
   "areas": [
     {
@@ -34,6 +34,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:silicon-photonics",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hamamatsu_Photonics",
+      "quote": "K. is a Japanese manufacturer of optical sensors, electric light sources, and other optical devices and their applied instruments for scientific, technical and medical use.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q5644023",
@@ -53,15 +61,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q5644023",
-      "quote": "Hamamatsu Photonics (Q5644023) — official website: http://www.hamamatsu.com",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:silicon-photonics",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Hamamatsu_Photonics",
-      "quote": "K. is a Japanese manufacturer of optical sensors, electric light sources, and other optical devices and their applied instruments for scientific, technical and medical use.",
+      "quote": "Hamamatsu Photonics (Q5644023) — official website: hamamatsu.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -71,6 +71,6 @@
     "on": "2026-10-27"
   },
   "summary": "K. is a Japanese manufacturer of optical sensors, electric light sources, and other optical devices and their applied instruments for scientific, technical and medical use.",
-  "country": "JP",
-  "hq": "Hamamatsu"
+  "hq": "Hamamatsu",
+  "country": "JP"
 }

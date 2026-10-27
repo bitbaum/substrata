@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q2297063",
-    "domain": "trimble.com",
     "cik": "864749",
     "lei": "549300E2MI7NSZFQWS19",
     "isin": "US8962391004",
     "ticker": "TRMB",
     "exchange": "US",
     "cusip": "896239100",
-    "sedol": "2903958"
+    "sedol": "2903958",
+    "domain": "trimble.com"
   },
   "areas": [
     {
@@ -165,6 +165,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:robot-sensors",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Trimble_Inc.",
+      "quote": "Trimble Inc. is an American software, hardware, and services technology company that was founded in 1978.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2297063",
@@ -176,15 +184,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2297063",
-      "quote": "Trimble (Q2297063) — official website: http://www.trimble.com",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:robot-sensors",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Trimble_Inc.",
-      "quote": "Trimble Inc. is an American software, hardware, and services technology company that was founded in 1978.",
+      "quote": "Trimble (Q2297063) — official website: trimble.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

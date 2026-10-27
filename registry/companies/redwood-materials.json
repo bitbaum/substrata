@@ -34,6 +34,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:energy-storage",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Redwood_Materials",
+      "quote": "Redwood Materials, Inc. is an American company headquartered in Carson City, Nevada.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q108555014",
@@ -53,7 +61,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q108555014",
-      "quote": "Redwood Materials (Q108555014) — official website: https://www.redwoodmaterials.com/",
+      "quote": "Redwood Materials (Q108555014) — official website: redwoodmaterials.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -64,14 +72,6 @@
       "quote": "Redwood Materials (Q108555014) — Legal Entity Identifier: 5493008UYCX7OTNK6D78",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:energy-storage",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Redwood_Materials",
-      "quote": "Redwood Materials, Inc. is an American company headquartered in Carson City, Nevada.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -79,6 +79,6 @@
     "on": "2026-10-27"
   },
   "summary": "Redwood Materials, Inc. is an American company headquartered in Carson City, Nevada.",
-  "country": "US",
-  "hq": "Carson City"
+  "hq": "Carson City",
+  "country": "US"
 }

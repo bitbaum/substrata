@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q15109887",
-    "domain": "coherent.com",
     "cik": "820318",
     "lei": "549300O5C25A0MMHHU33",
     "isin": "US19247G1076",
     "ticker": "COHR",
     "exchange": "NYSE",
     "sedol": "BNG8Z81",
-    "cusip": "19247G107"
+    "cusip": "19247G107",
+    "domain": "coherent.com"
   },
   "areas": [
     {
@@ -167,6 +167,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:silicon-photonics",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Coherent_Corp.",
+      "quote": "Coherent Corp. is an American manufacturer of optical materials and semiconductors.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q15109887",
@@ -178,15 +186,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q15109887",
-      "quote": "Coherent Corp. (Q15109887) — official website: https://www.coherent.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:silicon-photonics",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Coherent_Corp.",
-      "quote": "Coherent Corp. is an American manufacturer of optical materials and semiconductors.",
+      "quote": "Coherent Corp. (Q15109887) — official website: coherent.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

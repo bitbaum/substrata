@@ -12,7 +12,8 @@
     "qid": "Q5287613",
     "ticker": "DOCU",
     "exchange": "US",
-    "cusip": "256163106"
+    "cusip": "256163106",
+    "domain": "docusign.com"
   },
   "areas": [
     {
@@ -108,10 +109,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5287613",
+      "quote": "Docusign (Q5287613) — headquarters location: San Francisco",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5287613",
+      "quote": "Docusign (Q5287613) — official website: docusign.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Docusign",
+      "quote": "Docusign, Inc. is an American software company headquartered in San Francisco, California that provides products for organizations to manage electronic agreements and contract lifecycle processes with electronic signatures and AI supported data extraction on different devices.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "San Francisco",
+  "summary": "Docusign, Inc. is an American software company headquartered in San Francisco, California that provides products for organizations to manage electronic agreements and contract lifecycle processes with electronic signatures and AI supported data extraction on different devices."
 }

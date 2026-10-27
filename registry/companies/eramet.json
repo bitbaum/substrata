@@ -7,9 +7,9 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q1347990",
+    "isin": "FR0000131757",
     "domain": "eramet.com",
-    "lei": "549300LUH78PG2MP6N64",
-    "isin": "FR0000131757"
+    "lei": "549300LUH78PG2MP6N64"
   },
   "areas": [
     {
@@ -35,6 +35,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:rare-earths-magnets",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Eramet",
+      "quote": "Eramet is a French multinational mining and metallurgy company, listed on the Euronext Paris exchange under the symbol ERA.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1347990",
@@ -54,7 +62,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1347990",
-      "quote": "Eramet (Q1347990) — official website: https://www.eramet.com",
+      "quote": "Eramet (Q1347990) — official website: eramet.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -65,14 +73,6 @@
       "quote": "Eramet (Q1347990) — Legal Entity Identifier: 549300LUH78PG2MP6N64",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:rare-earths-magnets",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Eramet",
-      "quote": "Eramet is a French multinational mining and metallurgy company, listed on the Euronext Paris exchange under the symbol ERA.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -80,6 +80,6 @@
     "on": "2026-10-27"
   },
   "summary": "Eramet is a French multinational mining and metallurgy company, listed on the Euronext Paris exchange under the symbol ERA.",
-  "country": "FR",
-  "hq": "Paris"
+  "hq": "Paris",
+  "country": "FR"
 }

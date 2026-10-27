@@ -17,18 +17,18 @@
   "figures": [],
   "evidence": [
     {
-      "field": "summary",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Agility_Robotics",
-      "quote": ", also known as Agility, is an American robotics company that develops humanoid robots.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "ids.qid",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q107411744",
       "quote": "Agility Robotics (Q107411744) — Wikidata item: Q107411744",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:humanoids",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Agility_Robotics",
+      "quote": ", also known as Agility, is an American robotics company that develops humanoid robots.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -52,15 +52,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q107411744",
-      "quote": "Agility Robotics (Q107411744) — official website: https://agilityrobotics.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:humanoids",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Agility_Robotics",
-      "quote": ", also known as Agility, is an American robotics company that develops humanoid robots.",
+      "quote": "Agility Robotics (Q107411744) — official website: agilityrobotics.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -69,7 +61,6 @@
     "by": "company:add",
     "on": "2026-10-27"
   },
-  "summary": ", also known as Agility, is an American robotics company that develops humanoid robots.",
-  "country": "US",
-  "hq": "Oregon"
+  "hq": "Oregon",
+  "country": "US"
 }

@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:fission-smr",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Atomic_Energy_of_Canada_Limited",
+      "quote": "Atomic Energy of Canada Limited is a Canadian Crown corporation and the largest nuclear science and technology laboratory in Canada.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q757601",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q757601",
-      "quote": "Atomic Energy of Canada Limited (Q757601) — official website: https://www.aecl.ca/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:fission-smr",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Atomic_Energy_of_Canada_Limited",
-      "quote": "Atomic Energy of Canada Limited is a Canadian Crown corporation and the largest nuclear science and technology laboratory in Canada.",
+      "quote": "Atomic Energy of Canada Limited (Q757601) — official website: aecl.ca",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "Atomic Energy of Canada Limited is a Canadian Crown corporation and the largest nuclear science and technology laboratory in Canada.",
-  "country": "CA",
-  "hq": "Chalk River"
+  "hq": "Chalk River",
+  "country": "CA"
 }

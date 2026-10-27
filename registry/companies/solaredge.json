@@ -17,7 +17,8 @@
     "exchange": "US",
     "cusip": "83417M104",
     "cik": "1419612",
-    "sedol": "BWC52Q6"
+    "sedol": "BWC52Q6",
+    "domain": "solaredge.com"
   },
   "areas": [
     {
@@ -131,10 +132,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q187212",
+      "quote": "SolarEdge (Q187212) — headquarters location: Herzliya",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q187212",
+      "quote": "SolarEdge (Q187212) — official website: solaredge.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/SolarEdge",
+      "quote": "SolarEdge Technologies, Inc. is an Israeli company that produces DC optimized inverter systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Herzliya",
+  "summary": "SolarEdge Technologies, Inc. is an Israeli company that produces DC optimized inverter systems."
 }

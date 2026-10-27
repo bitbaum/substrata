@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:fusion",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Commonwealth_Fusion_Systems",
+      "quote": "Commonwealth Fusion Systems (CFS) is an American fusion power company founded in 2018 in Cambridge, Massachusetts, after a spin-off from the Massachusetts Institute of Technology (MIT).",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q55316454",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q55316454",
-      "quote": "Commonwealth Fusion Systems (Q55316454) — official website: https://cfs.energy/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:fusion",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Commonwealth_Fusion_Systems",
-      "quote": "Commonwealth Fusion Systems (CFS) is an American fusion power company founded in 2018 in Cambridge, Massachusetts, after a spin-off from the Massachusetts Institute of Technology (MIT).",
+      "quote": "Commonwealth Fusion Systems (Q55316454) — official website: cfs.energy",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "Commonwealth Fusion Systems (CFS) is an American fusion power company founded in 2018 in Cambridge, Massachusetts, after a spin-off from the Massachusetts Institute of Technology (MIT).",
-  "country": "US",
-  "hq": "Devens"
+  "hq": "Devens",
+  "country": "US"
 }

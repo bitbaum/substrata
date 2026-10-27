@@ -7,13 +7,13 @@
   "country": "US",
   "ids": {
     "qid": "Q27500963",
-    "domain": "delltechnologies.com",
     "cik": "1571996",
     "lei": "549300TJB5YBRUPOG437",
     "isin": "US24703L2025",
     "ticker": "DELL",
     "exchange": "US",
-    "cusip": "24703L202"
+    "cusip": "24703L202",
+    "domain": "delltechnologies.com"
   },
   "areas": [
     {
@@ -134,6 +134,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Dell_Technologies",
+      "quote": "Dell Technologies Inc. is an American multinational technology company that has been headquartered in Round Rock, Texas, since 1994.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q27500963",
@@ -145,15 +153,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q27500963",
-      "quote": "Dell Technologies (Q27500963) — official website: http://www.delltechnologies.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:ai-cloud-platforms",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Dell_Technologies",
-      "quote": "Dell Technologies Inc. is an American multinational technology company that has been headquartered in Round Rock, Texas, since 1994.",
+      "quote": "Dell Technologies (Q27500963) — official website: delltechnologies.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

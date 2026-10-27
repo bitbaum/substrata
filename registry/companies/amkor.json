@@ -7,13 +7,13 @@
   "country": "US",
   "ids": {
     "qid": "Q472536",
-    "domain": "amkor.com",
     "cik": "1047127",
     "lei": "529900VHLRTKPWZJBM84",
     "isin": "US0316521006",
     "ticker": "AMKR",
     "exchange": "Nasdaq",
-    "cusip": "031652100"
+    "cusip": "031652100",
+    "domain": "amkor.com"
   },
   "areas": [
     {
@@ -133,6 +133,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:advanced-packaging",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Amkor_Technology",
+      "quote": "Amkor Technology, Inc. is an American semiconductor product packaging and test services provider.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q472536",
@@ -144,15 +152,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q472536",
-      "quote": "Amkor Technology (Q472536) — official website: https://amkor.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:advanced-packaging",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Amkor_Technology",
-      "quote": "Amkor Technology, Inc. is an American semiconductor product packaging and test services provider.",
+      "quote": "Amkor Technology (Q472536) — official website: amkor.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

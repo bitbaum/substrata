@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q182477",
-    "domain": "nvidia.com",
     "cik": "1045810",
     "lei": "549300S4KLFTLO7GSQ80",
     "isin": "US67066G1040",
     "ticker": "NVDA",
     "exchange": "Nasdaq",
     "cusip": "67066G104",
-    "sedol": "2379504"
+    "sedol": "2379504",
+    "domain": "nvidia.com"
   },
   "areas": [
     {
@@ -269,6 +269,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:ai-accelerators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Nvidia",
+      "quote": "Nvidia Corporation is an American multinational technology company headquartered in Santa Clara, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q182477",
@@ -280,15 +288,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q182477",
-      "quote": "Nvidia (Q182477) — official website: https://www.nvidia.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:ai-accelerators",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Nvidia",
-      "quote": "Nvidia Corporation is an American multinational technology company headquartered in Santa Clara, California.",
+      "quote": "Nvidia (Q182477) — official website: nvidia.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

@@ -34,10 +34,10 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q25245388",
-      "quote": "Starship Technologies (Q25245388) — headquarters location: London",
+      "field": "area:industrial-robots",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Starship_Technologies",
+      "quote": "Starship Technologies is an autonomous delivery vehicle company.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -45,7 +45,7 @@
       "field": "country",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q25245388",
-      "quote": "Starship Technologies (Q25245388) — country (ISO 3166-1 alpha-2): GB",
+      "quote": "Starship Technologies (Q25245388) — country (ISO 3166-1 alpha-2): EE",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -53,7 +53,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q25245388",
-      "quote": "Starship Technologies (Q25245388) — official website: http://www.starship.xyz/",
+      "quote": "Starship Technologies (Q25245388) — official website: starship.xyz",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -64,14 +64,6 @@
       "quote": "Starship Technologies (Q25245388) — SEC Central Index Key: 1300780",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:industrial-robots",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Starship_Technologies",
-      "quote": "Starship Technologies is an autonomous delivery vehicle company.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -79,6 +71,5 @@
     "on": "2026-10-27"
   },
   "summary": "Starship Technologies is an autonomous delivery vehicle company.",
-  "country": "GB",
-  "hq": "London"
+  "country": "EE"
 }

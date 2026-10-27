@@ -7,13 +7,13 @@
   "country": "US",
   "ids": {
     "qid": "Q65056153",
-    "domain": "pony.ai",
     "isin": "US7329081084",
     "ticker": "PONY",
     "exchange": "US",
     "cusip": "732908108",
     "sedol": "BRWKBD6",
-    "cik": "1969302"
+    "cik": "1969302",
+    "domain": "pony.ai"
   },
   "areas": [
     {
@@ -165,6 +165,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Pony.ai",
+      "quote": "Pony AI Inc. is a Chinese autonomous vehicle technology company co-located in Silicon Valley, Beijing, and Guangzhou.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q65056153",
@@ -176,15 +184,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q65056153",
-      "quote": "Pony.ai (Q65056153) — official website: http://www.pony.ai/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:autonomous-vehicles",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Pony.ai",
-      "quote": "Pony AI Inc. is a Chinese autonomous vehicle technology company co-located in Silicon Valley, Beijing, and Guangzhou.",
+      "quote": "Pony.ai (Q65056153) — official website: pony.ai",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

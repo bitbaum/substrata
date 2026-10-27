@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:actuators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Beckhoff_Automation",
+      "quote": "Beckhoff Automation is a German technology company in the field of automation technology for industrial manufacturing, the process industry, the energy industry, the entertainment industry, and building automation.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q16746790",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q16746790",
-      "quote": "Beckhoff Automation (Q16746790) — official website: https://www.beckhoff.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:actuators",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Beckhoff_Automation",
-      "quote": "Beckhoff Automation is a German technology company in the field of automation technology for industrial manufacturing, the process industry, the energy industry, the entertainment industry, and building automation.",
+      "quote": "Beckhoff Automation (Q16746790) — official website: beckhoff.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "Beckhoff Automation is a German technology company in the field of automation technology for industrial manufacturing, the process industry, the energy industry, the entertainment industry, and building automation.",
-  "country": "DE",
-  "hq": "Verl"
+  "hq": "Verl",
+  "country": "DE"
 }

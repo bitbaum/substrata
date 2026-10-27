@@ -7,10 +7,10 @@
   "country": "KR",
   "ids": {
     "qid": "Q563107",
-    "domain": "hanwhaaerospace.com",
     "ticker": "012450",
     "exchange": "KS",
-    "sedol": "6772671"
+    "sedol": "6772671",
+    "domain": "hanwhaaerospace.com"
   },
   "areas": [
     {
@@ -105,7 +105,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q563107",
-      "quote": "Hanwha Aerospace (Q563107) — official website: https://www.hanwhaaerospace.com/eng/index.do",
+      "quote": "Hanwha Aerospace (Q563107) — official website: hanwhaaerospace.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

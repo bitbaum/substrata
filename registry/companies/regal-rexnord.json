@@ -7,10 +7,10 @@
   "country": "US",
   "ids": {
     "qid": "Q7307899",
-    "domain": "regalrexnord.com",
     "cik": "82811",
     "ticker": "RRX",
-    "exchange": "US"
+    "exchange": "US",
+    "domain": "regalrexnord.com"
   },
   "areas": [
     {
@@ -93,6 +93,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:actuators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Regal_Rexnord",
+      "quote": "Regal Rexnord Corporation is a manufacturer of electric motors and power transmission components based in Milwaukee, Wisconsin.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q7307899",
@@ -104,15 +112,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q7307899",
-      "quote": "Regal Rexnord (Q7307899) — official website: http://www.regalrexnord.com",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:actuators",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Regal_Rexnord",
-      "quote": "Regal Rexnord Corporation is a manufacturer of electric motors and power transmission components based in Milwaukee, Wisconsin.",
+      "quote": "Regal Rexnord (Q7307899) — official website: regalrexnord.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

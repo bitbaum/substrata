@@ -7,9 +7,9 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q2311",
+    "isin": "NL0000235190",
     "domain": "airbus.com",
-    "lei": "MINO79WLOO247M1IL051",
-    "isin": "NL0000235190"
+    "lei": "MINO79WLOO247M1IL051"
   },
   "areas": [
     {
@@ -38,6 +38,22 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:satellites",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Airbus",
+      "quote": "Airbus SE is a European aerospace corporation. While the company's primary business is the design and manufacture of commercial aircraft, it also operates separate divisions for Defence and Space and Helicopters.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:defence-tech",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Airbus",
+      "quote": "Airbus SE is a European aerospace corporation. While the company's primary business is the design and manufacture of commercial aircraft, it also operates separate divisions for Defence and Space and Helicopters.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2311",
@@ -57,7 +73,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2311",
-      "quote": "Airbus (Q2311) — official website: https://airbus.com",
+      "quote": "Airbus (Q2311) — official website: airbus.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -68,22 +84,6 @@
       "quote": "Airbus (Q2311) — Legal Entity Identifier: MINO79WLOO247M1IL051",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:satellites",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Airbus",
-      "quote": "Airbus SE is a European aerospace corporation. While the company's primary business is the design and manufacture of commercial aircraft, it also operates separate divisions for Defence and Space and Helicopters.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:defence-tech",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Airbus",
-      "quote": "Airbus SE is a European aerospace corporation. While the company's primary business is the design and manufacture of commercial aircraft, it also operates separate divisions for Defence and Space and Helicopters.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -91,6 +91,6 @@
     "on": "2026-10-27"
   },
   "summary": "Airbus SE is a European aerospace corporation. While the company's primary business is the design and manufacture of commercial aircraft, it also operates separate divisions for Defence and Space and Helicopters.",
-  "country": "FR",
-  "hq": "Leiden"
+  "hq": "Leiden",
+  "country": "FR"
 }

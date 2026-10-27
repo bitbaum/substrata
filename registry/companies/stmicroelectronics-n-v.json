@@ -7,14 +7,14 @@
   "country": "NL",
   "ids": {
     "qid": "Q661845",
-    "domain": "st.com",
     "cik": "932787",
     "lei": "213800Z8NOHIKRI42W10",
     "isin": "US8610121027",
     "ticker": "STM",
     "exchange": "US",
     "cusip": "861012102",
-    "sedol": "2430025"
+    "sedol": "2430025",
+    "domain": "st.com"
   },
   "areas": [
     {
@@ -156,22 +156,6 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q661845",
-      "quote": "STMicroelectronics (Q661845) — headquarters location: Plan-les-Ouates",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "ids.domain",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q661845",
-      "quote": "STMicroelectronics (Q661845) — official website: https://www.st.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "area:foundry",
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/STMicroelectronics",
@@ -184,6 +168,22 @@
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/STMicroelectronics",
       "quote": "STMicroelectronics NV is a European multinational semiconductor contract manufacturing and design company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q661845",
+      "quote": "STMicroelectronics (Q661845) — headquarters location: Plan-les-Ouates",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q661845",
+      "quote": "STMicroelectronics (Q661845) — official website: st.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

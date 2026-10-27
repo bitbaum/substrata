@@ -7,12 +7,12 @@
   "country": "JP",
   "ids": {
     "qid": "Q62621",
-    "domain": "global.canon",
     "cik": "16988",
-    "lei": "529900JH1GSC035SSP77",
     "isin": "JP3242800005",
     "ticker": "7751",
-    "exchange": "JP"
+    "exchange": "JP",
+    "domain": "global.canon",
+    "lei": "529900JH1GSC035SSP77"
   },
   "areas": [
     {
@@ -94,10 +94,10 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q62621",
-      "quote": "Canon Inc. (Q62621) — headquarters location: Krefeld",
+      "field": "area:semiconductor-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Canon_Inc.",
+      "quote": "Canon Inc. is a Japanese multinational corporation headquartered in Ōta, Tokyo, specializing in optical, imaging, and industrial products, such as lenses, cameras, medical equipment, scanners, printers, and semiconductor manufacturing equipment.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -105,7 +105,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q62621",
-      "quote": "Canon Inc. (Q62621) — official website: https://global.canon/",
+      "quote": "Canon Inc. (Q62621) — official website: global.canon",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -116,20 +116,11 @@
       "quote": "Canon Inc. (Q62621) — Legal Entity Identifier: 529900JH1GSC035SSP77",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:semiconductor-equipment",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Canon_Inc.",
-      "quote": "Canon Inc. is a Japanese multinational corporation headquartered in Ōta, Tokyo, specializing in optical, imaging, and industrial products, such as lenses, cameras, medical equipment, scanners, printers, and semiconductor manufacturing equipment.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
   },
-  "summary": "Canon Inc. is a Japanese multinational corporation headquartered in Ōta, Tokyo, specializing in optical, imaging, and industrial products, such as lenses, cameras, medical equipment, scanners, printers, and semiconductor manufacturing equipment.",
-  "hq": "Krefeld"
+  "summary": "Canon Inc. is a Japanese multinational corporation headquartered in Ōta, Tokyo, specializing in optical, imaging, and industrial products, such as lenses, cameras, medical equipment, scanners, printers, and semiconductor manufacturing equipment."
 }

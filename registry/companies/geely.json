@@ -7,8 +7,8 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q739000",
-    "domain": "geely.com",
-    "isin": "KYG3777B1032"
+    "isin": "KYG3777B1032",
+    "domain": "geely.com"
   },
   "areas": [
     {
@@ -18,18 +18,18 @@
   "figures": [],
   "evidence": [
     {
-      "field": "summary",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Geely",
-      "quote": ", Ltd. (ZGH), commonly known as Geely Holding, is a Chinese multinational automotive conglomerate headquartered in Hangzhou, China.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "ids.qid",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q739000",
       "quote": "Geely (Q739000) — Wikidata item: Q739000",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Geely",
+      "quote": ", Ltd. (ZGH), commonly known as Geely Holding, is a Chinese multinational automotive conglomerate headquartered in Hangzhou, China.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -53,15 +53,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q739000",
-      "quote": "Geely (Q739000) — official website: https://www.geely.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:autonomous-vehicles",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Geely",
-      "quote": ", Ltd. (ZGH), commonly known as Geely Holding, is a Chinese multinational automotive conglomerate headquartered in Hangzhou, China.",
+      "quote": "Geely (Q739000) — official website: geely.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,7 +62,6 @@
     "by": "company:add",
     "on": "2026-10-27"
   },
-  "summary": ", Ltd. (ZGH), commonly known as Geely Holding, is a Chinese multinational automotive conglomerate headquartered in Hangzhou, China.",
-  "country": "CN",
-  "hq": "Hangzhou"
+  "hq": "Hangzhou",
+  "country": "CN"
 }

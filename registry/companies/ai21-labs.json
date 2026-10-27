@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:frontier-labs",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/AI21_Labs",
+      "quote": "AI21 Labs is an Israeli company specializing in Natural Language Processing (NLP), which develops AI systems that can understand and generate natural language.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q113030551",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q113030551",
-      "quote": "AI21 Labs (Q113030551) — official website: https://www.ai21.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:frontier-labs",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/AI21_Labs",
-      "quote": "AI21 Labs is an Israeli company specializing in Natural Language Processing (NLP), which develops AI systems that can understand and generate natural language.",
+      "quote": "AI21 Labs (Q113030551) — official website: ai21.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "AI21 Labs is an Israeli company specializing in Natural Language Processing (NLP), which develops AI systems that can understand and generate natural language.",
-  "country": "IL",
-  "hq": "Tel Aviv"
+  "hq": "Tel Aviv",
+  "country": "IL"
 }

@@ -7,13 +7,13 @@
   "country": "US",
   "ids": {
     "qid": "Q1817174",
-    "domain": "supermicro.com",
-    "lei": "54930022CZO1N2UGVW07",
     "isin": "US86800U1043",
     "ticker": "SMCI",
     "exchange": "Nasdaq",
     "cik": "1375365",
-    "sedol": "BRC3N73"
+    "sedol": "BRC3N73",
+    "domain": "supermicro.com",
+    "lei": "54930022CZO1N2UGVW07"
   },
   "areas": [
     {
@@ -134,6 +134,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:data-centres",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Supermicro",
+      "quote": ", doing business as Supermicro, is an American information technology company based in San Jose, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1817174",
@@ -145,7 +153,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1817174",
-      "quote": "Supermicro (Q1817174) — official website: https://www.supermicro.com/",
+      "quote": "Supermicro (Q1817174) — official website: supermicro.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -154,14 +162,6 @@
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1817174",
       "quote": "Supermicro (Q1817174) — Legal Entity Identifier: 54930022CZO1N2UGVW07",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:data-centres",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Supermicro",
-      "quote": ", doing business as Supermicro, is an American information technology company based in San Jose, California.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

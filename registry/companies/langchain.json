@@ -1,0 +1,57 @@
+{
+  "slug": "langchain",
+  "name": "LangChain",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q117340550",
+    "domain": "langchain.com"
+  },
+  "areas": [
+    {
+      "area": "ai-software-tooling"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/LangChain",
+      "quote": "LangChain is a software framework that helps facilitate the integration of large language models (LLMs) into applications.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q117340550",
+      "quote": "LangChain (Q117340550) — Wikidata item: Q117340550",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q117340550",
+      "quote": "LangChain (Q117340550) — official website: https://langchain.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/LangChain",
+      "quote": "LangChain is a software framework that helps facilitate the integration of large language models (LLMs) into applications.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "LangChain is a software framework that helps facilitate the integration of large language models (LLMs) into applications."
+}

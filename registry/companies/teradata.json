@@ -13,7 +13,8 @@
     "sedol": "B247H10",
     "cik": "816761",
     "qid": "Q430745",
-    "cusip": "88076W103"
+    "cusip": "88076W103",
+    "domain": "teradata.com"
   },
   "areas": [
     {
@@ -124,10 +125,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q430745",
+      "quote": "Teradata (Q430745) — headquarters location: San Diego",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q430745",
+      "quote": "Teradata (Q430745) — official website: teradata.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Teradata",
+      "quote": "Teradata Corporation is an American software company that provides cloud database and analytics-related software, products, and services.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "San Diego",
+  "summary": "Teradata Corporation is an American software company that provides cloud database and analytics-related software, products, and services."
 }

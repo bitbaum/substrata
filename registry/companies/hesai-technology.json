@@ -7,13 +7,13 @@
   "country": "US",
   "ids": {
     "qid": "Q109412509",
-    "domain": "hesaitech.com",
     "isin": "US4280501085",
     "ticker": "HSAI",
     "exchange": "US",
     "sedol": "BMWS7Y8",
     "cik": "1861737",
-    "cusip": "428050108"
+    "cusip": "428050108",
+    "domain": "hesaitech.com"
   },
   "areas": [
     {
@@ -129,22 +129,6 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q109412509",
-      "quote": "Hesai Technology (Q109412509) — headquarters location: Shanghai",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "ids.domain",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q109412509",
-      "quote": "Hesai Technology (Q109412509) — official website: https://www.hesaitech.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "area:robot-sensors",
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Hesai_Technology",
@@ -157,6 +141,22 @@
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Hesai_Technology",
       "quote": "Hesai Technology is a publicly listed Chinese technology company that engages in the development and sales of lidar products such as sensors.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q109412509",
+      "quote": "Hesai Technology (Q109412509) — headquarters location: Shanghai",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q109412509",
+      "quote": "Hesai Technology (Q109412509) — official website: hesaitech.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

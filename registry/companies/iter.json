@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:fusion",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/ITER",
+      "quote": "ITER is an international nuclear fusion research and engineering project designed to demonstrate the feasibility of fusion power.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q191788",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q191788",
-      "quote": "ITER (Q191788) — official website: https://www.iter.org/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:fusion",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/ITER",
-      "quote": "ITER is an international nuclear fusion research and engineering project designed to demonstrate the feasibility of fusion power.",
+      "quote": "ITER (Q191788) — official website: iter.org",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "ITER is an international nuclear fusion research and engineering project designed to demonstrate the feasibility of fusion power.",
-  "country": "FR",
-  "hq": "Research centre CEA Cadarache"
+  "hq": "Research centre CEA Cadarache",
+  "country": "FR"
 }

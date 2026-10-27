@@ -7,12 +7,12 @@
   "country": "GB",
   "ids": {
     "qid": "Q682759",
-    "domain": "linde.com",
     "cik": "1707925",
-    "lei": "5299003QR1WT0EF88V51",
     "isin": "IE000S9YS762",
     "ticker": "LIN",
-    "exchange": "Nasdaq"
+    "exchange": "Nasdaq",
+    "domain": "linde.com",
+    "lei": "5299003QR1WT0EF88V51"
   },
   "areas": [
     {
@@ -94,10 +94,10 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q682759",
-      "quote": "Linde Group (Q682759) — headquarters location: Woking",
+      "field": "area:semiconductor-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Linde_plc",
+      "quote": "Linde is a global multinational chemical company and the world's largest industrial gas supplier by market share and revenue.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -105,7 +105,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q682759",
-      "quote": "Linde Group (Q682759) — official website: http://www.linde.com/",
+      "quote": "Linde Group (Q682759) — official website: linde.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -116,20 +116,11 @@
       "quote": "Linde Group (Q682759) — Legal Entity Identifier: 5299003QR1WT0EF88V51",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:semiconductor-equipment",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Linde_plc",
-      "quote": "Linde is a global multinational chemical company and the world's largest industrial gas supplier by market share and revenue.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
   },
-  "summary": "Linde is a global multinational chemical company and the world's largest industrial gas supplier by market share and revenue.",
-  "hq": "Woking"
+  "summary": "Linde is a global multinational chemical company and the world's largest industrial gas supplier by market share and revenue."
 }

@@ -34,6 +34,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:fusion",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Tokamak_Energy",
+      "quote": "Tokamak Energy is a fusion power and superconducting technologies company based near Oxford in the United Kingdom, established in 2009.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q30292241",
@@ -53,7 +61,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q30292241",
-      "quote": "Tokamak Energy (Q30292241) — official website: https://www.tokamakenergy.co.uk/",
+      "quote": "Tokamak Energy (Q30292241) — official website: tokamakenergy.co.uk",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -64,14 +72,6 @@
       "quote": "Tokamak Energy (Q30292241) — Legal Entity Identifier: 254900ICX0JW97RR1482",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:fusion",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Tokamak_Energy",
-      "quote": "Tokamak Energy is a fusion power and superconducting technologies company based near Oxford in the United Kingdom, established in 2009.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -79,6 +79,6 @@
     "on": "2026-10-27"
   },
   "summary": "Tokamak Energy is a fusion power and superconducting technologies company based near Oxford in the United Kingdom, established in 2009.",
-  "country": "GB",
-  "hq": "Abingdon-on-Thames"
+  "hq": "Abingdon-on-Thames",
+  "country": "GB"
 }

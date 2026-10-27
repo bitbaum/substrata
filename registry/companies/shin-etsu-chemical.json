@@ -7,12 +7,12 @@
   "country": "JP",
   "ids": {
     "qid": "Q904284",
-    "domain": "shinetsu.co.jp",
-    "lei": "353800PX8Q64N86H5W41",
     "isin": "JP3371200001",
     "ticker": "4063",
     "exchange": "JP",
-    "cik": "1442651"
+    "cik": "1442651",
+    "domain": "shinetsu.co.jp",
+    "lei": "353800PX8Q64N86H5W41"
   },
   "areas": [
     {
@@ -97,30 +97,6 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q904284",
-      "quote": "Shin-Etsu Chemical (Q904284) — headquarters location: Chiyoda",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "ids.domain",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q904284",
-      "quote": "Shin-Etsu Chemical (Q904284) — official website: http://www.shinetsu.co.jp/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "ids.lei",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q904284",
-      "quote": "Shin-Etsu Chemical (Q904284) — Legal Entity Identifier: 353800PX8Q64N86H5W41",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "area:wafers-substrates",
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Shin-Etsu_Chemical",
@@ -133,6 +109,30 @@
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Shin-Etsu_Chemical",
       "quote": ", Ltd. is the largest chemical company in Japan. Shin-Etsu has the largest global market share for polyvinyl chloride, semiconductor silicon, and photomask substrates.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q904284",
+      "quote": "Shin-Etsu Chemical (Q904284) — headquarters location: Chiyoda",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q904284",
+      "quote": "Shin-Etsu Chemical (Q904284) — official website: shinetsu.co.jp",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q904284",
+      "quote": "Shin-Etsu Chemical (Q904284) — Legal Entity Identifier: 353800PX8Q64N86H5W41",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

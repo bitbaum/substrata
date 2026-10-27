@@ -7,10 +7,10 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q663452",
+    "isin": "CH0102993182",
     "domain": "te.com",
     "cik": "1385157",
-    "lei": "894500ZRIX9K13RHXR17",
-    "isin": "CH0102993182"
+    "lei": "894500ZRIX9K13RHXR17"
   },
   "areas": [
     {
@@ -36,6 +36,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:robot-sensors",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/TE_Connectivity",
+      "quote": "TE Connectivity plc is an American-Irish domiciled technology company that designs and manufactures electrical and electronic components.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q663452",
@@ -55,7 +63,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q663452",
-      "quote": "TE Connectivity (Q663452) — official website: http://www.te.com/",
+      "quote": "TE Connectivity (Q663452) — official website: te.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -74,14 +82,6 @@
       "quote": "TE Connectivity (Q663452) — Legal Entity Identifier: 894500ZRIX9K13RHXR17",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:robot-sensors",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/TE_Connectivity",
-      "quote": "TE Connectivity plc is an American-Irish domiciled technology company that designs and manufactures electrical and electronic components.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -89,6 +89,6 @@
     "on": "2026-10-27"
   },
   "summary": "TE Connectivity plc is an American-Irish domiciled technology company that designs and manufactures electrical and electronic components.",
-  "country": "CH",
-  "hq": "Schaffhausen"
+  "hq": "Schaffhausen",
+  "country": "CH"
 }

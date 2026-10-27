@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/G42_(company)",
+      "quote": "Group 42 Holding Ltd, doing business as G42, is an Emirati artificial intelligence (AI) development holding company founded in 2018 and based in Abu Dhabi, United Arab Emirates.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "country",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q98918715",
@@ -44,15 +52,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q98918715",
-      "quote": "Group 42 (Q98918715) — official website: https://g42.ai/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:ai-cloud-platforms",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/G42_(company)",
-      "quote": "Group 42 Holding Ltd, doing business as G42, is an Emirati artificial intelligence (AI) development holding company founded in 2018 and based in Abu Dhabi, United Arab Emirates.",
+      "quote": "Group 42 (Q98918715) — official website: g42.ai",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

@@ -34,6 +34,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:nuclear-fuel-cycle",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Orano",
+      "quote": "Orano SA is a French multinational nuclear fuel cycle corporation headquartered in Châtillon, Hauts-de-Seine.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q61585271",
@@ -53,7 +61,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q61585271",
-      "quote": "Orano (Q61585271) — official website: http://www.orano.group/",
+      "quote": "Orano (Q61585271) — official website: orano.group",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -64,14 +72,6 @@
       "quote": "Orano (Q61585271) — Legal Entity Identifier: 969500161UMNDC85C891",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:nuclear-fuel-cycle",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Orano",
-      "quote": "Orano SA is a French multinational nuclear fuel cycle corporation headquartered in Châtillon, Hauts-de-Seine.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -79,6 +79,6 @@
     "on": "2026-10-27"
   },
   "summary": "Orano SA is a French multinational nuclear fuel cycle corporation headquartered in Châtillon, Hauts-de-Seine.",
-  "country": "FR",
-  "hq": "Châtillon"
+  "hq": "Châtillon",
+  "country": "FR"
 }

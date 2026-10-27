@@ -34,6 +34,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:synthetic-biology",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Ginkgo_Bioworks",
+      "quote": "Ginkgo Bioworks Holdings, Inc. is an American biotech company founded in 2008 by five scientists from MIT.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q29026065",
@@ -53,7 +61,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q29026065",
-      "quote": "Ginkgo Bioworks (Q29026065) — official website: https://www.ginkgo.bio/",
+      "quote": "Ginkgo Bioworks (Q29026065) — official website: ginkgo.bio",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -64,14 +72,6 @@
       "quote": "Ginkgo Bioworks (Q29026065) — SEC Central Index Key: 1648827",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:synthetic-biology",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Ginkgo_Bioworks",
-      "quote": "Ginkgo Bioworks Holdings, Inc. is an American biotech company founded in 2008 by five scientists from MIT.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -79,6 +79,6 @@
     "on": "2026-10-27"
   },
   "summary": "Ginkgo Bioworks Holdings, Inc. is an American biotech company founded in 2008 by five scientists from MIT.",
-  "country": "US",
-  "hq": "Boston"
+  "hq": "Boston",
+  "country": "US"
 }

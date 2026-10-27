@@ -37,6 +37,22 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:quantum",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Bluefors",
+      "quote": "Bluefors is a Finnish company specializing in cryogenic products used in several high-tech industries.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:quantum-computing",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Bluefors",
+      "quote": "Bluefors is a Finnish company specializing in cryogenic products used in several high-tech industries.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q78060731",
@@ -56,7 +72,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q78060731",
-      "quote": "Bluefors (Q78060731) — official website: https://bluefors.com/",
+      "quote": "Bluefors (Q78060731) — official website: bluefors.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -67,22 +83,6 @@
       "quote": "Bluefors (Q78060731) — Legal Entity Identifier: 743700OR8W1SWH18N791",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:quantum",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Bluefors",
-      "quote": "Bluefors is a Finnish company specializing in cryogenic products used in several high-tech industries.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:quantum-computing",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Bluefors",
-      "quote": "Bluefors is a Finnish company specializing in cryogenic products used in several high-tech industries.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -90,6 +90,6 @@
     "on": "2026-10-27"
   },
   "summary": "Bluefors is a Finnish company specializing in cryogenic products used in several high-tech industries.",
-  "country": "FI",
-  "hq": "Helsinki"
+  "hq": "Helsinki",
+  "country": "FI"
 }

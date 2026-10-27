@@ -7,9 +7,9 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q156578",
+    "isin": "DE0007664005",
     "domain": "volkswagenag.com",
-    "lei": "529900NNUPAGGOMPXZ31",
-    "isin": "DE0007664005"
+    "lei": "529900NNUPAGGOMPXZ31"
   },
   "areas": [
     {
@@ -35,6 +35,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Volkswagen_Group",
+      "quote": "Volkswagen Aktiengesellschaft, trading as Volkswagen Group, is a German multinational conglomerate automotive manufacturer headquartered in Wolfsburg, Lower Saxony, Germany.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q156578",
@@ -54,7 +62,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q156578",
-      "quote": "Volkswagen Group (Q156578) — official website: https://www.volkswagenag.com/",
+      "quote": "Volkswagen Group (Q156578) — official website: volkswagenag.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -65,14 +73,6 @@
       "quote": "Volkswagen Group (Q156578) — Legal Entity Identifier: 529900NNUPAGGOMPXZ31",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:autonomous-vehicles",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Volkswagen_Group",
-      "quote": "Volkswagen Aktiengesellschaft, trading as Volkswagen Group, is a German multinational conglomerate automotive manufacturer headquartered in Wolfsburg, Lower Saxony, Germany.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -80,6 +80,6 @@
     "on": "2026-10-27"
   },
   "summary": "Volkswagen Aktiengesellschaft, trading as Volkswagen Group, is a German multinational conglomerate automotive manufacturer headquartered in Wolfsburg, Lower Saxony, Germany.",
-  "country": "DE",
-  "hq": "Wolfsburg"
+  "hq": "Wolfsburg",
+  "country": "DE"
 }

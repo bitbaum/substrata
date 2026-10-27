@@ -7,9 +7,9 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q791069",
+    "isin": "IT0005119810",
     "domain": "avio.com",
-    "lei": "8156008F25C4B0E7C860",
-    "isin": "IT0005119810"
+    "lei": "8156008F25C4B0E7C860"
   },
   "areas": [
     {
@@ -35,6 +35,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:launch",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Avio",
+      "quote": "A. is an Italian company operating in the aerospace sector with its head office in Colleferro near Rome, Italy.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q791069",
@@ -54,7 +62,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q791069",
-      "quote": "Avio (Q791069) — official website: https://www.avio.com",
+      "quote": "Avio (Q791069) — official website: avio.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -65,14 +73,6 @@
       "quote": "Avio (Q791069) — Legal Entity Identifier: 8156008F25C4B0E7C860",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:launch",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Avio",
-      "quote": "A. is an Italian company operating in the aerospace sector with its head office in Colleferro near Rome, Italy.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -80,6 +80,6 @@
     "on": "2026-10-27"
   },
   "summary": "A. is an Italian company operating in the aerospace sector with its head office in Colleferro near Rome, Italy.",
-  "country": "IT",
-  "hq": "Colleferro"
+  "hq": "Colleferro",
+  "country": "IT"
 }

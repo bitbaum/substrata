@@ -13,7 +13,8 @@
     "sedol": "BMGNBJ2",
     "cik": "1577526",
     "qid": "Q104081972",
-    "cusip": "12468P104"
+    "cusip": "12468P104",
+    "domain": "c3.ai"
   },
   "areas": [
     {
@@ -148,10 +149,27 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q104081972",
+      "quote": "C3.ai (Q104081972) — headquarters location: Redwood City",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q104081972",
+      "quote": "C3.ai (Q104081972) — official website: c3.ai",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Redwood City"
 }

@@ -33,18 +33,10 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q116951797",
-      "quote": "Hermeus (Q116951797) — headquarters location: Georgia",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "country",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q116951797",
-      "quote": "Hermeus (Q116951797) — country (ISO 3166-1 alpha-2): US",
+      "field": "area:defence-autonomy",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hermeus",
+      "quote": "Hermeus Corporation is an American startup company designing a hypersonic airliner.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -52,15 +44,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q116951797",
-      "quote": "Hermeus (Q116951797) — official website: http://hermeus.com",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:defence-autonomy",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Hermeus",
-      "quote": "Hermeus Corporation is an American startup company designing a hypersonic airliner.",
+      "quote": "Hermeus (Q116951797) — official website: hermeus.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -69,7 +53,5 @@
     "by": "company:add",
     "on": "2026-10-27"
   },
-  "summary": "Hermeus Corporation is an American startup company designing a hypersonic airliner.",
-  "country": "US",
-  "hq": "Georgia"
+  "summary": "Hermeus Corporation is an American startup company designing a hypersonic airliner."
 }

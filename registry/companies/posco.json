@@ -6,9 +6,13 @@
   "status": "active",
   "country": "KR",
   "ids": {
+    "qid": "Q483946",
+    "cik": "889132",
+    "isin": "US6934831099",
     "ticker": "005490",
     "exchange": "KS",
-    "cik": "889132"
+    "domain": "posco.com",
+    "lei": "988400E5HRVX81AYLM04"
   },
   "areas": [
     {
@@ -69,10 +73,52 @@
       "readOn": "",
       "asOf": "",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/POSCO",
+      "quote": "POSCO is a South Korean steel manufacturer headquartered in Pohang, South Korea.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q483946",
+      "quote": "POSCO (Q483946) — Wikidata item: Q483946",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q483946",
+      "quote": "POSCO (Q483946) — headquarters location: Pohang",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q483946",
+      "quote": "POSCO (Q483946) — official website: posco.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q483946",
+      "quote": "POSCO (Q483946) — Legal Entity Identifier: 988400E5HRVX81AYLM04",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "POSCO is a South Korean steel manufacturer headquartered in Pohang, South Korea.",
+  "hq": "Pohang"
 }

@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q7240",
-    "domain": "lockheedmartin.com",
     "cik": "936468",
     "lei": "DPRBOZP0K5RM2YE8UU08",
     "isin": "US5398301094",
     "ticker": "LMT",
     "exchange": "US",
     "cusip": "539830109",
-    "sedol": "2522096"
+    "sedol": "2522096",
+    "domain": "lockheedmartin.com"
   },
   "areas": [
     {
@@ -177,6 +177,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:launch",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Lockheed_Martin",
+      "quote": "The Lockheed Martin Corporation is an American defense and aerospace manufacturer.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q7240",
@@ -188,15 +196,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q7240",
-      "quote": "Lockheed Martin (Q7240) — official website: https://lockheedmartin.com",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:launch",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Lockheed_Martin",
-      "quote": "The Lockheed Martin Corporation is an American defense and aerospace manufacturer.",
+      "quote": "Lockheed Martin (Q7240) — official website: lockheedmartin.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

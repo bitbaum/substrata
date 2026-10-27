@@ -12,7 +12,8 @@
     "cik": "866291",
     "qid": "Q18616140",
     "isin": "US01749D1054",
-    "cusip": "01749D105"
+    "cusip": "01749D105",
+    "domain": "allegromicro.com"
   },
   "areas": [
     {
@@ -124,10 +125,27 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q18616140",
+      "quote": "Allegro MicroSystems (Q18616140) — headquarters location: Manchester",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q18616140",
+      "quote": "Allegro MicroSystems (Q18616140) — official website: allegromicro.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Manchester"
 }

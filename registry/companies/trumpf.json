@@ -67,6 +67,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:semiconductor-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Trumpf",
+      "quote": "TRUMPF SE + Co. KG is a German family-owned company based in Ditzingen near Stuttgart, Baden-Württemberg.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q724429",
@@ -78,15 +86,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q724429",
-      "quote": "Trumpf (Q724429) — official website: https://www.trumpf.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:semiconductor-equipment",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Trumpf",
-      "quote": "TRUMPF SE + Co. KG is a German family-owned company based in Ditzingen near Stuttgart, Baden-Württemberg.",
+      "quote": "Trumpf (Q724429) — official website: trumpf.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

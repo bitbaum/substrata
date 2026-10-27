@@ -7,9 +7,9 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q1539149",
+    "isin": "TW0005347009",
     "domain": "vis.com.tw",
-    "lei": "2549001S5Q158BIJJO13",
-    "isin": "TW0005347009"
+    "lei": "2549001S5Q158BIJJO13"
   },
   "areas": [
     {
@@ -35,6 +35,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:foundry",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Vanguard_International_Semiconductor_Corporation",
+      "quote": "Vanguard International Semiconductor Corporation (VIS) is a Taiwanese specialized IC foundry service provider, founded in December 1994 in Hsinchu Science Park by Morris Chang.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1539149",
@@ -54,7 +62,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1539149",
-      "quote": "Vanguard International Semiconductor Corporation (Q1539149) — official website: https://www.vis.com.tw/",
+      "quote": "Vanguard International Semiconductor Corporation (Q1539149) — official website: vis.com.tw",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -65,14 +73,6 @@
       "quote": "Vanguard International Semiconductor Corporation (Q1539149) — Legal Entity Identifier: 2549001S5Q158BIJJO13",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:foundry",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Vanguard_International_Semiconductor_Corporation",
-      "quote": "Vanguard International Semiconductor Corporation (VIS) is a Taiwanese specialized IC foundry service provider, founded in December 1994 in Hsinchu Science Park by Morris Chang.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -80,6 +80,6 @@
     "on": "2026-10-27"
   },
   "summary": "Vanguard International Semiconductor Corporation (VIS) is a Taiwanese specialized IC foundry service provider, founded in December 1994 in Hsinchu Science Park by Morris Chang.",
-  "country": "TW",
-  "hq": "Hsinchu City"
+  "hq": "Hsinchu City",
+  "country": "TW"
 }

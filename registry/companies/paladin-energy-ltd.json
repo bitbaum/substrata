@@ -7,11 +7,11 @@
   "country": "AU",
   "ids": {
     "qid": "Q2046830",
-    "domain": "paladinenergy.com.au",
     "ticker": "PDN",
     "exchange": "AU",
     "isin": "AU000000PDN8",
-    "sedol": "6668468"
+    "sedol": "6668468",
+    "domain": "paladinenergy.com.au"
   },
   "areas": [
     {
@@ -83,6 +83,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:nuclear-fuel-cycle",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Paladin_Energy",
+      "quote": "Paladin Energy Ltd is a Western Australian uranium mining company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2046830",
@@ -94,15 +102,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2046830",
-      "quote": "Paladin Energy (Q2046830) — official website: http://www.paladinenergy.com.au/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:nuclear-fuel-cycle",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Paladin_Energy",
-      "quote": "Paladin Energy Ltd is a Western Australian uranium mining company.",
+      "quote": "Paladin Energy (Q2046830) — official website: paladinenergy.com.au",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

@@ -34,6 +34,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:fission-smr",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Korea_Hydro_%26_Nuclear_Power",
+      "quote": "Korea Hydro & Nuclear Power is a subsidiary of the Korea Electric Power Corporation (KEPCO).",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q6431646",
@@ -53,7 +61,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q6431646",
-      "quote": "Korea Hydro & Nuclear Power (Q6431646) — official website: http://www.khnp.co.kr/",
+      "quote": "Korea Hydro & Nuclear Power (Q6431646) — official website: khnp.co.kr",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -64,14 +72,6 @@
       "quote": "Korea Hydro & Nuclear Power (Q6431646) — Legal Entity Identifier: 9884008CRY5MLCN8OQ43",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:fission-smr",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Korea_Hydro_%26_Nuclear_Power",
-      "quote": "Korea Hydro & Nuclear Power is a subsidiary of the Korea Electric Power Corporation (KEPCO).",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -79,6 +79,6 @@
     "on": "2026-10-27"
   },
   "summary": "Korea Hydro & Nuclear Power is a subsidiary of the Korea Electric Power Corporation (KEPCO).",
-  "country": "KR",
-  "hq": "Gyeongju"
+  "hq": "Gyeongju",
+  "country": "KR"
 }

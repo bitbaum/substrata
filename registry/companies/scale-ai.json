@@ -34,6 +34,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Scale_AI",
+      "quote": "Scale AI, Inc. is an American artificial intelligence infrastructure and software company based in San Francisco, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q112629176",
@@ -53,7 +61,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q112629176",
-      "quote": "Scale AI (Q112629176) — official website: https://www.scale.com",
+      "quote": "Scale AI (Q112629176) — official website: scale.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -64,14 +72,6 @@
       "quote": "Scale AI (Q112629176) — Legal Entity Identifier: 2549009WDXIYQKT0WP71",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:ai-software-tooling",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Scale_AI",
-      "quote": "Scale AI, Inc. is an American artificial intelligence infrastructure and software company based in San Francisco, California.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -79,6 +79,6 @@
     "on": "2026-10-27"
   },
   "summary": "Scale AI, Inc. is an American artificial intelligence infrastructure and software company based in San Francisco, California.",
-  "country": "US",
-  "hq": "San Francisco"
+  "hq": "San Francisco",
+  "country": "US"
 }

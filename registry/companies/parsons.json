@@ -6,14 +6,15 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q3896512",
+    "cik": "275880",
     "lei": "549300ZXH0VRBSEPX752",
     "isin": "US70202L1026",
     "ticker": "PSN",
     "exchange": "US",
     "sedol": "BJN4N02",
-    "cik": "275880",
-    "qid": "Q3896512",
-    "cusip": "70202L102"
+    "cusip": "70202L102",
+    "domain": "parsons.com"
   },
   "areas": [
     {
@@ -124,10 +125,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Parsons_Corporation",
+      "quote": "Parsons Corporation is an American multinational technology-focused defense, intelligence, and infrastructure engineering firm.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q3896512",
+      "quote": "Parsons Corporation (Q3896512) — headquarters location: Chantilly",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q3896512",
+      "quote": "Parsons Corporation (Q3896512) — official website: parsons.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Parsons Corporation is an American multinational technology-focused defense, intelligence, and infrastructure engineering firm.",
+  "hq": "Chantilly"
 }

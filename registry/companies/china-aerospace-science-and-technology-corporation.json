@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:launch",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/China_Aerospace_Science_and_Technology_Corporation",
+      "quote": "The China Aerospace Science and Technology Corporation (CASC) is a main contractor for the Chinese space program.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2777589",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2777589",
-      "quote": "China Aerospace Science and Technology Corporation (Q2777589) — official website: http://english.spacechina.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:launch",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/China_Aerospace_Science_and_Technology_Corporation",
-      "quote": "The China Aerospace Science and Technology Corporation (CASC) is a main contractor for the Chinese space program.",
+      "quote": "China Aerospace Science and Technology Corporation (Q2777589) — official website: english.spacechina.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "The China Aerospace Science and Technology Corporation (CASC) is a main contractor for the Chinese space program.",
-  "country": "CN",
-  "hq": "Haidian District"
+  "hq": "Haidian District",
+  "country": "CN"
 }

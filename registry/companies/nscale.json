@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Nscale",
+      "quote": "Nscale is a British technology company that operates data centres and GPU cloud infrastructure.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "country",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q132721548",
@@ -44,15 +52,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q132721548",
-      "quote": "Nscale (Q132721548) — official website: https://www.nscale.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:ai-cloud-platforms",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Nscale",
-      "quote": "Nscale is a British technology company that operates data centres and GPU cloud infrastructure.",
+      "quote": "Nscale (Q132721548) — official website: nscale.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

@@ -34,6 +34,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:fission-smr",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Framatome",
+      "quote": "Framatome is a French nuclear reactor business.5%).",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q504917",
@@ -53,7 +61,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q504917",
-      "quote": "Framatome (Q504917) — official website: https://www.framatome.com",
+      "quote": "Framatome (Q504917) — official website: framatome.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -64,14 +72,6 @@
       "quote": "Framatome (Q504917) — Legal Entity Identifier: 9695008O5IIXK0UGWJ07",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:fission-smr",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Framatome",
-      "quote": "Framatome is a French nuclear reactor business.5%).",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -79,6 +79,6 @@
     "on": "2026-10-27"
   },
   "summary": "Framatome is a French nuclear reactor business.5%).",
-  "country": "FR",
-  "hq": "Courbevoie"
+  "hq": "Courbevoie",
+  "country": "FR"
 }

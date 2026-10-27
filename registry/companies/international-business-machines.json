@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q37156",
-    "domain": "ibm.com",
     "cik": "51143",
     "lei": "VGRQXHF3J8VDLUA7XE92",
     "isin": "US4592001014",
     "ticker": "IBM",
     "exchange": "US",
     "sedol": "2005973",
-    "cusip": "459200101"
+    "cusip": "459200101",
+    "domain": "ibm.com"
   },
   "areas": [
     {
@@ -231,22 +231,6 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q37156",
-      "quote": "IBM (Q37156) — headquarters location: Armonk",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "ids.domain",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q37156",
-      "quote": "IBM (Q37156) — official website: https://www.ibm.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "area:ai-cloud-platforms",
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/IBM",
@@ -259,6 +243,22 @@
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/IBM",
       "quote": "International Business Machines Corporation, doing business as IBM, is an American multinational technology company headquartered in Armonk, New York, and present in over 175 countries.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q37156",
+      "quote": "IBM (Q37156) — headquarters location: Armonk",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q37156",
+      "quote": "IBM (Q37156) — official website: ibm.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

@@ -12,7 +12,8 @@
     "qid": "Q4686194",
     "ticker": "AEIS",
     "exchange": "US",
-    "cusip": "007973100"
+    "cusip": "007973100",
+    "domain": "advanced-energy.com"
   },
   "areas": [
     {
@@ -123,10 +124,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4686194",
+      "quote": "Advanced Energy (Q4686194) — headquarters location: Fort Collins",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4686194",
+      "quote": "Advanced Energy (Q4686194) — official website: advanced-energy.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Advanced_Energy",
+      "quote": "Advanced Energy Industries, Inc.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Fort Collins",
+  "summary": "Advanced Energy Industries, Inc."
 }

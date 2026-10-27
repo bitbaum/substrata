@@ -7,12 +7,12 @@
   "country": "GB",
   "ids": {
     "qid": "Q169339",
-    "domain": "glencore.com",
-    "lei": "Q4ZWFZ2PKK979ZCHTR12",
     "isin": "JE00B4T3BW64",
     "ticker": "GLEN",
     "exchange": "LN",
-    "sedol": "B4T3BW6"
+    "sedol": "B4T3BW6",
+    "domain": "glencore.com",
+    "lei": "2138002658CPO9NBH955"
   },
   "areas": [
     {
@@ -84,6 +84,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Glencore",
+      "quote": "Glencore plc is an Anglo-Swiss multinational commodity trading and mining company with headquarters in Baar, Switzerland.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q169339",
@@ -95,7 +103,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q169339",
-      "quote": "Glencore (Q169339) — official website: https://www.glencore.com/",
+      "quote": "Glencore (Q169339) — official website: glencore.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -103,15 +111,7 @@
       "field": "ids.lei",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q169339",
-      "quote": "Glencore (Q169339) — Legal Entity Identifier: Q4ZWFZ2PKK979ZCHTR12",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:critical-minerals",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Glencore",
-      "quote": "Glencore plc is an Anglo-Swiss multinational commodity trading and mining company with headquarters in Baar, Switzerland.",
+      "quote": "Glencore (Q169339) — Legal Entity Identifier: 2138002658CPO9NBH955",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

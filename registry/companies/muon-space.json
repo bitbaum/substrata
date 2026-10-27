@@ -33,18 +33,18 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "ids.domain",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q120107960",
-      "quote": "Muon Space (Q120107960) — official website: https://www.muonspace.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "area:satellites",
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Muon_Space",
       "quote": "Muon Space is an American aerospace startup located in Silicon Valley, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q120107960",
+      "quote": "Muon Space (Q120107960) — official website: muonspace.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

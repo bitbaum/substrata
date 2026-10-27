@@ -12,14 +12,14 @@
   "country": "KY",
   "ids": {
     "qid": "Q1359568",
-    "domain": "alibabagroup.com",
     "cik": "1577552",
     "lei": "5493001NTNQJDH60PM02",
     "isin": "US01609W1027",
     "ticker": "BABA",
     "exchange": "US",
     "sedol": "BP41ZD1",
-    "cusip": "01609W102"
+    "cusip": "01609W102",
+    "domain": "alibabagroup.com"
   },
   "areas": [
     {
@@ -170,6 +170,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Alibaba_Group",
+      "quote": "Alibaba Group Holding Limited, branded as Alibaba, is a Chinese multinational technology company specializing in e-commerce, retail, Internet, and technology.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1359568",
@@ -181,15 +189,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1359568",
-      "quote": "Alibaba Group (Q1359568) — official website: https://www.alibabagroup.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:ai-cloud-platforms",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Alibaba_Group",
-      "quote": "Alibaba Group Holding Limited, branded as Alibaba, is a Chinese multinational technology company specializing in e-commerce, retail, Internet, and technology.",
+      "quote": "Alibaba Group (Q1359568) — official website: alibabagroup.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

@@ -12,7 +12,8 @@
     "ticker": "NICE",
     "exchange": "US",
     "cusip": "653656108",
-    "cik": "1003935"
+    "cik": "1003935",
+    "domain": "nice.com"
   },
   "areas": [
     {
@@ -96,10 +97,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country IL as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2091479",
+      "quote": "Nice Ltd (Q2091479) — headquarters location: Ra'anana",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2091479",
+      "quote": "Nice Ltd (Q2091479) — official website: nice.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/NiCE",
+      "quote": "NiCE is an American technology company specializing in customer relations management software, artificial intelligence, and digital and workforce engagement management.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Ra'anana",
+  "summary": "NiCE is an American technology company specializing in customer relations management software, artificial intelligence, and digital and workforce engagement management."
 }

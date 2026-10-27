@@ -17,18 +17,18 @@
   "figures": [],
   "evidence": [
     {
-      "field": "summary",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Axiom_Space",
-      "quote": ", is an American privately funded space infrastructure developer headquartered in Houston, Texas.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "ids.qid",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q48815838",
       "quote": "Axiom Space (Q48815838) — Wikidata item: Q48815838",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:satellites",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Axiom_Space",
+      "quote": ", is an American privately funded space infrastructure developer headquartered in Houston, Texas.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -52,15 +52,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q48815838",
-      "quote": "Axiom Space (Q48815838) — official website: http://www.axiomspace.com",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:satellites",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Axiom_Space",
-      "quote": ", is an American privately funded space infrastructure developer headquartered in Houston, Texas.",
+      "quote": "Axiom Space (Q48815838) — official website: axiomspace.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -69,7 +61,6 @@
     "by": "company:add",
     "on": "2026-10-27"
   },
-  "summary": ", is an American privately funded space infrastructure developer headquartered in Houston, Texas.",
-  "country": "US",
-  "hq": "Houston"
+  "hq": "Houston",
+  "country": "US"
 }

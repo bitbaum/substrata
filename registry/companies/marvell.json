@@ -12,14 +12,14 @@
   "country": "US",
   "ids": {
     "qid": "Q1347782",
-    "domain": "marvell.com",
-    "lei": "8DF36O58U3QIHUCGZB18",
     "isin": "US5738741041",
     "ticker": "MRVL",
     "exchange": "Nasdaq",
     "cik": "1835632",
     "sedol": "BNKJSM5",
-    "cusip": "573874104"
+    "cusip": "573874104",
+    "domain": "marvell.com",
+    "lei": "8DF36O58U3QIHUCGZB18"
   },
   "areas": [
     {
@@ -200,30 +200,6 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q1347782",
-      "quote": "Marvell Technology (Q1347782) — headquarters location: Santa Clara",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "ids.domain",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q1347782",
-      "quote": "Marvell Technology (Q1347782) — official website: https://www.marvell.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "ids.lei",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q1347782",
-      "quote": "Marvell Technology (Q1347782) — Legal Entity Identifier: 8DF36O58U3QIHUCGZB18",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "area:ai-accelerators",
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Marvell_Technology",
@@ -236,6 +212,30 @@
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Marvell_Technology",
       "quote": "Marvell Technology, Inc. is an American company, headquartered in Santa Clara, California, which develops and produces semiconductors and related technology.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1347782",
+      "quote": "Marvell Technology (Q1347782) — headquarters location: Santa Clara",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1347782",
+      "quote": "Marvell Technology (Q1347782) — official website: marvell.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1347782",
+      "quote": "Marvell Technology (Q1347782) — Legal Entity Identifier: 8DF36O58U3QIHUCGZB18",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

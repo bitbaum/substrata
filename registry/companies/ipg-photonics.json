@@ -7,11 +7,11 @@
   "country": "US",
   "ids": {
     "qid": "Q5973024",
-    "domain": "ntoire-polus.ru",
     "cik": "1111928",
     "isin": "US44980X1090",
     "ticker": "IPGP",
-    "exchange": "US"
+    "exchange": "US",
+    "domain": "ntoire-polus.ru"
   },
   "areas": [
     {
@@ -94,6 +94,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:silicon-photonics",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/IPG_Photonics",
+      "quote": "IPG Photonics Corporation is an American manufacturer of fiber lasers.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q5973024",
@@ -105,15 +113,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q5973024",
-      "quote": "IPG Photonics (Q5973024) — official website: http://www.ntoire-polus.ru/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:silicon-photonics",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/IPG_Photonics",
-      "quote": "IPG Photonics Corporation is an American manufacturer of fiber lasers.",
+      "quote": "IPG Photonics (Q5973024) — official website: ntoire-polus.ru",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

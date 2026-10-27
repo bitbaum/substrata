@@ -12,7 +12,8 @@
     "isin": "US03945R1023",
     "cik": "1824502",
     "qid": "Q109369035",
-    "sedol": "BMHVDS8"
+    "sedol": "BMHVDS8",
+    "domain": "archer.com"
   },
   "areas": [
     {
@@ -124,10 +125,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q109369035",
+      "quote": "Archer Aviation (Q109369035) — headquarters location: San Jose",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q109369035",
+      "quote": "Archer Aviation (Q109369035) — official website: archer.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Archer_Aviation",
+      "quote": "Archer Aviation Inc. is a publicly traded aerospace and defense technology company headquartered in San Jose, California, which is developing eVTOL aircraft for urban air taxi and defense operations.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "San Jose",
+  "summary": "Archer Aviation Inc. is a publicly traded aerospace and defense technology company headquartered in San Jose, California, which is developing eVTOL aircraft for urban air taxi and defense operations."
 }

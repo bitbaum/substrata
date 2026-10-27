@@ -7,9 +7,9 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q591001",
+    "isin": "CNE1000073Z4",
     "domain": "cheryinternational.com",
-    "lei": "300300F08E6VWZVSVM95",
-    "isin": "CNE1000073Z4"
+    "lei": "300300F08E6VWZVSVM95"
   },
   "areas": [
     {
@@ -35,6 +35,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:electric-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Chery",
+      "quote": "Chery Automobile Co., trading as Chery, is a Chinese automobile manufacturer.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q591001",
@@ -54,7 +62,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q591001",
-      "quote": "Chery (Q591001) — official website: http://www.cheryinternational.com/",
+      "quote": "Chery (Q591001) — official website: cheryinternational.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -65,14 +73,6 @@
       "quote": "Chery (Q591001) — Legal Entity Identifier: 300300F08E6VWZVSVM95",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:electric-vehicles",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Chery",
-      "quote": "Chery Automobile Co., trading as Chery, is a Chinese automobile manufacturer.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -80,6 +80,6 @@
     "on": "2026-10-27"
   },
   "summary": "Chery Automobile Co., trading as Chery, is a Chinese automobile manufacturer.",
-  "country": "CN",
-  "hq": "Wuhu"
+  "hq": "Wuhu",
+  "country": "CN"
 }

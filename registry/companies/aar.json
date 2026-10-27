@@ -13,7 +13,8 @@
     "cusip": "4012250",
     "cik": "1750",
     "qid": "Q4649932",
-    "sedol": "2001119"
+    "sedol": "2001119",
+    "domain": "aarcorp.com"
   },
   "areas": [
     {
@@ -97,10 +98,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4649932",
+      "quote": "AAR Corp (Q4649932) — headquarters location: Wood Dale",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4649932",
+      "quote": "AAR Corp (Q4649932) — official website: aarcorp.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/AAR_Corp.",
+      "quote": "AAR CORP. is an American provider of aircraft maintenance services to commercial and government customers worldwide.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Wood Dale",
+  "summary": "AAR CORP. is an American provider of aircraft maintenance services to commercial and government customers worldwide."
 }

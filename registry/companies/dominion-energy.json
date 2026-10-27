@@ -7,10 +7,10 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q677464",
+    "isin": "US25746U1097",
     "domain": "dominionenergy.com",
     "cik": "715957",
-    "lei": "ILUL7B6Z54MRYCF6H308",
-    "isin": "US25746U1097"
+    "lei": "ILUL7B6Z54MRYCF6H308"
   },
   "areas": [
     {
@@ -20,18 +20,18 @@
   "figures": [],
   "evidence": [
     {
-      "field": "summary",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Dominion_Energy",
-      "quote": ", commonly referred to as Dominion, is an American energy company headquartered in Richmond, Virginia that supplies electricity in parts of Virginia, North Carolina, and South Carolina and supplies natural gas to South Carolina and formerly to parts of Utah, Idaho and Wyoming, West Virginia, Ohio, Pennsylvania, North Carolina, and Georgia.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "ids.qid",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q677464",
       "quote": "Dominion Energy (Q677464) — Wikidata item: Q677464",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:power-storage-grid",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Dominion_Energy",
+      "quote": ", commonly referred to as Dominion, is an American energy company headquartered in Richmond, Virginia that supplies electricity in parts of Virginia, North Carolina, and South Carolina and supplies natural gas to South Carolina and formerly to parts of Utah, Idaho and Wyoming, West Virginia, Ohio, Pennsylvania, North Carolina, and Georgia.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -55,7 +55,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q677464",
-      "quote": "Dominion Energy (Q677464) — official website: https://www.dominionenergy.com/",
+      "quote": "Dominion Energy (Q677464) — official website: dominionenergy.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -74,21 +74,12 @@
       "quote": "Dominion Energy (Q677464) — Legal Entity Identifier: ILUL7B6Z54MRYCF6H308",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:power-storage-grid",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Dominion_Energy",
-      "quote": ", commonly referred to as Dominion, is an American energy company headquartered in Richmond, Virginia that supplies electricity in parts of Virginia, North Carolina, and South Carolina and supplies natural gas to South Carolina and formerly to parts of Utah, Idaho and Wyoming, West Virginia, Ohio, Pennsylvania, North Carolina, and Georgia.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "company:add",
     "on": "2026-10-27"
   },
-  "summary": ", commonly referred to as Dominion, is an American energy company headquartered in Richmond, Virginia that supplies electricity in parts of Virginia, North Carolina, and South Carolina and supplies natural gas to South Carolina and formerly to parts of Utah, Idaho and Wyoming, West Virginia, Ohio, Pennsylvania, North Carolina, and Georgia.",
-  "country": "US",
-  "hq": "Richmond"
+  "hq": "Richmond",
+  "country": "US"
 }

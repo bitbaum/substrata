@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q173476",
-    "domain": "cummins.com",
     "cik": "26172",
     "lei": "ZUNI8PYC725B6H8JU438",
     "isin": "US2310211063",
     "ticker": "CMI",
     "exchange": "US",
     "cusip": "231021106",
-    "sedol": "2240202"
+    "sedol": "2240202",
+    "domain": "cummins.com"
   },
   "areas": [
     {
@@ -111,6 +111,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:data-centre-cooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Cummins",
+      "quote": "Cummins Inc. is an American multinational corporation that designs, manufactures, and distributes diesel engines, electric vehicle components, and power generation products.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q173476",
@@ -122,15 +130,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q173476",
-      "quote": "Cummins (Q173476) — official website: https://www.cummins.com",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:data-centre-cooling",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Cummins",
-      "quote": "Cummins Inc. is an American multinational corporation that designs, manufactures, and distributes diesel engines, electric vehicle components, and power generation products.",
+      "quote": "Cummins (Q173476) — official website: cummins.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

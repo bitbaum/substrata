@@ -6,10 +6,10 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q5748967",
     "lei": "S6Q7LW43WUBUHXY2QP69",
     "isin": "US4282911084",
     "cik": "717605",
-    "qid": "Q5748967",
     "ticker": "HXL",
     "exchange": "US",
     "cusip": "428291108",
@@ -21,6 +21,9 @@
     },
     {
       "area": "defence-tech"
+    },
+    {
+      "area": "advanced-materials"
     }
   ],
   "evidence": [
@@ -112,10 +115,27 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hexcel",
+      "quote": "Hexcel Corporation is an American public industrial materials company, based in Stamford, Connecticut.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:advanced-materials",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hexcel",
+      "quote": "Hexcel Corporation is an American public industrial materials company, based in Stamford, Connecticut.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Hexcel Corporation is an American public industrial materials company, based in Stamford, Connecticut."
 }

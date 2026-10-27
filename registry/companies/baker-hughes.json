@@ -7,9 +7,9 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q804353",
+    "isin": "US05722G1004",
     "domain": "bakerhughes.com",
-    "cik": "1701605",
-    "isin": "US05722G1004"
+    "cik": "1701605"
   },
   "areas": [
     {
@@ -35,6 +35,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Baker_Hughes",
+      "quote": "Baker Hughes Company is an American global energy technology company co-headquartered in Houston, Texas and London, UK.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q804353",
@@ -54,7 +62,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q804353",
-      "quote": "Baker Hughes (Q804353) — official website: https://www.bakerhughes.com/",
+      "quote": "Baker Hughes (Q804353) — official website: bakerhughes.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -65,14 +73,6 @@
       "quote": "Baker Hughes (Q804353) — SEC Central Index Key: 1701605",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:grid-equipment",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Baker_Hughes",
-      "quote": "Baker Hughes Company is an American global energy technology company co-headquartered in Houston, Texas and London, UK.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -80,6 +80,6 @@
     "on": "2026-10-27"
   },
   "summary": "Baker Hughes Company is an American global energy technology company co-headquartered in Houston, Texas and London, UK.",
-  "country": "US",
-  "hq": "Houston"
+  "hq": "Houston",
+  "country": "US"
 }

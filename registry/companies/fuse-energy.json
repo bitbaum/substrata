@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:fusion",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Fuse_Energy",
+      "quote": "Fuse Energy is a British energy technology company and an electricity and natural gas supplier headquartered in London.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q138940970",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q138940970",
-      "quote": "Fuse Energy (Q138940970) — official website: https://fuseenergy.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:fusion",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Fuse_Energy",
-      "quote": "Fuse Energy is a British energy technology company and an electricity and natural gas supplier headquartered in London.",
+      "quote": "Fuse Energy (Q138940970) — official website: fuseenergy.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "Fuse Energy is a British energy technology company and an electricity and natural gas supplier headquartered in London.",
-  "country": "GB",
-  "hq": "London"
+  "hq": "London",
+  "country": "GB"
 }

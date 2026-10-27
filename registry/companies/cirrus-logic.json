@@ -13,7 +13,8 @@
     "ticker": "CRUS",
     "exchange": "US",
     "cusip": "172755100",
-    "sedol": "2197308"
+    "sedol": "2197308",
+    "domain": "cirrus.com"
   },
   "areas": [
     {
@@ -148,10 +149,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1067998",
+      "quote": "Cirrus Logic (Q1067998) — headquarters location: Austin",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1067998",
+      "quote": "Cirrus Logic (Q1067998) — official website: cirrus.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Cirrus_Logic",
+      "quote": "Cirrus Logic Inc. is an American fabless semiconductor supplier that specializes in analog, mixed-signal, and audio DSP integrated circuits (ICs).",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Austin",
+  "summary": "Cirrus Logic Inc. is an American fabless semiconductor supplier that specializes in analog, mixed-signal, and audio DSP integrated circuits (ICs)."
 }

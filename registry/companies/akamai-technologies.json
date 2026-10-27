@@ -6,13 +6,14 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q415598",
+    "domain": "akamai.com",
+    "cik": "1086222",
     "lei": "OC1LZNN2LF5WTJ5RIL89",
     "isin": "US00971T1016",
     "ticker": "AKAM",
     "exchange": "US",
     "sedol": "2507457",
-    "cik": "1086222",
-    "qid": "Q415598",
     "cusip": "00971T101"
   },
   "areas": [
@@ -21,6 +22,9 @@
     },
     {
       "area": "robotics"
+    },
+    {
+      "area": "ai-software-tooling"
     }
   ],
   "evidence": [
@@ -148,10 +152,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q415598",
+      "quote": "Akamai Technologies (Q415598) — official website: akamai.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Akamai_Technologies",
+      "quote": "Akamai Technologies, Inc. is an American company specializing in content delivery network (CDN), cybersecurity, DDoS mitigation, and cloud services.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q415598",
+      "quote": "Akamai Technologies (Q415598) — headquarters location: Massachusetts",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Akamai_Technologies",
+      "quote": "Akamai Technologies, Inc. is an American company specializing in content delivery network (CDN), cybersecurity, DDoS mitigation, and cloud services.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Akamai Technologies, Inc. is an American company specializing in content delivery network (CDN), cybersecurity, DDoS mitigation, and cloud services.",
+  "hq": "Massachusetts"
 }

@@ -7,8 +7,8 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q131744111",
-    "domain": "tranetechnologies.com",
-    "isin": "IE00BK9ZQ967"
+    "isin": "IE00BK9ZQ967",
+    "domain": "tranetechnologies.com"
   },
   "areas": [
     {
@@ -34,6 +34,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:data-centre-cooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Trane_Technologies",
+      "quote": "Trane Technologies plc is an American company domiciled in Ireland focused on heating, ventilation, and air conditioning (HVAC) and refrigeration systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "country",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q131744111",
@@ -45,15 +53,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q131744111",
-      "quote": "Trane Technologies (Q131744111) — official website: https://www.tranetechnologies.com",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:data-centre-cooling",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Trane_Technologies",
-      "quote": "Trane Technologies plc is an American company domiciled in Ireland focused on heating, ventilation, and air conditioning (HVAC) and refrigeration systems.",
+      "quote": "Trane Technologies (Q131744111) — official website: tranetechnologies.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

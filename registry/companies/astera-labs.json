@@ -7,13 +7,13 @@
   "country": "US",
   "ids": {
     "qid": "Q125028873",
-    "domain": "asteralabs.com",
     "isin": "US04626A1034",
     "cik": "1736297",
     "ticker": "ALAB",
     "exchange": "US",
     "cusip": "04626A103",
-    "sedol": "BMTQ7V2"
+    "sedol": "BMTQ7V2",
+    "domain": "asteralabs.com"
   },
   "areas": [
     {
@@ -150,6 +150,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:networking-interconnect",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Astera_Labs",
+      "quote": ", headquartered in San Jose, California, is a fabless manufacturing company that develops connectivity technologies and related software that are used in data centers serving the artificial intelligence and cloud-computing markets.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q125028873",
@@ -161,15 +169,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q125028873",
-      "quote": "Astera Labs (Q125028873) — official website: https://www.asteralabs.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:networking-interconnect",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Astera_Labs",
-      "quote": ", headquartered in San Jose, California, is a fabless manufacturing company that develops connectivity technologies and related software that are used in data centers serving the artificial intelligence and cloud-computing markets.",
+      "quote": "Astera Labs (Q125028873) — official website: asteralabs.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

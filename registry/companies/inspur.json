@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:data-centres",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Inspur",
+      "quote": "Inspur Group is an information technology conglomerate in the People's Republic of China focusing on cloud computing, big data, key application hosts, servers, storage, artificial intelligence and ERP.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1145751",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1145751",
-      "quote": "Inspur (Q1145751) — official website: https://www.inspur.com",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:data-centres",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Inspur",
-      "quote": "Inspur Group is an information technology conglomerate in the People's Republic of China focusing on cloud computing, big data, key application hosts, servers, storage, artificial intelligence and ERP.",
+      "quote": "Inspur (Q1145751) — official website: inspur.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "Inspur Group is an information technology conglomerate in the People's Republic of China focusing on cloud computing, big data, key application hosts, servers, storage, artificial intelligence and ERP.",
-  "country": "CN",
-  "hq": "Jinan"
+  "hq": "Jinan",
+  "country": "CN"
 }

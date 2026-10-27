@@ -12,7 +12,8 @@
     "ticker": "FORM",
     "exchange": "US",
     "cusip": "346375108",
-    "cik": "1039399"
+    "cik": "1039399",
+    "domain": "formfactor.com"
   },
   "areas": [
     {
@@ -127,11 +128,28 @@
       "quote": "FormFactor, Inc. is a provider of test and measurement technologies for integrated circuits, with its headquarters in Livermore, California.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q30272312",
+      "quote": "FormFactor (United States) (Q30272312) — headquarters location: Livermore",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q30272312",
+      "quote": "FormFactor (United States) (Q30272312) — official website: formfactor.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
   },
-  "summary": "FormFactor, Inc. is a provider of test and measurement technologies for integrated circuits, with its headquarters in Livermore, California."
+  "summary": "FormFactor, Inc. is a provider of test and measurement technologies for integrated circuits, with its headquarters in Livermore, California.",
+  "hq": "Livermore"
 }

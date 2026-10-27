@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q1671509",
-    "domain": "onsemi.com",
     "cik": "1097864",
     "lei": "ZV20P4CNJVT8V1ZGJ064",
     "isin": "US6821891057",
     "ticker": "ON",
     "exchange": "US",
     "sedol": "2583576",
-    "cusip": "682189105"
+    "cusip": "682189105",
+    "domain": "onsemi.com"
   },
   "areas": [
     {
@@ -189,6 +189,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:foundry",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Onsemi",
+      "quote": "ON Semiconductor Corporation is an American semiconductor supplier company, based in Scottsdale, Arizona.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1671509",
@@ -200,15 +208,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1671509",
-      "quote": "onsemi (Q1671509) — official website: https://www.onsemi.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:foundry",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Onsemi",
-      "quote": "ON Semiconductor Corporation is an American semiconductor supplier company, based in Scottsdale, Arizona.",
+      "quote": "onsemi (Q1671509) — official website: onsemi.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

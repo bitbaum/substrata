@@ -1,0 +1,75 @@
+{
+  "slug": "miri",
+  "name": "MIRI",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q2040269",
+    "domain": "intelligence.org"
+  },
+  "areas": [
+    {
+      "area": "ai-software-tooling"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Machine_Intelligence_Research_Institute",
+      "quote": "The Machine Intelligence Research Institute (MIRI), formerly the Singularity Institute for Artificial Intelligence (SIAI), is a non-profit research institute focused on identifying and managing potential existential risks from artificial intelligence.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2040269",
+      "quote": "Machine Intelligence Research Institute (Q2040269) — Wikidata item: Q2040269",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2040269",
+      "quote": "Machine Intelligence Research Institute (Q2040269) — headquarters location: Berkeley",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2040269",
+      "quote": "Machine Intelligence Research Institute (Q2040269) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2040269",
+      "quote": "Machine Intelligence Research Institute (Q2040269) — official website: https://intelligence.org/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Machine_Intelligence_Research_Institute",
+      "quote": "The Machine Intelligence Research Institute (MIRI), formerly the Singularity Institute for Artificial Intelligence (SIAI), is a non-profit research institute focused on identifying and managing potential existential risks from artificial intelligence.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "The Machine Intelligence Research Institute (MIRI), formerly the Singularity Institute for Artificial Intelligence (SIAI), is a non-profit research institute focused on identifying and managing potential existential risks from artificial intelligence.",
+  "country": "US",
+  "hq": "Berkeley"
+}

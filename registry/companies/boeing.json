@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q66",
-    "domain": "boeing.com",
     "cik": "12927",
     "lei": "RVHJWBXLJ1RFUBSY1F30",
     "isin": "US0970231058",
     "ticker": "BA",
     "exchange": "US",
     "cusip": "097023105",
-    "sedol": "2108601"
+    "sedol": "2108601",
+    "domain": "boeing.com"
   },
   "areas": [
     {
@@ -162,6 +162,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:launch",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Boeing",
+      "quote": "The Boeing Company is an American multinational corporation that designs and manufactures airplanes, rotorcraft, rockets, satellites, and missiles worldwide.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q66",
@@ -173,15 +181,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q66",
-      "quote": "Boeing (Q66) — official website: https://boeing.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:launch",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Boeing",
-      "quote": "The Boeing Company is an American multinational corporation that designs and manufactures airplanes, rotorcraft, rockets, satellites, and missiles worldwide.",
+      "quote": "Boeing (Q66) — official website: boeing.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

@@ -33,18 +33,18 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "ids.domain",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q28130464",
-      "quote": "Emotiv (Q28130464) — official website: http://www.emotiv.com",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "area:neurotech-bci",
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Emotiv",
       "quote": "Emotiv Inc. is a privately held bio-informatics and technology company developing and manufacturing wearable electroencephalography (EEG) products including neuroheadsets, software development kits (SDK), software, mobile apps, and data products.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q28130464",
+      "quote": "Emotiv (Q28130464) — official website: emotiv.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

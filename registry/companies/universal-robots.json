@@ -34,6 +34,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:industrial-robots",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Universal_Robots",
+      "quote": "Universal Robots is a global leader in collaborative industrial robots (cobots), based in Odense, Denmark.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q7894055",
@@ -53,7 +61,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q7894055",
-      "quote": "Universal Robots (Q7894055) — official website: https://www.universal-robots.com",
+      "quote": "Universal Robots (Q7894055) — official website: universal-robots.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -64,14 +72,6 @@
       "quote": "Universal Robots (Q7894055) — Legal Entity Identifier: 5493008EYV16YG0AW417",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:industrial-robots",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Universal_Robots",
-      "quote": "Universal Robots is a global leader in collaborative industrial robots (cobots), based in Odense, Denmark.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -79,6 +79,6 @@
     "on": "2026-10-27"
   },
   "summary": "Universal Robots is a global leader in collaborative industrial robots (cobots), based in Odense, Denmark.",
-  "country": "DK",
-  "hq": "Odense"
+  "hq": "Odense",
+  "country": "DK"
 }

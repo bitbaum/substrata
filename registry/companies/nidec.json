@@ -7,9 +7,9 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q3341241",
+    "isin": "JP3734800000",
     "domain": "nidec.com",
-    "lei": "353800IF171MZTNL6Y31",
-    "isin": "JP3734800000"
+    "lei": "353800IF171MZTNL6Y31"
   },
   "areas": [
     {
@@ -35,6 +35,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:actuators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Nidec",
+      "quote": "Nidec Corporation , formerly known as Nippon Densan Corporation , is a Japanese manufacturer and distributor of electric motors.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q3341241",
@@ -54,7 +62,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q3341241",
-      "quote": "Nidec (Q3341241) — official website: https://www.nidec.com/en/",
+      "quote": "Nidec (Q3341241) — official website: nidec.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -65,14 +73,6 @@
       "quote": "Nidec (Q3341241) — Legal Entity Identifier: 353800IF171MZTNL6Y31",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:actuators",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Nidec",
-      "quote": "Nidec Corporation , formerly known as Nippon Densan Corporation , is a Japanese manufacturer and distributor of electric motors.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -80,6 +80,6 @@
     "on": "2026-10-27"
   },
   "summary": "Nidec Corporation , formerly known as Nippon Densan Corporation , is a Japanese manufacturer and distributor of electric motors.",
-  "country": "JP",
-  "hq": "Minami-ku"
+  "hq": "Minami-ku",
+  "country": "JP"
 }

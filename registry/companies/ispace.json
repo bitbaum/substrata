@@ -7,8 +7,8 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q24862548",
-    "domain": "ispace-inc.com",
-    "isin": "JP3102360009"
+    "isin": "JP3102360009",
+    "domain": "ispace-inc.com"
   },
   "areas": [
     {
@@ -18,18 +18,18 @@
   "figures": [],
   "evidence": [
     {
-      "field": "summary",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Ispace_Inc.",
-      "quote": "ispace Inc. is a publicly traded Japanese company developing robotic spacecraft and other technology to compete for both transportation and exploration mission contracts from space agencies and other private industries.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "ids.qid",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q24862548",
       "quote": "ispace Inc (Q24862548) — Wikidata item: Q24862548",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:launch",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Ispace_Inc.",
+      "quote": "ispace Inc. is a publicly traded Japanese company developing robotic spacecraft and other technology to compete for both transportation and exploration mission contracts from space agencies and other private industries.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -53,15 +53,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q24862548",
-      "quote": "ispace Inc (Q24862548) — official website: https://ispace-inc.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:launch",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Ispace_Inc.",
-      "quote": "ispace Inc. is a publicly traded Japanese company developing robotic spacecraft and other technology to compete for both transportation and exploration mission contracts from space agencies and other private industries.",
+      "quote": "ispace Inc (Q24862548) — official website: ispace-inc.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,7 +62,6 @@
     "by": "company:add",
     "on": "2026-10-27"
   },
-  "summary": "ispace Inc. is a publicly traded Japanese company developing robotic spacecraft and other technology to compete for both transportation and exploration mission contracts from space agencies and other private industries.",
-  "country": "JP",
-  "hq": "Tokyo"
+  "hq": "Tokyo",
+  "country": "JP"
 }

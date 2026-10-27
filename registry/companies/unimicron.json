@@ -33,18 +33,18 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "ids.domain",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q15908529",
-      "quote": "Unimicron (Q15908529) — official website: http://www.unimicron.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "area:advanced-packaging",
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Unimicron",
       "quote": "Unimicron Technology Corporation is a printed circuit board (PCB) manufacturer headquartered in Taiwan.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q15908529",
+      "quote": "Unimicron (Q15908529) — official website: unimicron.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

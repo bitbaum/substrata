@@ -7,9 +7,9 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q4047174",
+    "isin": "US7311052010",
     "domain": "polestar.com",
-    "lei": "529900B82PQQIJYYGY91",
-    "isin": "US7311052010"
+    "lei": "529900B82PQQIJYYGY91"
   },
   "areas": [
     {
@@ -35,6 +35,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:electric-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Polestar",
+      "quote": "Polestar Automotive Holding UK PLC, or simply Polestar, is a Swedish automotive manufacturer that produces electric cars.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q4047174",
@@ -54,7 +62,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q4047174",
-      "quote": "Polestar (Q4047174) — official website: https://www.polestar.com/",
+      "quote": "Polestar (Q4047174) — official website: polestar.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -65,14 +73,6 @@
       "quote": "Polestar (Q4047174) — Legal Entity Identifier: 529900B82PQQIJYYGY91",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:electric-vehicles",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Polestar",
-      "quote": "Polestar Automotive Holding UK PLC, or simply Polestar, is a Swedish automotive manufacturer that produces electric cars.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -80,6 +80,6 @@
     "on": "2026-10-27"
   },
   "summary": "Polestar Automotive Holding UK PLC, or simply Polestar, is a Swedish automotive manufacturer that produces electric cars.",
-  "country": "SE",
-  "hq": "Gothenburg"
+  "hq": "Gothenburg",
+  "country": "SE"
 }

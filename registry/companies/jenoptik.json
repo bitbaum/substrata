@@ -7,9 +7,9 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q450403",
+    "isin": "DE0006229107",
     "domain": "jenoptik.com",
-    "lei": "529900P34GDHGXK6VB37",
-    "isin": "DE0006229107"
+    "lei": "529900P34GDHGXK6VB37"
   },
   "areas": [
     {
@@ -35,6 +35,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:silicon-photonics",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Jenoptik",
+      "quote": "Jenoptik AG is a Jena, Germany-based integrated photonics company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q450403",
@@ -54,7 +62,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q450403",
-      "quote": "Jenoptik (Q450403) — official website: http://www.jenoptik.com",
+      "quote": "Jenoptik (Q450403) — official website: jenoptik.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -65,14 +73,6 @@
       "quote": "Jenoptik (Q450403) — Legal Entity Identifier: 529900P34GDHGXK6VB37",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:silicon-photonics",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Jenoptik",
-      "quote": "Jenoptik AG is a Jena, Germany-based integrated photonics company.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -80,6 +80,6 @@
     "on": "2026-10-27"
   },
   "summary": "Jenoptik AG is a Jena, Germany-based integrated photonics company.",
-  "country": "DE",
-  "hq": "Jena"
+  "hq": "Jena",
+  "country": "DE"
 }

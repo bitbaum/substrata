@@ -1,0 +1,85 @@
+{
+  "slug": "reliance-industries",
+  "name": "Reliance Industries",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q908931",
+    "domain": "ril.com",
+    "lei": "5493003UOETFYRONLG31",
+    "isin": "INE002A01018"
+  },
+  "areas": [
+    {
+      "area": "ai-software-tooling"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Reliance_Industries",
+      "quote": "Reliance Industries Limited is an Indian multinational conglomerate headquartered in Mumbai.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q908931",
+      "quote": "Reliance Industries Limited (Q908931) — Wikidata item: Q908931",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q908931",
+      "quote": "Reliance Industries Limited (Q908931) — headquarters location: Mumbai",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q908931",
+      "quote": "Reliance Industries Limited (Q908931) — country (ISO 3166-1 alpha-2): IN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q908931",
+      "quote": "Reliance Industries Limited (Q908931) — official website: https://www.ril.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q908931",
+      "quote": "Reliance Industries Limited (Q908931) — Legal Entity Identifier: 5493003UOETFYRONLG31",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Reliance_Industries",
+      "quote": "Reliance Industries Limited is an Indian multinational conglomerate headquartered in Mumbai.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Reliance Industries Limited is an Indian multinational conglomerate headquartered in Mumbai.",
+  "country": "IN",
+  "hq": "Mumbai"
+}

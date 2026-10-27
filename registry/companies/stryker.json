@@ -12,7 +12,8 @@
     "qid": "Q2357515",
     "ticker": "SYK",
     "exchange": "US",
-    "cusip": "863667101"
+    "cusip": "863667101",
+    "domain": "stryker.com"
   },
   "areas": [
     {
@@ -96,10 +97,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2357515",
+      "quote": "Stryker Corporation (Q2357515) — headquarters location: Portage",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2357515",
+      "quote": "Stryker Corporation (Q2357515) — official website: stryker.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Stryker_Corporation",
+      "quote": "Stryker Corporation is an American multinational medical technologies corporation based in Portage, Michigan, United States.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Portage",
+  "summary": "Stryker Corporation is an American multinational medical technologies corporation based in Portage, Michigan, United States."
 }

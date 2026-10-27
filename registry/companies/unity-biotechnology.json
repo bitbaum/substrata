@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:longevity",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Unity_Biotechnology",
+      "quote": "Unity Biotechnology, Inc. was a publicly traded American biotechnology company that develops drugs that target senescent cells.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q55636707",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q55636707",
-      "quote": "Unity Biotechnology (Q55636707) — official website: http://unitybiotechnology.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:longevity",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Unity_Biotechnology",
-      "quote": "Unity Biotechnology, Inc. was a publicly traded American biotechnology company that develops drugs that target senescent cells.",
+      "quote": "Unity Biotechnology (Q55636707) — official website: unitybiotechnology.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "Unity Biotechnology, Inc. was a publicly traded American biotechnology company that develops drugs that target senescent cells.",
-  "country": "US",
-  "hq": "South San Francisco"
+  "hq": "South San Francisco",
+  "country": "US"
 }

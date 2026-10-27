@@ -7,12 +7,12 @@
   "country": "DE",
   "ids": {
     "qid": "Q161544",
-    "domain": "rheinmetall.com",
-    "lei": "5299001OU9CSE29O6S05",
     "isin": "DE0007030009",
     "ticker": "RHM",
     "exchange": "GR",
-    "sedol": "5334588"
+    "sedol": "5334588",
+    "domain": "rheinmetall.com",
+    "lei": "5299001OU9CSE29O6S05"
   },
   "areas": [
     {
@@ -107,7 +107,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q161544",
-      "quote": "Rheinmetall AG (Q161544) — official website: https://www.rheinmetall.com/de",
+      "quote": "Rheinmetall AG (Q161544) — official website: rheinmetall.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },

@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q1197548",
-    "domain": "micron.com",
     "cik": "723125",
     "lei": "B3DXGBC8GAIYWI2Z0172",
     "isin": "US5951121038",
     "ticker": "MU",
     "exchange": "Nasdaq",
     "sedol": "2588184",
-    "cusip": "595112103"
+    "cusip": "595112103",
+    "domain": "micron.cn"
   },
   "areas": [
     {
@@ -203,6 +203,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:memory",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Micron_Technology",
+      "quote": "Micron Technology, Inc. is an American multinational semiconductor company that manufactures computer memory and computer data storage products, including dynamic random-access memory (DRAM), flash memory, High Bandwidth Memory (HBM), and solid-state drives (SSDs).",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1197548",
@@ -214,15 +222,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1197548",
-      "quote": "Micron Technology (Q1197548) — official website: https://www.micron.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:memory",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Micron_Technology",
-      "quote": "Micron Technology, Inc. is an American multinational semiconductor company that manufactures computer memory and computer data storage products, including dynamic random-access memory (DRAM), flash memory, High Bandwidth Memory (HBM), and solid-state drives (SSDs).",
+      "quote": "Micron Technology (Q1197548) — official website: micron.cn",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

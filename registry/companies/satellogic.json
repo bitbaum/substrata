@@ -7,8 +7,8 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q22669551",
-    "domain": "satellogic.com",
-    "isin": "VGG7823S1011"
+    "isin": "VGG7823S1011",
+    "domain": "satellogic.com"
   },
   "areas": [
     {
@@ -34,6 +34,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:satellites",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Satellogic",
+      "quote": "Satellogic Inc.S. company specializing in Earth-observation satellites, founded in 2010 by Emiliano Kargieman and Gerardo Richarte.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q22669551",
@@ -45,7 +53,7 @@
       "field": "country",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q22669551",
-      "quote": "Satellogic (Q22669551) — country (ISO 3166-1 alpha-2): AR",
+      "quote": "Satellogic (Q22669551) — country (ISO 3166-1 alpha-2): UY",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -53,15 +61,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q22669551",
-      "quote": "Satellogic (Q22669551) — official website: http://www.satellogic.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:satellites",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Satellogic",
-      "quote": "Satellogic Inc.S. company specializing in Earth-observation satellites, founded in 2010 by Emiliano Kargieman and Gerardo Richarte.",
+      "quote": "Satellogic (Q22669551) — official website: satellogic.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -71,6 +71,6 @@
     "on": "2026-10-27"
   },
   "summary": "Satellogic Inc.S. company specializing in Earth-observation satellites, founded in 2010 by Emiliano Kargieman and Gerardo Richarte.",
-  "country": "AR",
-  "hq": "Montevideo"
+  "hq": "Montevideo",
+  "country": "UY"
 }

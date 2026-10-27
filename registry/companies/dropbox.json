@@ -13,7 +13,8 @@
     "sedol": "BG0T321",
     "cik": "1467623",
     "qid": "Q142539",
-    "cusip": "26210C104"
+    "cusip": "26210C104",
+    "domain": "dropbox.com"
   },
   "areas": [
     {
@@ -133,6 +134,14 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q142539",
+      "quote": "Dropbox (Q142539) — official website: dropbox.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {

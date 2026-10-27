@@ -13,7 +13,8 @@
     "ticker": "MXL",
     "exchange": "US",
     "cusip": "57776J100",
-    "sedol": "B3RDWC8"
+    "sedol": "B3RDWC8",
+    "domain": "maxlinear.com"
   },
   "areas": [
     {
@@ -109,10 +110,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q6794502",
+      "quote": "MaxLinear (Q6794502) — headquarters location: Carlsbad",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q6794502",
+      "quote": "MaxLinear (Q6794502) — official website: maxlinear.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/MaxLinear",
+      "quote": "MaxLinear, Inc. is an American electronic hardware company. Founded in 2003, it provides highly integrated radio-frequency (RF) analog and mixed-signal semiconductor products for broadband communications applications.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Carlsbad",
+  "summary": "MaxLinear, Inc. is an American electronic hardware company. Founded in 2003, it provides highly integrated radio-frequency (RF) analog and mixed-signal semiconductor products for broadband communications applications."
 }

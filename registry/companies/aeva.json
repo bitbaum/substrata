@@ -13,7 +13,8 @@
     "sedol": "BSB8D21",
     "cik": "1789029",
     "qid": "Q128050179",
-    "cusip": "00835Q202"
+    "cusip": "00835Q202",
+    "domain": "aeva.com"
   },
   "areas": [
     {
@@ -109,10 +110,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q128050179",
+      "quote": "Aeva, Inc (Q128050179) — headquarters location: Mountain View",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q128050179",
+      "quote": "Aeva, Inc (Q128050179) — official website: aeva.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Aeva",
+      "quote": "Aeva Technologies, Inc. is a publicly traded American corporation specializing in sensing hardware and perception software, including LiDAR, headquartered in Mountain View, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Mountain View",
+  "summary": "Aeva Technologies, Inc. is a publicly traded American corporation specializing in sensing hardware and perception software, including LiDAR, headquartered in Mountain View, California."
 }

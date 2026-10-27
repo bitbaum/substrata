@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q43303430",
-    "domain": "twistbioscience.com",
     "isin": "US90184D1000",
     "lei": "549300T23BL59LCOH584",
     "ticker": "TWST",
     "exchange": "US",
     "cusip": "90184D100",
     "sedol": "BGKG6G7",
-    "cik": "1581280"
+    "cik": "1581280",
+    "domain": "twistbioscience.com"
   },
   "areas": [
     {
@@ -135,6 +135,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:synthetic-biology",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Twist_Bioscience",
+      "quote": "Twist Bioscience is a public biotechnology company based in South San Francisco that manufactures synthetic DNA and DNA products for customers in a wide range of industries.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q43303430",
@@ -146,15 +154,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q43303430",
-      "quote": "Twist Bioscience (Q43303430) — official website: https://www.twistbioscience.com",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:synthetic-biology",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Twist_Bioscience",
-      "quote": "Twist Bioscience is a public biotechnology company based in South San Francisco that manufactures synthetic DNA and DNA products for customers in a wide range of industries.",
+      "quote": "Twist Bioscience (Q43303430) — official website: twistbioscience.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

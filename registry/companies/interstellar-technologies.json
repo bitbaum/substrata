@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:launch",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Interstellar_Technologies",
+      "quote": "Interstellar Technologies, Inc. , or IST, is a Japanese private spaceflight company aiming to eventually build a launch vehicle for small satellites under 100 kg.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q11243767",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q11243767",
-      "quote": "Interstellar Technologies (Q11243767) — official website: http://www.istellartech.com/front-page_en",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:launch",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Interstellar_Technologies",
-      "quote": "Interstellar Technologies, Inc. , or IST, is a Japanese private spaceflight company aiming to eventually build a launch vehicle for small satellites under 100 kg.",
+      "quote": "Interstellar Technologies (Q11243767) — official website: istellartech.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "Interstellar Technologies, Inc. , or IST, is a Japanese private spaceflight company aiming to eventually build a launch vehicle for small satellites under 100 kg.",
-  "country": "JP",
-  "hq": "Hokkaidō"
+  "hq": "Hokkaidō",
+  "country": "JP"
 }

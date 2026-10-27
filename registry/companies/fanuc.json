@@ -7,14 +7,14 @@
   "country": "JP",
   "ids": {
     "qid": "Q212116",
-    "domain": "fanuc.co.jp",
-    "lei": "529900QTSW745LOKW705",
     "isin": "JP3802400006",
     "ticker": "6954",
     "exchange": "JP",
     "cik": "1446596",
     "sedol": "6356934",
-    "cusip": "J13440102"
+    "cusip": "J13440102",
+    "domain": "fanuc.co.jp",
+    "lei": "529900QTSW745LOKW705"
   },
   "areas": [
     {
@@ -135,6 +135,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:industrial-robots",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/FANUC",
+      "quote": "FANUC is a Japanese group of companies that provides automation products and services such as robotics and computer numerical control (NC) systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q212116",
@@ -146,7 +154,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q212116",
-      "quote": "FANUC (Q212116) — official website: https://www.fanuc.co.jp/index.html",
+      "quote": "FANUC (Q212116) — official website: fanuc.co.jp",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -155,14 +163,6 @@
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q212116",
       "quote": "FANUC (Q212116) — Legal Entity Identifier: 529900QTSW745LOKW705",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:industrial-robots",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/FANUC",
-      "quote": "FANUC is a Japanese group of companies that provides automation products and services such as robotics and computer numerical control (NC) systems.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

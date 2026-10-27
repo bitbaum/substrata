@@ -17,18 +17,18 @@
   "figures": [],
   "evidence": [
     {
-      "field": "summary",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Samsung_Biologics",
-      "quote": ", Ltd. (Korean: 삼성바이오로직스) is a global contract development and manufacturing organization headquartered in Songdo, Incheon, South Korea.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "ids.qid",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q16767532",
       "quote": "Samsung Biologics (Q16767532) — Wikidata item: Q16767532",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:synthetic-biology",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Samsung_Biologics",
+      "quote": ", Ltd. (Korean: 삼성바이오로직스) is a global contract development and manufacturing organization headquartered in Songdo, Incheon, South Korea.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -52,15 +52,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q16767532",
-      "quote": "Samsung Biologics (Q16767532) — official website: http://www.samsungbiologics.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:synthetic-biology",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Samsung_Biologics",
-      "quote": ", Ltd. (Korean: 삼성바이오로직스) is a global contract development and manufacturing organization headquartered in Songdo, Incheon, South Korea.",
+      "quote": "Samsung Biologics (Q16767532) — official website: samsungbiologics.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -69,7 +61,6 @@
     "by": "company:add",
     "on": "2026-10-27"
   },
-  "summary": ", Ltd. (Korean: 삼성바이오로직스) is a global contract development and manufacturing organization headquartered in Songdo, Incheon, South Korea.",
-  "country": "KR",
-  "hq": "Incheon"
+  "hq": "Incheon",
+  "country": "KR"
 }

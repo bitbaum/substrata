@@ -19,7 +19,8 @@
     "sedol": "BMV3LG4",
     "cik": "1751008",
     "qid": "Q27150212",
-    "cusip": "03831W108"
+    "cusip": "03831W108",
+    "domain": "applovin.com"
   },
   "areas": [
     {
@@ -139,10 +140,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q27150212",
+      "quote": "AppLovin (Q27150212) — headquarters location: Palo Alto",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q27150212",
+      "quote": "AppLovin (Q27150212) — official website: applovin.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/AppLovin",
+      "quote": "AppLovin Corporation is an American mobile technology company headquartered in Palo Alto, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Palo Alto",
+  "summary": "AppLovin Corporation is an American mobile technology company headquartered in Palo Alto, California."
 }

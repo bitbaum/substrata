@@ -12,7 +12,8 @@
     "qid": "Q6782217",
     "ticker": "MTZ",
     "exchange": "US",
-    "cusip": "576323109"
+    "cusip": "576323109",
+    "domain": "mastec.com"
   },
   "areas": [
     {
@@ -108,10 +109,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q6782217",
+      "quote": "MasTec (Q6782217) — headquarters location: Coral Gables",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q6782217",
+      "quote": "MasTec (Q6782217) — official website: mastec.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/MasTec",
+      "quote": "Mastec, Inc. is an American infrastructure engineering and construction company based in Coral Gables, Florida.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Coral Gables",
+  "summary": "Mastec, Inc. is an American infrastructure engineering and construction company based in Coral Gables, Florida."
 }

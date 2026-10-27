@@ -16,14 +16,6 @@
   "figures": [],
   "evidence": [
     {
-      "field": "summary",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Sunwoda",
-      "quote": ", commonly known as Sunwoda is a Chinese technology company that specializes in the research and manufacture of lithium-ion battery modules.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "ids.qid",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q112943834",
@@ -43,6 +35,5 @@
   "origin": {
     "by": "company:add",
     "on": "2026-10-27"
-  },
-  "summary": ", commonly known as Sunwoda is a Chinese technology company that specializes in the research and manufacture of lithium-ion battery modules."
+  }
 }

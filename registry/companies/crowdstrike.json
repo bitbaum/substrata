@@ -16,7 +16,8 @@
     "qid": "Q24890758",
     "ticker": "CRWD",
     "exchange": "US",
-    "cusip": "22788C105"
+    "cusip": "22788C105",
+    "domain": "crowdstrike.com"
   },
   "areas": [
     {
@@ -112,10 +113,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q24890758",
+      "quote": "CrowdStrike (Q24890758) — headquarters location: Austin",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q24890758",
+      "quote": "CrowdStrike (Q24890758) — official website: crowdstrike.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/CrowdStrike",
+      "quote": "CrowdStrike Holdings, Inc. is an American cybersecurity technology company based in Austin, Texas.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Austin",
+  "summary": "CrowdStrike Holdings, Inc. is an American cybersecurity technology company based in Austin, Texas."
 }

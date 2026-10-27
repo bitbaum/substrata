@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:electric-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hyundai_Motor_Group",
+      "quote": "The Hyundai Motor Group is a South Korean chaebol headquartered in Seoul, South Korea.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q59243",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q59243",
-      "quote": "Hyundai Motor Group (Q59243) — official website: https://www.hyundaimotorgroup.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:electric-vehicles",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Hyundai_Motor_Group",
-      "quote": "The Hyundai Motor Group is a South Korean chaebol headquartered in Seoul, South Korea.",
+      "quote": "Hyundai Motor Group (Q59243) — official website: hyundaimotorgroup.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "The Hyundai Motor Group is a South Korean chaebol headquartered in Seoul, South Korea.",
-  "country": "KR",
-  "hq": "Seoul"
+  "hq": "Seoul",
+  "country": "KR"
 }

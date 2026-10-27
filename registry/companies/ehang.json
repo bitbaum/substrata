@@ -1,0 +1,76 @@
+{
+  "slug": "ehang",
+  "name": "EHang",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q18124524",
+    "domain": "ehang.com",
+    "isin": "US26853E1029"
+  },
+  "areas": [
+    {
+      "area": "defence-autonomy"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/EHang",
+      "quote": "Guangzhou EHang Intelligent Technology Co. Ltd. is a company based in Guangzhou, China that develops and manufactures autonomous aerial vehicles (AAVs) and passenger AAVs which have entered service in China for aerial cinematography, photography, emergency response, and survey missions.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q18124524",
+      "quote": "EHang (Q18124524) — Wikidata item: Q18124524",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q18124524",
+      "quote": "EHang (Q18124524) — headquarters location: Guangzhou",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q18124524",
+      "quote": "EHang (Q18124524) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q18124524",
+      "quote": "EHang (Q18124524) — official website: https://www.ehang.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:defence-autonomy",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/EHang",
+      "quote": "Guangzhou EHang Intelligent Technology Co. Ltd. is a company based in Guangzhou, China that develops and manufactures autonomous aerial vehicles (AAVs) and passenger AAVs which have entered service in China for aerial cinematography, photography, emergency response, and survey missions.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Guangzhou EHang Intelligent Technology Co. Ltd. is a company based in Guangzhou, China that develops and manufactures autonomous aerial vehicles (AAVs) and passenger AAVs which have entered service in China for aerial cinematography, photography, emergency response, and survey missions.",
+  "country": "CN",
+  "hq": "Guangzhou"
+}

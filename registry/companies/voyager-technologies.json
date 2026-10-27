@@ -12,13 +12,13 @@
   "country": "US",
   "ids": {
     "qid": "Q133802652",
-    "domain": "voyagertechnologies.com",
     "isin": "US92892B1035",
     "ticker": "VOYG",
     "exchange": "US",
     "sedol": "BQMJ1G9",
     "cik": "1788060",
-    "cusip": "92892B103"
+    "cusip": "92892B103",
+    "domain": "voyagertechnologies.com"
   },
   "areas": [
     {
@@ -155,6 +155,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:satellites",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Voyager_Technologies",
+      "quote": "Voyager Technologies is a publicly traded American aerospace company headquartered in Denver, Colorado.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q133802652",
@@ -166,15 +174,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q133802652",
-      "quote": "Voyager Technologies (Q133802652) — official website: https://voyagertechnologies.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:satellites",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Voyager_Technologies",
-      "quote": "Voyager Technologies is a publicly traded American aerospace company headquartered in Denver, Colorado.",
+      "quote": "Voyager Technologies (Q133802652) — official website: voyagertechnologies.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

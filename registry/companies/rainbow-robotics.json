@@ -7,11 +7,11 @@
   "country": "KR",
   "ids": {
     "qid": "Q110114830",
-    "domain": "rainbow-robotics.com",
     "ticker": "277810",
     "exchange": "KS",
     "sedol": "BM9Q3J2",
-    "cusip": "Y7S740108"
+    "cusip": "Y7S740108",
+    "domain": "rainbow-robotics.com"
   },
   "areas": [
     {
@@ -107,18 +107,18 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "ids.domain",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q110114830",
-      "quote": "Rainbow Robotics (Q110114830) — official website: http://www.rainbow-robotics.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "area:humanoids",
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Rainbow_Robotics",
       "quote": "Rainbow Robotics (Korean: 레인보우로보틱스) is a South Korean robotics company founded in 2011 by Professor Oh Jun-ho of the HUBO Lab at the KAIST.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q110114830",
+      "quote": "Rainbow Robotics (Q110114830) — official website: rainbow-robotics.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

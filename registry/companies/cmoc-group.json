@@ -7,8 +7,8 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q5099785",
-    "domain": "en.cmoc.com",
-    "isin": "CNE100000114"
+    "isin": "CNE100000114",
+    "domain": "en.cmoc.com"
   },
   "areas": [
     {
@@ -34,10 +34,10 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q5099785",
-      "quote": "CMOC Group Limited (Q5099785) — headquarters location: Henan",
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/CMOC_Group_Limited",
+      "quote": "CMOC or CMOC Group Limited, previously known as China Molybdenum Company Limited, is a Chinese mining company and one of the world's largest producers of molybdenum, tungsten, niobium, cobalt, and copper.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -53,15 +53,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q5099785",
-      "quote": "CMOC Group Limited (Q5099785) — official website: https://en.cmoc.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:critical-minerals",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/CMOC_Group_Limited",
-      "quote": "CMOC or CMOC Group Limited, previously known as China Molybdenum Company Limited, is a Chinese mining company and one of the world's largest producers of molybdenum, tungsten, niobium, cobalt, and copper.",
+      "quote": "CMOC Group Limited (Q5099785) — official website: en.cmoc.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -71,6 +63,5 @@
     "on": "2026-10-27"
   },
   "summary": "CMOC or CMOC Group Limited, previously known as China Molybdenum Company Limited, is a Chinese mining company and one of the world's largest producers of molybdenum, tungsten, niobium, cobalt, and copper.",
-  "country": "CN",
-  "hq": "Henan"
+  "country": "CN"
 }

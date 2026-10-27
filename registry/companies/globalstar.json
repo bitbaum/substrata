@@ -7,8 +7,8 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q1202533",
-    "domain": "globalstar.com",
-    "isin": "US3789735079"
+    "isin": "US3789735079",
+    "domain": "globalstar.com"
   },
   "areas": [
     {
@@ -34,6 +34,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:satellites",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Globalstar",
+      "quote": "Globalstar, Inc. is an American telecommunications company that operates a satellite constellation in low Earth orbit (LEO) for satellite phone, low-speed data transmission and Earth observation.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1202533",
@@ -53,15 +61,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1202533",
-      "quote": "Globalstar (Q1202533) — official website: http://globalstar.com",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:satellites",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Globalstar",
-      "quote": "Globalstar, Inc. is an American telecommunications company that operates a satellite constellation in low Earth orbit (LEO) for satellite phone, low-speed data transmission and Earth observation.",
+      "quote": "Globalstar (Q1202533) — official website: globalstar.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -71,6 +71,6 @@
     "on": "2026-10-27"
   },
   "summary": "Globalstar, Inc. is an American telecommunications company that operates a satellite constellation in low Earth orbit (LEO) for satellite phone, low-speed data transmission and Earth observation.",
-  "country": "US",
-  "hq": "Covington"
+  "hq": "Covington",
+  "country": "US"
 }

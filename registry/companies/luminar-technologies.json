@@ -7,10 +7,10 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q106240666",
+    "isin": "US5504243032",
     "domain": "luminartech.com",
     "cik": "1781531",
-    "lei": "549300AVGXLDWYMI4298",
-    "isin": "US5504243032"
+    "lei": "549300AVGXLDWYMI4298"
   },
   "areas": [
     {
@@ -39,6 +39,22 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:robot-sensors",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Luminar_Technologies",
+      "quote": "Luminar Technologies Inc. was an American technology company that developed vision-based lidar and machine perception technologies, primarily for self-driving cars.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Luminar_Technologies",
+      "quote": "Luminar Technologies Inc. was an American technology company that developed vision-based lidar and machine perception technologies, primarily for self-driving cars.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q106240666",
@@ -58,7 +74,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q106240666",
-      "quote": "Luminar Technologies (Q106240666) — official website: https://www.luminartech.com/",
+      "quote": "Luminar Technologies (Q106240666) — official website: luminartech.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -77,22 +93,6 @@
       "quote": "Luminar Technologies (Q106240666) — Legal Entity Identifier: 549300AVGXLDWYMI4298",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:robot-sensors",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Luminar_Technologies",
-      "quote": "Luminar Technologies Inc. was an American technology company that developed vision-based lidar and machine perception technologies, primarily for self-driving cars.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:autonomous-vehicles",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Luminar_Technologies",
-      "quote": "Luminar Technologies Inc. was an American technology company that developed vision-based lidar and machine perception technologies, primarily for self-driving cars.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -100,6 +100,6 @@
     "on": "2026-10-27"
   },
   "summary": "Luminar Technologies Inc. was an American technology company that developed vision-based lidar and machine perception technologies, primarily for self-driving cars.",
-  "country": "US",
-  "hq": "Orlando"
+  "hq": "Orlando",
+  "country": "US"
 }

@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q2286044",
-    "domain": "silabs.com",
     "cik": "1038074",
     "lei": "4PRDF8Q9TDHRVZKZSZ47",
     "isin": "US8269191024",
     "ticker": "SLAB",
     "exchange": "US",
     "cusip": "826919102",
-    "sedol": "2568131"
+    "sedol": "2568131",
+    "domain": "silabs.com"
   },
   "areas": [
     {
@@ -123,6 +123,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:silicon-photonics",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Silicon_Labs",
+      "quote": ", commonly referred to as Silicon Labs, is a fabless global technology company that designs and manufactures semiconductors, other silicon devices and software, which it sells to electronics design engineers and manufacturers in Internet of Things (IoT) infrastructure worldwide.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2286044",
@@ -134,15 +142,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2286044",
-      "quote": "Silicon Laboratories (Q2286044) — official website: http://www.silabs.com",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:silicon-photonics",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Silicon_Labs",
-      "quote": ", commonly referred to as Silicon Labs, is a fabless global technology company that designs and manufactures semiconductors, other silicon devices and software, which it sells to electronics design engineers and manufacturers in Internet of Things (IoT) infrastructure worldwide.",
+      "quote": "Silicon Laboratories (Q2286044) — official website: silabs.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

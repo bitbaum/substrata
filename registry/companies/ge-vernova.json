@@ -7,13 +7,13 @@
   "country": "US",
   "ids": {
     "qid": "Q118957699",
-    "domain": "gevernova.com",
     "isin": "US36828A1016",
     "ticker": "GEV",
     "exchange": "NYSE",
     "cik": "1996810",
     "lei": "254900DP080RU6OK2553",
-    "cusip": "36828A101"
+    "cusip": "36828A101",
+    "domain": "gevernova.com"
   },
   "areas": [
     {
@@ -121,6 +121,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/GE_Vernova",
+      "quote": "GE Vernova, Inc. is an energy equipment manufacturing and services company headquartered in Cambridge, Massachusetts.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q118957699",
@@ -132,15 +140,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q118957699",
-      "quote": "GE Vernova (Q118957699) — official website: https://www.gevernova.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:grid-equipment",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/GE_Vernova",
-      "quote": "GE Vernova, Inc. is an energy equipment manufacturing and services company headquartered in Cambridge, Massachusetts.",
+      "quote": "GE Vernova (Q118957699) — official website: gevernova.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

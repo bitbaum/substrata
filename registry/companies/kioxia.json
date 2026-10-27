@@ -7,8 +7,8 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q28840043",
-    "domain": "kioxia-holdings.com",
-    "isin": "JP3236330001"
+    "isin": "JP3236330001",
+    "domain": "kioxia-holdings.com"
   },
   "areas": [
     {
@@ -34,6 +34,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:memory",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Kioxia",
+      "quote": "Kioxia is a Japanese semiconductor memory and data-storage group headquartered in Tokyo.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q28840043",
@@ -53,15 +61,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q28840043",
-      "quote": "Kioxia (Q28840043) — official website: https://www.kioxia-holdings.com",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:memory",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Kioxia",
-      "quote": "Kioxia is a Japanese semiconductor memory and data-storage group headquartered in Tokyo.",
+      "quote": "Kioxia (Q28840043) — official website: kioxia-holdings.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -71,6 +71,6 @@
     "on": "2026-10-27"
   },
   "summary": "Kioxia is a Japanese semiconductor memory and data-storage group headquartered in Tokyo.",
-  "country": "JP",
-  "hq": "Tokyo"
+  "hq": "Tokyo",
+  "country": "JP"
 }

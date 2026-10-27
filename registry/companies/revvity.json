@@ -35,6 +35,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:synthetic-biology",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Revvity",
+      "quote": "Revvity, Inc. is a multinational company headquartered in Waltham, Massachusetts, USA, in the life sciences and diagnostics business that is focused on selling to the pharmaceutical and biotechnology industries, especially in relation to approaches making use of new cell therapy or gene therapy developments.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q120467527",
@@ -54,7 +62,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q120467527",
-      "quote": "Revvity Inc. (Q120467527) — official website: http://revvity.com/",
+      "quote": "Revvity Inc. (Q120467527) — official website: revvity.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -73,14 +81,6 @@
       "quote": "Revvity Inc. (Q120467527) — Legal Entity Identifier: 549300IKL1SDPFI7N655",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:synthetic-biology",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Revvity",
-      "quote": "Revvity, Inc. is a multinational company headquartered in Waltham, Massachusetts, USA, in the life sciences and diagnostics business that is focused on selling to the pharmaceutical and biotechnology industries, especially in relation to approaches making use of new cell therapy or gene therapy developments.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -88,6 +88,6 @@
     "on": "2026-10-27"
   },
   "summary": "Revvity, Inc. is a multinational company headquartered in Waltham, Massachusetts, USA, in the life sciences and diagnostics business that is focused on selling to the pharmaceutical and biotechnology industries, especially in relation to approaches making use of new cell therapy or gene therapy developments.",
-  "country": "US",
-  "hq": "Waltham"
+  "hq": "Waltham",
+  "country": "US"
 }

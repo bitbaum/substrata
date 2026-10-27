@@ -1,0 +1,57 @@
+{
+  "slug": "elevenlabs",
+  "name": "ElevenLabs",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q116798355",
+    "domain": "elevenlabs.io"
+  },
+  "areas": [
+    {
+      "area": "ai-software-tooling"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/ElevenLabs",
+      "quote": "ElevenLabs Inc. is a software company that specializes in developing natural-sounding speech synthesis software using deep learning.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q116798355",
+      "quote": "ElevenLabs (Q116798355) — Wikidata item: Q116798355",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q116798355",
+      "quote": "ElevenLabs (Q116798355) — official website: https://elevenlabs.io/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/ElevenLabs",
+      "quote": "ElevenLabs Inc. is a software company that specializes in developing natural-sounding speech synthesis software using deep learning.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "ElevenLabs Inc. is a software company that specializes in developing natural-sounding speech synthesis software using deep learning."
+}

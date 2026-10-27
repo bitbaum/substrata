@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:ai-accelerators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Kunlunxin",
+      "quote": "Kunlunxin (Beijing) Technology Co Ltd is the semiconductor subsidiary of Baidu.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q131167702",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q131167702",
-      "quote": "Kunlunxin (Q131167702) — official website: https://www.kunlunxin.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:ai-accelerators",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Kunlunxin",
-      "quote": "Kunlunxin (Beijing) Technology Co Ltd is the semiconductor subsidiary of Baidu.",
+      "quote": "Kunlunxin (Q131167702) — official website: kunlunxin.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "Kunlunxin (Beijing) Technology Co Ltd is the semiconductor subsidiary of Baidu.",
-  "country": "CN",
-  "hq": "Beijing"
+  "hq": "Beijing",
+  "country": "CN"
 }

@@ -7,9 +7,9 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q748148",
+    "isin": "JP3224200000",
     "domain": "global.kawasaki.com",
-    "lei": "5493008FFSI8SQ74AT93",
-    "isin": "JP3224200000"
+    "lei": "5493008FFSI8SQ74AT93"
   },
   "areas": [
     {
@@ -38,10 +38,18 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q748148",
-      "quote": "Kawasaki Heavy Industries (Q748148) — headquarters location: Kobe Crystal Tower",
+      "field": "area:industrial-robots",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Kawasaki_Heavy_Industries",
+      "quote": "Kawasaki Heavy Industries Ltd. (KHI) is a Japanese public multinational corporation manufacturer of motorcycles, engines, heavy equipment, aerospace and defense equipment, rolling stock and ships, headquartered in Minato, Tokyo, Japan.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:defence-autonomy",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Kawasaki_Heavy_Industries",
+      "quote": "Kawasaki Heavy Industries Ltd. (KHI) is a Japanese public multinational corporation manufacturer of motorcycles, engines, heavy equipment, aerospace and defense equipment, rolling stock and ships, headquartered in Minato, Tokyo, Japan.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -57,7 +65,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q748148",
-      "quote": "Kawasaki Heavy Industries (Q748148) — official website: http://global.kawasaki.com/",
+      "quote": "Kawasaki Heavy Industries (Q748148) — official website: global.kawasaki.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -68,22 +76,6 @@
       "quote": "Kawasaki Heavy Industries (Q748148) — Legal Entity Identifier: 5493008FFSI8SQ74AT93",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:industrial-robots",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Kawasaki_Heavy_Industries",
-      "quote": "Kawasaki Heavy Industries Ltd. (KHI) is a Japanese public multinational corporation manufacturer of motorcycles, engines, heavy equipment, aerospace and defense equipment, rolling stock and ships, headquartered in Minato, Tokyo, Japan.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:defence-autonomy",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Kawasaki_Heavy_Industries",
-      "quote": "Kawasaki Heavy Industries Ltd. (KHI) is a Japanese public multinational corporation manufacturer of motorcycles, engines, heavy equipment, aerospace and defense equipment, rolling stock and ships, headquartered in Minato, Tokyo, Japan.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -91,6 +83,5 @@
     "on": "2026-10-27"
   },
   "summary": "Kawasaki Heavy Industries Ltd. (KHI) is a Japanese public multinational corporation manufacturer of motorcycles, engines, heavy equipment, aerospace and defense equipment, rolling stock and ships, headquartered in Minato, Tokyo, Japan.",
-  "country": "JP",
-  "hq": "Kobe Crystal Tower"
+  "country": "JP"
 }

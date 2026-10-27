@@ -13,7 +13,8 @@
     "ticker": "EMBJ",
     "exchange": "US",
     "cusip": "29082A107",
-    "sedol": "2611916"
+    "sedol": "2611916",
+    "domain": "embraer.com"
   },
   "areas": [
     {
@@ -124,10 +125,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country BR as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q105557",
+      "quote": "Embraer (Q105557) — headquarters location: São José dos Campos",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q105557",
+      "quote": "Embraer (Q105557) — official website: embraer.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Embraer",
+      "quote": "A. is a Brazilian multinational aerospace corporation. It develops and manufactures aircraft and aviation systems, and provides leasing, equipment, and technical support services.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "São José dos Campos",
+  "summary": "A. is a Brazilian multinational aerospace corporation. It develops and manufactures aircraft and aviation systems, and provides leasing, equipment, and technical support services."
 }

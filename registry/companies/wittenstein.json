@@ -34,6 +34,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:reducers-gearboxes",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Wittenstein",
+      "quote": "Wittenstein SE is a German manufacturer of planetary gearheads, gearing technology, complete electromechanical drive systems and AC servo systems and motors.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2586768",
@@ -53,7 +61,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q2586768",
-      "quote": "Wittenstein Group (Q2586768) — official website: http://www.wittenstein.de",
+      "quote": "Wittenstein Group (Q2586768) — official website: wittenstein.de",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -64,14 +72,6 @@
       "quote": "Wittenstein Group (Q2586768) — Legal Entity Identifier: 529900JQSUR9JZITD365",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:reducers-gearboxes",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Wittenstein",
-      "quote": "Wittenstein SE is a German manufacturer of planetary gearheads, gearing technology, complete electromechanical drive systems and AC servo systems and motors.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -79,6 +79,6 @@
     "on": "2026-10-27"
   },
   "summary": "Wittenstein SE is a German manufacturer of planetary gearheads, gearing technology, complete electromechanical drive systems and AC servo systems and motors.",
-  "country": "DE",
-  "hq": "Igersheim"
+  "hq": "Igersheim",
+  "country": "DE"
 }

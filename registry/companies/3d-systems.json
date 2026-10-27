@@ -12,7 +12,8 @@
     "qid": "Q4636301",
     "ticker": "DDD",
     "exchange": "US",
-    "cusip": "88554D205"
+    "cusip": "88554D205",
+    "domain": "3dsystems.com"
   },
   "areas": [
     {
@@ -96,10 +97,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4636301",
+      "quote": "3D Systems (Q4636301) — headquarters location: Rock Hill",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4636301",
+      "quote": "3D Systems (Q4636301) — official website: 3dsystems.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/3D_Systems",
+      "quote": "3D Systems Corporation is an American company that engineers, manufactures, and sells 3D printing materials and application engineering services.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Rock Hill",
+  "summary": "3D Systems Corporation is an American company that engineers, manufactures, and sells 3D printing materials and application engineering services."
 }

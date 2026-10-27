@@ -7,11 +7,11 @@
   "country": "KR",
   "ids": {
     "qid": "Q492581",
-    "domain": "doosanenerbility.com",
-    "lei": "988400TK5NA3GLSTN506",
     "ticker": "034020",
     "exchange": "KS",
-    "sedol": "6294670"
+    "sedol": "6294670",
+    "domain": "doosanenerbility.com",
+    "lei": "988400TK5NA3GLSTN506"
   },
   "areas": [
     {
@@ -86,30 +86,6 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q492581",
-      "quote": "Doosan Enerbility (Q492581) — headquarters location: Changwon",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "ids.domain",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q492581",
-      "quote": "Doosan Enerbility (Q492581) — official website: https://www.doosanenerbility.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "ids.lei",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q492581",
-      "quote": "Doosan Enerbility (Q492581) — Legal Entity Identifier: 988400TK5NA3GLSTN506",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "area:grid-equipment",
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Doosan_Enerbility",
@@ -122,6 +98,30 @@
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Doosan_Enerbility",
       "quote": ", formerly known as Doosan Heavy Industries, is a heavy industrial company headquartered in Changwon, South Korea.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q492581",
+      "quote": "Doosan Enerbility (Q492581) — headquarters location: Changwon",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q492581",
+      "quote": "Doosan Enerbility (Q492581) — official website: doosanenerbility.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q492581",
+      "quote": "Doosan Enerbility (Q492581) — Legal Entity Identifier: 988400TK5NA3GLSTN506",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

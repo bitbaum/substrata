@@ -1,0 +1,38 @@
+{
+  "slug": "baykar",
+  "name": "Baykar",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {},
+  "areas": [
+    {
+      "area": "defence-autonomy"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Baykar",
+      "quote": "Baykar is a private Turkish defence company specialising in UAVs, C4I and artificial intelligence.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:defence-autonomy",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Baykar",
+      "quote": "Baykar is a private Turkish defence company specialising in UAVs, C4I and artificial intelligence.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Baykar is a private Turkish defence company specialising in UAVs, C4I and artificial intelligence."
+}

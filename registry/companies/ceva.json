@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q3648676",
-    "domain": "ceva-ip.com",
     "cik": "1173489",
     "lei": "529900G9T7CVU2J2VU73",
     "isin": "US1572101053",
     "ticker": "CEVA",
     "exchange": "US",
     "cusip": "157210105",
-    "sedol": "2986937"
+    "sedol": "2986937",
+    "domain": "ceva-ip.com"
   },
   "areas": [
     {
@@ -108,6 +108,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:eda-ip",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Ceva_(semiconductor_company)",
+      "quote": "Ceva, Inc. is a publicly traded semiconductor and software intellectual property (IP) company listed on NASDAQ under the ticker symbol CEVA.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q3648676",
@@ -119,15 +127,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q3648676",
-      "quote": "Ceva, Inc. (Q3648676) — official website: http://www.ceva-ip.com",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:eda-ip",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Ceva_(semiconductor_company)",
-      "quote": "Ceva, Inc. is a publicly traded semiconductor and software intellectual property (IP) company listed on NASDAQ under the ticker symbol CEVA.",
+      "quote": "Ceva, Inc. (Q3648676) — official website: ceva-ip.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

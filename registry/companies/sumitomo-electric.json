@@ -7,13 +7,13 @@
   "country": "JP",
   "ids": {
     "qid": "Q1814247",
-    "domain": "sumitomoelectric.com",
-    "lei": "5493005SP87FL5TOS202",
     "isin": "JP3407400005",
     "ticker": "5802",
     "exchange": "JP",
     "cik": "95227",
-    "cusip": "J77411114"
+    "cusip": "J77411114",
+    "domain": "sumitomoelectric.com",
+    "lei": "5493005SP87FL5TOS202"
   },
   "areas": [
     {
@@ -110,6 +110,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Sumitomo_Electric_Industries",
+      "quote": "Sumitomo Electric Industries, Ltd. is a manufacturer of electric wire and optical fiber cables.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1814247",
@@ -121,7 +129,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1814247",
-      "quote": "Sumitomo Electric Industries (Q1814247) — official website: https://sumitomoelectric.com",
+      "quote": "Sumitomo Electric Industries (Q1814247) — official website: sumitomoelectric.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -130,14 +138,6 @@
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1814247",
       "quote": "Sumitomo Electric Industries (Q1814247) — Legal Entity Identifier: 5493005SP87FL5TOS202",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:grid-equipment",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Sumitomo_Electric_Industries",
-      "quote": "Sumitomo Electric Industries, Ltd. is a manufacturer of electric wire and optical fiber cables.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

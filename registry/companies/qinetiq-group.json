@@ -1,7 +1,7 @@
 {
   "slug": "qinetiq-group",
   "name": "QinetiQ Group Plc",
-  "aliases": ["Qinetiq Group PLC"],
+  "aliases": ["Qinetiq Group PLC", "QinetiQ"],
   "kind": "public",
   "status": "active",
   "country": "GB",
@@ -9,7 +9,11 @@
     "ticker": "QQ/",
     "exchange": "LN",
     "sedol": "B0WMWD0",
-    "cusip": "G7303P106"
+    "cusip": "G7303P106",
+    "qid": "Q1759946",
+    "domain": "qinetiq.com",
+    "lei": "213800S8OBDOZMCMUW34",
+    "isin": "GB00B0WMWD03"
   },
   "areas": [
     {
@@ -87,10 +91,52 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Qinetiq",
+      "quote": "QinetiQ is a British defence technology company headquartered in Farnborough, Hampshire.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1759946",
+      "quote": "QinetiQ (Q1759946) — Wikidata item: Q1759946",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1759946",
+      "quote": "QinetiQ (Q1759946) — headquarters location: Farnborough",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1759946",
+      "quote": "QinetiQ (Q1759946) — official website: http://www.QinetiQ.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1759946",
+      "quote": "QinetiQ (Q1759946) — Legal Entity Identifier: 213800S8OBDOZMCMUW34",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "QinetiQ is a British defence technology company headquartered in Farnborough, Hampshire.",
+  "hq": "Farnborough"
 }

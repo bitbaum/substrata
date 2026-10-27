@@ -17,7 +17,8 @@
     "ticker": "SXI",
     "exchange": "US",
     "cusip": "854231107",
-    "sedol": "2840174"
+    "sedol": "2840174",
+    "domain": "standex.com"
   },
   "areas": [
     {
@@ -101,10 +102,27 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q48743554",
+      "quote": "Standex International (Q48743554) — official website: standex.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Standex_International",
+      "quote": "Standex International Corporation is a multi-industry manufacturer in four broad business segments: Electronics, Engravings, Aerospace/Defense, and Scientific with operations in the United States, Europe, Canada, Japan, Singapore, Mexico, Turkey, India, and China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Standex International Corporation is a multi-industry manufacturer in four broad business segments: Electronics, Engravings, Aerospace/Defense, and Scientific with operations in the United States, Europe, Canada, Japan, Singapore, Mexico, Turkey, India, and China."
 }

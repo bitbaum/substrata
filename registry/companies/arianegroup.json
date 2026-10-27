@@ -34,6 +34,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:launch",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/ArianeGroup",
+      "quote": "ArianeGroup is an aerospace company based in France. A joint venture between Airbus and Safran, the company was founded in 2015 and is headquartered in Issy-les-Moulineaux near Paris.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q19951610",
@@ -45,7 +53,7 @@
       "field": "country",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q19951610",
-      "quote": "ArianeGroup (Q19951610) — country (ISO 3166-1 alpha-2): DE",
+      "quote": "ArianeGroup (Q19951610) — country (ISO 3166-1 alpha-2): FR",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -53,7 +61,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q19951610",
-      "quote": "ArianeGroup (Q19951610) — official website: https://www.ariane.group/de/",
+      "quote": "ArianeGroup (Q19951610) — official website: ariane.group",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -64,14 +72,6 @@
       "quote": "ArianeGroup (Q19951610) — Legal Entity Identifier: 969500PQFG3KKR3L7W58",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:launch",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/ArianeGroup",
-      "quote": "ArianeGroup is an aerospace company based in France. A joint venture between Airbus and Safran, the company was founded in 2015 and is headquartered in Issy-les-Moulineaux near Paris.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -79,6 +79,6 @@
     "on": "2026-10-27"
   },
   "summary": "ArianeGroup is an aerospace company based in France. A joint venture between Airbus and Safran, the company was founded in 2015 and is headquartered in Issy-les-Moulineaux near Paris.",
-  "country": "DE",
-  "hq": "Les Mureaux"
+  "hq": "Les Mureaux",
+  "country": "FR"
 }

@@ -16,18 +16,18 @@
   "figures": [],
   "evidence": [
     {
-      "field": "summary",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Enflame",
-      "quote": ", Ltd. is a Chinese technology company headquartered in Shanghai.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "ids.qid",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q129571894",
       "quote": "Enflame (Q129571894) — Wikidata item: Q129571894",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-accelerators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Enflame",
+      "quote": ", Ltd. is a Chinese technology company headquartered in Shanghai.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -46,21 +46,12 @@
       "quote": "Enflame (Q129571894) — country (ISO 3166-1 alpha-2): CN",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:ai-accelerators",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Enflame",
-      "quote": ", Ltd. is a Chinese technology company headquartered in Shanghai.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "company:add",
     "on": "2026-10-27"
   },
-  "summary": ", Ltd. is a Chinese technology company headquartered in Shanghai.",
-  "country": "CN",
-  "hq": "Shanghai"
+  "hq": "Shanghai",
+  "country": "CN"
 }

@@ -7,8 +7,8 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q619364",
-    "domain": "realtek.com",
-    "isin": "TW0002379005"
+    "isin": "TW0002379005",
+    "domain": "realtek.com"
   },
   "areas": [
     {
@@ -34,6 +34,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:foundry",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Realtek",
+      "quote": "Realtek Semiconductor Corp. is a Taiwanese fabless semiconductor company situated in the Hsinchu Science Park, Hsinchu, Taiwan.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q619364",
@@ -53,15 +61,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q619364",
-      "quote": "Realtek (Q619364) — official website: https://www.realtek.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:foundry",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Realtek",
-      "quote": "Realtek Semiconductor Corp. is a Taiwanese fabless semiconductor company situated in the Hsinchu Science Park, Hsinchu, Taiwan.",
+      "quote": "Realtek (Q619364) — official website: realtek.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -71,6 +71,6 @@
     "on": "2026-10-27"
   },
   "summary": "Realtek Semiconductor Corp. is a Taiwanese fabless semiconductor company situated in the Hsinchu Science Park, Hsinchu, Taiwan.",
-  "country": "TW",
-  "hq": "Hsinchu City"
+  "hq": "Hsinchu City",
+  "country": "TW"
 }

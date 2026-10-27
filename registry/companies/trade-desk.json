@@ -12,7 +12,8 @@
     "qid": "Q60744565",
     "ticker": "TTD",
     "exchange": "US",
-    "cusip": "88339J105"
+    "cusip": "88339J105",
+    "domain": "thetradedesk.com"
   },
   "areas": [
     {
@@ -108,10 +109,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q60744565",
+      "quote": "Trade Desk (Q60744565) — headquarters location: Ventura",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q60744565",
+      "quote": "Trade Desk (Q60744565) — official website: thetradedesk.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/The_Trade_Desk",
+      "quote": "The Trade Desk, Inc. (TTD) is an American multinational technology company that produces and services programmatic marketing automation with personalized real-time digital content.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Ventura",
+  "summary": "The Trade Desk, Inc. (TTD) is an American multinational technology company that produces and services programmatic marketing automation with personalized real-time digital content."
 }

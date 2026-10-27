@@ -6,13 +6,14 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q11463",
+    "domain": "adobe.com",
+    "cik": "796343",
     "lei": "FU4LY2G4933NH2E1CP29",
     "isin": "US00724F1012",
     "ticker": "ADBE",
     "exchange": "US",
     "sedol": "2008154",
-    "cik": "796343",
-    "qid": "Q11463",
     "cusip": "00724F101"
   },
   "areas": [
@@ -21,6 +22,9 @@
     },
     {
       "area": "robotics"
+    },
+    {
+      "area": "ai-software-tooling"
     }
   ],
   "evidence": [
@@ -148,10 +152,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q11463",
+      "quote": "Adobe (Q11463) — headquarters location: San Jose",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q11463",
+      "quote": "Adobe (Q11463) — official website: adobe.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Adobe_Inc.",
+      "quote": ", formerly Adobe Systems Incorporated, is an American multinational computer software company based in San Jose, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Adobe_Inc.",
+      "quote": ", formerly Adobe Systems Incorporated, is an American multinational computer software company based in San Jose, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "San Jose",
+  "summary": ", formerly Adobe Systems Incorporated, is an American multinational computer software company based in San Jose, California."
 }

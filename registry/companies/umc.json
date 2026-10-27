@@ -7,12 +7,12 @@
   "country": "TW",
   "ids": {
     "qid": "Q143616",
-    "domain": "umc.com",
     "cik": "1033767",
-    "lei": "391200YJCAGH9LF96P73",
     "isin": "US9108734057",
     "ticker": "2303",
-    "exchange": "TT"
+    "exchange": "TT",
+    "domain": "umc.com",
+    "lei": "391200YJCAGH9LF96P73"
   },
   "areas": [
     {
@@ -106,10 +106,10 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q143616",
-      "quote": "United Microelectronics Corporation (Q143616) — headquarters location: Hsinchu Science Park",
+      "field": "area:foundry",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/United_Microelectronics_Corporation",
+      "quote": "United Microelectronics Corporation is a Taiwanese company based in Hsinchu, Taiwan.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -117,7 +117,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q143616",
-      "quote": "United Microelectronics Corporation (Q143616) — official website: https://www.umc.com/",
+      "quote": "United Microelectronics Corporation (Q143616) — official website: umc.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -128,20 +128,11 @@
       "quote": "United Microelectronics Corporation (Q143616) — Legal Entity Identifier: 391200YJCAGH9LF96P73",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:foundry",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/United_Microelectronics_Corporation",
-      "quote": "United Microelectronics Corporation is a Taiwanese company based in Hsinchu, Taiwan.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
   },
-  "summary": "United Microelectronics Corporation is a Taiwanese company based in Hsinchu, Taiwan.",
-  "hq": "Hsinchu Science Park"
+  "summary": "United Microelectronics Corporation is a Taiwanese company based in Hsinchu, Taiwan."
 }

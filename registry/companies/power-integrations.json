@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q30265954",
-    "domain": "power.com",
     "lei": "54930085LGXSCIHD5W31",
     "isin": "US7392761034",
     "cik": "833640",
     "ticker": "POWI",
     "exchange": "US",
     "cusip": "739276103",
-    "sedol": "2133045"
+    "sedol": "2133045",
+    "domain": "power.com"
   },
   "areas": [
     {
@@ -120,6 +120,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:power-semiconductors",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Power_Integrations%2C_Inc.",
+      "quote": "Power Integrations, Inc. is a publicly traded semiconductor company headquartered in San Jose, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q30265954",
@@ -131,15 +139,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q30265954",
-      "quote": "Power Integrations (Q30265954) — official website: http://www.power.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:power-semiconductors",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Power_Integrations%2C_Inc.",
-      "quote": "Power Integrations, Inc. is a publicly traded semiconductor company headquartered in San Jose, California.",
+      "quote": "Power Integrations (Q30265954) — official website: power.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

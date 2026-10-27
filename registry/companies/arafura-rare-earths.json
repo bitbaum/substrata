@@ -7,10 +7,10 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q16829889",
+    "isin": "AU000000ARU5",
     "domain": "arultd.com",
     "ticker": "ARU",
-    "exchange": "Australian Securities Exchange",
-    "isin": "AU000000ARU5"
+    "exchange": "Australian Securities Exchange"
   },
   "areas": [
     {
@@ -36,6 +36,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:rare-earths-magnets",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Arafura_Rare_Earths",
+      "quote": "Arafura Rare Earths Ltd, formerly Arafura Resources, is an Australian mining company headquartered in Perth, Western Australia.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "country",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q16829889",
@@ -47,7 +55,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q16829889",
-      "quote": "Arafura Rare Earths (Q16829889) — official website: https://www.arultd.com/",
+      "quote": "Arafura Rare Earths (Q16829889) — official website: arultd.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -56,14 +64,6 @@
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q16829889",
       "quote": "Arafura Rare Earths (Q16829889) — ticker symbol on Australian Securities Exchange: ARU",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:rare-earths-magnets",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Arafura_Rare_Earths",
-      "quote": "Arafura Rare Earths Ltd, formerly Arafura Resources, is an Australian mining company headquartered in Perth, Western Australia.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

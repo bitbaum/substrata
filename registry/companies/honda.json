@@ -7,9 +7,9 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q9584",
+    "isin": "JP3854600008",
     "domain": "global.honda",
-    "lei": "549300P7ZYCQJ36CCS16",
-    "isin": "JP3854600008"
+    "lei": "549300P7ZYCQJ36CCS16"
   },
   "areas": [
     {
@@ -22,7 +22,15 @@
   "figures": [],
   "evidence": [
     {
-      "field": "summary",
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q9584",
+      "quote": "Honda (Q9584) — Wikidata item: Q9584",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:humanoids",
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Honda",
       "quote": ", commonly known as Honda, is a Japanese multinational conglomerate automotive manufacturer headquartered at the Toranomon Alcea Tower in Toranomon, Minato, Tokyo, Japan.",
@@ -30,10 +38,10 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "ids.qid",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q9584",
-      "quote": "Honda (Q9584) — Wikidata item: Q9584",
+      "field": "area:electric-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Honda",
+      "quote": ", commonly known as Honda, is a Japanese multinational conglomerate automotive manufacturer headquartered at the Toranomon Alcea Tower in Toranomon, Minato, Tokyo, Japan.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -57,7 +65,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q9584",
-      "quote": "Honda (Q9584) — official website: https://global.honda",
+      "quote": "Honda (Q9584) — official website: global.honda",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -68,29 +76,12 @@
       "quote": "Honda (Q9584) — Legal Entity Identifier: 549300P7ZYCQJ36CCS16",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:humanoids",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Honda",
-      "quote": ", commonly known as Honda, is a Japanese multinational conglomerate automotive manufacturer headquartered at the Toranomon Alcea Tower in Toranomon, Minato, Tokyo, Japan.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:electric-vehicles",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Honda",
-      "quote": ", commonly known as Honda, is a Japanese multinational conglomerate automotive manufacturer headquartered at the Toranomon Alcea Tower in Toranomon, Minato, Tokyo, Japan.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "company:add",
     "on": "2026-10-27"
   },
-  "summary": ", commonly known as Honda, is a Japanese multinational conglomerate automotive manufacturer headquartered at the Toranomon Alcea Tower in Toranomon, Minato, Tokyo, Japan.",
-  "country": "JP",
-  "hq": "Minato"
+  "hq": "Minato",
+  "country": "JP"
 }

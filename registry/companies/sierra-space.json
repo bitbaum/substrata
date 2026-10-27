@@ -33,10 +33,10 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q109256454",
-      "quote": "Sierra Space (Q109256454) — headquarters location: Louisville",
+      "field": "area:satellites",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Sierra_Space",
+      "quote": "Sierra Space Corporation is a privately held aerospace and space technologies company headquartered in Louisville, Colorado, with additional facilities in Colorado, Wisconsin, Florida, North Carolina and a testing site at the Marshall Space Flight Center in Alabama.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -52,15 +52,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q109256454",
-      "quote": "Sierra Space (Q109256454) — official website: https://sierraspace.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:satellites",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Sierra_Space",
-      "quote": "Sierra Space Corporation is a privately held aerospace and space technologies company headquartered in Louisville, Colorado, with additional facilities in Colorado, Wisconsin, Florida, North Carolina and a testing site at the Marshall Space Flight Center in Alabama.",
+      "quote": "Sierra Space (Q109256454) — official website: sierraspace.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +62,5 @@
     "on": "2026-10-27"
   },
   "summary": "Sierra Space Corporation is a privately held aerospace and space technologies company headquartered in Louisville, Colorado, with additional facilities in Colorado, Wisconsin, Florida, North Carolina and a testing site at the Marshall Space Flight Center in Alabama.",
-  "country": "US",
-  "hq": "Louisville"
+  "country": "US"
 }

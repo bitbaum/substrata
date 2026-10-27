@@ -7,10 +7,10 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q1470619",
+    "isin": "US7010941042",
     "domain": "parker.com",
     "cik": "76334",
-    "lei": "5493002CONDB4N2HKI23",
-    "isin": "US7010941042"
+    "lei": "5493002CONDB4N2HKI23"
   },
   "areas": [
     {
@@ -36,6 +36,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:actuators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Parker_Hannifin",
+      "quote": "Parker-Hannifin Corporation, originally Parker Appliance Company, is an American multinational industrial manufacturing company specializing in motion and control technologies.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1470619",
@@ -55,7 +63,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1470619",
-      "quote": "Parker Hannifin (Q1470619) — official website: http://www.parker.com/",
+      "quote": "Parker Hannifin (Q1470619) — official website: parker.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -74,14 +82,6 @@
       "quote": "Parker Hannifin (Q1470619) — Legal Entity Identifier: 5493002CONDB4N2HKI23",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:actuators",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Parker_Hannifin",
-      "quote": "Parker-Hannifin Corporation, originally Parker Appliance Company, is an American multinational industrial manufacturing company specializing in motion and control technologies.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -89,6 +89,6 @@
     "on": "2026-10-27"
   },
   "summary": "Parker-Hannifin Corporation, originally Parker Appliance Company, is an American multinational industrial manufacturing company specializing in motion and control technologies.",
-  "country": "US",
-  "hq": "Cleveland"
+  "hq": "Cleveland",
+  "country": "US"
 }

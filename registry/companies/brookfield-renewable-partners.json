@@ -34,18 +34,10 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q4974587",
-      "quote": "Brookfield Renewable (Q4974587) — headquarters location: Toronto",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "country",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q4974587",
-      "quote": "Brookfield Renewable (Q4974587) — country (ISO 3166-1 alpha-2): BM",
+      "field": "area:power-storage-grid",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Brookfield_Renewable_Partners",
+      "quote": "P. is a publicly traded limited partnership that owns and operates renewable power assets, with corporate headquarters in Toronto, Ontario, Canada.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -53,7 +45,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q4974587",
-      "quote": "Brookfield Renewable (Q4974587) — official website: https://brookfieldrenewable.com",
+      "quote": "Brookfield Renewable (Q4974587) — official website: brookfieldrenewable.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -64,21 +56,11 @@
       "quote": "Brookfield Renewable (Q4974587) — SEC Central Index Key: 1791863",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:power-storage-grid",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Brookfield_Renewable_Partners",
-      "quote": "P. is a publicly traded limited partnership that owns and operates renewable power assets, with corporate headquarters in Toronto, Ontario, Canada.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "company:add",
     "on": "2026-10-27"
   },
-  "summary": "P. is a publicly traded limited partnership that owns and operates renewable power assets, with corporate headquarters in Toronto, Ontario, Canada.",
-  "country": "BM",
-  "hq": "Toronto"
+  "summary": "P. is a publicly traded limited partnership that owns and operates renewable power assets, with corporate headquarters in Toronto, Ontario, Canada."
 }

@@ -7,10 +7,10 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q17551096",
+    "isin": "US49338L1035",
     "domain": "keysight.com",
     "cik": "1601046",
-    "lei": "549300GLKVIO8YRCYN02",
-    "isin": "US49338L1035"
+    "lei": "549300GLKVIO8YRCYN02"
   },
   "areas": [
     {
@@ -36,6 +36,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:silicon-photonics",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Keysight",
+      "quote": "Keysight Technologies, Inc. is a global company headquartered in Santa Rosa, California, that manufactures hardware and software for engineering workflows across design, test, and emulation.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q17551096",
@@ -55,7 +63,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q17551096",
-      "quote": "Keysight Technologies (Q17551096) — official website: http://www.keysight.com/",
+      "quote": "Keysight Technologies (Q17551096) — official website: keysight.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -74,14 +82,6 @@
       "quote": "Keysight Technologies (Q17551096) — Legal Entity Identifier: 549300GLKVIO8YRCYN02",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:silicon-photonics",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Keysight",
-      "quote": "Keysight Technologies, Inc. is a global company headquartered in Santa Rosa, California, that manufactures hardware and software for engineering workflows across design, test, and emulation.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -89,6 +89,6 @@
     "on": "2026-10-27"
   },
   "summary": "Keysight Technologies, Inc. is a global company headquartered in Santa Rosa, California, that manufactures hardware and software for engineering workflows across design, test, and emulation.",
-  "country": "US",
-  "hq": "Santa Rosa"
+  "hq": "Santa Rosa",
+  "country": "US"
 }

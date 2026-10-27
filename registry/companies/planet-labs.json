@@ -7,13 +7,13 @@
   "country": "US",
   "ids": {
     "qid": "Q17085620",
-    "domain": "planet.com",
     "cik": "1836833",
     "isin": "US72703X1063",
     "ticker": "PL",
     "exchange": "US",
     "sedol": "BM8JV32",
-    "cusip": "72703X106"
+    "cusip": "72703X106",
+    "domain": "planet.com"
   },
   "areas": [
     {
@@ -138,6 +138,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:satellites",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Planet_Labs",
+      "quote": "\", is a publicly traded American Earth imaging company based in San Francisco, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q17085620",
@@ -149,15 +157,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q17085620",
-      "quote": "Planet Labs (Q17085620) — official website: https://www.planet.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:satellites",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Planet_Labs",
-      "quote": "\", is a publicly traded American Earth imaging company based in San Francisco, California.",
+      "quote": "Planet Labs (Q17085620) — official website: planet.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

@@ -7,13 +7,13 @@
   "country": "US",
   "ids": {
     "qid": "Q459965",
-    "domain": "caterpillar.com",
     "cik": "18230",
     "lei": "WRJR7GS4GTRECRRTVX92",
     "isin": "US1491231015",
     "ticker": "CAT",
     "exchange": "US",
-    "cusip": "149123101"
+    "cusip": "149123101",
+    "domain": "caterpillar.com"
   },
   "areas": [
     {
@@ -122,6 +122,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:data-centre-cooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Caterpillar_Inc.",
+      "quote": "Caterpillar Inc. is an American manufacturer of construction, mining, and other engineering equipment.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q459965",
@@ -133,15 +141,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q459965",
-      "quote": "Caterpillar Inc. (Q459965) — official website: https://www.caterpillar.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:data-centre-cooling",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Caterpillar_Inc.",
-      "quote": "Caterpillar Inc. is an American manufacturer of construction, mining, and other engineering equipment.",
+      "quote": "Caterpillar Inc. (Q459965) — official website: caterpillar.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

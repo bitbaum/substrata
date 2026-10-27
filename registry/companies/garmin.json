@@ -7,11 +7,11 @@
   "country": "US",
   "ids": {
     "qid": "Q658789",
-    "domain": "garmin.com",
     "ticker": "GRMN",
     "exchange": "US",
     "cusip": "B3Z5T14",
-    "cik": "1121788"
+    "cik": "1121788",
+    "domain": "garmin.com"
   },
   "areas": [
     {
@@ -94,6 +94,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:robot-sensors",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Garmin",
+      "quote": "Garmin Ltd. is an American multinational technology company based in Olathe, Kansas.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q658789",
@@ -105,15 +113,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q658789",
-      "quote": "Garmin Group (Q658789) — official website: https://www.garmin.com",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:robot-sensors",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Garmin",
-      "quote": "Garmin Ltd. is an American multinational technology company based in Olathe, Kansas.",
+      "quote": "Garmin Group (Q658789) — official website: garmin.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

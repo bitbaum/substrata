@@ -7,13 +7,13 @@
   "country": "GB",
   "ids": {
     "qid": "Q739416",
-    "domain": "baesystems.com",
-    "cik": "1422152",
-    "lei": "8SVCSVKSGDWMW2QHOH83",
     "isin": "GB0002634946",
     "ticker": "BA/",
     "exchange": "LN",
-    "sedol": "0263494"
+    "sedol": "0263494",
+    "domain": "baesystems.com",
+    "cik": "1422152",
+    "lei": "8SVCSVKSGDWMW2QHOH83"
   },
   "areas": [
     {
@@ -108,7 +108,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q739416",
-      "quote": "BAE Systems (Q739416) — official website: https://www.baesystems.com",
+      "quote": "BAE Systems (Q739416) — official website: baesystems.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },

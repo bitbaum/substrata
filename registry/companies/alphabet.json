@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q20800404",
-    "domain": "abc.xyz",
     "cik": "1652044",
     "lei": "5493006MHB84DD0ZWV18",
     "isin": "US02079K1079",
     "ticker": "GOOG",
     "exchange": "US",
     "cusip": "02079K107",
-    "sedol": "BYVY8G0"
+    "sedol": "BYVY8G0",
+    "domain": "abc.xyz"
   },
   "areas": [
     {
@@ -299,6 +299,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Alphabet_Inc.",
+      "quote": "Alphabet Inc. is an American multinational technology conglomerate holding company headquartered in Mountain View, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q20800404",
@@ -310,15 +318,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q20800404",
-      "quote": "Alphabet Inc. (Q20800404) — official website: https://abc.xyz/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:ai-cloud-platforms",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Alphabet_Inc.",
-      "quote": "Alphabet Inc. is an American multinational technology conglomerate holding company headquartered in Mountain View, California.",
+      "quote": "Alphabet Inc. (Q20800404) — official website: abc.xyz",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

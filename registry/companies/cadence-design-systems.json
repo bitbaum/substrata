@@ -11,14 +11,14 @@
   "country": "US",
   "ids": {
     "qid": "Q608776",
-    "domain": "cadence.com",
     "cik": "813672",
     "lei": "GCT7RXJOGLXPV0NXZY22",
     "isin": "US1273871087",
     "ticker": "CDNS",
     "exchange": "US",
     "sedol": "2302232",
-    "cusip": "127387108"
+    "cusip": "127387108",
+    "domain": "cadence.com"
   },
   "areas": [
     {
@@ -172,22 +172,6 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q608776",
-      "quote": "Cadence Design Systems (Q608776) — headquarters location: San Jose",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "ids.domain",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q608776",
-      "quote": "Cadence Design Systems (Q608776) — official website: https://www.cadence.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "area:eda-ip",
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Cadence_Design_Systems",
@@ -200,6 +184,22 @@
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Cadence_Design_Systems",
       "quote": "Cadence Design Systems, Inc. is an American multinational technology and computational software company headquartered in San Jose, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q608776",
+      "quote": "Cadence Design Systems (Q608776) — headquarters location: San Jose",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q608776",
+      "quote": "Cadence Design Systems (Q608776) — official website: cadence.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

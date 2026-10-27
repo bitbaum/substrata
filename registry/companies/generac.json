@@ -7,13 +7,13 @@
   "country": "US",
   "ids": {
     "qid": "Q5531627",
-    "domain": "generac.com",
     "cik": "1474735",
     "lei": "529900S2H2AHJHSFFI84",
     "isin": "US3687361044",
     "ticker": "GNRC",
     "exchange": "US",
-    "cusip": "368736104"
+    "cusip": "368736104",
+    "domain": "generac.com"
   },
   "areas": [
     {
@@ -134,6 +134,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:data-centre-cooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Generac",
+      "quote": ", commonly referred to as Generac, is an American manufacturer of backup power generation products for residential, light commercial, and industrial markets.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q5531627",
@@ -145,15 +153,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q5531627",
-      "quote": "Generac Holdings Inc. (Q5531627) — official website: http://www.generac.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:data-centre-cooling",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Generac",
-      "quote": ", commonly referred to as Generac, is an American manufacturer of backup power generation products for residential, light commercial, and industrial markets.",
+      "quote": "Generac Holdings Inc. (Q5531627) — official website: generac.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

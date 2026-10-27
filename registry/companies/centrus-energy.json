@@ -7,13 +7,13 @@
   "country": "US",
   "ids": {
     "qid": "Q3893521",
-    "domain": "centrusenergy.com",
     "cik": "1065059",
-    "lei": "549300FTDHJBR67GXO13",
     "isin": "US15643U1043",
     "ticker": "LEU",
     "exchange": "US",
-    "sedol": "BQXKDH6"
+    "sedol": "BQXKDH6",
+    "domain": "centrusenergy.com",
+    "lei": "549300FTDHJBR67GXO13"
   },
   "areas": [
     {
@@ -108,6 +108,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:nuclear-fuel-cycle",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Centrus_Energy",
+      "quote": "Centrus Energy Corp. is an American company that supplies nuclear fuel for use in nuclear power plants and works to develop and deploy centrifuge technology to produce enriched uranium for commercial and government uses, including for national security.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q3893521",
@@ -119,7 +127,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q3893521",
-      "quote": "Centrus Energy (Q3893521) — official website: http://www.centrusenergy.com/",
+      "quote": "Centrus Energy (Q3893521) — official website: centrusenergy.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -128,14 +136,6 @@
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q3893521",
       "quote": "Centrus Energy (Q3893521) — Legal Entity Identifier: 549300FTDHJBR67GXO13",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:nuclear-fuel-cycle",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Centrus_Energy",
-      "quote": "Centrus Energy Corp. is an American company that supplies nuclear fuel for use in nuclear power plants and works to develop and deploy centrifuge technology to produce enriched uranium for commercial and government uses, including for national security.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

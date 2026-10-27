@@ -1,0 +1,94 @@
+{
+  "slug": "sea-limited",
+  "name": "Sea Limited",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q93520415",
+    "domain": "sea.com",
+    "cik": "1264806",
+    "lei": "529900OM6JLLW44YKI15",
+    "isin": "US81141R1005"
+  },
+  "areas": [
+    {
+      "area": "ai-software-tooling"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Sea_Ltd",
+      "quote": "Sea Limited is a tech conglomerate headquartered in Singapore.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q93520415",
+      "quote": "Sea Ltd (Q93520415) — Wikidata item: Q93520415",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q93520415",
+      "quote": "Sea Ltd (Q93520415) — headquarters location: Singapore",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q93520415",
+      "quote": "Sea Ltd (Q93520415) — country (ISO 3166-1 alpha-2): SG",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q93520415",
+      "quote": "Sea Ltd (Q93520415) — official website: https://www.sea.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q93520415",
+      "quote": "Sea Ltd (Q93520415) — SEC Central Index Key: 1264806",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q93520415",
+      "quote": "Sea Ltd (Q93520415) — Legal Entity Identifier: 529900OM6JLLW44YKI15",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Sea_Ltd",
+      "quote": "Sea Limited is a tech conglomerate headquartered in Singapore.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Sea Limited is a tech conglomerate headquartered in Singapore.",
+  "country": "SG",
+  "hq": "Singapore"
+}

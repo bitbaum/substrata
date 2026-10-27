@@ -7,9 +7,9 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q63035278",
+    "isin": "NET000AXPEN7",
     "domain": "xpeng-auto.es",
-    "lei": "549300TZNMIREMWQU857",
-    "isin": "NET000AXPEN7"
+    "lei": "549300TZNMIREMWQU857"
   },
   "areas": [
     {
@@ -22,7 +22,15 @@
   "figures": [],
   "evidence": [
     {
-      "field": "summary",
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q63035278",
+      "quote": "XPeng (Q63035278) — Wikidata item: Q63035278",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:humanoids",
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/XPeng",
       "quote": ", trading as XPeng Motors, commonly known as XPeng, is a Chinese electric vehicle manufacturer.",
@@ -30,10 +38,10 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "ids.qid",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q63035278",
-      "quote": "XPeng (Q63035278) — Wikidata item: Q63035278",
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/XPeng",
+      "quote": ", trading as XPeng Motors, commonly known as XPeng, is a Chinese electric vehicle manufacturer.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -57,7 +65,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q63035278",
-      "quote": "XPeng (Q63035278) — official website: https://www.xpeng-auto.es/",
+      "quote": "XPeng (Q63035278) — official website: xpeng-auto.es",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -68,29 +76,12 @@
       "quote": "XPeng (Q63035278) — Legal Entity Identifier: 549300TZNMIREMWQU857",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:humanoids",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/XPeng",
-      "quote": ", trading as XPeng Motors, commonly known as XPeng, is a Chinese electric vehicle manufacturer.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:autonomous-vehicles",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/XPeng",
-      "quote": ", trading as XPeng Motors, commonly known as XPeng, is a Chinese electric vehicle manufacturer.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "company:add",
     "on": "2026-10-27"
   },
-  "summary": ", trading as XPeng Motors, commonly known as XPeng, is a Chinese electric vehicle manufacturer.",
-  "country": "CN",
-  "hq": "Guangzhou"
+  "hq": "Guangzhou",
+  "country": "CN"
 }

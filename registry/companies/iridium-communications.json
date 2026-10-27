@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q154387",
-    "domain": "iridium.com",
     "cik": "1418819",
     "lei": "549300U620NVQ4J1CT96",
     "isin": "US46269C1027",
     "ticker": "IRDM",
     "exchange": "US",
     "cusip": "46269C102",
-    "sedol": "B2QH310"
+    "sedol": "B2QH310",
+    "domain": "iridium.com"
   },
   "areas": [
     {
@@ -126,6 +126,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:satellites",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Iridium_Communications",
+      "quote": "Iridium Communications Inc. is a publicly traded American satellite communications company headquartered in McLean, Virginia.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q154387",
@@ -137,15 +145,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q154387",
-      "quote": "Iridium Communications (Q154387) — official website: https://www.iridium.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:satellites",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Iridium_Communications",
-      "quote": "Iridium Communications Inc. is a publicly traded American satellite communications company headquartered in McLean, Virginia.",
+      "quote": "Iridium Communications (Q154387) — official website: iridium.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

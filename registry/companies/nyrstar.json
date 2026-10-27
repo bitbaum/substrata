@@ -7,9 +7,9 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q823010",
+    "isin": "BE0003876936",
     "domain": "nyrstar.com",
-    "lei": "529900LEMMBXNRX31N35",
-    "isin": "BE0003876936"
+    "lei": "529900LEMMBXNRX31N35"
   },
   "areas": [
     {
@@ -35,6 +35,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Nyrstar",
+      "quote": "Nyrstar is an international producer of minerals and metals.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q823010",
@@ -54,7 +62,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q823010",
-      "quote": "Nyrstar (Q823010) — official website: http://www.nyrstar.com",
+      "quote": "Nyrstar (Q823010) — official website: nyrstar.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -65,14 +73,6 @@
       "quote": "Nyrstar (Q823010) — Legal Entity Identifier: 529900LEMMBXNRX31N35",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:critical-minerals",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Nyrstar",
-      "quote": "Nyrstar is an international producer of minerals and metals.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -80,6 +80,6 @@
     "on": "2026-10-27"
   },
   "summary": "Nyrstar is an international producer of minerals and metals.",
-  "country": "BE",
-  "hq": "Balen"
+  "hq": "Balen",
+  "country": "BE"
 }

@@ -32,18 +32,18 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "country",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q111745426",
-      "quote": "CAS Space (Q111745426) — country (ISO 3166-1 alpha-2): CN",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "area:launch",
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/CAS_Space",
       "quote": "CAS Space is a Chinese commercial space launch provider based in Guangzhou.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q111745426",
+      "quote": "CAS Space (Q111745426) — country (ISO 3166-1 alpha-2): CN",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

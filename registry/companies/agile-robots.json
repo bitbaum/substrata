@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:industrial-robots",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Agile_Robots_SE",
+      "quote": "Agile Robots SE is a German robotics and artificial intelligence company based in Munich, Germany.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q136786746",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q136786746",
-      "quote": "Agile Robots (Q136786746) — official website: https://www.agile-robots.com/de/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:industrial-robots",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Agile_Robots_SE",
-      "quote": "Agile Robots SE is a German robotics and artificial intelligence company based in Munich, Germany.",
+      "quote": "Agile Robots (Q136786746) — official website: agile-robots.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "Agile Robots SE is a German robotics and artificial intelligence company based in Munich, Germany.",
-  "country": "DE",
-  "hq": "Munich"
+  "hq": "Munich",
+  "country": "DE"
 }

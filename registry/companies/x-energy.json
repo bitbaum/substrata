@@ -7,13 +7,13 @@
   "country": "US",
   "ids": {
     "qid": "Q30633271",
-    "domain": "x-energy.com",
     "isin": "US98386P1021",
     "ticker": "XE",
     "exchange": "US",
     "cusip": "98386P102",
     "sedol": "BW0TQY6",
-    "cik": "2088896"
+    "cik": "2088896",
+    "domain": "x-energy.com"
   },
   "areas": [
     {
@@ -126,6 +126,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:fission-smr",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/X-energy",
+      "quote": "X-Energy, Inc. is a publicly traded American nuclear reactor and fuel engineering company, headquartered in Rockville, Maryland.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q30633271",
@@ -137,15 +145,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q30633271",
-      "quote": "X-Energy (Q30633271) — official website: https://x-energy.com",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:fission-smr",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/X-energy",
-      "quote": "X-Energy, Inc. is a publicly traded American nuclear reactor and fuel engineering company, headquartered in Rockville, Maryland.",
+      "quote": "X-Energy (Q30633271) — official website: x-energy.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

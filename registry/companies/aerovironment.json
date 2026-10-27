@@ -13,14 +13,14 @@
   "country": "US",
   "ids": {
     "qid": "Q919300",
-    "domain": "avinc.com",
     "cik": "1368622",
     "lei": "529900PGHVI29YLZ6221",
     "isin": "US0080731088",
     "ticker": "AVAV",
     "exchange": "US",
     "cusip": "008073108",
-    "sedol": "B1P5YY8"
+    "sedol": "B1P5YY8",
+    "domain": "avinc.com"
   },
   "areas": [
     {
@@ -204,6 +204,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:defence-autonomy",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/AeroVironment",
+      "quote": ", also known as AV, is an American defense technology company headquartered in Arlington, Virginia that designs and manufactures autonomous systems, counter-UAS systems, and space systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q919300",
@@ -215,15 +223,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q919300",
-      "quote": "AeroVironment (Q919300) — official website: http://www.avinc.com",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:defence-autonomy",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/AeroVironment",
-      "quote": ", also known as AV, is an American defense technology company headquartered in Arlington, Virginia that designs and manufactures autonomous systems, counter-UAS systems, and space systems.",
+      "quote": "AeroVironment (Q919300) — official website: avinc.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

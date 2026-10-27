@@ -7,7 +7,6 @@
   "country": "US",
   "ids": {
     "qid": "Q140994560",
-    "domain": "rocketlabcorp.com",
     "lei": "254900B4DEYFZJ980A14",
     "isin": "US7731211089",
     "ticker": "RKLB",
@@ -153,26 +152,18 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q116319",
-      "quote": "Rocket Lab (Q116319) — headquarters location: Long Beach",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "ids.domain",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q116319",
-      "quote": "Rocket Lab (Q116319) — official website: https://rocketlabcorp.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
       "field": "area:launch",
       "grade": "reported",
       "source": "https://en.wikipedia.org/wiki/Rocket_Lab",
       "quote": "Rocket Lab Corporation is a publicly traded aerospace manufacturer and launch service provider.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q140994560",
+      "quote": "Rocket Lab Corporation (Q140994560) — headquarters location: Long Beach",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

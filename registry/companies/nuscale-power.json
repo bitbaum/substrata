@@ -7,12 +7,12 @@
   "country": "US",
   "ids": {
     "qid": "Q7067710",
-    "domain": "nuscalepower.com",
     "isin": "US67079K1007",
     "ticker": "SMR",
     "exchange": "US",
     "sedol": "BNXK803",
-    "cik": "1822966"
+    "cik": "1822966",
+    "domain": "nuscalepower.com"
   },
   "areas": [
     {
@@ -107,6 +107,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:fission-smr",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/NuScale_Power",
+      "quote": "NuScale Power Corporation is a publicly traded American company that markets its proposed designs for small modular reactors (SMRs).",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q7067710",
@@ -118,15 +126,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q7067710",
-      "quote": "NuScale (Q7067710) — official website: http://www.nuscalepower.com",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:fission-smr",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/NuScale_Power",
-      "quote": "NuScale Power Corporation is a publicly traded American company that markets its proposed designs for small modular reactors (SMRs).",
+      "quote": "NuScale (Q7067710) — official website: nuscalepower.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

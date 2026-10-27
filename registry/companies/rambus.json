@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q1196745",
-    "domain": "rambus.com",
     "cik": "917273",
     "isin": "US7509171069",
     "lei": "2549000211GDCQSLV833",
     "ticker": "RMBS",
     "exchange": "US",
     "cusip": "750917106",
-    "sedol": "2721967"
+    "sedol": "2721967",
+    "domain": "rambus.com"
   },
   "areas": [
     {
@@ -147,6 +147,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:eda-ip",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Rambus",
+      "quote": "Rambus Inc. is an American technology company that designs, develops and licenses chip interface technologies and architectures that are used in digital electronics products.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1196745",
@@ -158,15 +166,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1196745",
-      "quote": "Rambus (Q1196745) — official website: https://www.rambus.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:eda-ip",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Rambus",
-      "quote": "Rambus Inc. is an American technology company that designs, develops and licenses chip interface technologies and architectures that are used in digital electronics products.",
+      "quote": "Rambus (Q1196745) — official website: rambus.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

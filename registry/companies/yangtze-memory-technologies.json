@@ -34,6 +34,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:memory",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Yangtze_Memory_Technologies",
+      "quote": "Yangtze Memory Technologies Corp. (YMTC) is a Chinese semiconductor integrated device manufacturer specializing in flash memory (NAND) chips.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q28415694",
@@ -53,7 +61,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q28415694",
-      "quote": "Yangtze Memory Technology Corp (Q28415694) — official website: https://www.ymtc.com/",
+      "quote": "Yangtze Memory Technology Corp (Q28415694) — official website: ymtc.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -64,14 +72,6 @@
       "quote": "Yangtze Memory Technology Corp (Q28415694) — Legal Entity Identifier: 6556005YROCAUJN2J624",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:memory",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Yangtze_Memory_Technologies",
-      "quote": "Yangtze Memory Technologies Corp. (YMTC) is a Chinese semiconductor integrated device manufacturer specializing in flash memory (NAND) chips.",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
     }
   ],
   "origin": {
@@ -79,6 +79,6 @@
     "on": "2026-10-27"
   },
   "summary": "Yangtze Memory Technologies Corp. (YMTC) is a Chinese semiconductor integrated device manufacturer specializing in flash memory (NAND) chips.",
-  "country": "CN",
-  "hq": "Wuhan"
+  "hq": "Wuhan",
+  "country": "CN"
 }

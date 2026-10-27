@@ -98,8 +98,19 @@ test('areas form a tree of at most three levels and name real bottlenecks', () =
 test('area members roll up their descendants; gaps are derived, not stored', () => {
   const cs = registeredCompanies();
   assert.ok(membersOf('compute-semiconductors', cs).length > 50);
-  const gaps = gapsOf(cs[0]).map((g) => g.field);
-  assert.ok(gaps.includes('summary'), 'a migrated company has no "what it is" yet');
+  const bare = cs.find((c) => !c.summary);
+  assert.ok(bare, 'some company still has no cited description');
+  assert.ok(
+    gapsOf(bare)
+      .map((g) => g.field)
+      .includes('summary'),
+  );
+  const described = cs.find((c) => c.summary)!;
+  assert.ok(
+    !gapsOf(described)
+      .map((g) => g.field)
+      .includes('summary'),
+  );
 });
 
 test('company:add resolves identity from Wikipedia and Wikidata and cites only what it fetched', async () => {
@@ -120,7 +131,11 @@ test('company:add resolves identity from Wikipedia and Wikidata and cites only w
         : {
             results: {
               bindings: [
-                { l: { value: 'Acme Robotics' }, hqL: { value: 'Columbus' }, cc: { value: 'us' } },
+                {
+                  l: { value: 'Acme Robotics' },
+                  hq: { value: 'Columbus|US' },
+                  nhq: { value: '1' },
+                },
               ],
             },
           },

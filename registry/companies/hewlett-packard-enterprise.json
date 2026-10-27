@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q19923099",
-    "domain": "hpe.com",
     "cik": "1645590",
     "lei": "549300BX44RGX6ANDV88",
     "isin": "US42824C1099",
     "ticker": "HPE",
     "exchange": "US",
     "sedol": "BYVYWS0",
-    "cusip": "42824C109"
+    "cusip": "42824C109",
+    "domain": "hpe.com"
   },
   "areas": [
     {
@@ -186,6 +186,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hewlett_Packard_Enterprise",
+      "quote": "The Hewlett Packard Enterprise Company (HPE) is an American multinational information technology company based in Spring, Texas.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q19923099",
@@ -197,15 +205,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q19923099",
-      "quote": "Hewlett Packard Enterprise (Q19923099) — official website: https://www.hpe.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:ai-cloud-platforms",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Hewlett_Packard_Enterprise",
-      "quote": "The Hewlett Packard Enterprise Company (HPE) is an American multinational information technology company based in Spring, Texas.",
+      "quote": "Hewlett Packard Enterprise (Q19923099) — official website: hpe.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

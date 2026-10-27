@@ -13,7 +13,8 @@
     "ticker": "MOD",
     "exchange": "US",
     "cusip": "607828100",
-    "sedol": "2598354"
+    "sedol": "2598354",
+    "domain": "modine.com"
   },
   "areas": [
     {
@@ -116,11 +117,28 @@
       "quote": "Modine is a surname. Notable people include:Matthew Modine, American film actor Nola Fairbanks, American actress Ruby Modine, American actress and singer, daughter of Matthew Arthur B.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1509926",
+      "quote": "Modine (Q1509926) — headquarters location: Racine",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1509926",
+      "quote": "Modine (Q1509926) — official website: modine.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
   },
-  "summary": "Modine is a surname. Notable people include:Matthew Modine, American film actor Nola Fairbanks, American actress Ruby Modine, American actress and singer, daughter of Matthew Arthur B."
+  "summary": "Modine is a surname. Notable people include:Matthew Modine, American film actor Nola Fairbanks, American actress Ruby Modine, American actress and singer, daughter of Matthew Arthur B.",
+  "hq": "Racine"
 }

@@ -7,13 +7,13 @@
   "country": "US",
   "ids": {
     "qid": "Q7268886",
-    "domain": "quantaservices.com",
     "cik": "1050915",
     "lei": "SHVRXXEACT60MMH07S24",
     "isin": "US74762E1029",
     "ticker": "PWR",
     "exchange": "US",
-    "cusip": "74762E102"
+    "cusip": "74762E102",
+    "domain": "quantaservices.com"
   },
   "areas": [
     {
@@ -122,6 +122,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Quanta_Services",
+      "quote": "S. corporation that provides infrastructure services for the electric power, pipeline, industrial and communications industries.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q7268886",
@@ -133,15 +141,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q7268886",
-      "quote": "Quanta Services (Q7268886) — official website: https://www.quantaservices.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:grid-equipment",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Quanta_Services",
-      "quote": "S. corporation that provides infrastructure services for the electric power, pipeline, industrial and communications industries.",
+      "quote": "Quanta Services (Q7268886) — official website: quantaservices.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

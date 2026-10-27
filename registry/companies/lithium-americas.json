@@ -7,12 +7,12 @@
   "country": "CA",
   "ids": {
     "qid": "Q124655501",
-    "domain": "lithiumamericas.com",
     "isin": "CA53681J1030",
     "ticker": "LAC",
     "exchange": "CN",
     "sedol": "BRBS357",
-    "cik": "1966983"
+    "cik": "1966983",
+    "domain": "lithiumamericas.com"
   },
   "areas": [
     {
@@ -125,6 +125,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Lithium_Americas",
+      "quote": "Lithium Americas Corp. is a Canadian mining corporation. It is currently developing the Thacker Pass Lithium Mine in northern Nevada.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q124655501",
@@ -136,15 +144,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q124655501",
-      "quote": "Lithium Americas (Q124655501) — official website: https://www.lithiumamericas.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:critical-minerals",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Lithium_Americas",
-      "quote": "Lithium Americas Corp. is a Canadian mining corporation. It is currently developing the Thacker Pass Lithium Mine in northern Nevada.",
+      "quote": "Lithium Americas (Q124655501) — official website: lithiumamericas.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

@@ -7,14 +7,14 @@
   "country": "US",
   "ids": {
     "qid": "Q1529234",
-    "domain": "rockwellautomation.com",
     "cik": "1024478",
     "lei": "VH3R4HHBHH12O0EXZJ88",
     "isin": "US7739031091",
     "ticker": "ROK",
     "exchange": "US",
     "sedol": "2754060",
-    "cusip": "773903109"
+    "cusip": "773903109",
+    "domain": "rockwellautomation.com"
   },
   "areas": [
     {
@@ -135,6 +135,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:actuators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Rockwell_Automation",
+      "quote": "Rockwell Automation, Inc. is an American provider of industrial automation and digital transformation technologies headquartered in Milwaukee, Wisconsin.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1529234",
@@ -146,15 +154,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q1529234",
-      "quote": "Rockwell Automation (Q1529234) — official website: http://www.rockwellautomation.com",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:actuators",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Rockwell_Automation",
-      "quote": "Rockwell Automation, Inc. is an American provider of industrial automation and digital transformation technologies headquartered in Milwaukee, Wisconsin.",
+      "quote": "Rockwell Automation (Q1529234) — official website: rockwellautomation.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }

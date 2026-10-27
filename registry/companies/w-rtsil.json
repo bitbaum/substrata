@@ -7,8 +7,8 @@
   "jurisdictions": [],
   "ids": {
     "qid": "Q327429",
-    "domain": "wartsila.com",
-    "isin": "FI0009003727"
+    "isin": "FI0009003727",
+    "domain": "wartsila.com"
   },
   "areas": [
     {
@@ -34,6 +34,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/W%C3%A4rtsil%C3%A4",
+      "quote": "Wärtsilä Oyj Abp, trading internationally as Wärtsilä Corporation, is a Finnish company which manufactures and services power sources and other equipment in the marine and energy markets.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q327429",
@@ -53,15 +61,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q327429",
-      "quote": "Wärtsilä (Q327429) — official website: https://www.wartsila.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:grid-equipment",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/W%C3%A4rtsil%C3%A4",
-      "quote": "Wärtsilä Oyj Abp, trading internationally as Wärtsilä Corporation, is a Finnish company which manufactures and services power sources and other equipment in the marine and energy markets.",
+      "quote": "Wärtsilä (Q327429) — official website: wartsila.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -71,6 +71,6 @@
     "on": "2026-10-27"
   },
   "summary": "Wärtsilä Oyj Abp, trading internationally as Wärtsilä Corporation, is a Finnish company which manufactures and services power sources and other equipment in the marine and energy markets.",
-  "country": "FI",
-  "hq": "Helsinki"
+  "hq": "Helsinki",
+  "country": "FI"
 }

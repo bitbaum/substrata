@@ -33,6 +33,14 @@
       "asOf": "2026-10-27"
     },
     {
+      "field": "area:frontier-labs",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/01.AI",
+      "quote": "AI is an artificial intelligence (AI) company based in Beijing, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
       "field": "hq",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q130692307",
@@ -52,15 +60,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q130692307",
-      "quote": "01.AI (Q130692307) — official website: https://www.01.ai/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:frontier-labs",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/01.AI",
-      "quote": "AI is an artificial intelligence (AI) company based in Beijing, China.",
+      "quote": "01.AI (Q130692307) — official website: 01.ai",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -70,6 +70,6 @@
     "on": "2026-10-27"
   },
   "summary": "AI is an artificial intelligence (AI) company based in Beijing, China.",
-  "country": "CN",
-  "hq": "Beijing"
+  "hq": "Beijing",
+  "country": "CN"
 }

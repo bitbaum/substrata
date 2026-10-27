@@ -7,12 +7,12 @@
   "country": "US",
   "ids": {
     "qid": "Q642189",
-    "domain": "medtronic.com",
     "cik": "1613103",
     "isin": "IE00BTN1Y115",
     "ticker": "MDT",
     "exchange": "US",
-    "cusip": "G5960L103"
+    "cusip": "G5960L103",
+    "domain": "medtronic.com"
   },
   "areas": [
     {
@@ -95,10 +95,10 @@
       "asOf": "2026-10-27"
     },
     {
-      "field": "hq",
-      "grade": "registry",
-      "source": "https://www.wikidata.org/wiki/Q642189",
-      "quote": "Medtronic plc (Q642189) — headquarters location: Fridley",
+      "field": "area:neurotech-bci",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Medtronic",
+      "quote": "Medtronic plc is an international medical device company. The company's legal and executive headquarters are in Ireland, while its operational headquarters are in Minneapolis, Minnesota.",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     },
@@ -106,15 +106,7 @@
       "field": "ids.domain",
       "grade": "registry",
       "source": "https://www.wikidata.org/wiki/Q642189",
-      "quote": "Medtronic plc (Q642189) — official website: https://www.medtronic.com/",
-      "readOn": "2026-10-27",
-      "asOf": "2026-10-27"
-    },
-    {
-      "field": "area:neurotech-bci",
-      "grade": "reported",
-      "source": "https://en.wikipedia.org/wiki/Medtronic",
-      "quote": "Medtronic plc is an international medical device company. The company's legal and executive headquarters are in Ireland, while its operational headquarters are in Minneapolis, Minnesota.",
+      "quote": "Medtronic plc (Q642189) — official website: medtronic.com",
       "readOn": "2026-10-27",
       "asOf": "2026-10-27"
     }
@@ -123,6 +115,5 @@
     "by": "migration",
     "on": "2026-10-27"
   },
-  "summary": "Medtronic plc is an international medical device company. The company's legal and executive headquarters are in Ireland, while its operational headquarters are in Minneapolis, Minnesota.",
-  "hq": "Fridley"
+  "summary": "Medtronic plc is an international medical device company. The company's legal and executive headquarters are in Ireland, while its operational headquarters are in Minneapolis, Minnesota."
 }
