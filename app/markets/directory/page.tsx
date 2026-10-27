@@ -178,7 +178,11 @@ export default async function CompanyDirectory({
         )}
         {result.matched > limit && (
           <p className="list-more">
-            <Link href={`/markets/directory?${more}`} scroll={false}>
+            <Link
+              href={`/markets/directory?${more}`}
+              scroll={false}
+              className="tap inline-flex items-center"
+            >
               Show more ({result.matched - limit} left)
             </Link>
           </p>
