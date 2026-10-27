@@ -1,0 +1,10 @@
+{
+  "slug": "industrial-robots",
+  "name": "Industrial and service robots",
+  "parent": "robotics",
+  "theme": "robotics",
+  "definition": "Robot arms, mobile manipulators, warehouse and cleaning robots sold today.",
+  "why": "The installed base and supplier networks that humanoid makers will draw on or compete with.",
+  "bottlenecks": [],
+  "keyNumbers": []
+}

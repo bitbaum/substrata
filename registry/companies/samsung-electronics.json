@@ -1,0 +1,84 @@
+{
+  "slug": "samsung-electronics",
+  "name": "Samsung Electronics Co., Ltd.",
+  "aliases": ["Samsung Electronics Co Ltd"],
+  "kind": "public",
+  "status": "active",
+  "country": "KR",
+  "ids": {
+    "ticker": "005930",
+    "exchange": "KS",
+    "sedol": "6771720",
+    "cusip": "Y74718100"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    },
+    {
+      "area": "robotics"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "2.44,005930 KS,SAMSUNG ELECTRONICS CO LTD,6771720,160.9794807866408,\"1,537,576.00\",\"247,518,186.15\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Artificial Intelligence & Technology ETF (AIQ, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Samsung Electronics Co., Ltd. 005930.KS Y74718100 Information Technology 29,157 $4,693,678.76 0.63%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Artificial Intelligence and Robotics ETF (ROBT, First Trust): Robotics & autonomy."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "2.44,005930 KS,SAMSUNG ELECTRONICS CO LTD,6771720,160.9794807866408,\"1,537,576.00\",\"247,518,186.15\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$248 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 247518186
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "2.44,005930 KS,SAMSUNG ELECTRONICS CO LTD,6771720,160.9794807866408,\"1,537,576.00\",\"247,518,186.15\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 005930"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "2.44,005930 KS,SAMSUNG ELECTRONICS CO LTD,6771720,160.9794807866408,\"1,537,576.00\",\"247,518,186.15\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

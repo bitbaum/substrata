@@ -1,0 +1,93 @@
+{
+  "slug": "butterfly-network",
+  "name": "Butterfly Network, Inc.",
+  "aliases": ["Butterfly Network Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "BFLY",
+    "exchange": "US",
+    "cusip": "124155102",
+    "isin": "US1241551027",
+    "cik": "1804176"
+  },
+  "areas": [
+    {
+      "area": "biotech-and-longevity"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:biotech-and-longevity",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKG,BUTTERFLY NETWORK INC,BFLY,124155102,\"4,989,516\",\"$33,230,176.56\",1.61%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "biotools",
+      "basis": "fund",
+      "detail": "Held by ARK Genomic Revolution ETF (ARKG, ARK Invest): Biotech tools."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKG,BUTTERFLY NETWORK INC,BFLY,124155102,\"4,989,516\",\"$33,230,176.56\",1.61%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$33 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 33230177
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001804176-26-000009\",\"cik\":1804176,\"entityName\":\"Butterfly Network, Inc.\",\"loc\":\"US-MA\",\"end\":\"2025-06-30\",\"val\":383800000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$384 million public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 383800000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKG,BUTTERFLY NETWORK INC,BFLY,124155102,\"4,989,516\",\"$33,230,176.56\",1.61%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker BFLY"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001804176-26-000009\",\"cik\":1804176,\"entityName\":\"Butterfly Network, Inc.\",\"loc\":\"US-MA\",\"end\":\"2025-06-30\",\"val\":383800000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1804176"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKG,BUTTERFLY NETWORK INC,BFLY,124155102,\"4,989,516\",\"$33,230,176.56\",1.61%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

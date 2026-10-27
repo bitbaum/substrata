@@ -1,0 +1,68 @@
+{
+  "slug": "sma-solar-technology",
+  "name": "SMA Solar Technology AG",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "DE",
+  "ids": {
+    "ticker": "S92",
+    "exchange": "GR",
+    "cusip": "D7008K108"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "SMA Solar Technology AG S92.GR D7008K108 Renewable Energy Equipment 286,632 $15,552,166.01 0.14%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "SMA Solar Technology AG S92.GR D7008K108 Renewable Energy Equipment 286,632 $15,552,166.01 0.14%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$16 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 15552166
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "SMA Solar Technology AG S92.GR D7008K108 Renewable Energy Equipment 286,632 $15,552,166.01 0.14%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker S92"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "SMA Solar Technology AG S92.GR D7008K108 Renewable Energy Equipment 286,632 $15,552,166.01 0.14%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

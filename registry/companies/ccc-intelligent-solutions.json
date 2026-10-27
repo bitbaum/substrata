@@ -1,0 +1,92 @@
+{
+  "slug": "ccc-intelligent-solutions",
+  "name": "CCC Intelligent Solutions Holdings Inc.",
+  "aliases": ["CCC Intelligent Solutions Ho"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "CCC",
+    "exchange": "US",
+    "sedol": "BP4CXL8",
+    "cik": "1818201"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.37,CCC,CCC INTELLIGENT SOLUTIONS HO,BP4CXL8,7.7,\"4,897,345.00\",\"37,709,556.50\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Artificial Intelligence & Technology ETF (AIQ, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.37,CCC,CCC INTELLIGENT SOLUTIONS HO,BP4CXL8,7.7,\"4,897,345.00\",\"37,709,556.50\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$38 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 37709557
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-067448\",\"cik\":1818201,\"entityName\":\"CCC Intelligent Solutions Holdings Inc.\",\"loc\":\"US-IL\",\"end\":\"2025-06-30\",\"val\":5261000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$5.3 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 5261000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.37,CCC,CCC INTELLIGENT SOLUTIONS HO,BP4CXL8,7.7,\"4,897,345.00\",\"37,709,556.50\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker CCC"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-067448\",\"cik\":1818201,\"entityName\":\"CCC Intelligent Solutions Holdings Inc.\",\"loc\":\"US-IL\",\"end\":\"2025-06-30\",\"val\":5261000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1818201"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.37,CCC,CCC INTELLIGENT SOLUTIONS HO,BP4CXL8,7.7,\"4,897,345.00\",\"37,709,556.50\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

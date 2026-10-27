@@ -1,0 +1,98 @@
+{
+  "slug": "anthropic",
+  "name": "Anthropic",
+  "aliases": [],
+  "kind": "lab",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "qid": "Q116758847",
+    "domain": "anthropic.com",
+    "lei": "984500B6DEB8CEBC4Z70"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "stated",
+      "source": "https://www.anthropic.com/claude",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Frontier model developer."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.anthropic.com/claude",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Frontier model developer."
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.anthropic.com/claude",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Anthropic",
+      "quote": "Anthropic, PBC is an American artificial intelligence (AI) public benefit corporation headquartered in San Francisco, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q116758847",
+      "quote": "Anthropic (Q116758847) — Wikidata item: Q116758847",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q116758847",
+      "quote": "Anthropic (Q116758847) — headquarters location: San Francisco",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q116758847",
+      "quote": "Anthropic (Q116758847) — official website: https://www.anthropic.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q116758847",
+      "quote": "Anthropic (Q116758847) — Legal Entity Identifier: 984500B6DEB8CEBC4Z70",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Anthropic, PBC is an American artificial intelligence (AI) public benefit corporation headquartered in San Francisco, California.",
+  "hq": "San Francisco"
+}

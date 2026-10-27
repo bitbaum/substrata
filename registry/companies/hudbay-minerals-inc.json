@@ -1,0 +1,68 @@
+{
+  "slug": "hudbay-minerals-inc",
+  "name": "Hudbay Minerals Inc",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "CA",
+  "ids": {
+    "ticker": "HBM",
+    "exchange": "CN",
+    "sedol": "B05BDX1"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "5.51,HBM CN,HUDBAY MINERALS INC,B05BDX1,22.15489895562289,\"15,695,480.00\",\"347,731,773.46\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "fund",
+      "detail": "Held by Global X Copper Miners ETF (COPX, Global X): Advanced materials & critical minerals."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "5.51,HBM CN,HUDBAY MINERALS INC,B05BDX1,22.15489895562289,\"15,695,480.00\",\"347,731,773.46\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$348 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 347731773
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "5.51,HBM CN,HUDBAY MINERALS INC,B05BDX1,22.15489895562289,\"15,695,480.00\",\"347,731,773.46\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker HBM"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "5.51,HBM CN,HUDBAY MINERALS INC,B05BDX1,22.15489895562289,\"15,695,480.00\",\"347,731,773.46\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

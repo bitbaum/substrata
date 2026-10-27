@@ -1,0 +1,79 @@
+{
+  "slug": "aurubis",
+  "name": "Aurubis",
+  "aliases": ["Aurubis AG"],
+  "kind": "public",
+  "status": "active",
+  "country": "DE",
+  "ids": {
+    "ticker": "NDA",
+    "exchange": "GR",
+    "sedol": "5485527"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://www.internationaltin.org/aurubis-to-recover-tin-from-new-copper-waste-processing-plant-in-belgium/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: makes High-purity tin, EUV droplet grade."
+    },
+    {
+      "field": "area:advanced-materials",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "2.35,NDA GR,AURUBIS AG,5485527,150.9037457705306,\"984,166.00\",\"148,514,335.86\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "fund",
+      "detail": "Held by Global X Copper Miners ETF (COPX, Global X): Advanced materials & critical minerals."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.internationaltin.org/aurubis-to-recover-tin-from-new-copper-waste-processing-plant-in-belgium/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: makes High-purity tin, EUV droplet grade."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000BGKM37",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker NDA"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "2.35,NDA GR,AURUBIS AG,5485527,150.9037457705306,\"984,166.00\",\"148,514,335.86\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

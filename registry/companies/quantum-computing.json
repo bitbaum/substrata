@@ -1,0 +1,109 @@
+{
+  "slug": "quantum-computing",
+  "name": "Quantum Computing Inc.",
+  "aliases": ["Quantum Computing Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "QUBT",
+    "exchange": "US",
+    "sedol": "BFYDQ34",
+    "cik": "1758009",
+    "cusip": "74766W108",
+    "isin": "US74766W1080"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    },
+    {
+      "area": "quantum"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.23,QUBT,QUANTUM COMPUTING INC,BFYDQ34,6.41,\"3,576,349.00\",\"22,924,397.09\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Artificial Intelligence & Technology ETF (AIQ, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "area:quantum",
+      "grade": "registry",
+      "source": "https://www.defianceetfs.com/qtum-full-holdings/",
+      "quote": "QUBT Quantum Computing Inc 74766W108 0.85% 6,956,347",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "quantum",
+      "basis": "fund",
+      "detail": "Held by Defiance Quantum ETF (QTUM, Defiance ETFs): Quantum."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.23,QUBT,QUANTUM COMPUTING INC,BFYDQ34,6.41,\"3,576,349.00\",\"22,924,397.09\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$23 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 22924397
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001213900-26-022417\",\"cik\":1758009,\"entityName\":\"QUANTUM COMPUTING INC.\",\"loc\":\"US-NJ\",\"end\":\"2025-06-30\",\"val\":2545765591}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$2.5 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 2545765591
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.23,QUBT,QUANTUM COMPUTING INC,BFYDQ34,6.41,\"3,576,349.00\",\"22,924,397.09\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker QUBT"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001213900-26-022417\",\"cik\":1758009,\"entityName\":\"QUANTUM COMPUTING INC.\",\"loc\":\"US-NJ\",\"end\":\"2025-06-30\",\"val\":2545765591}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1758009"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.23,QUBT,QUANTUM COMPUTING INC,BFYDQ34,6.41,\"3,576,349.00\",\"22,924,397.09\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

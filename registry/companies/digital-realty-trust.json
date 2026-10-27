@@ -1,0 +1,116 @@
+{
+  "slug": "digital-realty-trust",
+  "name": "Digital Realty Trust, Inc.",
+  "aliases": ["Digital Realty Trust Inc", "Digital Realty Trust, Inc."],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "DLR",
+    "exchange": "US",
+    "sedol": "B03GQS4",
+    "cik": "1297996"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/clou_full-holdings_20261026.csv",
+      "quote": "2.33,DLR,DIGITAL REALTY TRUST INC,B03GQS4,174.53,\"57,834.00\",\"10,093,768.02\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Cloud Computing ETF (CLOU, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "13.10,DLR,DIGITAL REALTY TRUST INC,B03GQS4,174.53,\"1,429,751.00\",\"249,534,442.03\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Data Center & Digital Infrastructure ETF (DTCR, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/clou_full-holdings_20261026.csv",
+      "quote": "2.33,DLR,DIGITAL REALTY TRUST INC,B03GQS4,174.53,\"57,834.00\",\"10,093,768.02\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$10 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 10093768
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "13.10,DLR,DIGITAL REALTY TRUST INC,B03GQS4,174.53,\"1,429,751.00\",\"249,534,442.03\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$250 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 249534442
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001104659-26-015365\",\"cik\":1297996,\"entityName\":\"DIGITAL REALTY TRUST, INC.\",\"loc\":\"US-TX\",\"end\":\"2025-06-30\",\"val\":59000000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$59 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 59000000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/clou_full-holdings_20261026.csv",
+      "quote": "2.33,DLR,DIGITAL REALTY TRUST INC,B03GQS4,174.53,\"57,834.00\",\"10,093,768.02\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker DLR"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001104659-26-015365\",\"cik\":1297996,\"entityName\":\"DIGITAL REALTY TRUST, INC.\",\"loc\":\"US-TX\",\"end\":\"2025-06-30\",\"val\":59000000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1297996"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/clou_full-holdings_20261026.csv",
+      "quote": "2.33,DLR,DIGITAL REALTY TRUST INC,B03GQS4,174.53,\"57,834.00\",\"10,093,768.02\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

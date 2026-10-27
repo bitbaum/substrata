@@ -1,0 +1,81 @@
+{
+  "slug": "freenome",
+  "name": "Freenome, Inc.",
+  "aliases": ["Freenome Inc", "Perceptive Capital Solutions Corp"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "FRNM",
+    "exchange": "US",
+    "cusip": "35661P100",
+    "isin": "US35661P1003",
+    "cik": "2017526"
+  },
+  "areas": [
+    {
+      "area": "biotech-and-longevity"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:biotech-and-longevity",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKG,FREENOME INC,FRNM,35661P100,\"1,740,097\",\"$22,134,033.84\",1.08%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "biotools",
+      "basis": "fund",
+      "detail": "Held by ARK Genomic Revolution ETF (ARKG, ARK Invest): Biotech tools."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKG,FREENOME INC,FRNM,35661P100,\"1,740,097\",\"$22,134,033.84\",1.08%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$22 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 22134034
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKG,FREENOME INC,FRNM,35661P100,\"1,740,097\",\"$22,134,033.84\",1.08%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker FRNM"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001140361-26-009262\",\"cik\":2017526,\"entityName\":\"Perceptive Capital Solutions Corp\",\"loc\":\"US-NY\",\"end\":\"2025-06-30\",\"val\":91597500}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 2017526"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKG,FREENOME INC,FRNM,35661P100,\"1,740,097\",\"$22,134,033.84\",1.08%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

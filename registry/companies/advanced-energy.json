@@ -1,0 +1,132 @@
+{
+  "slug": "advanced-energy",
+  "name": "Advanced Energy",
+  "aliases": ["Advanced Energy Industries, Inc.", "Advanced Energy Industries Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "lei": "549300756XI3QLFT2U27",
+    "isin": "US0079731008",
+    "cik": "927003",
+    "qid": "Q4686194",
+    "ticker": "AEIS",
+    "exchange": "US",
+    "cusip": "007973100"
+  },
+  "areas": [
+    {
+      "area": "compute-semiconductors"
+    },
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=FTXL",
+      "quote": "Advanced Energy Industries, Inc. AEIS 007973100 Semiconductors 23,987 $5,304,245.31 0.47%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Semiconductor ETF (FTXL, First Trust): Compute & semiconductors."
+    },
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Advanced Energy Industries, Inc. AEIS 007973100 Semiconductors 20,037 $4,430,781.81 0.04%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001104659-26-014731\",\"cik\":927003,\"entityName\":\"ADVANCED ENERGY INDUSTRIES INC\",\"loc\":\"US-CO\",\"end\":\"2025-06-30\",\"val\":4950205433}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$5.0 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 4950205433
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=FTXL",
+      "quote": "Advanced Energy Industries, Inc. AEIS 007973100 Semiconductors 23,987 $5,304,245.31 0.47%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$5.3 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 5304245
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=FTXL",
+      "quote": "Advanced Energy Industries, Inc. AEIS 007973100 Semiconductors 23,987 $5,304,245.31 0.47%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker AEIS"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001104659-26-014731\",\"cik\":927003,\"entityName\":\"ADVANCED ENERGY INDUSTRIES INC\",\"loc\":\"US-CO\",\"end\":\"2025-06-30\",\"val\":4950205433}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 927003"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US0079731008",
+      "quote": "\"lei\":\"549300756XI3QLFT2U27\",\"entity\":{\"legalName\":{\"name\":\"Advanced Energy Industries, Inc.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 549300756XI3QLFT2U27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3Fisin%20%3Flabel%20WHERE%20%7B%20VALUES%20%3Fisin%20%7B%20%22US59516C1062%22%20%22US68236H2040%22%20%22US92839U2069%22%20%22US45569U1016%22%20%22US29355A1079%22%20%22US83417M1045%22%20%22US28617B6065%22%20%22US6078281002%22%20%22US0585861083%22%20%22US50125G3074%22%20%22US81758H1068%22%20%22US65481N1000%22%20%22US7311054099%22%20%22US03782L1017%22%20%22US12468P1049%22%20%22US2681501092%22%20%22US81730H1095%22%20%22US6536561086%22%20%22US30303M1027%22%20%22US18915M1071%22%20%22US4592001014%22%20%22US81762P1021%22%20%22US6974351057%22%20%22US17275R1023%22%20%22US7055731035%22%20%22US79466L3024%22%20%22US1273871087%22%20%22US01609W1027%22%20%22US90364P1057%22%20%22US08975B1098%22%20%22US5738741041%22%20%22US7437131094%22%20%22US5949181045%22%20%22US7739031091%22%20%22US5951121038%22%20%22US02079K3059%22%20%22US1924221039%22%20%22US88554D2053%22%20%22US4824801009%22%20%22US5128073062%22%20%22US69370C1009%22%20%22US23804L1035%22%20%22US0378331005%22%20%22US1924461023%22%20%22US2910111044%22%20%22US68213N1090%22%20%22US09239B1098%22%20%22US36262G1013%22%20%22US4581401001%22%20%22US4781601046%22%20%22US8334451098%22%20%22US0527691069%22%20%22US8636671013%22%20%22US00971T1016%22%20%22US0404132054%22%20%22US47215P1066%22%20%22US00724F1012%22%20%22US60937P1066%22%20%22US8825081040%22%20%22US0326541051%22%20%22US0382221051%22%20%22US5950171042%22%20%22US0316521006%22%20%22US29362U1043%22%20%22US6098391054%22%20%22US1727551004%22%20%22US7509171069%22%20%22US9282981086%22%20%22US2545431015%22%20%22US55405Y1001%22%20%22US6833441057%22%20%22US8168501018%22%20%22US0538071038%22%20%22US3463751087%22%20%22US04626A1034%22%20%22US00246W1036%22%20%22US0079731008%22%20%22US00676P1075%22%20%22US5184151042%22%20%22US19247G1076%22%20%7D%20%3Fitem%20wdt%3AP946%20%3Fisin%20.%20OPTIONAL%20%7B%20%3Fitem%20rdfs%3Alabel%20%3Flabel%20FILTER(LANG(%3Flabel)%20%3D%20%22en%22)%20%7D%20%7D",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q4686194\" }, \"label\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"Advanced Energy\" }, \"isin\" : { \"type\" : \"literal\", \"value\" : \"US0079731008\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "qid",
+      "detail": "Wikidata QID Q4686194"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US0079731008",
+      "quote": "\"lei\":\"549300756XI3QLFT2U27\",\"entity\":{\"legalName\":{\"name\":\"Advanced Energy Industries, Inc.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "slug": "daewoo-engineering-constr",
+  "name": "Daewoo Engineering & Constr",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "KR",
+  "ids": {
+    "ticker": "047040",
+    "exchange": "KS",
+    "sedol": "6344122"
+  },
+  "areas": [
+    {
+      "area": "nuclear-energy"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:nuclear-energy",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "2.37,047040 KS,DAEWOO ENGINEERING & CONSTR,6344122,10.74708083001769,\"10,542,185.00\",\"113,297,714.32\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "nuclear",
+      "basis": "fund",
+      "detail": "Held by Global X Uranium ETF (URA, Global X): Nuclear, SMRs & the fuel cycle."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "2.37,047040 KS,DAEWOO ENGINEERING & CONSTR,6344122,10.74708083001769,\"10,542,185.00\",\"113,297,714.32\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$113 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 113297714
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "2.37,047040 KS,DAEWOO ENGINEERING & CONSTR,6344122,10.74708083001769,\"10,542,185.00\",\"113,297,714.32\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 047040"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "2.37,047040 KS,DAEWOO ENGINEERING & CONSTR,6344122,10.74708083001769,\"10,542,185.00\",\"113,297,714.32\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

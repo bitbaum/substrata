@@ -1,0 +1,153 @@
+{
+  "slug": "coherent",
+  "name": "Coherent",
+  "aliases": ["Coherent Corp.", "Coherent Corp"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "COHR",
+    "exchange": "NYSE",
+    "cik": "820318",
+    "lei": "549300O5C25A0MMHHU33",
+    "isin": "US19247G1076",
+    "sedol": "BNG8Z81",
+    "cusip": "19247G107"
+  },
+  "areas": [
+    {
+      "area": "compute-semiconductors"
+    },
+    {
+      "area": "mobility"
+    },
+    {
+      "area": "advanced-materials"
+    },
+    {
+      "area": "quantum"
+    },
+    {
+      "area": "photonics"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://www.coherent.com/materials/wide-bandgap-electronics/sic-substrates-epitaxy",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: SiC substrates, diamond, photonics."
+    },
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "1.32,COHR,COHERENT CORP,BNG8Z81,221.5,\"18,844.00\",\"4,173,946.00\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "fund",
+      "detail": "Held by Global X Autonomous & Electric Vehicles ETF (DRIV, Global X): Electric mobility."
+    },
+    {
+      "field": "area:quantum",
+      "grade": "registry",
+      "source": "https://www.defianceetfs.com/qtum-full-holdings/",
+      "quote": "COHR Coherent Corp 19247G107 0.79% 186,865",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "quantum",
+      "basis": "fund",
+      "detail": "Held by Defiance Quantum ETF (QTUM, Defiance ETFs): Quantum."
+    },
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=FTXL",
+      "quote": "Coherent Corp. COHR 19247G107 Production Technology Equipment 20,851 $4,618,496.50 0.41%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Semiconductor ETF (FTXL, First Trust): Compute & semiconductors."
+    },
+    {
+      "field": "area:photonics",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3827&type=10-K&dateb=&owner=include&start=0&count=100",
+      "quote": "0000820318 COHERENT CORP. PA",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "photonics",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3827 (Optical instruments & lenses): Photonics."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.coherent.com/materials/wide-bandgap-electronics/sic-substrates-epitaxy",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: SiC substrates, diamond, photonics."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=820318",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker COHR"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=820318",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 820318"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US19247G1076",
+      "quote": "\"lei\":\"549300O5C25A0MMHHU33\",\"entity\":{\"legalName\":{\"name\":\"Coherent Corp.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 549300O5C25A0MMHHU33"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US19247G1076",
+      "quote": "\"lei\":\"549300O5C25A0MMHHU33\",\"entity\":{\"legalName\":{\"name\":\"Coherent Corp.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

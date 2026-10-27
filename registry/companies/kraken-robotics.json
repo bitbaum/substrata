@@ -1,0 +1,68 @@
+{
+  "slug": "kraken-robotics",
+  "name": "Kraken Robotics Inc",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "CA",
+  "ids": {
+    "ticker": "PNG",
+    "exchange": "CN",
+    "sedol": "BD6NK36"
+  },
+  "areas": [
+    {
+      "area": "defence-tech"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.13,PNG CN,KRAKEN ROBOTICS INC,BD6NK36,2.901236766854522,\"2,986,157.00\",\"8,663,548.48\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "fund",
+      "detail": "Held by Global X Defense Tech ETF (SHLD, Global X): Defence & aerospace."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.13,PNG CN,KRAKEN ROBOTICS INC,BD6NK36,2.901236766854522,\"2,986,157.00\",\"8,663,548.48\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$8.7 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 8663548
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.13,PNG CN,KRAKEN ROBOTICS INC,BD6NK36,2.901236766854522,\"2,986,157.00\",\"8,663,548.48\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker PNG"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.13,PNG CN,KRAKEN ROBOTICS INC,BD6NK36,2.901236766854522,\"2,986,157.00\",\"8,663,548.48\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

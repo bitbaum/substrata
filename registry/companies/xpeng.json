@@ -1,0 +1,121 @@
+{
+  "slug": "xpeng",
+  "name": "Xpeng Inc.",
+  "aliases": ["Xpeng Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "XPEV",
+    "exchange": "US",
+    "sedol": "BMXR2T4",
+    "cik": "1810997",
+    "cusip": "98422D105",
+    "isin": "US98422D1054"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    },
+    {
+      "area": "mobility"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.17,XPEV,XPENG INC - ADR,BMXR2T4,9.120000000000001,\"570,261.00\",\"5,200,780.32\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by Global X Robotics & Artificial Intelligence ETF (BOTZ, Global X): Robotics & autonomy."
+    },
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "0.90,XPEV,XPENG INC - ADR,BMXR2T4,9.120000000000001,\"312,368.00\",\"2,848,796.16\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "fund",
+      "detail": "Held by Global X Autonomous & Electric Vehicles ETF (DRIV, Global X): Electric mobility."
+    },
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3711&type=10-K&dateb=&owner=include&start=100&count=100",
+      "quote": "0001810997 XPENG INC.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3711 (Motor vehicles & passenger car bodies): Electric mobility."
+    },
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-hail.xlsx",
+      "quote": "XPENG INC   ADR | XPEV | 98422D105 | BMXR2T4 | 1.089102 | - | 19019.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Kensho Smart Mobility ETF (HAIL, State Street): Electric mobility."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.17,XPEV,XPENG INC - ADR,BMXR2T4,9.120000000000001,\"570,261.00\",\"5,200,780.32\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$5.2 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 5200780
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.17,XPEV,XPENG INC - ADR,BMXR2T4,9.120000000000001,\"570,261.00\",\"5,200,780.32\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker XPEV"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3711&type=10-K&dateb=&owner=include&start=100&count=100",
+      "quote": "0001810997 XPENG INC.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1810997"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.17,XPEV,XPENG INC - ADR,BMXR2T4,9.120000000000001,\"570,261.00\",\"5,200,780.32\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

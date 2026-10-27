@@ -1,0 +1,68 @@
+{
+  "slug": "hexagon-ab-class-b",
+  "name": "Hexagon AB (Class B)",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "SE",
+  "ids": {
+    "ticker": "HEXAB",
+    "exchange": "SS",
+    "cusip": "W4R431112"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Hexagon AB (Class B) HEXAB.SS W4R431112 Information Technology 1,143,451 $12,572,401.36 1.68%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Artificial Intelligence and Robotics ETF (ROBT, First Trust): Robotics & autonomy."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Hexagon AB (Class B) HEXAB.SS W4R431112 Information Technology 1,143,451 $12,572,401.36 1.68%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$13 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 12572401
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Hexagon AB (Class B) HEXAB.SS W4R431112 Information Technology 1,143,451 $12,572,401.36 1.68%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker HEXAB"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Hexagon AB (Class B) HEXAB.SS W4R431112 Information Technology 1,143,451 $12,572,401.36 1.68%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

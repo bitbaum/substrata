@@ -1,0 +1,10 @@
+{
+  "slug": "reducers-gearboxes",
+  "name": "Reducers and gearboxes",
+  "parent": "robotics",
+  "theme": "robotics",
+  "definition": "Harmonic, cycloidal and planetary reducers and roller screws.",
+  "why": "Precision reduction drives are concentrated in a few makers and are a named bottleneck.",
+  "bottlenecks": ["precision-reduction-drives"],
+  "keyNumbers": []
+}

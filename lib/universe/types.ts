@@ -103,6 +103,10 @@ export interface Decision {
 }
 
 export interface UniverseEntry extends Decision {
+  /** On the list because a person or agent registered it (registry/companies). */
+  registered?: boolean;
+  /** Passes the old three tests but nobody has registered it: a proposal, not on the list. */
+  proposed?: boolean;
   country?: string;
   ids: Identifiers;
   aliases: string[];

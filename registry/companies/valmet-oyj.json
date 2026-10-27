@@ -1,0 +1,68 @@
+{
+  "slug": "valmet-oyj",
+  "name": "Valmet Oyj",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "FI",
+  "ids": {
+    "ticker": "VALMT",
+    "exchange": "FH",
+    "cusip": "X96478114"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Valmet Oyj VALMT.FH X96478114 Industrials 166,271 $5,036,771.34 0.67%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Artificial Intelligence and Robotics ETF (ROBT, First Trust): Robotics & autonomy."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Valmet Oyj VALMT.FH X96478114 Industrials 166,271 $5,036,771.34 0.67%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$5.0 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 5036771
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Valmet Oyj VALMT.FH X96478114 Industrials 166,271 $5,036,771.34 0.67%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker VALMT"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Valmet Oyj VALMT.FH X96478114 Industrials 166,271 $5,036,771.34 0.67%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "slug": "eda-ip",
+  "name": "EDA and chip IP",
+  "parent": "compute-semiconductors",
+  "theme": "compute",
+  "definition": "Electronic design automation software and licensable processor and interface IP.",
+  "why": "Chip design cannot start without a small set of tools and cores, which makes them an export-control lever.",
+  "bottlenecks": [],
+  "keyNumbers": []
+}

@@ -1,0 +1,94 @@
+{
+  "slug": "sibanye-stillwater",
+  "name": "Sibanye-Stillwater",
+  "aliases": ["Sibanye Stillwater Ltd"],
+  "kind": "public",
+  "status": "active",
+  "country": "ZA",
+  "ids": {
+    "ticker": "SSW",
+    "exchange": "SJ",
+    "cik": "1786909",
+    "sedol": "BL0L913"
+  },
+  "areas": [
+    {
+      "area": "nuclear-energy"
+    },
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://www.sec.gov/Archives/edgar/data/1786909/000178690925000028/senstradingupdateh12025.htm",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: PGM mining incl. ruthenium."
+    },
+    {
+      "field": "area:nuclear-energy",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "2.64,SSW SJ,SIBANYE STILLWATER LTD,BL0L913,2.31918888473419,\"54,508,566.00\",\"126,415,660.39\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "nuclear",
+      "basis": "fund",
+      "detail": "Held by Global X Uranium ETF (URA, Global X): Nuclear, SMRs & the fuel cycle."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.sec.gov/Archives/edgar/data/1786909/000178690925000028/senstradingupdateh12025.htm",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: PGM mining incl. ruthenium."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG00R3JTQ15",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker SSW"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG00R3JTQ15",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1786909"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "2.64,SSW SJ,SIBANYE STILLWATER LTD,BL0L913,2.31918888473419,\"54,508,566.00\",\"126,415,660.39\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

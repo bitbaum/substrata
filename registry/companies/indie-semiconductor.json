@@ -1,0 +1,133 @@
+{
+  "slug": "indie-semiconductor",
+  "name": "indie Semiconductor, Inc.",
+  "aliases": ["Indie Semiconductor, Inc.", "Indie Semiconductor Inc-A", "Indie Semiconductor Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "lei": "254900L1MFXFYGB1PV53",
+    "isin": "US45569U1016",
+    "ticker": "INDI",
+    "exchange": "US",
+    "sedol": "BP4W0C8",
+    "cik": "1841925",
+    "cusip": "45569U101"
+  },
+  "areas": [
+    {
+      "area": "compute-semiconductors"
+    },
+    {
+      "area": "mobility"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "0.51,INDI,INDIE SEMICONDUCTOR INC-A,BP4W0C8,1.59,\"1,005,840.00\",\"1,599,285.60\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "fund",
+      "detail": "Held by Global X Autonomous & Electric Vehicles ETF (DRIV, Global X): Electric mobility."
+    },
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3674&type=10-K&dateb=&owner=include&start=100&count=100",
+      "quote": "0001841925 indie Semiconductor, Inc. CA",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3674 (Semiconductors & related devices): Compute & semiconductors."
+    },
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-hail.xlsx",
+      "quote": "INDIE SEMICONDUCTOR INC A | INDI | 45569U101 | BP4W0C8 | 0.716047 | - | 71723.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Kensho Smart Mobility ETF (HAIL, State Street): Electric mobility."
+    },
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-xsd.xlsx",
+      "quote": "INDIE SEMICONDUCTOR INC A | INDI | 45569U101 | BP4W0C8 | 0.387248 | - | 6060599.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Semiconductor ETF (XSD, State Street): Compute & semiconductors."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-082535\",\"cik\":1841925,\"entityName\":\"INDIE SEMICONDUCTOR, INC.\",\"loc\":\"US-CA\",\"end\":\"2025-06-30\",\"val\":693500000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$694 million public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 693500000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "0.51,INDI,INDIE SEMICONDUCTOR INC-A,BP4W0C8,1.59,\"1,005,840.00\",\"1,599,285.60\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker INDI"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-082535\",\"cik\":1841925,\"entityName\":\"INDIE SEMICONDUCTOR, INC.\",\"loc\":\"US-CA\",\"end\":\"2025-06-30\",\"val\":693500000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1841925"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US45569U1016",
+      "quote": "\"lei\":\"254900L1MFXFYGB1PV53\",\"entity\":{\"legalName\":{\"name\":\"INDIE SEMICONDUCTOR, INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 254900L1MFXFYGB1PV53"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US45569U1016",
+      "quote": "\"lei\":\"254900L1MFXFYGB1PV53\",\"entity\":{\"legalName\":{\"name\":\"INDIE SEMICONDUCTOR, INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

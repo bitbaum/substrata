@@ -1,0 +1,92 @@
+{
+  "slug": "applied-digital",
+  "name": "Applied Digital Corp.",
+  "aliases": ["Applied Digital Corp", "Applied Digital Corporation"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "APLD",
+    "exchange": "US",
+    "sedol": "BMCNFN8",
+    "cik": "1144879"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "3.04,APLD,APPLIED DIGITAL CORP,BMCNFN8,17.83,\"3,251,916.00\",\"57,981,662.28\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Data Center & Digital Infrastructure ETF (DTCR, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "3.04,APLD,APPLIED DIGITAL CORP,BMCNFN8,17.83,\"3,251,916.00\",\"57,981,662.28\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$58 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 57981662
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q4I.json",
+      "quote": "{\"accn\":\"0001144879-26-000048\",\"cik\":1144879,\"entityName\":\"APPLIED DIGITAL CORPORATION\",\"loc\":\"US-TX\",\"end\":\"2025-11-30\",\"val\":6900000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-11-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$6.9 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 6900000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "3.04,APLD,APPLIED DIGITAL CORP,BMCNFN8,17.83,\"3,251,916.00\",\"57,981,662.28\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker APLD"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q4I.json",
+      "quote": "{\"accn\":\"0001144879-26-000048\",\"cik\":1144879,\"entityName\":\"APPLIED DIGITAL CORPORATION\",\"loc\":\"US-TX\",\"end\":\"2025-11-30\",\"val\":6900000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-11-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1144879"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "3.04,APLD,APPLIED DIGITAL CORP,BMCNFN8,17.83,\"3,251,916.00\",\"57,981,662.28\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

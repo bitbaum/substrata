@@ -1,0 +1,68 @@
+{
+  "slug": "hiwin-technologies",
+  "name": "Hiwin Technologies Corp",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "TW",
+  "ids": {
+    "ticker": "2049",
+    "exchange": "TT",
+    "sedol": "B1YMYT5"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.88,2049 TT,HIWIN TECHNOLOGIES CORP,B1YMYT5,9.167842032355914,\"2,967,000.00\",\"27,200,987.31\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by Global X Robotics & Artificial Intelligence ETF (BOTZ, Global X): Robotics & autonomy."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.88,2049 TT,HIWIN TECHNOLOGIES CORP,B1YMYT5,9.167842032355914,\"2,967,000.00\",\"27,200,987.31\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$27 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 27200987
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.88,2049 TT,HIWIN TECHNOLOGIES CORP,B1YMYT5,9.167842032355914,\"2,967,000.00\",\"27,200,987.31\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 2049"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.88,2049 TT,HIWIN TECHNOLOGIES CORP,B1YMYT5,9.167842032355914,\"2,967,000.00\",\"27,200,987.31\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

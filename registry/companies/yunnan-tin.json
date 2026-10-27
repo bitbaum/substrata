@@ -1,0 +1,66 @@
+{
+  "slug": "yunnan-tin",
+  "name": "Yunnan Tin",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "CN",
+  "ids": {
+    "ticker": "000960",
+    "exchange": "CH"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://en.ytc.cn/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Tin mining and smelting."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://en.ytc.cn/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Tin mining and smelting."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000GC3M76",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 000960"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://en.ytc.cn/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

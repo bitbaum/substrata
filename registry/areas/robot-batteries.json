@@ -1,0 +1,10 @@
+{
+  "slug": "robot-batteries",
+  "name": "Robot batteries and power",
+  "parent": "robotics",
+  "theme": "robotics",
+  "definition": "Cells, packs and charging for mobile robots.",
+  "why": "Run-time per charge decides whether a humanoid can do a shift.",
+  "bottlenecks": ["battery-grade-lithium-chemicals"],
+  "keyNumbers": []
+}

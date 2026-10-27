@@ -1,0 +1,92 @@
+{
+  "slug": "ur-energy",
+  "name": "Ur-Energy Inc",
+  "aliases": ["Ur-Energy Inc."],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "URG",
+    "exchange": "US",
+    "sedol": "B0WW4L2",
+    "cik": "1375205"
+  },
+  "areas": [
+    {
+      "area": "nuclear-energy"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:nuclear-energy",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.37,URG,UR-ENERGY INC,B0WW4L2,0.8216999999814322,\"21,542,612.00\",\"17,701,564.28\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "nuclear",
+      "basis": "fund",
+      "detail": "Held by Global X Uranium ETF (URA, Global X): Nuclear, SMRs & the fuel cycle."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.37,URG,UR-ENERGY INC,B0WW4L2,0.8216999999814322,\"21,542,612.00\",\"17,701,564.28\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$18 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 17701564
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001104659-26-025923\",\"cik\":1375205,\"entityName\":\"UR-ENERGY INC.\",\"loc\":\"US-WY\",\"end\":\"2025-06-30\",\"val\":300200000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$300 million public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 300200000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.37,URG,UR-ENERGY INC,B0WW4L2,0.8216999999814322,\"21,542,612.00\",\"17,701,564.28\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker URG"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001104659-26-025923\",\"cik\":1375205,\"entityName\":\"UR-ENERGY INC.\",\"loc\":\"US-WY\",\"end\":\"2025-06-30\",\"val\":300200000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1375205"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.37,URG,UR-ENERGY INC,B0WW4L2,0.8216999999814322,\"21,542,612.00\",\"17,701,564.28\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

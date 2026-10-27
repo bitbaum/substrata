@@ -1,0 +1,68 @@
+{
+  "slug": "babcock-intl-group",
+  "name": "Babcock Intl Group PLC",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "GB",
+  "ids": {
+    "ticker": "BAB",
+    "exchange": "LN",
+    "sedol": "0969703"
+  },
+  "areas": [
+    {
+      "area": "defence-tech"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.93,BAB LN,BABCOCK INTL GROUP PLC,0969703,13.33689268601979,\"4,622,613.00\",\"61,651,293.51\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "fund",
+      "detail": "Held by Global X Defense Tech ETF (SHLD, Global X): Defence & aerospace."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.93,BAB LN,BABCOCK INTL GROUP PLC,0969703,13.33689268601979,\"4,622,613.00\",\"61,651,293.51\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$62 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 61651294
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.93,BAB LN,BABCOCK INTL GROUP PLC,0969703,13.33689268601979,\"4,622,613.00\",\"61,651,293.51\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker BAB"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.93,BAB LN,BABCOCK INTL GROUP PLC,0969703,13.33689268601979,\"4,622,613.00\",\"61,651,293.51\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

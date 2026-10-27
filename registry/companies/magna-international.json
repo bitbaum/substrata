@@ -1,0 +1,97 @@
+{
+  "slug": "magna-international",
+  "name": "Magna International Inc.",
+  "aliases": ["Magna International Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "cik": "749098",
+    "ticker": "MGA",
+    "exchange": "US",
+    "cusip": "559222401",
+    "isin": "US5592224019",
+    "sedol": "2554549"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    },
+    {
+      "area": "mobility"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Magna International Inc. MGA 559222401 Consumer Discretionary 47,948 $3,066,754.08 0.41%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Artificial Intelligence and Robotics ETF (ROBT, First Trust): Robotics & autonomy."
+    },
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-hail.xlsx",
+      "quote": "MAGNA INTERNATIONAL INC | MGA | 559222401 | 2554549 | 1.153397 | - | 2872.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Kensho Smart Mobility ETF (HAIL, State Street): Electric mobility."
+    },
+    {
+      "field": "size:revenue",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000749098.json",
+      "quote": "{\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"val\":42010000000,\"accn\":\"0001193125-26-128771\",\"fy\":2025,\"fp\":\"FY\",\"form\":\"40-F\",\"filed\":\"2026-03-27\",\"frame\":\"CY2025\"}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-12-31",
+      "test": "materiality",
+      "basis": "revenue",
+      "detail": "US$42 billion annual revenue (floor US$250 million).",
+      "usd": 42010000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Magna International Inc. MGA 559222401 Consumer Discretionary 47,948 $3,066,754.08 0.41%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker MGA"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000749098.json",
+      "quote": "{\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"val\":42010000000,\"accn\":\"0001193125-26-128771\",\"fy\":2025,\"fp\":\"FY\",\"form\":\"40-F\",\"filed\":\"2026-03-27\",\"frame\":\"CY2025\"}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-12-31",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 749098"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Magna International Inc. MGA 559222401 Consumer Discretionary 47,948 $3,066,754.08 0.41%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

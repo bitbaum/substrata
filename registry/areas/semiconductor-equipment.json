@@ -1,0 +1,10 @@
+{
+  "slug": "semiconductor-equipment",
+  "name": "Semiconductor equipment",
+  "parent": "compute-semiconductors",
+  "theme": "compute",
+  "definition": "Makers of lithography, deposition, etch, metrology and inspection tools.",
+  "why": "A few suppliers, one of which makes all EUV scanners, set the pace at which any fab can expand.",
+  "bottlenecks": ["euv-lithography-scanners", "euv-projection-optics"],
+  "keyNumbers": []
+}

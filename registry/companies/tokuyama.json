@@ -1,0 +1,66 @@
+{
+  "slug": "tokuyama",
+  "name": "Tokuyama",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "JP",
+  "ids": {
+    "ticker": "4043",
+    "exchange": "JP"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://www.tokuyama.co.jp/eng/products/electronic_materials/polysilicon.html",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Electronic-grade polysilicon."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.tokuyama.co.jp/eng/products/electronic_materials/polysilicon.html",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Electronic-grade polysilicon."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000BK6372",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 4043"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.tokuyama.co.jp/eng/products/electronic_materials/polysilicon.html",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

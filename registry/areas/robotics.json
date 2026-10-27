@@ -1,0 +1,10 @@
+{
+  "slug": "robotics",
+  "name": "Robotics",
+  "parent": null,
+  "theme": "robotics",
+  "definition": "Humanoid, industrial, service and field robots, and the components and models that drive them.",
+  "why": "Robotics turns AI into physical labour; its constraint is actuation hardware (motors, reducers, magnets, sensors) rather than software.",
+  "bottlenecks": ["precision-reduction-drives", "robot-grade-encoders-and-force-sensors"],
+  "keyNumbers": []
+}

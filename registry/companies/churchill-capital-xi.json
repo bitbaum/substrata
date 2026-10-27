@@ -1,0 +1,79 @@
+{
+  "slug": "churchill-capital-xi",
+  "name": "Churchill Capital Corp XI",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "cik": "2074973",
+    "ticker": "CCXI",
+    "exchange": "US"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3569&type=10-K&dateb=&owner=include&start=0&count=100",
+      "quote": "0002074973 Churchill Capital Corp XI NY",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3569 (General industrial machinery & equipment, NEC): Robotics & autonomy."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q4I.json",
+      "quote": "{\"accn\":\"0001213900-26-034863\",\"cik\":2074973,\"entityName\":\"Churchill Capital Corp XI\",\"loc\":\"US-NY\",\"end\":\"2025-12-31\",\"val\":422694000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-12-31",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$423 million public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 422694000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[2074973,\"Churchill Capital Corp XI\",\"CCXI\",\"Nasdaq\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker CCXI"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q4I.json",
+      "quote": "{\"accn\":\"0001213900-26-034863\",\"cik\":2074973,\"entityName\":\"Churchill Capital Corp XI\",\"loc\":\"US-NY\",\"end\":\"2025-12-31\",\"val\":422694000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-12-31",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 2074973"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[2074973,\"Churchill Capital Corp XI\",\"CCXI\",\"Nasdaq\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "slug": "digitalocean",
+  "name": "DigitalOcean",
+  "aliases": [
+    "Digitalocean Holdings, Inc.",
+    "Digitalocean Holdings Inc",
+    "DigitalOcean Holdings, Inc."
+  ],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "lei": "549300EPISPY3RE3DL21",
+    "isin": "US25402D1028",
+    "ticker": "DOCN",
+    "exchange": "US",
+    "sedol": "BNC23Q1",
+    "cik": "1582961",
+    "qid": "Q17052116",
+    "cusip": "25402D102"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/clou_full-holdings_20261026.csv",
+      "quote": "2.77,DOCN,DIGITALOCEAN HOLDINGS INC,BNC23Q1,99.53,\"120,446.00\",\"11,987,990.38\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Cloud Computing ETF (CLOU, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=SKYY",
+      "quote": "DigitalOcean Holdings, Inc. DOCN 25402D102 IT Services 1,071,774 $106,673,666.22 3.01%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by First Trust Cloud Computing ETF (SKYY, First Trust): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/clou_full-holdings_20261026.csv",
+      "quote": "2.77,DOCN,DIGITALOCEAN HOLDINGS INC,BNC23Q1,99.53,\"120,446.00\",\"11,987,990.38\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$12 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 11987990
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001582961-26-000019\",\"cik\":1582961,\"entityName\":\"DigitalOcean Holdings, Inc.\",\"loc\":\"US-CO\",\"end\":\"2025-06-30\",\"val\":1680000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$1.7 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 1680000000
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=SKYY",
+      "quote": "DigitalOcean Holdings, Inc. DOCN 25402D102 IT Services 1,071,774 $106,673,666.22 3.01%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$107 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 106673666
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/clou_full-holdings_20261026.csv",
+      "quote": "2.77,DOCN,DIGITALOCEAN HOLDINGS INC,BNC23Q1,99.53,\"120,446.00\",\"11,987,990.38\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker DOCN"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001582961-26-000019\",\"cik\":1582961,\"entityName\":\"DigitalOcean Holdings, Inc.\",\"loc\":\"US-CO\",\"end\":\"2025-06-30\",\"val\":1680000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1582961"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US25402D1028",
+      "quote": "\"lei\":\"549300EPISPY3RE3DL21\",\"entity\":{\"legalName\":{\"name\":\"DIGITALOCEAN HOLDINGS, INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 549300EPISPY3RE3DL21"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3Fisin%20%3Flabel%20WHERE%20%7B%20VALUES%20%3Fisin%20%7B%20%22US00108J1097%22%20%22US90385V1070%22%20%22US74624M1027%22%20%22US67059N1081%22%20%22US25402D1028%22%20%22US68389X1054%22%20%22US64119N6085%22%20%22US7811541090%22%20%22US76680R2067%22%20%22US37637K1088%22%20%22US64110D1046%22%20%22US5502411037%22%20%22US0494681010%22%20%22US82509L1070%22%20%22US31188V1008%22%20%22US42824C1099%22%20%22US90138F1021%22%20%22US21873S1087%22%20%22US98139A1051%22%20%22US24703L2025%22%20%22US4435731009%22%20%22US3383071012%22%20%22US81764X1037%22%20%22US03831W1080%22%20%22US8030542042%22%20%22US98980G1022%22%20%22US2561631068%22%20%22US10316T1043%22%20%22US74758T3032%22%20%22US04342Y1047%22%20%22US09227Q1004%22%20%22US22788C1053%22%20%22US70432V1026%22%20%22US6837151066%22%20%22US9224751084%22%20%22US70438V1061%22%20%22US26210C1045%22%20%22US74736L1098%22%20%22US98138H1014%22%20%22US98980L1017%22%20%22US49845K1016%22%20%22US4612021034%22%20%22US8887871080%22%20%22US88339J1051%22%20%22US03783C1009%22%20%22US3168411052%22%20%22US7501021056%22%20%22US74762E1029%22%20%22US4435106079%22%20%22US36828A1016%22%20%22US34631F1021%22%20%22US55405W1045%22%20%22US4657411066%22%20%22US4385162056%22%20%22US0301112076%22%20%22US96924N1000%22%20%22US95082P1057%22%20%22US34379V1035%22%20%22US7404441047%22%20%22US29280W1099%22%20%22US3687361044%22%20%22US5763231090%22%20%22US00130H1059%22%20%22US5370081045%22%20%22US9202531011%22%20%22US29275Y1029%22%20%22US2963151046%22%20%22US0024741045%22%20%22US74164F1030%22%20%22US0774541066%22%20%22US2537981027%22%20%22US7504911022%22%20%22US88076W1036%22%20%22US97651M1099%22%20%22US74768A1043%22%20%22US0420682058%22%20%22US6294452064%22%20%22US74766W1080%22%20%22US55306N1046%22%20%22US6549022043%22%20%7D%20%3Fitem%20wdt%3AP946%20%3Fisin%20.%20OPTIONAL%20%7B%20%3Fitem%20rdfs%3Alabel%20%3Flabel%20FILTER(LANG(%3Flabel)%20%3D%20%22en%22)%20%7D%20%7D",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q17052116\" }, \"label\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"DigitalOcean\" }, \"isin\" : { \"type\" : \"literal\", \"value\" : \"US25402D1028\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "qid",
+      "detail": "Wikidata QID Q17052116"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US25402D1028",
+      "quote": "\"lei\":\"549300EPISPY3RE3DL21\",\"entity\":{\"legalName\":{\"name\":\"DIGITALOCEAN HOLDINGS, INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

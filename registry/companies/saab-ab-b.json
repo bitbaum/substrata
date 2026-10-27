@@ -1,0 +1,68 @@
+{
+  "slug": "saab-ab-b",
+  "name": "Saab AB-B",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "SE",
+  "ids": {
+    "ticker": "SAABB",
+    "exchange": "SS",
+    "sedol": "BPXZH27"
+  },
+  "areas": [
+    {
+      "area": "defence-tech"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "3.66,SAABB SS,SAAB AB-B,BPXZH27,65.46824002039452,\"3,695,111.00\",\"241,912,413.85\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "fund",
+      "detail": "Held by Global X Defense Tech ETF (SHLD, Global X): Defence & aerospace."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "3.66,SAABB SS,SAAB AB-B,BPXZH27,65.46824002039452,\"3,695,111.00\",\"241,912,413.85\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$242 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 241912414
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "3.66,SAABB SS,SAAB AB-B,BPXZH27,65.46824002039452,\"3,695,111.00\",\"241,912,413.85\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker SAABB"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "3.66,SAABB SS,SAAB AB-B,BPXZH27,65.46824002039452,\"3,695,111.00\",\"241,912,413.85\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

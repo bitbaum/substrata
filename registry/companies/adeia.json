@@ -1,0 +1,93 @@
+{
+  "slug": "adeia",
+  "name": "Adeia Inc.",
+  "aliases": ["Tessera Technologies Inc."],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "lei": "12QXQCZOIJ35VTGVAL38",
+    "isin": "US00676P1075",
+    "cik": "1803696",
+    "ticker": "ADEA",
+    "exchange": "US",
+    "cusip": "00676P107"
+  },
+  "areas": [
+    {
+      "area": "compute-semiconductors"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=FTXL",
+      "quote": "Adeia Inc. ADEA 00676P107 Production Technology Equipment 229,598 $4,920,285.14 0.44%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Semiconductor ETF (FTXL, First Trust): Compute & semiconductors."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-076549\",\"cik\":1803696,\"entityName\":\"ADEIA INC.\",\"loc\":\"US-CA\",\"end\":\"2025-06-30\",\"val\":887181255}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$887 million public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 887181255
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=FTXL",
+      "quote": "Adeia Inc. ADEA 00676P107 Production Technology Equipment 229,598 $4,920,285.14 0.44%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker ADEA"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-076549\",\"cik\":1803696,\"entityName\":\"ADEIA INC.\",\"loc\":\"US-CA\",\"end\":\"2025-06-30\",\"val\":887181255}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1803696"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US00676P1075",
+      "quote": "\"lei\":\"12QXQCZOIJ35VTGVAL38\",\"entity\":{\"legalName\":{\"name\":\"TESSERA TECHNOLOGIES INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 12QXQCZOIJ35VTGVAL38"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US00676P1075",
+      "quote": "\"lei\":\"12QXQCZOIJ35VTGVAL38\",\"entity\":{\"legalName\":{\"name\":\"TESSERA TECHNOLOGIES INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

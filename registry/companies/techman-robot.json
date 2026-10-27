@@ -1,0 +1,68 @@
+{
+  "slug": "techman-robot",
+  "name": "Techman Robot Inc",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "TW",
+  "ids": {
+    "ticker": "4585",
+    "exchange": "TT",
+    "sedol": "BP2DZD9"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.23,4585 TT,TECHMAN ROBOT INC,BP2DZD9,8.278653344748859,\"876,000.00\",\"7,252,100.33\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by Global X Robotics & Artificial Intelligence ETF (BOTZ, Global X): Robotics & autonomy."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.23,4585 TT,TECHMAN ROBOT INC,BP2DZD9,8.278653344748859,\"876,000.00\",\"7,252,100.33\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$7.3 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 7252100
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.23,4585 TT,TECHMAN ROBOT INC,BP2DZD9,8.278653344748859,\"876,000.00\",\"7,252,100.33\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 4585"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.23,4585 TT,TECHMAN ROBOT INC,BP2DZD9,8.278653344748859,\"876,000.00\",\"7,252,100.33\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

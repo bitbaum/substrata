@@ -28,6 +28,7 @@
     "research:restrictions": "python3 scripts/research/oecd-export-restrictions.py",
     "research:sanctions": "python3 scripts/research/sanctions.py",
     "quality": "tsx scripts/quality/run.ts",
+    "company:add": "tsx scripts/registry/add.ts",
     "check:ask-layout": "node scripts/ux/ask-layout.mjs",
     "check:home-layout": "node scripts/ux/home-layout.mjs",
     "check:places-layout": "node scripts/ux/places-layout.mjs",

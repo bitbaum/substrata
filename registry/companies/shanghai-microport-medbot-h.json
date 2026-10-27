@@ -1,0 +1,68 @@
+{
+  "slug": "shanghai-microport-medbot-h",
+  "name": "Shanghai Microport Medbot-H",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "HK",
+  "ids": {
+    "ticker": "2252",
+    "exchange": "HK",
+    "sedol": "BMX6SZ9"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.69,2252 HK,SHANGHAI MICROPORT MEDBOT-H,BMX6SZ9,2.699757175436151,\"7,892,900.00\",\"21,308,913.41\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by Global X Robotics & Artificial Intelligence ETF (BOTZ, Global X): Robotics & autonomy."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.69,2252 HK,SHANGHAI MICROPORT MEDBOT-H,BMX6SZ9,2.699757175436151,\"7,892,900.00\",\"21,308,913.41\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$21 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 21308913
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.69,2252 HK,SHANGHAI MICROPORT MEDBOT-H,BMX6SZ9,2.699757175436151,\"7,892,900.00\",\"21,308,913.41\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 2252"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.69,2252 HK,SHANGHAI MICROPORT MEDBOT-H,BMX6SZ9,2.699757175436151,\"7,892,900.00\",\"21,308,913.41\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

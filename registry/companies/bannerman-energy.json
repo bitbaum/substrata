@@ -1,0 +1,68 @@
+{
+  "slug": "bannerman-energy",
+  "name": "Bannerman Energy Ltd",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "AU",
+  "ids": {
+    "ticker": "BMN",
+    "exchange": "AU",
+    "sedol": "B07DXJ1"
+  },
+  "areas": [
+    {
+      "area": "nuclear-energy"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:nuclear-energy",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.52,BMN AU,BANNERMAN ENERGY LTD,B07DXJ1,2.210510803127901,\"11,176,439.00\",\"24,705,639.15\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "nuclear",
+      "basis": "fund",
+      "detail": "Held by Global X Uranium ETF (URA, Global X): Nuclear, SMRs & the fuel cycle."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.52,BMN AU,BANNERMAN ENERGY LTD,B07DXJ1,2.210510803127901,\"11,176,439.00\",\"24,705,639.15\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$25 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 24705639
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.52,BMN AU,BANNERMAN ENERGY LTD,B07DXJ1,2.210510803127901,\"11,176,439.00\",\"24,705,639.15\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker BMN"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.52,BMN AU,BANNERMAN ENERGY LTD,B07DXJ1,2.210510803127901,\"11,176,439.00\",\"24,705,639.15\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

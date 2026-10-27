@@ -1,0 +1,10 @@
+{
+  "slug": "defence-autonomy",
+  "name": "Defence autonomy and drones",
+  "parent": "defence-tech",
+  "theme": "defence",
+  "definition": "Uncrewed systems and autonomy software for military use.",
+  "why": "The first large-scale deployment of autonomous systems in conflict.",
+  "bottlenecks": [],
+  "keyNumbers": []
+}

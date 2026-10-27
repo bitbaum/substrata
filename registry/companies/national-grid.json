@@ -1,0 +1,68 @@
+{
+  "slug": "national-grid",
+  "name": "National Grid Plc",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "GB",
+  "ids": {
+    "ticker": "NG/",
+    "exchange": "LN",
+    "cusip": "G6S9A7120"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "National Grid Plc NG/.LN G6S9A7120 Multi-utilities 30,437,901 $496,608,001.41 4.46%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "National Grid Plc NG/.LN G6S9A7120 Multi-utilities 30,437,901 $496,608,001.41 4.46%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$497 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 496608001
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "National Grid Plc NG/.LN G6S9A7120 Multi-utilities 30,437,901 $496,608,001.41 4.46%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker NG/"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "National Grid Plc NG/.LN G6S9A7120 Multi-utilities 30,437,901 $496,608,001.41 4.46%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

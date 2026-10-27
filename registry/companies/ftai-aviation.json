@@ -1,0 +1,81 @@
+{
+  "slug": "ftai-aviation",
+  "name": "FTAI Aviation Ltd.",
+  "aliases": ["Ftai Aviation Ltd.", "Ftai Aviation Ltd"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "cik": "1590364",
+    "ticker": "FTAI",
+    "exchange": "US",
+    "cusip": "G3730V105",
+    "sedol": "BLKFTK4"
+  },
+  "areas": [
+    {
+      "area": "defence-tech"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-xar.xlsx",
+      "quote": "FTAI AVIATION LTD | FTAI | G3730V105 | BLKFTK4 | 2.652398 | - | 845888.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Aerospace & Defense ETF (XAR, State Street): Defence & aerospace."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001628280-26-012940\",\"cik\":1590364,\"entityName\":\"FTAI AVIATION LTD.\",\"loc\":\"US-NY\",\"end\":\"2025-06-30\",\"val\":11700000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$12 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 11700000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[1590364,\"FTAI Aviation Ltd.\",\"FTAI\",\"Nasdaq\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker FTAI"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001628280-26-012940\",\"cik\":1590364,\"entityName\":\"FTAI AVIATION LTD.\",\"loc\":\"US-NY\",\"end\":\"2025-06-30\",\"val\":11700000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1590364"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-xar.xlsx",
+      "quote": "FTAI AVIATION LTD | FTAI | G3730V105 | BLKFTK4 | 2.652398 | - | 845888.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

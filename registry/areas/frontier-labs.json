@@ -1,0 +1,10 @@
+{
+  "slug": "frontier-labs",
+  "name": "Frontier labs",
+  "parent": "frontier-ai",
+  "theme": "ai",
+  "definition": "Companies and institutes whose main business is training frontier or near-frontier general-purpose models, closed or open-weight.",
+  "why": "A handful of labs set the pace of capability and the size of the compute orders placed on chip, memory and power suppliers.",
+  "bottlenecks": [],
+  "keyNumbers": []
+}

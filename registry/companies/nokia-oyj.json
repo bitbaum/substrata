@@ -1,0 +1,109 @@
+{
+  "slug": "nokia-oyj",
+  "name": "Nokia Oyj",
+  "aliases": ["Nokia Corp"],
+  "kind": "public",
+  "status": "active",
+  "country": "FI",
+  "ids": {
+    "lei": "549300A0JPRWG1KI7U06",
+    "isin": "US6549022043",
+    "ticker": "NOK",
+    "exchange": "US",
+    "sedol": "2640891",
+    "cusip": "654902204",
+    "cik": "924613"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    },
+    {
+      "area": "quantum"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.40,NOK,NOKIA CORP-SPON ADR,2640891,8.606343000426662,\"4,685,207.00\",\"40,322,498.47\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Artificial Intelligence & Technology ETF (AIQ, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "area:quantum",
+      "grade": "registry",
+      "source": "https://www.defianceetfs.com/qtum-full-holdings/",
+      "quote": "NOK Nokia Oyj 654902204 0.81% 4,947,312",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "quantum",
+      "basis": "fund",
+      "detail": "Held by Defiance Quantum ETF (QTUM, Defiance ETFs): Quantum."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.40,NOK,NOKIA CORP-SPON ADR,2640891,8.606343000426662,\"4,685,207.00\",\"40,322,498.47\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$40 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 40322498
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.40,NOK,NOKIA CORP-SPON ADR,2640891,8.606343000426662,\"4,685,207.00\",\"40,322,498.47\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker NOK"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[924613,\"NOKIA CORP\",\"NOK\",\"NYSE\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 924613"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US6549022043",
+      "quote": "\"lei\":\"549300A0JPRWG1KI7U06\",\"entity\":{\"legalName\":{\"name\":\"Nokia Oyj\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 549300A0JPRWG1KI7U06"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US6549022043",
+      "quote": "\"lei\":\"549300A0JPRWG1KI7U06\",\"entity\":{\"legalName\":{\"name\":\"Nokia Oyj\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country FI as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

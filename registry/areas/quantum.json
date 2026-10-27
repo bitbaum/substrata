@@ -1,0 +1,10 @@
+{
+  "slug": "quantum",
+  "name": "Quantum",
+  "parent": null,
+  "theme": "quantum",
+  "definition": "Quantum computing, sensing and communication hardware and software.",
+  "why": "A possible future compute paradigm and a driver of cryogenic and photonic supply chains.",
+  "bottlenecks": ["liquid-helium-he-4"],
+  "keyNumbers": []
+}

@@ -1,0 +1,80 @@
+{
+  "slug": "sarepta-therapeutics",
+  "name": "Sarepta Therapeutics, Inc.",
+  "aliases": ["Sarepta Therapeutics Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "SRPT",
+    "exchange": "US",
+    "sedol": "B8DPDT7",
+    "cik": "873303"
+  },
+  "areas": [
+    {
+      "area": "biotech-and-longevity"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:biotech-and-longevity",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "1.35,SRPT,SAREPTA THERAPEUTICS INC,B8DPDT7,17.98,\"79,585.00\",\"1,430,938.30\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "biotools",
+      "basis": "fund",
+      "detail": "Held by Global X Genomics & Biotechnology ETF (GNOM, Global X): Biotech tools."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-084144\",\"cik\":873303,\"entityName\":\"Sarepta Therapeutics, Inc.\",\"loc\":\"US-MA\",\"end\":\"2025-06-30\",\"val\":1670773865}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$1.7 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 1670773865
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "1.35,SRPT,SAREPTA THERAPEUTICS INC,B8DPDT7,17.98,\"79,585.00\",\"1,430,938.30\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker SRPT"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-084144\",\"cik\":873303,\"entityName\":\"Sarepta Therapeutics, Inc.\",\"loc\":\"US-MA\",\"end\":\"2025-06-30\",\"val\":1670773865}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 873303"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "1.35,SRPT,SAREPTA THERAPEUTICS INC,B8DPDT7,17.98,\"79,585.00\",\"1,430,938.30\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

@@ -68,10 +68,10 @@ export default async function CompanyDirectory({
           }
           note={
             <>
-              Every row is a company that passed the three written tests (theme, size floor,
-              registry identifier). The last column says what its page can actually show; the rule,
-              the floors and what is left out are on{' '}
-              <Link href="/data/companies">why a company is on the list</Link>.
+              Every row is a company on the list: registered on purpose in the frontier registry
+              (the older ones from the three written tests: theme, size floor, registry identifier).
+              The last line says what its page can actually show; the rule, the floors and what is
+              left out are on <Link href="/data/companies">why a company is on the list</Link>.
             </>
           }
         />

@@ -1,0 +1,68 @@
+{
+  "slug": "ocado-group",
+  "name": "Ocado Group Plc",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "GB",
+  "ids": {
+    "ticker": "OCDO",
+    "exchange": "LN",
+    "cusip": "G6718L106"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Ocado Group Plc OCDO.LN G6718L106 Consumer Staples 3,669,622 $15,809,021.96 2.11%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Artificial Intelligence and Robotics ETF (ROBT, First Trust): Robotics & autonomy."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Ocado Group Plc OCDO.LN G6718L106 Consumer Staples 3,669,622 $15,809,021.96 2.11%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$16 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 15809022
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Ocado Group Plc OCDO.LN G6718L106 Consumer Staples 3,669,622 $15,809,021.96 2.11%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker OCDO"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Ocado Group Plc OCDO.LN G6718L106 Consumer Staples 3,669,622 $15,809,021.96 2.11%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

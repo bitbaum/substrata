@@ -1,0 +1,68 @@
+{
+  "slug": "hanwha-systems",
+  "name": "Hanwha Systems Co Ltd",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "KR",
+  "ids": {
+    "ticker": "272210",
+    "exchange": "KS",
+    "sedol": "BJN3H96"
+  },
+  "areas": [
+    {
+      "area": "defence-tech"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.54,272210 KS,HANWHA SYSTEMS CO LTD,BJN3H96,48.14268979446999,\"741,157.00\",\"35,681,291.54\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "fund",
+      "detail": "Held by Global X Defense Tech ETF (SHLD, Global X): Defence & aerospace."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.54,272210 KS,HANWHA SYSTEMS CO LTD,BJN3H96,48.14268979446999,\"741,157.00\",\"35,681,291.54\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$36 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 35681292
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.54,272210 KS,HANWHA SYSTEMS CO LTD,BJN3H96,48.14268979446999,\"741,157.00\",\"35,681,291.54\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 272210"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.54,272210 KS,HANWHA SYSTEMS CO LTD,BJN3H96,48.14268979446999,\"741,157.00\",\"35,681,291.54\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

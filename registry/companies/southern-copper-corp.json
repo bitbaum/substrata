@@ -1,0 +1,104 @@
+{
+  "slug": "southern-copper-corp",
+  "name": "Southern Copper Corp/",
+  "aliases": ["Southern Copper Corp"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "SCCO",
+    "exchange": "US",
+    "sedol": "2823777",
+    "cik": "1001838"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "5.62,SCCO,SOUTHERN COPPER CORP,2823777,186.01,\"1,906,991.00\",\"354,719,395.91\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "fund",
+      "detail": "Held by Global X Copper Miners ETF (COPX, Global X): Advanced materials & critical minerals."
+    },
+    {
+      "field": "area:advanced-materials",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=1000&type=10-K&dateb=&owner=include&start=500&count=100",
+      "quote": "0001001838 SOUTHERN COPPER CORP/ AZ",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 1000 (Metal mining): Advanced materials & critical minerals."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "5.62,SCCO,SOUTHERN COPPER CORP,2823777,186.01,\"1,906,991.00\",\"354,719,395.91\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$355 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 354719396
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001104659-26-021492\",\"cik\":1001838,\"entityName\":\"SOUTHERN COPPER CORP/\",\"loc\":\"US-AZ\",\"end\":\"2025-06-30\",\"val\":9019800000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$9.0 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 9019800000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "5.62,SCCO,SOUTHERN COPPER CORP,2823777,186.01,\"1,906,991.00\",\"354,719,395.91\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker SCCO"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001104659-26-021492\",\"cik\":1001838,\"entityName\":\"SOUTHERN COPPER CORP/\",\"loc\":\"US-AZ\",\"end\":\"2025-06-30\",\"val\":9019800000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1001838"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "5.62,SCCO,SOUTHERN COPPER CORP,2823777,186.01,\"1,906,991.00\",\"354,719,395.91\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "slug": "credo-technology-group",
+  "name": "Credo Technology Group Holding Ltd",
+  "aliases": ["Credo Technology Group Holdi"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "cik": "1807794",
+    "ticker": "CRDO",
+    "exchange": "US",
+    "cusip": "G25457105",
+    "sedol": "BLD13F2"
+  },
+  "areas": [
+    {
+      "area": "compute-semiconductors"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=FTXL",
+      "quote": "Credo Technology Group Holding Ltd CRDO G25457105 Semiconductors 50,541 $7,639,272.15 0.68%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Semiconductor ETF (FTXL, First Trust): Compute & semiconductors."
+    },
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3674&type=10-K&dateb=&owner=include&start=100&count=100",
+      "quote": "0001807794 Credo Technology Group Holding Ltd E9",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3674 (Semiconductors & related devices): Compute & semiconductors."
+    },
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-xsd.xlsx",
+      "quote": "CREDO TECHNOLOGY GROUP HOLDI | CRDO | G25457105 | BLD13F2 | 2.437864 | - | 401351.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Semiconductor ETF (XSD, State Street): Compute & semiconductors."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q3I.json",
+      "quote": "{\"accn\":\"0001628280-26-043303\",\"cik\":1807794,\"entityName\":\"CREDO TECHNOLOGY GROUP HOLDING LTD\",\"loc\":\"KY-\",\"end\":\"2025-10-31\",\"val\":30000000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-10-31",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$30 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 30000000000
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=FTXL",
+      "quote": "Credo Technology Group Holding Ltd CRDO G25457105 Semiconductors 50,541 $7,639,272.15 0.68%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$7.6 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 7639272
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=FTXL",
+      "quote": "Credo Technology Group Holding Ltd CRDO G25457105 Semiconductors 50,541 $7,639,272.15 0.68%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker CRDO"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q3I.json",
+      "quote": "{\"accn\":\"0001628280-26-043303\",\"cik\":1807794,\"entityName\":\"CREDO TECHNOLOGY GROUP HOLDING LTD\",\"loc\":\"KY-\",\"end\":\"2025-10-31\",\"val\":30000000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-10-31",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1807794"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=FTXL",
+      "quote": "Credo Technology Group Holding Ltd CRDO G25457105 Semiconductors 50,541 $7,639,272.15 0.68%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

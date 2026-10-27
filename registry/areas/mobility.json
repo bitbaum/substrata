@@ -1,0 +1,10 @@
+{
+  "slug": "mobility",
+  "name": "Electric and autonomous mobility",
+  "parent": null,
+  "theme": "mobility",
+  "definition": "Electric vehicles, autonomy stacks and charging.",
+  "why": "The largest physical-AI deployment so far; it consumes the same magnets, cells and chips as robots.",
+  "bottlenecks": [],
+  "keyNumbers": []
+}

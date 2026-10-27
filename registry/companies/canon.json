@@ -1,0 +1,78 @@
+{
+  "slug": "canon",
+  "name": "Canon",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "JP",
+  "ids": {
+    "ticker": "7751",
+    "exchange": "JP",
+    "cik": "16988"
+  },
+  "areas": [
+    {
+      "area": "compute-semiconductors"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "stated",
+      "source": "https://global.canon/en/product/indtech/semicon/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Lithography and nanoimprint."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://global.canon/en/product/indtech/semicon/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Lithography and nanoimprint."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000BBZM32",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 7751"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000BBZM32",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 16988"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://global.canon/en/product/indtech/semicon/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

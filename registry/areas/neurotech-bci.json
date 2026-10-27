@@ -1,0 +1,10 @@
+{
+  "slug": "neurotech-bci",
+  "name": "Neurotechnology and brain-computer interfaces",
+  "parent": "biotech-and-longevity",
+  "theme": "biotools",
+  "definition": "Implanted and non-invasive brain interfaces and neural recording.",
+  "why": "A route for direct human-machine bandwidth, gated by regulation.",
+  "bottlenecks": [],
+  "keyNumbers": []
+}

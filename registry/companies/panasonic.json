@@ -1,0 +1,93 @@
+{
+  "slug": "panasonic",
+  "name": "Panasonic Holdings Corporation",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "JP",
+  "ids": {
+    "ticker": "6752",
+    "exchange": "JP",
+    "sedol": "6572707",
+    "cusip": "J6354Y104"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/lit_full-holdings_20261026.csv",
+      "quote": "6.54,6752 JP,PANASONIC HOLDINGS CORPORATION,6572707,22.7242440602401,\"3,353,713.00\",\"76,210,592.72\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by Global X Lithium & Battery Tech ETF (LIT, Global X): Energy storage, batteries & grid."
+    },
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Panasonic Holdings Corporation 6752.JP J6354Y104 Consumer Electronics 1,445,170 $32,859,162.51 0.30%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/lit_full-holdings_20261026.csv",
+      "quote": "6.54,6752 JP,PANASONIC HOLDINGS CORPORATION,6572707,22.7242440602401,\"3,353,713.00\",\"76,210,592.72\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$76 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 76210593
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Panasonic Holdings Corporation 6752.JP J6354Y104 Consumer Electronics 1,445,170 $32,859,162.51 0.30%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$33 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 32859163
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/lit_full-holdings_20261026.csv",
+      "quote": "6.54,6752 JP,PANASONIC HOLDINGS CORPORATION,6572707,22.7242440602401,\"3,353,713.00\",\"76,210,592.72\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 6752"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/lit_full-holdings_20261026.csv",
+      "quote": "6.54,6752 JP,PANASONIC HOLDINGS CORPORATION,6572707,22.7242440602401,\"3,353,713.00\",\"76,210,592.72\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "slug": "nornickel",
+  "name": "Nornickel",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "RU",
+  "ids": {
+    "ticker": "GMKN",
+    "exchange": "RU"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://nornickel.com/company/about/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Nickel and PGM mining."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://nornickel.com/company/about/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Nickel and PGM mining."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000J40474",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker GMKN"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://nornickel.com/company/about/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "slug": "abb-robotics",
+  "name": "ABB Robotics",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "country": "CH",
+  "ids": {},
+  "areas": [
+    {
+      "area": "robotics"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "stated",
+      "source": "https://www.abb.com/global/en/areas/robotics/products/robots",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Industrial robots."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.abb.com/global/en/areas/robotics/products/robots",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Industrial robots."
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.abb.com/global/en/areas/robotics/products/robots",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

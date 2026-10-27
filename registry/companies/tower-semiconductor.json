@@ -1,0 +1,95 @@
+{
+  "slug": "tower-semiconductor",
+  "name": "Tower Semiconductor Ltd",
+  "aliases": ["Tower Semiconductor Ltd."],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "cik": "928876",
+    "ticker": "TSEM",
+    "exchange": "US",
+    "cusip": "M87915274"
+  },
+  "areas": [
+    {
+      "area": "compute-semiconductors"
+    },
+    {
+      "area": "quantum"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:quantum",
+      "grade": "registry",
+      "source": "https://www.defianceetfs.com/qtum-full-holdings/",
+      "quote": "TSEM Tower Semiconductor Ltd M87915274 0.97% 283,866",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "quantum",
+      "basis": "fund",
+      "detail": "Held by Defiance Quantum ETF (QTUM, Defiance ETFs): Quantum."
+    },
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3674&type=10-K&dateb=&owner=include&start=400&count=100",
+      "quote": "0000928876 TOWER SEMICONDUCTOR LTD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3674 (Semiconductors & related devices): Compute & semiconductors."
+    },
+    {
+      "field": "size:revenue",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000928876.json",
+      "quote": "{\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"val\":1566104000,\"accn\":\"0001178913-26-002318\",\"fy\":2025,\"fp\":\"FY\",\"form\":\"20-F\",\"filed\":\"2026-04-30\",\"frame\":\"CY2025\"}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-12-31",
+      "test": "materiality",
+      "basis": "revenue",
+      "detail": "US$1.6 billion annual revenue (floor US$250 million).",
+      "usd": 1566104000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.defianceetfs.com/qtum-full-holdings/",
+      "quote": "TSEM Tower Semiconductor Ltd M87915274 0.97% 283,866",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker TSEM"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000928876.json",
+      "quote": "{\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"val\":1566104000,\"accn\":\"0001178913-26-002318\",\"fy\":2025,\"fp\":\"FY\",\"form\":\"20-F\",\"filed\":\"2026-04-30\",\"frame\":\"CY2025\"}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-12-31",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 928876"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.defianceetfs.com/qtum-full-holdings/",
+      "quote": "TSEM Tower Semiconductor Ltd M87915274 0.97% 283,866",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

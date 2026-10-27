@@ -1,0 +1,58 @@
+{
+  "slug": "landis-gyr-group",
+  "name": "Landis+Gyr Group AG",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "ids": {
+    "ticker": "LAND",
+    "exchange": "SE",
+    "cusip": "H893NZ107"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Landis+Gyr Group AG LAND.SE H893NZ107 Electronic Equipment: Gauges and Meters 343,014 $21,676,694.71 0.19%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Landis+Gyr Group AG LAND.SE H893NZ107 Electronic Equipment: Gauges and Meters 343,014 $21,676,694.71 0.19%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$22 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 21676695
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Landis+Gyr Group AG LAND.SE H893NZ107 Electronic Equipment: Gauges and Meters 343,014 $21,676,694.71 0.19%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker LAND"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

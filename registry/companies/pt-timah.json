@@ -1,0 +1,66 @@
+{
+  "slug": "pt-timah",
+  "name": "PT Timah",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "ID",
+  "ids": {
+    "ticker": "TINS",
+    "exchange": "IJ"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://timah.com/blog/about-us/processing-smelting",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Tin mining and smelting."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://timah.com/blog/about-us/processing-smelting",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Tin mining and smelting."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000BCYPV3",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker TINS"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://timah.com/blog/about-us/processing-smelting",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

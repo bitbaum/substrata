@@ -1,0 +1,92 @@
+{
+  "slug": "uniti-group",
+  "name": "Uniti Group Inc.",
+  "aliases": ["Uniti Group Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "UNIT",
+    "exchange": "US",
+    "sedol": "BSNMCG8",
+    "cik": "2020795"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "1.89,UNIT,UNITI GROUP INC,BSNMCG8,4.85,\"7,409,795.00\",\"35,937,505.75\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Data Center & Digital Infrastructure ETF (DTCR, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "1.89,UNIT,UNITI GROUP INC,BSNMCG8,4.85,\"7,409,795.00\",\"35,937,505.75\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$36 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 35937506
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001628280-26-013196\",\"cik\":2020795,\"entityName\":\"Uniti Group Inc.\",\"loc\":\"US-AR\",\"end\":\"2025-06-30\",\"val\":1034749382}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$1.0 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 1034749382
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "1.89,UNIT,UNITI GROUP INC,BSNMCG8,4.85,\"7,409,795.00\",\"35,937,505.75\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker UNIT"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001628280-26-013196\",\"cik\":2020795,\"entityName\":\"Uniti Group Inc.\",\"loc\":\"US-AR\",\"end\":\"2025-06-30\",\"val\":1034749382}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 2020795"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "1.89,UNIT,UNITI GROUP INC,BSNMCG8,4.85,\"7,409,795.00\",\"35,937,505.75\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

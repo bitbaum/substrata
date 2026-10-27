@@ -1,0 +1,118 @@
+{
+  "slug": "veracyte",
+  "name": "Veracyte, Inc.",
+  "aliases": ["Veracyte Inc", "Veracyte, Inc."],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "lei": "529900ESWZRHXOW27Z37",
+    "isin": "US92337F1075",
+    "ticker": "VCYT",
+    "exchange": "US",
+    "cusip": "92337F107",
+    "sedol": "BFTWZY0",
+    "cik": "1384101"
+  },
+  "areas": [
+    {
+      "area": "biotech-and-longevity"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:biotech-and-longevity",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKG,VERACYTE INC,VCYT,92337F107,\"1,579,875\",\"$76,149,975.00\",3.70%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "biotools",
+      "basis": "fund",
+      "detail": "Held by ARK Genomic Revolution ETF (ARKG, ARK Invest): Biotech tools."
+    },
+    {
+      "field": "area:biotech-and-longevity",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "2.82,VCYT,VERACYTE INC,BFTWZY0,48.2,\"62,109.00\",\"2,993,653.80\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "biotools",
+      "basis": "fund",
+      "detail": "Held by Global X Genomics & Biotechnology ETF (GNOM, Global X): Biotech tools."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKG,VERACYTE INC,VCYT,92337F107,\"1,579,875\",\"$76,149,975.00\",3.70%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$76 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 76149975
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001384101-26-000010\",\"cik\":1384101,\"entityName\":\"VERACYTE, INC.\",\"loc\":\"US-CA\",\"end\":\"2025-06-30\",\"val\":1700000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$1.7 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 1700000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKG,VERACYTE INC,VCYT,92337F107,\"1,579,875\",\"$76,149,975.00\",3.70%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker VCYT"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001384101-26-000010\",\"cik\":1384101,\"entityName\":\"VERACYTE, INC.\",\"loc\":\"US-CA\",\"end\":\"2025-06-30\",\"val\":1700000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1384101"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US92337F1075",
+      "quote": "\"lei\":\"529900ESWZRHXOW27Z37\",\"entity\":{\"legalName\":{\"name\":\"VERACYTE, INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 529900ESWZRHXOW27Z37"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US92337F1075",
+      "quote": "\"lei\":\"529900ESWZRHXOW27Z37\",\"entity\":{\"legalName\":{\"name\":\"VERACYTE, INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "slug": "collective-mining",
+  "name": "Collective Mining Ltd",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "CA",
+  "ids": {
+    "ticker": "CNL",
+    "exchange": "CN",
+    "sedol": "BN79Z49"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "0.31,CNL CN,COLLECTIVE MINING LTD,BN79Z49,10.79231564175164,\"1,822,769.00\",\"19,671,898.39\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "fund",
+      "detail": "Held by Global X Copper Miners ETF (COPX, Global X): Advanced materials & critical minerals."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "0.31,CNL CN,COLLECTIVE MINING LTD,BN79Z49,10.79231564175164,\"1,822,769.00\",\"19,671,898.39\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$20 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 19671898
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "0.31,CNL CN,COLLECTIVE MINING LTD,BN79Z49,10.79231564175164,\"1,822,769.00\",\"19,671,898.39\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker CNL"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "0.31,CNL CN,COLLECTIVE MINING LTD,BN79Z49,10.79231564175164,\"1,822,769.00\",\"19,671,898.39\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

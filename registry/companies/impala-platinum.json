@@ -1,0 +1,66 @@
+{
+  "slug": "impala-platinum",
+  "name": "Impala Platinum",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "ZA",
+  "ids": {
+    "ticker": "IMP",
+    "exchange": "SJ"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://www.forbes.com/companies/impala-platinum-holdings/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: PGM mining."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.forbes.com/companies/impala-platinum-holdings/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: PGM mining."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000BTZK82",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker IMP"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.forbes.com/companies/impala-platinum-holdings/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

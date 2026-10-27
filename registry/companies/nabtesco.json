@@ -1,0 +1,66 @@
+{
+  "slug": "nabtesco",
+  "name": "Nabtesco",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "JP",
+  "ids": {
+    "ticker": "6268",
+    "exchange": "JP"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "stated",
+      "source": "https://precision.nabtesco.com/en/products/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Cycloidal reduction gears."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://precision.nabtesco.com/en/products/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Cycloidal reduction gears."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000Q04VG0",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 6268"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://precision.nabtesco.com/en/products/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "slug": "robot-sensors",
+  "name": "Robot sensors and vision",
+  "parent": "robotics",
+  "theme": "robotics",
+  "definition": "Encoders, force-torque sensors, tactile skins, lidar and depth cameras.",
+  "why": "Feedback quality sets what a robot can do safely with its hands.",
+  "bottlenecks": ["robot-grade-encoders-and-force-sensors"],
+  "keyNumbers": []
+}

@@ -1,0 +1,69 @@
+{
+  "slug": "byd-unsponsored",
+  "name": "BYD Co Ltd-Unsponsored",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "BYDDY",
+    "exchange": "US",
+    "cusip": "05606L100",
+    "isin": "US05606L1008"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKQ,BYD CO LTD-UNSPONSORED ADR,BYDDY,05606L100,\"1,618,276\",\"$14,499,752.96\",0.81%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by ARK Autonomous Technology & Robotics ETF (ARKQ, ARK Invest): Robotics & autonomy."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKQ,BYD CO LTD-UNSPONSORED ADR,BYDDY,05606L100,\"1,618,276\",\"$14,499,752.96\",0.81%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$14 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 14499753
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKQ,BYD CO LTD-UNSPONSORED ADR,BYDDY,05606L100,\"1,618,276\",\"$14,499,752.96\",0.81%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker BYDDY"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKQ,BYD CO LTD-UNSPONSORED ADR,BYDDY,05606L100,\"1,618,276\",\"$14,499,752.96\",0.81%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

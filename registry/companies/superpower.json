@@ -1,0 +1,52 @@
+{
+  "slug": "superpower",
+  "name": "SuperPower",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "country": "US",
+  "ids": {},
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://www.superpower-inc.com/specification.aspx",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: makes REBCO superconducting tape, 12 mm."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.superpower-inc.com/specification.aspx",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: makes REBCO superconducting tape, 12 mm."
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.superpower-inc.com/specification.aspx",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

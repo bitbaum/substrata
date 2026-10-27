@@ -1,0 +1,56 @@
+{
+  "slug": "skywater-technology",
+  "name": "SkyWater Technology, LLC",
+  "aliases": ["SkyWater Technology, Inc."],
+  "kind": "unclassified",
+  "status": "active",
+  "ids": {
+    "cik": "1819974"
+  },
+  "areas": [
+    {
+      "area": "compute-semiconductors"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3674&type=10-K&dateb=&owner=include&start=400&count=100",
+      "quote": "0001819974 SkyWater Technology, LLC MN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3674 (Semiconductors & related devices): Compute & semiconductors."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001819974-26-000009\",\"cik\":1819974,\"entityName\":\"SkyWater Technology, Inc.\",\"loc\":\"US-MN\",\"end\":\"2025-06-29\",\"val\":312500000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-29",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$313 million public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 312500000
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001819974-26-000009\",\"cik\":1819974,\"entityName\":\"SkyWater Technology, Inc.\",\"loc\":\"US-MN\",\"end\":\"2025-06-29\",\"val\":312500000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-29",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1819974"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "exail-technologies",
+  "name": "Exail Technologies",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "FR",
+  "ids": {
+    "ticker": "EXA",
+    "exchange": "FP",
+    "sedol": "B06BGH5"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    },
+    {
+      "area": "defence-tech"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.64,EXA FP,EXAIL TECHNOLOGIES,B06BGH5,139.9492516235367,\"141,974.00\",\"19,869,155.05\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by Global X Robotics & Artificial Intelligence ETF (BOTZ, Global X): Robotics & autonomy."
+    },
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.19,EXA FP,EXAIL TECHNOLOGIES,B06BGH5,139.9492515937966,\"88,468.00\",\"12,381,030.39\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "fund",
+      "detail": "Held by Global X Defense Tech ETF (SHLD, Global X): Defence & aerospace."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.64,EXA FP,EXAIL TECHNOLOGIES,B06BGH5,139.9492516235367,\"141,974.00\",\"19,869,155.05\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$20 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 19869155
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.19,EXA FP,EXAIL TECHNOLOGIES,B06BGH5,139.9492515937966,\"88,468.00\",\"12,381,030.39\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$12 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 12381030
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.64,EXA FP,EXAIL TECHNOLOGIES,B06BGH5,139.9492516235367,\"141,974.00\",\"19,869,155.05\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker EXA"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.64,EXA FP,EXAIL TECHNOLOGIES,B06BGH5,139.9492516235367,\"141,974.00\",\"19,869,155.05\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

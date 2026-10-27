@@ -1,0 +1,66 @@
+{
+  "slug": "wacker-chemie",
+  "name": "Wacker Chemie",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "DE",
+  "ids": {
+    "ticker": "WCH",
+    "exchange": "GR"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://www.wacker.com/cms/de-de/products/brands/polysilicon/polysilicon.html",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Electronic-grade polysilicon."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.wacker.com/cms/de-de/products/brands/polysilicon/polysilicon.html",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Electronic-grade polysilicon."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000BLCJ23",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker WCH"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wacker.com/cms/de-de/products/brands/polysilicon/polysilicon.html",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

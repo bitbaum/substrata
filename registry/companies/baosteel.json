@@ -1,0 +1,52 @@
+{
+  "slug": "baosteel",
+  "name": "Baosteel",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "country": "CN",
+  "ids": {},
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "http://www.ibaosteel.com/ibaosteel/productInfoEn/download",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: makes Grain-oriented electrical steel (GOES)."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "http://www.ibaosteel.com/ibaosteel/productInfoEn/download",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: makes Grain-oriented electrical steel (GOES)."
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "http://www.ibaosteel.com/ibaosteel/productInfoEn/download",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

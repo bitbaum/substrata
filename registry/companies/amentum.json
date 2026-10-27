@@ -1,0 +1,80 @@
+{
+  "slug": "amentum",
+  "name": "Amentum Holdings, Inc.",
+  "aliases": ["Amentum Holdings Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "AMTM",
+    "exchange": "US",
+    "sedol": "BMZLFJ5",
+    "cik": "2011286"
+  },
+  "areas": [
+    {
+      "area": "defence-tech"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.66,AMTM,AMENTUM HOLDINGS INC,BMZLFJ5,22.07,\"1,986,143.00\",\"43,834,176.01\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "fund",
+      "detail": "Held by Global X Defense Tech ETF (SHLD, Global X): Defence & aerospace."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.66,AMTM,AMENTUM HOLDINGS INC,BMZLFJ5,22.07,\"1,986,143.00\",\"43,834,176.01\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$44 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 43834176
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.66,AMTM,AMENTUM HOLDINGS INC,BMZLFJ5,22.07,\"1,986,143.00\",\"43,834,176.01\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker AMTM"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[2011286,\"Amentum Holdings, Inc.\",\"AMTM\",\"NYSE\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 2011286"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.66,AMTM,AMENTUM HOLDINGS INC,BMZLFJ5,22.07,\"1,986,143.00\",\"43,834,176.01\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

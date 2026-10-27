@@ -67,6 +67,15 @@ export const UNIVERSE_TOOLS: readonly ChatTool[] = [
           rule: '/data/companies',
           note: NOTE,
         };
+      if (m.status === 'proposed')
+        return {
+          company: m.name,
+          status: 'proposed, not yet registered',
+          page: m.href,
+          themes: m.themes,
+          why: m.why,
+          note: NOTE,
+        };
       if (m.status === 'considered')
         return {
           company: m.name,

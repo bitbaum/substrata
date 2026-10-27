@@ -1,0 +1,66 @@
+{
+  "slug": "gazprom",
+  "name": "Gazprom",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "RU",
+  "ids": {
+    "ticker": "GAZP",
+    "exchange": "RU"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "http://www.gazprominfo.de/terms/orenburg-helium-plant/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: makes Liquid helium (He-4)."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "http://www.gazprominfo.de/terms/orenburg-helium-plant/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: makes Liquid helium (He-4)."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000BV8964",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker GAZP"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "http://www.gazprominfo.de/terms/orenburg-helium-plant/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

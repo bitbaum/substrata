@@ -1,0 +1,10 @@
+{
+  "slug": "humanoids",
+  "name": "Humanoid robots",
+  "parent": "robotics",
+  "theme": "robotics",
+  "definition": "General-purpose bipedal or wheeled-biped robots built to work in human environments.",
+  "why": "The largest bet on general physical automation; volume depends on actuators, batteries and robot foundation models.",
+  "bottlenecks": [],
+  "keyNumbers": []
+}

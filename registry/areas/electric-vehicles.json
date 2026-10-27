@@ -1,0 +1,10 @@
+{
+  "slug": "electric-vehicles",
+  "name": "Electric vehicles",
+  "parent": "mobility",
+  "theme": "mobility",
+  "definition": "Makers of battery-electric vehicles and their drivetrains.",
+  "why": "They set battery, magnet and power-electronics volumes for the rest of the economy.",
+  "bottlenecks": [],
+  "keyNumbers": []
+}

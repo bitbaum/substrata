@@ -1,0 +1,96 @@
+{
+  "slug": "qinetiq-group",
+  "name": "QinetiQ Group Plc",
+  "aliases": ["Qinetiq Group PLC"],
+  "kind": "public",
+  "status": "active",
+  "country": "GB",
+  "ids": {
+    "ticker": "QQ/",
+    "exchange": "LN",
+    "sedol": "B0WMWD0",
+    "cusip": "G7303P106"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    },
+    {
+      "area": "defence-tech"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.39,QQ/ LN,QINETIQ GROUP PLC,B0WMWD0,6.880672716931501,\"3,697,469.00\",\"25,441,074.07\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "fund",
+      "detail": "Held by Global X Defense Tech ETF (SHLD, Global X): Defence & aerospace."
+    },
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "QinetiQ Group Plc QQ/.LN G7303P106 Industrials 1,733,940 $11,929,242.93 1.59%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Artificial Intelligence and Robotics ETF (ROBT, First Trust): Robotics & autonomy."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.39,QQ/ LN,QINETIQ GROUP PLC,B0WMWD0,6.880672716931501,\"3,697,469.00\",\"25,441,074.07\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$25 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 25441074
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "QinetiQ Group Plc QQ/.LN G7303P106 Industrials 1,733,940 $11,929,242.93 1.59%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$12 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 11929243
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.39,QQ/ LN,QINETIQ GROUP PLC,B0WMWD0,6.880672716931501,\"3,697,469.00\",\"25,441,074.07\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker QQ/"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.39,QQ/ LN,QINETIQ GROUP PLC,B0WMWD0,6.880672716931501,\"3,697,469.00\",\"25,441,074.07\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

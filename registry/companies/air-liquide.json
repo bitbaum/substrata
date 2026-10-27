@@ -1,0 +1,66 @@
+{
+  "slug": "air-liquide",
+  "name": "Air Liquide",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "FR",
+  "ids": {
+    "ticker": "AI",
+    "exchange": "FP"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://uk.airliquide.com/gases-and-products/neon",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Industrial and electronic gases."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://uk.airliquide.com/gases-and-products/neon",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Industrial and electronic gases."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000BLGLW1",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker AI"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://uk.airliquide.com/gases-and-products/neon",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

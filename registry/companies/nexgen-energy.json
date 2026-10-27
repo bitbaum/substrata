@@ -1,0 +1,68 @@
+{
+  "slug": "nexgen-energy",
+  "name": "Nexgen Energy Ltd",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "CA",
+  "ids": {
+    "ticker": "NXE",
+    "exchange": "CN",
+    "sedol": "B987K72"
+  },
+  "areas": [
+    {
+      "area": "nuclear-energy"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:nuclear-energy",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "6.36,NXE CN,NEXGEN ENERGY LTD,B987K72,8.31165128122495,\"36,615,350.00\",\"304,334,020.74\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "nuclear",
+      "basis": "fund",
+      "detail": "Held by Global X Uranium ETF (URA, Global X): Nuclear, SMRs & the fuel cycle."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "6.36,NXE CN,NEXGEN ENERGY LTD,B987K72,8.31165128122495,\"36,615,350.00\",\"304,334,020.74\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$304 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 304334021
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "6.36,NXE CN,NEXGEN ENERGY LTD,B987K72,8.31165128122495,\"36,615,350.00\",\"304,334,020.74\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker NXE"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "6.36,NXE CN,NEXGEN ENERGY LTD,B987K72,8.31165128122495,\"36,615,350.00\",\"304,334,020.74\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

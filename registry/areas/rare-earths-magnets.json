@@ -1,0 +1,14 @@
+{
+  "slug": "rare-earths-magnets",
+  "name": "Rare earths and magnets",
+  "parent": "advanced-materials",
+  "theme": "materials",
+  "definition": "Rare-earth mining, separation, metal and sintered-magnet makers.",
+  "why": "Permanent magnets power robot joints, vehicles and wind turbines; processing is concentrated in one country.",
+  "bottlenecks": [
+    "didymium-nd-pr-metal-magnet-feed",
+    "dysprosium-metal",
+    "rare-earth-magnet-sintering"
+  ],
+  "keyNumbers": []
+}

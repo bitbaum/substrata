@@ -1,0 +1,78 @@
+{
+  "slug": "siemens-energy",
+  "name": "Siemens Energy",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "DE",
+  "ids": {
+    "ticker": "ENR",
+    "exchange": "GR",
+    "cik": "1830056"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "stated",
+      "source": "https://www.siemens-energy.com/global/en/home/products-services/product-offerings/gas-turbines.html",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Grid equipment and turbines."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.siemens-energy.com/global/en/home/products-services/product-offerings/gas-turbines.html",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Grid equipment and turbines."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG00XLWSW57",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker ENR"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG00XLWSW57",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1830056"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.siemens-energy.com/global/en/home/products-services/product-offerings/gas-turbines.html",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

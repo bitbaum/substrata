@@ -1,0 +1,52 @@
+{
+  "slug": "engineered-fluids",
+  "name": "Engineered Fluids",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "country": "US",
+  "ids": {},
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://shop.engineeredfluids.com/products/ec-140",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: makes Two-phase dielectric immersion coolant."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://shop.engineeredfluids.com/products/ec-140",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: makes Two-phase dielectric immersion coolant."
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://shop.engineeredfluids.com/products/ec-140",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

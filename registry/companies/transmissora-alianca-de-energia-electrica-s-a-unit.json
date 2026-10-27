@@ -1,0 +1,68 @@
+{
+  "slug": "transmissora-alianca-de-energia-electrica-s-a-unit",
+  "name": "Transmissora Alianca de Energia Electrica S.A. (Unit)",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "BR",
+  "ids": {
+    "ticker": "TAEE11",
+    "exchange": "BZ",
+    "cusip": "P9T5CD126"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Transmissora Alianca de Energia Electrica S.A. (Unit) TAEE11.BZ P9T5CD126 Conventional Electricity 5,174,033 $38,766,122.59 0.35%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Transmissora Alianca de Energia Electrica S.A. (Unit) TAEE11.BZ P9T5CD126 Conventional Electricity 5,174,033 $38,766,122.59 0.35%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$39 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 38766123
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Transmissora Alianca de Energia Electrica S.A. (Unit) TAEE11.BZ P9T5CD126 Conventional Electricity 5,174,033 $38,766,122.59 0.35%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker TAEE11"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Transmissora Alianca de Energia Electrica S.A. (Unit) TAEE11.BZ P9T5CD126 Conventional Electricity 5,174,033 $38,766,122.59 0.35%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

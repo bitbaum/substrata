@@ -1,0 +1,68 @@
+{
+  "slug": "hyundai-engineering-const",
+  "name": "Hyundai Engineering & Const",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "KR",
+  "ids": {
+    "ticker": "000720",
+    "exchange": "KS",
+    "sedol": "6450988"
+  },
+  "areas": [
+    {
+      "area": "nuclear-energy"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:nuclear-energy",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "2.31,000720 KS,HYUNDAI ENGINEERING & CONST,6450988,68.5485394711966,\"1,613,265.00\",\"110,586,959.53\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "nuclear",
+      "basis": "fund",
+      "detail": "Held by Global X Uranium ETF (URA, Global X): Nuclear, SMRs & the fuel cycle."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "2.31,000720 KS,HYUNDAI ENGINEERING & CONST,6450988,68.5485394711966,\"1,613,265.00\",\"110,586,959.53\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$111 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 110586960
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "2.31,000720 KS,HYUNDAI ENGINEERING & CONST,6450988,68.5485394711966,\"1,613,265.00\",\"110,586,959.53\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 000720"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "2.31,000720 KS,HYUNDAI ENGINEERING & CONST,6450988,68.5485394711966,\"1,613,265.00\",\"110,586,959.53\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

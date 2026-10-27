@@ -1,0 +1,10 @@
+{
+  "slug": "networking-interconnect",
+  "name": "Networking and interconnect",
+  "parent": "compute-semiconductors",
+  "theme": "compute",
+  "definition": "Switches, NICs, retimers, cables and optics that tie accelerators into clusters.",
+  "why": "Training clusters are limited as much by bandwidth between chips as by chips.",
+  "bottlenecks": [],
+  "keyNumbers": []
+}

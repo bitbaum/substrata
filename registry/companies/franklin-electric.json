@@ -1,0 +1,79 @@
+{
+  "slug": "franklin-electric",
+  "name": "Franklin Electric Co Inc",
+  "aliases": ["Franklin Electric Co., Inc."],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "cik": "38725",
+    "ticker": "FELE",
+    "exchange": "US"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3621&type=10-K&dateb=&owner=include&start=0&count=100",
+      "quote": "0000038725 FRANKLIN ELECTRIC CO INC IN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3621 (Motors & generators): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0000038725-26-000009\",\"cik\":38725,\"entityName\":\"FRANKLIN ELECTRIC CO., INC.\",\"loc\":\"US-IN\",\"end\":\"2025-06-30\",\"val\":3941700813}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$3.9 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 3941700813
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[38725,\"FRANKLIN ELECTRIC CO INC\",\"FELE\",\"Nasdaq\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker FELE"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0000038725-26-000009\",\"cik\":38725,\"entityName\":\"FRANKLIN ELECTRIC CO., INC.\",\"loc\":\"US-IN\",\"end\":\"2025-06-30\",\"val\":3941700813}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 38725"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[38725,\"FRANKLIN ELECTRIC CO INC\",\"FELE\",\"Nasdaq\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

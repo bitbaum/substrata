@@ -1,0 +1,10 @@
+{
+  "slug": "nuclear-fuel-cycle",
+  "name": "Nuclear fuel cycle",
+  "parent": "nuclear-energy",
+  "theme": "nuclear",
+  "definition": "Mining, conversion, enrichment and fuel fabrication.",
+  "why": "Enrichment and conversion are concentrated in a few states and firms.",
+  "bottlenecks": ["uranium-conversion-and-enrichment"],
+  "keyNumbers": []
+}

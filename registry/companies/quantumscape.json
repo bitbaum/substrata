@@ -1,0 +1,80 @@
+{
+  "slug": "quantumscape",
+  "name": "QuantumScape Corp",
+  "aliases": ["Quantumscape Corp", "Quantumscape Corporation"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "QS",
+    "exchange": "US",
+    "sedol": "BMC73Z8",
+    "cik": "1811414"
+  },
+  "areas": [
+    {
+      "area": "mobility"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "0.79,QS,QUANTUMSCAPE CORP,BMC73Z8,3.9,\"639,467.00\",\"2,493,921.30\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "fund",
+      "detail": "Held by Global X Autonomous & Electric Vehicles ETF (DRIV, Global X): Electric mobility."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-071556\",\"cik\":1811414,\"entityName\":\"QUANTUMSCAPE CORPORATION\",\"loc\":\"US-CA\",\"end\":\"2025-06-30\",\"val\":3000000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$3.0 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 3000000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "0.79,QS,QUANTUMSCAPE CORP,BMC73Z8,3.9,\"639,467.00\",\"2,493,921.30\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker QS"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-071556\",\"cik\":1811414,\"entityName\":\"QUANTUMSCAPE CORPORATION\",\"loc\":\"US-CA\",\"end\":\"2025-06-30\",\"val\":3000000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1811414"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "0.79,QS,QUANTUMSCAPE CORP,BMC73Z8,3.9,\"639,467.00\",\"2,493,921.30\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

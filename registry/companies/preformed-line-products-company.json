@@ -1,0 +1,105 @@
+{
+  "slug": "preformed-line-products-company",
+  "name": "Preformed Line Products Company",
+  "aliases": ["Preformed Line Products Co"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "lei": "549300EYH53XDJID2098",
+    "isin": "US7404441047",
+    "cik": "80035",
+    "ticker": "PLPC",
+    "exchange": "US",
+    "cusip": "740444104"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Preformed Line Products Company PLPC 740444104 Electrical Components 23,489 $7,867,405.66 0.07%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0000080035-26-000007\",\"cik\":80035,\"entityName\":\"Preformed Line Products Company\",\"loc\":\"US-OH\",\"end\":\"2025-06-30\",\"val\":402619401}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$403 million public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 402619401
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Preformed Line Products Company PLPC 740444104 Electrical Components 23,489 $7,867,405.66 0.07%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$7.9 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 7867406
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Preformed Line Products Company PLPC 740444104 Electrical Components 23,489 $7,867,405.66 0.07%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker PLPC"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0000080035-26-000007\",\"cik\":80035,\"entityName\":\"Preformed Line Products Company\",\"loc\":\"US-OH\",\"end\":\"2025-06-30\",\"val\":402619401}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 80035"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US7404441047",
+      "quote": "\"lei\":\"549300EYH53XDJID2098\",\"entity\":{\"legalName\":{\"name\":\"PREFORMED LINE PRODUCTS COMPANY\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 549300EYH53XDJID2098"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US7404441047",
+      "quote": "\"lei\":\"549300EYH53XDJID2098\",\"entity\":{\"legalName\":{\"name\":\"PREFORMED LINE PRODUCTS COMPANY\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}
