@@ -164,7 +164,8 @@ export default async function ParticipantPage({ params }: RouteParams) {
             id: 'chain-role',
             title: 'Role in the chain',
             importance: COMPANY_SECTION_IMPORTANCE['chain-role'],
-            evidence: 'what it rests on, holds and constrains, its grade and where its role is cited',
+            evidence:
+              'what it rests on, holds and constrains, its grade and where its role is cited',
             node: (
               <>
                 <ChainRole p={p} profile={profile} />
