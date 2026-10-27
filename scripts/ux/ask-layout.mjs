@@ -27,8 +27,10 @@
  *     token, so a stand-in launcher obeys the widget's documented host
  *     contract (loki widget/host-scan.ts readPlaceDirective: <html>, then
  *     every rendered [data-fc-place], the last one wins);
- *   - /chat's composer is not the panel's: a kicker over the box, a
- *     paperclip, or a different set of controls;
+ *   - /chat's composer is not the panel's: a kicker over the box, no "+"
+ *     to add a screenshot, or a different set of controls;
+ *   - on /chat a picked screenshot does not show as a thumbnail with its
+ *     Remove, or the page then scrolls sideways (screenshot attach-*.png);
  *   - the answer's table (the Kazakh uranium rows, fixtures/) does not draw,
  *     does not show eight rows and then all on "Show all", scrolls sideways
  *     once opened, is not cards on a phone, cuts a word, or has a control
@@ -66,6 +68,11 @@ const TABLE = JSON.parse(
   readFileSync(new URL('./fixtures/kz-uranium-table.json', import.meta.url), 'utf8'),
 );
 const QUESTION = 'Who makes EUV scanners, and who supplies the light source?';
+/** A one-pixel PNG: what a picked screenshot is to the composer. */
+const PNG_1PX = Buffer.from(
+  'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==',
+  'base64',
+);
 
 const CHART = {
   type: 'chart',
@@ -313,7 +320,9 @@ for (const [width, scheme] of [320, 390, 1440].flatMap((w) => [
       replies,
       quickRepliesHeading: /Quick replies/i.test(sheet.textContent ?? ''),
       modelLabel: /Model:/.test(sheet.querySelector('.ck-composer')?.textContent ?? ''),
-      paperclip: Boolean(sheet.querySelector('.ck-composer [aria-label*="ttach"]')),
+      paperclip: Boolean(
+        sheet.querySelector('.ck-composer [aria-label="Add a screenshot or a file"]'),
+      ),
       messages: [...sheet.querySelectorAll('.ck-turn')].map((t) =>
         (t.textContent ?? '').replace(/\s+/g, ' ').trim().slice(0, 120),
       ),
@@ -336,7 +345,7 @@ for (const [width, scheme] of [320, 390, 1440].flatMap((w) => [
   if (facts.replies.some((n) => n === 0)) fail(width, 'a replies row drawn with nothing in it');
   if (facts.quickRepliesHeading) fail(width, 'a "Quick replies" heading');
   if (facts.modelLabel) fail(width, 'a model label in the composer');
-  if (facts.paperclip) fail(width, 'a paperclip in the panel composer');
+  if (!facts.paperclip) fail(width, 'no "+" to add a screenshot in the panel composer');
   for (const w of facts.broken) fail(width, `word broken across lines: "${w}"`);
   if (facts.messages.length < 2) fail(width, `only ${facts.messages.length} turns drawn`);
 
@@ -439,6 +448,23 @@ for (const [width, scheme] of [320, 390, 1440].flatMap((w) => [
       );
   }
   await page.screenshot({ path: join(values.out, `chat-${width}-${scheme}.png`) });
+
+  // A screenshot picked into /chat's box: a thumbnail with its Remove, nothing sideways.
+  const photos = page.locator('.ck-composer input[type=file][accept="image/*"]').first();
+  if (!(await photos.count())) fail(width, 'no Photos input in /chat’s composer');
+  else {
+    await photos.setInputFiles({ name: 'post.png', mimeType: 'image/png', buffer: PNG_1PX });
+    const thumb = page.locator('.ck-composer img').first();
+    await thumb
+      .waitFor({ timeout: 5_000 })
+      .catch(() => fail(width, 'no thumbnail for the picked screenshot'));
+    if (!(await page.locator('.ck-composer [aria-label*="Remove"]').count()))
+      fail(width, 'the thumbnail has no Remove');
+    const sideways = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
+    if (sideways > 0) fail(width, `/chat with a thumbnail scrolls sideways by ${sideways}px`);
+    await page.screenshot({ path: join(values.out, `attach-${width}-${scheme}.png`) });
+  }
+
   await context.close();
 }
 await browser.close();

@@ -1,15 +1,21 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { AnswerFeedback } from '@bitbaum/chatkit';
 import { QUESTION_LENGTH } from '@/config/substrata-chat';
+import { fromWire, type WireAttachment } from '@/lib/chat/image';
 import type { ThreadHandoff } from '@/lib/ask-thread';
-import type { LiveAnswer, StreamEvent, Turn, VerifyInput } from './types';
+import { readAnswerStream } from './stream';
+import type { LiveAnswer, Turn, VerifyInput } from './types';
+
+/** What a question was sent with, for the history the server sees: its words and what was read off it. */
+const historyText = (t: Turn) =>
+  (t.material ? `${t.content}\n\n${t.material}` : t.content).slice(0, 4000);
 
 /**
- * The conversation: its turns, the answer being streamed, and the two POSTs
- * that change it (a question, a contribution). `busy`, `error` and `receipt`
- * are shared by both, so they live here together.
+ * The conversation: its turns, the answer being streamed, the messages
+ * queued behind it, and the two POSTs that change it (a question, a
+ * contribution). `busy`, `error` and `receipt` are shared by both.
  */
 export function useChatSession({
   topic,
@@ -24,40 +30,47 @@ export function useChatSession({
   keyFields: () => Record<string, unknown>;
 }) {
   const [turns, setTurns] = useState<Turn[]>([]);
-  const [draft, setDraft] = useState('');
   const [busy, setBusy] = useState(false);
-  // The answer while it is being written: what it has looked up so far, and
-  // the text as it arrives.
   const [live, setLive] = useState<LiveAnswer | null>(null);
   const [error, setError] = useState('');
   const [receipt, setReceipt] = useState('');
   const [contribute, setContribute] = useState(false);
+  // Messages sent while a turn runs (chatkit `queue`): sent, in order, when it ends.
+  const queue = useRef<{ text: string; attachments: WireAttachment[] }[]>([]);
+  // The thread as it stands, for a queued message sent after a turn ends.
+  const latest = useRef<Turn[]>(turns);
+  useEffect(() => {
+    latest.current = turns;
+  }, [turns]);
   const abortRef = useRef<AbortController | null>(null);
-  // One id per thread, minted here and sent with every question, so the
-  // server's review log can keep the turns of one conversation together.
+  // One id per thread, sent with every question, so the server's review log
+  // can keep the turns of one conversation together.
   const conversationId = useRef<string | null>(null);
   if (conversationId.current === null) conversationId.current = crypto.randomUUID();
 
   /**
-   * Ask a question — or, with `verify`, check a claim: the server reads the
-   * cited source and searches the web before the model answers with a verdict.
-   */
-  /**
+   * Ask a question — with attachments, or, with `verify`, check a claim.
    * Resolves false when the question was not sent, so the composer keeps the
-   * draft: it clears after any other result, and a refused short question
-   * used to vanish from the box without a word.
+   * draft (and its attachments) rather than dropping them without a word.
    */
   async function ask(
     question: string,
     verify?: VerifyInput,
     before: Turn[] = turns,
+    attachments: WireAttachment[] = [],
   ): Promise<boolean> {
     const text = question.trim();
-    if (text.length < QUESTION_LENGTH.min || busy) return false;
+    if (text.length < QUESTION_LENGTH.min) return false;
+    if (busy) {
+      if (verify) return false;
+      queue.current.push({ text, attachments });
+      return true;
+    }
     if (text.length > QUESTION_LENGTH.max) {
       setError(`That is over ${QUESTION_LENGTH.max.toLocaleString('en')} characters — shorten it.`);
       return false;
     }
+    const files = fromWire(attachments);
     abortRef.current?.abort();
     const abort = new AbortController();
     abortRef.current = abort;
@@ -65,9 +78,14 @@ export function useChatSession({
     setError('');
     setReceipt('');
     const messageId = crypto.randomUUID();
+    const userTurn: Turn = {
+      id: crypto.randomUUID(),
+      role: 'user',
+      content: text,
+      ...(files.names.length ? { attachments: files.names } : {}),
+    };
     const startedAt = Date.now();
-    setTurns([...before, { id: crypto.randomUUID(), role: 'user', content: text }]);
-    setDraft('');
+    setTurns([...before, userTurn]);
     setLive({
       steps: [],
       text: '',
@@ -75,9 +93,10 @@ export function useChatSession({
         ? verify.source
           ? 'Reading the cited source…'
           : 'Checking the claim…'
-        : 'Reading the question…',
+        : files.images.length
+          ? 'Reading your screenshot…'
+          : 'Reading the question…',
     });
-    const history = [...before, { role: 'user' as const, content: text }].slice(-8);
     try {
       const response = await fetch('/api/chat', {
         method: 'POST',
@@ -88,9 +107,11 @@ export function useChatSession({
           messageId,
           // Ignored server-side when a key is active (it names its own model).
           model,
-          history: history.slice(0, -1).map((t) => ({ role: t.role, content: t.content })),
+          history: before.slice(-7).map((t) => ({ role: t.role, content: historyText(t) })),
           onPath,
           topic: topic || undefined,
+          ...(files.images.length ? { images: files.images } : {}),
+          ...(files.attached ? { attached: files.attached } : {}),
           ...(verify ? { verify } : {}),
           ...keyFields(),
         }),
@@ -100,54 +121,25 @@ export function useChatSession({
         const result = await response.json().catch(() => ({}));
         throw new Error(result.error || 'Request failed. Please retry.');
       }
-      const reader = response.body?.getReader();
-      if (!reader) throw new Error('No response body.');
-      const decoder = new TextDecoder();
-      let buffer = '';
-      while (true) {
-        const { value, done } = await reader.read();
-        if (done) break;
-        buffer += decoder.decode(value, { stream: true });
-        const lines = buffer.split('\n');
-        buffer = lines.pop() ?? '';
-        for (const line of lines) {
-          if (!line.trim()) continue;
-          const event = JSON.parse(line) as StreamEvent;
-          if (event.type === 'error') throw new Error(event.error || 'Unavailable.');
-          if (event.type === 'status') setLive((l) => l && { ...l, status: event.text });
-          if (event.type === 'tool')
-            setLive((l) => l && { ...l, steps: [...l.steps, event.label], status: event.label });
-          if (event.type === 'delta') setLive((l) => l && { ...l, text: l.text + event.text });
-          // The model decided to look something up after all: what it had
-          // started writing is withdrawn rather than left as an answer.
-          if (event.type === 'reset') setLive((l) => l && { ...l, text: '' });
-          if (event.type === 'done') {
-            // Every field, not two of them — `web` was once dropped here, and
-            // an answer citing a passage the reader could not see went out.
-            const data = event.data;
-            setTurns((prev) => [
-              ...prev,
-              {
-                id: messageId,
-                role: 'assistant',
-                content: data.answer,
-                sources: data.sources,
-                web: data.web,
-                leads: data.leads,
-                tables: data.tables,
-                charts: data.charts,
-                followUps: data.followUps,
-                trail: data.trail,
-                outside: data.outside,
-                degraded: data.degraded,
-                verdict: data.verdict,
-                replies: data.replies,
-                durationMs: Date.now() - startedAt,
-              },
-            ]);
-            setLive(null);
-          }
-        }
+      const data = await readAnswerStream(response, {
+        status: (s) => setLive((l) => l && { ...l, status: s }),
+        tool: (label) => setLive((l) => l && { ...l, steps: [...l.steps, label], status: label }),
+        delta: (t) => setLive((l) => l && { ...l, text: l.text + t }),
+        reset: () => setLive((l) => l && { ...l, text: '' }),
+      });
+      if (data) {
+        const { answer, material, ...rest } = data;
+        setTurns((prev) => [
+          // What was read off a screenshot travels with the question it came with.
+          ...prev.map((t) => (t.id === userTurn.id && material ? { ...t, material } : t)),
+          {
+            id: messageId,
+            role: 'assistant',
+            content: answer,
+            ...rest,
+            durationMs: Date.now() - startedAt,
+          },
+        ]);
       }
     } catch (e) {
       if ((e as Error).name === 'AbortError') return true;
@@ -159,12 +151,21 @@ export function useChatSession({
     return true;
   }
 
+  // The turn ended: the next queued message goes, from the thread as it now stands.
+  useEffect(() => {
+    const next = busy ? undefined : queue.current.shift();
+    if (next) void ask(next.text, undefined, latest.current, next.attachments);
+    // `ask` is a fresh closure each render; the end of a turn is the trigger.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [busy]);
+
   function stop() {
     abortRef.current?.abort();
+    queue.current = [];
   }
 
   /** Continue a thread handed over from the panel (Expand): its turns and its id. */
-  function restore(handoff: ThreadHandoff) {
+  function restore(handoff: Pick<ThreadHandoff, 'conversationId' | 'turns'>) {
     conversationId.current = handoff.conversationId;
     setTurns(handoff.turns);
     setError('');
@@ -174,14 +175,12 @@ export function useChatSession({
   function retry() {
     const lastUser = [...turns].reverse().find((t) => t.role === 'user');
     if (!lastUser || busy) return;
-    // Everything before that question stays; its answer (or failure) goes.
     void ask(lastUser.content, undefined, turns.slice(0, turns.lastIndexOf(lastUser)));
   }
 
   async function sendContribution(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
-    const message = String(form.get('message') ?? '');
     setBusy(true);
     setError('');
     try {
@@ -189,7 +188,7 @@ export function useChatSession({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          message,
+          message: String(form.get('message') ?? ''),
           topic,
           replyTo: form.get('replyTo'),
           creditName: form.get('creditName'),
@@ -222,8 +221,6 @@ export function useChatSession({
     /** One id per thread; a handoff to /chat carries it so the log continues. */
     conversationIdNow: () => conversationId.current ?? '',
     turns,
-    draft,
-    setDraft,
     busy,
     live,
     error,

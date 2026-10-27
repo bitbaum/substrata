@@ -3,13 +3,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import {
-  ChatScreen,
-  ChatStarters,
-  ChatThread,
-  Composer,
-  type ChatMessageData,
-} from '@bitbaum/chatkit/react';
+import { ChatScreen, ChatStarters, ChatThread, type ChatMessageData } from '@bitbaum/chatkit/react';
 import { HOME_LINK } from '@/config/site-nav';
 import { answerRow } from '@/lib/ask-row';
 import { webCitations } from '@/lib/chat/web-citations';
@@ -18,6 +12,7 @@ import type { CheckRequest } from '@/lib/ask-bridge';
 import { useAiKey } from './ai-key/useAiKey';
 import { AskPanel } from './AskPanel';
 import { AnswerFooter } from './chat/AnswerFooter';
+import { AskComposer } from './chat/AskComposer';
 import { AskTools } from './chat/AskTools';
 import { chartRenderers } from './chat/chartRenderers';
 import { ComposerBeside } from './chat/ComposerBeside';
@@ -101,7 +96,13 @@ export function ResearchChat({
     id: t.id,
     role: t.role,
     // A web page the answer cites is a source chip linked to the page (lib/chat/web-citations.ts).
-    ...webCitations(t.content, t.role === 'assistant' ? t.web : undefined),
+    // A question's attachments are named under it (pictures are never kept).
+    ...webCitations(
+      t.role === 'user' && t.attachments?.length
+        ? `${t.content}\n\nAttached: ${t.attachments.join(', ')}`
+        : t.content,
+      t.role === 'assistant' ? t.web : undefined,
+    ),
     // ONE row under the latest answer: the model's suggested replies first,
     // then the questions built from the records it read (`lib/ask-row.ts`).
     // chatkit shows it under the latest answer only, never while a turn runs,
@@ -173,7 +174,7 @@ export function ResearchChat({
           )}
           <p>
             Answers say which claims are sourced and which are judgement, and link every record they
-            read.
+            read. Add a screenshot of a post with + and its claims are checked one by one.
           </p>
           <ChatStarters
             starters={starters.map((s) => ({ label: s.label, prompt: s.question }))}
@@ -184,27 +185,18 @@ export function ResearchChat({
     />
   );
 
-  // chatkit's composer, ONE configuration on the panel and on /chat (one
-  // shape per kind): microphone and send, the key chip only when a key is
-  // set, and no label over the box — the placeholder says what it is for.
-  // /chat once carried an "Ask a question" kicker and a paperclip the panel
-  // did not, so Expand landed on a different box (2026-10-23). No paperclip
-  // on either: /api/chat takes a question of at most QUESTION_LENGTH.max
-  // characters and no files, so an attached file was only pasted text that a
-  // long file pushed past the limit into a refusal.
+  // THE composer (chat/AskComposer.tsx), one configuration on the home page,
+  // the panel and /chat: "+" for Camera · Photos · Files, microphone, send, a
+  // message queued while a turn runs. /api/chat reads pictures since
+  // 2026-10-27 (owner: "there was no way for me to attach the screenshots"):
+  // a screenshot is read by a model that can see, and its claims checked
+  // (lib/chat-agent/claim-check.ts).
   const composer = (
-    <Composer
+    <AskComposer
       inputRef={inputRef}
-      ariaLabel="Ask about a bottleneck, a company, a country, a rule…"
-      // Returned, not dropped: a question that was not sent stays in the box.
-      onSend={(text) => chat.ask(text)}
-      placeholder="Ask about a bottleneck, a company, a country, a rule…"
+      onSend={(text, attachments) => chat.ask(text, undefined, chat.turns, attachments)}
       sending={chat.busy}
       onStop={chat.stop}
-      density="compact"
-      voice={{ transcribeUrl: '/api/transcribe' }}
-      attach={false}
-      labels={{ send: 'Ask' }}
       tools={<AskTools keys={keys} keyOpen={keyOpen} onToggleKey={toggleKey} />}
     />
   );

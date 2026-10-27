@@ -19,7 +19,7 @@ export type AgentEvent =
   | { type: 'delta'; text: string }
   | { type: 'reset' }
   | { type: 'done'; data: AgentAnswer }
-  | { type: 'error'; error: string; kind?: 'budget' | 'byok' | 'unavailable' };
+  | { type: 'error'; error: string; kind?: 'budget' | 'byok' | 'unavailable' | 'blind' };
 
 export interface AgentAnswer {
   answer: string;
@@ -41,6 +41,8 @@ export interface AgentAnswer {
   verdict?: Verdict;
   /** What the reader is likely to say next, written by the model (chatkit). */
   replies?: string[];
+  /** Claim check: the reader's screenshot or post as read, kept for the next turn's history. */
+  material?: string;
   /**
    * Milliseconds from the request to the first visible text and to the end;
    * how many model calls it took and how many lookups were planned before them.

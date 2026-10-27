@@ -872,5 +872,27 @@
     "route": "web",
     "analysis": true,
     "note": "Research mode (docs/architecture/2026-10-25-research-mode.md); whole runs with a fake web and model are in test/research-run.test.ts."
+  },
+  {
+    "id": "screenshot-neocloud-post",
+    "facet": "screenshot",
+    "question": "what's your take on it??",
+    "mustMention": [],
+    "expectedTools": [],
+    "expectedHits": [],
+    "screenshot": "test/fixtures/screenshot-neocloud.json",
+    "material": "image",
+    "note": "A screenshot of a post (owner, 2026-10-27). Whole run with a fake vision model and a fake web in test/claim-check.test.ts: bottom line first, one status per claim, no unverified claim stated as fact."
+  },
+  {
+    "id": "pasted-neocloud-post",
+    "facet": "screenshot",
+    "question": "what's your take on it??",
+    "mustMention": [],
+    "expectedTools": [],
+    "expectedHits": [],
+    "screenshot": "test/fixtures/screenshot-neocloud.json",
+    "material": "paste",
+    "note": "The same post pasted as text: the same claim check, with no vision model needed."
   }
 ]

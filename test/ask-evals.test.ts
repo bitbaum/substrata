@@ -129,6 +129,10 @@ interface EvalRow {
   analysis?: boolean;
   subQuestions?: string[];
   note?: string;
+  /** Claim check: a fixture (test/fixtures/) whose whole run test/claim-check.test.ts grades. */
+  screenshot?: string;
+  /** How the material arrives: a picture (vision model) or pasted text. */
+  material?: 'image' | 'paste';
   /** Marked general knowledge: kept without a figure, dropped with one. */
   background?: { kept: string; dropped: string };
 }
@@ -158,7 +162,7 @@ function leadClause(line: string): string {
 }
 
 test('the eval set is the one the ADR names', () => {
-  assert.equal(EVALS.length, 64);
+  assert.equal(EVALS.length, 66);
   assert.equal(EVALS.filter((r) => r.route === 'web').length, 11, 'eleven open-web questions');
   assert.equal(EVALS.filter((r) => r.analysis).length, 5, 'five research-mode questions');
   assert.equal(EVALS.filter((r) => r.wall === false).length, 28, 'twenty-eight no-wall questions');
