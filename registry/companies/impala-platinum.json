@@ -6,12 +6,18 @@
   "status": "active",
   "country": "ZA",
   "ids": {
+    "qid": "Q620398",
+    "isin": "ZAE000083648",
     "ticker": "IMP",
-    "exchange": "SJ"
+    "exchange": "SJ",
+    "domain": "implats.co.za"
   },
   "areas": [
     {
       "area": "advanced-materials"
+    },
+    {
+      "area": "critical-minerals"
     }
   ],
   "evidence": [
@@ -57,10 +63,52 @@
       "readOn": "",
       "asOf": "",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Impala_Platinum",
+      "quote": "Impala Platinum Holdings Limited or Implats is a South African holding company that owns several companies which operate mines that produce platinum and platinum group metals, as well as nickel, copper and cobalt.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q620398",
+      "quote": "Impala Platinum (Q620398) — Wikidata item: Q620398",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Impala_Platinum",
+      "quote": "Impala Platinum Holdings Limited or Implats is a South African holding company that owns several companies which operate mines that produce platinum and platinum group metals, as well as nickel, copper and cobalt.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q620398",
+      "quote": "Impala Platinum (Q620398) — headquarters location: Johannesburg",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q620398",
+      "quote": "Impala Platinum (Q620398) — official website: implats.co.za",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Impala Platinum Holdings Limited or Implats is a South African holding company that owns several companies which operate mines that produce platinum and platinum group metals, as well as nickel, copper and cobalt.",
+  "hq": "Johannesburg"
 }

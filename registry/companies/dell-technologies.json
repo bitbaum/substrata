@@ -6,17 +6,21 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q27500963",
+    "cik": "1571996",
     "lei": "549300TJB5YBRUPOG437",
     "isin": "US24703L2025",
-    "cik": "1571996",
-    "qid": "Q27500963",
     "ticker": "DELL",
     "exchange": "US",
-    "cusip": "24703L202"
+    "cusip": "24703L202",
+    "domain": "delltechnologies.com"
   },
   "areas": [
     {
       "area": "frontier-ai"
+    },
+    {
+      "area": "ai-cloud-platforms"
     }
   ],
   "evidence": [
@@ -120,10 +124,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Dell_Technologies",
+      "quote": "Dell Technologies Inc. is an American multinational technology company that has been headquartered in Round Rock, Texas, since 1994.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Dell_Technologies",
+      "quote": "Dell Technologies Inc. is an American multinational technology company that has been headquartered in Round Rock, Texas, since 1994.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q27500963",
+      "quote": "Dell Technologies (Q27500963) — headquarters location: Round Rock",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q27500963",
+      "quote": "Dell Technologies (Q27500963) — official website: delltechnologies.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Dell Technologies Inc. is an American multinational technology company that has been headquartered in Round Rock, Texas, since 1994.",
+  "hq": "Round Rock"
 }

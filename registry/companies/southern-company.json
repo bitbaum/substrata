@@ -1,0 +1,94 @@
+{
+  "slug": "southern-company",
+  "name": "Southern Company",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q2304693",
+    "isin": "US8425871071",
+    "domain": "southerncompany.com",
+    "cik": "92122",
+    "lei": "549300FC3G3YU2FBZD92"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Southern_Company",
+      "quote": "Southern Company is an American gas and electric utility holding company based in the Southern United States.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2304693",
+      "quote": "Southern Company (Q2304693) — Wikidata item: Q2304693",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:power-storage-grid",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Southern_Company",
+      "quote": "Southern Company is an American gas and electric utility holding company based in the Southern United States.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2304693",
+      "quote": "Southern Company (Q2304693) — headquarters location: Atlanta",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2304693",
+      "quote": "Southern Company (Q2304693) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2304693",
+      "quote": "Southern Company (Q2304693) — official website: southerncompany.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2304693",
+      "quote": "Southern Company (Q2304693) — SEC Central Index Key: 92122",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2304693",
+      "quote": "Southern Company (Q2304693) — Legal Entity Identifier: 549300FC3G3YU2FBZD92",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Southern Company is an American gas and electric utility holding company based in the Southern United States.",
+  "hq": "Atlanta",
+  "country": "US"
+}

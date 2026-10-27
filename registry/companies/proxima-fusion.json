@@ -1,0 +1,75 @@
+{
+  "slug": "proxima-fusion",
+  "name": "Proxima Fusion",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q123422387",
+    "domain": "proximafusion.com"
+  },
+  "areas": [
+    {
+      "area": "fusion"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Proxima_Fusion",
+      "quote": "Proxima Fusion is a European fusion energy company founded in 2023 in Munich, Germany, as the first research spin-off from the Max Planck Institute for Plasma Physics.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q123422387",
+      "quote": "Proxima Fusion GmbH (Q123422387) — Wikidata item: Q123422387",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:fusion",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Proxima_Fusion",
+      "quote": "Proxima Fusion is a European fusion energy company founded in 2023 in Munich, Germany, as the first research spin-off from the Max Planck Institute for Plasma Physics.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q123422387",
+      "quote": "Proxima Fusion GmbH (Q123422387) — headquarters location: Munich",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q123422387",
+      "quote": "Proxima Fusion GmbH (Q123422387) — country (ISO 3166-1 alpha-2): DE",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q123422387",
+      "quote": "Proxima Fusion GmbH (Q123422387) — official website: proximafusion.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Proxima Fusion is a European fusion energy company founded in 2023 in Munich, Germany, as the first research spin-off from the Max Planck Institute for Plasma Physics.",
+  "hq": "Munich",
+  "country": "DE"
+}

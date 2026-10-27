@@ -1,0 +1,77 @@
+{
+  "slug": "perplexity-ai",
+  "name": "Perplexity AI",
+  "aliases": [],
+  "kind": "lab",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q124333951",
+    "domain": "perplexity.ai"
+  },
+  "areas": [
+    {
+      "area": "ai-software-tooling"
+    },
+    {
+      "area": "frontier-labs"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q124333951",
+      "quote": "Perplexity AI (Q124333951) — Wikidata item: Q124333951",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Perplexity_AI",
+      "quote": ", or simply Perplexity, is an American privately held software company offering a web search engine that processes user queries and synthesizes responses.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:frontier-labs",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Perplexity_AI",
+      "quote": ", or simply Perplexity, is an American privately held software company offering a web search engine that processes user queries and synthesizes responses.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q124333951",
+      "quote": "Perplexity AI (Q124333951) — headquarters location: San Francisco",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q124333951",
+      "quote": "Perplexity AI (Q124333951) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q124333951",
+      "quote": "Perplexity AI (Q124333951) — official website: perplexity.ai",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "hq": "San Francisco",
+  "country": "US"
+}

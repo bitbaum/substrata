@@ -12,14 +12,15 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q919300",
+    "cik": "1368622",
     "lei": "529900PGHVI29YLZ6221",
     "isin": "US0080731088",
     "ticker": "AVAV",
     "exchange": "US",
     "cusip": "008073108",
     "sedol": "B1P5YY8",
-    "cik": "1368622",
-    "qid": "Q919300"
+    "domain": "avinc.com"
   },
   "areas": [
     {
@@ -27,6 +28,9 @@
     },
     {
       "area": "defence-tech"
+    },
+    {
+      "area": "defence-autonomy"
     }
   ],
   "evidence": [
@@ -190,10 +194,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/AeroVironment",
+      "quote": ", also known as AV, is an American defense technology company headquartered in Arlington, Virginia that designs and manufactures autonomous systems, counter-UAS systems, and space systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:defence-autonomy",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/AeroVironment",
+      "quote": ", also known as AV, is an American defense technology company headquartered in Arlington, Virginia that designs and manufactures autonomous systems, counter-UAS systems, and space systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q919300",
+      "quote": "AeroVironment (Q919300) — headquarters location: Simi Valley",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q919300",
+      "quote": "AeroVironment (Q919300) — official website: avinc.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": ", also known as AV, is an American defense technology company headquartered in Arlington, Virginia that designs and manufactures autonomous systems, counter-UAS systems, and space systems.",
+  "hq": "Simi Valley"
 }

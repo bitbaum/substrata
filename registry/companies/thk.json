@@ -1,0 +1,66 @@
+{
+  "slug": "thk",
+  "name": "THK",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q965361",
+    "domain": "thk.com"
+  },
+  "areas": [
+    {
+      "area": "actuators"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q965361",
+      "quote": "THK (Q965361) — Wikidata item: Q965361",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:actuators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/THK_Co.%2C_Ltd.",
+      "quote": ", Ltd. is a Japanese company that offers machine elements and modules in the field of mechanical engineering, robotics and automation.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q965361",
+      "quote": "THK (Q965361) — headquarters location: Tokyo",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q965361",
+      "quote": "THK (Q965361) — country (ISO 3166-1 alpha-2): JP",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q965361",
+      "quote": "THK (Q965361) — official website: thk.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "hq": "Tokyo",
+  "country": "JP"
+}

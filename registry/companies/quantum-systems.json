@@ -1,0 +1,75 @@
+{
+  "slug": "quantum-systems",
+  "name": "Quantum Systems",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q106298593",
+    "domain": "quantum-systems.com"
+  },
+  "areas": [
+    {
+      "area": "defence-autonomy"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Quantum_Systems",
+      "quote": "Quantum-Systems GmbH is a German technology company headquartered in Gilching, founded in 2015.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q106298593",
+      "quote": "Quantum-Systems (Q106298593) — Wikidata item: Q106298593",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:defence-autonomy",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Quantum_Systems",
+      "quote": "Quantum-Systems GmbH is a German technology company headquartered in Gilching, founded in 2015.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q106298593",
+      "quote": "Quantum-Systems (Q106298593) — headquarters location: Gilching",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q106298593",
+      "quote": "Quantum-Systems (Q106298593) — country (ISO 3166-1 alpha-2): DE",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q106298593",
+      "quote": "Quantum-Systems (Q106298593) — official website: quantum-systems.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Quantum-Systems GmbH is a German technology company headquartered in Gilching, founded in 2015.",
+  "hq": "Gilching",
+  "country": "DE"
+}

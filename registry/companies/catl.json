@@ -1,0 +1,78 @@
+{
+  "slug": "catl",
+  "name": "CATL",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q18653563",
+    "isin": "CNE100003662",
+    "domain": "catl.com"
+  },
+  "areas": [
+    {
+      "area": "energy-storage"
+    },
+    {
+      "area": "robot-batteries"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q18653563",
+      "quote": "Contemporary Amperex Technology Co. Limited (Q18653563) — Wikidata item: Q18653563",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:energy-storage",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/CATL",
+      "quote": ", Limited, (CATL) is a Chinese battery manufacturer and technology company founded in 2011 that specializes in the manufacturing of lithium-ion batteries for electric vehicles and energy storage systems, as well as battery management systems (BMS).",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:robot-batteries",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/CATL",
+      "quote": ", Limited, (CATL) is a Chinese battery manufacturer and technology company founded in 2011 that specializes in the manufacturing of lithium-ion batteries for electric vehicles and energy storage systems, as well as battery management systems (BMS).",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q18653563",
+      "quote": "Contemporary Amperex Technology Co. Limited (Q18653563) — headquarters location: Ningde",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q18653563",
+      "quote": "Contemporary Amperex Technology Co. Limited (Q18653563) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q18653563",
+      "quote": "Contemporary Amperex Technology Co. Limited (Q18653563) — official website: catl.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "hq": "Ningde",
+  "country": "CN"
+}

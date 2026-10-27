@@ -1,0 +1,75 @@
+{
+  "slug": "zoox",
+  "name": "Zoox",
+  "aliases": [],
+  "kind": "subsidiary",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q65121026",
+    "domain": "zoox.com"
+  },
+  "areas": [
+    {
+      "area": "autonomous-vehicles"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Zoox",
+      "quote": "Zoox, Inc. is an American technology company subsidiary of Amazon developing driverless vehicles that provide mobility as a service.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q65121026",
+      "quote": "Zoox (Q65121026) — Wikidata item: Q65121026",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Zoox",
+      "quote": "Zoox, Inc. is an American technology company subsidiary of Amazon developing driverless vehicles that provide mobility as a service.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q65121026",
+      "quote": "Zoox (Q65121026) — headquarters location: Foster City",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q65121026",
+      "quote": "Zoox (Q65121026) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q65121026",
+      "quote": "Zoox (Q65121026) — official website: zoox.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Zoox, Inc. is an American technology company subsidiary of Amazon developing driverless vehicles that provide mobility as a service.",
+  "hq": "Foster City",
+  "country": "US"
+}

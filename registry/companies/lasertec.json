@@ -1,0 +1,76 @@
+{
+  "slug": "lasertec",
+  "name": "Lasertec",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q97310182",
+    "isin": "JP3979200007",
+    "domain": "lasertec.co.jp"
+  },
+  "areas": [
+    {
+      "area": "semiconductor-equipment"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Lasertec",
+      "quote": "Lasertec Corporation is a Japanese company based in Yokohama that specializes in the development, manufacture and distribution of inspection and measurement systems used primarily in the semiconductor industry.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q97310182",
+      "quote": "Lasertec Corporation (Q97310182) — Wikidata item: Q97310182",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:semiconductor-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Lasertec",
+      "quote": "Lasertec Corporation is a Japanese company based in Yokohama that specializes in the development, manufacture and distribution of inspection and measurement systems used primarily in the semiconductor industry.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q97310182",
+      "quote": "Lasertec Corporation (Q97310182) — headquarters location: Shin-Yokohama",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q97310182",
+      "quote": "Lasertec Corporation (Q97310182) — country (ISO 3166-1 alpha-2): JP",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q97310182",
+      "quote": "Lasertec Corporation (Q97310182) — official website: lasertec.co.jp",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Lasertec Corporation is a Japanese company based in Yokohama that specializes in the development, manufacture and distribution of inspection and measurement systems used primarily in the semiconductor industry.",
+  "hq": "Shin-Yokohama",
+  "country": "JP"
+}

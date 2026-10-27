@@ -1,3 +1,4 @@
+import { ChatTurnError } from '@bitbaum/chatkit/react';
 import type { Answer, StreamEvent } from './types';
 
 /**
@@ -28,7 +29,8 @@ export async function readAnswerStream(
     for (const line of lines) {
       if (!line.trim()) continue;
       const event = JSON.parse(line) as StreamEvent;
-      if (event.type === 'error') throw new Error(event.error || 'Unavailable.');
+      if (event.type === 'error')
+        throw new ChatTurnError(event.error || 'Unavailable.', { kind: 'server' });
       if (event.type === 'status') on.status(event.text);
       if (event.type === 'tool') on.tool(event.label);
       if (event.type === 'delta') on.delta(event.text);

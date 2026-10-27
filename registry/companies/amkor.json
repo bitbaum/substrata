@@ -6,17 +6,21 @@
   "status": "active",
   "country": "US",
   "ids": {
-    "ticker": "AMKR",
-    "exchange": "Nasdaq",
+    "qid": "Q472536",
     "cik": "1047127",
     "lei": "529900VHLRTKPWZJBM84",
     "isin": "US0316521006",
-    "qid": "Q472536",
-    "cusip": "031652100"
+    "ticker": "AMKR",
+    "exchange": "Nasdaq",
+    "cusip": "031652100",
+    "domain": "amkor.com"
   },
   "areas": [
     {
       "area": "compute-semiconductors"
+    },
+    {
+      "area": "advanced-packaging"
     }
   ],
   "evidence": [
@@ -119,10 +123,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Amkor_Technology",
+      "quote": "Amkor Technology, Inc. is an American semiconductor product packaging and test services provider.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:advanced-packaging",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Amkor_Technology",
+      "quote": "Amkor Technology, Inc. is an American semiconductor product packaging and test services provider.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q472536",
+      "quote": "Amkor Technology (Q472536) — headquarters location: Tempe",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q472536",
+      "quote": "Amkor Technology (Q472536) — official website: amkor.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Amkor Technology, Inc. is an American semiconductor product packaging and test services provider.",
+  "hq": "Tempe"
 }

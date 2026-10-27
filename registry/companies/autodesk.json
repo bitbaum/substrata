@@ -12,7 +12,8 @@
     "qid": "Q628051",
     "ticker": "ADSK",
     "exchange": "US",
-    "cusip": "052769106"
+    "cusip": "052769106",
+    "domain": "autodesk.com"
   },
   "areas": [
     {
@@ -96,10 +97,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q628051",
+      "quote": "Autodesk (Q628051) — headquarters location: San Francisco",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q628051",
+      "quote": "Autodesk (Q628051) — official website: autodesk.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Autodesk",
+      "quote": "Autodesk, Inc. is an American multinational software corporation that provides software products and services for the architecture, engineering, construction, manufacturing, media, education, and entertainment industries.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "San Francisco",
+  "summary": "Autodesk, Inc. is an American multinational software corporation that provides software products and services for the architecture, engineering, construction, manufacturing, media, education, and entertainment industries."
 }

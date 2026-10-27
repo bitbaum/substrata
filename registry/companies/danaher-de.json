@@ -6,14 +6,21 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q1159256",
+    "cik": "313616",
+    "isin": "US2358511028",
     "ticker": "DHR",
     "exchange": "US",
     "sedol": "2250870",
-    "cik": "313616"
+    "domain": "danaher.com",
+    "lei": "S4BKK9OTCEWQ3YHPFM11"
   },
   "areas": [
     {
       "area": "biotech-and-longevity"
+    },
+    {
+      "area": "synthetic-biology"
     }
   ],
   "evidence": [
@@ -71,10 +78,60 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Danaher_Corporation",
+      "quote": "C.. It develops products used for advances in biotechnology, life sciences, and diagnostics.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1159256",
+      "quote": "Danaher Corporation (Q1159256) — Wikidata item: Q1159256",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:synthetic-biology",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Danaher_Corporation",
+      "quote": "C.. It develops products used for advances in biotechnology, life sciences, and diagnostics.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1159256",
+      "quote": "Danaher Corporation (Q1159256) — headquarters location: Washington, D.C.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1159256",
+      "quote": "Danaher Corporation (Q1159256) — official website: danaher.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1159256",
+      "quote": "Danaher Corporation (Q1159256) — Legal Entity Identifier: S4BKK9OTCEWQ3YHPFM11",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "C.. It develops products used for advances in biotechnology, life sciences, and diagnostics.",
+  "hq": "Washington, D.C."
 }

@@ -1,0 +1,57 @@
+{
+  "slug": "yitu-technology",
+  "name": "Yitu Technology",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q110105632",
+    "domain": "yitutech.com"
+  },
+  "areas": [
+    {
+      "area": "ai-software-tooling"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Yitu_Technology",
+      "quote": "Yitu Technology, stylized as YITU, is a Shanghai-based artificial intelligence company that develops facial recognition systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q110105632",
+      "quote": "Yitu Technology (Q110105632) — Wikidata item: Q110105632",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q110105632",
+      "quote": "Yitu Technology (Q110105632) — official website: https://www.yitutech.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Yitu_Technology",
+      "quote": "Yitu Technology, stylized as YITU, is a Shanghai-based artificial intelligence company that develops facial recognition systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Yitu Technology, stylized as YITU, is a Shanghai-based artificial intelligence company that develops facial recognition systems."
+}

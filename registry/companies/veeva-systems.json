@@ -12,7 +12,8 @@
     "qid": "Q24204493",
     "ticker": "VEEV",
     "exchange": "US",
-    "cusip": "922475108"
+    "cusip": "922475108",
+    "domain": "veeva.com"
   },
   "areas": [
     {
@@ -108,10 +109,27 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q24204493",
+      "quote": "Veeva Systems (Q24204493) — headquarters location: Pleasanton",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q24204493",
+      "quote": "Veeva Systems (Q24204493) — official website: veeva.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Pleasanton"
 }

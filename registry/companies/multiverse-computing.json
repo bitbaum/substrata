@@ -1,0 +1,75 @@
+{
+  "slug": "multiverse-computing",
+  "name": "Multiverse Computing",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q77976802",
+    "domain": "multiversecomputing.com"
+  },
+  "areas": [
+    {
+      "area": "quantum-computing"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Multiverse_Computing",
+      "quote": "Multiverse Computing is a software company headquartered in San Sebastián, Spain, with offices in Madrid, Barcelona, Zaragoza, Paris, Munich, London, Milan, Toronto and San Francisco.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q77976802",
+      "quote": "Multiverse Computing (Q77976802) — Wikidata item: Q77976802",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:quantum-computing",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Multiverse_Computing",
+      "quote": "Multiverse Computing is a software company headquartered in San Sebastián, Spain, with offices in Madrid, Barcelona, Zaragoza, Paris, Munich, London, Milan, Toronto and San Francisco.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q77976802",
+      "quote": "Multiverse Computing (Q77976802) — headquarters location: San Sebastián",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q77976802",
+      "quote": "Multiverse Computing (Q77976802) — country (ISO 3166-1 alpha-2): ES",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q77976802",
+      "quote": "Multiverse Computing (Q77976802) — official website: multiversecomputing.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Multiverse Computing is a software company headquartered in San Sebastián, Spain, with offices in Madrid, Barcelona, Zaragoza, Paris, Munich, London, Milan, Toronto and San Francisco.",
+  "hq": "San Sebastián",
+  "country": "ES"
+}

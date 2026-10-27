@@ -1,0 +1,67 @@
+{
+  "slug": "nissan",
+  "name": "Nissan",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q20165",
+    "isin": "JP3672400003",
+    "domain": "nissan-global.com",
+    "lei": "353800DRBDH1LUTNAY26"
+  },
+  "areas": [
+    {
+      "area": "electric-vehicles"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q20165",
+      "quote": "Nissan (Q20165) — Wikidata item: Q20165",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:electric-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Nissan",
+      "quote": ", Ltd. is a Japanese multinational automobile manufacturer headquartered in Yokohama, Kanagawa, Japan.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q20165",
+      "quote": "Nissan (Q20165) — country (ISO 3166-1 alpha-2): JP",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q20165",
+      "quote": "Nissan (Q20165) — official website: nissan-global.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q20165",
+      "quote": "Nissan (Q20165) — Legal Entity Identifier: 353800DRBDH1LUTNAY26",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "country": "JP"
+}

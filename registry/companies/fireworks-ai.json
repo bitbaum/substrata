@@ -1,0 +1,48 @@
+{
+  "slug": "fireworks-ai",
+  "name": "Fireworks AI",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q140774682"
+  },
+  "areas": [
+    {
+      "area": "ai-software-tooling"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Fireworks_AI",
+      "quote": "Fireworks AI is an American artificial intelligence infrastructure company headquartered in San Mateo, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q140774682",
+      "quote": "Fireworks AI (Q140774682) — Wikidata item: Q140774682",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Fireworks_AI",
+      "quote": "Fireworks AI is an American artificial intelligence infrastructure company headquartered in San Mateo, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Fireworks AI is an American artificial intelligence infrastructure company headquartered in San Mateo, California."
+}

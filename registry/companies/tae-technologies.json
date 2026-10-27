@@ -1,0 +1,66 @@
+{
+  "slug": "tae-technologies",
+  "name": "TAE Technologies",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q17117397",
+    "domain": "tae.com"
+  },
+  "areas": [
+    {
+      "area": "fusion"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17117397",
+      "quote": "TAE Technologies (Q17117397) — Wikidata item: Q17117397",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:fusion",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/TAE_Technologies",
+      "quote": ", formerly Tri Alpha Energy, is an American company based in Foothill Ranch, California developing aneutronic fusion power reactors.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17117397",
+      "quote": "TAE Technologies (Q17117397) — headquarters location: Foothill Ranch",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17117397",
+      "quote": "TAE Technologies (Q17117397) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17117397",
+      "quote": "TAE Technologies (Q17117397) — official website: tae.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "hq": "Foothill Ranch",
+  "country": "US"
+}

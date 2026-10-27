@@ -1,0 +1,87 @@
+{
+  "slug": "honda",
+  "name": "Honda",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q9584",
+    "isin": "JP3854600008",
+    "domain": "global.honda",
+    "lei": "549300P7ZYCQJ36CCS16"
+  },
+  "areas": [
+    {
+      "area": "humanoids"
+    },
+    {
+      "area": "electric-vehicles"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q9584",
+      "quote": "Honda (Q9584) — Wikidata item: Q9584",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:humanoids",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Honda",
+      "quote": ", commonly known as Honda, is a Japanese multinational conglomerate automotive manufacturer headquartered at the Toranomon Alcea Tower in Toranomon, Minato, Tokyo, Japan.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:electric-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Honda",
+      "quote": ", commonly known as Honda, is a Japanese multinational conglomerate automotive manufacturer headquartered at the Toranomon Alcea Tower in Toranomon, Minato, Tokyo, Japan.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q9584",
+      "quote": "Honda (Q9584) — headquarters location: Minato",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q9584",
+      "quote": "Honda (Q9584) — country (ISO 3166-1 alpha-2): JP",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q9584",
+      "quote": "Honda (Q9584) — official website: global.honda",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q9584",
+      "quote": "Honda (Q9584) — Legal Entity Identifier: 549300P7ZYCQJ36CCS16",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "hq": "Minato",
+  "country": "JP"
+}

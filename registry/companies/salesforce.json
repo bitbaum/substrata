@@ -6,14 +6,15 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q941127",
+    "cik": "1108524",
     "lei": "RCGZFPDMRW58VJ54VR07",
     "isin": "US79466L3024",
     "ticker": "CRM",
     "exchange": "US",
     "sedol": "2310525",
-    "cik": "1108524",
-    "qid": "Q941127",
-    "cusip": "79466L302"
+    "cusip": "79466L302",
+    "domain": "salesforce.com"
   },
   "areas": [
     {
@@ -21,6 +22,9 @@
     },
     {
       "area": "robotics"
+    },
+    {
+      "area": "ai-software-tooling"
     }
   ],
   "evidence": [
@@ -184,10 +188,35 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Salesforce",
+      "quote": "Salesforce, Inc. is an American enterprise software company headquartered in San Francisco, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Salesforce",
+      "quote": "Salesforce, Inc. is an American enterprise software company headquartered in San Francisco, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q941127",
+      "quote": "Salesforce (Q941127) — official website: salesforce.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Salesforce, Inc. is an American enterprise software company headquartered in San Francisco, California."
 }

@@ -1,0 +1,86 @@
+{
+  "slug": "iflytek",
+  "name": "iFlytek",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q4764375",
+    "domain": "iflytek.com"
+  },
+  "areas": [
+    {
+      "area": "ai-software-tooling"
+    },
+    {
+      "area": "frontier-labs"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/IFlytek",
+      "quote": "iFlytek, styled as iFLYTEK, is a partially state-owned Chinese information technology company established in 1999.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4764375",
+      "quote": "iFlytek (Q4764375) — Wikidata item: Q4764375",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4764375",
+      "quote": "iFlytek (Q4764375) — headquarters location: Hefei",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4764375",
+      "quote": "iFlytek (Q4764375) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4764375",
+      "quote": "iFlytek (Q4764375) — official website: https://www.iflytek.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/IFlytek",
+      "quote": "iFlytek, styled as iFLYTEK, is a partially state-owned Chinese information technology company established in 1999.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:frontier-labs",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/IFlytek",
+      "quote": "iFlytek, styled as iFLYTEK, is a partially state-owned Chinese information technology company established in 1999.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "iFlytek, styled as iFLYTEK, is a partially state-owned Chinese information technology company established in 1999.",
+  "country": "CN",
+  "hq": "Hefei"
+}

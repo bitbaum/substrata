@@ -12,7 +12,8 @@
     "qid": "Q815327",
     "ticker": "BDC",
     "exchange": "US",
-    "cusip": "077454106"
+    "cusip": "077454106",
+    "domain": "belden.com"
   },
   "areas": [
     {
@@ -96,10 +97,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q815327",
+      "quote": "Belden Incorporated (Q815327) — headquarters location: St. Louis",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q815327",
+      "quote": "Belden Incorporated (Q815327) — official website: belden.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Belden_Incorporated",
+      "quote": "Belden Inc. is an American multinational company that designs, manufactures, and distributes networking, connectivity, cable, and security products.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "St. Louis",
+  "summary": "Belden Inc. is an American multinational company that designs, manufactures, and distributes networking, connectivity, cable, and security products."
 }

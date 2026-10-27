@@ -13,7 +13,8 @@
     "sedol": "2382416",
     "cik": "1062231",
     "qid": "Q4743120",
-    "cusip": "024061103"
+    "cusip": "024061103",
+    "domain": "aam.com"
   },
   "areas": [
     {
@@ -109,10 +110,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4743120",
+      "quote": "American Axle (Q4743120) — headquarters location: Detroit",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4743120",
+      "quote": "American Axle (Q4743120) — official website: aam.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Dauch_Corporation",
+      "quote": "Dauch Corporation, formerly American Axle & Manufacturing, Inc.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Detroit",
+  "summary": "Dauch Corporation, formerly American Axle & Manufacturing, Inc."
 }

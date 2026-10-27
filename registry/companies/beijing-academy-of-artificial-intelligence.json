@@ -1,0 +1,66 @@
+{
+  "slug": "beijing-academy-of-artificial-intelligence",
+  "name": "Beijing Academy of Artificial Intelligence",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q107518033",
+    "domain": "baai.ac.cn"
+  },
+  "areas": [
+    {
+      "area": "frontier-labs"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Beijing_Academy_of_Artificial_Intelligence",
+      "quote": "Beijing Academy of Artificial Intelligence (BAAI), also known as Zhiyuan Institute, is a Chinese non-profit artificial intelligence (AI) research laboratory.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q107518033",
+      "quote": "Beijing Academy of Artificial Intelligence (Q107518033) — Wikidata item: Q107518033",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q107518033",
+      "quote": "Beijing Academy of Artificial Intelligence (Q107518033) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q107518033",
+      "quote": "Beijing Academy of Artificial Intelligence (Q107518033) — official website: https://www.baai.ac.cn/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:frontier-labs",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Beijing_Academy_of_Artificial_Intelligence",
+      "quote": "Beijing Academy of Artificial Intelligence (BAAI), also known as Zhiyuan Institute, is a Chinese non-profit artificial intelligence (AI) research laboratory.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Beijing Academy of Artificial Intelligence (BAAI), also known as Zhiyuan Institute, is a Chinese non-profit artificial intelligence (AI) research laboratory.",
+  "country": "CN"
+}

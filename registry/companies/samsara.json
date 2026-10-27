@@ -12,7 +12,9 @@
     "ticker": "IOT",
     "exchange": "US",
     "cusip": "79589L106",
-    "sedol": "BPK3058"
+    "sedol": "BPK3058",
+    "domain": "samsara.com",
+    "lei": "213800WJM99CLMJD3646"
   },
   "areas": [
     {
@@ -85,10 +87,35 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q79543668",
+      "quote": "Samsara (Q79543668) — official website: samsara.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q79543668",
+      "quote": "Samsara (Q79543668) — Legal Entity Identifier: 213800WJM99CLMJD3646",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Samsara_(company)",
+      "quote": "Samsara Inc. is an American IoT company headquartered in San Francisco, California, that provides telematics software and insights for physical operations.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Samsara Inc. is an American IoT company headquartered in San Francisco, California, that provides telematics software and insights for physical operations."
 }

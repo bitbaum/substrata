@@ -1,0 +1,84 @@
+{
+  "slug": "state-power-investment-corporation",
+  "name": "State Power Investment Corporation",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q20062801",
+    "domain": "spic.com.cn",
+    "lei": "300300PRSKD1SREA6768"
+  },
+  "areas": [
+    {
+      "area": "fission-smr"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/State_Power_Investment_Corporation",
+      "quote": "State Power Investment Corporation Limited is one of the five major electricity generation companies in China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q20062801",
+      "quote": "State Power Investment Corporation (Q20062801) — Wikidata item: Q20062801",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:fission-smr",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/State_Power_Investment_Corporation",
+      "quote": "State Power Investment Corporation Limited is one of the five major electricity generation companies in China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q20062801",
+      "quote": "State Power Investment Corporation (Q20062801) — headquarters location: Beijing",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q20062801",
+      "quote": "State Power Investment Corporation (Q20062801) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q20062801",
+      "quote": "State Power Investment Corporation (Q20062801) — official website: spic.com.cn",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q20062801",
+      "quote": "State Power Investment Corporation (Q20062801) — Legal Entity Identifier: 300300PRSKD1SREA6768",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "State Power Investment Corporation Limited is one of the five major electricity generation companies in China.",
+  "hq": "Beijing",
+  "country": "CN"
+}

@@ -1,0 +1,69 @@
+{
+  "slug": "ganfeng-lithium",
+  "name": "Ganfeng Lithium",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q10954805",
+    "isin": "CNE1000031W9",
+    "domain": "ganfenglithium.com"
+  },
+  "areas": [
+    {
+      "area": "critical-minerals"
+    },
+    {
+      "area": "robot-batteries"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q10954805",
+      "quote": "Ganfeng Lithium (Q10954805) — Wikidata item: Q10954805",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Ganfeng_Lithium",
+      "quote": ", Ltd. is a company that produces lithium, lithium products, other metals, and batteries in mainland China and globally.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:robot-batteries",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Ganfeng_Lithium",
+      "quote": ", Ltd. is a company that produces lithium, lithium products, other metals, and batteries in mainland China and globally.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q10954805",
+      "quote": "Ganfeng Lithium (Q10954805) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q10954805",
+      "quote": "Ganfeng Lithium (Q10954805) — official website: ganfenglithium.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "country": "CN"
+}

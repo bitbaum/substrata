@@ -1,0 +1,66 @@
+{
+  "slug": "neuralink",
+  "name": "Neuralink",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q29043471",
+    "domain": "neuralink.com"
+  },
+  "areas": [
+    {
+      "area": "neurotech-bci"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Neuralink",
+      "quote": "Neuralink Corp. is an American neurotechnology company that is developing implantable brain–computer interfaces (BCIs).",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q29043471",
+      "quote": "Neuralink (Q29043471) — Wikidata item: Q29043471",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:neurotech-bci",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Neuralink",
+      "quote": "Neuralink Corp. is an American neurotechnology company that is developing implantable brain–computer interfaces (BCIs).",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q29043471",
+      "quote": "Neuralink (Q29043471) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q29043471",
+      "quote": "Neuralink (Q29043471) — official website: neuralink.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Neuralink Corp. is an American neurotechnology company that is developing implantable brain–computer interfaces (BCIs).",
+  "country": "US"
+}

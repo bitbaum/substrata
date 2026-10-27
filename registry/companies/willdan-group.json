@@ -12,7 +12,8 @@
     "qid": "Q17087372",
     "ticker": "WLDN",
     "exchange": "US",
-    "cusip": "96924N100"
+    "cusip": "96924N100",
+    "domain": "willdan.com"
   },
   "areas": [
     {
@@ -108,10 +109,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17087372",
+      "quote": "Willdan Group (Q17087372) — headquarters location: Anaheim",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17087372",
+      "quote": "Willdan Group (Q17087372) — official website: willdan.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Willdan_Group",
+      "quote": "Willdan Group, Inc. (Willdan) is an American publicly traded company selling professional technical and consulting services to public and private utilities, public agencies at all levels of government, and commercial and industrial firms.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Anaheim",
+  "summary": "Willdan Group, Inc. (Willdan) is an American publicly traded company selling professional technical and consulting services to public and private utilities, public agencies at all levels of government, and commercial and industrial firms."
 }

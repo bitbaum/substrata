@@ -6,13 +6,14 @@
   "status": "active",
   "country": "US",
   "ids": {
-    "cik": "1838359",
     "qid": "Q38819634",
+    "cik": "1838359",
     "isin": "US76655K1034",
     "ticker": "RGTI",
     "exchange": "US",
     "cusip": "76655K103",
-    "sedol": "BN45WL6"
+    "sedol": "BN45WL6",
+    "domain": "rigetti.com"
   },
   "areas": [
     {
@@ -20,6 +21,9 @@
     },
     {
       "area": "quantum"
+    },
+    {
+      "area": "quantum-computing"
     }
   ],
   "evidence": [
@@ -100,10 +104,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Rigetti_Computing",
+      "quote": "Rigetti Computing, Inc. is an American developer of superconducting quantum integrated circuits used for quantum computers.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:quantum-computing",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Rigetti_Computing",
+      "quote": "Rigetti Computing, Inc. is an American developer of superconducting quantum integrated circuits used for quantum computers.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q38819634",
+      "quote": "Rigetti Computing (Q38819634) — headquarters location: Berkeley",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q38819634",
+      "quote": "Rigetti Computing (Q38819634) — official website: rigetti.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Rigetti Computing, Inc. is an American developer of superconducting quantum integrated circuits used for quantum computers.",
+  "hq": "Berkeley"
 }

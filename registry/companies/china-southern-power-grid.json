@@ -1,0 +1,84 @@
+{
+  "slug": "china-southern-power-grid",
+  "name": "China Southern Power Grid",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q209039",
+    "domain": "csg.cn",
+    "lei": "300300W2U9PCTY011N49"
+  },
+  "areas": [
+    {
+      "area": "grid-equipment"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/China_Southern_Power_Grid",
+      "quote": "China Southern Power Grid Company Limited is one of the two Chinese state-owned enterprises established in 2002 in a power system reform promulgated by the State Council, the other being the State Grid Corporation of China (SGCC).",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q209039",
+      "quote": "China Southern Power Grid (Q209039) — Wikidata item: Q209039",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/China_Southern_Power_Grid",
+      "quote": "China Southern Power Grid Company Limited is one of the two Chinese state-owned enterprises established in 2002 in a power system reform promulgated by the State Council, the other being the State Grid Corporation of China (SGCC).",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q209039",
+      "quote": "China Southern Power Grid (Q209039) — headquarters location: Huangpu District",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q209039",
+      "quote": "China Southern Power Grid (Q209039) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q209039",
+      "quote": "China Southern Power Grid (Q209039) — official website: csg.cn",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q209039",
+      "quote": "China Southern Power Grid (Q209039) — Legal Entity Identifier: 300300W2U9PCTY011N49",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "China Southern Power Grid Company Limited is one of the two Chinese state-owned enterprises established in 2002 in a power system reform promulgated by the State Council, the other being the State Grid Corporation of China (SGCC).",
+  "hq": "Huangpu District",
+  "country": "CN"
+}

@@ -1,0 +1,38 @@
+{
+  "slug": "anduril-industries",
+  "name": "Anduril Industries",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {},
+  "areas": [
+    {
+      "area": "defence-autonomy"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Anduril_Industries",
+      "quote": "Anduril Industries, Inc. is an American military technology company specializing in the development of advanced autonomous systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:defence-autonomy",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Anduril_Industries",
+      "quote": "Anduril Industries, Inc. is an American military technology company specializing in the development of advanced autonomous systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Anduril Industries, Inc. is an American military technology company specializing in the development of advanced autonomous systems."
+}

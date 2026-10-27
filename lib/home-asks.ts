@@ -18,9 +18,3 @@ export interface HomeAsk {
 export function askHref(question: string): string {
   return `/chat?q=${encodeURIComponent(question.trim().slice(0, QUESTION_LENGTH.max))}`;
 }
-
-/** The `q` of /chat, or '' when it is absent or too short to be a question. */
-export function startQuestion(q: string | string[] | undefined): string {
-  const text = typeof q === 'string' ? q.trim().slice(0, QUESTION_LENGTH.max) : '';
-  return text.length >= QUESTION_LENGTH.min ? text : '';
-}

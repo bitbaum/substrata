@@ -1,0 +1,85 @@
+{
+  "slug": "advantest",
+  "name": "Advantest",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q2722179",
+    "isin": "JP3122400009",
+    "domain": "advantest.com",
+    "lei": "353800EMK32PDKS9XR54"
+  },
+  "areas": [
+    {
+      "area": "semiconductor-equipment"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Advantest",
+      "quote": "Advantest Corporation (株式会社アドバンテスト) is a Japanese leading manufacturer of automatic test equipment (ATE) for the semiconductor industry, and a manufacturer of measuring instruments used in the design, production and maintenance of electronic systems including fiber optic and wireless communications equipment and digital consumer products.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2722179",
+      "quote": "Advantest (Q2722179) — Wikidata item: Q2722179",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:semiconductor-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Advantest",
+      "quote": "Advantest Corporation (株式会社アドバンテスト) is a Japanese leading manufacturer of automatic test equipment (ATE) for the semiconductor industry, and a manufacturer of measuring instruments used in the design, production and maintenance of electronic systems including fiber optic and wireless communications equipment and digital consumer products.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2722179",
+      "quote": "Advantest (Q2722179) — headquarters location: Chiyoda",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2722179",
+      "quote": "Advantest (Q2722179) — country (ISO 3166-1 alpha-2): JP",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2722179",
+      "quote": "Advantest (Q2722179) — official website: advantest.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2722179",
+      "quote": "Advantest (Q2722179) — Legal Entity Identifier: 353800EMK32PDKS9XR54",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Advantest Corporation (株式会社アドバンテスト) is a Japanese leading manufacturer of automatic test equipment (ATE) for the semiconductor industry, and a manufacturer of measuring instruments used in the design, production and maintenance of electronic systems including fiber optic and wireless communications equipment and digital consumer products.",
+  "hq": "Chiyoda",
+  "country": "JP"
+}

@@ -1,0 +1,38 @@
+{
+  "slug": "waymo",
+  "name": "Waymo",
+  "aliases": [],
+  "kind": "subsidiary",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {},
+  "areas": [
+    {
+      "area": "autonomous-vehicles"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Waymo",
+      "quote": "Waymo LLC is an American autonomous driving technology company headquartered in Mountain View, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Waymo",
+      "quote": "Waymo LLC is an American autonomous driving technology company headquartered in Mountain View, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Waymo LLC is an American autonomous driving technology company headquartered in Mountain View, California."
+}

@@ -12,7 +12,8 @@
     "qid": "Q7128508",
     "ticker": "PANW",
     "exchange": "US",
-    "cusip": "697435105"
+    "cusip": "697435105",
+    "domain": "paloaltonetworks.com"
   },
   "areas": [
     {
@@ -135,10 +136,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7128508",
+      "quote": "Palo Alto Networks (Q7128508) — headquarters location: Santa Clara",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7128508",
+      "quote": "Palo Alto Networks (Q7128508) — official website: paloaltonetworks.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Palo_Alto_Networks",
+      "quote": "Palo Alto Networks, Inc. is an American multinational cybersecurity company with headquarters in Santa Clara, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Santa Clara",
+  "summary": "Palo Alto Networks, Inc. is an American multinational cybersecurity company with headquarters in Santa Clara, California."
 }

@@ -1,0 +1,94 @@
+{
+  "slug": "alcoa",
+  "name": "Alcoa",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q135325",
+    "isin": "US0138171014",
+    "domain": "alcoa.com",
+    "cik": "1675149",
+    "lei": "549300T12EZ1F6PWWU29"
+  },
+  "areas": [
+    {
+      "area": "critical-minerals"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Alcoa",
+      "quote": "Alcoa Corporation is an American industrial corporation that produces aluminum.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q135325",
+      "quote": "Alcoa (Q135325) — Wikidata item: Q135325",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Alcoa",
+      "quote": "Alcoa Corporation is an American industrial corporation that produces aluminum.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q135325",
+      "quote": "Alcoa (Q135325) — headquarters location: New York City",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q135325",
+      "quote": "Alcoa (Q135325) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q135325",
+      "quote": "Alcoa (Q135325) — official website: alcoa.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q135325",
+      "quote": "Alcoa (Q135325) — SEC Central Index Key: 1675149",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q135325",
+      "quote": "Alcoa (Q135325) — Legal Entity Identifier: 549300T12EZ1F6PWWU29",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Alcoa Corporation is an American industrial corporation that produces aluminum.",
+  "hq": "New York City",
+  "country": "US"
+}

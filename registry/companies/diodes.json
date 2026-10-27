@@ -13,7 +13,8 @@
     "ticker": "DIOD",
     "exchange": "US",
     "cusip": "254543101",
-    "sedol": "2270500"
+    "sedol": "2270500",
+    "domain": "diodes.com"
   },
   "areas": [
     {
@@ -133,10 +134,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5279096",
+      "quote": "Diodes Incorporated (Q5279096) — headquarters location: Plano",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5279096",
+      "quote": "Diodes Incorporated (Q5279096) — official website: diodes.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Diodes_Incorporated",
+      "quote": "Diodes Incorporated is a global manufacturer and supplier of application specific standard products within the analog, discrete, power, logic, and mixed-signal semiconductor markets.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Plano",
+  "summary": "Diodes Incorporated is a global manufacturer and supplier of application specific standard products within the analog, discrete, power, logic, and mixed-signal semiconductor markets."
 }

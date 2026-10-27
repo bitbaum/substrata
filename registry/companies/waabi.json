@@ -1,0 +1,39 @@
+{
+  "slug": "waabi",
+  "name": "Waabi",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q138641427"
+  },
+  "areas": [
+    {
+      "area": "autonomous-vehicles"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q138641427",
+      "quote": "Waabi (Q138641427) — Wikidata item: Q138641427",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Waabi",
+      "quote": ", doing business as Waabi, is an artificial intelligence company developing self-driving technology.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  }
+}

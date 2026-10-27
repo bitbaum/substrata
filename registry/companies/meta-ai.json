@@ -1,0 +1,57 @@
+{
+  "slug": "meta-ai",
+  "name": "Meta AI",
+  "aliases": [],
+  "kind": "subsidiary",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q112114913",
+    "domain": "ai.meta.com"
+  },
+  "areas": [
+    {
+      "area": "frontier-labs"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Meta_AI",
+      "quote": "Meta AI is a research division of Meta that develops artificial intelligence and augmented reality technologies.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q112114913",
+      "quote": "Meta AI (Q112114913) — Wikidata item: Q112114913",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:frontier-labs",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Meta_AI",
+      "quote": "Meta AI is a research division of Meta that develops artificial intelligence and augmented reality technologies.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q112114913",
+      "quote": "Meta AI (Q112114913) — official website: ai.meta.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Meta AI is a research division of Meta that develops artificial intelligence and augmented reality technologies."
+}

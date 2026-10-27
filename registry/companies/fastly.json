@@ -6,18 +6,22 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q34045622",
+    "cik": "1517413",
     "lei": "549300E2FZC83FJ3H565",
     "isin": "US31188V1008",
     "ticker": "FSLY",
     "exchange": "US",
     "sedol": "BJN4MY9",
-    "cik": "1517413",
-    "qid": "Q34045622",
-    "cusip": "31188V100"
+    "cusip": "31188V100",
+    "domain": "fastly.com"
   },
   "areas": [
     {
       "area": "frontier-ai"
+    },
+    {
+      "area": "ai-software-tooling"
     }
   ],
   "evidence": [
@@ -133,10 +137,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Fastly",
+      "quote": "Fastly, Inc. is an American company based in San Francisco, which describes itself as a cloud computing company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Fastly",
+      "quote": "Fastly, Inc. is an American company based in San Francisco, which describes itself as a cloud computing company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q34045622",
+      "quote": "Fastly (Q34045622) — headquarters location: San Francisco",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q34045622",
+      "quote": "Fastly (Q34045622) — official website: fastly.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Fastly, Inc. is an American company based in San Francisco, which describes itself as a cloud computing company.",
+  "hq": "San Francisco"
 }

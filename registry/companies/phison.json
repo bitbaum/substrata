@@ -1,0 +1,75 @@
+{
+  "slug": "phison",
+  "name": "Phison",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q7186466",
+    "domain": "phison.com"
+  },
+  "areas": [
+    {
+      "area": "memory"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Phison",
+      "quote": "Phison Electronics Corporation is a Taiwanese public electronics company that primarily designs, manufactures and sells controllers for NAND flash memory chips.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7186466",
+      "quote": "Phison (Q7186466) — Wikidata item: Q7186466",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:memory",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Phison",
+      "quote": "Phison Electronics Corporation is a Taiwanese public electronics company that primarily designs, manufactures and sells controllers for NAND flash memory chips.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7186466",
+      "quote": "Phison (Q7186466) — headquarters location: Zhunan Township",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7186466",
+      "quote": "Phison (Q7186466) — country (ISO 3166-1 alpha-2): TW",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7186466",
+      "quote": "Phison (Q7186466) — official website: phison.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Phison Electronics Corporation is a Taiwanese public electronics company that primarily designs, manufactures and sells controllers for NAND flash memory chips.",
+  "hq": "Zhunan Township",
+  "country": "TW"
+}

@@ -1,0 +1,75 @@
+{
+  "slug": "edge-group",
+  "name": "EDGE Group",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q64732479",
+    "domain": "edgegroup.ae"
+  },
+  "areas": [
+    {
+      "area": "defence-autonomy"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Edge_Group",
+      "quote": "Edge Group is an Emirati advanced technology and defence conglomerate comprising 25 companies involved in military and civilian products, and technologies.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q64732479",
+      "quote": "EDGE Group (Q64732479) — Wikidata item: Q64732479",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q64732479",
+      "quote": "EDGE Group (Q64732479) — headquarters location: Abu Dhabi",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q64732479",
+      "quote": "EDGE Group (Q64732479) — country (ISO 3166-1 alpha-2): AE",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q64732479",
+      "quote": "EDGE Group (Q64732479) — official website: https://edgegroup.ae",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:defence-autonomy",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Edge_Group",
+      "quote": "Edge Group is an Emirati advanced technology and defence conglomerate comprising 25 companies involved in military and civilian products, and technologies.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Edge Group is an Emirati advanced technology and defence conglomerate comprising 25 companies involved in military and civilian products, and technologies.",
+  "country": "AE",
+  "hq": "Abu Dhabi"
+}

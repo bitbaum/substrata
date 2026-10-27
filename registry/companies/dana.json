@@ -13,7 +13,8 @@
     "ticker": "DAN",
     "exchange": "US",
     "cusip": "235825205",
-    "sedol": "B2PFJR3"
+    "sedol": "B2PFJR3",
+    "domain": "dana.com"
   },
   "areas": [
     {
@@ -97,10 +98,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5214701",
+      "quote": "Dana Corporation (Q5214701) — headquarters location: Toledo",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5214701",
+      "quote": "Dana Corporation (Q5214701) — official website: dana.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Dana_Incorporated",
+      "quote": "Dana Incorporated is an American supplier of axles, driveshafts, and electrodynamic, thermal, sealing, and digital equipment for conventional, hybrid, and electric-powered vehicles.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Toledo",
+  "summary": "Dana Incorporated is an American supplier of axles, driveshafts, and electrodynamic, thermal, sealing, and digital equipment for conventional, hybrid, and electric-powered vehicles."
 }

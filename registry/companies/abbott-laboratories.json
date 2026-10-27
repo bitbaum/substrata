@@ -1,0 +1,94 @@
+{
+  "slug": "abbott-laboratories",
+  "name": "Abbott Laboratories",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q306764",
+    "isin": "US0028241000",
+    "domain": "abbott.com",
+    "cik": "1800",
+    "lei": "HQD377W2YR662HK5JX27"
+  },
+  "areas": [
+    {
+      "area": "neurotech-bci"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Abbott_Laboratories",
+      "quote": "Abbott Laboratories, commonly known as Abbott, is an American multinational medical devices and health care company founded in Chicago with headquarters in Abbott Park, Illinois.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q306764",
+      "quote": "Abbott Laboratories (Q306764) — Wikidata item: Q306764",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:neurotech-bci",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Abbott_Laboratories",
+      "quote": "Abbott Laboratories, commonly known as Abbott, is an American multinational medical devices and health care company founded in Chicago with headquarters in Abbott Park, Illinois.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q306764",
+      "quote": "Abbott Laboratories (Q306764) — headquarters location: North Chicago",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q306764",
+      "quote": "Abbott Laboratories (Q306764) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q306764",
+      "quote": "Abbott Laboratories (Q306764) — official website: abbott.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q306764",
+      "quote": "Abbott Laboratories (Q306764) — SEC Central Index Key: 1800",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q306764",
+      "quote": "Abbott Laboratories (Q306764) — Legal Entity Identifier: HQD377W2YR662HK5JX27",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Abbott Laboratories, commonly known as Abbott, is an American multinational medical devices and health care company founded in Chicago with headquarters in Abbott Park, Illinois.",
+  "hq": "North Chicago",
+  "country": "US"
+}

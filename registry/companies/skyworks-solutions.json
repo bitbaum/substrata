@@ -13,7 +13,8 @@
     "sedol": "2961053",
     "cik": "4127",
     "qid": "Q7538146",
-    "cusip": "83088M102"
+    "cusip": "83088M102",
+    "domain": "skyworksinc.com"
   },
   "areas": [
     {
@@ -124,10 +125,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7538146",
+      "quote": "Skyworks Solutions (Q7538146) — headquarters location: Woburn",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7538146",
+      "quote": "Skyworks Solutions (Q7538146) — official website: skyworksinc.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Skyworks_Solutions",
+      "quote": "Skyworks Solutions, Inc. is an American semiconductor company headquartered in Irvine, California, United States.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Woburn",
+  "summary": "Skyworks Solutions, Inc. is an American semiconductor company headquartered in Irvine, California, United States."
 }

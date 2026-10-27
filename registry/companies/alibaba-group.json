@@ -11,14 +11,15 @@
   "status": "active",
   "country": "KY",
   "ids": {
+    "qid": "Q1359568",
+    "cik": "1577552",
     "lei": "5493001NTNQJDH60PM02",
     "isin": "US01609W1027",
     "ticker": "BABA",
     "exchange": "US",
     "sedol": "BP41ZD1",
-    "qid": "Q1359568",
     "cusip": "01609W102",
-    "cik": "1577552"
+    "domain": "alibabagroup.com"
   },
   "areas": [
     {
@@ -29,6 +30,9 @@
     },
     {
       "area": "quantum"
+    },
+    {
+      "area": "ai-cloud-platforms"
     }
   ],
   "evidence": [
@@ -156,10 +160,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country KY as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Alibaba_Group",
+      "quote": "Alibaba Group Holding Limited, branded as Alibaba, is a Chinese multinational technology company specializing in e-commerce, retail, Internet, and technology.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Alibaba_Group",
+      "quote": "Alibaba Group Holding Limited, branded as Alibaba, is a Chinese multinational technology company specializing in e-commerce, retail, Internet, and technology.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1359568",
+      "quote": "Alibaba Group (Q1359568) — headquarters location: Binjiang District",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1359568",
+      "quote": "Alibaba Group (Q1359568) — official website: alibabagroup.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Alibaba Group Holding Limited, branded as Alibaba, is a Chinese multinational technology company specializing in e-commerce, retail, Internet, and technology.",
+  "hq": "Binjiang District"
 }

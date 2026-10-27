@@ -1,0 +1,75 @@
+{
+  "slug": "diamond-foundry",
+  "name": "Diamond Foundry",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q23016777",
+    "domain": "diamondfoundry.com"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Diamond_Foundry",
+      "quote": "Diamond Foundry is a producer of lab grown diamonds based in San Francisco, California, USA.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q23016777",
+      "quote": "Diamond Foundry (Q23016777) — Wikidata item: Q23016777",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:advanced-materials",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Diamond_Foundry",
+      "quote": "Diamond Foundry is a producer of lab grown diamonds based in San Francisco, California, USA.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q23016777",
+      "quote": "Diamond Foundry (Q23016777) — headquarters location: San Francisco",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q23016777",
+      "quote": "Diamond Foundry (Q23016777) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q23016777",
+      "quote": "Diamond Foundry (Q23016777) — official website: diamondfoundry.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Diamond Foundry is a producer of lab grown diamonds based in San Francisco, California, USA.",
+  "hq": "San Francisco",
+  "country": "US"
+}

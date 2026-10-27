@@ -13,7 +13,8 @@
     "ticker": "FSLR",
     "exchange": "US",
     "cusip": "336433107",
-    "sedol": "B1HMF22"
+    "sedol": "B1HMF22",
+    "domain": "firstsolar.com"
   },
   "areas": [
     {
@@ -109,10 +110,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1138888",
+      "quote": "First Solar (Q1138888) — headquarters location: Tempe",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1138888",
+      "quote": "First Solar (Q1138888) — official website: firstsolar.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/First_Solar",
+      "quote": "First Solar, Inc. is an American publicly traded manufacturer of solar panels.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Tempe",
+  "summary": "First Solar, Inc. is an American publicly traded manufacturer of solar panels."
 }

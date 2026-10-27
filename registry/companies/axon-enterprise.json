@@ -13,7 +13,8 @@
     "ticker": "AXON",
     "exchange": "US",
     "cusip": "05464C101",
-    "sedol": "BDT5S35"
+    "sedol": "BDT5S35",
+    "domain": "axon.com"
   },
   "areas": [
     {
@@ -121,10 +122,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q690604",
+      "quote": "Axon Enterprise (Q690604) — headquarters location: Scottsdale",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q690604",
+      "quote": "Axon Enterprise (Q690604) — official website: axon.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Axon_Enterprise",
+      "quote": "Axon Enterprise, Inc. is an American company based in Scottsdale, Arizona, that develops weapons and technology products for military, law enforcement, and civilians.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Scottsdale",
+  "summary": "Axon Enterprise, Inc. is an American company based in Scottsdale, Arizona, that develops weapons and technology products for military, law enforcement, and civilians."
 }

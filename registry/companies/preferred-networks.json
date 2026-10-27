@@ -1,0 +1,75 @@
+{
+  "slug": "preferred-networks",
+  "name": "Preferred Networks",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q53309069",
+    "domain": "preferred.jp"
+  },
+  "areas": [
+    {
+      "area": "ai-accelerators"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Preferred_Networks",
+      "quote": "Preferred Networks Inc. is a Japanese startup focused on the research and development of deep learning for IoT applications.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q53309069",
+      "quote": "Preferred Networks (Q53309069) — Wikidata item: Q53309069",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-accelerators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Preferred_Networks",
+      "quote": "Preferred Networks Inc. is a Japanese startup focused on the research and development of deep learning for IoT applications.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q53309069",
+      "quote": "Preferred Networks (Q53309069) — headquarters location: Otemachi Building",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q53309069",
+      "quote": "Preferred Networks (Q53309069) — country (ISO 3166-1 alpha-2): JP",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q53309069",
+      "quote": "Preferred Networks (Q53309069) — official website: preferred.jp",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Preferred Networks Inc. is a Japanese startup focused on the research and development of deep learning for IoT applications.",
+  "hq": "Otemachi Building",
+  "country": "JP"
+}

@@ -1,0 +1,48 @@
+{
+  "slug": "auterion",
+  "name": "Auterion",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q135185405"
+  },
+  "areas": [
+    {
+      "area": "defence-autonomy"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Auterion",
+      "quote": "Auterion is a multi-national software company that develops a common operating system and software apps for autonomous systems, primarily focusing on weaponized drones and robotic vehicles for the enterprise and defense sectors.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q135185405",
+      "quote": "Auterion (Q135185405) — Wikidata item: Q135185405",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:defence-autonomy",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Auterion",
+      "quote": "Auterion is a multi-national software company that develops a common operating system and software apps for autonomous systems, primarily focusing on weaponized drones and robotic vehicles for the enterprise and defense sectors.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Auterion is a multi-national software company that develops a common operating system and software apps for autonomous systems, primarily focusing on weaponized drones and robotic vehicles for the enterprise and defense sectors."
+}

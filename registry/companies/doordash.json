@@ -12,7 +12,8 @@
     "exchange": "US",
     "cusip": "25809K105",
     "cik": "1792789",
-    "qid": "Q20714323"
+    "qid": "Q20714323",
+    "domain": "doordash.com"
   },
   "areas": [
     {
@@ -108,10 +109,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q20714323",
+      "quote": "DoorDash (Q20714323) — headquarters location: San Francisco",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q20714323",
+      "quote": "DoorDash (Q20714323) — official website: doordash.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/DoorDash",
+      "quote": "DoorDash, Inc. is an American company operating online food ordering and food delivery.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "San Francisco",
+  "summary": "DoorDash, Inc. is an American company operating online food ordering and food delivery."
 }

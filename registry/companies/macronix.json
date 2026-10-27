@@ -1,0 +1,57 @@
+{
+  "slug": "macronix",
+  "name": "Macronix",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q11087244",
+    "domain": "macronix.com"
+  },
+  "areas": [
+    {
+      "area": "memory"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q11087244",
+      "quote": "Macronix International (Q11087244) — Wikidata item: Q11087244",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:memory",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Macronix",
+      "quote": ", Ltd. is an integrated device manufacturer in the non-volatile memory (NVM) market.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q11087244",
+      "quote": "Macronix International (Q11087244) — country (ISO 3166-1 alpha-2): TW",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q11087244",
+      "quote": "Macronix International (Q11087244) — official website: macronix.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "country": "TW"
+}

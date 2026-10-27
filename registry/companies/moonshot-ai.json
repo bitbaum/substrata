@@ -1,0 +1,75 @@
+{
+  "slug": "moonshot-ai",
+  "name": "Moonshot AI",
+  "aliases": [],
+  "kind": "lab",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q130270266",
+    "domain": "moonshot.ai"
+  },
+  "areas": [
+    {
+      "area": "frontier-labs"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Moonshot_AI",
+      "quote": "Moonshot AI is an artificial intelligence (AI) company based in Beijing, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q130270266",
+      "quote": "Moonshot AI (Q130270266) — Wikidata item: Q130270266",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:frontier-labs",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Moonshot_AI",
+      "quote": "Moonshot AI is an artificial intelligence (AI) company based in Beijing, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q130270266",
+      "quote": "Moonshot AI (Q130270266) — headquarters location: Beijing",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q130270266",
+      "quote": "Moonshot AI (Q130270266) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q130270266",
+      "quote": "Moonshot AI (Q130270266) — official website: moonshot.ai",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Moonshot AI is an artificial intelligence (AI) company based in Beijing, China.",
+  "hq": "Beijing",
+  "country": "CN"
+}

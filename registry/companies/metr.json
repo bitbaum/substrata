@@ -1,0 +1,38 @@
+{
+  "slug": "metr",
+  "name": "METR",
+  "aliases": [],
+  "kind": "non-profit",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {},
+  "areas": [
+    {
+      "area": "ai-software-tooling"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/METR",
+      "quote": "Model Evaluation and Threat Research (METR), is a nonprofit research institute, based in Berkeley, California, that evaluates frontier AI models' capabilities to carry out long-horizon, agentic tasks that some researchers argue could pose catastrophic risks to society.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/METR",
+      "quote": "Model Evaluation and Threat Research (METR), is a nonprofit research institute, based in Berkeley, California, that evaluates frontier AI models' capabilities to carry out long-horizon, agentic tasks that some researchers argue could pose catastrophic risks to society.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Model Evaluation and Threat Research (METR), is a nonprofit research institute, based in Berkeley, California, that evaluates frontier AI models' capabilities to carry out long-horizon, agentic tasks that some researchers argue could pose catastrophic risks to society."
+}

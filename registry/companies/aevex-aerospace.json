@@ -12,7 +12,8 @@
     "qid": "Q111684066",
     "isin": "US00835T1079",
     "cik": "2096300",
-    "cusip": "00835T107"
+    "cusip": "00835T107",
+    "domain": "aevex.com"
   },
   "areas": [
     {
@@ -124,10 +125,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q111684066",
+      "quote": "Aevex Aerospace (Q111684066) — headquarters location: Solana Beach",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q111684066",
+      "quote": "Aevex Aerospace (Q111684066) — official website: aevex.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Aevex_Aerospace",
+      "quote": "Aevex is an American defense industry firm specializing in airborne intelligence gathering solutions, headquartered in Solana Beach, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Solana Beach",
+  "summary": "Aevex is an American defense industry firm specializing in airborne intelligence gathering solutions, headquartered in Solana Beach, California."
 }

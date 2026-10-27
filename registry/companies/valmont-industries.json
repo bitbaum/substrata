@@ -12,7 +12,8 @@
     "qid": "Q7912506",
     "ticker": "VMI",
     "exchange": "US",
-    "cusip": "920253101"
+    "cusip": "920253101",
+    "domain": "valmont.com"
   },
   "areas": [
     {
@@ -96,10 +97,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7912506",
+      "quote": "Valmont Industries (Q7912506) — headquarters location: Omaha",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7912506",
+      "quote": "Valmont Industries (Q7912506) — official website: valmont.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Valmont_Industries",
+      "quote": "Valmont Industries, Inc. is a large, publicly held American manufacturer of Valley center pivot and linear irrigation equipment, windmill support structures, lighting and traffic poles and steel utility poles.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Omaha",
+  "summary": "Valmont Industries, Inc. is a large, publicly held American manufacturer of Valley center pivot and linear irrigation equipment, windmill support structures, lighting and traffic poles and steel utility poles."
 }

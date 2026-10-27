@@ -12,7 +12,8 @@
     "exchange": "US",
     "cusip": "462222100",
     "cik": "874015",
-    "qid": "Q22079531"
+    "qid": "Q22079531",
+    "domain": "ionispharma.com"
   },
   "areas": [
     {
@@ -108,10 +109,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q22079531",
+      "quote": "Ionis Pharmaceuticals (Q22079531) — headquarters location: Carlsbad",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q22079531",
+      "quote": "Ionis Pharmaceuticals (Q22079531) — official website: ionispharma.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Ionis_Pharmaceuticals",
+      "quote": "Ionis Pharmaceuticals, Inc. is a biotechnology company that specializes in discovering and developing antisense therapy, as well as RNA interference and CRISPR therapeutics.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Carlsbad",
+  "summary": "Ionis Pharmaceuticals, Inc. is a biotechnology company that specializes in discovering and developing antisense therapy, as well as RNA interference and CRISPR therapeutics."
 }

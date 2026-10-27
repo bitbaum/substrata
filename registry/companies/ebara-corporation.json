@@ -1,0 +1,85 @@
+{
+  "slug": "ebara-corporation",
+  "name": "Ebara Corporation",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q5331498",
+    "isin": "JP3165950001",
+    "domain": "ebara.com",
+    "lei": "353800UV8U3SOMCDTI49"
+  },
+  "areas": [
+    {
+      "area": "semiconductor-equipment"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Ebara_Corporation",
+      "quote": "Ebara Corporation is a publicly traded manufacturing company based in Tokyo, Japan which makes environmental and industrial machinery such as pumps and turbines.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5331498",
+      "quote": "Ebara Corporation (Q5331498) — Wikidata item: Q5331498",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:semiconductor-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Ebara_Corporation",
+      "quote": "Ebara Corporation is a publicly traded manufacturing company based in Tokyo, Japan which makes environmental and industrial machinery such as pumps and turbines.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5331498",
+      "quote": "Ebara Corporation (Q5331498) — headquarters location: Ota",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5331498",
+      "quote": "Ebara Corporation (Q5331498) — country (ISO 3166-1 alpha-2): JP",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5331498",
+      "quote": "Ebara Corporation (Q5331498) — official website: ebara.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5331498",
+      "quote": "Ebara Corporation (Q5331498) — Legal Entity Identifier: 353800UV8U3SOMCDTI49",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Ebara Corporation is a publicly traded manufacturing company based in Tokyo, Japan which makes environmental and industrial machinery such as pumps and turbines.",
+  "hq": "Ota",
+  "country": "JP"
+}

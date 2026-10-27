@@ -1,0 +1,67 @@
+{
+  "slug": "oxford-nanopore-technologies",
+  "name": "Oxford Nanopore Technologies",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q18358947",
+    "isin": "GB00BP6S8Z30",
+    "domain": "nanoporetech.com"
+  },
+  "areas": [
+    {
+      "area": "synthetic-biology"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Oxford_Nanopore_Technologies",
+      "quote": "Oxford Nanopore Technologies plc is a UK-based company which develops and sells nanopore-based molecular sensing technology for the real-time analysis of DNA and RNA.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q18358947",
+      "quote": "Oxford Nanopore Technologies (Q18358947) — Wikidata item: Q18358947",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:synthetic-biology",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Oxford_Nanopore_Technologies",
+      "quote": "Oxford Nanopore Technologies plc is a UK-based company which develops and sells nanopore-based molecular sensing technology for the real-time analysis of DNA and RNA.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q18358947",
+      "quote": "Oxford Nanopore Technologies (Q18358947) — country (ISO 3166-1 alpha-2): GB",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q18358947",
+      "quote": "Oxford Nanopore Technologies (Q18358947) — official website: nanoporetech.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Oxford Nanopore Technologies plc is a UK-based company which develops and sells nanopore-based molecular sensing technology for the real-time analysis of DNA and RNA.",
+  "country": "GB"
+}

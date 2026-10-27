@@ -6,10 +6,12 @@
   "status": "active",
   "country": "CA",
   "ids": {
+    "qid": "Q821293",
     "ticker": "RIO",
     "exchange": "LN",
     "cik": "863064",
-    "sedol": "0718875"
+    "sedol": "0718875",
+    "domain": "riotinto.com"
   },
   "areas": [
     {
@@ -20,6 +22,9 @@
     },
     {
       "area": "advanced-materials"
+    },
+    {
+      "area": "critical-minerals"
     }
   ],
   "evidence": [
@@ -112,10 +117,43 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Rio_Tinto_(corporation)",
+      "quote": "Rio Tinto Group is a British–Australian multinational mining company headquartered in London, England, and Melbourne, Australia.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q821293",
+      "quote": "Rio Tinto Group (Q821293) — Wikidata item: Q821293",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Rio_Tinto_(corporation)",
+      "quote": "Rio Tinto Group is a British–Australian multinational mining company headquartered in London, England, and Melbourne, Australia.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q821293",
+      "quote": "Rio Tinto Group (Q821293) — official website: riotinto.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Rio Tinto Group is a British–Australian multinational mining company headquartered in London, England, and Melbourne, Australia."
 }

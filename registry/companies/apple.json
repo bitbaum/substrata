@@ -6,14 +6,15 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q312",
+    "cik": "320193",
     "lei": "HWUPKR0MPOU8FGXBT394",
     "isin": "US0378331005",
     "ticker": "AAPL",
     "exchange": "US",
     "sedol": "2046251",
-    "cik": "320193",
-    "qid": "Q312",
-    "cusip": "037833100"
+    "cusip": "037833100",
+    "domain": "apple.com.cn"
   },
   "areas": [
     {
@@ -21,6 +22,9 @@
     },
     {
       "area": "robotics"
+    },
+    {
+      "area": "ai-cloud-platforms"
     }
   ],
   "evidence": [
@@ -124,10 +128,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Apple_Inc.",
+      "quote": "Apple Inc. is an American multinational technology company headquartered in Cupertino, California, in Silicon Valley, and known for consumer electronics, software and online services.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Apple_Inc.",
+      "quote": "Apple Inc. is an American multinational technology company headquartered in Cupertino, California, in Silicon Valley, and known for consumer electronics, software and online services.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q312",
+      "quote": "Apple Inc. (Q312) — headquarters location: Cupertino",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q312",
+      "quote": "Apple Inc. (Q312) — official website: apple.com.cn",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Apple Inc. is an American multinational technology company headquartered in Cupertino, California, in Silicon Valley, and known for consumer electronics, software and online services.",
+  "hq": "Cupertino"
 }

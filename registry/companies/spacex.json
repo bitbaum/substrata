@@ -11,14 +11,15 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q193701",
+    "cik": "1181412",
     "lei": "549300B9WLO96RQCXP87",
     "isin": "US84615Q1031",
     "ticker": "SPCX",
     "exchange": "US",
     "cusip": "84615Q103",
     "sedol": "BXCVG25",
-    "qid": "Q193701",
-    "cik": "1181412"
+    "domain": "spacex.com"
   },
   "areas": [
     {
@@ -29,6 +30,9 @@
     },
     {
       "area": "space"
+    },
+    {
+      "area": "launch"
     }
   ],
   "evidence": [
@@ -156,10 +160,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/SpaceX",
+      "quote": ", doing business as SpaceX, is an American aerospace manufacturer and provider of space transportation, telecommunications, and artificial intelligence services, headquartered at the Starbase development site in Starbase, Texas.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:launch",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/SpaceX",
+      "quote": ", doing business as SpaceX, is an American aerospace manufacturer and provider of space transportation, telecommunications, and artificial intelligence services, headquartered at the Starbase development site in Starbase, Texas.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q193701",
+      "quote": "SpaceX (Q193701) — headquarters location: Starbase",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q193701",
+      "quote": "SpaceX (Q193701) — official website: spacex.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": ", doing business as SpaceX, is an American aerospace manufacturer and provider of space transportation, telecommunications, and artificial intelligence services, headquartered at the Starbase development site in Starbase, Texas.",
+  "hq": "Starbase"
 }

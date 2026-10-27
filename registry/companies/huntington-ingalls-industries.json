@@ -6,14 +6,15 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q7257522",
+    "cik": "1501585",
     "lei": "5TZLZ6WJTBVJ0QWBG121",
     "isin": "US4464131063",
     "ticker": "HII",
     "exchange": "US",
     "sedol": "B40SSC9",
-    "cik": "1501585",
-    "qid": "Q7257522",
-    "cusip": "446413106"
+    "cusip": "446413106",
+    "domain": "hii.com"
   },
   "areas": [
     {
@@ -151,10 +152,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Huntington_Ingalls_Industries",
+      "quote": ", (HII) is the largest military shipbuilding company in the United States as well as a provider of professional services to partners in government and industry.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7257522",
+      "quote": "Huntington Ingalls Industries (Q7257522) — headquarters location: Newport News",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7257522",
+      "quote": "Huntington Ingalls Industries (Q7257522) — official website: hii.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": ", (HII) is the largest military shipbuilding company in the United States as well as a provider of professional services to partners in government and industry.",
+  "hq": "Newport News"
 }

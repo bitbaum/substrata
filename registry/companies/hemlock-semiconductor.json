@@ -5,10 +5,15 @@
   "kind": "unclassified",
   "status": "active",
   "country": "US",
-  "ids": {},
+  "ids": {
+    "qid": "Q5712288"
+  },
   "areas": [
     {
       "area": "advanced-materials"
+    },
+    {
+      "area": "wafers-substrates"
     }
   ],
   "evidence": [
@@ -43,10 +48,44 @@
       "readOn": "",
       "asOf": "",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hemlock_Semiconductor",
+      "quote": "Hemlock Semiconductor (HSC) is the largest producer of hyper-pure polysilicon headquartered in the United States.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5712288",
+      "quote": "Hemlock Semiconductor Corporation (Q5712288) — Wikidata item: Q5712288",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:wafers-substrates",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hemlock_Semiconductor",
+      "quote": "Hemlock Semiconductor (HSC) is the largest producer of hyper-pure polysilicon headquartered in the United States.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5712288",
+      "quote": "Hemlock Semiconductor Corporation (Q5712288) — headquarters location: Michigan",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Hemlock Semiconductor (HSC) is the largest producer of hyper-pure polysilicon headquartered in the United States.",
+  "hq": "Michigan"
 }

@@ -6,13 +6,20 @@
   "status": "active",
   "country": "GB",
   "ids": {
+    "qid": "Q585150",
+    "isin": "GB0000456144",
     "ticker": "ANTO",
     "exchange": "LN",
-    "sedol": "0045614"
+    "sedol": "0045614",
+    "domain": "antofagasta.co.uk",
+    "lei": "213800MY6QVH4FVLD628"
   },
   "areas": [
     {
       "area": "advanced-materials"
+    },
+    {
+      "area": "critical-minerals"
     }
   ],
   "evidence": [
@@ -59,10 +66,60 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Antofagasta_plc",
+      "quote": "Antofagasta plc is a London-based Chilean multinational conglomerate.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q585150",
+      "quote": "Antofagasta plc (Q585150) — Wikidata item: Q585150",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Antofagasta_plc",
+      "quote": "Antofagasta plc is a London-based Chilean multinational conglomerate.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q585150",
+      "quote": "Antofagasta plc (Q585150) — headquarters location: London",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q585150",
+      "quote": "Antofagasta plc (Q585150) — official website: antofagasta.co.uk",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q585150",
+      "quote": "Antofagasta plc (Q585150) — Legal Entity Identifier: 213800MY6QVH4FVLD628",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Antofagasta plc is a London-based Chilean multinational conglomerate.",
+  "hq": "London"
 }

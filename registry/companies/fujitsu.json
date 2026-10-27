@@ -6,9 +6,13 @@
   "status": "active",
   "country": "JP",
   "ids": {
+    "qid": "Q186394",
+    "isin": "JP3818000006",
     "ticker": "6702",
     "exchange": "JP",
-    "sedol": "6356945"
+    "sedol": "6356945",
+    "domain": "global.fujitsu",
+    "lei": "3538000246DHJLRTUZ24"
   },
   "areas": [
     {
@@ -16,6 +20,9 @@
     },
     {
       "area": "quantum"
+    },
+    {
+      "area": "ai-software-tooling"
     }
   ],
   "evidence": [
@@ -74,10 +81,60 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Fujitsu",
+      "quote": "Fujitsu Limited is a Japanese multinational information and communications technology equipment and services corporation, established in 1935 and headquartered in Kawasaki, Kanagawa.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q186394",
+      "quote": "Fujitsu (Q186394) — Wikidata item: Q186394",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Fujitsu",
+      "quote": "Fujitsu Limited is a Japanese multinational information and communications technology equipment and services corporation, established in 1935 and headquartered in Kawasaki, Kanagawa.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q186394",
+      "quote": "Fujitsu (Q186394) — headquarters location: Shiodome City Center",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q186394",
+      "quote": "Fujitsu (Q186394) — official website: global.fujitsu",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q186394",
+      "quote": "Fujitsu (Q186394) — Legal Entity Identifier: 3538000246DHJLRTUZ24",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Fujitsu Limited is a Japanese multinational information and communications technology equipment and services corporation, established in 1935 and headquartered in Kawasaki, Kanagawa.",
+  "hq": "Shiodome City Center"
 }

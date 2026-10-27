@@ -12,7 +12,8 @@
     "qid": "Q4829076",
     "ticker": "AVT",
     "exchange": "US",
-    "cusip": "053807103"
+    "cusip": "053807103",
+    "domain": "avnet.com"
   },
   "areas": [
     {
@@ -108,10 +109,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4829076",
+      "quote": "Avnet (Q4829076) — headquarters location: Phoenix",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4829076",
+      "quote": "Avnet (Q4829076) — official website: avnet.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Avnet",
+      "quote": "Avnet, Inc. is a distributor of electronic components headquartered in Tempe, Arizona, named after Charles Avnet, who founded the company in 1921.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Phoenix",
+  "summary": "Avnet, Inc. is a distributor of electronic components headquartered in Tempe, Arizona, named after Charles Avnet, who founded the company in 1921."
 }

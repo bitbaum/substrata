@@ -1,7 +1,7 @@
 {
   "slug": "lucid-group",
   "name": "Lucid Group, Inc.",
-  "aliases": ["Lucid Group Inc"],
+  "aliases": ["Lucid Group Inc", "Lucid Motors"],
   "kind": "public",
   "status": "active",
   "country": "US",
@@ -12,7 +12,9 @@
     "exchange": "US",
     "sedol": "BVY4KF9",
     "cik": "1811210",
-    "cusip": "549498202"
+    "cusip": "549498202",
+    "qid": "Q28027517",
+    "domain": "lucidmotors.com"
   },
   "areas": [
     {
@@ -20,6 +22,9 @@
     },
     {
       "area": "mobility"
+    },
+    {
+      "area": "electric-vehicles"
     }
   ],
   "evidence": [
@@ -124,10 +129,52 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Lucid_Motors",
+      "quote": "Lucid Group, Inc. is an American automotive and technology company that manufactures electric vehicles and supplies advanced electric vehicle powertrain systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q28027517",
+      "quote": "Lucid Motors (Q28027517) — Wikidata item: Q28027517",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:electric-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Lucid_Motors",
+      "quote": "Lucid Group, Inc. is an American automotive and technology company that manufactures electric vehicles and supplies advanced electric vehicle powertrain systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q28027517",
+      "quote": "Lucid Motors (Q28027517) — headquarters location: Newark",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q28027517",
+      "quote": "Lucid Motors (Q28027517) — official website: lucidmotors.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Lucid Group, Inc. is an American automotive and technology company that manufactures electric vehicles and supplies advanced electric vehicle powertrain systems.",
+  "hq": "Newark"
 }

@@ -1,0 +1,66 @@
+{
+  "slug": "helion-energy",
+  "name": "Helion Energy",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q18125525",
+    "domain": "helionenergy.com"
+  },
+  "areas": [
+    {
+      "area": "fusion"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Helion_Energy",
+      "quote": "Helion Energy, Inc. is an American fusion research company located in Everett, Washington.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q18125525",
+      "quote": "Helion Energy (Q18125525) — Wikidata item: Q18125525",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:fusion",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Helion_Energy",
+      "quote": "Helion Energy, Inc. is an American fusion research company located in Everett, Washington.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q18125525",
+      "quote": "Helion Energy (Q18125525) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q18125525",
+      "quote": "Helion Energy (Q18125525) — official website: helionenergy.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Helion Energy, Inc. is an American fusion research company located in Everett, Washington.",
+  "country": "US"
+}

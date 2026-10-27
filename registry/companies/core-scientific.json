@@ -1,0 +1,85 @@
+{
+  "slug": "core-scientific",
+  "name": "Core Scientific",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q138585044",
+    "isin": "US21874A1060",
+    "domain": "corescientific.com",
+    "cik": "1839341"
+  },
+  "areas": [
+    {
+      "area": "data-centres"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Core_Scientific",
+      "quote": "Core Scientific, Inc. is a US-based company with its registered office in Dover, Delaware.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q138585044",
+      "quote": "Core Scientific (Q138585044) — Wikidata item: Q138585044",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:data-centres",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Core_Scientific",
+      "quote": "Core Scientific, Inc. is a US-based company with its registered office in Dover, Delaware.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q138585044",
+      "quote": "Core Scientific (Q138585044) — headquarters location: Dover",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q138585044",
+      "quote": "Core Scientific (Q138585044) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q138585044",
+      "quote": "Core Scientific (Q138585044) — official website: corescientific.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q138585044",
+      "quote": "Core Scientific (Q138585044) — SEC Central Index Key: 1839341",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Core Scientific, Inc. is a US-based company with its registered office in Dover, Delaware.",
+  "hq": "Dover",
+  "country": "US"
+}

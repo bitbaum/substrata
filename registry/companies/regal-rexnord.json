@@ -6,13 +6,18 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q7307899",
     "cik": "82811",
     "ticker": "RRX",
-    "exchange": "US"
+    "exchange": "US",
+    "domain": "regalrexnord.com"
   },
   "areas": [
     {
       "area": "robotics"
+    },
+    {
+      "area": "actuators"
     }
   ],
   "evidence": [
@@ -70,10 +75,52 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Regal_Rexnord",
+      "quote": "Regal Rexnord Corporation is a manufacturer of electric motors and power transmission components based in Milwaukee, Wisconsin.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7307899",
+      "quote": "Regal Rexnord (Q7307899) — Wikidata item: Q7307899",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:actuators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Regal_Rexnord",
+      "quote": "Regal Rexnord Corporation is a manufacturer of electric motors and power transmission components based in Milwaukee, Wisconsin.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7307899",
+      "quote": "Regal Rexnord (Q7307899) — headquarters location: Beloit",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7307899",
+      "quote": "Regal Rexnord (Q7307899) — official website: regalrexnord.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Regal Rexnord Corporation is a manufacturer of electric motors and power transmission components based in Milwaukee, Wisconsin.",
+  "hq": "Beloit"
 }

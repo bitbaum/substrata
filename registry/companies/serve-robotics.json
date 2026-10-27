@@ -6,13 +6,14 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q112583437",
+    "isin": "US81758H1068",
     "ticker": "SERV",
     "exchange": "US",
     "sedol": "BPBJW48",
     "cik": "1832483",
-    "qid": "Q112583437",
-    "isin": "US81758H1068",
-    "cusip": "81758H106"
+    "cusip": "81758H106",
+    "domain": "serverobotics.com"
   },
   "areas": [
     {
@@ -20,6 +21,9 @@
     },
     {
       "area": "mobility"
+    },
+    {
+      "area": "industrial-robots"
     }
   ],
   "evidence": [
@@ -112,10 +116,35 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Serve_Robotics",
+      "quote": "Serve Robotics is an American technology company that designs, develops, and operates autonomous sidewalk delivery robots for last mile food and goods delivery.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:industrial-robots",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Serve_Robotics",
+      "quote": "Serve Robotics is an American technology company that designs, develops, and operates autonomous sidewalk delivery robots for last mile food and goods delivery.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q112583437",
+      "quote": "Serve Robotics (Q112583437) — official website: serverobotics.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Serve Robotics is an American technology company that designs, develops, and operates autonomous sidewalk delivery robots for last mile food and goods delivery."
 }

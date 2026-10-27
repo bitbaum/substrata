@@ -1,0 +1,48 @@
+{
+  "slug": "fourier-intelligence",
+  "name": "Fourier Intelligence",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q131903055"
+  },
+  "areas": [
+    {
+      "area": "humanoids"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Fourier_(company)",
+      "quote": "Fourier is Chinese robotics company headquartered in Shanghai.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q131903055",
+      "quote": "Fourier (Q131903055) — Wikidata item: Q131903055",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:humanoids",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Fourier_(company)",
+      "quote": "Fourier is Chinese robotics company headquartered in Shanghai.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Fourier is Chinese robotics company headquartered in Shanghai."
+}

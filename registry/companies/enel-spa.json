@@ -1,14 +1,18 @@
 {
   "slug": "enel-spa",
   "name": "Enel SpA",
-  "aliases": [],
+  "aliases": ["Enel"],
   "kind": "public",
   "status": "active",
   "country": "IT",
   "ids": {
     "ticker": "ENEL",
     "exchange": "IM",
-    "cusip": "T3679P115"
+    "cusip": "T3679P115",
+    "qid": "Q651222",
+    "isin": "IT0003128367",
+    "domain": "enel.com",
+    "lei": "WOCMU6HCI0OJWNPRZS33"
   },
   "areas": [
     {
@@ -59,10 +63,52 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Enel",
+      "quote": "A. is an Italian multinational producer and distributor of electricity and gas.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q651222",
+      "quote": "Enel (Q651222) — Wikidata item: Q651222",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q651222",
+      "quote": "Enel (Q651222) — headquarters location: Rome",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q651222",
+      "quote": "Enel (Q651222) — official website: enel.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q651222",
+      "quote": "Enel (Q651222) — Legal Entity Identifier: WOCMU6HCI0OJWNPRZS33",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "A. is an Italian multinational producer and distributor of electricity and gas.",
+  "hq": "Rome"
 }

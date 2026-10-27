@@ -6,13 +6,20 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q738770",
     "cik": "106040",
+    "isin": "US9581021055",
     "ticker": "WDC",
-    "exchange": "US"
+    "exchange": "US",
+    "domain": "westerndigital.com",
+    "lei": "549300QQXOOYEF89IC56"
   },
   "areas": [
     {
       "area": "compute-semiconductors"
+    },
+    {
+      "area": "memory"
     }
   ],
   "evidence": [
@@ -70,10 +77,60 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Western_Digital",
+      "quote": "Western Digital Corporation, doing business as WD, is an American data storage company headquartered in San Jose, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q738770",
+      "quote": "Western Digital (Q738770) — Wikidata item: Q738770",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:memory",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Western_Digital",
+      "quote": "Western Digital Corporation, doing business as WD, is an American data storage company headquartered in San Jose, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q738770",
+      "quote": "Western Digital (Q738770) — headquarters location: San Jose",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q738770",
+      "quote": "Western Digital (Q738770) — official website: westerndigital.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q738770",
+      "quote": "Western Digital (Q738770) — Legal Entity Identifier: 549300QQXOOYEF89IC56",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Western Digital Corporation, doing business as WD, is an American data storage company headquartered in San Jose, California.",
+  "hq": "San Jose"
 }

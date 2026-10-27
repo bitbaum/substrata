@@ -1,18 +1,25 @@
 {
   "slug": "kongsberg-gruppen-asa",
   "name": "Kongsberg Gruppen ASA",
-  "aliases": [],
+  "aliases": ["Kongsberg Gruppen"],
   "kind": "public",
   "status": "active",
   "country": "NO",
   "ids": {
     "ticker": "KOG",
     "exchange": "NO",
-    "sedol": "BSTRB82"
+    "sedol": "BSTRB82",
+    "qid": "Q1770909",
+    "domain": "kongsberg.com",
+    "lei": "5967007LIEEXZXJ9HK73",
+    "isin": "NO0003043309"
   },
   "areas": [
     {
       "area": "defence-tech"
+    },
+    {
+      "area": "defence-autonomy"
     }
   ],
   "evidence": [
@@ -59,10 +66,60 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Kongsberg_Gruppen",
+      "quote": "Kongsberg Gruppen ASA is a Norwegian multinational company based in Kongsberg that supplies high-technology systems to customers in the merchant marine, defence, aerospace, offshore oil and gas industries, and renewable and utilities industries.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1770909",
+      "quote": "Kongsberg Gruppen (Q1770909) — Wikidata item: Q1770909",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1770909",
+      "quote": "Kongsberg Gruppen (Q1770909) — headquarters location: Kongsberg",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1770909",
+      "quote": "Kongsberg Gruppen (Q1770909) — official website: http://www.kongsberg.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1770909",
+      "quote": "Kongsberg Gruppen (Q1770909) — Legal Entity Identifier: 5967007LIEEXZXJ9HK73",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:defence-autonomy",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Kongsberg_Gruppen",
+      "quote": "Kongsberg Gruppen ASA is a Norwegian multinational company based in Kongsberg that supplies high-technology systems to customers in the merchant marine, defence, aerospace, offshore oil and gas industries, and renewable and utilities industries.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Kongsberg Gruppen ASA is a Norwegian multinational company based in Kongsberg that supplies high-technology systems to customers in the merchant marine, defence, aerospace, offshore oil and gas industries, and renewable and utilities industries.",
+  "hq": "Kongsberg"
 }

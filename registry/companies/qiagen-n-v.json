@@ -1,7 +1,7 @@
 {
   "slug": "qiagen-n-v",
   "name": "Qiagen N.V.",
-  "aliases": [],
+  "aliases": ["Qiagen"],
   "kind": "public",
   "status": "active",
   "country": "US",
@@ -9,11 +9,18 @@
     "ticker": "QGEN",
     "exchange": "US",
     "sedol": "BVPJWL3",
-    "cik": "1015820"
+    "cik": "1015820",
+    "qid": "Q315287",
+    "isin": "NL0000240000",
+    "domain": "qiagen.com",
+    "lei": "54930036WK3GMCN17Z57"
   },
   "areas": [
     {
       "area": "biotech-and-longevity"
+    },
+    {
+      "area": "synthetic-biology"
     }
   ],
   "evidence": [
@@ -71,10 +78,60 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Qiagen",
+      "quote": "V. is a German-founded multinational provider of sample and assay technologies for molecular diagnostics, applied testing, academic research, and pharmaceutical research.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q315287",
+      "quote": "Qiagen (Q315287) — Wikidata item: Q315287",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:synthetic-biology",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Qiagen",
+      "quote": "V. is a German-founded multinational provider of sample and assay technologies for molecular diagnostics, applied testing, academic research, and pharmaceutical research.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q315287",
+      "quote": "Qiagen (Q315287) — headquarters location: Venlo",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q315287",
+      "quote": "Qiagen (Q315287) — official website: qiagen.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q315287",
+      "quote": "Qiagen (Q315287) — Legal Entity Identifier: 54930036WK3GMCN17Z57",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "V. is a German-founded multinational provider of sample and assay technologies for molecular diagnostics, applied testing, academic research, and pharmaceutical research.",
+  "hq": "Venlo"
 }

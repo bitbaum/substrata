@@ -13,7 +13,8 @@
     "ticker": "DCO",
     "exchange": "US",
     "cusip": "264147109",
-    "sedol": "2283229"
+    "sedol": "2283229",
+    "domain": "ducommun.com"
   },
   "areas": [
     {
@@ -124,10 +125,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5311573",
+      "quote": "Ducommun (Q5311573) — headquarters location: Santa Ana",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5311573",
+      "quote": "Ducommun (Q5311573) — official website: ducommun.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Ducommun",
+      "quote": "Ducommun Incorporated is a global provider of manufacturing and engineering services, developing electronic, engineered and structural solutions for applications in aerospace, defense and industrial markets.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Santa Ana",
+  "summary": "Ducommun Incorporated is a global provider of manufacturing and engineering services, developing electronic, engineered and structural solutions for applications in aerospace, defense and industrial markets."
 }

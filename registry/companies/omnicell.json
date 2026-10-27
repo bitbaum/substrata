@@ -13,7 +13,8 @@
     "sedol": "2789523",
     "cik": "926326",
     "qid": "Q104481307",
-    "cusip": "68213N109"
+    "cusip": "68213N109",
+    "domain": "omnicell.com"
   },
   "areas": [
     {
@@ -136,10 +137,27 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q104481307",
+      "quote": "Omnicell (Q104481307) — official website: omnicell.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Omnicell",
+      "quote": "Omnicell, Inc. is an American multinational healthcare technology company headquartered in Fort Worth, TX.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Omnicell, Inc. is an American multinational healthcare technology company headquartered in Fort Worth, TX."
 }

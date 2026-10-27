@@ -1,0 +1,76 @@
+{
+  "slug": "zeekr",
+  "name": "Zeekr",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q106621124",
+    "isin": "US98923K1034",
+    "domain": "zeekrglobal.com"
+  },
+  "areas": [
+    {
+      "area": "electric-vehicles"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Zeekr",
+      "quote": "Zeekr Intelligent Technology Holding Limited, trading as Zeekr Group, is a Chinese automobile company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q106621124",
+      "quote": "Zeekr (Q106621124) — Wikidata item: Q106621124",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:electric-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Zeekr",
+      "quote": "Zeekr Intelligent Technology Holding Limited, trading as Zeekr Group, is a Chinese automobile company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q106621124",
+      "quote": "Zeekr (Q106621124) — headquarters location: Ningbo",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q106621124",
+      "quote": "Zeekr (Q106621124) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q106621124",
+      "quote": "Zeekr (Q106621124) — official website: zeekrglobal.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Zeekr Intelligent Technology Holding Limited, trading as Zeekr Group, is a Chinese automobile company.",
+  "hq": "Ningbo",
+  "country": "CN"
+}

@@ -77,10 +77,18 @@ test('the model chip only with a key; the way to a key is the footnote line', ()
 test('Expand opens /chat on the same chat; messages from elsewhere start a new one', () => {
   const chat = read('components/portal/ResearchChat.tsx');
   assert.match(chat, /router\.push\('\/chat'\)/, 'Expand is only a bigger frame');
-  assert.match(chat, /removeItem\(OPEN_CHAT_KEY\)/, 'a question from elsewhere is a new chat');
-  const auto = read('components/portal/chat/useAutoAsk.ts');
-  assert.match(auto, /takePending\(handed\)/, 'the home box’s message, attachments and all');
-  assert.match(auto, /sendThroughComposer/);
+  assert.match(chat, /initialMessage=\{arrival\}/, 'the home box’s message, attachments and all');
+  assert.match(chat, /send\(text, \[\], \{ newChat: true \}\)/, '"Check this" is a new chat');
+  assert.doesNotMatch(
+    chat,
+    /\.ck-send|\.ck-composer/,
+    'nothing types into the composer from outside',
+  );
+  assert.match(
+    chat,
+    /railQuery=\{compact \? 'not all' : undefined\}/,
+    'the panel’s chat list is a drawer',
+  );
 });
 
 test('"N records read" is the thought row above the answer, not a line under it', () => {

@@ -6,13 +6,14 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q110706493",
+    "isin": "US02156V1098",
     "ticker": "OKLO",
     "exchange": "US",
     "cusip": "02156V109",
-    "isin": "US02156V1098",
     "sedol": "BMD78K7",
     "cik": "1849056",
-    "qid": "Q110706493"
+    "domain": "oklo.com"
   },
   "areas": [
     {
@@ -20,6 +21,9 @@
     },
     {
       "area": "nuclear-energy"
+    },
+    {
+      "area": "fission-smr"
     }
   ],
   "evidence": [
@@ -136,10 +140,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Oklo_Inc.",
+      "quote": "Oklo Inc. is a publicly traded American nuclear power company based in Santa Clara, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:fission-smr",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Oklo_Inc.",
+      "quote": "Oklo Inc. is a publicly traded American nuclear power company based in Santa Clara, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q110706493",
+      "quote": "Oklo (Q110706493) — headquarters location: Sunnyvale",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q110706493",
+      "quote": "Oklo (Q110706493) — official website: oklo.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Oklo Inc. is a publicly traded American nuclear power company based in Santa Clara, California.",
+  "hq": "Sunnyvale"
 }

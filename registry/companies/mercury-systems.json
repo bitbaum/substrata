@@ -13,7 +13,8 @@
     "sedol": "2144047",
     "cik": "1049521",
     "qid": "Q6818651",
-    "cusip": "589378108"
+    "cusip": "589378108",
+    "domain": "mrcy.com"
   },
   "areas": [
     {
@@ -121,6 +122,14 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q6818651",
+      "quote": "Mercury Systems (Q6818651) — official website: mrcy.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {

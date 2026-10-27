@@ -1,0 +1,104 @@
+{
+  "slug": "insilico-medicine",
+  "name": "Insilico Medicine",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q43080151",
+    "domain": "insilico.com",
+    "cik": "1789097",
+    "lei": "254900MQK3C1TR58H275"
+  },
+  "areas": [
+    {
+      "area": "synthetic-biology"
+    },
+    {
+      "area": "longevity"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Insilico_Medicine",
+      "quote": "Insilico Medicine is a biotechnology company headquartered in Boston, Massachusetts, with additional facilities in Pak Shek Kok, Hong Kong in Hong Kong Science Park near the Chinese University of Hong Kong, and in New York, at The Cure by Deerfield.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q43080151",
+      "quote": "Insilico Medicine (Q43080151) — Wikidata item: Q43080151",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:synthetic-biology",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Insilico_Medicine",
+      "quote": "Insilico Medicine is a biotechnology company headquartered in Boston, Massachusetts, with additional facilities in Pak Shek Kok, Hong Kong in Hong Kong Science Park near the Chinese University of Hong Kong, and in New York, at The Cure by Deerfield.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:longevity",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Insilico_Medicine",
+      "quote": "Insilico Medicine is a biotechnology company headquartered in Boston, Massachusetts, with additional facilities in Pak Shek Kok, Hong Kong in Hong Kong Science Park near the Chinese University of Hong Kong, and in New York, at The Cure by Deerfield.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q43080151",
+      "quote": "Insilico Medicine (Q43080151) — headquarters location: Hong Kong",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q43080151",
+      "quote": "Insilico Medicine (Q43080151) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q43080151",
+      "quote": "Insilico Medicine (Q43080151) — official website: insilico.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q43080151",
+      "quote": "Insilico Medicine (Q43080151) — SEC Central Index Key: 1789097",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q43080151",
+      "quote": "Insilico Medicine (Q43080151) — Legal Entity Identifier: 254900MQK3C1TR58H275",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Insilico Medicine is a biotechnology company headquartered in Boston, Massachusetts, with additional facilities in Pak Shek Kok, Hong Kong in Hong Kong Science Park near the Chinese University of Hong Kong, and in New York, at The Cure by Deerfield.",
+  "hq": "Hong Kong",
+  "country": "CN"
+}

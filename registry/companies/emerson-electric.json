@@ -12,7 +12,8 @@
     "qid": "Q1335585",
     "ticker": "EMR",
     "exchange": "US",
-    "cusip": "291011104"
+    "cusip": "291011104",
+    "domain": "emerson.com"
   },
   "areas": [
     {
@@ -111,10 +112,27 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1335585",
+      "quote": "Emerson Electric (Q1335585) — headquarters location: St. Louis",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1335585",
+      "quote": "Emerson Electric (Q1335585) — official website: emerson.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "St. Louis"
 }

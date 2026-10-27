@@ -6,8 +6,13 @@
   "status": "active",
   "country": "JP",
   "ids": {
+    "qid": "Q1151693",
+    "isin": "JP3381000003",
     "ticker": "5401",
-    "exchange": "JP"
+    "exchange": "JP",
+    "domain": "nipponsteel.com",
+    "cik": "1140471",
+    "lei": "35380065QWQ4U2V3PA33"
   },
   "areas": [
     {
@@ -57,10 +62,60 @@
       "readOn": "",
       "asOf": "",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Nippon_Steel",
+      "quote": "Nippon Steel Corporation is a Japanese steel manufacturing company, headquartered in Marunouchi, Chiyoda, Tokyo.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1151693",
+      "quote": "Nippon Steel Corporation (Q1151693) — Wikidata item: Q1151693",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1151693",
+      "quote": "Nippon Steel Corporation (Q1151693) — headquarters location: Marunouchi Park Building",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1151693",
+      "quote": "Nippon Steel Corporation (Q1151693) — official website: nipponsteel.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1151693",
+      "quote": "Nippon Steel Corporation (Q1151693) — SEC Central Index Key: 1140471",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1151693",
+      "quote": "Nippon Steel Corporation (Q1151693) — Legal Entity Identifier: 35380065QWQ4U2V3PA33",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Nippon Steel Corporation is a Japanese steel manufacturing company, headquartered in Marunouchi, Chiyoda, Tokyo.",
+  "hq": "Marunouchi Park Building"
 }

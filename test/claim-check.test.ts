@@ -18,9 +18,11 @@ import { claimPlan, claimQuery } from '../lib/chat-agent/claim-plan';
 import {
   claimLines,
   shapeClaimAnswer,
+  statusFor,
   withoutMaterialFigures,
 } from '../lib/chat-agent/claim-shape';
 import { bringsMaterial, parseReading } from '../lib/chat-agent/read-claims';
+import { sentencesIn } from '../lib/chat-agent/sentences';
 import type { AgentAnswer, AgentEvent } from '../lib/chat-agent/answer';
 import type { ModelTurn } from '../lib/chat-agent/turn';
 import { readerContext } from '../lib/chat-context';
@@ -132,7 +134,11 @@ test('a status stands only with a citation; a missing claim is added; material f
   assert.match(lines[0], /^- \*\*Not found\*\* — Elon Musk, per the screenshot: “200\+ AI/);
   assert.match(lines[1], /^- \*\*Not found\*\* — the screenshot: “SpaceX closed \$40B/);
   assert.match(lines[2], /^- \*\*Partly\*\* — .*\[W1\]/);
-  assert.match(lines[3], /^- \*\*Confirmed\*\* — .*\[W2\]/);
+  assert.match(
+    lines[3],
+    /^- \*\*Reported\*\* — Gartner estimates .*\[W2\]/,
+    'a source shows Gartner said it',
+  );
   assert.doesNotMatch(shaped, /makes a collapse obvious/);
   assert.match(shaped, /### Sources\n\n\[W1\] \[W2\]$/);
   assert.equal(claimLines('- **C2 · partly** — x [W1]').get('C2')?.status, 'Partly');
@@ -140,6 +146,49 @@ test('a status stands only with a citation; a missing claim is added; material f
     withoutMaterialFigures('CoreWeave fell 38%. It is volatile.', reading),
     'It is volatile.',
   );
+});
+
+test('a link is never cut in two: no "](https://…))" fragment reaches the Reasoning', () => {
+  assert.deepEqual(sentencesIn('See [A. B](https://en.wikipedia.org/wiki/X_(y)). Next one.'), [
+    'See [A. B](https://en.wikipedia.org/wiki/X_(y)).',
+    'Next one.',
+  ]);
+  const f = load();
+  const reading = parseReading(JSON.stringify(f.reading))!;
+  // Seen live: the link's title held a full stop and a figure only the post gave.
+  const line =
+    '- Reasoning, not a sourced forecast: the post leans on one source ([Gartner: IaaS spend is $4.9T. Neoclouds sell IaaS](https://x.com/post/1)). Demand can still move.';
+  const kept = withoutMaterialFigures(line, reading);
+  assert.ok(
+    !kept.includes('](https://x.com') || kept.includes('([Gartner: IaaS spend'),
+    'the link goes whole or stays whole',
+  );
+  assert.match(kept, /Demand can still move\./);
+  const shaped = shapeClaimAnswer(`Bottom line [W1].\n\n### Reasoning\n\n${line}`, reading, {
+    webCount: 2,
+    from: 'screenshot',
+  });
+  for (const l of shaped.split('\n').filter((x) => x.includes('](https://x.com')))
+    assert.match(
+      l,
+      /\(\[Gartner: IaaS spend is \$4\.9T\. Neoclouds sell IaaS\]\(https:\/\/x\.com\/post\/1\)\)/,
+      l,
+    );
+});
+
+test('a claim that someone said something: Reported for the saying, Confirmed for the fact', () => {
+  const quote = { id: 'C1', text: 'There is a $4.9T gap', who: 'Gartner', kind: 'quote' as const };
+  assert.equal(statusFor(quote, 'Confirmed', 'Gartner estimates a $4.9T gap [W2]'), 'Reported');
+  assert.equal(statusFor(quote, 'Confirmed', 'The report says the gap is $4.9T [W2]'), 'Reported');
+  assert.equal(
+    statusFor(quote, 'Confirmed', 'Spending exceeded revenue by $4.9T in 2025 [W2]'),
+    'Confirmed',
+    'a source that establishes the fact itself',
+  );
+  assert.equal(statusFor(quote, 'Partly', 'Gartner puts it at $3T [W2]'), 'Partly');
+  const fact = { id: 'C2', text: 'CoreWeave fell 31%', kind: 'figure' as const };
+  assert.equal(statusFor(fact, 'Confirmed', 'Reuters reported a 31% fall [W1]'), 'Confirmed');
+  assert.equal(claimLines('- **C2 · reported** — x [W1]').get('C2')?.status, 'Reported');
 });
 
 // ---------------------------------------------------------------- whole runs
@@ -231,7 +280,7 @@ for (const row of SCREENSHOT_ROWS)
     assert.ok(a.startsWith(f.expect.leadStarts), a.slice(0, 120));
     const lines = a
       .split('\n')
-      .filter((l) => /^- \*\*(Confirmed|Partly|Contradicted|Not found)\*\*/.test(l));
+      .filter((l) => /^- \*\*(Confirmed|Reported|Partly|Contradicted|Not found)\*\*/.test(l));
     assert.deepEqual(
       lines.map((l) => /\*\*(.+?)\*\*/.exec(l)![1]),
       Object.values(f.expect.statuses),

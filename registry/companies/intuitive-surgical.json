@@ -6,18 +6,22 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q2743863",
+    "cik": "1035267",
     "lei": "54930052SRG011710797",
     "isin": "US46120E6023",
     "ticker": "ISRG",
     "exchange": "US",
     "cusip": "46120E602",
     "sedol": "2871301",
-    "cik": "1035267",
-    "qid": "Q2743863"
+    "domain": "intuitive.com"
   },
   "areas": [
     {
       "area": "robotics"
+    },
+    {
+      "area": "industrial-robots"
     }
   ],
   "evidence": [
@@ -157,10 +161,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Intuitive_Surgical",
+      "quote": "Intuitive Surgical, Inc. is an American biotechnology company that develops, manufactures, and markets robotic products designed to improve clinical outcomes of patients through minimally invasive surgery, most notably with the da Vinci Surgical System.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:industrial-robots",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Intuitive_Surgical",
+      "quote": "Intuitive Surgical, Inc. is an American biotechnology company that develops, manufactures, and markets robotic products designed to improve clinical outcomes of patients through minimally invasive surgery, most notably with the da Vinci Surgical System.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2743863",
+      "quote": "Intuitive Surgical (Q2743863) — headquarters location: Sunnyvale",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2743863",
+      "quote": "Intuitive Surgical (Q2743863) — official website: intuitive.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Intuitive Surgical, Inc. is an American biotechnology company that develops, manufactures, and markets robotic products designed to improve clinical outcomes of patients through minimally invasive surgery, most notably with the da Vinci Surgical System.",
+  "hq": "Sunnyvale"
 }

@@ -6,12 +6,17 @@
   "status": "active",
   "country": "JP",
   "ids": {
+    "qid": "Q11323984",
     "ticker": "6268",
-    "exchange": "JP"
+    "exchange": "JP",
+    "domain": "nabtesco.com"
   },
   "areas": [
     {
       "area": "robotics"
+    },
+    {
+      "area": "reducers-gearboxes"
     }
   ],
   "evidence": [
@@ -57,10 +62,52 @@
       "readOn": "",
       "asOf": "",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Nabtesco",
+      "quote": "Nabtesco is a Japanese engineering company that specializes in gearboxes, rotors, motors and robotics.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q11323984",
+      "quote": "Nabtesco (Q11323984) — Wikidata item: Q11323984",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:reducers-gearboxes",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Nabtesco",
+      "quote": "Nabtesco is a Japanese engineering company that specializes in gearboxes, rotors, motors and robotics.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q11323984",
+      "quote": "Nabtesco (Q11323984) — headquarters location: Tokyo",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q11323984",
+      "quote": "Nabtesco (Q11323984) — official website: nabtesco.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Nabtesco is a Japanese engineering company that specializes in gearboxes, rotors, motors and robotics.",
+  "hq": "Tokyo"
 }

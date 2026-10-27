@@ -12,7 +12,8 @@
     "qid": "Q1107035",
     "ticker": "CTSH",
     "exchange": "US",
-    "cusip": "192446102"
+    "cusip": "192446102",
+    "domain": "cognizant.com"
   },
   "areas": [
     {
@@ -96,10 +97,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1107035",
+      "quote": "Cognizant Technology Solutions (Q1107035) — headquarters location: Teaneck",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1107035",
+      "quote": "Cognizant Technology Solutions (Q1107035) — official website: cognizant.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Cognizant",
+      "quote": "Cognizant Technology Solutions Corporation is an American domiciled Indian multinational information technology services and outsourcing company, headquartered in Teaneck, New Jersey.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Teaneck",
+  "summary": "Cognizant Technology Solutions Corporation is an American domiciled Indian multinational information technology services and outsourcing company, headquartered in Teaneck, New Jersey."
 }

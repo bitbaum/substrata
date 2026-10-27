@@ -18,9 +18,10 @@ shrunk to 1024px in the browser before it is staged (Heidi's limits, in
 `lib/chat/image.ts`). Pictures and text files only: chatkit's composer refuses a
 PDF with a sentence. The home box does not answer; it hands the message, with
 its attachments, to /chat through the tab's session store
-(`lib/chat/handoff.ts`), and /chat sends it at once as a new chat, through the
-composer (`lib/chat/drive-composer.ts` — ChatApp 0.18 has no way for a page to
-send a message itself).
+(`lib/chat/handoff.ts`), and /chat sends it at once as a new chat: it is
+ChatApp's `initialMessage` (chatkit 0.19), which reads the pictures the way the
+paperclip does. A failed turn throws `ChatTurnError`, so Retry sends the
+pictures again.
 
 ## The answer
 
@@ -36,7 +37,8 @@ post (long, with figures) — is a claim check (`lib/chat-agent/claim-check.ts`)
    (`lib/chat-agent/research-read.ts`) as "Checking: <claim>…"; a listed company
    in the market seed also gets the market tools.
 3. **Answer** (`lib/chat-agent/claim-shape.ts`): bottom line first, then one
-   line per claim — Confirmed, Partly, Contradicted or Not found — then the
+   line per claim — Confirmed, Reported (a source shows only that someone said
+   it), Partly, Contradicted or Not found — then the
    reasoning, labelled, and what would change the view. Every guard of the
    ordinary path runs (`lib/chat-agent/check-answer.ts`). Code then makes sure
    a status other than Not found stands only with a citation, every claim gets

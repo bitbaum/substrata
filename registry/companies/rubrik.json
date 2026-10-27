@@ -11,7 +11,8 @@
     "isin": "US7811541090",
     "ticker": "RBRK",
     "exchange": "US",
-    "cusip": "781154109"
+    "cusip": "781154109",
+    "domain": "rubrik.com"
   },
   "areas": [
     {
@@ -96,10 +97,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q55632076",
+      "quote": "Rubrik (Q55632076) — headquarters location: Palo Alto",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q55632076",
+      "quote": "Rubrik (Q55632076) — official website: rubrik.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Rubrik",
+      "quote": "Rubrik, Inc. is an American cloud data management and data security company based in Palo Alto, California, founded in January 2014.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Palo Alto",
+  "summary": "Rubrik, Inc. is an American cloud data management and data security company based in Palo Alto, California, founded in January 2014."
 }

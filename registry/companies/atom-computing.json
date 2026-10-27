@@ -1,0 +1,75 @@
+{
+  "slug": "atom-computing",
+  "name": "Atom Computing",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q82798095",
+    "domain": "atom-computing.com"
+  },
+  "areas": [
+    {
+      "area": "quantum-computing"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Atom_Computing",
+      "quote": "Atom Computing Inc. is a quantum computing company headquartered in Berkeley, California with a commercial operations facility in Boulder, Colorado.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q82798095",
+      "quote": "Atom Computing (Q82798095) — Wikidata item: Q82798095",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:quantum-computing",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Atom_Computing",
+      "quote": "Atom Computing Inc. is a quantum computing company headquartered in Berkeley, California with a commercial operations facility in Boulder, Colorado.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q82798095",
+      "quote": "Atom Computing (Q82798095) — headquarters location: Berkeley",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q82798095",
+      "quote": "Atom Computing (Q82798095) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q82798095",
+      "quote": "Atom Computing (Q82798095) — official website: atom-computing.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Atom Computing Inc. is a quantum computing company headquartered in Berkeley, California with a commercial operations facility in Boulder, Colorado.",
+  "hq": "Berkeley",
+  "country": "US"
+}

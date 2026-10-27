@@ -6,14 +6,15 @@
   "status": "active",
   "country": "US",
   "ids": {
-    "lei": "529900O1DTDLCJ7L0I14",
+    "qid": "Q5629432",
     "isin": "US4228061093",
+    "lei": "529900O1DTDLCJ7L0I14",
     "ticker": "HEI",
     "exchange": "US",
     "cusip": "422806109",
     "cik": "46619",
-    "qid": "Q5629432",
-    "sedol": "2419217"
+    "sedol": "2419217",
+    "domain": "heico.com"
   },
   "areas": [
     {
@@ -127,10 +128,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/HEICO",
+      "quote": "HEICO Corporation is an American aerospace and electronics company headquartered in Hollywood, Florida.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5629432",
+      "quote": "HEICO (Q5629432) — headquarters location: Hollywood",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5629432",
+      "quote": "HEICO (Q5629432) — official website: heico.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "HEICO Corporation is an American aerospace and electronics company headquartered in Hollywood, Florida.",
+  "hq": "Hollywood"
 }

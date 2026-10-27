@@ -1,0 +1,75 @@
+{
+  "slug": "alice-bob",
+  "name": "Alice & Bob",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q111452775",
+    "domain": "alice-bob.com"
+  },
+  "areas": [
+    {
+      "area": "quantum-computing"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Alice_%26_Bob_(company)",
+      "quote": "Alice & Bob is a quantum computing company based in Paris and Boston.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q111452775",
+      "quote": "Alice & Bob (Q111452775) — Wikidata item: Q111452775",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:quantum-computing",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Alice_%26_Bob_(company)",
+      "quote": "Alice & Bob is a quantum computing company based in Paris and Boston.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q111452775",
+      "quote": "Alice & Bob (Q111452775) — headquarters location: Paris",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q111452775",
+      "quote": "Alice & Bob (Q111452775) — country (ISO 3166-1 alpha-2): FR",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q111452775",
+      "quote": "Alice & Bob (Q111452775) — official website: alice-bob.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Alice & Bob is a quantum computing company based in Paris and Boston.",
+  "hq": "Paris",
+  "country": "FR"
+}

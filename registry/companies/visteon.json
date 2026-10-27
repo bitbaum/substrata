@@ -13,7 +13,8 @@
     "sedol": "B4N0JJ6",
     "cik": "1111335",
     "qid": "Q637474",
-    "cusip": "92839U206"
+    "cusip": "92839U206",
+    "domain": "visteon.com"
   },
   "areas": [
     {
@@ -109,10 +110,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q637474",
+      "quote": "Visteon (Q637474) — headquarters location: Van Buren Charter Township",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q637474",
+      "quote": "Visteon (Q637474) — official website: visteon.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Visteon",
+      "quote": "Visteon Corporation (VC) is an American global automotive electronics technology company headquartered in Van Buren Township, Michigan.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Van Buren Charter Township",
+  "summary": "Visteon Corporation (VC) is an American global automotive electronics technology company headquartered in Van Buren Township, Michigan."
 }

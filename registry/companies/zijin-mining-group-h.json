@@ -1,18 +1,25 @@
 {
   "slug": "zijin-mining-group-h",
   "name": "Zijin Mining Group Co Ltd-H",
-  "aliases": [],
+  "aliases": ["Zijin Mining"],
   "kind": "public",
   "status": "active",
   "country": "HK",
   "ids": {
     "ticker": "2899",
     "exchange": "HK",
-    "sedol": "6725299"
+    "sedol": "6725299",
+    "qid": "Q202841",
+    "isin": "CNE100000502",
+    "domain": "zijinmining.com",
+    "lei": "836800JRNL2393Z2I561"
   },
   "areas": [
     {
       "area": "advanced-materials"
+    },
+    {
+      "area": "critical-minerals"
     }
   ],
   "evidence": [
@@ -59,10 +66,51 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q202841",
+      "quote": "Zijin Mining Group (Q202841) — Wikidata item: Q202841",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Zijin_Mining",
+      "quote": ", Limited is a publicly-traded partly state-owned mining company headquartered in Longyan, Fujian, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q202841",
+      "quote": "Zijin Mining Group (Q202841) — headquarters location: Longyan",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q202841",
+      "quote": "Zijin Mining Group (Q202841) — official website: zijinmining.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q202841",
+      "quote": "Zijin Mining Group (Q202841) — Legal Entity Identifier: 836800JRNL2393Z2I561",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Longyan"
 }

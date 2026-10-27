@@ -1,0 +1,75 @@
+{
+  "slug": "reflection-ai",
+  "name": "Reflection AI",
+  "aliases": [],
+  "kind": "lab",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q140315597",
+    "domain": "reflection.ai"
+  },
+  "areas": [
+    {
+      "area": "frontier-labs"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Reflection_AI",
+      "quote": "Reflection AI is an American artificial intelligence company that develops open foundation models and software agents for AI-assisted software development.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q140315597",
+      "quote": "Reflection AI (Q140315597) — Wikidata item: Q140315597",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:frontier-labs",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Reflection_AI",
+      "quote": "Reflection AI is an American artificial intelligence company that develops open foundation models and software agents for AI-assisted software development.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q140315597",
+      "quote": "Reflection AI (Q140315597) — headquarters location: Brooklyn",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q140315597",
+      "quote": "Reflection AI (Q140315597) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q140315597",
+      "quote": "Reflection AI (Q140315597) — official website: reflection.ai",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Reflection AI is an American artificial intelligence company that develops open foundation models and software agents for AI-assisted software development.",
+  "hq": "Brooklyn",
+  "country": "US"
+}

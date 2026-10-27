@@ -1,0 +1,94 @@
+{
+  "slug": "thyssenkrupp",
+  "name": "Thyssenkrupp",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q137910",
+    "isin": "DE0007500001",
+    "domain": "thyssenkrupp.com",
+    "cik": "1437198",
+    "lei": "549300UDG16DOYUPR330"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/ThyssenKrupp",
+      "quote": "ThyssenKrupp AG is a German industrial engineering and steel production company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q137910",
+      "quote": "thyssenkrupp AG (Q137910) — Wikidata item: Q137910",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:advanced-materials",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/ThyssenKrupp",
+      "quote": "ThyssenKrupp AG is a German industrial engineering and steel production company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q137910",
+      "quote": "thyssenkrupp AG (Q137910) — headquarters location: Essen",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q137910",
+      "quote": "thyssenkrupp AG (Q137910) — country (ISO 3166-1 alpha-2): DE",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q137910",
+      "quote": "thyssenkrupp AG (Q137910) — official website: thyssenkrupp.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q137910",
+      "quote": "thyssenkrupp AG (Q137910) — SEC Central Index Key: 1437198",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q137910",
+      "quote": "thyssenkrupp AG (Q137910) — Legal Entity Identifier: 549300UDG16DOYUPR330",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "ThyssenKrupp AG is a German industrial engineering and steel production company.",
+  "hq": "Essen",
+  "country": "DE"
+}

@@ -13,7 +13,8 @@
     "ticker": "VSAT",
     "exchange": "US",
     "cusip": "92552V100",
-    "sedol": "2946243"
+    "sedol": "2946243",
+    "domain": "viasat.com"
   },
   "areas": [
     {
@@ -97,10 +98,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7924358",
+      "quote": "Viasat (Q7924358) — headquarters location: Carlsbad",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7924358",
+      "quote": "Viasat (Q7924358) — official website: viasat.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Viasat_(American_company)",
+      "quote": "Viasat, Inc. is an American satellite communications company headquartered in Carlsbad, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Carlsbad",
+  "summary": "Viasat, Inc. is an American satellite communications company headquartered in Carlsbad, California."
 }

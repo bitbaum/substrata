@@ -1,0 +1,57 @@
+{
+  "slug": "rebellions",
+  "name": "Rebellions",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q131904558",
+    "domain": "rebellions.ai"
+  },
+  "areas": [
+    {
+      "area": "ai-accelerators"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Rebellions_(company)",
+      "quote": "Rebellions Inc. headquartered in Seongnam, South Korea, is a fabless semiconductor company founded in 2020.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q131904558",
+      "quote": "Rebellions (Q131904558) — Wikidata item: Q131904558",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-accelerators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Rebellions_(company)",
+      "quote": "Rebellions Inc. headquartered in Seongnam, South Korea, is a fabless semiconductor company founded in 2020.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q131904558",
+      "quote": "Rebellions (Q131904558) — official website: rebellions.ai",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Rebellions Inc. headquartered in Seongnam, South Korea, is a fabless semiconductor company founded in 2020."
+}

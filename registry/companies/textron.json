@@ -13,7 +13,8 @@
     "ticker": "TXT",
     "exchange": "US",
     "cusip": "883203101",
-    "sedol": "2885937"
+    "sedol": "2885937",
+    "domain": "textron.com"
   },
   "areas": [
     {
@@ -112,10 +113,27 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2140315",
+      "quote": "Textron (Q2140315) — official website: textron.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Textron",
+      "quote": "Textron Inc. is an American industrial conglomerate based in Providence, Rhode Island.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Textron Inc. is an American industrial conglomerate based in Providence, Rhode Island."
 }

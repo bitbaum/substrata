@@ -13,7 +13,8 @@
     "cusip": "45826J105",
     "sedol": "BYZM6C2",
     "cik": "1652130",
-    "qid": "Q54621387"
+    "qid": "Q54621387",
+    "domain": "intelliatx.com"
   },
   "areas": [
     {
@@ -121,10 +122,36 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q54621387",
+      "quote": "Intellia Therapeutics (Q54621387) — headquarters location: Cambridge",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q54621387",
+      "quote": "Intellia Therapeutics (Q54621387) — official website: intelliatx.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Intellia_Therapeutics",
+      "quote": "Intellia Therapeutics, Inc. is an American clinical-stage biotechnology company focused on developing novel, potentially curative therapeutics leveraging CRISPR-based technologies.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Cambridge",
+  "summary": "Intellia Therapeutics, Inc. is an American clinical-stage biotechnology company focused on developing novel, potentially curative therapeutics leveraging CRISPR-based technologies."
 }

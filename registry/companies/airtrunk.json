@@ -1,0 +1,57 @@
+{
+  "slug": "airtrunk",
+  "name": "AirTrunk",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q136446452"
+  },
+  "areas": [
+    {
+      "area": "data-centres"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/AirTrunk",
+      "quote": "AirTrunk is an Australian data centre company founded by Robin Khuda in 2015, and sold to Blackstone for A$24 billion.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q136446452",
+      "quote": "AirTrunk (Q136446452) — Wikidata item: Q136446452",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:data-centres",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/AirTrunk",
+      "quote": "AirTrunk is an Australian data centre company founded by Robin Khuda in 2015, and sold to Blackstone for A$24 billion.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q136446452",
+      "quote": "AirTrunk (Q136446452) — country (ISO 3166-1 alpha-2): AU",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "AirTrunk is an Australian data centre company founded by Robin Khuda in 2015, and sold to Blackstone for A$24 billion.",
+  "country": "AU"
+}

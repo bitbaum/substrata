@@ -6,12 +6,15 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q6907265",
     "lei": "549300WM2I4U7OBAHG07",
     "isin": "US6153942023",
     "ticker": "MOG/A",
     "exchange": "US",
     "sedol": "2601218",
-    "cusip": "615394202"
+    "cusip": "615394202",
+    "domain": "moog.com",
+    "cik": "67887"
   },
   "areas": [
     {
@@ -22,6 +25,9 @@
     },
     {
       "area": "defence-tech"
+    },
+    {
+      "area": "actuators"
     }
   ],
   "evidence": [
@@ -138,10 +144,60 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Moog_Inc.",
+      "quote": "Moog Inc. is an American-based designer and manufacturer of electric, electro-hydraulic and hydraulic motion, controls and systems for applications in aerospace, defense, industrial and medical devices.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q6907265",
+      "quote": "Moog Inc. (Q6907265) — Wikidata item: Q6907265",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:actuators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Moog_Inc.",
+      "quote": "Moog Inc. is an American-based designer and manufacturer of electric, electro-hydraulic and hydraulic motion, controls and systems for applications in aerospace, defense, industrial and medical devices.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q6907265",
+      "quote": "Moog Inc. (Q6907265) — headquarters location: Elma",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q6907265",
+      "quote": "Moog Inc. (Q6907265) — official website: moog.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q6907265",
+      "quote": "Moog Inc. (Q6907265) — SEC Central Index Key: 67887",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Moog Inc. is an American-based designer and manufacturer of electric, electro-hydraulic and hydraulic motion, controls and systems for applications in aerospace, defense, industrial and medical devices.",
+  "hq": "Elma"
 }

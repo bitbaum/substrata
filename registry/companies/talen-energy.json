@@ -1,0 +1,75 @@
+{
+  "slug": "talen-energy",
+  "name": "Talen Energy",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q20687182",
+    "domain": "talenenergy.com"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Talen_Energy",
+      "quote": "Talen Energy Corporation is an independent power producer and energy infrastructure company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q20687182",
+      "quote": "Talen Energy (Q20687182) — Wikidata item: Q20687182",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:power-storage-grid",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Talen_Energy",
+      "quote": "Talen Energy Corporation is an independent power producer and energy infrastructure company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q20687182",
+      "quote": "Talen Energy (Q20687182) — headquarters location: Allentown",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q20687182",
+      "quote": "Talen Energy (Q20687182) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q20687182",
+      "quote": "Talen Energy (Q20687182) — official website: talenenergy.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Talen Energy Corporation is an independent power producer and energy infrastructure company.",
+  "hq": "Allentown",
+  "country": "US"
+}

@@ -1,0 +1,66 @@
+{
+  "slug": "hisilicon",
+  "name": "HiSilicon",
+  "aliases": [],
+  "kind": "subsidiary",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q3135124",
+    "domain": "hisilicon.com"
+  },
+  "areas": [
+    {
+      "area": "ai-accelerators"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/HiSilicon",
+      "quote": "HiSilicon is a Chinese fabless semiconductor company based in Shenzhen, Guangdong province and wholly owned by Huawei.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q3135124",
+      "quote": "HiSilicon (Q3135124) — Wikidata item: Q3135124",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-accelerators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/HiSilicon",
+      "quote": "HiSilicon is a Chinese fabless semiconductor company based in Shenzhen, Guangdong province and wholly owned by Huawei.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q3135124",
+      "quote": "HiSilicon (Q3135124) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q3135124",
+      "quote": "HiSilicon (Q3135124) — official website: hisilicon.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "HiSilicon is a Chinese fabless semiconductor company based in Shenzhen, Guangdong province and wholly owned by Huawei.",
+  "country": "CN"
+}

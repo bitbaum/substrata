@@ -1,0 +1,76 @@
+{
+  "slug": "ibiden",
+  "name": "Ibiden",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q585314",
+    "isin": "JP3148800000",
+    "domain": "ibiden.co.jp",
+    "lei": "52990051DBFIQEY37C91"
+  },
+  "areas": [
+    {
+      "area": "advanced-packaging"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q585314",
+      "quote": "Ibiden (Q585314) — Wikidata item: Q585314",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:advanced-packaging",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Ibiden",
+      "quote": ", Ltd. is a Japanese electronics company headquartered in Ogaki, Gifu prefecture that manufactures electronics-related products, such as printed circuit boards and IC packaging.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q585314",
+      "quote": "Ibiden (Q585314) — headquarters location: Ōgaki-shi",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q585314",
+      "quote": "Ibiden (Q585314) — country (ISO 3166-1 alpha-2): JP",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q585314",
+      "quote": "Ibiden (Q585314) — official website: ibiden.co.jp",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q585314",
+      "quote": "Ibiden (Q585314) — Legal Entity Identifier: 52990051DBFIQEY37C91",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "hq": "Ōgaki-shi",
+  "country": "JP"
+}

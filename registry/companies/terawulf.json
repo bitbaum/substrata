@@ -1,0 +1,75 @@
+{
+  "slug": "terawulf",
+  "name": "TeraWulf",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q137654781",
+    "domain": "terawulf.com",
+    "cik": "1083301",
+    "lei": "254900CVMW1SX2T78A64"
+  },
+  "areas": [
+    {
+      "area": "data-centres"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/TeraWulf",
+      "quote": "TeraWulf Inc. is an American bitcoin mining company. Founded in 2021 and publicly listed on Nasdaq under the ticker WULF, it operates mining facilities in New York and Pennsylvania.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q137654781",
+      "quote": "TeraWulf (Q137654781) — Wikidata item: Q137654781",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:data-centres",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/TeraWulf",
+      "quote": "TeraWulf Inc. is an American bitcoin mining company. Founded in 2021 and publicly listed on Nasdaq under the ticker WULF, it operates mining facilities in New York and Pennsylvania.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q137654781",
+      "quote": "TeraWulf (Q137654781) — official website: terawulf.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q137654781",
+      "quote": "TeraWulf (Q137654781) — SEC Central Index Key: 1083301",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q137654781",
+      "quote": "TeraWulf (Q137654781) — Legal Entity Identifier: 254900CVMW1SX2T78A64",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "TeraWulf Inc. is an American bitcoin mining company. Founded in 2021 and publicly listed on Nasdaq under the ticker WULF, it operates mining facilities in New York and Pennsylvania."
+}

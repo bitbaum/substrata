@@ -12,7 +12,8 @@
     "cik": "1173514",
     "qid": "Q19876423",
     "isin": "US4491721050",
-    "cusip": "449172105"
+    "cusip": "449172105",
+    "domain": "hyster-yale.com"
   },
   "areas": [
     {
@@ -97,10 +98,27 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q19876423",
+      "quote": "Hyster-Yale Materials Handling (Q19876423) — headquarters location: Cleveland",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q19876423",
+      "quote": "Hyster-Yale Materials Handling (Q19876423) — official website: hyster-yale.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "hq": "Cleveland"
 }

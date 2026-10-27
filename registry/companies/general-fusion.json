@@ -1,0 +1,75 @@
+{
+  "slug": "general-fusion",
+  "name": "General Fusion",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q5531916",
+    "domain": "generalfusion.com"
+  },
+  "areas": [
+    {
+      "area": "fusion"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/General_Fusion",
+      "quote": "General Fusion Inc. is a Canadian company based in Richmond, British Columbia, which is developing a fusion power technology based on magnetized target fusion (MTF).",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5531916",
+      "quote": "General Fusion (Q5531916) — Wikidata item: Q5531916",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:fusion",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/General_Fusion",
+      "quote": "General Fusion Inc. is a Canadian company based in Richmond, British Columbia, which is developing a fusion power technology based on magnetized target fusion (MTF).",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5531916",
+      "quote": "General Fusion (Q5531916) — headquarters location: Burnaby",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5531916",
+      "quote": "General Fusion (Q5531916) — country (ISO 3166-1 alpha-2): CA",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5531916",
+      "quote": "General Fusion (Q5531916) — official website: generalfusion.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "General Fusion Inc. is a Canadian company based in Richmond, British Columbia, which is developing a fusion power technology based on magnetized target fusion (MTF).",
+  "hq": "Burnaby",
+  "country": "CA"
+}
