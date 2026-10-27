@@ -23,14 +23,19 @@ registers an identity-only OrangeCat OAuth client, and writes credentials only
 to the existing runtime environment. Existing secrets are retained; it refuses
 to silently rotate an existing client. It backs up the environment before edits.
 
-Migration: `scripts/db/001-research-service.sql`, additive and idempotent. Apply
-it before deploying the routes. SQL runs as the app role so ownership is correct.
-The generic deploy workflow does not apply this migration automatically.
+Migration: `scripts/db/001-research-service.sql`, additive and idempotent. The
+provisioning script applies it once, as the app role, when it creates the role
+and database; that is the only step that needs a root shell, and only on a new
+box.
 
-Every later numbered file under `scripts/db/` (`002-page-threads.sql`,
-`003-sweep.sql`, `004-source-sweep.sql`, …) is applied the same way — run
-`scripts/provision-service.py` again with that file as the argument before
-the routes that need its tables reach production. `004-source-sweep.sql`
+Every numbered file under `scripts/db/` (`001` to `016` so far) is applied by the
+normal deploy, before the new release goes live: `scripts/ops/data-layer.ts
+migrate` runs each pending file in one transaction, records it in
+`public.schema_migrations`, and stops the deploy on a failure with the live
+release untouched. `docs/operations/data-layer.md` is the chain, how to add a
+migration, and how to roll one back. The files below describe what each is for.
+
+`004-source-sweep.sql`
 backs the scheduled producer-sourcing run (`POST /api/cron/source`,
 `lib/source-store.ts`); it also needs `/api/cron/source` added to whatever
 schedule `/opt/_appcron/run.sh` already drives `/api/cron/sweep` on.
@@ -106,24 +111,23 @@ listed companies in its seed (`lib/market-data/identity.ts`, keyed by
 `{exchange, symbol}` and CIK — the seam the company universe will replace).
 `016-market-data.sql` creates `research_price_points` / `research_price_runs`
 (daily closes) and `research_market_snapshots` / `research_market_fact_runs`
-(SEC EDGAR fundamentals and holders per CIK). Apply it with
-`scripts/provision-service.py scripts/db/016-market-data.sql`, then backfill
-once from a checkout with the runtime `DATABASE_URL` (ssh tunnel):
-`pnpm exec tsx scripts/research/market-data.ts --backfill`.
+(SEC EDGAR fundamentals and holders per CIK). The deploy applies it like every
+other numbered file, then runs `pnpm exec tsx scripts/research/market-data.ts
+--backfill` once from the CI runner (through an ssh tunnel), records it in
+`public.schema_oneshots` as `market-data-backfill`, and never runs it again;
+`docs/operations/data-layer.md` says how.
 
 `POST /api/cron/prices` (same `CRON_SECRET` gate as `/api/cron/series`) fetches
 every seed listing's closes, then refreshes the EDGAR snapshots in the time
-left. It needs a box timer, which is not installed yet: add one beside the
-other `appcron-substrata-*` timers (Loki's `install-app-crons.sh`), calling the
-route through `/opt/_appcron/run.sh` as they do, daily after the US close:
+left. Its timer is a file in this repo, installed by the deploy:
 
 ```
-appcron-substrata-prices.timer   OnCalendar=*-*-* 22:07:00 UTC   → POST /api/cron/prices
+deploy/systemd/appcron-substrata-prices.timer   OnCalendar=*-*-* 22:07:00 UTC   → POST /api/cron/prices
 ```
 
-Until then `/data/freshness` shows "Share prices" and "Company financials and
-holders" as not installed, and the Ask reads prices and filings live, cached
-in process.
+Until a deploy has installed it, `/data/freshness` shows "Share prices" and
+"Company financials and holders" as not installed, and the Ask reads prices and
+filings live, cached in process.
 
 Prices come from Yahoo Finance's chart endpoint under its personal-use terms:
 end-of-day, split-adjusted closes, labelled delayed, never exported. Why that
