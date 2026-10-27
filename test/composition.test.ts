@@ -1,17 +1,26 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { createRequire } from 'node:module';
 import test from 'node:test';
 
 const source = (path: string) => readFileSync(resolve(process.cwd(), path), 'utf8');
-const packageJson = JSON.parse(source('package.json')) as {
-  dependencies: Record<string, string>;
-};
+const require = createRequire(import.meta.url);
 
-test('Substrata uses one immutable shared composition source, not the fleet brand palette', () => {
-  assert.equal(
-    packageJson.dependencies['@bitbaum/design-tokens'],
-    'github:bitbaum/design-tokens#8e786a43220d267ccf6b5cd6119a012f1a52dfff',
+test('Substrata uses the installed shared composition contract without importing a brand palette', () => {
+  // Exercise the installed artifact: both a frozen Git release and an npm
+  // release must expose the same geometry and accessible controls.
+  const composition = readFileSync(
+    require.resolve('@bitbaum/design-tokens/composition.css'),
+    'utf8',
+  );
+  for (const role of ['.bb-frame', '.bb-control', '.bb-button', ':focus-visible']) {
+    assert.ok(composition.includes(role), 'shared composition is missing ' + role);
+  }
+  const rules = composition.replace(/\/\*[\s\S]*?\*\//g, '');
+  assert.ok(
+    !/(^|})\s*(?:html|body|:root)\s*[{,]/m.test(rules),
+    'shared composition must not take over the app palette',
   );
   const layout = source('app/layout.tsx');
   assert.ok(layout.includes('@bitbaum/design-tokens/composition.css'));
