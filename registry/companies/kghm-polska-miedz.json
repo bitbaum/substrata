@@ -1,0 +1,68 @@
+{
+  "slug": "kghm-polska-miedz",
+  "name": "KGHM Polska Miedz SA",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "PL",
+  "ids": {
+    "ticker": "KGH",
+    "exchange": "PW",
+    "sedol": "5263251"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "4.73,KGH PW,KGHM POLSKA MIEDZ SA,5263251,76.16146229941779,\"3,921,584.00\",\"298,673,571.97\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "fund",
+      "detail": "Held by Global X Copper Miners ETF (COPX, Global X): Advanced materials & critical minerals."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "4.73,KGH PW,KGHM POLSKA MIEDZ SA,5263251,76.16146229941779,\"3,921,584.00\",\"298,673,571.97\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$299 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 298673572
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "4.73,KGH PW,KGHM POLSKA MIEDZ SA,5263251,76.16146229941779,\"3,921,584.00\",\"298,673,571.97\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker KGH"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "4.73,KGH PW,KGHM POLSKA MIEDZ SA,5263251,76.16146229941779,\"3,921,584.00\",\"298,673,571.97\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

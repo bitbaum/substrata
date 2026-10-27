@@ -1,0 +1,57 @@
+{
+  "slug": "black-sesame-technologies",
+  "name": "Black Sesame Technologies",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q131632167",
+    "domain": "blacksesame.com.cn"
+  },
+  "areas": [
+    {
+      "area": "ai-accelerators"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Black_Sesame_Technologies",
+      "quote": "Black Sesame Technologies is a Chinese technology company headquartered in Wuhan.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q131632167",
+      "quote": "Black Sesame Technologies (Q131632167) — Wikidata item: Q131632167",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-accelerators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Black_Sesame_Technologies",
+      "quote": "Black Sesame Technologies is a Chinese technology company headquartered in Wuhan.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q131632167",
+      "quote": "Black Sesame Technologies (Q131632167) — official website: blacksesame.com.cn",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Black Sesame Technologies is a Chinese technology company headquartered in Wuhan."
+}

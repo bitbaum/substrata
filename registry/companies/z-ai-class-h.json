@@ -1,0 +1,96 @@
+{
+  "slug": "z-ai-class-h",
+  "name": "Z AI Co., Ltd. (Class H)",
+  "aliases": ["Z AI Co Ltd"],
+  "kind": "public",
+  "status": "active",
+  "country": "HK",
+  "ids": {
+    "ticker": "2513",
+    "exchange": "HK",
+    "sedol": "BT9QZ17",
+    "cusip": "Y615F6108"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    },
+    {
+      "area": "robotics"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.13,2513 HK,Z AI CO LTD,BT9QZ17,64.43471445904954,\"197,800.00\",\"12,745,186.52\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Artificial Intelligence & Technology ETF (AIQ, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Z AI Co., Ltd. (Class H) 2513.HK Y615F6108 Information Technology 78,294 $5,044,594.32 0.67%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Artificial Intelligence and Robotics ETF (ROBT, First Trust): Robotics & autonomy."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.13,2513 HK,Z AI CO LTD,BT9QZ17,64.43471445904954,\"197,800.00\",\"12,745,186.52\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$13 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 12745187
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Z AI Co., Ltd. (Class H) 2513.HK Y615F6108 Information Technology 78,294 $5,044,594.32 0.67%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$5.0 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 5044594
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.13,2513 HK,Z AI CO LTD,BT9QZ17,64.43471445904954,\"197,800.00\",\"12,745,186.52\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 2513"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.13,2513 HK,Z AI CO LTD,BT9QZ17,64.43471445904954,\"197,800.00\",\"12,745,186.52\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

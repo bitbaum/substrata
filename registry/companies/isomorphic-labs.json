@@ -1,0 +1,75 @@
+{
+  "slug": "isomorphic-labs",
+  "name": "Isomorphic Labs",
+  "aliases": [],
+  "kind": "subsidiary",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q109536010",
+    "domain": "isomorphiclabs.com"
+  },
+  "areas": [
+    {
+      "area": "synthetic-biology"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Isomorphic_Labs",
+      "quote": "Isomorphic Labs Limited is a British multinational artificial intelligence company based in London, England.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q109536010",
+      "quote": "Isomorphic Labs (Q109536010) — Wikidata item: Q109536010",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:synthetic-biology",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Isomorphic_Labs",
+      "quote": "Isomorphic Labs Limited is a British multinational artificial intelligence company based in London, England.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q109536010",
+      "quote": "Isomorphic Labs (Q109536010) — headquarters location: London",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q109536010",
+      "quote": "Isomorphic Labs (Q109536010) — country (ISO 3166-1 alpha-2): GB",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q109536010",
+      "quote": "Isomorphic Labs (Q109536010) — official website: isomorphiclabs.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Isomorphic Labs Limited is a British multinational artificial intelligence company based in London, England.",
+  "hq": "London",
+  "country": "GB"
+}

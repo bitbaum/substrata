@@ -1,0 +1,10 @@
+{
+  "slug": "data-centre-cooling",
+  "name": "Data-centre cooling and power equipment",
+  "parent": "data-centres",
+  "theme": "ai",
+  "definition": "Liquid and immersion cooling, chillers, switchgear, UPS and power distribution sold to data centres.",
+  "why": "Rack power density rises with each accelerator generation; cooling and power gear are lead-time-limited inputs.",
+  "bottlenecks": ["two-phase-dielectric-immersion-coolant", "high-voltage-cable-and-switchgear"],
+  "keyNumbers": []
+}

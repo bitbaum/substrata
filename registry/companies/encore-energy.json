@@ -1,0 +1,68 @@
+{
+  "slug": "encore-energy",
+  "name": "Encore Energy Corp",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "CA",
+  "ids": {
+    "ticker": "EU",
+    "exchange": "CN",
+    "sedol": "BN48958"
+  },
+  "areas": [
+    {
+      "area": "nuclear-energy"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:nuclear-energy",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.17,EU CN,ENCORE ENERGY CORP,BN48958,0.7270912783527812,\"11,302,154.00\",\"8,217,697.60\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "nuclear",
+      "basis": "fund",
+      "detail": "Held by Global X Uranium ETF (URA, Global X): Nuclear, SMRs & the fuel cycle."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.17,EU CN,ENCORE ENERGY CORP,BN48958,0.7270912783527812,\"11,302,154.00\",\"8,217,697.60\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$8.2 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 8217698
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.17,EU CN,ENCORE ENERGY CORP,BN48958,0.7270912783527812,\"11,302,154.00\",\"8,217,697.60\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker EU"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.17,EU CN,ENCORE ENERGY CORP,BN48958,0.7270912783527812,\"11,302,154.00\",\"8,217,697.60\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

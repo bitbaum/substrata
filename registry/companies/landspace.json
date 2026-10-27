@@ -1,0 +1,75 @@
+{
+  "slug": "landspace",
+  "name": "LandSpace",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q48772158",
+    "domain": "cn.landspace.com"
+  },
+  "areas": [
+    {
+      "area": "launch"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/LandSpace",
+      "quote": "LandSpace Technology Corporation is a Chinese commercial space launch provider based in Beijing.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q48772158",
+      "quote": "LandSpace (Q48772158) — Wikidata item: Q48772158",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:launch",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/LandSpace",
+      "quote": "LandSpace Technology Corporation is a Chinese commercial space launch provider based in Beijing.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q48772158",
+      "quote": "LandSpace (Q48772158) — headquarters location: Beijing",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q48772158",
+      "quote": "LandSpace (Q48772158) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q48772158",
+      "quote": "LandSpace (Q48772158) — official website: cn.landspace.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "LandSpace Technology Corporation is a Chinese commercial space launch provider based in Beijing.",
+  "hq": "Beijing",
+  "country": "CN"
+}

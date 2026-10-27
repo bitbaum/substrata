@@ -1,0 +1,207 @@
+{
+  "slug": "elbit-systems",
+  "name": "Elbit Systems Ltd.",
+  "aliases": ["Elbit Systems Ltd"],
+  "kind": "public",
+  "status": "active",
+  "country": "IL",
+  "ids": {
+    "qid": "Q1325369",
+    "isin": "IL0010811243",
+    "ticker": "ESLT",
+    "exchange": "US",
+    "cusip": "M3760D101",
+    "sedol": "6308913",
+    "cik": "1027664",
+    "domain": "elbitsystems.com",
+    "lei": "529900Q9CB1REUMZSS32"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    },
+    {
+      "area": "space"
+    },
+    {
+      "area": "defence-tech"
+    },
+    {
+      "area": "defence-autonomy"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKQ,ELBIT SYSTEMS LTD,ESLT,M3760D101,\"24,658\",\"$19,182,937.68\",1.08%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by ARK Autonomous Technology & Robotics ETF (ARKQ, ARK Invest): Robotics & autonomy."
+    },
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "3.22,ESLT IT,ELBIT SYSTEMS LTD,6308913,773.4634652645044,\"275,194.00\",\"212,852,504.86\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "fund",
+      "detail": "Held by Global X Defense Tech ETF (SHLD, Global X): Defence & aerospace."
+    },
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3FitemLabel%20%3Fisin%20%3Fiso%20WHERE%20%7B%20%3Fitem%20wdt%3AP452%20wd%3AQ392933%20.%20%7B%20%3Fitem%20wdt%3AP946%20%3Fisin%20%7D%20UNION%20%7B%20%3Fitem%20wdt%3AP414%20%3Fx%20%7D%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP17%2Fwdt%3AP297%20%3Fiso%20%7D%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22.%20%7D%20%7D%20LIMIT%20400",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q1325369\" }, \"iso\" : { \"type\" : \"literal\", \"value\" : \"IL\" }, \"itemLabel\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"Elbit Systems Ltd.\" }, \"isin\" : { \"type\" : \"literal\", \"value\" : \"IL0010811243\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "industry-class",
+      "detail": "Wikidata lists its industry as weapons industry: Defence & aerospace."
+    },
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3728&type=10-K&dateb=&owner=include&start=0&count=100",
+      "quote": "0001027664 ELBIT SYSTEMS LTD L3",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3728 (Aircraft parts & auxiliary equipment, NEC): Defence & aerospace."
+    },
+    {
+      "field": "area:space",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-rokt.xlsx",
+      "quote": "ELBIT SYSTEMS LTD | ESLT | M3760D101 | 2311614 | 2.389768 | - | 4663.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "space",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Kensho Final Frontiers ETF (ROKT, State Street): Space & launch."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKQ,ELBIT SYSTEMS LTD,ESLT,M3760D101,\"24,658\",\"$19,182,937.68\",1.08%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$19 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 19182938
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "3.22,ESLT IT,ELBIT SYSTEMS LTD,6308913,773.4634652645044,\"275,194.00\",\"212,852,504.86\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$213 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 212852505
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKQ,ELBIT SYSTEMS LTD,ESLT,M3760D101,\"24,658\",\"$19,182,937.68\",1.08%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker ESLT"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3728&type=10-K&dateb=&owner=include&start=0&count=100",
+      "quote": "0001027664 ELBIT SYSTEMS LTD L3",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1027664"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3FitemLabel%20%3Fisin%20%3Fiso%20WHERE%20%7B%20%3Fitem%20wdt%3AP452%20wd%3AQ392933%20.%20%7B%20%3Fitem%20wdt%3AP946%20%3Fisin%20%7D%20UNION%20%7B%20%3Fitem%20wdt%3AP414%20%3Fx%20%7D%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP17%2Fwdt%3AP297%20%3Fiso%20%7D%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22.%20%7D%20%7D%20LIMIT%20400",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q1325369\" }, \"iso\" : { \"type\" : \"literal\", \"value\" : \"IL\" }, \"itemLabel\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"Elbit Systems Ltd.\" }, \"isin\" : { \"type\" : \"literal\", \"value\" : \"IL0010811243\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "qid",
+      "detail": "Wikidata QID Q1325369"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3FitemLabel%20%3Fisin%20%3Fiso%20WHERE%20%7B%20%3Fitem%20wdt%3AP452%20wd%3AQ392933%20.%20%7B%20%3Fitem%20wdt%3AP946%20%3Fisin%20%7D%20UNION%20%7B%20%3Fitem%20wdt%3AP414%20%3Fx%20%7D%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP17%2Fwdt%3AP297%20%3Fiso%20%7D%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22.%20%7D%20%7D%20LIMIT%20400",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q1325369\" }, \"iso\" : { \"type\" : \"literal\", \"value\" : \"IL\" }, \"itemLabel\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"Elbit Systems Ltd.\" }, \"isin\" : { \"type\" : \"literal\", \"value\" : \"IL0010811243\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country IL as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Elbit_Systems",
+      "quote": "Elbit Systems Ltd. is an Israel-based international military technology company and defense contractor.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:defence-autonomy",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Elbit_Systems",
+      "quote": "Elbit Systems Ltd. is an Israel-based international military technology company and defense contractor.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1325369",
+      "quote": "Elbit Systems Ltd. (Q1325369) — headquarters location: Haifa",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1325369",
+      "quote": "Elbit Systems Ltd. (Q1325369) — official website: elbitsystems.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1325369",
+      "quote": "Elbit Systems Ltd. (Q1325369) — Legal Entity Identifier: 529900Q9CB1REUMZSS32",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Elbit Systems Ltd. is an Israel-based international military technology company and defense contractor.",
+  "hq": "Haifa"
+}

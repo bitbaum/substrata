@@ -1,0 +1,125 @@
+{
+  "slug": "nexans-s-a",
+  "name": "Nexans S.A.",
+  "aliases": ["Nexans"],
+  "kind": "public",
+  "status": "active",
+  "country": "FR",
+  "ids": {
+    "ticker": "NEX",
+    "exchange": "FP",
+    "cusip": "F65277109",
+    "qid": "Q141644",
+    "isin": "FR0000044448",
+    "domain": "nexans.com",
+    "lei": "96950015FU78G84UIV14"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    },
+    {
+      "area": "grid-equipment"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Nexans S.A. NEX.FP F65277109 Electrical Components 583,740 $76,734,949.54 0.69%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Nexans S.A. NEX.FP F65277109 Electrical Components 583,740 $76,734,949.54 0.69%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$77 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 76734950
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Nexans S.A. NEX.FP F65277109 Electrical Components 583,740 $76,734,949.54 0.69%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker NEX"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Nexans S.A. NEX.FP F65277109 Electrical Components 583,740 $76,734,949.54 0.69%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Nexans",
+      "quote": "A. is a global company in the cable and optical fibre industry headquartered in Paris, France.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q141644",
+      "quote": "Nexans (Q141644) — Wikidata item: Q141644",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Nexans",
+      "quote": "A. is a global company in the cable and optical fibre industry headquartered in Paris, France.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q141644",
+      "quote": "Nexans (Q141644) — headquarters location: Paris",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q141644",
+      "quote": "Nexans (Q141644) — official website: nexans.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q141644",
+      "quote": "Nexans (Q141644) — Legal Entity Identifier: 96950015FU78G84UIV14",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "A. is a global company in the cable and optical fibre industry headquartered in Paris, France.",
+  "hq": "Paris"
+}

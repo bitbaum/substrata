@@ -1,0 +1,133 @@
+{
+  "slug": "sibanye-stillwater",
+  "name": "Sibanye-Stillwater",
+  "aliases": ["Sibanye Stillwater Ltd"],
+  "kind": "public",
+  "status": "active",
+  "country": "ZA",
+  "ids": {
+    "qid": "Q21639712",
+    "isin": "ZAE000173951",
+    "ticker": "SSW",
+    "exchange": "SJ",
+    "cik": "1786909",
+    "sedol": "BL0L913",
+    "domain": "sibanyestillwater.com"
+  },
+  "areas": [
+    {
+      "area": "nuclear-energy"
+    },
+    {
+      "area": "advanced-materials"
+    },
+    {
+      "area": "critical-minerals"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://www.sec.gov/Archives/edgar/data/1786909/000178690925000028/senstradingupdateh12025.htm",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: PGM mining incl. ruthenium."
+    },
+    {
+      "field": "area:nuclear-energy",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "2.64,SSW SJ,SIBANYE STILLWATER LTD,BL0L913,2.31918888473419,\"54,508,566.00\",\"126,415,660.39\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "nuclear",
+      "basis": "fund",
+      "detail": "Held by Global X Uranium ETF (URA, Global X): Nuclear, SMRs & the fuel cycle."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.sec.gov/Archives/edgar/data/1786909/000178690925000028/senstradingupdateh12025.htm",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: PGM mining incl. ruthenium."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG00R3JTQ15",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker SSW"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG00R3JTQ15",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1786909"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "2.64,SSW SJ,SIBANYE STILLWATER LTD,BL0L913,2.31918888473419,\"54,508,566.00\",\"126,415,660.39\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Sibanye-Stillwater",
+      "quote": "Sibanye-Stillwater is a global mining and metals processing group with a portfolio of mining and processing operations and projects and investments across five continents.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q21639712",
+      "quote": "Sibanye-Stillwater (Q21639712) — Wikidata item: Q21639712",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Sibanye-Stillwater",
+      "quote": "Sibanye-Stillwater is a global mining and metals processing group with a portfolio of mining and processing operations and projects and investments across five continents.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q21639712",
+      "quote": "Sibanye-Stillwater (Q21639712) — official website: sibanyestillwater.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Sibanye-Stillwater is a global mining and metals processing group with a portfolio of mining and processing operations and projects and investments across five continents."
+}

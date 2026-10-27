@@ -1,0 +1,136 @@
+{
+  "slug": "western-digital",
+  "name": "Western Digital Corp",
+  "aliases": ["Western Digital Corporation"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "qid": "Q738770",
+    "cik": "106040",
+    "isin": "US9581021055",
+    "ticker": "WDC",
+    "exchange": "US",
+    "domain": "westerndigital.com",
+    "lei": "549300QQXOOYEF89IC56"
+  },
+  "areas": [
+    {
+      "area": "compute-semiconductors"
+    },
+    {
+      "area": "memory"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3572&type=10-K&dateb=&owner=include&start=0&count=100",
+      "quote": "0000106040 WESTERN DIGITAL CORP CA",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3572 (Computer storage devices): Compute & semiconductors."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q4I.json",
+      "quote": "{\"accn\":\"0001628280-26-057139\",\"cik\":106040,\"entityName\":\"WESTERN DIGITAL CORPORATION\",\"loc\":\"US-CA\",\"end\":\"2026-01-02\",\"val\":47690000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2026-01-02",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$48 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 47690000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[106040,\"WESTERN DIGITAL CORP\",\"WDC\",\"Nasdaq\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker WDC"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q4I.json",
+      "quote": "{\"accn\":\"0001628280-26-057139\",\"cik\":106040,\"entityName\":\"WESTERN DIGITAL CORPORATION\",\"loc\":\"US-CA\",\"end\":\"2026-01-02\",\"val\":47690000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2026-01-02",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 106040"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[106040,\"WESTERN DIGITAL CORP\",\"WDC\",\"Nasdaq\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Western_Digital",
+      "quote": "Western Digital Corporation, doing business as WD, is an American data storage company headquartered in San Jose, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q738770",
+      "quote": "Western Digital (Q738770) — Wikidata item: Q738770",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:memory",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Western_Digital",
+      "quote": "Western Digital Corporation, doing business as WD, is an American data storage company headquartered in San Jose, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q738770",
+      "quote": "Western Digital (Q738770) — headquarters location: San Jose",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q738770",
+      "quote": "Western Digital (Q738770) — official website: westerndigital.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q738770",
+      "quote": "Western Digital (Q738770) — Legal Entity Identifier: 549300QQXOOYEF89IC56",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Western Digital Corporation, doing business as WD, is an American data storage company headquartered in San Jose, California.",
+  "hq": "San Jose"
+}

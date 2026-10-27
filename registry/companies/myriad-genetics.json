@@ -1,0 +1,80 @@
+{
+  "slug": "myriad-genetics",
+  "name": "Myriad Genetics Inc",
+  "aliases": ["Myriad Genetics, Inc."],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "MYGN",
+    "exchange": "US",
+    "sedol": "2614153",
+    "cik": "899923"
+  },
+  "areas": [
+    {
+      "area": "biotech-and-longevity"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:biotech-and-longevity",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "0.40,MYGN,MYRIAD GENETICS INC,2614153,6.02,\"69,714.00\",\"419,678.28\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "biotools",
+      "basis": "fund",
+      "detail": "Held by Global X Genomics & Biotechnology ETF (GNOM, Global X): Biotech tools."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0000899923-26-000018\",\"cik\":899923,\"entityName\":\"MYRIAD GENETICS, INC.\",\"loc\":\"US-UT\",\"end\":\"2025-06-30\",\"val\":494049876}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$494 million public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 494049876
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "0.40,MYGN,MYRIAD GENETICS INC,2614153,6.02,\"69,714.00\",\"419,678.28\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker MYGN"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0000899923-26-000018\",\"cik\":899923,\"entityName\":\"MYRIAD GENETICS, INC.\",\"loc\":\"US-UT\",\"end\":\"2025-06-30\",\"val\":494049876}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 899923"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "0.40,MYGN,MYRIAD GENETICS INC,2614153,6.02,\"69,714.00\",\"419,678.28\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

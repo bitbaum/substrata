@@ -1,0 +1,52 @@
+{
+  "slug": "tsmc-advanced-packaging",
+  "name": "TSMC Advanced Packaging",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "country": "TW",
+  "ids": {},
+  "areas": [
+    {
+      "area": "compute-semiconductors"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "stated",
+      "source": "https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/cowos.htm",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: CoWoS-class packaging."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/cowos.htm",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: CoWoS-class packaging."
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://3dfabric.tsmc.com/english/dedicatedFoundry/technology/cowos.htm",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

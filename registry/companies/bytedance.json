@@ -1,0 +1,95 @@
+{
+  "slug": "bytedance",
+  "name": "ByteDance",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q55606242",
+    "domain": "bytedance.com",
+    "lei": "300300NIFA1100061063"
+  },
+  "areas": [
+    {
+      "area": "ai-cloud-platforms"
+    },
+    {
+      "area": "frontier-labs"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/ByteDance",
+      "quote": "ByteDance is a Chinese internet technology company based in Haidian, Beijing.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q55606242",
+      "quote": "ByteDance (Q55606242) — Wikidata item: Q55606242",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/ByteDance",
+      "quote": "ByteDance is a Chinese internet technology company based in Haidian, Beijing.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:frontier-labs",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/ByteDance",
+      "quote": "ByteDance is a Chinese internet technology company based in Haidian, Beijing.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q55606242",
+      "quote": "ByteDance (Q55606242) — headquarters location: Beijing",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q55606242",
+      "quote": "ByteDance (Q55606242) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q55606242",
+      "quote": "ByteDance (Q55606242) — official website: bytedance.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q55606242",
+      "quote": "ByteDance (Q55606242) — Legal Entity Identifier: 300300NIFA1100061063",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "ByteDance is a Chinese internet technology company based in Haidian, Beijing.",
+  "hq": "Beijing",
+  "country": "CN"
+}

@@ -1,0 +1,68 @@
+{
+  "slug": "ecopro-bm",
+  "name": "Ecopro BM Co Ltd",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "KR",
+  "ids": {
+    "ticker": "247540",
+    "exchange": "KS",
+    "sedol": "BJ321P7"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/lit_full-holdings_20261026.csv",
+      "quote": "1.48,247540 KS,ECOPRO BM CO LTD,BJ321P7,67.71719002497285,\"255,077.00\",\"17,273,097.68\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by Global X Lithium & Battery Tech ETF (LIT, Global X): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/lit_full-holdings_20261026.csv",
+      "quote": "1.48,247540 KS,ECOPRO BM CO LTD,BJ321P7,67.71719002497285,\"255,077.00\",\"17,273,097.68\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$17 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 17273098
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/lit_full-holdings_20261026.csv",
+      "quote": "1.48,247540 KS,ECOPRO BM CO LTD,BJ321P7,67.71719002497285,\"255,077.00\",\"17,273,097.68\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 247540"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/lit_full-holdings_20261026.csv",
+      "quote": "1.48,247540 KS,ECOPRO BM CO LTD,BJ321P7,67.71719002497285,\"255,077.00\",\"17,273,097.68\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

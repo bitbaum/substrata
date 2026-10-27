@@ -1,0 +1,66 @@
+{
+  "slug": "g42",
+  "name": "G42",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q98918715",
+    "domain": "g42.ai"
+  },
+  "areas": [
+    {
+      "area": "ai-cloud-platforms"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/G42_(company)",
+      "quote": "Group 42 Holding Ltd, doing business as G42, is an Emirati artificial intelligence (AI) development holding company founded in 2018 and based in Abu Dhabi, United Arab Emirates.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q98918715",
+      "quote": "Group 42 (Q98918715) — Wikidata item: Q98918715",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/G42_(company)",
+      "quote": "Group 42 Holding Ltd, doing business as G42, is an Emirati artificial intelligence (AI) development holding company founded in 2018 and based in Abu Dhabi, United Arab Emirates.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q98918715",
+      "quote": "Group 42 (Q98918715) — country (ISO 3166-1 alpha-2): AE",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q98918715",
+      "quote": "Group 42 (Q98918715) — official website: g42.ai",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Group 42 Holding Ltd, doing business as G42, is an Emirati artificial intelligence (AI) development holding company founded in 2018 and based in Abu Dhabi, United Arab Emirates.",
+  "country": "AE"
+}

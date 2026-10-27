@@ -1,0 +1,151 @@
+{
+  "slug": "hitachi",
+  "name": "Hitachi Ltd",
+  "aliases": ["Hitachi, Ltd."],
+  "kind": "public",
+  "status": "active",
+  "country": "JP",
+  "ids": {
+    "qid": "Q53238",
+    "isin": "JP3788600009",
+    "ticker": "6501",
+    "exchange": "JP",
+    "cusip": "J20454112",
+    "domain": "hitachi.com",
+    "lei": "549300T6IPOCDWLKC615"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    },
+    {
+      "area": "quantum"
+    },
+    {
+      "area": "grid-equipment"
+    },
+    {
+      "area": "ai-software-tooling"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:quantum",
+      "grade": "registry",
+      "source": "https://www.defianceetfs.com/qtum-full-holdings/",
+      "quote": "6501 JP Hitachi Ltd 6429104 1.49% 2,224,025",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "quantum",
+      "basis": "fund",
+      "detail": "Held by Defiance Quantum ETF (QTUM, Defiance ETFs): Quantum."
+    },
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Hitachi, Ltd. 6501.JP J20454112 Diversified Industrials 2,664,320 $93,600,955.97 0.84%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Hitachi, Ltd. 6501.JP J20454112 Diversified Industrials 2,664,320 $93,600,955.97 0.84%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$94 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 93600956
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.defianceetfs.com/qtum-full-holdings/",
+      "quote": "6501 JP Hitachi Ltd 6429104 1.49% 2,224,025",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 6501"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.defianceetfs.com/qtum-full-holdings/",
+      "quote": "6501 JP Hitachi Ltd 6429104 1.49% 2,224,025",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hitachi",
+      "quote": "Hitachi, Ltd. is a Japanese multinational conglomerate founded in 1910 and headquartered in Chiyoda, Tokyo.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q53238",
+      "quote": "Hitachi (Q53238) — Wikidata item: Q53238",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hitachi",
+      "quote": "Hitachi, Ltd. is a Japanese multinational conglomerate founded in 1910 and headquartered in Chiyoda, Tokyo.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hitachi",
+      "quote": "Hitachi, Ltd. is a Japanese multinational conglomerate founded in 1910 and headquartered in Chiyoda, Tokyo.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q53238",
+      "quote": "Hitachi (Q53238) — headquarters location: Marunouchi",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q53238",
+      "quote": "Hitachi (Q53238) — official website: hitachi.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q53238",
+      "quote": "Hitachi (Q53238) — Legal Entity Identifier: 549300T6IPOCDWLKC615",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Hitachi, Ltd. is a Japanese multinational conglomerate founded in 1910 and headquartered in Chiyoda, Tokyo.",
+  "hq": "Marunouchi"
+}

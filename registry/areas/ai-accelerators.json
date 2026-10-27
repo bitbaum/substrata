@@ -1,0 +1,10 @@
+{
+  "slug": "ai-accelerators",
+  "name": "AI accelerators and chip designers",
+  "parent": "compute-semiconductors",
+  "theme": "compute",
+  "definition": "Designers of GPUs, TPUs, NPUs and other accelerators, fabless or integrated, including wafer-scale and inference-specialist chips.",
+  "why": "The accelerator is where demand concentrates; a few designers depend on one or two foundries and one packaging process.",
+  "bottlenecks": ["leading-edge-foundry-capacity", "advanced-packaging-capacity"],
+  "keyNumbers": []
+}

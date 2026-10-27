@@ -1,0 +1,81 @@
+{
+  "slug": "mirle-automation",
+  "name": "Mirle Automation Corporation",
+  "aliases": ["Mirle Automation Corp"],
+  "kind": "public",
+  "status": "active",
+  "country": "TW",
+  "ids": {
+    "ticker": "2464",
+    "exchange": "TT",
+    "sedol": "6140999",
+    "cusip": "Y6076J107"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.30,2464 TT,MIRLE AUTOMATION CORP,6140999,4.936530324295587,\"1,881,000.00\",\"9,285,613.54\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by Global X Robotics & Artificial Intelligence ETF (BOTZ, Global X): Robotics & autonomy."
+    },
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Mirle Automation Corporation 2464.TT Y6076J107 Industrials 976,202 $4,819,050.77 0.64%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Artificial Intelligence and Robotics ETF (ROBT, First Trust): Robotics & autonomy."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.30,2464 TT,MIRLE AUTOMATION CORP,6140999,4.936530324295587,\"1,881,000.00\",\"9,285,613.54\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$9.3 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 9285614
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.30,2464 TT,MIRLE AUTOMATION CORP,6140999,4.936530324295587,\"1,881,000.00\",\"9,285,613.54\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 2464"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.30,2464 TT,MIRLE AUTOMATION CORP,6140999,4.936530324295587,\"1,881,000.00\",\"9,285,613.54\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

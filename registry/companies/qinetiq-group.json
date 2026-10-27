@@ -1,0 +1,142 @@
+{
+  "slug": "qinetiq-group",
+  "name": "QinetiQ Group Plc",
+  "aliases": ["Qinetiq Group PLC", "QinetiQ"],
+  "kind": "public",
+  "status": "active",
+  "country": "GB",
+  "ids": {
+    "ticker": "QQ/",
+    "exchange": "LN",
+    "sedol": "B0WMWD0",
+    "cusip": "G7303P106",
+    "qid": "Q1759946",
+    "domain": "qinetiq.com",
+    "lei": "213800S8OBDOZMCMUW34",
+    "isin": "GB00B0WMWD03"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    },
+    {
+      "area": "defence-tech"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.39,QQ/ LN,QINETIQ GROUP PLC,B0WMWD0,6.880672716931501,\"3,697,469.00\",\"25,441,074.07\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "fund",
+      "detail": "Held by Global X Defense Tech ETF (SHLD, Global X): Defence & aerospace."
+    },
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "QinetiQ Group Plc QQ/.LN G7303P106 Industrials 1,733,940 $11,929,242.93 1.59%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Artificial Intelligence and Robotics ETF (ROBT, First Trust): Robotics & autonomy."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.39,QQ/ LN,QINETIQ GROUP PLC,B0WMWD0,6.880672716931501,\"3,697,469.00\",\"25,441,074.07\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$25 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 25441074
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "QinetiQ Group Plc QQ/.LN G7303P106 Industrials 1,733,940 $11,929,242.93 1.59%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$12 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 11929243
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.39,QQ/ LN,QINETIQ GROUP PLC,B0WMWD0,6.880672716931501,\"3,697,469.00\",\"25,441,074.07\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker QQ/"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.39,QQ/ LN,QINETIQ GROUP PLC,B0WMWD0,6.880672716931501,\"3,697,469.00\",\"25,441,074.07\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Qinetiq",
+      "quote": "QinetiQ is a British defence technology company headquartered in Farnborough, Hampshire.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1759946",
+      "quote": "QinetiQ (Q1759946) — Wikidata item: Q1759946",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1759946",
+      "quote": "QinetiQ (Q1759946) — headquarters location: Farnborough",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1759946",
+      "quote": "QinetiQ (Q1759946) — official website: http://www.QinetiQ.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1759946",
+      "quote": "QinetiQ (Q1759946) — Legal Entity Identifier: 213800S8OBDOZMCMUW34",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "QinetiQ is a British defence technology company headquartered in Farnborough, Hampshire.",
+  "hq": "Farnborough"
+}

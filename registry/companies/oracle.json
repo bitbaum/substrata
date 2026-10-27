@@ -1,0 +1,222 @@
+{
+  "slug": "oracle",
+  "name": "Oracle Corporation",
+  "aliases": ["Oracle Corp"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "qid": "Q19900",
+    "cik": "1341439",
+    "lei": "1Z4GXXU7ZHVWFCD8TV52",
+    "isin": "US68389X1054",
+    "ticker": "ORCL",
+    "exchange": "US",
+    "sedol": "2661568",
+    "cusip": "68389X105",
+    "domain": "oracle.com"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    },
+    {
+      "area": "power-storage-grid"
+    },
+    {
+      "area": "quantum"
+    },
+    {
+      "area": "ai-cloud-platforms"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "2.93,ORCL,ORACLE CORP,2661568,126.06,\"2,357,527.00\",\"297,189,853.62\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Artificial Intelligence & Technology ETF (AIQ, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/clou_full-holdings_20261026.csv",
+      "quote": "0.28,ORCL,ORACLE CORP,2661568,126.06,\"9,434.00\",\"1,189,250.04\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Cloud Computing ETF (CLOU, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "area:quantum",
+      "grade": "registry",
+      "source": "https://www.defianceetfs.com/qtum-full-holdings/",
+      "quote": "ORCL Oracle Corp 68389X105 0.79% 329,395",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "quantum",
+      "basis": "fund",
+      "detail": "Held by Defiance Quantum ETF (QTUM, Defiance ETFs): Quantum."
+    },
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Oracle Corporation ORCL 68389X105 Software 1,015,029 $127,954,555.74 1.15%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=SKYY",
+      "quote": "Oracle Corporation ORCL 68389X105 Software 795,569 $100,289,428.14 2.83%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by First Trust Cloud Computing ETF (SKYY, First Trust): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "2.93,ORCL,ORACLE CORP,2661568,126.06,\"2,357,527.00\",\"297,189,853.62\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$297 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 297189854
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Oracle Corporation ORCL 68389X105 Software 1,015,029 $127,954,555.74 1.15%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$128 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 127954556
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=SKYY",
+      "quote": "Oracle Corporation ORCL 68389X105 Software 795,569 $100,289,428.14 2.83%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$100 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 100289428
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "2.93,ORCL,ORACLE CORP,2661568,126.06,\"2,357,527.00\",\"297,189,853.62\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker ORCL"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[1341439,\"ORACLE CORP\",\"ORCL\",\"NYSE\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1341439"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US68389X1054",
+      "quote": "\"lei\":\"1Z4GXXU7ZHVWFCD8TV52\",\"entity\":{\"legalName\":{\"name\":\"ORACLE CORPORATION\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 1Z4GXXU7ZHVWFCD8TV52"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3Fisin%20%3Flabel%20WHERE%20%7B%20VALUES%20%3Fisin%20%7B%20%22US00108J1097%22%20%22US90385V1070%22%20%22US74624M1027%22%20%22US67059N1081%22%20%22US25402D1028%22%20%22US68389X1054%22%20%22US64119N6085%22%20%22US7811541090%22%20%22US76680R2067%22%20%22US37637K1088%22%20%22US64110D1046%22%20%22US5502411037%22%20%22US0494681010%22%20%22US82509L1070%22%20%22US31188V1008%22%20%22US42824C1099%22%20%22US90138F1021%22%20%22US21873S1087%22%20%22US98139A1051%22%20%22US24703L2025%22%20%22US4435731009%22%20%22US3383071012%22%20%22US81764X1037%22%20%22US03831W1080%22%20%22US8030542042%22%20%22US98980G1022%22%20%22US2561631068%22%20%22US10316T1043%22%20%22US74758T3032%22%20%22US04342Y1047%22%20%22US09227Q1004%22%20%22US22788C1053%22%20%22US70432V1026%22%20%22US6837151066%22%20%22US9224751084%22%20%22US70438V1061%22%20%22US26210C1045%22%20%22US74736L1098%22%20%22US98138H1014%22%20%22US98980L1017%22%20%22US49845K1016%22%20%22US4612021034%22%20%22US8887871080%22%20%22US88339J1051%22%20%22US03783C1009%22%20%22US3168411052%22%20%22US7501021056%22%20%22US74762E1029%22%20%22US4435106079%22%20%22US36828A1016%22%20%22US34631F1021%22%20%22US55405W1045%22%20%22US4657411066%22%20%22US4385162056%22%20%22US0301112076%22%20%22US96924N1000%22%20%22US95082P1057%22%20%22US34379V1035%22%20%22US7404441047%22%20%22US29280W1099%22%20%22US3687361044%22%20%22US5763231090%22%20%22US00130H1059%22%20%22US5370081045%22%20%22US9202531011%22%20%22US29275Y1029%22%20%22US2963151046%22%20%22US0024741045%22%20%22US74164F1030%22%20%22US0774541066%22%20%22US2537981027%22%20%22US7504911022%22%20%22US88076W1036%22%20%22US97651M1099%22%20%22US74768A1043%22%20%22US0420682058%22%20%22US6294452064%22%20%22US74766W1080%22%20%22US55306N1046%22%20%22US6549022043%22%20%7D%20%3Fitem%20wdt%3AP946%20%3Fisin%20.%20OPTIONAL%20%7B%20%3Fitem%20rdfs%3Alabel%20%3Flabel%20FILTER(LANG(%3Flabel)%20%3D%20%22en%22)%20%7D%20%7D",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q19900\" }, \"label\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"Oracle Corporation\" }, \"isin\" : { \"type\" : \"literal\", \"value\" : \"US68389X1054\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "qid",
+      "detail": "Wikidata QID Q19900"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US68389X1054",
+      "quote": "\"lei\":\"1Z4GXXU7ZHVWFCD8TV52\",\"entity\":{\"legalName\":{\"name\":\"ORACLE CORPORATION\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Oracle_Corporation",
+      "quote": "Oracle Corporation is an American multinational technology company headquartered in Austin, Texas.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Oracle_Corporation",
+      "quote": "Oracle Corporation is an American multinational technology company headquartered in Austin, Texas.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q19900",
+      "quote": "Oracle Corporation (Q19900) — headquarters location: Austin",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q19900",
+      "quote": "Oracle Corporation (Q19900) — official website: oracle.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Oracle Corporation is an American multinational technology company headquartered in Austin, Texas.",
+  "hq": "Austin"
+}

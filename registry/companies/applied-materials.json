@@ -1,0 +1,181 @@
+{
+  "slug": "applied-materials",
+  "name": "Applied Materials",
+  "aliases": ["Applied Materials, Inc.", "Applied Materials Inc /De", "Applied Materials Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "qid": "Q621610",
+    "cik": "6951",
+    "lei": "41BNNE1AFPNAZELZ6K07",
+    "isin": "US0382221051",
+    "ticker": "AMAT",
+    "exchange": "Nasdaq",
+    "cusip": "038222105",
+    "domain": "appliedmaterials.com"
+  },
+  "areas": [
+    {
+      "area": "compute-semiconductors"
+    },
+    {
+      "area": "quantum"
+    },
+    {
+      "area": "semiconductor-equipment"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "stated",
+      "source": "https://ir.appliedmaterials.com/news-releases/news-release-details/applied-materials-ranked-number-one-etch-supplier",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Deposition, etch and process tools."
+    },
+    {
+      "field": "area:quantum",
+      "grade": "registry",
+      "source": "https://www.defianceetfs.com/qtum-full-holdings/",
+      "quote": "AMAT Applied Materials Inc 038222105 0.99% 133,386",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "quantum",
+      "basis": "fund",
+      "detail": "Held by Defiance Quantum ETF (QTUM, Defiance ETFs): Quantum."
+    },
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=FTXL",
+      "quote": "Applied Materials, Inc. AMAT 038222105 Production Technology Equipment 98,257 $38,083,430.63 3.39%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Semiconductor ETF (FTXL, First Trust): Compute & semiconductors."
+    },
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3674&type=10-K&dateb=&owner=include&start=0&count=100",
+      "quote": "0000006951 APPLIED MATERIALS INC /DE CA",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3674 (Semiconductors & related devices): Compute & semiconductors."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://ir.appliedmaterials.com/news-releases/news-release-details/applied-materials-ranked-number-one-etch-supplier",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Deposition, etch and process tools."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=6951",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker AMAT"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=6951",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 6951"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US0382221051",
+      "quote": "\"lei\":\"41BNNE1AFPNAZELZ6K07\",\"entity\":{\"legalName\":{\"name\":\"APPLIED MATERIALS, INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 41BNNE1AFPNAZELZ6K07"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3Fisin%20%3Flabel%20WHERE%20%7B%20VALUES%20%3Fisin%20%7B%20%22US59516C1062%22%20%22US68236H2040%22%20%22US92839U2069%22%20%22US45569U1016%22%20%22US29355A1079%22%20%22US83417M1045%22%20%22US28617B6065%22%20%22US6078281002%22%20%22US0585861083%22%20%22US50125G3074%22%20%22US81758H1068%22%20%22US65481N1000%22%20%22US7311054099%22%20%22US03782L1017%22%20%22US12468P1049%22%20%22US2681501092%22%20%22US81730H1095%22%20%22US6536561086%22%20%22US30303M1027%22%20%22US18915M1071%22%20%22US4592001014%22%20%22US81762P1021%22%20%22US6974351057%22%20%22US17275R1023%22%20%22US7055731035%22%20%22US79466L3024%22%20%22US1273871087%22%20%22US01609W1027%22%20%22US90364P1057%22%20%22US08975B1098%22%20%22US5738741041%22%20%22US7437131094%22%20%22US5949181045%22%20%22US7739031091%22%20%22US5951121038%22%20%22US02079K3059%22%20%22US1924221039%22%20%22US88554D2053%22%20%22US4824801009%22%20%22US5128073062%22%20%22US69370C1009%22%20%22US23804L1035%22%20%22US0378331005%22%20%22US1924461023%22%20%22US2910111044%22%20%22US68213N1090%22%20%22US09239B1098%22%20%22US36262G1013%22%20%22US4581401001%22%20%22US4781601046%22%20%22US8334451098%22%20%22US0527691069%22%20%22US8636671013%22%20%22US00971T1016%22%20%22US0404132054%22%20%22US47215P1066%22%20%22US00724F1012%22%20%22US60937P1066%22%20%22US8825081040%22%20%22US0326541051%22%20%22US0382221051%22%20%22US5950171042%22%20%22US0316521006%22%20%22US29362U1043%22%20%22US6098391054%22%20%22US1727551004%22%20%22US7509171069%22%20%22US9282981086%22%20%22US2545431015%22%20%22US55405Y1001%22%20%22US6833441057%22%20%22US8168501018%22%20%22US0538071038%22%20%22US3463751087%22%20%22US04626A1034%22%20%22US00246W1036%22%20%22US0079731008%22%20%22US00676P1075%22%20%22US5184151042%22%20%22US19247G1076%22%20%7D%20%3Fitem%20wdt%3AP946%20%3Fisin%20.%20OPTIONAL%20%7B%20%3Fitem%20rdfs%3Alabel%20%3Flabel%20FILTER(LANG(%3Flabel)%20%3D%20%22en%22)%20%7D%20%7D",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q621610\" }, \"label\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"Applied Materials\" }, \"isin\" : { \"type\" : \"literal\", \"value\" : \"US0382221051\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "qid",
+      "detail": "Wikidata QID Q621610"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US0382221051",
+      "quote": "\"lei\":\"41BNNE1AFPNAZELZ6K07\",\"entity\":{\"legalName\":{\"name\":\"APPLIED MATERIALS, INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Applied_Materials",
+      "quote": "Applied Materials, Inc. is an American corporation that supplies equipment, services and software for the manufacture of semiconductor chips for electronics, flat panel displays for computers, smartphones, televisions, and solar products.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:semiconductor-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Applied_Materials",
+      "quote": "Applied Materials, Inc. is an American corporation that supplies equipment, services and software for the manufacture of semiconductor chips for electronics, flat panel displays for computers, smartphones, televisions, and solar products.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q621610",
+      "quote": "Applied Materials (Q621610) — headquarters location: Santa Clara",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q621610",
+      "quote": "Applied Materials (Q621610) — official website: appliedmaterials.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Applied Materials, Inc. is an American corporation that supplies equipment, services and software for the manufacture of semiconductor chips for electronics, flat panel displays for computers, smartphones, televisions, and solar products.",
+  "hq": "Santa Clara"
+}

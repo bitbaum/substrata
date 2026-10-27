@@ -1,0 +1,68 @@
+{
+  "slug": "iljin-electric",
+  "name": "Iljin Electric Co., Ltd.",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "KR",
+  "ids": {
+    "ticker": "103590",
+    "exchange": "KS",
+    "cusip": "Y3878F102"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Iljin Electric Co., Ltd. 103590.KS Y3878F102 Electrical Components 350,921 $14,533,855.36 0.13%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Iljin Electric Co., Ltd. 103590.KS Y3878F102 Electrical Components 350,921 $14,533,855.36 0.13%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$15 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 14533855
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Iljin Electric Co., Ltd. 103590.KS Y3878F102 Electrical Components 350,921 $14,533,855.36 0.13%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 103590"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Iljin Electric Co., Ltd. 103590.KS Y3878F102 Electrical Components 350,921 $14,533,855.36 0.13%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

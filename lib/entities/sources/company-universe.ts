@@ -5,6 +5,9 @@
  * (same slug, built here) and the stub source skips it.
  */
 import { THEMES } from '@/config/universe-themes';
+import { allAreas } from '@/lib/registry/areas';
+import { registeredCompany } from '@/lib/registry/load';
+import { KIND_LABEL } from '@/lib/registry/schema';
 import { universeEntries } from '@/lib/universe/store';
 import type { UniverseEntry } from '@/lib/universe/types';
 import { graphNode } from '@/lib/graph/index';
@@ -25,7 +28,17 @@ export function identifiedSlugs(): Set<string> {
   return slugs;
 }
 
+/** A registered company in its own words: what it is, its kind and areas. Null for a migrated row with no summary. */
+function registeredSummary(e: UniverseEntry): string | null {
+  const c = e.registered ? registeredCompany(e.slug) : undefined;
+  if (!c?.summary) return null;
+  const areas = c.areas.map((a) => allAreas().find((x) => x.slug === a.area)?.name ?? a.area);
+  return `${c.summary} ${KIND_LABEL[c.kind]}${areas.length ? `, tracked in ${areas.join(', ')}` : ''}. Registered, not profiled: no role in any supply chain is claimed.`;
+}
+
 function summaryOf(e: UniverseEntry): string {
+  const own = registeredSummary(e);
+  if (own) return own;
   const themes = e.themes.map((t) => THEMES.find((x) => x.id === t)!.label);
   return `Identified, not profiled: admitted under ${themes.join(', ')} on cited identity, theme and size. No role in any supply chain is claimed.`;
 }
@@ -75,10 +88,12 @@ function identified(e: UniverseEntry): Entity {
         ...(e.country ? [e.country.toLowerCase()] : []),
       ]),
     ],
-    retrievalText: `${e.name}: identified, not profiled. Admitted to the Substrata company universe (tier B) because cited sources place it in ${themes.map((t) => t.label).join(', ')}, ${size ? `show ${size.detail.replace(/\.$/, '')}` : 'clear a size floor'}, and identify it (${ids.join(', ')}). Theme evidence is fund holdings, filed industry codes or programme lists: it shows interest in the theme, not a role in any chain. ${e.admittedBy
-      .filter((a) => a.test === 'theme')
-      .map((a) => a.detail)
-      .join(' ')}`,
+    retrievalText:
+      registeredSummary(e) ??
+      `${e.name}: identified, not profiled. Admitted to the Substrata company universe (tier B) because cited sources place it in ${themes.map((t) => t.label).join(', ')}, ${size ? `show ${size.detail.replace(/\.$/, '')}` : 'clear a size floor'}, and identify it (${ids.join(', ')}). Theme evidence is fund holdings, filed industry codes or programme lists: it shows interest in the theme, not a role in any chain. ${e.admittedBy
+        .filter((a) => a.test === 'theme')
+        .map((a) => a.detail)
+        .join(' ')}`,
   };
 }
 

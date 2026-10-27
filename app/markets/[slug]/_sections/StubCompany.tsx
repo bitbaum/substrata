@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Link from 'next/link';
 
 import { EntityProfile } from '@/components/portal/EntityProfile';
@@ -9,6 +9,8 @@ import { StubSources } from './StubSources';
 import { correctionUrl } from '@/lib/site';
 import { t } from '@/lib/i18n/messages';
 import { countryHref, countryNameOf } from '@/lib/world/pages';
+import { marketSections } from '@/components/company/marketSections';
+import { Quote, QuoteLoading } from '@/components/company/Quote';
 
 /**
  * A company the relation graph names and the directory holds no profile for
@@ -38,6 +40,9 @@ export function StubCompany({ entity }: { entity: Entity }) {
         <h1 className="mt-3 max-w-3xl font-heading text-3xl font-semibold leading-tight tracking-display text-fg-primary wrap-anywhere sm:text-4xl">
           {entity.name}
         </h1>
+        <Suspense fallback={<QuoteLoading />}>
+          <Quote slug={entity.key} />
+        </Suspense>
         {entity.aka.length > 0 && (
           <p className="mt-2 text-sm text-fg-tertiary">Also printed as {entity.aka.join(', ')}</p>
         )}
@@ -60,6 +65,7 @@ export function StubCompany({ entity }: { entity: Entity }) {
       <EntityProfile
         entity={entity}
         extra={[
+          ...marketSections({ slug: entity.key, name: entity.name }),
           {
             id: 'sources-say',
             title: t('profile.stubSources.title'),

@@ -1,0 +1,116 @@
+{
+  "slug": "denison-mines",
+  "name": "Denison Mines Corp",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "CA",
+  "ids": {
+    "qid": "Q5257824",
+    "isin": "CA2483561072",
+    "ticker": "DML",
+    "exchange": "CN",
+    "sedol": "2003223",
+    "domain": "denisonmines.com"
+  },
+  "areas": [
+    {
+      "area": "nuclear-energy"
+    },
+    {
+      "area": "nuclear-fuel-cycle"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:nuclear-energy",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "2.46,DML CN,DENISON MINES CORP,2003223,2.202658873093479,\"53,403,489.00\",\"117,629,668.90\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "nuclear",
+      "basis": "fund",
+      "detail": "Held by Global X Uranium ETF (URA, Global X): Nuclear, SMRs & the fuel cycle."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "2.46,DML CN,DENISON MINES CORP,2003223,2.202658873093479,\"53,403,489.00\",\"117,629,668.90\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$118 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 117629669
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "2.46,DML CN,DENISON MINES CORP,2003223,2.202658873093479,\"53,403,489.00\",\"117,629,668.90\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker DML"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "2.46,DML CN,DENISON MINES CORP,2003223,2.202658873093479,\"53,403,489.00\",\"117,629,668.90\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Denison_Mines",
+      "quote": "Denison Mines Corp. is a Canadian uranium exploration, development, and production company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5257824",
+      "quote": "Denison Mines (Q5257824) — Wikidata item: Q5257824",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:nuclear-fuel-cycle",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Denison_Mines",
+      "quote": "Denison Mines Corp. is a Canadian uranium exploration, development, and production company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5257824",
+      "quote": "Denison Mines (Q5257824) — headquarters location: Toronto",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5257824",
+      "quote": "Denison Mines (Q5257824) — official website: denisonmines.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Denison Mines Corp. is a Canadian uranium exploration, development, and production company.",
+  "hq": "Toronto"
+}

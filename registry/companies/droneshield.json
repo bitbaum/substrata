@@ -1,0 +1,68 @@
+{
+  "slug": "droneshield",
+  "name": "Droneshield Ltd",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "AU",
+  "ids": {
+    "ticker": "DRO",
+    "exchange": "AU",
+    "sedol": "BYV1JW4"
+  },
+  "areas": [
+    {
+      "area": "defence-tech"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.14,DRO AU,DRONESHIELD LTD,BYV1JW4,1.024554213200962,\"8,753,938.00\",\"8,968,884.06\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "fund",
+      "detail": "Held by Global X Defense Tech ETF (SHLD, Global X): Defence & aerospace."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.14,DRO AU,DRONESHIELD LTD,BYV1JW4,1.024554213200962,\"8,753,938.00\",\"8,968,884.06\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$9.0 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 8968884
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.14,DRO AU,DRONESHIELD LTD,BYV1JW4,1.024554213200962,\"8,753,938.00\",\"8,968,884.06\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker DRO"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.14,DRO AU,DRONESHIELD LTD,BYV1JW4,1.024554213200962,\"8,753,938.00\",\"8,968,884.06\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

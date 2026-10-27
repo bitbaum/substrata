@@ -1,0 +1,92 @@
+{
+  "slug": "westinghouse-air-brake-technologies",
+  "name": "Westinghouse Air Brake Technologies Corp",
+  "aliases": ["Wabtec Corp", "Westinghouse Air Brake Technologies Corporation"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "WAB",
+    "exchange": "US",
+    "sedol": "2955733",
+    "cik": "943452"
+  },
+  "areas": [
+    {
+      "area": "mobility"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "1.78,WAB,WABTEC CORP,2955733,277.67,\"20,271.00\",\"5,628,648.57\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "fund",
+      "detail": "Held by Global X Autonomous & Electric Vehicles ETF (DRIV, Global X): Electric mobility."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "1.78,WAB,WABTEC CORP,2955733,277.67,\"20,271.00\",\"5,628,648.57\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$5.6 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 5628649
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001628280-26-008067\",\"cik\":943452,\"entityName\":\"WESTINGHOUSE AIR BRAKE TECHNOLOGIES CORPORATION\",\"loc\":\"US-PA\",\"end\":\"2025-06-30\",\"val\":31100000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$31 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 31100000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "1.78,WAB,WABTEC CORP,2955733,277.67,\"20,271.00\",\"5,628,648.57\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker WAB"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001628280-26-008067\",\"cik\":943452,\"entityName\":\"WESTINGHOUSE AIR BRAKE TECHNOLOGIES CORPORATION\",\"loc\":\"US-PA\",\"end\":\"2025-06-30\",\"val\":31100000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 943452"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "1.78,WAB,WABTEC CORP,2955733,277.67,\"20,271.00\",\"5,628,648.57\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

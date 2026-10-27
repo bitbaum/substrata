@@ -1,0 +1,219 @@
+{
+  "slug": "hewlett-packard-enterprise",
+  "name": "Hewlett Packard Enterprise",
+  "aliases": ["Hewlett Packard Enterprise Company", "Hewlett Packard Enterprise Co"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "qid": "Q19923099",
+    "cik": "1645590",
+    "lei": "549300BX44RGX6ANDV88",
+    "isin": "US42824C1099",
+    "ticker": "HPE",
+    "exchange": "US",
+    "sedol": "BYVYWS0",
+    "cusip": "42824C109",
+    "domain": "hpe.com"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    },
+    {
+      "area": "quantum"
+    },
+    {
+      "area": "ai-cloud-platforms"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.62,HPE,HEWLETT PACKARD ENTERPRISE,BYVYWS0,58.72,\"1,080,481.00\",\"63,445,844.32\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Artificial Intelligence & Technology ETF (AIQ, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "2.73,HPE,HEWLETT PACKARD ENTERPRISE,BYVYWS0,58.72,\"885,324.00\",\"51,986,225.28\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Data Center & Digital Infrastructure ETF (DTCR, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "area:quantum",
+      "grade": "registry",
+      "source": "https://www.defianceetfs.com/qtum-full-holdings/",
+      "quote": "HPE Hewlett Packard Enterprise Co 42824C109 1.63% 1,457,331",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "quantum",
+      "basis": "fund",
+      "detail": "Held by Defiance Quantum ETF (QTUM, Defiance ETFs): Quantum."
+    },
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=SKYY",
+      "quote": "Hewlett Packard Enterprise Company HPE 42824C109 Technology Hardware, Storage & Peripherals 1,135,480 $66,675,385.60 1.88%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by First Trust Cloud Computing ETF (SKYY, First Trust): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.62,HPE,HEWLETT PACKARD ENTERPRISE,BYVYWS0,58.72,\"1,080,481.00\",\"63,445,844.32\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$63 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 63445844
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "2.73,HPE,HEWLETT PACKARD ENTERPRISE,BYVYWS0,58.72,\"885,324.00\",\"51,986,225.28\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$52 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 51986225
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q1I.json",
+      "quote": "{\"accn\":\"0001645590-25-000130\",\"cik\":1645590,\"entityName\":\"HEWLETT PACKARD ENTERPRISE COMPANY\",\"loc\":\"US-TX\",\"end\":\"2025-04-30\",\"val\":21184000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-04-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$21 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 21184000000
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=SKYY",
+      "quote": "Hewlett Packard Enterprise Company HPE 42824C109 Technology Hardware, Storage & Peripherals 1,135,480 $66,675,385.60 1.88%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$67 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 66675386
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.62,HPE,HEWLETT PACKARD ENTERPRISE,BYVYWS0,58.72,\"1,080,481.00\",\"63,445,844.32\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker HPE"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q1I.json",
+      "quote": "{\"accn\":\"0001645590-25-000130\",\"cik\":1645590,\"entityName\":\"HEWLETT PACKARD ENTERPRISE COMPANY\",\"loc\":\"US-TX\",\"end\":\"2025-04-30\",\"val\":21184000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-04-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1645590"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US42824C1099",
+      "quote": "\"lei\":\"549300BX44RGX6ANDV88\",\"entity\":{\"legalName\":{\"name\":\"HEWLETT PACKARD ENTERPRISE COMPANY\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 549300BX44RGX6ANDV88"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3Fisin%20%3Flabel%20WHERE%20%7B%20VALUES%20%3Fisin%20%7B%20%22US00108J1097%22%20%22US90385V1070%22%20%22US74624M1027%22%20%22US67059N1081%22%20%22US25402D1028%22%20%22US68389X1054%22%20%22US64119N6085%22%20%22US7811541090%22%20%22US76680R2067%22%20%22US37637K1088%22%20%22US64110D1046%22%20%22US5502411037%22%20%22US0494681010%22%20%22US82509L1070%22%20%22US31188V1008%22%20%22US42824C1099%22%20%22US90138F1021%22%20%22US21873S1087%22%20%22US98139A1051%22%20%22US24703L2025%22%20%22US4435731009%22%20%22US3383071012%22%20%22US81764X1037%22%20%22US03831W1080%22%20%22US8030542042%22%20%22US98980G1022%22%20%22US2561631068%22%20%22US10316T1043%22%20%22US74758T3032%22%20%22US04342Y1047%22%20%22US09227Q1004%22%20%22US22788C1053%22%20%22US70432V1026%22%20%22US6837151066%22%20%22US9224751084%22%20%22US70438V1061%22%20%22US26210C1045%22%20%22US74736L1098%22%20%22US98138H1014%22%20%22US98980L1017%22%20%22US49845K1016%22%20%22US4612021034%22%20%22US8887871080%22%20%22US88339J1051%22%20%22US03783C1009%22%20%22US3168411052%22%20%22US7501021056%22%20%22US74762E1029%22%20%22US4435106079%22%20%22US36828A1016%22%20%22US34631F1021%22%20%22US55405W1045%22%20%22US4657411066%22%20%22US4385162056%22%20%22US0301112076%22%20%22US96924N1000%22%20%22US95082P1057%22%20%22US34379V1035%22%20%22US7404441047%22%20%22US29280W1099%22%20%22US3687361044%22%20%22US5763231090%22%20%22US00130H1059%22%20%22US5370081045%22%20%22US9202531011%22%20%22US29275Y1029%22%20%22US2963151046%22%20%22US0024741045%22%20%22US74164F1030%22%20%22US0774541066%22%20%22US2537981027%22%20%22US7504911022%22%20%22US88076W1036%22%20%22US97651M1099%22%20%22US74768A1043%22%20%22US0420682058%22%20%22US6294452064%22%20%22US74766W1080%22%20%22US55306N1046%22%20%22US6549022043%22%20%7D%20%3Fitem%20wdt%3AP946%20%3Fisin%20.%20OPTIONAL%20%7B%20%3Fitem%20rdfs%3Alabel%20%3Flabel%20FILTER(LANG(%3Flabel)%20%3D%20%22en%22)%20%7D%20%7D",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q19923099\" }, \"label\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"Hewlett Packard Enterprise\" }, \"isin\" : { \"type\" : \"literal\", \"value\" : \"US42824C1099\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "qid",
+      "detail": "Wikidata QID Q19923099"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US42824C1099",
+      "quote": "\"lei\":\"549300BX44RGX6ANDV88\",\"entity\":{\"legalName\":{\"name\":\"HEWLETT PACKARD ENTERPRISE COMPANY\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hewlett_Packard_Enterprise",
+      "quote": "The Hewlett Packard Enterprise Company (HPE) is an American multinational information technology company based in Spring, Texas.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hewlett_Packard_Enterprise",
+      "quote": "The Hewlett Packard Enterprise Company (HPE) is an American multinational information technology company based in Spring, Texas.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q19923099",
+      "quote": "Hewlett Packard Enterprise (Q19923099) — headquarters location: Spring",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q19923099",
+      "quote": "Hewlett Packard Enterprise (Q19923099) — official website: hpe.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "The Hewlett Packard Enterprise Company (HPE) is an American multinational information technology company based in Spring, Texas.",
+  "hq": "Spring"
+}

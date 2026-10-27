@@ -1,0 +1,84 @@
+{
+  "slug": "israel-aerospace-industries",
+  "name": "Israel Aerospace Industries",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q876017",
+    "domain": "iai.co.il",
+    "lei": "213800NHLDOM1LVCYX17"
+  },
+  "areas": [
+    {
+      "area": "defence-autonomy"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Israel_Aerospace_Industries",
+      "quote": "Israel Aerospace Industries is Israel's major aerospace and aviation manufacturer, producing aerial and astronautic systems for both military and civilian usage.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q876017",
+      "quote": "Israel Aerospace Industries Ltd (Q876017) — Wikidata item: Q876017",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q876017",
+      "quote": "Israel Aerospace Industries Ltd (Q876017) — headquarters location: Lod",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q876017",
+      "quote": "Israel Aerospace Industries Ltd (Q876017) — country (ISO 3166-1 alpha-2): IL",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q876017",
+      "quote": "Israel Aerospace Industries Ltd (Q876017) — official website: http://www.iai.co.il",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q876017",
+      "quote": "Israel Aerospace Industries Ltd (Q876017) — Legal Entity Identifier: 213800NHLDOM1LVCYX17",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:defence-autonomy",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Israel_Aerospace_Industries",
+      "quote": "Israel Aerospace Industries is Israel's major aerospace and aviation manufacturer, producing aerial and astronautic systems for both military and civilian usage.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Israel Aerospace Industries is Israel's major aerospace and aviation manufacturer, producing aerial and astronautic systems for both military and civilian usage.",
+  "country": "IL",
+  "hq": "Lod"
+}

@@ -1,0 +1,68 @@
+{
+  "slug": "tkms-kgaa",
+  "name": "TKMS AG& Co Kgaa",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "DE",
+  "ids": {
+    "ticker": "TKMS",
+    "exchange": "GR",
+    "sedol": "BS801X7"
+  },
+  "areas": [
+    {
+      "area": "defence-tech"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.36,TKMS GR,TKMS AG& CO KGAA,BS801X7,96.35483618544373,\"247,536.00\",\"23,851,290.73\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "fund",
+      "detail": "Held by Global X Defense Tech ETF (SHLD, Global X): Defence & aerospace."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.36,TKMS GR,TKMS AG& CO KGAA,BS801X7,96.35483618544373,\"247,536.00\",\"23,851,290.73\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$24 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 23851291
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.36,TKMS GR,TKMS AG& CO KGAA,BS801X7,96.35483618544373,\"247,536.00\",\"23,851,290.73\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker TKMS"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.36,TKMS GR,TKMS AG& CO KGAA,BS801X7,96.35483618544373,\"247,536.00\",\"23,851,290.73\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

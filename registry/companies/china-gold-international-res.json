@@ -1,0 +1,68 @@
+{
+  "slug": "china-gold-international-res",
+  "name": "China Gold International Res",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "HK",
+  "ids": {
+    "ticker": "2099",
+    "exchange": "HK",
+    "sedol": "B60FNV8"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "3.32,2099 HK,CHINA GOLD INTERNATIONAL RES,B60FNV8,22.63819047439231,\"9,268,700.00\",\"209,826,596.05\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "fund",
+      "detail": "Held by Global X Copper Miners ETF (COPX, Global X): Advanced materials & critical minerals."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "3.32,2099 HK,CHINA GOLD INTERNATIONAL RES,B60FNV8,22.63819047439231,\"9,268,700.00\",\"209,826,596.05\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$210 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 209826596
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "3.32,2099 HK,CHINA GOLD INTERNATIONAL RES,B60FNV8,22.63819047439231,\"9,268,700.00\",\"209,826,596.05\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 2099"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "3.32,2099 HK,CHINA GOLD INTERNATIONAL RES,B60FNV8,22.63819047439231,\"9,268,700.00\",\"209,826,596.05\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

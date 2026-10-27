@@ -20,7 +20,7 @@ import { aliasEntry } from '@/lib/graph/aliases';
 import { StubCompany } from './_sections/StubCompany';
 import { t } from '@/lib/i18n/messages';
 import { WhatHappened, happenedEvidence } from '@/lib/profile/modules/company-happened';
-import { CompanyHeader } from './_sections/CompanyHeader';
+import { ChainRole, CompanyHeader } from './_sections/CompanyHeader';
 import { LeadList, leadsOn } from './_sections/leads';
 import { UpdateNews } from '@/components/updates/UpdateNews';
 import { filingsOf } from './_sections/filings';
@@ -28,6 +28,8 @@ import { HiringSection, hiringOf } from './_sections/hiring';
 import { TakePartSection } from './_sections/take-part';
 import { takePartRoutes } from '@/lib/take-part';
 import { listingFor } from '@/lib/listings';
+import { marketSections } from '@/components/company/marketSections';
+import { marketCompanyFor } from '@/lib/market-data/company';
 
 interface RouteParams {
   params: Promise<{ slug: string }>;
@@ -75,8 +77,10 @@ export async function generateMetadata({ params }: RouteParams): Promise<Metadat
 }
 
 /**
- * A company profile, in one reading order on every company: the header with
- * five tiles at a glance, what it holds (with a meter per row), who owns it,
+ * A company profile, in one reading order on every company: the header (for a
+ * listed company the quote, then the share price, key statistics and its role
+ * in the chain with the five tiles; otherwise the five tiles in the header),
+ * what it holds (with a meter per row), who owns it,
  * the numbers it reports, what has happened (one axis, then the lists),
  * unread leads, what could loosen its grip, ways to take part, hiring, others
  * at its step, what it connects to, sources, discussion. The section menu
@@ -146,8 +150,31 @@ export default async function ParticipantPage({ params }: RouteParams) {
     hiring,
     hasFilings: filings.length > 0,
   });
+  // A listed company reads like a quote page: quote and chart first, its role
+  // in the chain as a section below Key statistics (docs/design/company-page.md).
+  const listed = marketCompanyFor(p.slug) !== null;
+  const news =
+    profile.held.length > 0 ? <UpdateNews scope={{ kind: 'company', slug: p.slug }} /> : null;
   const happened = profile.events.length + profile.relatedEvents.length + filings.length > 0;
   const extra: ExtraSection[] = [
+    ...marketSections({ slug: p.slug, name: p.name }),
+    ...(listed
+      ? [
+          {
+            id: 'chain-role',
+            title: 'Role in the chain',
+            importance: COMPANY_SECTION_IMPORTANCE['chain-role'],
+            evidence:
+              'what it rests on, holds and constrains, its grade and where its role is cited',
+            node: (
+              <>
+                <ChainRole p={p} profile={profile} />
+                {news && <div className="mt-8">{news}</div>}
+              </>
+            ),
+          },
+        ]
+      : []),
     // Replaces the registry's "what has happened": same id and anchor, with
     // the SEC filings (per request) on the same axis as the events.
     ...(happened
@@ -214,13 +241,10 @@ export default async function ParticipantPage({ params }: RouteParams) {
           layerName={layer?.name}
           signedIn={Boolean(session?.actorId)}
           following={following}
+          listed={listed}
         />
 
-        {profile.held.length > 0 && (
-          <div className="mb-10">
-            <UpdateNews scope={{ kind: 'company', slug: p.slug }} />
-          </div>
-        )}
+        {!listed && news && <div className="mb-10">{news}</div>}
 
         {entity && <EntityProfile entity={entity} extra={extra} />}
       </Page>

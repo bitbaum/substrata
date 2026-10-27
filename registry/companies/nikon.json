@@ -1,0 +1,123 @@
+{
+  "slug": "nikon",
+  "name": "Nikon",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "JP",
+  "ids": {
+    "qid": "Q1218180",
+    "isin": "JP3657400002",
+    "ticker": "7731",
+    "exchange": "JP",
+    "domain": "jp.nikon.com",
+    "lei": "549300X7LIS9RFELXJ98"
+  },
+  "areas": [
+    {
+      "area": "compute-semiconductors"
+    },
+    {
+      "area": "semiconductor-equipment"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "stated",
+      "source": "https://www.nikon.com/products/semi/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Lithography systems."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.nikon.com/products/semi/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Lithography systems."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000BGS2B4",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 7731"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.nikon.com/products/semi/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Nikon",
+      "quote": "Nikon Corporation is a Japanese manufacturer of optical and precision equipment headquartered in Nishi-Ōi, Shinagawa, Tokyo.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1218180",
+      "quote": "Nikon (Q1218180) — Wikidata item: Q1218180",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:semiconductor-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Nikon",
+      "quote": "Nikon Corporation is a Japanese manufacturer of optical and precision equipment headquartered in Nishi-Ōi, Shinagawa, Tokyo.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1218180",
+      "quote": "Nikon (Q1218180) — headquarters location: Minato",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1218180",
+      "quote": "Nikon (Q1218180) — official website: jp.nikon.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1218180",
+      "quote": "Nikon (Q1218180) — Legal Entity Identifier: 549300X7LIS9RFELXJ98",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Nikon Corporation is a Japanese manufacturer of optical and precision equipment headquartered in Nishi-Ōi, Shinagawa, Tokyo.",
+  "hq": "Minato"
+}

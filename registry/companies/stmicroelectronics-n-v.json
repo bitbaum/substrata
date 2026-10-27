@@ -1,0 +1,197 @@
+{
+  "slug": "stmicroelectronics-n-v",
+  "name": "STMicroelectronics N.V.",
+  "aliases": ["Stmicroelectronics N.V.", "Stmicroelectronics Nv", "Stmicroelectronics NV Ny SHS"],
+  "kind": "public",
+  "status": "active",
+  "country": "NL",
+  "ids": {
+    "qid": "Q661845",
+    "cik": "932787",
+    "lei": "213800Z8NOHIKRI42W10",
+    "isin": "US8610121027",
+    "ticker": "STM",
+    "exchange": "US",
+    "cusip": "861012102",
+    "sedol": "2430025",
+    "domain": "st.com"
+  },
+  "areas": [
+    {
+      "area": "compute-semiconductors"
+    },
+    {
+      "area": "power-storage-grid"
+    },
+    {
+      "area": "mobility"
+    },
+    {
+      "area": "quantum"
+    },
+    {
+      "area": "foundry"
+    },
+    {
+      "area": "power-semiconductors"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:quantum",
+      "grade": "registry",
+      "source": "https://www.defianceetfs.com/qtum-full-holdings/",
+      "quote": "STM Stmicroelectronics Nv 861012102 0.81% 937,150",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "quantum",
+      "basis": "fund",
+      "detail": "Held by Defiance Quantum ETF (QTUM, Defiance ETFs): Quantum."
+    },
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "STMicroelectronics N.V. STM 861012102 Semiconductors 112,009 $5,061,686.71 0.05%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3674&type=10-K&dateb=&owner=include&start=400&count=100",
+      "quote": "0000932787 STMicroelectronics N.V. P7",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3674 (Semiconductors & related devices): Compute & semiconductors."
+    },
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-hail.xlsx",
+      "quote": "STMICROELECTRONICS NV NY SHS | STM | 861012102 | 2430025 | 1.133845 | - | 3996.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Kensho Smart Mobility ETF (HAIL, State Street): Electric mobility."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "STMicroelectronics N.V. STM 861012102 Semiconductors 112,009 $5,061,686.71 0.05%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$5.1 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 5061687
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.defianceetfs.com/qtum-full-holdings/",
+      "quote": "STM Stmicroelectronics Nv 861012102 0.81% 937,150",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker STM"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3674&type=10-K&dateb=&owner=include&start=400&count=100",
+      "quote": "0000932787 STMicroelectronics N.V. P7",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 932787"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US8610121027",
+      "quote": "\"lei\":\"213800Z8NOHIKRI42W10\",\"entity\":{\"legalName\":{\"name\":\"STMICROELECTRONICS N.V.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 213800Z8NOHIKRI42W10"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US8610121027",
+      "quote": "\"lei\":\"213800Z8NOHIKRI42W10\",\"entity\":{\"legalName\":{\"name\":\"STMICROELECTRONICS N.V.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country NL as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/STMicroelectronics",
+      "quote": "STMicroelectronics NV is a European multinational semiconductor contract manufacturing and design company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q661845",
+      "quote": "STMicroelectronics (Q661845) — Wikidata item: Q661845",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:foundry",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/STMicroelectronics",
+      "quote": "STMicroelectronics NV is a European multinational semiconductor contract manufacturing and design company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:power-semiconductors",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/STMicroelectronics",
+      "quote": "STMicroelectronics NV is a European multinational semiconductor contract manufacturing and design company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q661845",
+      "quote": "STMicroelectronics (Q661845) — headquarters location: Plan-les-Ouates",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q661845",
+      "quote": "STMicroelectronics (Q661845) — official website: st.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "STMicroelectronics NV is a European multinational semiconductor contract manufacturing and design company.",
+  "hq": "Plan-les-Ouates"
+}

@@ -1,0 +1,143 @@
+{
+  "slug": "tencent",
+  "name": "Tencent Holdings Limited",
+  "aliases": ["Tencent Holdings Ltd"],
+  "kind": "public",
+  "status": "active",
+  "country": "HK",
+  "ids": {
+    "qid": "Q860580",
+    "isin": "KYG875721634",
+    "ticker": "700",
+    "exchange": "HK",
+    "sedol": "BMMV2K8",
+    "cusip": "G87572163",
+    "domain": "tencent.com",
+    "lei": "254900N4SLUMW4XUYY11"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    },
+    {
+      "area": "robotics"
+    },
+    {
+      "area": "ai-cloud-platforms"
+    },
+    {
+      "area": "frontier-labs"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "2.42,700 HK,TENCENT HOLDINGS LTD,BMMV2K8,49.25336035662966,\"4,984,218.00\",\"245,489,485.25\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Artificial Intelligence & Technology ETF (AIQ, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Tencent Holdings Limited 700.HK G87572163 Communication Services 54,451 $2,681,758.00 0.36%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Artificial Intelligence and Robotics ETF (ROBT, First Trust): Robotics & autonomy."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "2.42,700 HK,TENCENT HOLDINGS LTD,BMMV2K8,49.25336035662966,\"4,984,218.00\",\"245,489,485.25\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$245 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 245489485
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "2.42,700 HK,TENCENT HOLDINGS LTD,BMMV2K8,49.25336035662966,\"4,984,218.00\",\"245,489,485.25\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 700"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "2.42,700 HK,TENCENT HOLDINGS LTD,BMMV2K8,49.25336035662966,\"4,984,218.00\",\"245,489,485.25\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Tencent",
+      "quote": "Tencent is a Chinese multinational technology conglomerate and holding company headquartered in Shenzhen.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q860580",
+      "quote": "Tencent (Q860580) — Wikidata item: Q860580",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Tencent",
+      "quote": "Tencent is a Chinese multinational technology conglomerate and holding company headquartered in Shenzhen.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:frontier-labs",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Tencent",
+      "quote": "Tencent is a Chinese multinational technology conglomerate and holding company headquartered in Shenzhen.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q860580",
+      "quote": "Tencent (Q860580) — official website: tencent.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q860580",
+      "quote": "Tencent (Q860580) — Legal Entity Identifier: 254900N4SLUMW4XUYY11",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Tencent is a Chinese multinational technology conglomerate and holding company headquartered in Shenzhen."
+}

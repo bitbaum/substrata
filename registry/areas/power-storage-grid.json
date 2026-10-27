@@ -1,0 +1,10 @@
+{
+  "slug": "power-storage-grid",
+  "name": "Power, storage and grid",
+  "parent": null,
+  "theme": "grid",
+  "definition": "Grid equipment, generation for firm supply, and energy storage.",
+  "why": "Interconnection queues and transformer lead times limit how fast any load, including data centres, can be connected.",
+  "bottlenecks": ["grid-interconnection-queues", "large-power-transformer-slots"],
+  "keyNumbers": []
+}

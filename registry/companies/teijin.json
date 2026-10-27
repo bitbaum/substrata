@@ -1,0 +1,85 @@
+{
+  "slug": "teijin",
+  "name": "Teijin",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q1111609",
+    "isin": "JP3544000007",
+    "domain": "teijin.co.jp",
+    "lei": "3538000RF6UCIMPKCO54"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Teijin",
+      "quote": "Teijin Limited is a Japanese chemical, pharmaceutical and information technology company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1111609",
+      "quote": "Teijin (Q1111609) — Wikidata item: Q1111609",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:advanced-materials",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Teijin",
+      "quote": "Teijin Limited is a Japanese chemical, pharmaceutical and information technology company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1111609",
+      "quote": "Teijin (Q1111609) — headquarters location: Osaka",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1111609",
+      "quote": "Teijin (Q1111609) — country (ISO 3166-1 alpha-2): JP",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1111609",
+      "quote": "Teijin (Q1111609) — official website: teijin.co.jp",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1111609",
+      "quote": "Teijin (Q1111609) — Legal Entity Identifier: 3538000RF6UCIMPKCO54",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Teijin Limited is a Japanese chemical, pharmaceutical and information technology company.",
+  "hq": "Osaka",
+  "country": "JP"
+}

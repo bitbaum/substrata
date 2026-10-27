@@ -59,6 +59,8 @@ export interface Admission {
   quote?: string;
   readOn: string;
   asOf: string;
+  /** US dollars, on a materiality row: the figure the source printed. */
+  usd?: number;
 }
 
 export interface TestResult {
@@ -101,6 +103,10 @@ export interface Decision {
 }
 
 export interface UniverseEntry extends Decision {
+  /** On the list because a person or agent registered it (registry/companies). */
+  registered?: boolean;
+  /** Passes the old three tests but nobody has registered it: a proposal, not on the list. */
+  proposed?: boolean;
   country?: string;
   ids: Identifiers;
   aliases: string[];

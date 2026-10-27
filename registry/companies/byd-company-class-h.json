@@ -1,0 +1,139 @@
+{
+  "slug": "byd-company-class-h",
+  "name": "BYD Company Limited (Class H)",
+  "aliases": ["BYD Co Ltd-H", "BYD Company"],
+  "kind": "public",
+  "status": "active",
+  "country": "HK",
+  "ids": {
+    "ticker": "1211",
+    "exchange": "HK",
+    "sedol": "6536651",
+    "cusip": "Y1023R104"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    },
+    {
+      "area": "mobility"
+    },
+    {
+      "area": "energy-storage"
+    },
+    {
+      "area": "autonomous-vehicles"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "1.33,1211 HK,BYD CO LTD-H,6536651,9.024684049604447,\"467,700.00\",\"4,220,844.73\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "fund",
+      "detail": "Held by Global X Autonomous & Electric Vehicles ETF (DRIV, Global X): Electric mobility."
+    },
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/lit_full-holdings_20261026.csv",
+      "quote": "3.38,1211 HK,BYD CO LTD-H,6536651,9.024684040681986,\"4,356,621.00\",\"39,317,128.01\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by Global X Lithium & Battery Tech ETF (LIT, Global X): Energy storage, batteries & grid."
+    },
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "BYD Company Limited (Class H) 1211.HK Y1023R104 Automobiles 2,167,022 $19,555,691.89 0.18%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/lit_full-holdings_20261026.csv",
+      "quote": "3.38,1211 HK,BYD CO LTD-H,6536651,9.024684040681986,\"4,356,621.00\",\"39,317,128.01\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$39 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 39317128
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "BYD Company Limited (Class H) 1211.HK Y1023R104 Automobiles 2,167,022 $19,555,691.89 0.18%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$20 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 19555692
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "1.33,1211 HK,BYD CO LTD-H,6536651,9.024684049604447,\"467,700.00\",\"4,220,844.73\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 1211"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "1.33,1211 HK,BYD CO LTD-H,6536651,9.024684049604447,\"467,700.00\",\"4,220,844.73\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/BYD_Company",
+      "quote": "BYD Company Limited or BYD is a Chinese multinational manufacturing conglomerate headquartered in Shenzhen, Guangdong, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:energy-storage",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/BYD_Company",
+      "quote": "BYD Company Limited or BYD is a Chinese multinational manufacturing conglomerate headquartered in Shenzhen, Guangdong, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/BYD_Company",
+      "quote": "BYD Company Limited or BYD is a Chinese multinational manufacturing conglomerate headquartered in Shenzhen, Guangdong, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "BYD Company Limited or BYD is a Chinese multinational manufacturing conglomerate headquartered in Shenzhen, Guangdong, China."
+}

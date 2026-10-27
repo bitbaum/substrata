@@ -1,0 +1,85 @@
+{
+  "slug": "nextera-energy",
+  "name": "NextEra Energy",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q967868",
+    "isin": "US3025711041",
+    "domain": "nexteraenergy.com",
+    "cik": "753308"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/NextEra_Energy",
+      "quote": "NextEra Energy, Inc. is an American energy company that is the world's largest electric utility holding company by market capitalization, with a valuation of over $187 billion as of July 2026.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q967868",
+      "quote": "NextEra Energy (Q967868) — Wikidata item: Q967868",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:power-storage-grid",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/NextEra_Energy",
+      "quote": "NextEra Energy, Inc. is an American energy company that is the world's largest electric utility holding company by market capitalization, with a valuation of over $187 billion as of July 2026.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q967868",
+      "quote": "NextEra Energy (Q967868) — headquarters location: Juno Beach",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q967868",
+      "quote": "NextEra Energy (Q967868) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q967868",
+      "quote": "NextEra Energy (Q967868) — official website: nexteraenergy.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q967868",
+      "quote": "NextEra Energy (Q967868) — SEC Central Index Key: 753308",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "NextEra Energy, Inc. is an American energy company that is the world's largest electric utility holding company by market capitalization, with a valuation of over $187 billion as of July 2026.",
+  "hq": "Juno Beach",
+  "country": "US"
+}

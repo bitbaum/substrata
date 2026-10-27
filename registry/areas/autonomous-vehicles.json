@@ -1,0 +1,10 @@
+{
+  "slug": "autonomous-vehicles",
+  "name": "Autonomous vehicles",
+  "parent": "mobility",
+  "theme": "mobility",
+  "definition": "Robotaxi, autonomous trucking and driver-assistance developers.",
+  "why": "Driving data and in-vehicle compute scale faster than any other embodied AI.",
+  "bottlenecks": [],
+  "keyNumbers": []
+}

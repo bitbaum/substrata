@@ -1,0 +1,85 @@
+{
+  "slug": "vanguard-international-semiconductor",
+  "name": "Vanguard International Semiconductor",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q1539149",
+    "isin": "TW0005347009",
+    "domain": "vis.com.tw",
+    "lei": "2549001S5Q158BIJJO13"
+  },
+  "areas": [
+    {
+      "area": "foundry"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Vanguard_International_Semiconductor_Corporation",
+      "quote": "Vanguard International Semiconductor Corporation (VIS) is a Taiwanese specialized IC foundry service provider, founded in December 1994 in Hsinchu Science Park by Morris Chang.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1539149",
+      "quote": "Vanguard International Semiconductor Corporation (Q1539149) — Wikidata item: Q1539149",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:foundry",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Vanguard_International_Semiconductor_Corporation",
+      "quote": "Vanguard International Semiconductor Corporation (VIS) is a Taiwanese specialized IC foundry service provider, founded in December 1994 in Hsinchu Science Park by Morris Chang.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1539149",
+      "quote": "Vanguard International Semiconductor Corporation (Q1539149) — headquarters location: Hsinchu City",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1539149",
+      "quote": "Vanguard International Semiconductor Corporation (Q1539149) — country (ISO 3166-1 alpha-2): TW",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1539149",
+      "quote": "Vanguard International Semiconductor Corporation (Q1539149) — official website: vis.com.tw",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1539149",
+      "quote": "Vanguard International Semiconductor Corporation (Q1539149) — Legal Entity Identifier: 2549001S5Q158BIJJO13",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Vanguard International Semiconductor Corporation (VIS) is a Taiwanese specialized IC foundry service provider, founded in December 1994 in Hsinchu Science Park by Morris Chang.",
+  "hq": "Hsinchu City",
+  "country": "TW"
+}

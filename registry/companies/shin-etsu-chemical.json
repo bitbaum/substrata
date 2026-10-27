@@ -1,0 +1,146 @@
+{
+  "slug": "shin-etsu-chemical",
+  "name": "Shin-Etsu Chemical",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "JP",
+  "ids": {
+    "qid": "Q904284",
+    "isin": "JP3371200001",
+    "ticker": "4063",
+    "exchange": "JP",
+    "cik": "1442651",
+    "domain": "shinetsu.co.jp",
+    "lei": "353800PX8Q64N86H5W41"
+  },
+  "areas": [
+    {
+      "area": "compute-semiconductors"
+    },
+    {
+      "area": "wafers-substrates"
+    },
+    {
+      "area": "rare-earths-magnets"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "stated",
+      "source": "https://www.shinetsu.co.jp/en/products/electronics-materials/photomask-blanks/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Photoresists, masks and silicones."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.shinetsu.co.jp/en/products/electronics-materials/photomask-blanks/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Photoresists, masks and silicones."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000BG24K8",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 4063"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000BG24K8",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1442651"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.shinetsu.co.jp/en/products/electronics-materials/photomask-blanks/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Shin-Etsu_Chemical",
+      "quote": ", Ltd. is the largest chemical company in Japan. Shin-Etsu has the largest global market share for polyvinyl chloride, semiconductor silicon, and photomask substrates.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q904284",
+      "quote": "Shin-Etsu Chemical (Q904284) — Wikidata item: Q904284",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:wafers-substrates",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Shin-Etsu_Chemical",
+      "quote": ", Ltd. is the largest chemical company in Japan. Shin-Etsu has the largest global market share for polyvinyl chloride, semiconductor silicon, and photomask substrates.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:rare-earths-magnets",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Shin-Etsu_Chemical",
+      "quote": ", Ltd. is the largest chemical company in Japan. Shin-Etsu has the largest global market share for polyvinyl chloride, semiconductor silicon, and photomask substrates.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q904284",
+      "quote": "Shin-Etsu Chemical (Q904284) — headquarters location: Chiyoda",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q904284",
+      "quote": "Shin-Etsu Chemical (Q904284) — official website: shinetsu.co.jp",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q904284",
+      "quote": "Shin-Etsu Chemical (Q904284) — Legal Entity Identifier: 353800PX8Q64N86H5W41",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": ", Ltd. is the largest chemical company in Japan. Shin-Etsu has the largest global market share for polyvinyl chloride, semiconductor silicon, and photomask substrates.",
+  "hq": "Chiyoda"
+}

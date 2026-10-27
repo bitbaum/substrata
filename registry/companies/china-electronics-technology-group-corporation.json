@@ -1,0 +1,75 @@
+{
+  "slug": "china-electronics-technology-group-corporation",
+  "name": "China Electronics Technology Group Corporation",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q10873927",
+    "domain": "cetc.com.cn"
+  },
+  "areas": [
+    {
+      "area": "defence-autonomy"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/China_Electronics_Technology_Group_Corporation",
+      "quote": "China Electronics Technology Group Corporation is a Chinese state-owned company established in 2002.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q10873927",
+      "quote": "China Electronics Technology Group Corporation (Q10873927) — Wikidata item: Q10873927",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q10873927",
+      "quote": "China Electronics Technology Group Corporation (Q10873927) — headquarters location: Beijing",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q10873927",
+      "quote": "China Electronics Technology Group Corporation (Q10873927) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q10873927",
+      "quote": "China Electronics Technology Group Corporation (Q10873927) — official website: https://www.cetc.com.cn",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:defence-autonomy",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/China_Electronics_Technology_Group_Corporation",
+      "quote": "China Electronics Technology Group Corporation is a Chinese state-owned company established in 2002.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "China Electronics Technology Group Corporation is a Chinese state-owned company established in 2002.",
+  "country": "CN",
+  "hq": "Beijing"
+}

@@ -1,0 +1,93 @@
+{
+  "slug": "alamar-biosciences",
+  "name": "Alamar Biosciences, Inc.",
+  "aliases": ["Alamar Biosciences Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "ALMR",
+    "exchange": "US",
+    "cusip": "010911105",
+    "isin": "US0109111056",
+    "cik": "2104204"
+  },
+  "areas": [
+    {
+      "area": "biotech-and-longevity"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:biotech-and-longevity",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKG,ALAMAR BIOSCIENCES INC,ALMR,010911105,\"1,135,264\",\"$34,500,672.96\",1.68%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "biotools",
+      "basis": "fund",
+      "detail": "Held by ARK Genomic Revolution ETF (ARKG, ARK Invest): Biotech tools."
+    },
+    {
+      "field": "area:biotech-and-longevity",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3826&type=10-K&dateb=&owner=include&start=0&count=100",
+      "quote": "0002104204 Alamar Biosciences, Inc. CA",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "biotools",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3826 (Laboratory analytical instruments): Biotech tools."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKG,ALAMAR BIOSCIENCES INC,ALMR,010911105,\"1,135,264\",\"$34,500,672.96\",1.68%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$35 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 34500673
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKG,ALAMAR BIOSCIENCES INC,ALMR,010911105,\"1,135,264\",\"$34,500,672.96\",1.68%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker ALMR"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3826&type=10-K&dateb=&owner=include&start=0&count=100",
+      "quote": "0002104204 Alamar Biosciences, Inc. CA",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 2104204"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKG,ALAMAR BIOSCIENCES INC,ALMR,010911105,\"1,135,264\",\"$34,500,672.96\",1.68%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "slug": "toyota-motor",
+  "name": "トヨタ自動車株式会社",
+  "aliases": ["Toyota Motor Corp", "Toyota Motor Corp/"],
+  "kind": "public",
+  "status": "active",
+  "country": "JP",
+  "ids": {
+    "lei": "5493006W3QUS5LMH6R84",
+    "isin": "US8923313071",
+    "ticker": "7203",
+    "exchange": "JP",
+    "sedol": "6900643",
+    "cik": "1094517",
+    "cusip": "892331307"
+  },
+  "areas": [
+    {
+      "area": "mobility"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "3.00,7203 JP,TOYOTA MOTOR CORP,6900643,19.77980137652817,\"479,903.00\",\"9,492,386.02\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "fund",
+      "detail": "Held by Global X Autonomous & Electric Vehicles ETF (DRIV, Global X): Electric mobility."
+    },
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3711&type=10-K&dateb=&owner=include&start=100&count=100",
+      "quote": "0001094517 TOYOTA MOTOR CORP/ M0",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3711 (Motor vehicles & passenger car bodies): Electric mobility."
+    },
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-hail.xlsx",
+      "quote": "TOYOTA MOTOR CORP  SPON ADR | TM | 892331307 | 2898957 | 1.325354 | - | 1068.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Kensho Smart Mobility ETF (HAIL, State Street): Electric mobility."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "3.00,7203 JP,TOYOTA MOTOR CORP,6900643,19.77980137652817,\"479,903.00\",\"9,492,386.02\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$9.5 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 9492386
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "3.00,7203 JP,TOYOTA MOTOR CORP,6900643,19.77980137652817,\"479,903.00\",\"9,492,386.02\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 7203"
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[1094517,\"TOYOTA MOTOR CORP/\",\"TM\",\"NYSE\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker TM"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3711&type=10-K&dateb=&owner=include&start=100&count=100",
+      "quote": "0001094517 TOYOTA MOTOR CORP/ M0",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1094517"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US8923313071",
+      "quote": "\"lei\":\"5493006W3QUS5LMH6R84\",\"entity\":{\"legalName\":{\"name\":\"\\u30c8\\u30e8\\u30bf\\u81ea\\u52d5\\u8eca\\u682a\\u5f0f\\u4f1a\\u793e\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 5493006W3QUS5LMH6R84"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US8923313071",
+      "quote": "\"lei\":\"5493006W3QUS5LMH6R84\",\"entity\":{\"legalName\":{\"name\":\"\\u30c8\\u30e8\\u30bf\\u81ea\\u52d5\\u8eca\\u682a\\u5f0f\\u4f1a\\u793e\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country JP as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

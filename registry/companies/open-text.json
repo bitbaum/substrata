@@ -1,0 +1,93 @@
+{
+  "slug": "open-text",
+  "name": "Open Text Corporation",
+  "aliases": ["Open Text Corp"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "cik": "1002638",
+    "ticker": "OTEX",
+    "exchange": "US",
+    "cusip": "683715106",
+    "isin": "US6837151066"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=SKYY",
+      "quote": "Open Text Corporation OTEX 683715106 Software 793,121 $21,913,933.23 0.62%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by First Trust Cloud Computing ETF (SKYY, First Trust): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q4I.json",
+      "quote": "{\"accn\":\"0001002638-26-000068\",\"cik\":1002638,\"entityName\":\"OPEN TEXT CORP\",\"loc\":\"CA-ON\",\"end\":\"2025-12-31\",\"val\":8100000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-12-31",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$8.1 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 8100000000
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=SKYY",
+      "quote": "Open Text Corporation OTEX 683715106 Software 793,121 $21,913,933.23 0.62%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$22 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 21913933
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=SKYY",
+      "quote": "Open Text Corporation OTEX 683715106 Software 793,121 $21,913,933.23 0.62%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker OTEX"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q4I.json",
+      "quote": "{\"accn\":\"0001002638-26-000068\",\"cik\":1002638,\"entityName\":\"OPEN TEXT CORP\",\"loc\":\"CA-ON\",\"end\":\"2025-12-31\",\"val\":8100000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-12-31",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1002638"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=SKYY",
+      "quote": "Open Text Corporation OTEX 683715106 Software 793,121 $21,913,933.23 0.62%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

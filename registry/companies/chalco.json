@@ -1,0 +1,78 @@
+{
+  "slug": "chalco",
+  "name": "Chalco",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "CN",
+  "ids": {
+    "ticker": "601600",
+    "exchange": "CH",
+    "cik": "1161611"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://www.mining.com/web/chalco-injects-gallium-assets-into-rare-earths-affiliate/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Gallium from alumina refining."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.mining.com/web/chalco-injects-gallium-assets-into-rare-earths-affiliate/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Gallium from alumina refining."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000HDDFH6",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 601600"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000HDDFH6",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1161611"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.mining.com/web/chalco-injects-gallium-assets-into-rare-earths-affiliate/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

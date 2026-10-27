@@ -1,0 +1,94 @@
+{
+  "slug": "prime-medicine",
+  "name": "Prime Medicine, Inc.",
+  "aliases": ["Prime Medicine Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "PRME",
+    "exchange": "US",
+    "cusip": "74168J101",
+    "isin": "US74168J1016",
+    "sedol": "BPBJFM7",
+    "cik": "1894562"
+  },
+  "areas": [
+    {
+      "area": "biotech-and-longevity"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:biotech-and-longevity",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKG,PRIME MEDICINE INC,PRME,74168J101,\"7,857,955\",\"$28,367,217.55\",1.38%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "biotools",
+      "basis": "fund",
+      "detail": "Held by ARK Genomic Revolution ETF (ARKG, ARK Invest): Biotech tools."
+    },
+    {
+      "field": "area:biotech-and-longevity",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "0.26,PRME,PRIME MEDICINE INC,BPBJFM7,3.61,\"75,623.00\",\"272,999.03\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "biotools",
+      "basis": "fund",
+      "detail": "Held by Global X Genomics & Biotechnology ETF (GNOM, Global X): Biotech tools."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKG,PRIME MEDICINE INC,PRME,74168J101,\"7,857,955\",\"$28,367,217.55\",1.38%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$28 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 28367218
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKG,PRIME MEDICINE INC,PRME,74168J101,\"7,857,955\",\"$28,367,217.55\",1.38%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker PRME"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001628280-26-013569\",\"cik\":1894562,\"entityName\":\"PRIME MEDICINE, INC.\",\"loc\":\"US-MA\",\"end\":\"2025-06-30\",\"val\":238759057}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1894562"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKG,PRIME MEDICINE INC,PRME,74168J101,\"7,857,955\",\"$28,367,217.55\",1.38%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

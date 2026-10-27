@@ -1,0 +1,149 @@
+{
+  "slug": "equinix",
+  "name": "Equinix Inc",
+  "aliases": ["Equinix, Inc."],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "qid": "Q851641",
+    "cik": "1101239",
+    "isin": "US29444U5020",
+    "ticker": "EQIX",
+    "exchange": "US",
+    "sedol": "BVLZX12",
+    "domain": "equinix.com",
+    "lei": "549300EVUN2BTLJ3GT74"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    },
+    {
+      "area": "data-centres"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "12.51,EQIX,EQUINIX INC,BVLZX12,967.65,\"246,179.00\",\"238,215,109.35\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Data Center & Digital Infrastructure ETF (DTCR, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "12.51,EQIX,EQUINIX INC,BVLZX12,967.65,\"246,179.00\",\"238,215,109.35\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$238 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 238215109
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001101239-26-000032\",\"cik\":1101239,\"entityName\":\"EQUINIX, INC.\",\"loc\":\"US-CA\",\"end\":\"2025-06-30\",\"val\":77800000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$78 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 77800000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "12.51,EQIX,EQUINIX INC,BVLZX12,967.65,\"246,179.00\",\"238,215,109.35\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker EQIX"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001101239-26-000032\",\"cik\":1101239,\"entityName\":\"EQUINIX, INC.\",\"loc\":\"US-CA\",\"end\":\"2025-06-30\",\"val\":77800000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1101239"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "12.51,EQIX,EQUINIX INC,BVLZX12,967.65,\"246,179.00\",\"238,215,109.35\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Equinix",
+      "quote": ", is an American multinational internet and data center company headquartered in Redwood City, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q851641",
+      "quote": "Equinix (Q851641) — Wikidata item: Q851641",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:data-centres",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Equinix",
+      "quote": ", is an American multinational internet and data center company headquartered in Redwood City, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q851641",
+      "quote": "Equinix (Q851641) — headquarters location: Redwood City",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q851641",
+      "quote": "Equinix (Q851641) — official website: equinix.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q851641",
+      "quote": "Equinix (Q851641) — Legal Entity Identifier: 549300EVUN2BTLJ3GT74",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": ", is an American multinational internet and data center company headquartered in Redwood City, California.",
+  "hq": "Redwood City"
+}

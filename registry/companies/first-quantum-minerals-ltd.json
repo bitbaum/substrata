@@ -1,0 +1,68 @@
+{
+  "slug": "first-quantum-minerals-ltd",
+  "name": "First Quantum Minerals Ltd",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "CA",
+  "ids": {
+    "ticker": "FM",
+    "exchange": "CN",
+    "sedol": "2347608"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "4.77,FM CN,FIRST QUANTUM MINERALS LTD,2347608,24.4217129413688,\"12,331,864.00\",\"301,165,242.64\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "fund",
+      "detail": "Held by Global X Copper Miners ETF (COPX, Global X): Advanced materials & critical minerals."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "4.77,FM CN,FIRST QUANTUM MINERALS LTD,2347608,24.4217129413688,\"12,331,864.00\",\"301,165,242.64\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$301 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 301165243
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "4.77,FM CN,FIRST QUANTUM MINERALS LTD,2347608,24.4217129413688,\"12,331,864.00\",\"301,165,242.64\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker FM"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "4.77,FM CN,FIRST QUANTUM MINERALS LTD,2347608,24.4217129413688,\"12,331,864.00\",\"301,165,242.64\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

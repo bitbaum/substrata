@@ -1,0 +1,94 @@
+{
+  "slug": "anglo-american-plc",
+  "name": "Anglo American plc",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q541451",
+    "isin": "GB00B1XZS820",
+    "domain": "angloamerican.com",
+    "cik": "1088370",
+    "lei": "549300S9XF92D1X8ME43"
+  },
+  "areas": [
+    {
+      "area": "critical-minerals"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Anglo_American_plc",
+      "quote": "Anglo American plc is a British multinational mining company with headquarters in London, England.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q541451",
+      "quote": "Anglo American plc (Q541451) — Wikidata item: Q541451",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Anglo_American_plc",
+      "quote": "Anglo American plc is a British multinational mining company with headquarters in London, England.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q541451",
+      "quote": "Anglo American plc (Q541451) — headquarters location: London",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q541451",
+      "quote": "Anglo American plc (Q541451) — country (ISO 3166-1 alpha-2): GB",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q541451",
+      "quote": "Anglo American plc (Q541451) — official website: angloamerican.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q541451",
+      "quote": "Anglo American plc (Q541451) — SEC Central Index Key: 1088370",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q541451",
+      "quote": "Anglo American plc (Q541451) — Legal Entity Identifier: 549300S9XF92D1X8ME43",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Anglo American plc is a British multinational mining company with headquarters in London, England.",
+  "hq": "London",
+  "country": "GB"
+}

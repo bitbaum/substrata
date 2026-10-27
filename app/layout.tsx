@@ -33,6 +33,7 @@ import './styles/updates.css';
 import './styles/roles.css';
 import './styles/home.css';
 import './styles/company-profile.css';
+import './styles/company-market.css';
 import './styles/section-nav.css';
 import './styles/science-pipeline.css';
 import './styles/shell.css';

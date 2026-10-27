@@ -1,0 +1,140 @@
+{
+  "slug": "bloom-energy",
+  "name": "Bloom Energy Corp",
+  "aliases": ["Bloom Energy Corp-", "Bloom Energy Corporation"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "qid": "Q29526078",
+    "cik": "1664703",
+    "isin": "US0937121079",
+    "ticker": "BE",
+    "exchange": "US",
+    "sedol": "BDD1BB8",
+    "domain": "bloomenergy.com"
+  },
+  "areas": [
+    {
+      "area": "mobility"
+    },
+    {
+      "area": "grid-equipment"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "1.58,BE,BLOOM ENERGY CORP- A,BDD1BB8,203.92,\"24,527.00\",\"5,001,545.84\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "fund",
+      "detail": "Held by Global X Autonomous & Electric Vehicles ETF (DRIV, Global X): Electric mobility."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "1.58,BE,BLOOM ENERGY CORP- A,BDD1BB8,203.92,\"24,527.00\",\"5,001,545.84\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$5.0 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 5001546
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001628280-26-006516\",\"cik\":1664703,\"entityName\":\"BLOOM ENERGY CORPORATION\",\"loc\":\"US-CA\",\"end\":\"2025-06-30\",\"val\":3900000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$3.9 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 3900000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "1.58,BE,BLOOM ENERGY CORP- A,BDD1BB8,203.92,\"24,527.00\",\"5,001,545.84\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker BE"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001628280-26-006516\",\"cik\":1664703,\"entityName\":\"BLOOM ENERGY CORPORATION\",\"loc\":\"US-CA\",\"end\":\"2025-06-30\",\"val\":3900000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1664703"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "1.58,BE,BLOOM ENERGY CORP- A,BDD1BB8,203.92,\"24,527.00\",\"5,001,545.84\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Bloom_Energy",
+      "quote": "Bloom Energy Corporation is an American public company that designs and manufactures solid oxide fuel cells (SOFCs) which independently produce electricity onsite for power generation in data centers, manufacturing, and other commercial sectors.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q29526078",
+      "quote": "Bloom Energy (Q29526078) — Wikidata item: Q29526078",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Bloom_Energy",
+      "quote": "Bloom Energy Corporation is an American public company that designs and manufactures solid oxide fuel cells (SOFCs) which independently produce electricity onsite for power generation in data centers, manufacturing, and other commercial sectors.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q29526078",
+      "quote": "Bloom Energy (Q29526078) — headquarters location: Sunnyvale",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q29526078",
+      "quote": "Bloom Energy (Q29526078) — official website: bloomenergy.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Bloom Energy Corporation is an American public company that designs and manufactures solid oxide fuel cells (SOFCs) which independently produce electricity onsite for power generation in data centers, manufacturing, and other commercial sectors.",
+  "hq": "Sunnyvale"
+}

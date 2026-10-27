@@ -1,0 +1,114 @@
+{
+  "slug": "enel-spa",
+  "name": "Enel SpA",
+  "aliases": ["Enel"],
+  "kind": "public",
+  "status": "active",
+  "country": "IT",
+  "ids": {
+    "ticker": "ENEL",
+    "exchange": "IM",
+    "cusip": "T3679P115",
+    "qid": "Q651222",
+    "isin": "IT0003128367",
+    "domain": "enel.com",
+    "lei": "WOCMU6HCI0OJWNPRZS33"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Enel SpA ENEL.IM T3679P115 Conventional Electricity 4,545,797 $47,002,202.69 0.42%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Enel SpA ENEL.IM T3679P115 Conventional Electricity 4,545,797 $47,002,202.69 0.42%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$47 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 47002203
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Enel SpA ENEL.IM T3679P115 Conventional Electricity 4,545,797 $47,002,202.69 0.42%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker ENEL"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Enel SpA ENEL.IM T3679P115 Conventional Electricity 4,545,797 $47,002,202.69 0.42%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Enel",
+      "quote": "A. is an Italian multinational producer and distributor of electricity and gas.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q651222",
+      "quote": "Enel (Q651222) — Wikidata item: Q651222",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q651222",
+      "quote": "Enel (Q651222) — headquarters location: Rome",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q651222",
+      "quote": "Enel (Q651222) — official website: enel.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q651222",
+      "quote": "Enel (Q651222) — Legal Entity Identifier: WOCMU6HCI0OJWNPRZS33",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "A. is an Italian multinational producer and distributor of electricity and gas.",
+  "hq": "Rome"
+}

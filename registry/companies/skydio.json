@@ -1,0 +1,75 @@
+{
+  "slug": "skydio",
+  "name": "Skydio",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q97321374",
+    "domain": "skydio.com",
+    "cik": "1848117"
+  },
+  "areas": [
+    {
+      "area": "defence-autonomy"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Skydio",
+      "quote": "Skydio, Inc. is an American manufacturer of drones headquartered in San Mateo, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q97321374",
+      "quote": "Skydio (Q97321374) — Wikidata item: Q97321374",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:defence-autonomy",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Skydio",
+      "quote": "Skydio, Inc. is an American manufacturer of drones headquartered in San Mateo, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q97321374",
+      "quote": "Skydio (Q97321374) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q97321374",
+      "quote": "Skydio (Q97321374) — official website: skydio.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q97321374",
+      "quote": "Skydio (Q97321374) — SEC Central Index Key: 1848117",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Skydio, Inc. is an American manufacturer of drones headquartered in San Mateo, California.",
+  "country": "US"
+}

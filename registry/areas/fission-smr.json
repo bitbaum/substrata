@@ -1,0 +1,10 @@
+{
+  "slug": "fission-smr",
+  "name": "Fission and small modular reactors",
+  "parent": "nuclear-energy",
+  "theme": "nuclear",
+  "definition": "Developers and builders of large reactors and small modular reactors.",
+  "why": "Licensing and first-of-a-kind construction decide whether firm power arrives this decade.",
+  "bottlenecks": ["smr-first-of-a-kind-licensing"],
+  "keyNumbers": []
+}

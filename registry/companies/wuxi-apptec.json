@@ -1,0 +1,85 @@
+{
+  "slug": "wuxi-apptec",
+  "name": "WuXi AppTec",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q8038871",
+    "isin": "CNE100003F19",
+    "domain": "wuxiapptec.com",
+    "cik": "1678057",
+    "lei": "254900ULPRB6CBPHXW60"
+  },
+  "areas": [
+    {
+      "area": "synthetic-biology"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q8038871",
+      "quote": "WuXi AppTec (Q8038871) — Wikidata item: Q8038871",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:synthetic-biology",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/WuXi_AppTec",
+      "quote": ", Ltd. is a Chinese provider of contract research, development, and manufacturing, services for the pharmaceutical and life-sciences industry, headquartered in Shanghai, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q8038871",
+      "quote": "WuXi AppTec (Q8038871) — headquarters location: Shanghai",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q8038871",
+      "quote": "WuXi AppTec (Q8038871) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q8038871",
+      "quote": "WuXi AppTec (Q8038871) — official website: wuxiapptec.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q8038871",
+      "quote": "WuXi AppTec (Q8038871) — SEC Central Index Key: 1678057",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q8038871",
+      "quote": "WuXi AppTec (Q8038871) — Legal Entity Identifier: 254900ULPRB6CBPHXW60",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "hq": "Shanghai",
+  "country": "CN"
+}

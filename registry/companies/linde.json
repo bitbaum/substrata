@@ -1,0 +1,126 @@
+{
+  "slug": "linde",
+  "name": "Linde",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "GB",
+  "ids": {
+    "qid": "Q682759",
+    "cik": "1707925",
+    "isin": "IE000S9YS762",
+    "ticker": "LIN",
+    "exchange": "Nasdaq",
+    "domain": "linde.com",
+    "lei": "5299003QR1WT0EF88V51"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    },
+    {
+      "area": "semiconductor-equipment"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://www.gulf-times.com/story/358882/New-plant-takes-Qatar-to-top-spot-in-helium-export",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Industrial and electronic gases."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.gulf-times.com/story/358882/New-plant-takes-Qatar-to-top-spot-in-helium-export",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Industrial and electronic gases."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1707925",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker LIN"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1707925",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1707925"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.gulf-times.com/story/358882/New-plant-takes-Qatar-to-top-spot-in-helium-export",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Linde_plc",
+      "quote": "Linde is a global multinational chemical company and the world's largest industrial gas supplier by market share and revenue.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q682759",
+      "quote": "Linde Group (Q682759) — Wikidata item: Q682759",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:semiconductor-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Linde_plc",
+      "quote": "Linde is a global multinational chemical company and the world's largest industrial gas supplier by market share and revenue.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q682759",
+      "quote": "Linde Group (Q682759) — official website: linde.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q682759",
+      "quote": "Linde Group (Q682759) — Legal Entity Identifier: 5299003QR1WT0EF88V51",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Linde is a global multinational chemical company and the world's largest industrial gas supplier by market share and revenue."
+}

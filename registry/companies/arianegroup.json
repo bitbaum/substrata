@@ -1,0 +1,84 @@
+{
+  "slug": "arianegroup",
+  "name": "ArianeGroup",
+  "aliases": [],
+  "kind": "consortium",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q19951610",
+    "domain": "ariane.group",
+    "lei": "969500PQFG3KKR3L7W58"
+  },
+  "areas": [
+    {
+      "area": "launch"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/ArianeGroup",
+      "quote": "ArianeGroup is an aerospace company based in France. A joint venture between Airbus and Safran, the company was founded in 2015 and is headquartered in Issy-les-Moulineaux near Paris.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q19951610",
+      "quote": "ArianeGroup (Q19951610) — Wikidata item: Q19951610",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:launch",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/ArianeGroup",
+      "quote": "ArianeGroup is an aerospace company based in France. A joint venture between Airbus and Safran, the company was founded in 2015 and is headquartered in Issy-les-Moulineaux near Paris.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q19951610",
+      "quote": "ArianeGroup (Q19951610) — headquarters location: Les Mureaux",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q19951610",
+      "quote": "ArianeGroup (Q19951610) — country (ISO 3166-1 alpha-2): FR",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q19951610",
+      "quote": "ArianeGroup (Q19951610) — official website: ariane.group",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q19951610",
+      "quote": "ArianeGroup (Q19951610) — Legal Entity Identifier: 969500PQFG3KKR3L7W58",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "ArianeGroup is an aerospace company based in France. A joint venture between Airbus and Safran, the company was founded in 2015 and is headquartered in Issy-les-Moulineaux near Paris.",
+  "hq": "Les Mureaux",
+  "country": "FR"
+}

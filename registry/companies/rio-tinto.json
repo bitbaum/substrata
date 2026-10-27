@@ -1,0 +1,159 @@
+{
+  "slug": "rio-tinto",
+  "name": "Rio Tinto",
+  "aliases": ["Rio Tinto PLC"],
+  "kind": "public",
+  "status": "active",
+  "country": "CA",
+  "ids": {
+    "qid": "Q821293",
+    "ticker": "RIO",
+    "exchange": "LN",
+    "cik": "863064",
+    "sedol": "0718875",
+    "domain": "riotinto.com"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    },
+    {
+      "area": "mobility"
+    },
+    {
+      "area": "advanced-materials"
+    },
+    {
+      "area": "critical-minerals"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://www.riotinto.com/en/news/releases/2025/rio-tinto-extracts-first-gallium-from-its-alumina-refining-process-with-partner-indium-corporation",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: makes Gallium, refined."
+    },
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "1.78,RIO LN,RIO TINTO PLC,0718875,83.32888419898994,\"67,521.00\",\"5,626,449.59\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "fund",
+      "detail": "Held by Global X Autonomous & Electric Vehicles ETF (DRIV, Global X): Electric mobility."
+    },
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/lit_full-holdings_20261026.csv",
+      "quote": "22.73,RIO,RIO TINTO PLC-SPON ADR,2740434,83.72,\"3,163,541.00\",\"264,851,652.52\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by Global X Lithium & Battery Tech ETF (LIT, Global X): Energy storage, batteries & grid."
+    },
+    {
+      "field": "area:advanced-materials",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=1000&type=10-K&dateb=&owner=include&start=400&count=100",
+      "quote": "0000863064 RIO TINTO PLC X0",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 1000 (Metal mining): Advanced materials & critical minerals."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.riotinto.com/en/news/releases/2025/rio-tinto-extracts-first-gallium-from-its-alumina-refining-process-with-partner-indium-corporation",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: makes Gallium, refined."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000DZG3K1",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker RIO"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000DZG3K1",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 863064"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/lit_full-holdings_20261026.csv",
+      "quote": "22.73,RIO,RIO TINTO PLC-SPON ADR,2740434,83.72,\"3,163,541.00\",\"264,851,652.52\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Rio_Tinto_(corporation)",
+      "quote": "Rio Tinto Group is a British–Australian multinational mining company headquartered in London, England, and Melbourne, Australia.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q821293",
+      "quote": "Rio Tinto Group (Q821293) — Wikidata item: Q821293",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Rio_Tinto_(corporation)",
+      "quote": "Rio Tinto Group is a British–Australian multinational mining company headquartered in London, England, and Melbourne, Australia.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q821293",
+      "quote": "Rio Tinto Group (Q821293) — official website: riotinto.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Rio Tinto Group is a British–Australian multinational mining company headquartered in London, England, and Melbourne, Australia."
+}

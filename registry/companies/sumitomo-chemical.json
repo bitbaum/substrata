@@ -1,0 +1,76 @@
+{
+  "slug": "sumitomo-chemical",
+  "name": "Sumitomo Chemical",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q137803",
+    "isin": "JP3401400001",
+    "domain": "sumitomo-chem.co.jp",
+    "lei": "353800RSAU9BD8U4DM91"
+  },
+  "areas": [
+    {
+      "area": "semiconductor-equipment"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q137803",
+      "quote": "Sumitomo Chemical (Q137803) — Wikidata item: Q137803",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:semiconductor-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Sumitomo_Chemical",
+      "quote": ", Ltd. is a major Japanese chemical company. The company is listed on the first section of the Tokyo Stock Exchange and is a constituent of the Nikkei 225 stock index.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q137803",
+      "quote": "Sumitomo Chemical (Q137803) — headquarters location: Chūō",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q137803",
+      "quote": "Sumitomo Chemical (Q137803) — country (ISO 3166-1 alpha-2): JP",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q137803",
+      "quote": "Sumitomo Chemical (Q137803) — official website: sumitomo-chem.co.jp",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q137803",
+      "quote": "Sumitomo Chemical (Q137803) — Legal Entity Identifier: 353800RSAU9BD8U4DM91",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "hq": "Chūō",
+  "country": "JP"
+}

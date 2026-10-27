@@ -1,0 +1,80 @@
+{
+  "slug": "thomson-reuters-can",
+  "name": "Thomson Reuters Corp /Can/",
+  "aliases": ["Thomson Reuters Corp"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "TRI",
+    "exchange": "US",
+    "sedol": "BVWN8M1",
+    "cik": "1075124"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.43,TRI,THOMSON REUTERS CORP,BVWN8M1,122.08,\"356,167.00\",\"43,480,867.36\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Artificial Intelligence & Technology ETF (AIQ, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.43,TRI,THOMSON REUTERS CORP,BVWN8M1,122.08,\"356,167.00\",\"43,480,867.36\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$43 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 43480867
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.43,TRI,THOMSON REUTERS CORP,BVWN8M1,122.08,\"356,167.00\",\"43,480,867.36\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker TRI"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[1075124,\"THOMSON REUTERS CORP /CAN/\",\"TRI\",\"Nasdaq\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1075124"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.43,TRI,THOMSON REUTERS CORP,BVWN8M1,122.08,\"356,167.00\",\"43,480,867.36\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

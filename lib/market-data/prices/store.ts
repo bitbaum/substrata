@@ -10,7 +10,8 @@
  */
 import { database } from '@/lib/db';
 import type { FetchDeps } from '@/lib/sources/http';
-import { MARKET_SEED, byTicker, tickerKey, type Ticker } from '../identity';
+import { trackedListings, isSeedLine } from '../company';
+import { byTicker, tickerKey, type Ticker } from '../identity';
 import { SOURCE_NAMES, fetchPrices } from './chain';
 import { BASIS, DELAY, type PriceHistory, type PricePoint, type PriceUnavailable } from './series';
 
@@ -45,15 +46,51 @@ export async function storePrices(
   return { added, revised: result.rows.length - added };
 }
 
-/** The daily run: every seed listing through the chain, one run row. */
-export async function fetchAllPrices(deps: FetchDeps = {}): Promise<PriceRun> {
+/** Newest stored close per line: the run reads the stalest first, so every line comes round. */
+async function latestDays(): Promise<Map<string, string>> {
+  const out = new Map<string, string>();
+  try {
+    const r = await database().query<{ exchange: string; symbol: string; day: string }>(
+      `SELECT exchange, symbol, to_char(max(day), 'YYYY-MM-DD') AS day
+         FROM research_price_points GROUP BY exchange, symbol`,
+    );
+    for (const row of r.rows) out.set(`${row.exchange}:${row.symbol}`, row.day);
+  } catch {
+    // No table yet: every line is "never read" and the run starts from the seed.
+  }
+  return out;
+}
+
+/**
+ * The daily run: the seed listings first, every day, then the rest of the
+ * tracked universe lines stalest first until the deadline, one run row. A line
+ * that is not a seed line is stored only if the source's name for the symbol
+ * agrees with the company's (./line-name.ts).
+ */
+export async function fetchAllPrices(
+  deps: FetchDeps = {},
+  opts: { deadline?: number } = {},
+): Promise<PriceRun> {
   const db = database();
+  const latest = await latestDays();
   const run = await db.query<{ id: string }>(
     'INSERT INTO research_price_runs DEFAULT VALUES RETURNING id',
   );
   const out: PriceRun = { tickers: 0, pointsNew: 0, pointsRevised: 0, failed: 0, errors: [] };
-  for (const c of MARKET_SEED) {
-    const got = await fetchPrices(c.ticker, deps);
+  const lines = trackedListings();
+  const order = [
+    ...lines.filter(isSeedLine),
+    ...lines
+      .filter((c) => !isSeedLine(c))
+      .sort((a, b) =>
+        (latest.get(tickerKey(a.ticker)) ?? '').localeCompare(
+          latest.get(tickerKey(b.ticker)) ?? '',
+        ),
+      ),
+  ];
+  for (const c of order) {
+    if (opts.deadline && Date.now() > opts.deadline) break;
+    const got = await fetchPrices(c.ticker, deps, undefined, isSeedLine(c) ? undefined : c.name);
     if ('failed' in got) {
       out.failed += 1;
       out.errors.push(`${tickerKey(c.ticker)}: ${got.failed.join('; ')}`);
@@ -134,6 +171,8 @@ export async function priceHistory(
   deps: FetchDeps & {
     stored?: (t: Ticker) => Promise<PriceHistory | null>;
     now?: () => number;
+    /** The company the symbol should be, for a line nobody checked by hand. */
+    expectName?: string;
   } = {},
 ): Promise<PriceHistory | PriceUnavailable> {
   const stored = await (deps.stored ?? storedPrices)(t);
@@ -143,7 +182,7 @@ export async function priceHistory(
   const hit = live.get(key);
   const ttl = hit && 'unavailable' in hit.value ? FAILED_TTL_MS : LIVE_TTL_MS;
   if (hit && now - hit.at < ttl) return hit.value;
-  const got = await fetchPrices(t, deps);
+  const got = await fetchPrices(t, deps, undefined, deps.expectName);
   const value: PriceHistory | PriceUnavailable =
     'failed' in got
       ? {

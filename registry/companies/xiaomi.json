@@ -1,0 +1,158 @@
+{
+  "slug": "xiaomi",
+  "name": "Xiaomi Corp",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "HK",
+  "ids": {
+    "qid": "Q1636958",
+    "isin": "KYG9830T1067",
+    "ticker": "1810",
+    "exchange": "HK",
+    "sedol": "BG0ZMJ9",
+    "domain": "mi.com",
+    "lei": "2549001ACVFAZRNMKL32"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    },
+    {
+      "area": "humanoids"
+    },
+    {
+      "area": "autonomous-vehicles"
+    },
+    {
+      "area": "electric-vehicles"
+    },
+    {
+      "area": "frontier-labs"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "1.71,1810 HK,XIAOMI CORP-CLASS B,BG0ZMJ9,3.428870066330181,\"15,513,300.00\",\"53,193,090.00\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by Global X Robotics & Artificial Intelligence ETF (BOTZ, Global X): Robotics & autonomy."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "1.71,1810 HK,XIAOMI CORP-CLASS B,BG0ZMJ9,3.428870066330181,\"15,513,300.00\",\"53,193,090.00\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$53 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 53193090
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "1.71,1810 HK,XIAOMI CORP-CLASS B,BG0ZMJ9,3.428870066330181,\"15,513,300.00\",\"53,193,090.00\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 1810"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "1.71,1810 HK,XIAOMI CORP-CLASS B,BG0ZMJ9,3.428870066330181,\"15,513,300.00\",\"53,193,090.00\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Xiaomi",
+      "quote": "Xiaomi is a Chinese multinational corporation and technology company headquartered in Beijing, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1636958",
+      "quote": "Xiaomi (Q1636958) — Wikidata item: Q1636958",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:humanoids",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Xiaomi",
+      "quote": "Xiaomi is a Chinese multinational corporation and technology company headquartered in Beijing, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Xiaomi",
+      "quote": "Xiaomi is a Chinese multinational corporation and technology company headquartered in Beijing, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:electric-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Xiaomi",
+      "quote": "Xiaomi is a Chinese multinational corporation and technology company headquartered in Beijing, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:frontier-labs",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Xiaomi",
+      "quote": "Xiaomi is a Chinese multinational corporation and technology company headquartered in Beijing, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1636958",
+      "quote": "Xiaomi (Q1636958) — headquarters location: Beijing",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1636958",
+      "quote": "Xiaomi (Q1636958) — official website: mi.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1636958",
+      "quote": "Xiaomi (Q1636958) — Legal Entity Identifier: 2549001ACVFAZRNMKL32",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Xiaomi is a Chinese multinational corporation and technology company headquartered in Beijing, China.",
+  "hq": "Beijing"
+}

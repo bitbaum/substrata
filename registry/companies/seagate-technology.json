@@ -1,0 +1,152 @@
+{
+  "slug": "seagate-technology",
+  "name": "Seagate Technology Holdings plc",
+  "aliases": ["Seagate Technology Holdings"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "qid": "Q705392",
+    "cik": "1137789",
+    "isin": "IE00BKVD2N49",
+    "ticker": "STX",
+    "exchange": "US",
+    "sedol": "BKVD2N4",
+    "domain": "seagate.com",
+    "lei": "44WLCTE321JACKS7ED43"
+  },
+  "areas": [
+    {
+      "area": "compute-semiconductors"
+    },
+    {
+      "area": "frontier-ai"
+    },
+    {
+      "area": "memory"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "1.17,STX,SEAGATE TECHNOLOGY HOLDINGS,BKVD2N4,644.21,\"184,175.00\",\"118,647,376.75\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Artificial Intelligence & Technology ETF (AIQ, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3572&type=10-K&dateb=&owner=include&start=0&count=100",
+      "quote": "0001137789 Seagate Technology Holdings plc U0",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3572 (Computer storage devices): Compute & semiconductors."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "1.17,STX,SEAGATE TECHNOLOGY HOLDINGS,BKVD2N4,644.21,\"184,175.00\",\"118,647,376.75\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$119 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 118647377
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "1.17,STX,SEAGATE TECHNOLOGY HOLDINGS,BKVD2N4,644.21,\"184,175.00\",\"118,647,376.75\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker STX"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3572&type=10-K&dateb=&owner=include&start=0&count=100",
+      "quote": "0001137789 Seagate Technology Holdings plc U0",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1137789"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "1.17,STX,SEAGATE TECHNOLOGY HOLDINGS,BKVD2N4,644.21,\"184,175.00\",\"118,647,376.75\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Seagate_Technology",
+      "quote": "Seagate Technology Holdings plc is an international data storage company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q705392",
+      "quote": "Seagate Technology (Q705392) — Wikidata item: Q705392",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:memory",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Seagate_Technology",
+      "quote": "Seagate Technology Holdings plc is an international data storage company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q705392",
+      "quote": "Seagate Technology (Q705392) — headquarters location: Cupertino",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q705392",
+      "quote": "Seagate Technology (Q705392) — official website: seagate.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q705392",
+      "quote": "Seagate Technology (Q705392) — Legal Entity Identifier: 44WLCTE321JACKS7ED43",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Seagate Technology Holdings plc is an international data storage company.",
+  "hq": "Cupertino"
+}

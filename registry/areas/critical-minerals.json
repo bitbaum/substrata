@@ -1,0 +1,10 @@
+{
+  "slug": "critical-minerals",
+  "name": "Critical minerals and refining",
+  "parent": "advanced-materials",
+  "theme": "materials",
+  "definition": "Lithium, gallium, germanium, tungsten, graphite, cobalt and similar producers and refiners.",
+  "why": "Refining capacity and export controls make these minerals a policy instrument.",
+  "bottlenecks": ["gallium-refined", "battery-grade-lithium-chemicals"],
+  "keyNumbers": []
+}

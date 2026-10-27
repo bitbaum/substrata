@@ -1,0 +1,75 @@
+{
+  "slug": "tata-motors",
+  "name": "Tata Motors",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q188514",
+    "domain": "tatamotors.com"
+  },
+  "areas": [
+    {
+      "area": "electric-vehicles"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Tata_Motors",
+      "quote": "Tata Motors Limited, also known as Tata Motors Commercial Vehicles, is an Indian multinational commercial vehicle manufacturer, headquartered in Mumbai and is a part of the Tata Group.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q188514",
+      "quote": "Tata Motors Limited (Q188514) — Wikidata item: Q188514",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:electric-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Tata_Motors",
+      "quote": "Tata Motors Limited, also known as Tata Motors Commercial Vehicles, is an Indian multinational commercial vehicle manufacturer, headquartered in Mumbai and is a part of the Tata Group.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q188514",
+      "quote": "Tata Motors Limited (Q188514) — headquarters location: Bombay House",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q188514",
+      "quote": "Tata Motors Limited (Q188514) — country (ISO 3166-1 alpha-2): IN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q188514",
+      "quote": "Tata Motors Limited (Q188514) — official website: tatamotors.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Tata Motors Limited, also known as Tata Motors Commercial Vehicles, is an Indian multinational commercial vehicle manufacturer, headquartered in Mumbai and is a part of the Tata Group.",
+  "hq": "Bombay House",
+  "country": "IN"
+}

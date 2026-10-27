@@ -1,0 +1,66 @@
+{
+  "slug": "minsur",
+  "name": "Minsur",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "PE",
+  "ids": {
+    "ticker": "MINSURI1",
+    "exchange": "PE"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://www.internationaltin.org/tag/minsur/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Tin mining and smelting."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.internationaltin.org/tag/minsur/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Tin mining and smelting."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000DNP4H0",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker MINSURI1"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.internationaltin.org/tag/minsur/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

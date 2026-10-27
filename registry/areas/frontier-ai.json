@@ -1,0 +1,10 @@
+{
+  "slug": "frontier-ai",
+  "name": "Frontier AI",
+  "parent": null,
+  "theme": "ai",
+  "definition": "Organisations that train or serve the most capable general-purpose AI models, and the cloud and software layers that sell them.",
+  "why": "The largest single buyer of leading-edge compute and grid power: what the labs can afford to train decides how fast every other area is pulled forward.",
+  "bottlenecks": [],
+  "keyNumbers": []
+}

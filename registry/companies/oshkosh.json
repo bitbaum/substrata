@@ -1,0 +1,106 @@
+{
+  "slug": "oshkosh",
+  "name": "Oshkosh Corporation",
+  "aliases": ["Oshkosh Corp"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "lei": "549300FEKNPCFSA2B506",
+    "isin": "US6882392011",
+    "cik": "775158",
+    "ticker": "OSK",
+    "exchange": "US",
+    "cusip": "688239201",
+    "sedol": "2663520"
+  },
+  "areas": [
+    {
+      "area": "mobility"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3711&type=10-K&dateb=&owner=include&start=100&count=100",
+      "quote": "0000775158 OSHKOSH CORP WI",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3711 (Motor vehicles & passenger car bodies): Electric mobility."
+    },
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-hail.xlsx",
+      "quote": "OSHKOSH CORP | OSK | 688239201 | 2663520 | 1.212313 | - | 1448.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Kensho Smart Mobility ETF (HAIL, State Street): Electric mobility."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-054061\",\"cik\":775158,\"entityName\":\"Oshkosh Corporation\",\"loc\":\"US-WI\",\"end\":\"2025-06-30\",\"val\":7276796085}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$7.3 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 7276796085
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[775158,\"OSHKOSH CORP\",\"OSK\",\"NYSE\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker OSK"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-054061\",\"cik\":775158,\"entityName\":\"Oshkosh Corporation\",\"loc\":\"US-WI\",\"end\":\"2025-06-30\",\"val\":7276796085}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 775158"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US6882392011",
+      "quote": "\"lei\":\"549300FEKNPCFSA2B506\",\"entity\":{\"legalName\":{\"name\":\"OSHKOSH CORPORATION\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 549300FEKNPCFSA2B506"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US6882392011",
+      "quote": "\"lei\":\"549300FEKNPCFSA2B506\",\"entity\":{\"legalName\":{\"name\":\"OSHKOSH CORPORATION\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "slug": "kulr-technology-group",
+  "name": "KULR Technology Group, Inc.",
+  "aliases": [
+    "Kulr Technology Group, Inc.",
+    "Kulr Technology Group, Inc.",
+    "Kulr Technology Group Inc"
+  ],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "lei": "213800YUOETJ427AGG25",
+    "isin": "US50125G3074",
+    "cik": "1662684",
+    "ticker": "KULR",
+    "exchange": "US",
+    "cusip": "50125G307",
+    "sedol": "BV4K5L8"
+  },
+  "areas": [
+    {
+      "area": "mobility"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-hail.xlsx",
+      "quote": "KULR TECHNOLOGY GROUP INC | KULR | 50125G307 | BV4K5L8 | 0.502585 | - | 51976.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Kensho Smart Mobility ETF (HAIL, State Street): Electric mobility."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001104659-26-037918\",\"cik\":1662684,\"entityName\":\"KULR TECHNOLOGY GROUP, INC.\",\"loc\":\"US-TX\",\"end\":\"2025-06-30\",\"val\":260648095}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$261 million public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 260648095
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[1662684,\"KULR Technology Group, Inc.\",\"KULR\",\"NYSE\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker KULR"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001104659-26-037918\",\"cik\":1662684,\"entityName\":\"KULR TECHNOLOGY GROUP, INC.\",\"loc\":\"US-TX\",\"end\":\"2025-06-30\",\"val\":260648095}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1662684"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US50125G3074",
+      "quote": "\"lei\":\"213800YUOETJ427AGG25\",\"entity\":{\"legalName\":{\"name\":\"KULR TECHNOLOGY GROUP, INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 213800YUOETJ427AGG25"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US50125G3074",
+      "quote": "\"lei\":\"213800YUOETJ427AGG25\",\"entity\":{\"legalName\":{\"name\":\"KULR TECHNOLOGY GROUP, INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

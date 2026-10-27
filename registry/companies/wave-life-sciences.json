@@ -1,0 +1,80 @@
+{
+  "slug": "wave-life-sciences",
+  "name": "Wave Life Sciences, Inc.",
+  "aliases": ["Wave Life Sciences Inc", "Wave Life Sciences Ltd."],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "WVE",
+    "exchange": "US",
+    "sedol": "C08GM13",
+    "cik": "1631574"
+  },
+  "areas": [
+    {
+      "area": "biotech-and-longevity"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:biotech-and-longevity",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "0.37,WVE,WAVE LIFE SCIENCES INC,C08GM13,3.21,\"123,716.00\",\"397,128.36\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "biotools",
+      "basis": "fund",
+      "detail": "Held by Global X Genomics & Biotechnology ETF (GNOM, Global X): Biotech tools."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-197330\",\"cik\":1631574,\"entityName\":\"WAVE LIFE SCIENCES LTD.\",\"loc\":\"SG-\",\"end\":\"2025-06-30\",\"val\":851013538}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$851 million public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 851013538
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "0.37,WVE,WAVE LIFE SCIENCES INC,C08GM13,3.21,\"123,716.00\",\"397,128.36\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker WVE"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-197330\",\"cik\":1631574,\"entityName\":\"WAVE LIFE SCIENCES LTD.\",\"loc\":\"SG-\",\"end\":\"2025-06-30\",\"val\":851013538}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1631574"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "0.37,WVE,WAVE LIFE SCIENCES INC,C08GM13,3.21,\"123,716.00\",\"397,128.36\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

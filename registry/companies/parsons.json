@@ -1,0 +1,160 @@
+{
+  "slug": "parsons",
+  "name": "Parsons Corporation",
+  "aliases": ["Parsons Corp"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "qid": "Q3896512",
+    "cik": "275880",
+    "lei": "549300ZXH0VRBSEPX752",
+    "isin": "US70202L1026",
+    "ticker": "PSN",
+    "exchange": "US",
+    "sedol": "BJN4N02",
+    "cusip": "70202L102",
+    "domain": "parsons.com"
+  },
+  "areas": [
+    {
+      "area": "space"
+    },
+    {
+      "area": "defence-tech"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.80,PSN,PARSONS CORP,BJN4N02,49.99,\"1,055,350.00\",\"52,756,946.50\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "fund",
+      "detail": "Held by Global X Defense Tech ETF (SHLD, Global X): Defence & aerospace."
+    },
+    {
+      "field": "area:space",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-rokt.xlsx",
+      "quote": "PARSONS CORP | PSN | 70202L102 | BJN4N02 | 2.206961 | - | 67016.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "space",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Kensho Final Frontiers ETF (ROKT, State Street): Space & launch."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.80,PSN,PARSONS CORP,BJN4N02,49.99,\"1,055,350.00\",\"52,756,946.50\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$53 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 52756947
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-045495\",\"cik\":275880,\"entityName\":\"PARSONS CORPORATION\",\"loc\":\"US-VA\",\"end\":\"2025-06-30\",\"val\":7700000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$7.7 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 7700000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.80,PSN,PARSONS CORP,BJN4N02,49.99,\"1,055,350.00\",\"52,756,946.50\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker PSN"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-045495\",\"cik\":275880,\"entityName\":\"PARSONS CORPORATION\",\"loc\":\"US-VA\",\"end\":\"2025-06-30\",\"val\":7700000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 275880"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US70202L1026",
+      "quote": "\"lei\":\"549300ZXH0VRBSEPX752\",\"entity\":{\"legalName\":{\"name\":\"PARSONS CORPORATION\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 549300ZXH0VRBSEPX752"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3Fisin%20%3Flabel%20WHERE%20%7B%20VALUES%20%3Fisin%20%7B%20%22US45676K1034%22%20%22US76655K1034%22%20%22US46222L1089%22%20%22US0558691012%22%20%22US26740W1099%22%20%22US74767K1034%22%20%22US34984V2097%22%20%22US6752321025%22%20%22US48242W1062%22%20%22US5253271028%22%20%22US92552V1008%22%20%22US0320951017%22%20%22US70202L1026%22%20%22US8542311076%22%20%22US8485603067%22%20%22US72703X1063%22%20%22US87305R1095%22%20%22US87157D1090%22%20%22US91347P1057%22%20%22US83088M1027%22%20%22US4532041096%22%20%22US8269191024%22%20%22US7069151055%22%20%22US7392761034%22%20%22US57776J1007%22%20%22US3364331070%22%20%22US82982T1060%22%20%22US63942X1063%22%20%22US15675D1037%22%20%22US0231931058%22%20%22US97785W1062%22%20%22US1572101053%22%20%22US5006001011%22%20%22US35834F1049%22%20%22US30041T1043%22%20%7D%20%3Fitem%20wdt%3AP946%20%3Fisin%20.%20OPTIONAL%20%7B%20%3Fitem%20rdfs%3Alabel%20%3Flabel%20FILTER(LANG(%3Flabel)%20%3D%20%22en%22)%20%7D%20%7D",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q3896512\" }, \"label\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"Parsons Corporation\" }, \"isin\" : { \"type\" : \"literal\", \"value\" : \"US70202L1026\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "qid",
+      "detail": "Wikidata QID Q3896512"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US70202L1026",
+      "quote": "\"lei\":\"549300ZXH0VRBSEPX752\",\"entity\":{\"legalName\":{\"name\":\"PARSONS CORPORATION\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Parsons_Corporation",
+      "quote": "Parsons Corporation is an American multinational technology-focused defense, intelligence, and infrastructure engineering firm.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q3896512",
+      "quote": "Parsons Corporation (Q3896512) — headquarters location: Chantilly",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q3896512",
+      "quote": "Parsons Corporation (Q3896512) — official website: parsons.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Parsons Corporation is an American multinational technology-focused defense, intelligence, and infrastructure engineering firm.",
+  "hq": "Chantilly"
+}

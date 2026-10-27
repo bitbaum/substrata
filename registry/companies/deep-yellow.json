@@ -1,0 +1,68 @@
+{
+  "slug": "deep-yellow",
+  "name": "Deep Yellow Ltd",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "AU",
+  "ids": {
+    "ticker": "DYL",
+    "exchange": "AU",
+    "sedol": "6480275"
+  },
+  "areas": [
+    {
+      "area": "nuclear-energy"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:nuclear-energy",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.56,DYL AU,DEEP YELLOW LTD,6480275,0.4947333703213297,\"53,637,221.00\",\"26,536,123.12\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "nuclear",
+      "basis": "fund",
+      "detail": "Held by Global X Uranium ETF (URA, Global X): Nuclear, SMRs & the fuel cycle."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.56,DYL AU,DEEP YELLOW LTD,6480275,0.4947333703213297,\"53,637,221.00\",\"26,536,123.12\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$27 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 26536123
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.56,DYL AU,DEEP YELLOW LTD,6480275,0.4947333703213297,\"53,637,221.00\",\"26,536,123.12\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker DYL"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.56,DYL AU,DEEP YELLOW LTD,6480275,0.4947333703213297,\"53,637,221.00\",\"26,536,123.12\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

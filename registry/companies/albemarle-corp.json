@@ -1,0 +1,175 @@
+{
+  "slug": "albemarle-corp",
+  "name": "Albemarle Corp",
+  "aliases": ["Albemarle Corporation"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "qid": "Q127074",
+    "cik": "915913",
+    "isin": "US0126531013",
+    "ticker": "ALB",
+    "exchange": "US",
+    "sedol": "2046853",
+    "domain": "albemarle.com",
+    "lei": "HDBLS2Q6GV1LSKQPBS54"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    },
+    {
+      "area": "mobility"
+    },
+    {
+      "area": "critical-minerals"
+    },
+    {
+      "area": "energy-storage"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "1.05,ALB,ALBEMARLE CORP,2046853,93.42,\"35,563.00\",\"3,322,295.46\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "fund",
+      "detail": "Held by Global X Autonomous & Electric Vehicles ETF (DRIV, Global X): Electric mobility."
+    },
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/lit_full-holdings_20261026.csv",
+      "quote": "4.14,ALB,ALBEMARLE CORP,2046853,93.41999999999999,\"515,773.00\",\"48,183,513.66\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by Global X Lithium & Battery Tech ETF (LIT, Global X): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/lit_full-holdings_20261026.csv",
+      "quote": "4.14,ALB,ALBEMARLE CORP,2046853,93.41999999999999,\"515,773.00\",\"48,183,513.66\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$48 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 48183514
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0000915913-26-000060\",\"cik\":915913,\"entityName\":\"ALBEMARLE CORPORATION\",\"loc\":\"US-NC\",\"end\":\"2025-06-30\",\"val\":7400000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$7.4 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 7400000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "1.05,ALB,ALBEMARLE CORP,2046853,93.42,\"35,563.00\",\"3,322,295.46\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker ALB"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0000915913-26-000060\",\"cik\":915913,\"entityName\":\"ALBEMARLE CORPORATION\",\"loc\":\"US-NC\",\"end\":\"2025-06-30\",\"val\":7400000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 915913"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "1.05,ALB,ALBEMARLE CORP,2046853,93.42,\"35,563.00\",\"3,322,295.46\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Albemarle_Corporation",
+      "quote": "Albemarle Corporation is an American specialty chemicals and mining company headquartered in Charlotte, North Carolina.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q127074",
+      "quote": "Albemarle Corporation (Q127074) — Wikidata item: Q127074",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Albemarle_Corporation",
+      "quote": "Albemarle Corporation is an American specialty chemicals and mining company headquartered in Charlotte, North Carolina.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:energy-storage",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Albemarle_Corporation",
+      "quote": "Albemarle Corporation is an American specialty chemicals and mining company headquartered in Charlotte, North Carolina.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q127074",
+      "quote": "Albemarle Corporation (Q127074) — headquarters location: Baton Rouge",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q127074",
+      "quote": "Albemarle Corporation (Q127074) — official website: albemarle.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q127074",
+      "quote": "Albemarle Corporation (Q127074) — Legal Entity Identifier: HDBLS2Q6GV1LSKQPBS54",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Albemarle Corporation is an American specialty chemicals and mining company headquartered in Charlotte, North Carolina.",
+  "hq": "Baton Rouge"
+}

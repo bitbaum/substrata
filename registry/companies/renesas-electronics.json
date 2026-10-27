@@ -1,0 +1,155 @@
+{
+  "slug": "renesas-electronics",
+  "name": "Renesas Electronics Corp",
+  "aliases": ["Renesas Electronics Corporation"],
+  "kind": "public",
+  "status": "active",
+  "country": "JP",
+  "ids": {
+    "qid": "Q1196269",
+    "isin": "JP3164720009",
+    "ticker": "6723",
+    "exchange": "JP",
+    "cusip": "J4881V107",
+    "domain": "renesas.com",
+    "lei": "5299000EPC47VJQOFB81"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    },
+    {
+      "area": "power-storage-grid"
+    },
+    {
+      "area": "quantum"
+    },
+    {
+      "area": "foundry"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:quantum",
+      "grade": "registry",
+      "source": "https://www.defianceetfs.com/qtum-full-holdings/",
+      "quote": "6723 JP Renesas Electronics Corp 6635677 0.83% 2,469,758",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "quantum",
+      "basis": "fund",
+      "detail": "Held by Defiance Quantum ETF (QTUM, Defiance ETFs): Quantum."
+    },
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Renesas Electronics Corporation 6723.JP J4881V107 Semiconductors 1,046,400 $18,493,630.40 0.17%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Renesas Electronics Corporation 6723.JP J4881V107 Information Technology 260,800 $4,609,268.87 0.62%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Artificial Intelligence and Robotics ETF (ROBT, First Trust): Robotics & autonomy."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Renesas Electronics Corporation 6723.JP J4881V107 Semiconductors 1,046,400 $18,493,630.40 0.17%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$18 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 18493630
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.defianceetfs.com/qtum-full-holdings/",
+      "quote": "6723 JP Renesas Electronics Corp 6635677 0.83% 2,469,758",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 6723"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.defianceetfs.com/qtum-full-holdings/",
+      "quote": "6723 JP Renesas Electronics Corp 6635677 0.83% 2,469,758",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Renesas_Electronics",
+      "quote": "Renesas Electronics Corporation is a Japanese semiconductor manufacturer headquartered in Tokyo.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1196269",
+      "quote": "Renesas Electronics (Q1196269) — Wikidata item: Q1196269",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:foundry",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Renesas_Electronics",
+      "quote": "Renesas Electronics Corporation is a Japanese semiconductor manufacturer headquartered in Tokyo.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1196269",
+      "quote": "Renesas Electronics (Q1196269) — headquarters location: Tokyo",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1196269",
+      "quote": "Renesas Electronics (Q1196269) — official website: renesas.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1196269",
+      "quote": "Renesas Electronics (Q1196269) — Legal Entity Identifier: 5299000EPC47VJQOFB81",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Renesas Electronics Corporation is a Japanese semiconductor manufacturer headquartered in Tokyo.",
+  "hq": "Tokyo"
+}

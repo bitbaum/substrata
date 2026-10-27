@@ -1,0 +1,80 @@
+{
+  "slug": "biomarin-pharmaceutical",
+  "name": "BioMarin Pharmaceutical Inc",
+  "aliases": ["Biomarin Pharmaceutical Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "BMRN",
+    "exchange": "US",
+    "sedol": "2437071",
+    "cik": "1048477"
+  },
+  "areas": [
+    {
+      "area": "biotech-and-longevity"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:biotech-and-longevity",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "2.97,BMRN,BIOMARIN PHARMACEUTICAL INC,2437071,55.75,\"56,459.00\",\"3,147,589.25\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "biotools",
+      "basis": "fund",
+      "detail": "Held by Global X Genomics & Biotechnology ETF (GNOM, Global X): Biotech tools."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001048477-26-000004\",\"cik\":1048477,\"entityName\":\"BioMarin Pharmaceutical Inc\",\"loc\":\"US-CA\",\"end\":\"2025-06-30\",\"val\":6700000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$6.7 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 6700000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "2.97,BMRN,BIOMARIN PHARMACEUTICAL INC,2437071,55.75,\"56,459.00\",\"3,147,589.25\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker BMRN"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001048477-26-000004\",\"cik\":1048477,\"entityName\":\"BioMarin Pharmaceutical Inc\",\"loc\":\"US-CA\",\"end\":\"2025-06-30\",\"val\":6700000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1048477"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "2.97,BMRN,BIOMARIN PHARMACEUTICAL INC,2437071,55.75,\"56,459.00\",\"3,147,589.25\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

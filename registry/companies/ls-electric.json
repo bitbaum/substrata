@@ -1,0 +1,115 @@
+{
+  "slug": "ls-electric",
+  "name": "LS Electric Co., Ltd.",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "KR",
+  "ids": {
+    "qid": "Q12581442",
+    "ticker": "010120",
+    "exchange": "KS",
+    "cusip": "Y5355Q105",
+    "domain": "lselectric.co.kr"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    },
+    {
+      "area": "grid-equipment"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "LS Electric Co., Ltd. 010120.KS Y5355Q105 Electronic Components 945,256 $109,231,487.49 0.98%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "LS Electric Co., Ltd. 010120.KS Y5355Q105 Electronic Components 945,256 $109,231,487.49 0.98%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$109 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 109231487
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "LS Electric Co., Ltd. 010120.KS Y5355Q105 Electronic Components 945,256 $109,231,487.49 0.98%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 010120"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "LS Electric Co., Ltd. 010120.KS Y5355Q105 Electronic Components 945,256 $109,231,487.49 0.98%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/LS_Electric",
+      "quote": ", formerly LS Industrial Systems (LSIS), is an electric power equipment and industrial automation company headquartered in Anyang, South Korea.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q12581442",
+      "quote": "LS Electiric (Q12581442) — Wikidata item: Q12581442",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/LS_Electric",
+      "quote": ", formerly LS Industrial Systems (LSIS), is an electric power equipment and industrial automation company headquartered in Anyang, South Korea.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q12581442",
+      "quote": "LS Electiric (Q12581442) — headquarters location: Gyeonggi Province",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q12581442",
+      "quote": "LS Electiric (Q12581442) — official website: lselectric.co.kr",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": ", formerly LS Industrial Systems (LSIS), is an electric power equipment and industrial automation company headquartered in Anyang, South Korea.",
+  "hq": "Gyeonggi Province"
+}

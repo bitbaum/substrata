@@ -1,0 +1,140 @@
+{
+  "slug": "soundhound-ai",
+  "name": "Soundhound AI, Inc.",
+  "aliases": ["Soundhound AI Inc-A"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "qid": "Q7564622",
+    "isin": "US8361001071",
+    "ticker": "SOUN",
+    "exchange": "US",
+    "sedol": "BLDBS68",
+    "cik": "1840856",
+    "domain": "soundhound.com"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    },
+    {
+      "area": "ai-software-tooling"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.19,SOUN,SOUNDHOUND AI INC-A,BLDBS68,4.24,\"4,519,531.00\",\"19,162,811.44\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Artificial Intelligence & Technology ETF (AIQ, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.19,SOUN,SOUNDHOUND AI INC-A,BLDBS68,4.24,\"4,519,531.00\",\"19,162,811.44\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$19 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 19162811
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001840856-26-000006\",\"cik\":1840856,\"entityName\":\"SOUNDHOUND AI, INC.\",\"loc\":\"US-CA\",\"end\":\"2025-06-30\",\"val\":3580200000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$3.6 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 3580200000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.19,SOUN,SOUNDHOUND AI INC-A,BLDBS68,4.24,\"4,519,531.00\",\"19,162,811.44\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker SOUN"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001840856-26-000006\",\"cik\":1840856,\"entityName\":\"SOUNDHOUND AI, INC.\",\"loc\":\"US-CA\",\"end\":\"2025-06-30\",\"val\":3580200000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1840856"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.19,SOUN,SOUNDHOUND AI INC-A,BLDBS68,4.24,\"4,519,531.00\",\"19,162,811.44\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/SoundHound_AI",
+      "quote": "SoundHound AI, Inc. is an American music and speech recognition company based in Santa Clara, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7564622",
+      "quote": "SoundHound (Q7564622) — Wikidata item: Q7564622",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/SoundHound_AI",
+      "quote": "SoundHound AI, Inc. is an American music and speech recognition company based in Santa Clara, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7564622",
+      "quote": "SoundHound (Q7564622) — headquarters location: Santa Clara",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7564622",
+      "quote": "SoundHound (Q7564622) — official website: soundhound.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "SoundHound AI, Inc. is an American music and speech recognition company based in Santa Clara, California.",
+  "hq": "Santa Clara"
+}

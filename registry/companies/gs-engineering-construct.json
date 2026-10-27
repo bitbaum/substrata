@@ -1,0 +1,68 @@
+{
+  "slug": "gs-engineering-construct",
+  "name": "GS Engineering & Construct",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "KR",
+  "ids": {
+    "ticker": "006360",
+    "exchange": "KS",
+    "sedol": "6537096"
+  },
+  "areas": [
+    {
+      "area": "nuclear-energy"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:nuclear-energy",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "1.74,006360 KS,GS ENGINEERING & CONSTRUCT,6537096,21.2749877181281,\"3,904,128.00\",\"83,060,275.25\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "nuclear",
+      "basis": "fund",
+      "detail": "Held by Global X Uranium ETF (URA, Global X): Nuclear, SMRs & the fuel cycle."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "1.74,006360 KS,GS ENGINEERING & CONSTRUCT,6537096,21.2749877181281,\"3,904,128.00\",\"83,060,275.25\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$83 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 83060275
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "1.74,006360 KS,GS ENGINEERING & CONSTRUCT,6537096,21.2749877181281,\"3,904,128.00\",\"83,060,275.25\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 006360"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "1.74,006360 KS,GS ENGINEERING & CONSTRUCT,6537096,21.2749877181281,\"3,904,128.00\",\"83,060,275.25\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

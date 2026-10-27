@@ -1,0 +1,84 @@
+{
+  "slug": "yandex",
+  "name": "Yandex",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q5281",
+    "domain": "yandex.com",
+    "lei": "253400QS6NB20B1EVG74"
+  },
+  "areas": [
+    {
+      "area": "ai-software-tooling"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Yandex",
+      "quote": "Yandex LLC is a Russian technology company that provides Internet-related products and services including a web browser, search engine, cloud computing, web mapping, online food ordering, streaming media, online shopping, and a ridesharing company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5281",
+      "quote": "Yandex (Q5281) — Wikidata item: Q5281",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5281",
+      "quote": "Yandex (Q5281) — headquarters location: Moscow",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5281",
+      "quote": "Yandex (Q5281) — country (ISO 3166-1 alpha-2): RU",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5281",
+      "quote": "Yandex (Q5281) — official website: https://yandex.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5281",
+      "quote": "Yandex (Q5281) — Legal Entity Identifier: 253400QS6NB20B1EVG74",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Yandex",
+      "quote": "Yandex LLC is a Russian technology company that provides Internet-related products and services including a web browser, search engine, cloud computing, web mapping, online food ordering, streaming media, online shopping, and a ridesharing company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Yandex LLC is a Russian technology company that provides Internet-related products and services including a web browser, search engine, cloud computing, web mapping, online food ordering, streaming media, online shopping, and a ridesharing company.",
+  "country": "RU",
+  "hq": "Moscow"
+}

@@ -1,0 +1,161 @@
+{
+  "slug": "freeport-mcmoran-inc",
+  "name": "Freeport-McMoRan Inc.",
+  "aliases": ["Freeport-Mcmoran Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "qid": "Q1453620",
+    "cik": "831259",
+    "isin": "US35671D8570",
+    "ticker": "FCX",
+    "exchange": "US",
+    "sedol": "2352118",
+    "domain": "fcx.com",
+    "lei": "549300IRDTHJQ1PVET45"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    },
+    {
+      "area": "critical-minerals"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "5.31,FCX,FREEPORT-MCMORAN INC,2352118,65.16,\"5,143,854.00\",\"335,173,526.64\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "fund",
+      "detail": "Held by Global X Copper Miners ETF (COPX, Global X): Advanced materials & critical minerals."
+    },
+    {
+      "field": "area:advanced-materials",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=1000&type=10-K&dateb=&owner=include&start=200&count=100",
+      "quote": "0000831259 FREEPORT-MCMORAN INC AZ",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 1000 (Metal mining): Advanced materials & critical minerals."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "5.31,FCX,FREEPORT-MCMORAN INC,2352118,65.16,\"5,143,854.00\",\"335,173,526.64\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$335 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 335173527
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0000831259-26-000012\",\"cik\":831259,\"entityName\":\"Freeport-McMoRan Inc.\",\"loc\":\"US-AZ\",\"end\":\"2025-06-30\",\"val\":61900000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$62 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 61900000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "5.31,FCX,FREEPORT-MCMORAN INC,2352118,65.16,\"5,143,854.00\",\"335,173,526.64\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker FCX"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0000831259-26-000012\",\"cik\":831259,\"entityName\":\"Freeport-McMoRan Inc.\",\"loc\":\"US-AZ\",\"end\":\"2025-06-30\",\"val\":61900000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 831259"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "5.31,FCX,FREEPORT-MCMORAN INC,2352118,65.16,\"5,143,854.00\",\"335,173,526.64\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Freeport-McMoRan",
+      "quote": ", often called Freeport, is an American mining company based in the Freeport-McMoRan Center, in Phoenix, Arizona.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1453620",
+      "quote": "Freeport-McMoRan (Q1453620) — Wikidata item: Q1453620",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Freeport-McMoRan",
+      "quote": ", often called Freeport, is an American mining company based in the Freeport-McMoRan Center, in Phoenix, Arizona.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1453620",
+      "quote": "Freeport-McMoRan (Q1453620) — headquarters location: Phoenix",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1453620",
+      "quote": "Freeport-McMoRan (Q1453620) — official website: fcx.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1453620",
+      "quote": "Freeport-McMoRan (Q1453620) — Legal Entity Identifier: 549300IRDTHJQ1PVET45",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": ", often called Freeport, is an American mining company based in the Freeport-McMoRan Center, in Phoenix, Arizona.",
+  "hq": "Phoenix"
+}

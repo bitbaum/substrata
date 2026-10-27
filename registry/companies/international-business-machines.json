@@ -1,0 +1,272 @@
+{
+  "slug": "international-business-machines",
+  "name": "International Business Machines Corp",
+  "aliases": ["International Business Machines Corporation", "Intl Business Machines Corp", "Ibm"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "qid": "Q37156",
+    "cik": "51143",
+    "lei": "VGRQXHF3J8VDLUA7XE92",
+    "isin": "US4592001014",
+    "ticker": "IBM",
+    "exchange": "US",
+    "sedol": "2005973",
+    "cusip": "459200101",
+    "domain": "ibm.com"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    },
+    {
+      "area": "robotics"
+    },
+    {
+      "area": "power-storage-grid"
+    },
+    {
+      "area": "quantum"
+    },
+    {
+      "area": "ai-cloud-platforms"
+    },
+    {
+      "area": "quantum-computing"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "1.93,IBM,INTL BUSINESS MACHINES CORP,2005973,253.44,\"772,011.00\",\"195,658,467.84\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Artificial Intelligence & Technology ETF (AIQ, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/clou_full-holdings_20261026.csv",
+      "quote": "0.22,IBM,INTL BUSINESS MACHINES CORP,2005973,253.44,\"3,802.00\",\"963,578.88\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Cloud Computing ETF (CLOU, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "area:quantum",
+      "grade": "registry",
+      "source": "https://www.defianceetfs.com/qtum-full-holdings/",
+      "quote": "IBM International Business Machines Corp 459200101 1.18% 243,406",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "quantum",
+      "basis": "fund",
+      "detail": "Held by Defiance Quantum ETF (QTUM, Defiance ETFs): Quantum."
+    },
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "International Business Machines Corporation IBM 459200101 Computer Services 486,918 $123,404,497.92 1.11%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "International Business Machines Corporation IBM 459200101 Information Technology 51,014 $12,928,988.16 1.73%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Artificial Intelligence and Robotics ETF (ROBT, First Trust): Robotics & autonomy."
+    },
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=SKYY",
+      "quote": "International Business Machines Corporation IBM 459200101 IT Services 507,263 $128,560,734.72 3.63%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by First Trust Cloud Computing ETF (SKYY, First Trust): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "1.93,IBM,INTL BUSINESS MACHINES CORP,2005973,253.44,\"772,011.00\",\"195,658,467.84\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$196 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 195658468
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0000051143-26-000010\",\"cik\":51143,\"entityName\":\"INTERNATIONAL BUSINESS MACHINES CORPORATION\",\"loc\":\"US-NY\",\"end\":\"2025-06-30\",\"val\":274500000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$275 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 274500000000
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "International Business Machines Corporation IBM 459200101 Computer Services 486,918 $123,404,497.92 1.11%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$123 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 123404498
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "International Business Machines Corporation IBM 459200101 Information Technology 51,014 $12,928,988.16 1.73%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$13 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 12928988
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=SKYY",
+      "quote": "International Business Machines Corporation IBM 459200101 IT Services 507,263 $128,560,734.72 3.63%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$129 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 128560735
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "1.93,IBM,INTL BUSINESS MACHINES CORP,2005973,253.44,\"772,011.00\",\"195,658,467.84\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker IBM"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0000051143-26-000010\",\"cik\":51143,\"entityName\":\"INTERNATIONAL BUSINESS MACHINES CORPORATION\",\"loc\":\"US-NY\",\"end\":\"2025-06-30\",\"val\":274500000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 51143"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US4592001014",
+      "quote": "\"lei\":\"VGRQXHF3J8VDLUA7XE92\",\"entity\":{\"legalName\":{\"name\":\"INTERNATIONAL BUSINESS MACHINES CORPORATION\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) VGRQXHF3J8VDLUA7XE92"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3Fisin%20%3Flabel%20WHERE%20%7B%20VALUES%20%3Fisin%20%7B%20%22US59516C1062%22%20%22US68236H2040%22%20%22US92839U2069%22%20%22US45569U1016%22%20%22US29355A1079%22%20%22US83417M1045%22%20%22US28617B6065%22%20%22US6078281002%22%20%22US0585861083%22%20%22US50125G3074%22%20%22US81758H1068%22%20%22US65481N1000%22%20%22US7311054099%22%20%22US03782L1017%22%20%22US12468P1049%22%20%22US2681501092%22%20%22US81730H1095%22%20%22US6536561086%22%20%22US30303M1027%22%20%22US18915M1071%22%20%22US4592001014%22%20%22US81762P1021%22%20%22US6974351057%22%20%22US17275R1023%22%20%22US7055731035%22%20%22US79466L3024%22%20%22US1273871087%22%20%22US01609W1027%22%20%22US90364P1057%22%20%22US08975B1098%22%20%22US5738741041%22%20%22US7437131094%22%20%22US5949181045%22%20%22US7739031091%22%20%22US5951121038%22%20%22US02079K3059%22%20%22US1924221039%22%20%22US88554D2053%22%20%22US4824801009%22%20%22US5128073062%22%20%22US69370C1009%22%20%22US23804L1035%22%20%22US0378331005%22%20%22US1924461023%22%20%22US2910111044%22%20%22US68213N1090%22%20%22US09239B1098%22%20%22US36262G1013%22%20%22US4581401001%22%20%22US4781601046%22%20%22US8334451098%22%20%22US0527691069%22%20%22US8636671013%22%20%22US00971T1016%22%20%22US0404132054%22%20%22US47215P1066%22%20%22US00724F1012%22%20%22US60937P1066%22%20%22US8825081040%22%20%22US0326541051%22%20%22US0382221051%22%20%22US5950171042%22%20%22US0316521006%22%20%22US29362U1043%22%20%22US6098391054%22%20%22US1727551004%22%20%22US7509171069%22%20%22US9282981086%22%20%22US2545431015%22%20%22US55405Y1001%22%20%22US6833441057%22%20%22US8168501018%22%20%22US0538071038%22%20%22US3463751087%22%20%22US04626A1034%22%20%22US00246W1036%22%20%22US0079731008%22%20%22US00676P1075%22%20%22US5184151042%22%20%22US19247G1076%22%20%7D%20%3Fitem%20wdt%3AP946%20%3Fisin%20.%20OPTIONAL%20%7B%20%3Fitem%20rdfs%3Alabel%20%3Flabel%20FILTER(LANG(%3Flabel)%20%3D%20%22en%22)%20%7D%20%7D",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q37156\" }, \"label\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"IBM\" }, \"isin\" : { \"type\" : \"literal\", \"value\" : \"US4592001014\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "qid",
+      "detail": "Wikidata QID Q37156"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US4592001014",
+      "quote": "\"lei\":\"VGRQXHF3J8VDLUA7XE92\",\"entity\":{\"legalName\":{\"name\":\"INTERNATIONAL BUSINESS MACHINES CORPORATION\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/IBM",
+      "quote": "International Business Machines Corporation, doing business as IBM, is an American multinational technology company headquartered in Armonk, New York, and present in over 175 countries.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/IBM",
+      "quote": "International Business Machines Corporation, doing business as IBM, is an American multinational technology company headquartered in Armonk, New York, and present in over 175 countries.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:quantum-computing",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/IBM",
+      "quote": "International Business Machines Corporation, doing business as IBM, is an American multinational technology company headquartered in Armonk, New York, and present in over 175 countries.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q37156",
+      "quote": "IBM (Q37156) — headquarters location: Armonk",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q37156",
+      "quote": "IBM (Q37156) — official website: ibm.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "International Business Machines Corporation, doing business as IBM, is an American multinational technology company headquartered in Armonk, New York, and present in over 175 countries.",
+  "hq": "Armonk"
+}

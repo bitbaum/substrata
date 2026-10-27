@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Link from 'next/link';
 
 import { EntityProfile, type ExtraSection } from '@/components/portal/EntityProfile';
@@ -8,9 +8,15 @@ import type { Entity } from '@/lib/entities/types';
 import { correctionUrl } from '@/lib/site';
 import { t } from '@/lib/i18n/messages';
 import { MARKET_DATA_SECTIONS, marketDataKey } from '@/lib/universe/market-data-seam';
+import { marketSections } from '@/components/company/marketSections';
+import { Quote, QuoteLoading } from '@/components/company/Quote';
 import type { UniverseEntry } from '@/lib/universe/types';
 import { countryHref, countryNameOf } from '@/lib/world/pages';
+import { whySentence } from '@/lib/universe/why-sentence';
+import { registeredCompany } from '@/lib/registry/load';
+import { KIND_LABEL } from '@/lib/registry/schema';
 import { Admissions } from './Admissions';
+import { RegistryFacts } from './RegistryFacts';
 import { StubSources } from './StubSources';
 
 const CAPS = 'font-mono text-xs uppercase tracking-caps text-fg-tertiary';
@@ -24,16 +30,31 @@ const CAPS = 'font-mono text-xs uppercase tracking-caps text-fg-tertiary';
 export function IdentifiedCompany({ entity, entry }: { entity: Entity; entry: UniverseEntry }) {
   const tier = TIERS.find((x) => x.tier === 'B')!;
   const key = marketDataKey(entry);
+  const reg = entry.registered ? registeredCompany(entry.slug) : undefined;
+  const registryOnly = Boolean(reg && reg.origin.by !== 'migration');
   const relations = stubEvidence(entity.id);
   const relationCount = relations.groups.reduce((n, g) => n + g.rows.length, 0);
   const extra: ExtraSection[] = [
+    ...(reg && (reg.summary || registryOnly)
+      ? [
+          {
+            id: 'registry',
+            title: 'What the registry says',
+            importance: 1,
+            evidence: `${reg.evidence.length} cited rows`,
+            node: <RegistryFacts company={reg} />,
+          },
+        ]
+      : []),
     {
       id: 'why-in',
       title: 'Why it is in Substrata',
-      importance: 5,
+      // After the market frame (price, key statistics, financials).
+      importance: 9,
       evidence: `${entry.admittedBy.length} cited rows`,
       node: <Admissions admittedBy={entry.admittedBy} />,
     },
+    ...marketSections({ slug: entry.slug, name: entity.name }),
     ...(key
       ? MARKET_DATA_SECTIONS.flatMap((s) => {
           const node = s.render(key);
@@ -58,7 +79,7 @@ export function IdentifiedCompany({ entity, entry }: { entity: Entity; entry: Un
     <>
       <header className="mb-4 border-b border-subtle pb-8">
         <p className={CAPS}>
-          {tier.label}, not profiled
+          {registryOnly ? `Registered · ${KIND_LABEL[reg!.kind]}` : `${tier.label}, not profiled`}
           {entry.country && (
             <>
               {' · '}
@@ -74,6 +95,9 @@ export function IdentifiedCompany({ entity, entry }: { entity: Entity; entry: Un
         <h1 className="mt-3 max-w-3xl font-heading text-3xl font-semibold leading-tight tracking-display text-fg-primary wrap-anywhere sm:text-4xl">
           {entity.name}
         </h1>
+        <Suspense fallback={<QuoteLoading />}>
+          <Quote slug={entry.slug} />
+        </Suspense>
         {entity.aka.length > 0 && (
           <p className="mt-2 text-sm text-fg-tertiary wrap-anywhere">
             Also printed as {entity.aka.slice(0, 4).join(', ')}
@@ -93,9 +117,16 @@ export function IdentifiedCompany({ entity, entry }: { entity: Entity; entry: Un
             </React.Fragment>
           ))}
         </p>
+        <p className="mt-4 max-w-prose text-sm leading-relaxed text-fg-primary">
+          <span className="font-semibold">Why it is here: </span>
+          {registryOnly
+            ? `It is registered: we track it on purpose, on the cited rows below. Registration records that it belongs to ${entry.themes.map((id) => themeById(id)!.label).join(', ')}; it is not a claim about any supply chain.`
+            : whySentence(entry)}
+        </p>
         <p className="mt-4 max-w-prose text-sm leading-relaxed text-fg-secondary">
-          {tier.means} A thematic fund holding it shows interest in the theme, not a part in any
-          supply chain.{' '}
+          {registryOnly
+            ? 'A private company has no share price here; any figure on this page is labelled stated, reported or estimated, with its source.'
+            : `${tier.means} A thematic fund holding it shows interest in the theme, not a part in any supply chain.`}{' '}
           <Link href="/data/companies" className="text-accent underline-offset-4 hover:underline">
             How companies are chosen
           </Link>

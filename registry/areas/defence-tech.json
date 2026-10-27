@@ -1,0 +1,10 @@
+{
+  "slug": "defence-tech",
+  "name": "Defence technology",
+  "parent": null,
+  "theme": "defence",
+  "definition": "Primes and new entrants building autonomy, munitions, sensing and space-based defence.",
+  "why": "Defence competes for the same magnets, chips and minerals, and is a principal customer for autonomy.",
+  "bottlenecks": [],
+  "keyNumbers": []
+}

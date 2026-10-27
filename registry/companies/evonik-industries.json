@@ -1,0 +1,85 @@
+{
+  "slug": "evonik-industries",
+  "name": "Evonik Industries",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q473513",
+    "isin": "DE000EVNK013",
+    "domain": "evonik.com",
+    "lei": "41GUOJQTALQHLF39XJ34"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Evonik_Industries",
+      "quote": "Evonik Industries AG is a publicly listed German chemicals company headquartered in Essen, North Rhine-Westphalia, Germany.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q473513",
+      "quote": "Evonik Industries (Q473513) — Wikidata item: Q473513",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:advanced-materials",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Evonik_Industries",
+      "quote": "Evonik Industries AG is a publicly listed German chemicals company headquartered in Essen, North Rhine-Westphalia, Germany.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q473513",
+      "quote": "Evonik Industries (Q473513) — headquarters location: Essen",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q473513",
+      "quote": "Evonik Industries (Q473513) — country (ISO 3166-1 alpha-2): DE",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q473513",
+      "quote": "Evonik Industries (Q473513) — official website: evonik.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q473513",
+      "quote": "Evonik Industries (Q473513) — Legal Entity Identifier: 41GUOJQTALQHLF39XJ34",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Evonik Industries AG is a publicly listed German chemicals company headquartered in Essen, North Rhine-Westphalia, Germany.",
+  "hq": "Essen",
+  "country": "DE"
+}

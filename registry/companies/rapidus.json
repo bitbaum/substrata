@@ -1,0 +1,75 @@
+{
+  "slug": "rapidus",
+  "name": "Rapidus",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q115165470",
+    "domain": "rapidus.inc"
+  },
+  "areas": [
+    {
+      "area": "foundry"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Rapidus",
+      "quote": "Rapidus Corporation is a semiconductor manufacturer headquartered in Chiyoda, Tokyo, Japan.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q115165470",
+      "quote": "Rapidus Corporation (Q115165470) — Wikidata item: Q115165470",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:foundry",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Rapidus",
+      "quote": "Rapidus Corporation is a semiconductor manufacturer headquartered in Chiyoda, Tokyo, Japan.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q115165470",
+      "quote": "Rapidus Corporation (Q115165470) — headquarters location: Kōjimachi",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q115165470",
+      "quote": "Rapidus Corporation (Q115165470) — country (ISO 3166-1 alpha-2): JP",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q115165470",
+      "quote": "Rapidus Corporation (Q115165470) — official website: rapidus.inc",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Rapidus Corporation is a semiconductor manufacturer headquartered in Chiyoda, Tokyo, Japan.",
+  "hq": "Kōjimachi",
+  "country": "JP"
+}

@@ -1,0 +1,68 @@
+{
+  "slug": "firefly-metals",
+  "name": "Firefly Metals Ltd",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "AU",
+  "ids": {
+    "ticker": "FFM",
+    "exchange": "AU",
+    "sedol": "BPDXXB2"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "0.41,FFM AU,FIREFLY METALS LTD,BPDXXB2,0.905256805244493,\"28,628,582.00\",\"25,916,218.68\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "fund",
+      "detail": "Held by Global X Copper Miners ETF (COPX, Global X): Advanced materials & critical minerals."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "0.41,FFM AU,FIREFLY METALS LTD,BPDXXB2,0.905256805244493,\"28,628,582.00\",\"25,916,218.68\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$26 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 25916219
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "0.41,FFM AU,FIREFLY METALS LTD,BPDXXB2,0.905256805244493,\"28,628,582.00\",\"25,916,218.68\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker FFM"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "0.41,FFM AU,FIREFLY METALS LTD,BPDXXB2,0.905256805244493,\"28,628,582.00\",\"25,916,218.68\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

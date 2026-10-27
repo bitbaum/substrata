@@ -1,0 +1,66 @@
+{
+  "slug": "1x-technologies",
+  "name": "1X Technologies",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q63790046",
+    "domain": "1x.tech"
+  },
+  "areas": [
+    {
+      "area": "humanoids"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/1X_Technologies",
+      "quote": "1X Technologies is a Norwegian-American robotics and artificial intelligence company developing general-purpose humanoid robots for home environments.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q63790046",
+      "quote": "1X (Q63790046) — Wikidata item: Q63790046",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:humanoids",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/1X_Technologies",
+      "quote": "1X Technologies is a Norwegian-American robotics and artificial intelligence company developing general-purpose humanoid robots for home environments.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q63790046",
+      "quote": "1X (Q63790046) — country (ISO 3166-1 alpha-2): NO",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q63790046",
+      "quote": "1X (Q63790046) — official website: 1x.tech",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "1X Technologies is a Norwegian-American robotics and artificial intelligence company developing general-purpose humanoid robots for home environments.",
+  "country": "NO"
+}

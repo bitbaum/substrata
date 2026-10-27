@@ -1,0 +1,10 @@
+{
+  "slug": "fusion",
+  "name": "Fusion",
+  "parent": "nuclear-energy",
+  "theme": "nuclear",
+  "definition": "Companies pursuing commercial fusion power.",
+  "why": "A potential step change in power supply, still pre-commercial; its magnets use superconducting tape.",
+  "bottlenecks": ["rebco-superconducting-tape-12-mm"],
+  "keyNumbers": []
+}

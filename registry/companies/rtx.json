@@ -1,0 +1,199 @@
+{
+  "slug": "rtx",
+  "name": "RTX Corp",
+  "aliases": ["RTX Corporation", "RTX", "Rtx Corp"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "qid": "Q89368734",
+    "cik": "101829",
+    "lei": "I07WOS4YJ0N7YRFE7309",
+    "isin": "US75513E1010",
+    "ticker": "RTX",
+    "exchange": "US",
+    "sedol": "BM5M5Y3",
+    "cusip": "75513E101",
+    "domain": "rtx.com"
+  },
+  "areas": [
+    {
+      "area": "space"
+    },
+    {
+      "area": "quantum"
+    },
+    {
+      "area": "defence-tech"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "9.14,RTX,RTX CORPORATION,BM5M5Y3,197.48,\"3,055,497.00\",\"603,399,547.56\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "fund",
+      "detail": "Held by Global X Defense Tech ETF (SHLD, Global X): Defence & aerospace."
+    },
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3FitemLabel%20%3Fisin%20%3Fiso%20WHERE%20%7B%20%3Fitem%20wdt%3AP452%20wd%3AQ392933%20.%20%7B%20%3Fitem%20wdt%3AP946%20%3Fisin%20%7D%20UNION%20%7B%20%3Fitem%20wdt%3AP414%20%3Fx%20%7D%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP17%2Fwdt%3AP297%20%3Fiso%20%7D%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22.%20%7D%20%7D%20LIMIT%20400",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q89368734\" }, \"iso\" : { \"type\" : \"literal\", \"value\" : \"US\" }, \"itemLabel\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"RTX\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "industry-class",
+      "detail": "Wikidata lists its industry as weapons industry: Defence & aerospace."
+    },
+    {
+      "field": "area:quantum",
+      "grade": "registry",
+      "source": "https://www.defianceetfs.com/qtum-full-holdings/",
+      "quote": "RTX Rtx Corp 75513E101 1.41% 373,677",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "quantum",
+      "basis": "fund",
+      "detail": "Held by Defiance Quantum ETF (QTUM, Defiance ETFs): Quantum."
+    },
+    {
+      "field": "area:space",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-rokt.xlsx",
+      "quote": "RTX CORP | RTX | 75513E101 | BM5M5Y3 | 3.95719 | - | 30418.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "space",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Kensho Final Frontiers ETF (ROKT, State Street): Space & launch."
+    },
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-xar.xlsx",
+      "quote": "RTX CORP | RTX | 75513E101 | BM5M5Y3 | 3.11673 | - | 793193.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Aerospace & Defense ETF (XAR, State Street): Defence & aerospace."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "9.14,RTX,RTX CORPORATION,BM5M5Y3,197.48,\"3,055,497.00\",\"603,399,547.56\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$603 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 603399548
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0000101829-26-000006\",\"cik\":101829,\"entityName\":\"RTX Corporation\",\"loc\":\"US-VA\",\"end\":\"2025-06-30\",\"val\":195405729090}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$195 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 195405729090
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "9.14,RTX,RTX CORPORATION,BM5M5Y3,197.48,\"3,055,497.00\",\"603,399,547.56\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker RTX"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0000101829-26-000006\",\"cik\":101829,\"entityName\":\"RTX Corporation\",\"loc\":\"US-VA\",\"end\":\"2025-06-30\",\"val\":195405729090}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 101829"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US75513E1010",
+      "quote": "\"lei\":\"I07WOS4YJ0N7YRFE7309\",\"entity\":{\"legalName\":{\"name\":\"RTX CORPORATION\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) I07WOS4YJ0N7YRFE7309"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3FitemLabel%20%3Fisin%20%3Fiso%20WHERE%20%7B%20%3Fitem%20wdt%3AP452%20wd%3AQ392933%20.%20%7B%20%3Fitem%20wdt%3AP946%20%3Fisin%20%7D%20UNION%20%7B%20%3Fitem%20wdt%3AP414%20%3Fx%20%7D%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP17%2Fwdt%3AP297%20%3Fiso%20%7D%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22.%20%7D%20%7D%20LIMIT%20400",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q89368734\" }, \"iso\" : { \"type\" : \"literal\", \"value\" : \"US\" }, \"itemLabel\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"RTX\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "qid",
+      "detail": "Wikidata QID Q89368734"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US75513E1010",
+      "quote": "\"lei\":\"I07WOS4YJ0N7YRFE7309\",\"entity\":{\"legalName\":{\"name\":\"RTX CORPORATION\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/RTX_Corporation",
+      "quote": "RTX Corporation, formerly Raytheon Technologies Corporation, is an American multinational aerospace and defense conglomerate headquartered in Arlington, Virginia.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q89368734",
+      "quote": "RTX (Q89368734) — headquarters location: Arlington County",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q89368734",
+      "quote": "RTX (Q89368734) — official website: rtx.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "RTX Corporation, formerly Raytheon Technologies Corporation, is an American multinational aerospace and defense conglomerate headquartered in Arlington, Virginia.",
+  "hq": "Arlington County"
+}

@@ -1,0 +1,93 @@
+{
+  "slug": "ubtech-robotics-class-h",
+  "name": "UBTech Robotics Corp Ltd (Class H)",
+  "aliases": ["Ubtech Robotics Corp Ltd-H"],
+  "kind": "public",
+  "status": "active",
+  "country": "HK",
+  "ids": {
+    "ticker": "9880",
+    "exchange": "HK",
+    "sedol": "BR4VSK3",
+    "cusip": "Y901ER107"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "1.03,9880 HK,UBTECH ROBOTICS CORP LTD-H,BR4VSK3,8.73150927651647,\"3,669,427.00\",\"32,039,635.89\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by Global X Robotics & Artificial Intelligence ETF (BOTZ, Global X): Robotics & autonomy."
+    },
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "UBTech Robotics Corp Ltd (Class H) 9880.HK Y901ER107 Industrials 1,102,949 $9,629,918.42 1.29%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Artificial Intelligence and Robotics ETF (ROBT, First Trust): Robotics & autonomy."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "1.03,9880 HK,UBTECH ROBOTICS CORP LTD-H,BR4VSK3,8.73150927651647,\"3,669,427.00\",\"32,039,635.89\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$32 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 32039636
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "UBTech Robotics Corp Ltd (Class H) 9880.HK Y901ER107 Industrials 1,102,949 $9,629,918.42 1.29%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$9.6 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 9629918
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "1.03,9880 HK,UBTECH ROBOTICS CORP LTD-H,BR4VSK3,8.73150927651647,\"3,669,427.00\",\"32,039,635.89\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 9880"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "1.03,9880 HK,UBTECH ROBOTICS CORP LTD-H,BR4VSK3,8.73150927651647,\"3,669,427.00\",\"32,039,635.89\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "slug": "t1-energy",
+  "name": "T1 Energy Inc.",
+  "aliases": ["T1 Energy Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "cik": "0001992243",
+    "ticker": "TE",
+    "exchange": "US",
+    "cusip": "35834F104",
+    "sedol": "BSKPBK7",
+    "isin": "US35834F1049"
+  },
+  "areas": [
+    {
+      "area": "compute-semiconductors"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3674&type=10-K&dateb=&owner=include&start=400&count=100",
+      "quote": "0001992243 T1 Energy Inc. TX",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3674 (Semiconductors & related devices): Compute & semiconductors."
+    },
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-xsd.xlsx",
+      "quote": "T1 ENERGY INC | TE | 35834F104 | BSKPBK7 | 0.4132 | - | 4850064.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Semiconductor ETF (XSD, State Street): Compute & semiconductors."
+    },
+    {
+      "field": "size:revenue",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001992243.json",
+      "quote": "{\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"val\":755295000,\"accn\":\"0001992243-26-000007\",\"fy\":2025,\"fp\":\"FY\",\"form\":\"10-K\",\"filed\":\"2026-03-31\",\"frame\":\"CY2025\"}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-12-31",
+      "test": "materiality",
+      "basis": "revenue",
+      "detail": "US$755 million annual revenue (floor US$250 million).",
+      "usd": 755295000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[1992243,\"T1 Energy Inc.\",\"TE\",\"NYSE\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker TE"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001992243.json",
+      "quote": "{\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"val\":755295000,\"accn\":\"0001992243-26-000007\",\"fy\":2025,\"fp\":\"FY\",\"form\":\"10-K\",\"filed\":\"2026-03-31\",\"frame\":\"CY2025\"}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-12-31",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 0001992243"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001213900-26-049667\",\"cik\":1992243,\"entityName\":\"T1 Energy Inc.\",\"loc\":\"US-TX\",\"end\":\"2025-06-30\",\"val\":141000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1992243"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-xsd.xlsx",
+      "quote": "T1 ENERGY INC | TE | 35834F104 | BSKPBK7 | 0.4132 | - | 4850064.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

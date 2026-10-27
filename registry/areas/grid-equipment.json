@@ -1,0 +1,14 @@
+{
+  "slug": "grid-equipment",
+  "name": "Grid equipment",
+  "parent": "power-storage-grid",
+  "theme": "grid",
+  "definition": "Transformers, switchgear, cable, turbines and grid software.",
+  "why": "Multi-year lead times on a few suppliers.",
+  "bottlenecks": [
+    "large-power-transformer-slots",
+    "high-voltage-cable-and-switchgear",
+    "heavy-duty-gas-turbine-order-books"
+  ],
+  "keyNumbers": []
+}

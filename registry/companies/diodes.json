@@ -1,0 +1,169 @@
+{
+  "slug": "diodes",
+  "name": "Diodes Incorporated",
+  "aliases": ["Diodes Inc /Del/", "Diodes Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "lei": "549300XP2X1ARVH3BX23",
+    "isin": "US2545431015",
+    "cik": "29002",
+    "qid": "Q5279096",
+    "ticker": "DIOD",
+    "exchange": "US",
+    "cusip": "254543101",
+    "sedol": "2270500",
+    "domain": "diodes.com"
+  },
+  "areas": [
+    {
+      "area": "compute-semiconductors"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=FTXL",
+      "quote": "Diodes Incorporated DIOD 254543101 Semiconductors 88,287 $7,335,766.83 0.65%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Semiconductor ETF (FTXL, First Trust): Compute & semiconductors."
+    },
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3674&type=10-K&dateb=&owner=include&start=100&count=100",
+      "quote": "0000029002 DIODES INC /DEL/ TX",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3674 (Semiconductors & related devices): Compute & semiconductors."
+    },
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-xsd.xlsx",
+      "quote": "DIODES INC | DIOD | 254543101 | 2270500 | 2.498594 | - | 748290.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Semiconductor ETF (XSD, State Street): Compute & semiconductors."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-044918\",\"cik\":29002,\"entityName\":\"DIODES INC /DEL/\",\"loc\":\"US-TX\",\"end\":\"2025-06-30\",\"val\":2400000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$2.4 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 2400000000
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=FTXL",
+      "quote": "Diodes Incorporated DIOD 254543101 Semiconductors 88,287 $7,335,766.83 0.65%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$7.3 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 7335767
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=FTXL",
+      "quote": "Diodes Incorporated DIOD 254543101 Semiconductors 88,287 $7,335,766.83 0.65%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker DIOD"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-044918\",\"cik\":29002,\"entityName\":\"DIODES INC /DEL/\",\"loc\":\"US-TX\",\"end\":\"2025-06-30\",\"val\":2400000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 29002"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US2545431015",
+      "quote": "\"lei\":\"549300XP2X1ARVH3BX23\",\"entity\":{\"legalName\":{\"name\":\"DIODES INCORPORATED\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 549300XP2X1ARVH3BX23"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3Fisin%20%3Flabel%20WHERE%20%7B%20VALUES%20%3Fisin%20%7B%20%22US59516C1062%22%20%22US68236H2040%22%20%22US92839U2069%22%20%22US45569U1016%22%20%22US29355A1079%22%20%22US83417M1045%22%20%22US28617B6065%22%20%22US6078281002%22%20%22US0585861083%22%20%22US50125G3074%22%20%22US81758H1068%22%20%22US65481N1000%22%20%22US7311054099%22%20%22US03782L1017%22%20%22US12468P1049%22%20%22US2681501092%22%20%22US81730H1095%22%20%22US6536561086%22%20%22US30303M1027%22%20%22US18915M1071%22%20%22US4592001014%22%20%22US81762P1021%22%20%22US6974351057%22%20%22US17275R1023%22%20%22US7055731035%22%20%22US79466L3024%22%20%22US1273871087%22%20%22US01609W1027%22%20%22US90364P1057%22%20%22US08975B1098%22%20%22US5738741041%22%20%22US7437131094%22%20%22US5949181045%22%20%22US7739031091%22%20%22US5951121038%22%20%22US02079K3059%22%20%22US1924221039%22%20%22US88554D2053%22%20%22US4824801009%22%20%22US5128073062%22%20%22US69370C1009%22%20%22US23804L1035%22%20%22US0378331005%22%20%22US1924461023%22%20%22US2910111044%22%20%22US68213N1090%22%20%22US09239B1098%22%20%22US36262G1013%22%20%22US4581401001%22%20%22US4781601046%22%20%22US8334451098%22%20%22US0527691069%22%20%22US8636671013%22%20%22US00971T1016%22%20%22US0404132054%22%20%22US47215P1066%22%20%22US00724F1012%22%20%22US60937P1066%22%20%22US8825081040%22%20%22US0326541051%22%20%22US0382221051%22%20%22US5950171042%22%20%22US0316521006%22%20%22US29362U1043%22%20%22US6098391054%22%20%22US1727551004%22%20%22US7509171069%22%20%22US9282981086%22%20%22US2545431015%22%20%22US55405Y1001%22%20%22US6833441057%22%20%22US8168501018%22%20%22US0538071038%22%20%22US3463751087%22%20%22US04626A1034%22%20%22US00246W1036%22%20%22US0079731008%22%20%22US00676P1075%22%20%22US5184151042%22%20%22US19247G1076%22%20%7D%20%3Fitem%20wdt%3AP946%20%3Fisin%20.%20OPTIONAL%20%7B%20%3Fitem%20rdfs%3Alabel%20%3Flabel%20FILTER(LANG(%3Flabel)%20%3D%20%22en%22)%20%7D%20%7D",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q5279096\" }, \"label\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"Diodes Incorporated\" }, \"isin\" : { \"type\" : \"literal\", \"value\" : \"US2545431015\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "qid",
+      "detail": "Wikidata QID Q5279096"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US2545431015",
+      "quote": "\"lei\":\"549300XP2X1ARVH3BX23\",\"entity\":{\"legalName\":{\"name\":\"DIODES INCORPORATED\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5279096",
+      "quote": "Diodes Incorporated (Q5279096) — headquarters location: Plano",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5279096",
+      "quote": "Diodes Incorporated (Q5279096) — official website: diodes.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Diodes_Incorporated",
+      "quote": "Diodes Incorporated is a global manufacturer and supplier of application specific standard products within the analog, discrete, power, logic, and mixed-signal semiconductor markets.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "hq": "Plano",
+  "summary": "Diodes Incorporated is a global manufacturer and supplier of application specific standard products within the analog, discrete, power, logic, and mixed-signal semiconductor markets."
+}

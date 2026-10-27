@@ -1,0 +1,10 @@
+{
+  "slug": "power-semiconductors",
+  "name": "Power semiconductors",
+  "parent": "compute-semiconductors",
+  "theme": "compute",
+  "definition": "Silicon-carbide, gallium-nitride and silicon power devices.",
+  "why": "They convert and switch power in data centres, vehicles, robots and grid equipment.",
+  "bottlenecks": ["silicon-carbide-substrate-200-mm-semi-insulating", "gallium-refined"],
+  "keyNumbers": []
+}

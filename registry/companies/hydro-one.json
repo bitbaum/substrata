@@ -1,0 +1,68 @@
+{
+  "slug": "hydro-one",
+  "name": "Hydro One Limited",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "CA",
+  "ids": {
+    "ticker": "H",
+    "exchange": "CT",
+    "cusip": "448811208"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Hydro One Limited H.CT 448811208 Conventional Electricity 4,768,507 $185,134,873.52 1.66%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Hydro One Limited H.CT 448811208 Conventional Electricity 4,768,507 $185,134,873.52 1.66%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$185 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 185134874
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Hydro One Limited H.CT 448811208 Conventional Electricity 4,768,507 $185,134,873.52 1.66%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker H"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Hydro One Limited H.CT 448811208 Conventional Electricity 4,768,507 $185,134,873.52 1.66%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

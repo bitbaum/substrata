@@ -1,0 +1,75 @@
+{
+  "slug": "maxon-motor",
+  "name": "Maxon Motor",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q1914293",
+    "domain": "maxonmotor.ch"
+  },
+  "areas": [
+    {
+      "area": "actuators"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Maxon_Group",
+      "quote": "Maxon Group is a Swiss manufacturer of electric motor drive systems, consisting of AC motors, DC motors, encoders, gears, motor controllers, and sensors.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1914293",
+      "quote": "Maxon Motor (Q1914293) — Wikidata item: Q1914293",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:actuators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Maxon_Group",
+      "quote": "Maxon Group is a Swiss manufacturer of electric motor drive systems, consisting of AC motors, DC motors, encoders, gears, motor controllers, and sensors.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1914293",
+      "quote": "Maxon Motor (Q1914293) — headquarters location: Sachseln",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1914293",
+      "quote": "Maxon Motor (Q1914293) — country (ISO 3166-1 alpha-2): CH",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1914293",
+      "quote": "Maxon Motor (Q1914293) — official website: maxonmotor.ch",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Maxon Group is a Swiss manufacturer of electric motor drive systems, consisting of AC motors, DC motors, encoders, gears, motor controllers, and sensors.",
+  "hq": "Sachseln",
+  "country": "CH"
+}

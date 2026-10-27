@@ -8,7 +8,43 @@
 export const MARKET_SEED_CHECKED_ON = '2026-10-25';
 
 export type Exchange =
-  'NASDAQ' | 'NYSE' | 'Euronext Amsterdam' | 'Euronext Paris' | 'Tokyo' | 'Xetra' | 'ASX' | 'LSE';
+  | 'NASDAQ'
+  | 'NYSE'
+  | 'Euronext Amsterdam'
+  | 'Euronext Paris'
+  | 'Tokyo'
+  | 'Xetra'
+  | 'ASX'
+  | 'LSE'
+  // Venues a universe listing names (lib/market-data/company.ts). "US" is the
+  // composite a fund file prints when it does not say which US exchange.
+  | 'US'
+  | 'London'
+  | 'Hong Kong'
+  | 'Korea'
+  | 'Taiwan'
+  | 'Toronto'
+  | 'SIX'
+  // More venues a universe listing can name; the price source reads each by its suffix.
+  | 'Canada'
+  | 'TSX Venture'
+  | 'Sao Paulo'
+  | 'Madrid'
+  | 'Milan'
+  | 'Stockholm'
+  | 'Oslo'
+  | 'Copenhagen'
+  | 'Helsinki'
+  | 'Vienna'
+  | 'Brussels'
+  | 'Lisbon'
+  | 'Warsaw'
+  | 'Johannesburg'
+  | 'Shanghai'
+  | 'Shenzhen'
+  | 'Singapore'
+  | 'Tel Aviv'
+  | 'India';
 
 export interface Ticker {
   exchange: Exchange;

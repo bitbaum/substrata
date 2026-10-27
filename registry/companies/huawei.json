@@ -1,0 +1,76 @@
+{
+  "slug": "huawei",
+  "name": "Huawei",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q160120",
+    "isin": "HK0000HWEI11",
+    "domain": "huawei.com",
+    "lei": "300300G4NLFHF8PDPY52"
+  },
+  "areas": [
+    {
+      "area": "ai-cloud-platforms"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q160120",
+      "quote": "Huawei (Q160120) — Wikidata item: Q160120",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Huawei",
+      "quote": ", Ltd. is a Chinese multinational technology conglomerate company headquartered in Longgang, Shenzhen, Guangdong.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q160120",
+      "quote": "Huawei (Q160120) — headquarters location: Shenzhen",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q160120",
+      "quote": "Huawei (Q160120) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q160120",
+      "quote": "Huawei (Q160120) — official website: huawei.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q160120",
+      "quote": "Huawei (Q160120) — Legal Entity Identifier: 300300G4NLFHF8PDPY52",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "hq": "Shenzhen",
+  "country": "CN"
+}

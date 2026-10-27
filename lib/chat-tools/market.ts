@@ -8,7 +8,6 @@
  * no source gave a 12-month series. These tools are that series, its returns,
  * and the filings' holders with the rest named for what it is.
  */
-import { participantBySlug } from '../participants';
 import { findMarketCompany, tickerLabel, type MarketCompany } from '../market-data/identity';
 import { priceHistory } from '../market-data/prices/store';
 import { isUnavailable, parseRange } from '../market-data/prices/series';
@@ -16,6 +15,7 @@ import { fundamentals } from '../market-data/fundamentals/read';
 import { annualGrowth, type MetricId, type MetricSeries } from '../market-data/fundamentals/xbrl';
 import { holders } from '../market-data/holders/read';
 import { bigNumber, holdersChart, marketCap, priceResult } from '../market-data/present';
+import { pageSlugFor } from '../market-data/company';
 import { remember, type ToolEnv } from './ledger';
 import { str, type ChatTool } from './tool';
 
@@ -24,7 +24,7 @@ const NOT_SEED =
 
 /** The company page, when the directory has one. */
 function pageOf(c: MarketCompany): string | null {
-  const slug = [c.slug, ...(c.pages ?? [])].find((s) => participantBySlug(s));
+  const slug = pageSlugFor(c);
   return slug ? `/markets/${slug}` : null;
 }
 
@@ -192,7 +192,7 @@ export const MARKET_TOOLS: readonly ChatTool[] = [
         };
       const v = await holders(c, env.market);
       if ('unavailable' in v) return { company: c.name, unavailable: v.reason };
-      const chart = holdersChart(c, v);
+      const chart = holdersChart(c, v, pageOf(c));
       note(env, c, 'Holders', v.holders[0]?.source.url ?? 'https://www.sec.gov/');
       return {
         company: c.name,

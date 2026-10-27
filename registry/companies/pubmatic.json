@@ -1,0 +1,80 @@
+{
+  "slug": "pubmatic",
+  "name": "PubMatic, Inc.",
+  "aliases": ["Pubmatic Inc", "Pubmatic, Inc."],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "PUBM",
+    "exchange": "US",
+    "sedol": "BNHP503",
+    "cik": "1422930"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/clou_full-holdings_20261026.csv",
+      "quote": "0.36,PUBM,PUBMATIC INC-CLASS A,BNHP503,16.59,\"94,061.00\",\"1,560,471.99\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Cloud Computing ETF (CLOU, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001422930-26-000010\",\"cik\":1422930,\"entityName\":\"PUBMATIC, INC.\",\"loc\":\"-\",\"end\":\"2025-06-30\",\"val\":458300000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$458 million public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 458300000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/clou_full-holdings_20261026.csv",
+      "quote": "0.36,PUBM,PUBMATIC INC-CLASS A,BNHP503,16.59,\"94,061.00\",\"1,560,471.99\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker PUBM"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001422930-26-000010\",\"cik\":1422930,\"entityName\":\"PUBMATIC, INC.\",\"loc\":\"-\",\"end\":\"2025-06-30\",\"val\":458300000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1422930"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/clou_full-holdings_20261026.csv",
+      "quote": "0.36,PUBM,PUBMATIC INC-CLASS A,BNHP503,16.59,\"94,061.00\",\"1,560,471.99\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

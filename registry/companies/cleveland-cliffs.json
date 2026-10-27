@@ -1,0 +1,127 @@
+{
+  "slug": "cleveland-cliffs",
+  "name": "Cleveland-Cliffs",
+  "aliases": ["Cleveland-Cliffs Inc."],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "qid": "Q5133094",
+    "cik": "764065",
+    "isin": "US18683K1016",
+    "ticker": "CLF",
+    "exchange": "NYSE",
+    "domain": "clevelandcliffs.com"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://www.clevelandcliffs.com/operations/steelmaking/butler-works",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: makes Grain-oriented electrical steel (GOES)."
+    },
+    {
+      "field": "area:advanced-materials",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=1000&type=10-K&dateb=&owner=include&start=100&count=100",
+      "quote": "0000764065 CLEVELAND-CLIFFS INC. OH",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 1000 (Metal mining): Advanced materials & critical minerals."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.clevelandcliffs.com/operations/steelmaking/butler-works",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: makes Grain-oriented electrical steel (GOES)."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=764065",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker CLF"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=764065",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 764065"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.clevelandcliffs.com/operations/steelmaking/butler-works",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Cleveland-Cliffs",
+      "quote": "Cleveland-Cliffs Inc. is an American steel manufacturer based in Cleveland, Ohio.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5133094",
+      "quote": "Cleveland-Cliffs (Q5133094) — Wikidata item: Q5133094",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5133094",
+      "quote": "Cleveland-Cliffs (Q5133094) — headquarters location: Cleveland",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5133094",
+      "quote": "Cleveland-Cliffs (Q5133094) — official website: clevelandcliffs.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Cleveland-Cliffs Inc. is an American steel manufacturer based in Cleveland, Ohio.",
+  "hq": "Cleveland"
+}

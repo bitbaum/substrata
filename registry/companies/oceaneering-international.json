@@ -1,0 +1,137 @@
+{
+  "slug": "oceaneering-international",
+  "name": "Oceaneering International",
+  "aliases": [
+    "Oceaneering International, Inc.",
+    "Oceaneering International Inc",
+    "Oceaneering Intl Inc"
+  ],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "lei": "549300L6PH74701W0R30",
+    "isin": "US6752321025",
+    "cik": "73756",
+    "qid": "Q1150535",
+    "ticker": "OII",
+    "exchange": "US",
+    "cusip": "675232102",
+    "sedol": "2655583",
+    "domain": "oceaneering.com"
+  },
+  "areas": [
+    {
+      "area": "space"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:space",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-rokt.xlsx",
+      "quote": "OCEANEERING INTL INC | OII | 675232102 | 2655583 | 3.64086 | - | 137345.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "space",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Kensho Final Frontiers ETF (ROKT, State Street): Space & launch."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0000073756-26-000016\",\"cik\":73756,\"entityName\":\"OCEANEERING INTERNATIONAL INC\",\"loc\":\"US-TX\",\"end\":\"2025-06-30\",\"val\":2000000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$2.0 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 2000000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[73756,\"OCEANEERING INTERNATIONAL INC\",\"OII\",\"NYSE\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker OII"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0000073756-26-000016\",\"cik\":73756,\"entityName\":\"OCEANEERING INTERNATIONAL INC\",\"loc\":\"US-TX\",\"end\":\"2025-06-30\",\"val\":2000000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 73756"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US6752321025",
+      "quote": "\"lei\":\"549300L6PH74701W0R30\",\"entity\":{\"legalName\":{\"name\":\"OCEANEERING INTERNATIONAL, INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 549300L6PH74701W0R30"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3Fisin%20%3Flabel%20WHERE%20%7B%20VALUES%20%3Fisin%20%7B%20%22US45676K1034%22%20%22US76655K1034%22%20%22US46222L1089%22%20%22US0558691012%22%20%22US26740W1099%22%20%22US74767K1034%22%20%22US34984V2097%22%20%22US6752321025%22%20%22US48242W1062%22%20%22US5253271028%22%20%22US92552V1008%22%20%22US0320951017%22%20%22US70202L1026%22%20%22US8542311076%22%20%22US8485603067%22%20%22US72703X1063%22%20%22US87305R1095%22%20%22US87157D1090%22%20%22US91347P1057%22%20%22US83088M1027%22%20%22US4532041096%22%20%22US8269191024%22%20%22US7069151055%22%20%22US7392761034%22%20%22US57776J1007%22%20%22US3364331070%22%20%22US82982T1060%22%20%22US63942X1063%22%20%22US15675D1037%22%20%22US0231931058%22%20%22US97785W1062%22%20%22US1572101053%22%20%22US5006001011%22%20%22US35834F1049%22%20%22US30041T1043%22%20%7D%20%3Fitem%20wdt%3AP946%20%3Fisin%20.%20OPTIONAL%20%7B%20%3Fitem%20rdfs%3Alabel%20%3Flabel%20FILTER(LANG(%3Flabel)%20%3D%20%22en%22)%20%7D%20%7D",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q1150535\" }, \"label\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"Oceaneering International\" }, \"isin\" : { \"type\" : \"literal\", \"value\" : \"US6752321025\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "qid",
+      "detail": "Wikidata QID Q1150535"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US6752321025",
+      "quote": "\"lei\":\"549300L6PH74701W0R30\",\"entity\":{\"legalName\":{\"name\":\"OCEANEERING INTERNATIONAL, INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1150535",
+      "quote": "Oceaneering International (Q1150535) — headquarters location: Houston",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1150535",
+      "quote": "Oceaneering International (Q1150535) — official website: oceaneering.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Oceaneering_International",
+      "quote": "Oceaneering International, Inc.S. that provides engineered services and hardware to customers who operate in marine, space, and other environments.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "hq": "Houston",
+  "summary": "Oceaneering International, Inc.S. that provides engineered services and hardware to customers who operate in marine, space, and other environments."
+}

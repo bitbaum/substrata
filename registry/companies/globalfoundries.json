@@ -1,0 +1,147 @@
+{
+  "slug": "globalfoundries",
+  "name": "GlobalFoundries",
+  "aliases": ["GLOBALFOUNDRIES Inc."],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "qid": "Q691592",
+    "cik": "1709048",
+    "isin": "KYG393871085",
+    "ticker": "GFS",
+    "exchange": "Nasdaq",
+    "domain": "gf.com",
+    "lei": "549300BA76VK784VMX48"
+  },
+  "areas": [
+    {
+      "area": "compute-semiconductors"
+    },
+    {
+      "area": "foundry"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "stated",
+      "source": "https://gf.com/technology-platforms/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Mature and specialty nodes."
+    },
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3674&type=10-K&dateb=&owner=include&start=100&count=100",
+      "quote": "0001709048 GLOBALFOUNDRIES Inc. NY",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3674 (Semiconductors & related devices): Compute & semiconductors."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://gf.com/technology-platforms/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Mature and specialty nodes."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1709048",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker GFS"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1709048",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1709048"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://gf.com/technology-platforms/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/GlobalFoundries",
+      "quote": "GlobalFoundries Inc. is a multinational semiconductor technology development, design and contract manufacturing company domiciled in the Cayman Islands and headquartered in Malta, New York.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q691592",
+      "quote": "GlobalFoundries (Q691592) — Wikidata item: Q691592",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:foundry",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/GlobalFoundries",
+      "quote": "GlobalFoundries Inc. is a multinational semiconductor technology development, design and contract manufacturing company domiciled in the Cayman Islands and headquartered in Malta, New York.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q691592",
+      "quote": "GlobalFoundries (Q691592) — headquarters location: Malta",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q691592",
+      "quote": "GlobalFoundries (Q691592) — official website: gf.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q691592",
+      "quote": "GlobalFoundries (Q691592) — Legal Entity Identifier: 549300BA76VK784VMX48",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "GlobalFoundries Inc. is a multinational semiconductor technology development, design and contract manufacturing company domiciled in the Cayman Islands and headquartered in Malta, New York.",
+  "hq": "Malta"
+}

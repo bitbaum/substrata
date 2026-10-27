@@ -17,12 +17,10 @@ import type { AnswerTable } from './answer-table';
 export interface AnswerChart {
   id: string;
   block: ChartBlock;
-  /**
-   * What a share bar's remainder is ("Others, each below 5%"). chartkit's
-   * ShareBars names that segment "Other", so the figure's caption says what it
-   * is; pass it as the legend label once chartkit takes one.
-   */
+  /** What a share bar's remainder is ("Others, each below 5%"): its legend label. */
   otherLabel?: string;
+  /** The company page the figures belong on: the answer links "Open <name>" to it. */
+  page?: { label: string; href: string };
   /** Where every figure in it comes from. */
   source: { label: string; url: string };
   /** What the reader must know to read it right (basis, delay, dates). */

@@ -1,0 +1,134 @@
+{
+  "slug": "hexagon-ab-class-b",
+  "name": "Hexagon AB (Class B)",
+  "aliases": ["Hexagon AB"],
+  "kind": "public",
+  "status": "active",
+  "country": "SE",
+  "ids": {
+    "ticker": "HEXAB",
+    "exchange": "SS",
+    "cusip": "W4R431112",
+    "qid": "Q820970",
+    "isin": "SE0000103699",
+    "domain": "hexagon.com",
+    "cik": "1414531",
+    "lei": "549300WJFW6ILNI4TA80"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    },
+    {
+      "area": "robot-sensors"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Hexagon AB (Class B) HEXAB.SS W4R431112 Information Technology 1,143,451 $12,572,401.36 1.68%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Artificial Intelligence and Robotics ETF (ROBT, First Trust): Robotics & autonomy."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Hexagon AB (Class B) HEXAB.SS W4R431112 Information Technology 1,143,451 $12,572,401.36 1.68%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$13 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 12572401
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Hexagon AB (Class B) HEXAB.SS W4R431112 Information Technology 1,143,451 $12,572,401.36 1.68%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker HEXAB"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Hexagon AB (Class B) HEXAB.SS W4R431112 Information Technology 1,143,451 $12,572,401.36 1.68%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hexagon_AB",
+      "quote": "Hexagon AB is a multinational industrial technology company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q820970",
+      "quote": "Hexagon AB (Q820970) — Wikidata item: Q820970",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:robot-sensors",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hexagon_AB",
+      "quote": "Hexagon AB is a multinational industrial technology company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q820970",
+      "quote": "Hexagon AB (Q820970) — headquarters location: Stockholm",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q820970",
+      "quote": "Hexagon AB (Q820970) — official website: hexagon.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q820970",
+      "quote": "Hexagon AB (Q820970) — SEC Central Index Key: 1414531",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q820970",
+      "quote": "Hexagon AB (Q820970) — Legal Entity Identifier: 549300WJFW6ILNI4TA80",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Hexagon AB is a multinational industrial technology company.",
+  "hq": "Stockholm"
+}

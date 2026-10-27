@@ -1,0 +1,85 @@
+{
+  "slug": "basf",
+  "name": "BASF",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q9401",
+    "isin": "DE000BASF111",
+    "domain": "basf.com",
+    "lei": "529900A9NIYR2QY8GP86"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/BASF",
+      "quote": "BASF SE, an initialism of its original name Badische Anilin- & Soda-Fabrik, is a German multinational company and the largest chemical producer in the world.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q9401",
+      "quote": "BASF (Q9401) — Wikidata item: Q9401",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:advanced-materials",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/BASF",
+      "quote": "BASF SE, an initialism of its original name Badische Anilin- & Soda-Fabrik, is a German multinational company and the largest chemical producer in the world.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q9401",
+      "quote": "BASF (Q9401) — headquarters location: Ludwigshafen",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q9401",
+      "quote": "BASF (Q9401) — country (ISO 3166-1 alpha-2): DE",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q9401",
+      "quote": "BASF (Q9401) — official website: basf.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q9401",
+      "quote": "BASF (Q9401) — Legal Entity Identifier: 529900A9NIYR2QY8GP86",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "BASF SE, an initialism of its original name Badische Anilin- & Soda-Fabrik, is a German multinational company and the largest chemical producer in the world.",
+  "hq": "Ludwigshafen",
+  "country": "DE"
+}

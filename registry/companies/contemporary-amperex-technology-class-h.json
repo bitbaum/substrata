@@ -1,0 +1,68 @@
+{
+  "slug": "contemporary-amperex-technology-class-h",
+  "name": "Contemporary Amperex Technology Co., Ltd. (Class H)",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "HK",
+  "ids": {
+    "ticker": "3750",
+    "exchange": "HK",
+    "cusip": "Y1R48E113"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Contemporary Amperex Technology Co., Ltd. (Class H) 3750.HK Y1R48E113 Electrical Components 119,480 $5,433,712.43 0.05%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Contemporary Amperex Technology Co., Ltd. (Class H) 3750.HK Y1R48E113 Electrical Components 119,480 $5,433,712.43 0.05%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$5.4 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 5433712
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Contemporary Amperex Technology Co., Ltd. (Class H) 3750.HK Y1R48E113 Electrical Components 119,480 $5,433,712.43 0.05%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 3750"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Contemporary Amperex Technology Co., Ltd. (Class H) 3750.HK Y1R48E113 Electrical Components 119,480 $5,433,712.43 0.05%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

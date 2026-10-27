@@ -1,0 +1,134 @@
+{
+  "slug": "meituan",
+  "name": "Meituan",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "HK",
+  "ids": {
+    "qid": "Q15907772",
+    "isin": "KYG596691041",
+    "ticker": "3690",
+    "exchange": "HK",
+    "sedol": "BGJW376",
+    "domain": "meituan.com",
+    "cik": "1818611",
+    "lei": "21380033K525E5JLIA77"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    },
+    {
+      "area": "ai-software-tooling"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.42,3690 HK,MEITUAN-CLASS B,BGJW376,9.438952729436654,\"4,570,815.00\",\"43,143,706.72\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Artificial Intelligence & Technology ETF (AIQ, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.42,3690 HK,MEITUAN-CLASS B,BGJW376,9.438952729436654,\"4,570,815.00\",\"43,143,706.72\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$43 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 43143707
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.42,3690 HK,MEITUAN-CLASS B,BGJW376,9.438952729436654,\"4,570,815.00\",\"43,143,706.72\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 3690"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.42,3690 HK,MEITUAN-CLASS B,BGJW376,9.438952729436654,\"4,570,815.00\",\"43,143,706.72\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Meituan",
+      "quote": "Meituan is a Chinese technology company that operates a platform for local services including on‑demand food delivery, in‑store services and consumer reviews under the Dazhong Dianping brand, hotel and travel bookings, and instant retail.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q15907772",
+      "quote": "Meituan (Q15907772) — Wikidata item: Q15907772",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Meituan",
+      "quote": "Meituan is a Chinese technology company that operates a platform for local services including on‑demand food delivery, in‑store services and consumer reviews under the Dazhong Dianping brand, hotel and travel bookings, and instant retail.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q15907772",
+      "quote": "Meituan (Q15907772) — headquarters location: Beijing",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q15907772",
+      "quote": "Meituan (Q15907772) — official website: meituan.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q15907772",
+      "quote": "Meituan (Q15907772) — SEC Central Index Key: 1818611",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q15907772",
+      "quote": "Meituan (Q15907772) — Legal Entity Identifier: 21380033K525E5JLIA77",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Meituan is a Chinese technology company that operates a platform for local services including on‑demand food delivery, in‑store services and consumer reviews under the Dazhong Dianping brand, hotel and travel bookings, and instant retail.",
+  "hq": "Beijing"
+}

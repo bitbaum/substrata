@@ -2,20 +2,20 @@ import { StatTiles, type StatTile } from '@bitbaum/chartkit/react';
 import { SCARCITY_LABEL, type MarketParticipant } from '@/lib/participants';
 import { marketsBy } from '@/lib/links';
 import type { CompanyProfile } from '@/lib/company-profile';
+import { companyExposure } from '@/lib/company-exposure';
 import { listingFor, terminalTicker } from '@/lib/listings';
 import { ownershipView } from '@/lib/ownership';
 import { eventSummary } from '@/lib/profile/modules/company-happened';
 
 /**
  * At a glance: five equal tiles under a company's name, the same five on
- * every company — bottlenecks held, hardest binding, directory grade,
+ * every company — exposure (what it rests on, holds, constrains), hardest binding, directory grade,
  * listing, events — drawn by @bitbaum/chartkit's StatTiles. Each links to
  * the section or page that holds the rows it counts and their provenance
  * (the Figure popovers live there), so a figure here is never the end of
  * the road.
  */
 export function AtAGlance({ p, profile }: { p: MarketParticipant; profile: CompanyProfile }) {
-  const { held, soleRecorded, hardest } = profile;
   const listing = listingFor(p.slug);
   const owner = ownershipView(p.slug);
   const events = eventSummary(profile);
@@ -42,25 +42,35 @@ export function AtAGlance({ p, profile }: { p: MarketParticipant; profile: Compa
     return [home, second].filter(Boolean).join(' · ') || 'listed';
   }
 
+  const x = companyExposure({ slug: p.slug, name: p.name });
+  const rows = [
+    ...x.constrainedBy.map((d) => ({ ...d.chokepoint, how: 'rests on it' })),
+    ...x.holds.map((h) => ({ ...h.chokepoint, how: 'holds it' })),
+  ].sort((a, b) => b.binding - a.binding);
+  const hardest = rows[0];
+  const recorded = x.counts.exposedTo + x.counts.holds + x.counts.constrainsOrganisations > 0;
+
   const tiles: StatTile[] = [
     {
-      label: 'Bottlenecks held',
-      value: `${held.length} of ${profile.trackedBottlenecks}`,
-      note:
-        held.length === 0
-          ? 'none of the tracked rows'
-          : soleRecorded.length > 0
-            ? `${soleRecorded.length} with no other maker recorded`
-            : 'each with another maker recorded',
-      href: held.length > 0 ? '#chokepoints' : '/bottlenecks',
+      label: 'Exposed to',
+      value: recorded ? `${x.counts.exposedTo} of ${x.counts.tracked}` : 'Not recorded',
+      note: recorded
+        ? [
+            x.counts.holds > 0 ? `holds ${x.counts.holds}` : '',
+            x.counts.constrainsOrganisations > 0
+              ? `a constraint on ${x.counts.constrainsOrganisations} ${x.counts.constrainsOrganisations === 1 ? 'organisation' : 'organisations'}`
+              : 'who waits on it is not recorded',
+          ]
+            .filter(Boolean)
+            .join(' · ')
+        : 'a gap in the sources read, not none',
+      href: '#constrained-by',
     },
     {
       label: 'Hardest binding',
-      value: hardest ? `${hardest.bottleneck.binding} of 12` : '—',
-      note: hardest
-        ? `${hardest.bottleneck.name} · judged ${hardest.bottleneck.judgedOn}`
-        : 'holds no tracked row',
-      href: hardest ? '#chokepoints' : '/bottlenecks',
+      value: hardest ? `${hardest.binding} of 12` : '—',
+      note: hardest ? `${hardest.name} · ${hardest.how}` : 'no exposure recorded yet',
+      href: hardest ? '#constrained-by' : '#constrains',
     },
     {
       label: 'Directory grade',

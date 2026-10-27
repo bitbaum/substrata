@@ -1,0 +1,92 @@
+{
+  "slug": "crown-castle",
+  "name": "Crown Castle Inc.",
+  "aliases": ["Crown Castle Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "CCI",
+    "exchange": "US",
+    "sedol": "BTGQCX1",
+    "cik": "1051470"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "10.91,CCI,CROWN CASTLE INC,BTGQCX1,87.47,\"2,375,872.00\",\"207,817,523.84\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Data Center & Digital Infrastructure ETF (DTCR, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "10.91,CCI,CROWN CASTLE INC,BTGQCX1,87.47,\"2,375,872.00\",\"207,817,523.84\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$208 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 207817524
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001051470-26-000016\",\"cik\":1051470,\"entityName\":\"CROWN CASTLE INC\",\"loc\":\"US-TX\",\"end\":\"2025-06-30\",\"val\":44700000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$45 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 44700000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "10.91,CCI,CROWN CASTLE INC,BTGQCX1,87.47,\"2,375,872.00\",\"207,817,523.84\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker CCI"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001051470-26-000016\",\"cik\":1051470,\"entityName\":\"CROWN CASTLE INC\",\"loc\":\"US-TX\",\"end\":\"2025-06-30\",\"val\":44700000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1051470"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "10.91,CCI,CROWN CASTLE INC,BTGQCX1,87.47,\"2,375,872.00\",\"207,817,523.84\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

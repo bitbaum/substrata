@@ -8,6 +8,9 @@ import adapterFile from '@/research/universe.json';
 import agentRows from '@/config/candidates/universe.json';
 import { HOME_COMPOSITE } from '@/lib/listings';
 import { nameKey } from '@/lib/sources/name-key';
+import { registry } from '@/lib/registry/load';
+import { overlayRegistry } from '@/lib/registry/overlay';
+import { participantBySlug } from '@/lib/participants';
 import { admit } from './admit';
 import { chainRoleOf, listedIds, tierAParticipants } from './tier-a';
 import type { Identifiers, UniverseCandidate, UniverseEntry, UniverseRow } from './types';
@@ -164,6 +167,10 @@ export function buildUniverse(
       aliases: names,
     };
   });
+  return withEntries(today, entries);
+}
+
+function withEntries(today: string, entries: UniverseEntry[]): Built {
   const bySlug = new Map(entries.map((e) => [e.slug, e]));
   const byLabel = new Map<string, UniverseEntry>();
   const label = (s: string | undefined, e: UniverseEntry) => {
@@ -180,9 +187,25 @@ export function buildUniverse(
   return { today, entries, bySlug, byLabel };
 }
 
+/**
+ * The list: the registry (registry/companies) over what the filter finds. A
+ * registered company is in; a company only the filter admits is a proposal
+ * (docs/architecture/2026-10-28-frontier-registry.md).
+ */
 export function universe(): Built {
   const today = todayIso();
-  if (!built || built.today !== today) built = buildUniverse(undefined, today);
+  if (!built || built.today !== today) {
+    const filtered = buildUniverse(undefined, today);
+    const r = registry();
+    built = withEntries(
+      filtered.today,
+      overlayRegistry(filtered.entries, {
+        companies: r.companies,
+        areas: r.areas,
+        isProfiled: (slug) => Boolean(participantBySlug(slug)),
+      }),
+    );
+  }
   return built;
 }
 

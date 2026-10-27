@@ -1,0 +1,68 @@
+{
+  "slug": "sunevision",
+  "name": "Sunevision Holdings",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "HK",
+  "ids": {
+    "ticker": "1686",
+    "exchange": "HK",
+    "sedol": "6222217"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "0.63,1686 HK,SUNEVISION HOLDINGS,6222217,0.6220403688758416,\"19,280,200.00\",\"11,993,062.72\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Data Center & Digital Infrastructure ETF (DTCR, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "0.63,1686 HK,SUNEVISION HOLDINGS,6222217,0.6220403688758416,\"19,280,200.00\",\"11,993,062.72\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$12 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 11993063
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "0.63,1686 HK,SUNEVISION HOLDINGS,6222217,0.6220403688758416,\"19,280,200.00\",\"11,993,062.72\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 1686"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "0.63,1686 HK,SUNEVISION HOLDINGS,6222217,0.6220403688758416,\"19,280,200.00\",\"11,993,062.72\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

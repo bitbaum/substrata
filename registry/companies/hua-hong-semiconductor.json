@@ -1,0 +1,76 @@
+{
+  "slug": "hua-hong-semiconductor",
+  "name": "Hua Hong Semiconductor",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q109344306",
+    "isin": "HK0000218211",
+    "domain": "hhgrace.com"
+  },
+  "areas": [
+    {
+      "area": "foundry"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hua_Hong_Semiconductor",
+      "quote": "Hua Hong Semiconductor Limited is a publicly listed Chinese pure-play semiconductor foundry company based in Shanghai, established in 1996 as part of China's national efforts to boost its IC industry.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q109344306",
+      "quote": "Hua Hong Semiconductor (Q109344306) — Wikidata item: Q109344306",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:foundry",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hua_Hong_Semiconductor",
+      "quote": "Hua Hong Semiconductor Limited is a publicly listed Chinese pure-play semiconductor foundry company based in Shanghai, established in 1996 as part of China's national efforts to boost its IC industry.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q109344306",
+      "quote": "Hua Hong Semiconductor (Q109344306) — headquarters location: Shanghai",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q109344306",
+      "quote": "Hua Hong Semiconductor (Q109344306) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q109344306",
+      "quote": "Hua Hong Semiconductor (Q109344306) — official website: hhgrace.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Hua Hong Semiconductor Limited is a publicly listed Chinese pure-play semiconductor foundry company based in Shanghai, established in 1996 as part of China's national efforts to boost its IC industry.",
+  "hq": "Shanghai",
+  "country": "CN"
+}

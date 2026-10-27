@@ -1,0 +1,75 @@
+{
+  "slug": "kairos-power",
+  "name": "Kairos Power",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q119857284",
+    "domain": "kairospower.com"
+  },
+  "areas": [
+    {
+      "area": "fission-smr"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Kairos_Power",
+      "quote": "Kairos Power LLC is an American nuclear energy company founded in 2016 that is developing fluoride salt-cooled high-temperature reactors (FHRs), a type of molten-salt reactor, in a small modular reactor (SMR) form factor.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q119857284",
+      "quote": "Kairos Power (Q119857284) — Wikidata item: Q119857284",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:fission-smr",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Kairos_Power",
+      "quote": "Kairos Power LLC is an American nuclear energy company founded in 2016 that is developing fluoride salt-cooled high-temperature reactors (FHRs), a type of molten-salt reactor, in a small modular reactor (SMR) form factor.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q119857284",
+      "quote": "Kairos Power (Q119857284) — headquarters location: Alameda",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q119857284",
+      "quote": "Kairos Power (Q119857284) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q119857284",
+      "quote": "Kairos Power (Q119857284) — official website: kairospower.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Kairos Power LLC is an American nuclear energy company founded in 2016 that is developing fluoride salt-cooled high-temperature reactors (FHRs), a type of molten-salt reactor, in a small modular reactor (SMR) form factor.",
+  "hq": "Alameda",
+  "country": "US"
+}

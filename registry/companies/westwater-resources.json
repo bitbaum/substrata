@@ -1,0 +1,76 @@
+{
+  "slug": "westwater-resources",
+  "name": "Westwater Resources",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q17086854",
+    "isin": "US9616842061",
+    "domain": "uraniumresources.com"
+  },
+  "areas": [
+    {
+      "area": "critical-minerals"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Westwater_Resources",
+      "quote": "Westwater Resources, Inc. (WWR), is an explorer and developer of US-based mineral resources essential to clean energy production.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17086854",
+      "quote": "Uranium Resources (Q17086854) — Wikidata item: Q17086854",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Westwater_Resources",
+      "quote": "Westwater Resources, Inc. (WWR), is an explorer and developer of US-based mineral resources essential to clean energy production.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17086854",
+      "quote": "Uranium Resources (Q17086854) — headquarters location: Lewisville",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17086854",
+      "quote": "Uranium Resources (Q17086854) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17086854",
+      "quote": "Uranium Resources (Q17086854) — official website: uraniumresources.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Westwater Resources, Inc. (WWR), is an explorer and developer of US-based mineral resources essential to clean energy production.",
+  "hq": "Lewisville",
+  "country": "US"
+}

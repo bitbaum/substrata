@@ -1,0 +1,142 @@
+{
+  "slug": "grab",
+  "name": "Grab Holdings Ltd",
+  "aliases": ["Grab Holdings Limited"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "qid": "Q20873932",
+    "cik": "0001855612",
+    "isin": "KYG4124C1096",
+    "ticker": "GRAB",
+    "exchange": "US",
+    "cusip": "G4124C109",
+    "sedol": "BP6NH40",
+    "domain": "grab.com"
+  },
+  "areas": [
+    {
+      "area": "mobility"
+    },
+    {
+      "area": "autonomous-vehicles"
+    },
+    {
+      "area": "ai-software-tooling"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-hail.xlsx",
+      "quote": "GRAB HOLDINGS LTD   CL A | GRAB | G4124C109 | BP6NH40 | 0.956617 | - | 56219.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Kensho Smart Mobility ETF (HAIL, State Street): Electric mobility."
+    },
+    {
+      "field": "size:revenue",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001855612.json",
+      "quote": "{\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"val\":3370000000,\"accn\":\"0001855612-26-000020\",\"fy\":2025,\"fp\":\"FY\",\"form\":\"20-F\",\"filed\":\"2026-03-06\",\"frame\":\"CY2025\"}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-12-31",
+      "test": "materiality",
+      "basis": "revenue",
+      "detail": "US$3.4 billion annual revenue (floor US$250 million).",
+      "usd": 3370000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[1855612,\"Grab Holdings Ltd\",\"GRAB\",\"Nasdaq\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker GRAB"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001855612.json",
+      "quote": "{\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"val\":3370000000,\"accn\":\"0001855612-26-000020\",\"fy\":2025,\"fp\":\"FY\",\"form\":\"20-F\",\"filed\":\"2026-03-06\",\"frame\":\"CY2025\"}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-12-31",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 0001855612"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[1855612,\"Grab Holdings Ltd\",\"GRAB\",\"Nasdaq\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1855612"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-hail.xlsx",
+      "quote": "GRAB HOLDINGS LTD   CL A | GRAB | G4124C109 | BP6NH40 | 0.956617 | - | 56219.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Grab_Holdings",
+      "quote": "Grab Holdings Inc. is a Singaporean multinational technology company headquartered in one-north, Singapore.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q20873932",
+      "quote": "Grab (Q20873932) — Wikidata item: Q20873932",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Grab_Holdings",
+      "quote": "Grab Holdings Inc. is a Singaporean multinational technology company headquartered in one-north, Singapore.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Grab_Holdings",
+      "quote": "Grab Holdings Inc. is a Singaporean multinational technology company headquartered in one-north, Singapore.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q20873932",
+      "quote": "Grab (Q20873932) — official website: grab.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Grab Holdings Inc. is a Singaporean multinational technology company headquartered in one-north, Singapore."
+}

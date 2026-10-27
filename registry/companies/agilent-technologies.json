@@ -1,0 +1,149 @@
+{
+  "slug": "agilent-technologies",
+  "name": "Agilent Technologies, Inc.",
+  "aliases": ["Agilent Technologies Inc", "Agilent Technologies, Inc."],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "qid": "Q393762",
+    "cik": "1090872",
+    "isin": "US00846U1016",
+    "ticker": "A",
+    "exchange": "US",
+    "sedol": "2520153",
+    "domain": "agilent.com",
+    "lei": "QUIX8Y7A2WP0XRMW7G29"
+  },
+  "areas": [
+    {
+      "area": "biotech-and-longevity"
+    },
+    {
+      "area": "synthetic-biology"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:biotech-and-longevity",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "0.37,A,AGILENT TECHNOLOGIES INC,2520153,175.96,\"2,212.00\",\"389,223.52\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "biotools",
+      "basis": "fund",
+      "detail": "Held by Global X Genomics & Biotechnology ETF (GNOM, Global X): Biotech tools."
+    },
+    {
+      "field": "area:biotech-and-longevity",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3826&type=10-K&dateb=&owner=include&start=0&count=100",
+      "quote": "0001090872 AGILENT TECHNOLOGIES, INC. CA",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "biotools",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3826 (Laboratory analytical instruments): Biotech tools."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q1I.json",
+      "quote": "{\"accn\":\"0001090872-25-000087\",\"cik\":1090872,\"entityName\":\"Agilent Technologies, Inc.\",\"loc\":\"US-CA\",\"end\":\"2025-04-30\",\"val\":26600000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-04-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$27 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 26600000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "0.37,A,AGILENT TECHNOLOGIES INC,2520153,175.96,\"2,212.00\",\"389,223.52\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker A"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q1I.json",
+      "quote": "{\"accn\":\"0001090872-25-000087\",\"cik\":1090872,\"entityName\":\"Agilent Technologies, Inc.\",\"loc\":\"US-CA\",\"end\":\"2025-04-30\",\"val\":26600000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-04-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1090872"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "0.37,A,AGILENT TECHNOLOGIES INC,2520153,175.96,\"2,212.00\",\"389,223.52\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Agilent_Technologies",
+      "quote": "Agilent Technologies, Inc. is an American global company headquartered in Santa Clara, California, that provides instruments, software, services, and consumables for laboratories.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q393762",
+      "quote": "Agilent Technologies (Q393762) — Wikidata item: Q393762",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:synthetic-biology",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Agilent_Technologies",
+      "quote": "Agilent Technologies, Inc. is an American global company headquartered in Santa Clara, California, that provides instruments, software, services, and consumables for laboratories.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q393762",
+      "quote": "Agilent Technologies (Q393762) — headquarters location: Santa Clara",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q393762",
+      "quote": "Agilent Technologies (Q393762) — official website: agilent.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q393762",
+      "quote": "Agilent Technologies (Q393762) — Legal Entity Identifier: QUIX8Y7A2WP0XRMW7G29",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Agilent Technologies, Inc. is an American global company headquartered in Santa Clara, California, that provides instruments, software, services, and consumables for laboratories.",
+  "hq": "Santa Clara"
+}

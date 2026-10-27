@@ -1,0 +1,10 @@
+{
+  "slug": "synthetic-biology",
+  "name": "Synthetic biology and AI drug discovery",
+  "parent": "biotech-and-longevity",
+  "theme": "biotools",
+  "definition": "Biofoundries, protein design and AI-driven discovery platforms.",
+  "why": "Compute applied to biology; depends on lab automation and sequencing.",
+  "bottlenecks": [],
+  "keyNumbers": []
+}

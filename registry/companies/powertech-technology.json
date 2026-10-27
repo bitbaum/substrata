@@ -1,0 +1,75 @@
+{
+  "slug": "powertech-technology",
+  "name": "Powertech Technology",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q10900654",
+    "domain": "pti.com.tw"
+  },
+  "areas": [
+    {
+      "area": "advanced-packaging"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Powertech_Technology",
+      "quote": "Powertech Technology Inc. is a Taiwanese semiconductor assembly, packaging and testing company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q10900654",
+      "quote": "Powertech Technology (Q10900654) — Wikidata item: Q10900654",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:advanced-packaging",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Powertech_Technology",
+      "quote": "Powertech Technology Inc. is a Taiwanese semiconductor assembly, packaging and testing company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q10900654",
+      "quote": "Powertech Technology (Q10900654) — headquarters location: Hsinchu Industrial Park",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q10900654",
+      "quote": "Powertech Technology (Q10900654) — country (ISO 3166-1 alpha-2): TW",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q10900654",
+      "quote": "Powertech Technology (Q10900654) — official website: pti.com.tw",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Powertech Technology Inc. is a Taiwanese semiconductor assembly, packaging and testing company.",
+  "hq": "Hsinchu Industrial Park",
+  "country": "TW"
+}

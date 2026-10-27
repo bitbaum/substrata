@@ -35,6 +35,7 @@ export type Membership =
       failed: { test: TestId; reason: string }[];
       setAside: UniverseEntry['setAside'];
     }
+  | { status: 'proposed'; name: string; href: string; themes: string[]; why: string }
   | { status: 'considered'; name: string; looked: string[]; why: string; on: string }
   | { status: 'named'; name: string; href: string; tier: 'C'; why: string }
   | { status: 'queued'; name: string; why: string; task: GapTask };
@@ -97,6 +98,14 @@ export function whyCompany(nameOrId: string, deps: WhyDeps = {}): Membership {
       tierLabel: TIERS.find((t) => t.tier === entry.tier)!.label,
       themes: entry.themes.map((t) => themeById(t)!.label),
       admittedBy: entry.admittedBy,
+    };
+  if (entry?.proposed)
+    return {
+      status: 'proposed',
+      name: entry.name,
+      href: `/markets/${entry.slug}`,
+      themes: entry.themes.map((t) => themeById(t)!.label),
+      why: 'It passes the old filter (theme, size, identity) but nobody has registered it yet, so it is a proposal awaiting review, not on the list.',
     };
   const looked = considered(entry?.name ?? name);
   if (looked) return { status: 'considered', ...looked };

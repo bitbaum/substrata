@@ -1,0 +1,125 @@
+{
+  "slug": "antofagasta-plc",
+  "name": "Antofagasta PLC",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "GB",
+  "ids": {
+    "qid": "Q585150",
+    "isin": "GB0000456144",
+    "ticker": "ANTO",
+    "exchange": "LN",
+    "sedol": "0045614",
+    "domain": "antofagasta.co.uk",
+    "lei": "213800MY6QVH4FVLD628"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    },
+    {
+      "area": "critical-minerals"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "4.62,ANTO LN,ANTOFAGASTA PLC,0045614,42.3651895352736,\"6,889,430.00\",\"291,872,007.74\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "fund",
+      "detail": "Held by Global X Copper Miners ETF (COPX, Global X): Advanced materials & critical minerals."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "4.62,ANTO LN,ANTOFAGASTA PLC,0045614,42.3651895352736,\"6,889,430.00\",\"291,872,007.74\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$292 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 291872008
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "4.62,ANTO LN,ANTOFAGASTA PLC,0045614,42.3651895352736,\"6,889,430.00\",\"291,872,007.74\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker ANTO"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "4.62,ANTO LN,ANTOFAGASTA PLC,0045614,42.3651895352736,\"6,889,430.00\",\"291,872,007.74\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Antofagasta_plc",
+      "quote": "Antofagasta plc is a London-based Chilean multinational conglomerate.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q585150",
+      "quote": "Antofagasta plc (Q585150) — Wikidata item: Q585150",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Antofagasta_plc",
+      "quote": "Antofagasta plc is a London-based Chilean multinational conglomerate.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q585150",
+      "quote": "Antofagasta plc (Q585150) — headquarters location: London",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q585150",
+      "quote": "Antofagasta plc (Q585150) — official website: antofagasta.co.uk",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q585150",
+      "quote": "Antofagasta plc (Q585150) — Legal Entity Identifier: 213800MY6QVH4FVLD628",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Antofagasta plc is a London-based Chilean multinational conglomerate.",
+  "hq": "London"
+}

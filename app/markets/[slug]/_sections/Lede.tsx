@@ -2,28 +2,26 @@ import React from 'react';
 import Link from 'next/link';
 
 import type { CompanyProfile } from '@/lib/company-profile';
+import { companyExposure, headline } from '@/lib/company-exposure';
 import { bottleneckHref } from '@/lib/links';
-import { Figure } from '@/components/portal/Figure';
 
-/** What it is and why it matters to the chain, from the joins, not from prose. */
+/**
+ * What it is and what it is to the chain, from the joins, not from prose. The
+ * second sentence is the exposure headline (lib/company-exposure): what it
+ * holds, what it is exposed to, what waits on it. It never reads "holds 0".
+ */
 export function Lede({ profile }: { profile: CompanyProfile }) {
-  const { participant: p, held, soleRecorded, trackedBottlenecks } = profile;
+  const { participant: p, held, soleRecorded } = profile;
   const what = p.role ?? held.map((h) => h.step).join(', ');
-  const tracked = <Figure method="bottleneck-count">{trackedBottlenecks}</Figure>;
-  if (held.length === 0)
-    return (
-      <>
-        {what}. Holds none of the {tracked} bottlenecks tracked here; listed as context for its step
-        of the chain.
-      </>
-    );
+  const { text } = headline(companyExposure({ slug: p.slug, name: p.name }));
   return (
     <>
-      {what} — holds <Figure method="bottlenecks-held">{held.length}</Figure> of the {tracked}{' '}
-      bottlenecks tracked here
+      {what ? `${what}. ` : ''}
+      {text}
       {soleRecorded.length > 0 && (
         <>
-          , and is the only maker recorded for{' '}
+          {' '}
+          It is the only maker recorded for{' '}
           {soleRecorded.map((h, i) => (
             <React.Fragment key={h.bottleneck.slug}>
               {i > 0 && ' and '}
@@ -35,9 +33,9 @@ export function Lede({ profile }: { profile: CompanyProfile }) {
               </Link>
             </React.Fragment>
           ))}
+          .
         </>
       )}
-      .
     </>
   );
 }

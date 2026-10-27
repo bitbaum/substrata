@@ -1,0 +1,96 @@
+{
+  "slug": "advantech",
+  "name": "Advantech Co., Ltd.",
+  "aliases": ["Advantech Co Ltd"],
+  "kind": "public",
+  "status": "active",
+  "country": "TW",
+  "ids": {
+    "ticker": "2395",
+    "exchange": "TT",
+    "sedol": "6202673",
+    "cusip": "Y0017P108"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    },
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.31,2395 TT,ADVANTECH CO LTD,6202673,20.54332495243228,\"1,514,157.00\",\"31,105,819.28\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Artificial Intelligence & Technology ETF (AIQ, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Advantech Co., Ltd. 2395.TT Y0017P108 Computer Hardware 327,627 $6,730,547.77 0.06%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.31,2395 TT,ADVANTECH CO LTD,6202673,20.54332495243228,\"1,514,157.00\",\"31,105,819.28\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$31 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 31105819
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Advantech Co., Ltd. 2395.TT Y0017P108 Computer Hardware 327,627 $6,730,547.77 0.06%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$6.7 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 6730548
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.31,2395 TT,ADVANTECH CO LTD,6202673,20.54332495243228,\"1,514,157.00\",\"31,105,819.28\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 2395"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.31,2395 TT,ADVANTECH CO LTD,6202673,20.54332495243228,\"1,514,157.00\",\"31,105,819.28\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

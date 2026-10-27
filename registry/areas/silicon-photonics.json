@@ -1,0 +1,10 @@
+{
+  "slug": "silicon-photonics",
+  "name": "Silicon photonics and optical interconnect",
+  "parent": "photonics",
+  "theme": "photonics",
+  "definition": "Co-packaged optics, transceivers and photonic chips.",
+  "why": "Bandwidth and power per bit in clusters.",
+  "bottlenecks": [],
+  "keyNumbers": []
+}

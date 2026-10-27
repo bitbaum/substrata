@@ -1,0 +1,171 @@
+{
+  "slug": "planet-labs",
+  "name": "Planet Labs",
+  "aliases": ["Planet Labs PBC"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "qid": "Q17085620",
+    "cik": "1836833",
+    "isin": "US72703X1063",
+    "ticker": "PL",
+    "exchange": "US",
+    "sedol": "BM8JV32",
+    "cusip": "72703X106",
+    "domain": "planet.com"
+  },
+  "areas": [
+    {
+      "area": "space"
+    },
+    {
+      "area": "defence-tech"
+    },
+    {
+      "area": "satellites"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.57,PL,PLANET LABS PBC,BM8JV32,13.76,\"2,733,191.00\",\"37,608,708.16\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "fund",
+      "detail": "Held by Global X Defense Tech ETF (SHLD, Global X): Defence & aerospace."
+    },
+    {
+      "field": "area:space",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3FitemLabel%20%3Fisin%20%3Fiso%20WHERE%20%7B%20%3Fitem%20wdt%3AP452%20wd%3AQ2729047%20.%20%7B%20%3Fitem%20wdt%3AP946%20%3Fisin%20%7D%20UNION%20%7B%20%3Fitem%20wdt%3AP414%20%3Fx%20%7D%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP17%2Fwdt%3AP297%20%3Fiso%20%7D%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22.%20%7D%20%7D%20LIMIT%20400",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q17085620\" }, \"isin\" : { \"type\" : \"literal\", \"value\" : \"US72703X1063\" }, \"iso\" : { \"type\" : \"literal\", \"value\" : \"US\" }, \"itemLabel\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"Planet Labs\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "space",
+      "basis": "industry-class",
+      "detail": "Wikidata lists its industry as space industry: Space & launch."
+    },
+    {
+      "field": "area:space",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-rokt.xlsx",
+      "quote": "PLANET LABS PBC | PL | 72703X106 | BM8JV32 | 1.587231 | - | 175101.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "space",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Kensho Final Frontiers ETF (ROKT, State Street): Space & launch."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.57,PL,PLANET LABS PBC,BM8JV32,13.76,\"2,733,191.00\",\"37,608,708.16\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$38 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 37608708
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-258284\",\"cik\":1836833,\"entityName\":\"Planet Labs PBC\",\"loc\":\"US-CA\",\"end\":\"2025-07-31\",\"val\":1562830913}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-07-31",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$1.6 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 1562830913
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.57,PL,PLANET LABS PBC,BM8JV32,13.76,\"2,733,191.00\",\"37,608,708.16\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker PL"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-258284\",\"cik\":1836833,\"entityName\":\"Planet Labs PBC\",\"loc\":\"US-CA\",\"end\":\"2025-07-31\",\"val\":1562830913}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-07-31",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1836833"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3Fisin%20%3Flabel%20WHERE%20%7B%20VALUES%20%3Fisin%20%7B%20%22US45676K1034%22%20%22US76655K1034%22%20%22US46222L1089%22%20%22US0558691012%22%20%22US26740W1099%22%20%22US74767K1034%22%20%22US34984V2097%22%20%22US6752321025%22%20%22US48242W1062%22%20%22US5253271028%22%20%22US92552V1008%22%20%22US0320951017%22%20%22US70202L1026%22%20%22US8542311076%22%20%22US8485603067%22%20%22US72703X1063%22%20%22US87305R1095%22%20%22US87157D1090%22%20%22US91347P1057%22%20%22US83088M1027%22%20%22US4532041096%22%20%22US8269191024%22%20%22US7069151055%22%20%22US7392761034%22%20%22US57776J1007%22%20%22US3364331070%22%20%22US82982T1060%22%20%22US63942X1063%22%20%22US15675D1037%22%20%22US0231931058%22%20%22US97785W1062%22%20%22US1572101053%22%20%22US5006001011%22%20%22US35834F1049%22%20%22US30041T1043%22%20%7D%20%3Fitem%20wdt%3AP946%20%3Fisin%20.%20OPTIONAL%20%7B%20%3Fitem%20rdfs%3Alabel%20%3Flabel%20FILTER(LANG(%3Flabel)%20%3D%20%22en%22)%20%7D%20%7D",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q17085620\" }, \"label\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"Planet Labs\" }, \"isin\" : { \"type\" : \"literal\", \"value\" : \"US72703X1063\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "qid",
+      "detail": "Wikidata QID Q17085620"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3FitemLabel%20%3Fisin%20%3Fiso%20WHERE%20%7B%20%3Fitem%20wdt%3AP452%20wd%3AQ2729047%20.%20%7B%20%3Fitem%20wdt%3AP946%20%3Fisin%20%7D%20UNION%20%7B%20%3Fitem%20wdt%3AP414%20%3Fx%20%7D%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP17%2Fwdt%3AP297%20%3Fiso%20%7D%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22.%20%7D%20%7D%20LIMIT%20400",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q17085620\" }, \"isin\" : { \"type\" : \"literal\", \"value\" : \"US72703X1063\" }, \"iso\" : { \"type\" : \"literal\", \"value\" : \"US\" }, \"itemLabel\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"Planet Labs\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Planet_Labs",
+      "quote": "\", is a publicly traded American Earth imaging company based in San Francisco, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:satellites",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Planet_Labs",
+      "quote": "\", is a publicly traded American Earth imaging company based in San Francisco, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17085620",
+      "quote": "Planet Labs (Q17085620) — headquarters location: San Francisco",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17085620",
+      "quote": "Planet Labs (Q17085620) — official website: planet.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "\", is a publicly traded American Earth imaging company based in San Francisco, California.",
+  "hq": "San Francisco"
+}

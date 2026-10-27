@@ -1,0 +1,75 @@
+{
+  "slug": "stability-ai",
+  "name": "Stability AI",
+  "aliases": [],
+  "kind": "lab",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q123592234",
+    "domain": "stability.ai"
+  },
+  "areas": [
+    {
+      "area": "frontier-labs"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Stability_AI",
+      "quote": "Stability AI Ltd is a UK-based artificial intelligence company, founded in 2019, best known for its text-to-image model Stable Diffusion and headquartered in London, England.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q123592234",
+      "quote": "Stability AI (Q123592234) — Wikidata item: Q123592234",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:frontier-labs",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Stability_AI",
+      "quote": "Stability AI Ltd is a UK-based artificial intelligence company, founded in 2019, best known for its text-to-image model Stable Diffusion and headquartered in London, England.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q123592234",
+      "quote": "Stability AI (Q123592234) — headquarters location: London",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q123592234",
+      "quote": "Stability AI (Q123592234) — country (ISO 3166-1 alpha-2): GB",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q123592234",
+      "quote": "Stability AI (Q123592234) — official website: stability.ai",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Stability AI Ltd is a UK-based artificial intelligence company, founded in 2019, best known for its text-to-image model Stable Diffusion and headquartered in London, England.",
+  "hq": "London",
+  "country": "GB"
+}

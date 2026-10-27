@@ -1,0 +1,79 @@
+{
+  "slug": "smith-wesson-brands",
+  "name": "Smith & Wesson Brands, Inc.",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "cik": "1092796",
+    "ticker": "SWBI",
+    "exchange": "US"
+  },
+  "areas": [
+    {
+      "area": "defence-tech"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3480&type=10-K&dateb=&owner=include&start=0&count=100",
+      "quote": "0001092796 SMITH & WESSON BRANDS, INC. TN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3480 (Ordnance & accessories, except vehicles & guided missiles): Defence & aerospace."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q3I.json",
+      "quote": "{\"accn\":\"0001193125-26-274254\",\"cik\":1092796,\"entityName\":\"Smith & Wesson Brands, Inc.\",\"loc\":\"US-TN\",\"end\":\"2025-10-31\",\"val\":420089386}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-10-31",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$420 million public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 420089386
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[1092796,\"SMITH & WESSON BRANDS, INC.\",\"SWBI\",\"Nasdaq\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker SWBI"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q3I.json",
+      "quote": "{\"accn\":\"0001193125-26-274254\",\"cik\":1092796,\"entityName\":\"Smith & Wesson Brands, Inc.\",\"loc\":\"US-TN\",\"end\":\"2025-10-31\",\"val\":420089386}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-10-31",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1092796"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[1092796,\"SMITH & WESSON BRANDS, INC.\",\"SWBI\",\"Nasdaq\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

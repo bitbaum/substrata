@@ -1,0 +1,66 @@
+{
+  "slug": "siliconware-precision-industries",
+  "name": "Siliconware Precision Industries",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q17144171",
+    "domain": "spil.com.tw"
+  },
+  "areas": [
+    {
+      "area": "advanced-packaging"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17144171",
+      "quote": "Siliconware Precision Industries (Q17144171) — Wikidata item: Q17144171",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:advanced-packaging",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Siliconware_Precision_Industries",
+      "quote": ", Ltd. is a publicly traded company founded in 1984 and based in Taichung, Taiwan.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17144171",
+      "quote": "Siliconware Precision Industries (Q17144171) — headquarters location: Taichung",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17144171",
+      "quote": "Siliconware Precision Industries (Q17144171) — country (ISO 3166-1 alpha-2): TW",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17144171",
+      "quote": "Siliconware Precision Industries (Q17144171) — official website: spil.com.tw",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "hq": "Taichung",
+  "country": "TW"
+}

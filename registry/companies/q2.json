@@ -1,0 +1,105 @@
+{
+  "slug": "q2",
+  "name": "Q2 Holdings, Inc.",
+  "aliases": ["Q2 Holdings, Inc."],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "lei": "549300M9RKR9DZXWS696",
+    "isin": "US74736L1098",
+    "cik": "1410384",
+    "ticker": "QTWO",
+    "exchange": "US",
+    "cusip": "74736L109"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=SKYY",
+      "quote": "Q2 Holdings, Inc. QTWO 74736L109 Software 304,005 $21,225,629.10 0.60%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by First Trust Cloud Computing ETF (SKYY, First Trust): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001410384-26-000006\",\"cik\":1410384,\"entityName\":\"Q2 Holdings, Inc.\",\"loc\":\"US-TX\",\"end\":\"2025-06-30\",\"val\":5827609522}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$5.8 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 5827609522
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=SKYY",
+      "quote": "Q2 Holdings, Inc. QTWO 74736L109 Software 304,005 $21,225,629.10 0.60%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$21 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 21225629
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=SKYY",
+      "quote": "Q2 Holdings, Inc. QTWO 74736L109 Software 304,005 $21,225,629.10 0.60%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker QTWO"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001410384-26-000006\",\"cik\":1410384,\"entityName\":\"Q2 Holdings, Inc.\",\"loc\":\"US-TX\",\"end\":\"2025-06-30\",\"val\":5827609522}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1410384"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US74736L1098",
+      "quote": "\"lei\":\"549300M9RKR9DZXWS696\",\"entity\":{\"legalName\":{\"name\":\"Q2 HOLDINGS, INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 549300M9RKR9DZXWS696"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US74736L1098",
+      "quote": "\"lei\":\"549300M9RKR9DZXWS696\",\"entity\":{\"legalName\":{\"name\":\"Q2 HOLDINGS, INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "slug": "bhp-group-ltd",
+  "name": "BHP Group Ltd",
+  "aliases": ["BHP"],
+  "kind": "public",
+  "status": "active",
+  "country": "AU",
+  "ids": {
+    "ticker": "BHP",
+    "exchange": "AU",
+    "sedol": "6144690",
+    "qid": "Q625713",
+    "isin": "AU000000BHP4",
+    "domain": "bhp.com",
+    "cik": "1171264",
+    "lei": "549300C116EOWV835768"
+  },
+  "areas": [
+    {
+      "area": "nuclear-energy"
+    },
+    {
+      "area": "advanced-materials"
+    },
+    {
+      "area": "critical-minerals"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "5.40,BHP AU,BHP GROUP LTD,6144690,39.03130504297977,\"8,738,762.00\",\"341,085,285.32\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "fund",
+      "detail": "Held by Global X Copper Miners ETF (COPX, Global X): Advanced materials & critical minerals."
+    },
+    {
+      "field": "area:nuclear-energy",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "2.19,BHP AU,BHP GROUP LTD,6144690,39.03130504406206,\"2,685,871.00\",\"104,833,050.31\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "nuclear",
+      "basis": "fund",
+      "detail": "Held by Global X Uranium ETF (URA, Global X): Nuclear, SMRs & the fuel cycle."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "5.40,BHP AU,BHP GROUP LTD,6144690,39.03130504297977,\"8,738,762.00\",\"341,085,285.32\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$341 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 341085285
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "2.19,BHP AU,BHP GROUP LTD,6144690,39.03130504406206,\"2,685,871.00\",\"104,833,050.31\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$105 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 104833050
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "5.40,BHP AU,BHP GROUP LTD,6144690,39.03130504297977,\"8,738,762.00\",\"341,085,285.32\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker BHP"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "5.40,BHP AU,BHP GROUP LTD,6144690,39.03130504297977,\"8,738,762.00\",\"341,085,285.32\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/BHP",
+      "quote": "BHP Group Limited, founded as the Broken Hill Proprietary Company, is an Australian multinational mining and metals corporation.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q625713",
+      "quote": "BHP Group (Q625713) — Wikidata item: Q625713",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/BHP",
+      "quote": "BHP Group Limited, founded as the Broken Hill Proprietary Company, is an Australian multinational mining and metals corporation.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q625713",
+      "quote": "BHP Group (Q625713) — headquarters location: Melbourne",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q625713",
+      "quote": "BHP Group (Q625713) — official website: bhp.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q625713",
+      "quote": "BHP Group (Q625713) — SEC Central Index Key: 1171264",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q625713",
+      "quote": "BHP Group (Q625713) — Legal Entity Identifier: 549300C116EOWV835768",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "BHP Group Limited, founded as the Broken Hill Proprietary Company, is an Australian multinational mining and metals corporation.",
+  "hq": "Melbourne"
+}

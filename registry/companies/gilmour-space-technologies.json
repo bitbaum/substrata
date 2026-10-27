@@ -1,0 +1,75 @@
+{
+  "slug": "gilmour-space-technologies",
+  "name": "Gilmour Space Technologies",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q28448211",
+    "domain": "gspace.com"
+  },
+  "areas": [
+    {
+      "area": "launch"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Gilmour_Space_Technologies",
+      "quote": "Gilmour Space Technologies is a venture-funded Australian aerospace company that is developing hybrid-propellant rocket engines and associated technologies to support the deployment of a low-cost launch vehicle.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q28448211",
+      "quote": "Gilmour Space Technologies (Q28448211) — Wikidata item: Q28448211",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:launch",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Gilmour_Space_Technologies",
+      "quote": "Gilmour Space Technologies is a venture-funded Australian aerospace company that is developing hybrid-propellant rocket engines and associated technologies to support the deployment of a low-cost launch vehicle.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q28448211",
+      "quote": "Gilmour Space Technologies (Q28448211) — headquarters location: Helensvale",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q28448211",
+      "quote": "Gilmour Space Technologies (Q28448211) — country (ISO 3166-1 alpha-2): AU",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q28448211",
+      "quote": "Gilmour Space Technologies (Q28448211) — official website: gspace.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Gilmour Space Technologies is a venture-funded Australian aerospace company that is developing hybrid-propellant rocket engines and associated technologies to support the deployment of a low-cost launch vehicle.",
+  "hq": "Helensvale",
+  "country": "AU"
+}

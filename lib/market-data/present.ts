@@ -36,7 +36,15 @@ export function bigNumber(value: number): string {
   return word ? `${n} ${word}` : n;
 }
 
-export function priceChart(c: MarketCompany, h: PriceHistory, range: Range): AnswerChart {
+const pageLink = (c: MarketCompany, page: string | null | undefined, anchor = '') =>
+  page ? { page: { label: `Open ${c.name}`, href: `${page}${anchor}` } } : {};
+
+export function priceChart(
+  c: MarketCompany,
+  h: PriceHistory,
+  range: Range,
+  page?: string | null,
+): AnswerChart {
   const points = downsample(inRange(h.points, range));
   return {
     id: `price:${h.ticker.exchange}:${h.ticker.symbol}:${range}`,
@@ -54,6 +62,7 @@ export function priceChart(c: MarketCompany, h: PriceHistory, range: Range): Ans
       ],
     },
     source: { label: h.source.name, url: h.source.url },
+    ...pageLink(c, page, '#price'),
     note: `${h.basis} ${h.delay}${points.length < inRange(h.points, range).length ? ' Drawn with an evenly spaced sample of the daily closes; every figure quoted is computed from all of them.' : ''}`,
   };
 }
@@ -125,12 +134,16 @@ export function priceResult(c: MarketCompany, h: PriceHistory, range: Range, pag
     source: `${h.source.name}: ${h.source.url}`,
     basis: h.basis,
     delay: h.delay,
-    chart: priceChart(c, h, range),
+    chart: priceChart(c, h, range, page),
   };
 }
 
 /** The holders tool's share bar: named holders plus the typed remainder, never a bare "Other". */
-export function holdersChart(c: MarketCompany, v: HoldersView): AnswerChart | null {
+export function holdersChart(
+  c: MarketCompany,
+  v: HoldersView,
+  page?: string | null,
+): AnswerChart | null {
   const rows = v.holders.filter((h) => !h.inGroup).slice(0, 10);
   if (!rows.length || !v.remainder) return null;
   const dates = [...new Set(rows.map((r) => r.asOf))].sort();
@@ -144,6 +157,7 @@ export function holdersChart(c: MarketCompany, v: HoldersView): AnswerChart | nu
       other: v.remainder.percent,
     },
     otherLabel: v.remainder.short,
+    ...pageLink(c, page, '#ownership'),
     source: { label: 'SEC EDGAR filings', url: rows[0].source.url },
     note: v.remainder.explanation,
   };

@@ -1,0 +1,80 @@
+{
+  "slug": "gds",
+  "name": "GDS Holdings Ltd",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "GDS",
+    "exchange": "US",
+    "sedol": "BD6FLL7",
+    "cik": "1526125"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "3.39,GDS,GDS HOLDINGS LTD - ADR,BD6FLL7,22.81,\"2,827,295.00\",\"64,490,598.95\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Data Center & Digital Infrastructure ETF (DTCR, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "3.39,GDS,GDS HOLDINGS LTD - ADR,BD6FLL7,22.81,\"2,827,295.00\",\"64,490,598.95\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$64 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 64490599
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "3.39,GDS,GDS HOLDINGS LTD - ADR,BD6FLL7,22.81,\"2,827,295.00\",\"64,490,598.95\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker GDS"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[1526125,\"GDS Holdings Ltd\",\"GDS\",\"Nasdaq\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1526125"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "3.39,GDS,GDS HOLDINGS LTD - ADR,BD6FLL7,22.81,\"2,827,295.00\",\"64,490,598.95\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

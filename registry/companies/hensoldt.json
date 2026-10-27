@@ -1,0 +1,129 @@
+{
+  "slug": "hensoldt",
+  "name": "Hensoldt AG",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "DE",
+  "ids": {
+    "qid": "Q21236526",
+    "isin": "DE000HAG0005",
+    "ticker": "HAG",
+    "exchange": "GR",
+    "sedol": "BN0SDX8",
+    "domain": "hensoldt.net",
+    "lei": "894500686FYLLZD3M624"
+  },
+  "areas": [
+    {
+      "area": "defence-tech"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.89,HAG GR,HENSOLDT AG,BN0SDX8,96.60075340408737,\"609,341.00\",\"58,862,799.68\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "fund",
+      "detail": "Held by Global X Defense Tech ETF (SHLD, Global X): Defence & aerospace."
+    },
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3FitemLabel%20%3Fisin%20%3Fiso%20WHERE%20%7B%20%3Fitem%20wdt%3AP452%20wd%3AQ392933%20.%20%7B%20%3Fitem%20wdt%3AP946%20%3Fisin%20%7D%20UNION%20%7B%20%3Fitem%20wdt%3AP414%20%3Fx%20%7D%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP17%2Fwdt%3AP297%20%3Fiso%20%7D%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22.%20%7D%20%7D%20LIMIT%20400",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q21236526\" }, \"iso\" : { \"type\" : \"literal\", \"value\" : \"DE\" }, \"itemLabel\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"Hensoldt AG\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "industry-class",
+      "detail": "Wikidata lists its industry as weapons industry: Defence & aerospace."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.89,HAG GR,HENSOLDT AG,BN0SDX8,96.60075340408737,\"609,341.00\",\"58,862,799.68\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$59 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 58862800
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.89,HAG GR,HENSOLDT AG,BN0SDX8,96.60075340408737,\"609,341.00\",\"58,862,799.68\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker HAG"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3FitemLabel%20%3Fisin%20%3Fiso%20WHERE%20%7B%20%3Fitem%20wdt%3AP452%20wd%3AQ392933%20.%20%7B%20%3Fitem%20wdt%3AP946%20%3Fisin%20%7D%20UNION%20%7B%20%3Fitem%20wdt%3AP414%20%3Fx%20%7D%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP17%2Fwdt%3AP297%20%3Fiso%20%7D%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22.%20%7D%20%7D%20LIMIT%20400",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q21236526\" }, \"iso\" : { \"type\" : \"literal\", \"value\" : \"DE\" }, \"itemLabel\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"Hensoldt AG\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "qid",
+      "detail": "Wikidata QID Q21236526"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3FitemLabel%20%3Fisin%20%3Fiso%20WHERE%20%7B%20%3Fitem%20wdt%3AP452%20wd%3AQ392933%20.%20%7B%20%3Fitem%20wdt%3AP946%20%3Fisin%20%7D%20UNION%20%7B%20%3Fitem%20wdt%3AP414%20%3Fx%20%7D%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP17%2Fwdt%3AP297%20%3Fiso%20%7D%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22.%20%7D%20%7D%20LIMIT%20400",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q21236526\" }, \"iso\" : { \"type\" : \"literal\", \"value\" : \"DE\" }, \"itemLabel\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"Hensoldt AG\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country DE as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hensoldt",
+      "quote": "Hensoldt AG is a German multinational corporation headquartered in Munich which focuses on sensor technologies for protection and surveillance missions in the defence, security and aerospace sectors.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q21236526",
+      "quote": "Hensoldt AG (Q21236526) — headquarters location: Taufkirchen",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q21236526",
+      "quote": "Hensoldt AG (Q21236526) — official website: hensoldt.net",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q21236526",
+      "quote": "Hensoldt AG (Q21236526) — Legal Entity Identifier: 894500686FYLLZD3M624",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Hensoldt AG is a German multinational corporation headquartered in Munich which focuses on sensor technologies for protection and surveillance missions in the defence, security and aerospace sectors.",
+  "hq": "Taufkirchen"
+}

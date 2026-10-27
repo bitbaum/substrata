@@ -1,0 +1,76 @@
+{
+  "slug": "sociedad-qu-mica-y-minera",
+  "name": "Sociedad Química y Minera",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q3067064",
+    "isin": "US8336351056",
+    "domain": "sqm.com",
+    "lei": "TJ88LXZZW5PWIN93ZC81"
+  },
+  "areas": [
+    {
+      "area": "critical-minerals"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Sociedad_Qu%C3%ADmica_y_Minera",
+      "quote": "Sociedad Química y Minera de Chile (SQM) is a Chilean chemical company and a supplier of plant nutrients, iodine, lithium and industrial chemicals.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q3067064",
+      "quote": "Sociedad Química y Minera de Chile (Q3067064) — Wikidata item: Q3067064",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Sociedad_Qu%C3%ADmica_y_Minera",
+      "quote": "Sociedad Química y Minera de Chile (SQM) is a Chilean chemical company and a supplier of plant nutrients, iodine, lithium and industrial chemicals.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q3067064",
+      "quote": "Sociedad Química y Minera de Chile (Q3067064) — country (ISO 3166-1 alpha-2): CL",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q3067064",
+      "quote": "Sociedad Química y Minera de Chile (Q3067064) — official website: sqm.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q3067064",
+      "quote": "Sociedad Química y Minera de Chile (Q3067064) — Legal Entity Identifier: TJ88LXZZW5PWIN93ZC81",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Sociedad Química y Minera de Chile (SQM) is a Chilean chemical company and a supplier of plant nutrients, iodine, lithium and industrial chemicals.",
+  "country": "CL"
+}

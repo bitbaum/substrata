@@ -1,0 +1,10 @@
+{
+  "slug": "photonics",
+  "name": "Photonics",
+  "parent": null,
+  "theme": "photonics",
+  "definition": "Lasers, optical components, silicon photonics and optical networking.",
+  "why": "Optical interconnect is the likely route past copper limits in AI clusters.",
+  "bottlenecks": [],
+  "keyNumbers": []
+}

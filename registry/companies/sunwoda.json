@@ -1,0 +1,39 @@
+{
+  "slug": "sunwoda",
+  "name": "Sunwoda",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q112943834"
+  },
+  "areas": [
+    {
+      "area": "robot-batteries"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q112943834",
+      "quote": "Sunwoda Electronic (Q112943834) — Wikidata item: Q112943834",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:robot-batteries",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Sunwoda",
+      "quote": ", commonly known as Sunwoda is a Chinese technology company that specializes in the research and manufacture of lithium-ion battery modules.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  }
+}

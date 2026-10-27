@@ -1,0 +1,80 @@
+{
+  "slug": "nano-nuclear-energy",
+  "name": "Nano Nuclear Energy Inc.",
+  "aliases": ["Nano Nuclear Energy Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "NNE",
+    "exchange": "US",
+    "sedol": "BPDH477",
+    "cik": "1923891"
+  },
+  "areas": [
+    {
+      "area": "nuclear-energy"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:nuclear-energy",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.63,NNE,NANO NUCLEAR ENERGY INC,BPDH477,11.86,\"2,539,074.00\",\"30,113,417.64\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "nuclear",
+      "basis": "fund",
+      "detail": "Held by Global X Uranium ETF (URA, Global X): Nuclear, SMRs & the fuel cycle."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.63,NNE,NANO NUCLEAR ENERGY INC,BPDH477,11.86,\"2,539,074.00\",\"30,113,417.64\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$30 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 30113418
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.63,NNE,NANO NUCLEAR ENERGY INC,BPDH477,11.86,\"2,539,074.00\",\"30,113,417.64\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker NNE"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[1923891,\"Nano Nuclear Energy Inc.\",\"NNE\",\"Nasdaq\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1923891"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.63,NNE,NANO NUCLEAR ENERGY INC,BPDH477,11.86,\"2,539,074.00\",\"30,113,417.64\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

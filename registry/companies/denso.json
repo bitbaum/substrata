@@ -1,0 +1,85 @@
+{
+  "slug": "denso",
+  "name": "Denso",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q176508",
+    "isin": "JP3551500006",
+    "domain": "denso.com",
+    "lei": "549300RYPA10CQM3QK38"
+  },
+  "areas": [
+    {
+      "area": "industrial-robots"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Denso",
+      "quote": "Denso Corporation is a global automotive components manufacturer headquartered in the city of Kariya, Aichi Prefecture, Japan.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q176508",
+      "quote": "Denso (Q176508) — Wikidata item: Q176508",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:industrial-robots",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Denso",
+      "quote": "Denso Corporation is a global automotive components manufacturer headquartered in the city of Kariya, Aichi Prefecture, Japan.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q176508",
+      "quote": "Denso (Q176508) — headquarters location: Kariya",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q176508",
+      "quote": "Denso (Q176508) — country (ISO 3166-1 alpha-2): JP",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q176508",
+      "quote": "Denso (Q176508) — official website: denso.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q176508",
+      "quote": "Denso (Q176508) — Legal Entity Identifier: 549300RYPA10CQM3QK38",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Denso Corporation is a global automotive components manufacturer headquartered in the city of Kariya, Aichi Prefecture, Japan.",
+  "hq": "Kariya",
+  "country": "JP"
+}

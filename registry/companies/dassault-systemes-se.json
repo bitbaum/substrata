@@ -1,0 +1,68 @@
+{
+  "slug": "dassault-systemes-se",
+  "name": "Dassault Systemes SE",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "FR",
+  "ids": {
+    "ticker": "DSY",
+    "exchange": "FP",
+    "cusip": "BM8H5Y5"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Dassault Systemes SE DSY.FP F24571451 Information Technology 449,690 $12,340,454.70 1.65%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Artificial Intelligence and Robotics ETF (ROBT, First Trust): Robotics & autonomy."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Dassault Systemes SE DSY.FP F24571451 Information Technology 449,690 $12,340,454.70 1.65%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$12 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 12340455
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Dassault Systemes SE DSY.FP F24571451 Information Technology 449,690 $12,340,454.70 1.65%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker DSY"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_SPACE_EXPLORATION_&_INNOVATION_ETF_ARKX_HOLDINGS.csv",
+      "quote": "01/02/2026,ARKX,DASSAULT SYSTEMES SE,DSY FP,BM8H5Y5,\"188,577\",\"$5,283,311.80\",1.02%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-01-02",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

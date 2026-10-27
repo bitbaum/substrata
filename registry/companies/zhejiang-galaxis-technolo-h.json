@@ -1,0 +1,68 @@
+{
+  "slug": "zhejiang-galaxis-technolo-h",
+  "name": "Zhejiang Galaxis Technolo-H",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "HK",
+  "ids": {
+    "ticker": "2729",
+    "exchange": "HK",
+    "sedol": "BVQYSG4"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.26,2729 HK,ZHEJIANG GALAXIS TECHNOLO-H,BVQYSG4,2.243424280585629,\"3,565,400.00\",\"7,998,704.93\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by Global X Robotics & Artificial Intelligence ETF (BOTZ, Global X): Robotics & autonomy."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.26,2729 HK,ZHEJIANG GALAXIS TECHNOLO-H,BVQYSG4,2.243424280585629,\"3,565,400.00\",\"7,998,704.93\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$8.0 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 7998705
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.26,2729 HK,ZHEJIANG GALAXIS TECHNOLO-H,BVQYSG4,2.243424280585629,\"3,565,400.00\",\"7,998,704.93\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 2729"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.26,2729 HK,ZHEJIANG GALAXIS TECHNOLO-H,BVQYSG4,2.243424280585629,\"3,565,400.00\",\"7,998,704.93\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

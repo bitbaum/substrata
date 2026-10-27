@@ -1,0 +1,139 @@
+{
+  "slug": "york-space-systems",
+  "name": "York Space Systems",
+  "aliases": ["York Space Systems Inc", "York Space Systems Inc."],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "YSS",
+    "exchange": "US",
+    "sedol": "BV4MN09",
+    "qid": "Q123152963",
+    "isin": "US9870841007",
+    "cik": "2086587",
+    "cusip": "987084100",
+    "domain": "yorkspacesystems.com"
+  },
+  "areas": [
+    {
+      "area": "space"
+    },
+    {
+      "area": "defence-tech"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.10,YSS,YORK SPACE SYSTEMS INC,BV4MN09,6.319999999999999,\"1,045,771.00\",\"6,609,272.72\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "fund",
+      "detail": "Held by Global X Defense Tech ETF (SHLD, Global X): Defence & aerospace."
+    },
+    {
+      "field": "area:space",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3FitemLabel%20%3Fisin%20%3Fiso%20WHERE%20%7B%20%3Fitem%20wdt%3AP452%20wd%3AQ2729047%20.%20%7B%20%3Fitem%20wdt%3AP946%20%3Fisin%20%7D%20UNION%20%7B%20%3Fitem%20wdt%3AP414%20%3Fx%20%7D%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP17%2Fwdt%3AP297%20%3Fiso%20%7D%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22.%20%7D%20%7D%20LIMIT%20400",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q123152963\" }, \"isin\" : { \"type\" : \"literal\", \"value\" : \"US9870841007\" }, \"iso\" : { \"type\" : \"literal\", \"value\" : \"US\" }, \"itemLabel\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"York Space Systems\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "space",
+      "basis": "industry-class",
+      "detail": "Wikidata lists its industry as space industry: Space & launch."
+    },
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-xar.xlsx",
+      "quote": "YORK SPACE SYSTEMS INC | YSS | 987084100 | BV4MN09 | 0.347089 | - | 2760108.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Aerospace & Defense ETF (XAR, State Street): Defence & aerospace."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.10,YSS,YORK SPACE SYSTEMS INC,BV4MN09,6.319999999999999,\"1,045,771.00\",\"6,609,272.72\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$6.6 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 6609273
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.10,YSS,YORK SPACE SYSTEMS INC,BV4MN09,6.319999999999999,\"1,045,771.00\",\"6,609,272.72\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker YSS"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[2086587,\"York Space Systems Inc.\",\"YSS\",\"NYSE\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 2086587"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3Fisin%20%3Flabel%20WHERE%20%7B%20VALUES%20%3Fisin%20%7B%20%22US6153942023%22%20%22US4859241048%22%20%22US0970231058%22%20%22US9807451037%22%20%22US3696043013%22%20%22US85423L1035%22%20%22US05464C1018%22%20%22US2315611010%22%20%22US4432011082%22%20%22US4282911084%22%20%22US01741R1023%22%20%22US9182841000%22%20%22US5893781089%22%20%22US1442851036%22%20%22US92242T1016%22%20%22US0003611052%22%20%22US53947R1059%22%20%22US2641471097%22%20%22US52661A1088%22%20%22US04339D1054%22%20%22US0464331083%22%20%22US75776W1036%22%20%22US0869211039%22%20%22US31816X1063%22%20%22US92892B1035%22%20%22US6372151042%22%20%22US12763L1052%22%20%22US75644T1007%22%20%22US9870841007%22%20%22US70014A1043%22%20%22US80401C1009%22%20%22US92766K4031%22%20%22US00835T1079%22%20%22US92556W1045%22%20%22US4381283088%22%20%22US55087P1049%22%20%22US90353T1007%22%20%22US37045V1008%22%20%22US04523Y1055%22%20%22US01973R1014%22%20%22US7475251036%22%20%22US79589L1061%22%20%22US29082A1079%22%20%22US50202M1027%22%20%22US2310211063%22%20%22US9288811014%22%20%22US4280501085%22%20%22US76954A1034%22%20%22US0997241064%22%20%22US0240611030%22%20%22US2358252052%22%20%22US8923313071%22%20%22US60741F1049%22%20%22US91532F1021%22%20%22US26874R1086%22%20%22US01749D1054%22%20%22US5494982029%22%20%22US83422N1054%22%20%22US6882392011%22%20%22US6821891057%22%20%22US5592224019%22%20%22US8610121027%22%20%22US62914V1061%22%20%22US98422D1054%22%20%22US78397Q1094%22%20%22US03938L2034%22%20%22US6937181088%22%20%22US5165482036%22%20%22US37253A1034%22%20%22US0953061068%22%20%22US0537741052%22%20%22US5218652049%22%20%22US3453708600%22%20%22US26853E1029%22%20%22US68989M2026%22%20%22US72919P2020%22%20%22US4491721050%22%20%22US3665051054%22%20%22US73931J1097%22%20%22US00835Q2021%22%20%7D%20%3Fitem%20wdt%3AP946%20%3Fisin%20.%20OPTIONAL%20%7B%20%3Fitem%20rdfs%3Alabel%20%3Flabel%20FILTER(LANG(%3Flabel)%20%3D%20%22en%22)%20%7D%20%7D",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q123152963\" }, \"label\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"York Space Systems\" }, \"isin\" : { \"type\" : \"literal\", \"value\" : \"US9870841007\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "qid",
+      "detail": "Wikidata QID Q123152963"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3FitemLabel%20%3Fisin%20%3Fiso%20WHERE%20%7B%20%3Fitem%20wdt%3AP452%20wd%3AQ2729047%20.%20%7B%20%3Fitem%20wdt%3AP946%20%3Fisin%20%7D%20UNION%20%7B%20%3Fitem%20wdt%3AP414%20%3Fx%20%7D%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP17%2Fwdt%3AP297%20%3Fiso%20%7D%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22.%20%7D%20%7D%20LIMIT%20400",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q123152963\" }, \"isin\" : { \"type\" : \"literal\", \"value\" : \"US9870841007\" }, \"iso\" : { \"type\" : \"literal\", \"value\" : \"US\" }, \"itemLabel\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"York Space Systems\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q123152963",
+      "quote": "York Space Systems (Q123152963) — headquarters location: Denver",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q123152963",
+      "quote": "York Space Systems (Q123152963) — official website: yorkspacesystems.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "hq": "Denver"
+}

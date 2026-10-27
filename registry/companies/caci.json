@@ -1,0 +1,94 @@
+{
+  "slug": "caci",
+  "name": "CACI",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q1022711",
+    "domain": "caci.com",
+    "cik": "16058",
+    "lei": "SYRPI2D1O9WRTS2WX210",
+    "isin": "US1271903049"
+  },
+  "areas": [
+    {
+      "area": "defence-tech"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/CACI",
+      "quote": "CACI International Inc. is an American multinational aerospace and defense company headquartered in Northern Virginia.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1022711",
+      "quote": "CACI (Q1022711) — Wikidata item: Q1022711",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1022711",
+      "quote": "CACI (Q1022711) — headquarters location: Arlington County",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1022711",
+      "quote": "CACI (Q1022711) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1022711",
+      "quote": "CACI (Q1022711) — official website: http://www.caci.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1022711",
+      "quote": "CACI (Q1022711) — SEC Central Index Key: 16058",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1022711",
+      "quote": "CACI (Q1022711) — Legal Entity Identifier: SYRPI2D1O9WRTS2WX210",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:defence-tech",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/CACI",
+      "quote": "CACI International Inc. is an American multinational aerospace and defense company headquartered in Northern Virginia.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "CACI International Inc. is an American multinational aerospace and defense company headquartered in Northern Virginia.",
+  "country": "US",
+  "hq": "Arlington County"
+}

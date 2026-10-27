@@ -1,0 +1,136 @@
+{
+  "slug": "nkt",
+  "name": "NKT",
+  "aliases": ["NKT A/S"],
+  "kind": "public",
+  "status": "active",
+  "country": "DK",
+  "ids": {
+    "qid": "Q6954477",
+    "isin": "DK0010287663",
+    "ticker": "NKT",
+    "exchange": "DC",
+    "cusip": "K7037A107",
+    "domain": "nkt.com",
+    "lei": "529900197LKWCEQ0NL18"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    },
+    {
+      "area": "grid-equipment"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "stated",
+      "source": "https://www.nkt.us/products-solutions/high-voltage-cable-solutions",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: High-voltage cable."
+    },
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "NKT A/S NKT.DC K7037A107 Electrical Components 765,143 $93,947,865.24 0.84%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.nkt.us/products-solutions/high-voltage-cable-solutions",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: High-voltage cable."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000BSCYF1",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker NKT"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "NKT A/S NKT.DC K7037A107 Electrical Components 765,143 $93,947,865.24 0.84%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/NKT_A%2FS",
+      "quote": "NKT A/S is a Danish power cable producer and accessory manufacturer based in Copenhagen.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q6954477",
+      "quote": "NKT (Q6954477) — Wikidata item: Q6954477",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/NKT_A%2FS",
+      "quote": "NKT A/S is a Danish power cable producer and accessory manufacturer based in Copenhagen.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q6954477",
+      "quote": "NKT (Q6954477) — headquarters location: Brøndby",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q6954477",
+      "quote": "NKT (Q6954477) — official website: nkt.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q6954477",
+      "quote": "NKT (Q6954477) — Legal Entity Identifier: 529900197LKWCEQ0NL18",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "NKT A/S is a Danish power cable producer and accessory manufacturer based in Copenhagen.",
+  "hq": "Brøndby"
+}

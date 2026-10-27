@@ -1,0 +1,76 @@
+{
+  "slug": "w-rtsil",
+  "name": "Wärtsilä",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q327429",
+    "isin": "FI0009003727",
+    "domain": "wartsila.com"
+  },
+  "areas": [
+    {
+      "area": "grid-equipment"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/W%C3%A4rtsil%C3%A4",
+      "quote": "Wärtsilä Oyj Abp, trading internationally as Wärtsilä Corporation, is a Finnish company which manufactures and services power sources and other equipment in the marine and energy markets.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q327429",
+      "quote": "Wärtsilä (Q327429) — Wikidata item: Q327429",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/W%C3%A4rtsil%C3%A4",
+      "quote": "Wärtsilä Oyj Abp, trading internationally as Wärtsilä Corporation, is a Finnish company which manufactures and services power sources and other equipment in the marine and energy markets.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q327429",
+      "quote": "Wärtsilä (Q327429) — headquarters location: Helsinki",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q327429",
+      "quote": "Wärtsilä (Q327429) — country (ISO 3166-1 alpha-2): FI",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q327429",
+      "quote": "Wärtsilä (Q327429) — official website: wartsila.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Wärtsilä Oyj Abp, trading internationally as Wärtsilä Corporation, is a Finnish company which manufactures and services power sources and other equipment in the marine and energy markets.",
+  "hq": "Helsinki",
+  "country": "FI"
+}

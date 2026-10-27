@@ -1,0 +1,81 @@
+{
+  "slug": "komatsu-spons",
+  "name": "株式会社小松製作所",
+  "aliases": ["Komatsu Ltd -Spons"],
+  "kind": "public",
+  "status": "active",
+  "country": "JP",
+  "ids": {
+    "lei": "5493004LQ0B4T7QPQV17",
+    "isin": "US5004584018",
+    "ticker": "KMTUY",
+    "exchange": "US",
+    "cusip": "500458401"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKQ,KOMATSU LTD -SPONS ADR,KMTUY,500458401,\"785,875\",\"$33,682,602.50\",1.89%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by ARK Autonomous Technology & Robotics ETF (ARKQ, ARK Invest): Robotics & autonomy."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKQ,KOMATSU LTD -SPONS ADR,KMTUY,500458401,\"785,875\",\"$33,682,602.50\",1.89%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$34 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 33682603
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKQ,KOMATSU LTD -SPONS ADR,KMTUY,500458401,\"785,875\",\"$33,682,602.50\",1.89%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker KMTUY"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US5004584018",
+      "quote": "\"lei\":\"5493004LQ0B4T7QPQV17\",\"entity\":{\"legalName\":{\"name\":\"\\u682a\\u5f0f\\u4f1a\\u793e\\u5c0f\\u677e\\u88fd\\u4f5c\\u6240\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 5493004LQ0B4T7QPQV17"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US5004584018",
+      "quote": "\"lei\":\"5493004LQ0B4T7QPQV17\",\"entity\":{\"legalName\":{\"name\":\"\\u682a\\u5f0f\\u4f1a\\u793e\\u5c0f\\u677e\\u88fd\\u4f5c\\u6240\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country JP as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

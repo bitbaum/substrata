@@ -1,0 +1,75 @@
+{
+  "slug": "sambanova-systems",
+  "name": "SambaNova Systems",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q127693035",
+    "domain": "sambanova.ai"
+  },
+  "areas": [
+    {
+      "area": "ai-accelerators"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/SambaNova_Systems",
+      "quote": "SambaNova Systems, Inc. is an American artificial intelligence (AI) and semiconductor hardware company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q127693035",
+      "quote": "SambaNova Systems (Q127693035) — Wikidata item: Q127693035",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-accelerators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/SambaNova_Systems",
+      "quote": "SambaNova Systems, Inc. is an American artificial intelligence (AI) and semiconductor hardware company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q127693035",
+      "quote": "SambaNova Systems (Q127693035) — headquarters location: Palo Alto",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q127693035",
+      "quote": "SambaNova Systems (Q127693035) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q127693035",
+      "quote": "SambaNova Systems (Q127693035) — official website: sambanova.ai",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "SambaNova Systems, Inc. is an American artificial intelligence (AI) and semiconductor hardware company.",
+  "hq": "Palo Alto",
+  "country": "US"
+}

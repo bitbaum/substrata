@@ -1,0 +1,180 @@
+{
+  "slug": "lucid-group",
+  "name": "Lucid Group, Inc.",
+  "aliases": ["Lucid Group Inc", "Lucid Motors"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "lei": "529900MRL9Z13ZCRVD74",
+    "isin": "US5494982029",
+    "ticker": "LCID",
+    "exchange": "US",
+    "sedol": "BVY4KF9",
+    "cik": "1811210",
+    "cusip": "549498202",
+    "qid": "Q28027517",
+    "domain": "lucidmotors.com"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    },
+    {
+      "area": "mobility"
+    },
+    {
+      "area": "electric-vehicles"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "0.73,LCID,LUCID GROUP INC,BVY4KF9,3.4,\"680,475.00\",\"2,313,615.00\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "fund",
+      "detail": "Held by Global X Autonomous & Electric Vehicles ETF (DRIV, Global X): Electric mobility."
+    },
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/lit_full-holdings_20261026.csv",
+      "quote": "0.23,LCID,LUCID GROUP INC,BVY4KF9,3.4,\"796,567.00\",\"2,708,327.80\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by Global X Lithium & Battery Tech ETF (LIT, Global X): Energy storage, batteries & grid."
+    },
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3711&type=10-K&dateb=&owner=include&start=0&count=100",
+      "quote": "0001811210 Lucid Group, Inc. CA",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3711 (Motor vehicles & passenger car bodies): Electric mobility."
+    },
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-hail.xlsx",
+      "quote": "LUCID GROUP INC | LCID | 549498202 | BVY4KF9 | 1.283464 | - | 60120.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Kensho Smart Mobility ETF (HAIL, State Street): Electric mobility."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001628280-26-011053\",\"cik\":1811210,\"entityName\":\"Lucid Group, Inc.\",\"loc\":\"US-CA\",\"end\":\"2025-06-30\",\"val\":2700000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$2.7 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 2700000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "0.73,LCID,LUCID GROUP INC,BVY4KF9,3.4,\"680,475.00\",\"2,313,615.00\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker LCID"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001628280-26-011053\",\"cik\":1811210,\"entityName\":\"Lucid Group, Inc.\",\"loc\":\"US-CA\",\"end\":\"2025-06-30\",\"val\":2700000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1811210"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US5494982029",
+      "quote": "\"lei\":\"529900MRL9Z13ZCRVD74\",\"entity\":{\"legalName\":{\"name\":\"Lucid Group, Inc.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 529900MRL9Z13ZCRVD74"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US5494982029",
+      "quote": "\"lei\":\"529900MRL9Z13ZCRVD74\",\"entity\":{\"legalName\":{\"name\":\"Lucid Group, Inc.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Lucid_Motors",
+      "quote": "Lucid Group, Inc. is an American automotive and technology company that manufactures electric vehicles and supplies advanced electric vehicle powertrain systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q28027517",
+      "quote": "Lucid Motors (Q28027517) — Wikidata item: Q28027517",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:electric-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Lucid_Motors",
+      "quote": "Lucid Group, Inc. is an American automotive and technology company that manufactures electric vehicles and supplies advanced electric vehicle powertrain systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q28027517",
+      "quote": "Lucid Motors (Q28027517) — headquarters location: Newark",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q28027517",
+      "quote": "Lucid Motors (Q28027517) — official website: lucidmotors.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Lucid Group, Inc. is an American automotive and technology company that manufactures electric vehicles and supplies advanced electric vehicle powertrain systems.",
+  "hq": "Newark"
+}

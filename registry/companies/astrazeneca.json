@@ -1,0 +1,76 @@
+{
+  "slug": "astrazeneca",
+  "name": "AstraZeneca",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q731938",
+    "isin": "GB0009895292",
+    "domain": "astrazeneca.com",
+    "cik": "901832",
+    "lei": "PY6ZZQWO2IZFZC3IOL08"
+  },
+  "areas": [
+    {
+      "area": "synthetic-biology"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/AstraZeneca",
+      "quote": "AstraZeneca plc (AZ) is a Swedish–British multinational pharmaceutical and biotechnology company with its headquarters at the Cambridge Biomedical Campus in Cambridge, England.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q731938",
+      "quote": "AstraZeneca (Q731938) — Wikidata item: Q731938",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:synthetic-biology",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/AstraZeneca",
+      "quote": "AstraZeneca plc (AZ) is a Swedish–British multinational pharmaceutical and biotechnology company with its headquarters at the Cambridge Biomedical Campus in Cambridge, England.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q731938",
+      "quote": "AstraZeneca (Q731938) — official website: astrazeneca.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q731938",
+      "quote": "AstraZeneca (Q731938) — SEC Central Index Key: 901832",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q731938",
+      "quote": "AstraZeneca (Q731938) — Legal Entity Identifier: PY6ZZQWO2IZFZC3IOL08",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "AstraZeneca plc (AZ) is a Swedish–British multinational pharmaceutical and biotechnology company with its headquarters at the Cambridge Biomedical Campus in Cambridge, England."
+}

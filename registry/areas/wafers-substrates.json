@@ -1,0 +1,15 @@
+{
+  "slug": "wafers-substrates",
+  "name": "Wafers, substrates and chemicals",
+  "parent": "advanced-materials",
+  "theme": "materials",
+  "definition": "Silicon wafers, polysilicon, specialty gases, photoresists and substrates.",
+  "why": "The unglamorous inputs to every fab, held by few firms.",
+  "bottlenecks": [
+    "300-mm-prime-silicon-wafers",
+    "electronic-grade-polysilicon",
+    "photoresist-formulation",
+    "neon-excimer-laser-grade"
+  ],
+  "keyNumbers": []
+}

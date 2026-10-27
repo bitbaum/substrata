@@ -37,7 +37,8 @@
  */
 import { bodyText, sourceFetch, type FetchDeps } from '@/lib/sources/http';
 import type { Ticker } from '../identity';
-import { parseYahooChart, yahooChartUrl, yahooQuotePage } from './yahoo';
+import { hasAltSymbol, parseYahooChart, yahooChartUrl, yahooQuotePage } from './yahoo';
+import { lineNameAgrees, lineNameMismatch } from './line-name';
 import type { PricePoint, PriceSource } from './series';
 
 export interface FetchedPrices {
@@ -50,7 +51,8 @@ export interface FetchedPrices {
 export interface PriceAdapter {
   /** The `source` column a stored row carries. */
   id: string;
-  fetch: (t: Ticker, deps: FetchDeps) => Promise<FetchedPrices>;
+  /** `expectName`: the company the symbol should be (unchecked listings only). */
+  fetch: (t: Ticker, deps: FetchDeps, expectName?: string) => Promise<FetchedPrices>;
 }
 
 export const YAHOO_TERMS =
@@ -59,16 +61,26 @@ export const YAHOO_TERMS =
 function yahooFrom(host: 'query1' | 'query2'): PriceAdapter {
   return {
     id: 'yahoo',
-    async fetch(t, deps) {
-      const fetched = await sourceFetch(yahooChartUrl(t, host), 'application/json', deps);
-      const parsed = parseYahooChart(bodyText(fetched));
-      if (!parsed.points.length) throw new Error(`Yahoo returned no closes for ${t.symbol}`);
-      return {
-        points: parsed.points,
-        currency: parsed.currency,
-        source: { name: 'Yahoo Finance', url: yahooQuotePage(t), terms: YAHOO_TERMS },
-        fetchedAt: fetched.fetchedAt,
-      };
+    async fetch(t, deps, expectName) {
+      let last: Error | null = null;
+      for (const alt of hasAltSymbol(t) ? [false, true] : [false]) {
+        try {
+          const fetched = await sourceFetch(yahooChartUrl(t, host, alt), 'application/json', deps);
+          const parsed = parseYahooChart(bodyText(fetched));
+          if (!parsed.points.length) throw new Error(`Yahoo returned no closes for ${t.symbol}`);
+          if (expectName && !lineNameAgrees(expectName, parsed.names))
+            throw new Error(lineNameMismatch(expectName, parsed.names));
+          return {
+            points: parsed.points,
+            currency: parsed.currency,
+            source: { name: 'Yahoo Finance', url: yahooQuotePage(t), terms: YAHOO_TERMS },
+            fetchedAt: fetched.fetchedAt,
+          };
+        } catch (error) {
+          last = error instanceof Error ? error : new Error('failed');
+        }
+      }
+      throw last ?? new Error('failed');
     },
   };
 }
@@ -85,13 +97,14 @@ export async function fetchPrices(
   t: Ticker,
   deps: FetchDeps = {},
   adapters: readonly PriceAdapter[] = ADAPTERS,
+  expectName?: string,
 ): Promise<(FetchedPrices & { adapter: string }) | { failed: string[] }> {
   const failed: string[] = [];
   // Server reads never write the source cache to disk unless a script asks.
   const d: FetchDeps = { cacheDir: null, ...deps };
   for (const a of adapters) {
     try {
-      return { ...(await a.fetch(t, d)), adapter: a.id };
+      return { ...(await a.fetch(t, d, expectName)), adapter: a.id };
     } catch (error) {
       failed.push(`${a.id}: ${error instanceof Error ? error.message : 'failed'}`);
     }

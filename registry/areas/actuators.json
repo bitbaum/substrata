@@ -1,0 +1,10 @@
+{
+  "slug": "actuators",
+  "name": "Actuators and motors",
+  "parent": "robotics",
+  "theme": "robotics",
+  "definition": "Frameless torque motors, linear actuators and joint modules used in robots.",
+  "why": "Every joint needs one; they use sintered rare-earth magnets.",
+  "bottlenecks": ["rare-earth-magnet-sintering", "didymium-nd-pr-metal-magnet-feed"],
+  "keyNumbers": []
+}

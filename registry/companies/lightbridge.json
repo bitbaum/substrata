@@ -1,0 +1,92 @@
+{
+  "slug": "lightbridge",
+  "name": "LIGHTBRIDGE Corp",
+  "aliases": ["Lightbridge Corp", "Lightbridge Corporation"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "LTBR",
+    "exchange": "US",
+    "sedol": "BKDNG30",
+    "cik": "1084554"
+  },
+  "areas": [
+    {
+      "area": "nuclear-energy"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:nuclear-energy",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.21,LTBR,LIGHTBRIDGE CORP,BKDNG30,4.95,\"2,060,387.00\",\"10,198,915.65\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "nuclear",
+      "basis": "fund",
+      "detail": "Held by Global X Uranium ETF (URA, Global X): Nuclear, SMRs & the fuel cycle."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.21,LTBR,LIGHTBRIDGE CORP,BKDNG30,4.95,\"2,060,387.00\",\"10,198,915.65\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$10 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 10198916
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001477932-26-001076\",\"cik\":1084554,\"entityName\":\"LIGHTBRIDGE CORPORATION\",\"loc\":\"US-VA\",\"end\":\"2025-06-30\",\"val\":327566337}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$328 million public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 327566337
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.21,LTBR,LIGHTBRIDGE CORP,BKDNG30,4.95,\"2,060,387.00\",\"10,198,915.65\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker LTBR"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001477932-26-001076\",\"cik\":1084554,\"entityName\":\"LIGHTBRIDGE CORPORATION\",\"loc\":\"US-VA\",\"end\":\"2025-06-30\",\"val\":327566337}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1084554"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.21,LTBR,LIGHTBRIDGE CORP,BKDNG30,4.95,\"2,060,387.00\",\"10,198,915.65\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

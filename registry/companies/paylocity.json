@@ -1,0 +1,144 @@
+{
+  "slug": "paylocity",
+  "name": "Paylocity Corporation",
+  "aliases": ["Paylocity Holding Corporation", "Paylocity Holding Corp"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "lei": "549300VH75FTB4DIEE07",
+    "isin": "US70438V1061",
+    "cik": "1591698",
+    "qid": "Q7156760",
+    "ticker": "PCTY",
+    "exchange": "US",
+    "cusip": "70438V106",
+    "domain": "paylocity.com"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=SKYY",
+      "quote": "Paylocity Holding Corporation PCTY 70438V106 Professional Services 123,409 $21,776,752.14 0.61%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by First Trust Cloud Computing ETF (SKYY, First Trust): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q4I.json",
+      "quote": "{\"accn\":\"0001591698-26-000069\",\"cik\":1591698,\"entityName\":\"PAYLOCITY HOLDING CORPORATION\",\"loc\":\"US-IL\",\"end\":\"2025-12-31\",\"val\":6600000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-12-31",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$6.6 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 6600000000
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=SKYY",
+      "quote": "Paylocity Holding Corporation PCTY 70438V106 Professional Services 123,409 $21,776,752.14 0.61%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$22 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 21776752
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=SKYY",
+      "quote": "Paylocity Holding Corporation PCTY 70438V106 Professional Services 123,409 $21,776,752.14 0.61%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker PCTY"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q4I.json",
+      "quote": "{\"accn\":\"0001591698-26-000069\",\"cik\":1591698,\"entityName\":\"PAYLOCITY HOLDING CORPORATION\",\"loc\":\"US-IL\",\"end\":\"2025-12-31\",\"val\":6600000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-12-31",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1591698"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US70438V1061",
+      "quote": "\"lei\":\"549300VH75FTB4DIEE07\",\"entity\":{\"legalName\":{\"name\":\"PAYLOCITY HOLDING CORPORATION\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 549300VH75FTB4DIEE07"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3Fisin%20%3Flabel%20WHERE%20%7B%20VALUES%20%3Fisin%20%7B%20%22US00108J1097%22%20%22US90385V1070%22%20%22US74624M1027%22%20%22US67059N1081%22%20%22US25402D1028%22%20%22US68389X1054%22%20%22US64119N6085%22%20%22US7811541090%22%20%22US76680R2067%22%20%22US37637K1088%22%20%22US64110D1046%22%20%22US5502411037%22%20%22US0494681010%22%20%22US82509L1070%22%20%22US31188V1008%22%20%22US42824C1099%22%20%22US90138F1021%22%20%22US21873S1087%22%20%22US98139A1051%22%20%22US24703L2025%22%20%22US4435731009%22%20%22US3383071012%22%20%22US81764X1037%22%20%22US03831W1080%22%20%22US8030542042%22%20%22US98980G1022%22%20%22US2561631068%22%20%22US10316T1043%22%20%22US74758T3032%22%20%22US04342Y1047%22%20%22US09227Q1004%22%20%22US22788C1053%22%20%22US70432V1026%22%20%22US6837151066%22%20%22US9224751084%22%20%22US70438V1061%22%20%22US26210C1045%22%20%22US74736L1098%22%20%22US98138H1014%22%20%22US98980L1017%22%20%22US49845K1016%22%20%22US4612021034%22%20%22US8887871080%22%20%22US88339J1051%22%20%22US03783C1009%22%20%22US3168411052%22%20%22US7501021056%22%20%22US74762E1029%22%20%22US4435106079%22%20%22US36828A1016%22%20%22US34631F1021%22%20%22US55405W1045%22%20%22US4657411066%22%20%22US4385162056%22%20%22US0301112076%22%20%22US96924N1000%22%20%22US95082P1057%22%20%22US34379V1035%22%20%22US7404441047%22%20%22US29280W1099%22%20%22US3687361044%22%20%22US5763231090%22%20%22US00130H1059%22%20%22US5370081045%22%20%22US9202531011%22%20%22US29275Y1029%22%20%22US2963151046%22%20%22US0024741045%22%20%22US74164F1030%22%20%22US0774541066%22%20%22US2537981027%22%20%22US7504911022%22%20%22US88076W1036%22%20%22US97651M1099%22%20%22US74768A1043%22%20%22US0420682058%22%20%22US6294452064%22%20%22US74766W1080%22%20%22US55306N1046%22%20%22US6549022043%22%20%7D%20%3Fitem%20wdt%3AP946%20%3Fisin%20.%20OPTIONAL%20%7B%20%3Fitem%20rdfs%3Alabel%20%3Flabel%20FILTER(LANG(%3Flabel)%20%3D%20%22en%22)%20%7D%20%7D",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q7156760\" }, \"label\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"Paylocity Corporation\" }, \"isin\" : { \"type\" : \"literal\", \"value\" : \"US70438V1061\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "qid",
+      "detail": "Wikidata QID Q7156760"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US70438V1061",
+      "quote": "\"lei\":\"549300VH75FTB4DIEE07\",\"entity\":{\"legalName\":{\"name\":\"PAYLOCITY HOLDING CORPORATION\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7156760",
+      "quote": "Paylocity Corporation (Q7156760) — headquarters location: Schaumburg",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7156760",
+      "quote": "Paylocity Corporation (Q7156760) — official website: paylocity.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Paylocity",
+      "quote": "Paylocity Holding Corporation is an American provider of cloud-based payroll, spend management, and human capital management (HCM) software.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "hq": "Schaumburg",
+  "summary": "Paylocity Holding Corporation is an American provider of cloud-based payroll, spend management, and human capital management (HCM) software."
+}

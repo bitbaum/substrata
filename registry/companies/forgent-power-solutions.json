@@ -1,0 +1,81 @@
+{
+  "slug": "forgent-power-solutions",
+  "name": "Forgent Power Solutions, Inc.",
+  "aliases": ["Forgent Power Solutions, Inc. (Class A)"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "cik": "2080126",
+    "ticker": "FPS",
+    "exchange": "US",
+    "cusip": "34631F102",
+    "isin": "US34631F1021"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Forgent Power Solutions, Inc. (Class A) FPS 34631F102 Electrical Components 2,880,696 $72,363,083.52 0.65%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Forgent Power Solutions, Inc. (Class A) FPS 34631F102 Electrical Components 2,880,696 $72,363,083.52 0.65%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$72 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 72363084
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Forgent Power Solutions, Inc. (Class A) FPS 34631F102 Electrical Components 2,880,696 $72,363,083.52 0.65%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker FPS"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q4I.json",
+      "quote": "{\"accn\":\"0002080126-26-000035\",\"cik\":2080126,\"entityName\":\"Forgent Power Solutions, Inc.\",\"loc\":\"US-MN\",\"end\":\"2025-12-31\",\"val\":0}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-12-31",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 2080126"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Forgent Power Solutions, Inc. (Class A) FPS 34631F102 Electrical Components 2,880,696 $72,363,083.52 0.65%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

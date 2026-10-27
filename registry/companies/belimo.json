@@ -1,0 +1,58 @@
+{
+  "slug": "belimo",
+  "name": "Belimo Holding AG",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "ids": {
+    "ticker": "BEAN",
+    "exchange": "SE",
+    "cusip": "H07171129"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Belimo Holding AG BEAN.SE H07171129 Building: Climate Control 138,305 $129,180,479.77 1.16%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Belimo Holding AG BEAN.SE H07171129 Building: Climate Control 138,305 $129,180,479.77 1.16%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$129 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 129180480
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Belimo Holding AG BEAN.SE H07171129 Building: Climate Control 138,305 $129,180,479.77 1.16%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker BEAN"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

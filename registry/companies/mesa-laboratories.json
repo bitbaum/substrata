@@ -1,0 +1,80 @@
+{
+  "slug": "mesa-laboratories",
+  "name": "Mesa Laboratories Inc /Co/",
+  "aliases": ["Mesa Laboratories Inc", "Mesa Laboratories Inc /Co"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "MLAB",
+    "exchange": "US",
+    "sedol": "2553814",
+    "cik": "724004"
+  },
+  "areas": [
+    {
+      "area": "biotech-and-longevity"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:biotech-and-longevity",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "0.28,MLAB,MESA LABORATORIES INC,2553814,129.87,\"2,263.00\",\"293,895.81\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "biotools",
+      "basis": "fund",
+      "detail": "Held by Global X Genomics & Biotechnology ETF (GNOM, Global X): Biotech tools."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q3I.json",
+      "quote": "{\"accn\":\"0000724004-26-000047\",\"cik\":724004,\"entityName\":\"MESA LABORATORIES INC /CO\",\"loc\":\"US-CO\",\"end\":\"2025-09-30\",\"val\":358000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-09-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$358 million public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 358000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "0.28,MLAB,MESA LABORATORIES INC,2553814,129.87,\"2,263.00\",\"293,895.81\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker MLAB"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q3I.json",
+      "quote": "{\"accn\":\"0000724004-26-000047\",\"cik\":724004,\"entityName\":\"MESA LABORATORIES INC /CO\",\"loc\":\"US-CO\",\"end\":\"2025-09-30\",\"val\":358000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-09-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 724004"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "0.28,MLAB,MESA LABORATORIES INC,2553814,129.87,\"2,263.00\",\"293,895.81\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

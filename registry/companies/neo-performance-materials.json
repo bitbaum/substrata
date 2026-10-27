@@ -1,0 +1,113 @@
+{
+  "slug": "neo-performance-materials",
+  "name": "Neo Performance Materials",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "CA",
+  "ids": {
+    "qid": "Q2325665",
+    "ticker": "NEO",
+    "exchange": "CN",
+    "domain": "molycorp.com"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    },
+    {
+      "area": "rare-earths-magnets"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://www.neomaterials.com/neo-performance-materials-opens-state-of-the-art-permanent-magnet-facility-in-europe/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Rare-earth magnets and materials."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.neomaterials.com/neo-performance-materials-opens-state-of-the-art-permanent-magnet-facility-in-europe/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Rare-earth magnets and materials."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG00HZRFTV0",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker NEO"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.neomaterials.com/neo-performance-materials-opens-state-of-the-art-permanent-magnet-facility-in-europe/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Neo_Performance_Materials",
+      "quote": "Neo Performance Materials is a Canadian mining corporation headquartered in Toronto, Ontario.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2325665",
+      "quote": "Molycorp (Q2325665) — Wikidata item: Q2325665",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:rare-earths-magnets",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Neo_Performance_Materials",
+      "quote": "Neo Performance Materials is a Canadian mining corporation headquartered in Toronto, Ontario.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2325665",
+      "quote": "Molycorp (Q2325665) — headquarters location: Greenwood Village",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2325665",
+      "quote": "Molycorp (Q2325665) — official website: molycorp.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Neo Performance Materials is a Canadian mining corporation headquartered in Toronto, Ontario.",
+  "hq": "Greenwood Village"
+}

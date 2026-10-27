@@ -1,0 +1,85 @@
+{
+  "slug": "kuaishou",
+  "name": "Kuaishou",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q47015540",
+    "domain": "kuaishou.com",
+    "lei": "300300FCDZBE6UP9ED24",
+    "isin": "KYG532631028"
+  },
+  "areas": [
+    {
+      "area": "ai-software-tooling"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Kuaishou",
+      "quote": "Kuaishou Technology is a Chinese publicly traded partly state-owned holding company based in Haidian District, Beijing, that was founded in 2011 by Su Hua and Cheng Yixiao.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q47015540",
+      "quote": "Kuaishou (Q47015540) — Wikidata item: Q47015540",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q47015540",
+      "quote": "Kuaishou (Q47015540) — headquarters location: Beijing",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q47015540",
+      "quote": "Kuaishou (Q47015540) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q47015540",
+      "quote": "Kuaishou (Q47015540) — official website: https://www.kuaishou.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q47015540",
+      "quote": "Kuaishou (Q47015540) — Legal Entity Identifier: 300300FCDZBE6UP9ED24",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Kuaishou",
+      "quote": "Kuaishou Technology is a Chinese publicly traded partly state-owned holding company based in Haidian District, Beijing, that was founded in 2011 by Su Hua and Cheng Yixiao.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Kuaishou Technology is a Chinese publicly traded partly state-owned holding company based in Haidian District, Beijing, that was founded in 2011 by Su Hua and Cheng Yixiao.",
+  "country": "CN",
+  "hq": "Beijing"
+}

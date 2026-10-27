@@ -1,0 +1,136 @@
+{
+  "slug": "veeco-instruments",
+  "name": "Veeco Instruments Inc",
+  "aliases": ["Veeco Instruments Inc", "Veeco"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "cik": "103145",
+    "ticker": "VECO",
+    "exchange": "US",
+    "qid": "Q1665653",
+    "isin": "US9224171002",
+    "domain": "veeco.com",
+    "lei": "5493004201F72ADDZW04"
+  },
+  "areas": [
+    {
+      "area": "compute-semiconductors"
+    },
+    {
+      "area": "semiconductor-equipment"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3559&type=10-K&dateb=&owner=include&start=100&count=100",
+      "quote": "0000103145 VEECO INSTRUMENTS INC NY",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3559 (Special industry machinery, NEC): Compute & semiconductors."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001104659-26-019711\",\"cik\":103145,\"entityName\":\"VEECO INSTRUMENTS INC\",\"loc\":\"US-NY\",\"end\":\"2025-06-27\",\"val\":1205043869}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-27",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$1.2 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 1205043869
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[103145,\"VEECO INSTRUMENTS INC\",\"VECO\",\"Nasdaq\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker VECO"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001104659-26-019711\",\"cik\":103145,\"entityName\":\"VEECO INSTRUMENTS INC\",\"loc\":\"US-NY\",\"end\":\"2025-06-27\",\"val\":1205043869}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-27",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 103145"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[103145,\"VEECO INSTRUMENTS INC\",\"VECO\",\"Nasdaq\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Veeco",
+      "quote": "Veeco Instruments Inc. is an American capital equipment supplier, headquartered in Plainview, New York that designs and builds processing systems used in semiconductor and compound semiconductor manufacturing, data storage and scientific markets for applications such as advanced packaging, photonics, power electronics and display technologies.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1665653",
+      "quote": "Veeco (Q1665653) — Wikidata item: Q1665653",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:semiconductor-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Veeco",
+      "quote": "Veeco Instruments Inc. is an American capital equipment supplier, headquartered in Plainview, New York that designs and builds processing systems used in semiconductor and compound semiconductor manufacturing, data storage and scientific markets for applications such as advanced packaging, photonics, power electronics and display technologies.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1665653",
+      "quote": "Veeco (Q1665653) — headquarters location: Plainview",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1665653",
+      "quote": "Veeco (Q1665653) — official website: veeco.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1665653",
+      "quote": "Veeco (Q1665653) — Legal Entity Identifier: 5493004201F72ADDZW04",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Veeco Instruments Inc. is an American capital equipment supplier, headquartered in Plainview, New York that designs and builds processing systems used in semiconductor and compound semiconductor manufacturing, data storage and scientific markets for applications such as advanced packaging, photonics, power electronics and display technologies.",
+  "hq": "Plainview"
+}

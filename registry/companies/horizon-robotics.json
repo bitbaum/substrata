@@ -1,0 +1,163 @@
+{
+  "slug": "horizon-robotics",
+  "name": "Horizon Robotics, Inc.",
+  "aliases": ["Horizon Robotics Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "HK",
+  "ids": {
+    "qid": "Q109351566",
+    "isin": "KYG4602S1057",
+    "ticker": "9660",
+    "exchange": "HK",
+    "sedol": "BS5YNY7",
+    "cusip": "G4602S105",
+    "domain": "horizon.cc"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    },
+    {
+      "area": "ai-accelerators"
+    },
+    {
+      "area": "autonomous-vehicles"
+    },
+    {
+      "area": "ai-software-tooling"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "1.81,9660 HK,HORIZON ROBOTICS INC,BS5YNY7,0.488199715729162,\"115,418,100.00\",\"56,347,083.61\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by Global X Robotics & Artificial Intelligence ETF (BOTZ, Global X): Robotics & autonomy."
+    },
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Horizon Robotics, Inc. 9660.HK G4602S105 Information Technology 19,815,288 $9,673,324.76 1.29%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Artificial Intelligence and Robotics ETF (ROBT, First Trust): Robotics & autonomy."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "1.81,9660 HK,HORIZON ROBOTICS INC,BS5YNY7,0.488199715729162,\"115,418,100.00\",\"56,347,083.61\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$56 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 56347084
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Horizon Robotics, Inc. 9660.HK G4602S105 Information Technology 19,815,288 $9,673,324.76 1.29%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$9.7 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 9673325
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "1.81,9660 HK,HORIZON ROBOTICS INC,BS5YNY7,0.488199715729162,\"115,418,100.00\",\"56,347,083.61\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 9660"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "1.81,9660 HK,HORIZON ROBOTICS INC,BS5YNY7,0.488199715729162,\"115,418,100.00\",\"56,347,083.61\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Horizon_Robotics",
+      "quote": "Horizon Robotics, Inc. is a Chinese technology company headquartered in Beijing.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q109351566",
+      "quote": "Horizon Robotics (Q109351566) — Wikidata item: Q109351566",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-accelerators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Horizon_Robotics",
+      "quote": "Horizon Robotics, Inc. is a Chinese technology company headquartered in Beijing.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Horizon_Robotics",
+      "quote": "Horizon Robotics, Inc. is a Chinese technology company headquartered in Beijing.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Horizon_Robotics",
+      "quote": "Horizon Robotics, Inc. is a Chinese technology company headquartered in Beijing.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q109351566",
+      "quote": "Horizon Robotics (Q109351566) — headquarters location: Beijing",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q109351566",
+      "quote": "Horizon Robotics (Q109351566) — official website: horizon.cc",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Horizon Robotics, Inc. is a Chinese technology company headquartered in Beijing.",
+  "hq": "Beijing"
+}

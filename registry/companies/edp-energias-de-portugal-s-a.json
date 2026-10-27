@@ -1,0 +1,58 @@
+{
+  "slug": "edp-energias-de-portugal-s-a",
+  "name": "EDP - Energias de Portugal, S.A.",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "ids": {
+    "ticker": "EDP",
+    "exchange": "PL",
+    "cusip": "X67925119"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "EDP - Energias de Portugal, S.A. EDP.PL X67925119 Alternative Electricity 1,624,637 $8,637,033.90 0.08%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "EDP - Energias de Portugal, S.A. EDP.PL X67925119 Alternative Electricity 1,624,637 $8,637,033.90 0.08%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$8.6 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 8637034
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "EDP - Energias de Portugal, S.A. EDP.PL X67925119 Alternative Electricity 1,624,637 $8,637,033.90 0.08%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker EDP"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

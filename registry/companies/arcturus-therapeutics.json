@@ -1,0 +1,93 @@
+{
+  "slug": "arcturus-therapeutics",
+  "name": "Arcturus Therapeutics Holdings Inc.",
+  "aliases": ["Arcturus Therapeutics Holdin"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "ARCT",
+    "exchange": "US",
+    "cusip": "03969T109",
+    "isin": "US03969T1097",
+    "cik": "1768224"
+  },
+  "areas": [
+    {
+      "area": "biotech-and-longevity"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:biotech-and-longevity",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKG,ARCTURUS THERAPEUTICS HOLDIN,ARCT UQ,03969T109,\"2,890,025\",\"$28,640,147.75\",1.39%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "biotools",
+      "basis": "fund",
+      "detail": "Held by ARK Genomic Revolution ETF (ARKG, ARK Invest): Biotech tools."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKG,ARCTURUS THERAPEUTICS HOLDIN,ARCT UQ,03969T109,\"2,890,025\",\"$28,640,147.75\",1.39%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$29 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 28640148
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-088391\",\"cik\":1768224,\"entityName\":\"ARCTURUS THERAPEUTICS HOLDINGS INC.\",\"loc\":\"US-CA\",\"end\":\"2025-06-30\",\"val\":323500000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$324 million public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 323500000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKG,ARCTURUS THERAPEUTICS HOLDIN,ARCT UQ,03969T109,\"2,890,025\",\"$28,640,147.75\",1.39%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker ARCT"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-088391\",\"cik\":1768224,\"entityName\":\"ARCTURUS THERAPEUTICS HOLDINGS INC.\",\"loc\":\"US-CA\",\"end\":\"2025-06-30\",\"val\":323500000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1768224"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKG,ARCTURUS THERAPEUTICS HOLDIN,ARCT UQ,03969T109,\"2,890,025\",\"$28,640,147.75\",1.39%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

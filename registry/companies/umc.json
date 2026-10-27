@@ -1,0 +1,138 @@
+{
+  "slug": "umc",
+  "name": "UMC",
+  "aliases": ["United Microelectronics Corp"],
+  "kind": "public",
+  "status": "active",
+  "country": "TW",
+  "ids": {
+    "qid": "Q143616",
+    "cik": "1033767",
+    "isin": "US9108734057",
+    "ticker": "2303",
+    "exchange": "TT",
+    "domain": "umc.com",
+    "lei": "391200YJCAGH9LF96P73"
+  },
+  "areas": [
+    {
+      "area": "compute-semiconductors"
+    },
+    {
+      "area": "foundry"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "stated",
+      "source": "https://www.umc.com/en/Product/technologies/Index/logic",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Mature-node foundry."
+    },
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3674&type=10-K&dateb=&owner=include&start=400&count=100",
+      "quote": "0001033767 UNITED MICROELECTRONICS CORP F5",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3674 (Semiconductors & related devices): Compute & semiconductors."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.umc.com/en/Product/technologies/Index/logic",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Mature-node foundry."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000BCWT65",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 2303"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000BCWT65",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1033767"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.umc.com/en/Product/technologies/Index/logic",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/United_Microelectronics_Corporation",
+      "quote": "United Microelectronics Corporation is a Taiwanese company based in Hsinchu, Taiwan.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q143616",
+      "quote": "United Microelectronics Corporation (Q143616) — Wikidata item: Q143616",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:foundry",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/United_Microelectronics_Corporation",
+      "quote": "United Microelectronics Corporation is a Taiwanese company based in Hsinchu, Taiwan.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q143616",
+      "quote": "United Microelectronics Corporation (Q143616) — official website: umc.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q143616",
+      "quote": "United Microelectronics Corporation (Q143616) — Legal Entity Identifier: 391200YJCAGH9LF96P73",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "United Microelectronics Corporation is a Taiwanese company based in Hsinchu, Taiwan."
+}

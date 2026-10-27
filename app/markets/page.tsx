@@ -121,6 +121,12 @@ export default async function MarketsPage({
           ]}
           action={
             <span className="flex flex-wrap gap-2">
+              <Link href="/markets/directory" className="research-button-ghost">
+                Every company in the universe →
+              </Link>
+              <Link href="/areas" className="research-button-ghost">
+                Companies by area →
+              </Link>
               <Link href="/exposure" className="research-button-ghost">
                 By bottleneck, with tickers →
               </Link>

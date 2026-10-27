@@ -1,0 +1,149 @@
+{
+  "slug": "moderna",
+  "name": "Moderna, Inc.",
+  "aliases": ["Moderna Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "qid": "Q17081612",
+    "cik": "1682852",
+    "isin": "US60770K1079",
+    "ticker": "MRNA",
+    "exchange": "US",
+    "sedol": "BGSXTS3",
+    "domain": "modernatx.com",
+    "lei": "549300EI6OKH5K5Q2G38"
+  },
+  "areas": [
+    {
+      "area": "biotech-and-longevity"
+    },
+    {
+      "area": "synthetic-biology"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:biotech-and-longevity",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "10.30,MRNA,MODERNA INC,BGSXTS3,198.85,\"54,946.00\",\"10,926,012.10\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "biotools",
+      "basis": "fund",
+      "detail": "Held by Global X Genomics & Biotechnology ETF (GNOM, Global X): Biotech tools."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "10.30,MRNA,MODERNA INC,BGSXTS3,198.85,\"54,946.00\",\"10,926,012.10\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$11 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 10926012
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001682852-26-000033\",\"cik\":1682852,\"entityName\":\"Moderna, Inc.\",\"loc\":\"US-MA\",\"end\":\"2025-06-30\",\"val\":9900000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$9.9 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 9900000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "10.30,MRNA,MODERNA INC,BGSXTS3,198.85,\"54,946.00\",\"10,926,012.10\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker MRNA"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001682852-26-000033\",\"cik\":1682852,\"entityName\":\"Moderna, Inc.\",\"loc\":\"US-MA\",\"end\":\"2025-06-30\",\"val\":9900000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1682852"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "10.30,MRNA,MODERNA INC,BGSXTS3,198.85,\"54,946.00\",\"10,926,012.10\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Moderna",
+      "quote": "Moderna, Inc. is an American pharmaceutical and biotechnology company based in Cambridge, Massachusetts, that focuses on RNA therapeutics, primarily mRNA vaccines.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17081612",
+      "quote": "Moderna (Q17081612) — Wikidata item: Q17081612",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:synthetic-biology",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Moderna",
+      "quote": "Moderna, Inc. is an American pharmaceutical and biotechnology company based in Cambridge, Massachusetts, that focuses on RNA therapeutics, primarily mRNA vaccines.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17081612",
+      "quote": "Moderna (Q17081612) — headquarters location: Cambridge",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17081612",
+      "quote": "Moderna (Q17081612) — official website: modernatx.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17081612",
+      "quote": "Moderna (Q17081612) — Legal Entity Identifier: 549300EI6OKH5K5Q2G38",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Moderna, Inc. is an American pharmaceutical and biotechnology company based in Cambridge, Massachusetts, that focuses on RNA therapeutics, primarily mRNA vaccines.",
+  "hq": "Cambridge"
+}

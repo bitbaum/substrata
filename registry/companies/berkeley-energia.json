@@ -1,0 +1,68 @@
+{
+  "slug": "berkeley-energia",
+  "name": "Berkeley Energia Ltd",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "ES",
+  "ids": {
+    "ticker": "BKY",
+    "exchange": "SM",
+    "sedol": "BYVQC08"
+  },
+  "areas": [
+    {
+      "area": "nuclear-energy"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:nuclear-energy",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.29,BKY SM,BERKELEY ENERGIA LTD,BYVQC08,0.5387822624874573,\"25,386,333.00\",\"13,677,705.93\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "nuclear",
+      "basis": "fund",
+      "detail": "Held by Global X Uranium ETF (URA, Global X): Nuclear, SMRs & the fuel cycle."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.29,BKY SM,BERKELEY ENERGIA LTD,BYVQC08,0.5387822624874573,\"25,386,333.00\",\"13,677,705.93\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$14 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 13677706
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.29,BKY SM,BERKELEY ENERGIA LTD,BYVQC08,0.5387822624874573,\"25,386,333.00\",\"13,677,705.93\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker BKY"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.29,BKY SM,BERKELEY ENERGIA LTD,BYVQC08,0.5387822624874573,\"25,386,333.00\",\"13,677,705.93\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

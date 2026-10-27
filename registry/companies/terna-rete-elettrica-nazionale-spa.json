@@ -1,0 +1,68 @@
+{
+  "slug": "terna-rete-elettrica-nazionale-spa",
+  "name": "TERNA - Rete Elettrica Nazionale SpA",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "IT",
+  "ids": {
+    "ticker": "TRN",
+    "exchange": "IM",
+    "cusip": "T9471R100"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "TERNA - Rete Elettrica Nazionale SpA TRN.IM T9471R100 Conventional Electricity 21,094,907 $224,198,769.49 2.02%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "TERNA - Rete Elettrica Nazionale SpA TRN.IM T9471R100 Conventional Electricity 21,094,907 $224,198,769.49 2.02%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$224 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 224198769
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "TERNA - Rete Elettrica Nazionale SpA TRN.IM T9471R100 Conventional Electricity 21,094,907 $224,198,769.49 2.02%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker TRN"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "TERNA - Rete Elettrica Nazionale SpA TRN.IM T9471R100 Conventional Electricity 21,094,907 $224,198,769.49 2.02%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

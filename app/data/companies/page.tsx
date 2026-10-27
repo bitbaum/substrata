@@ -8,6 +8,7 @@ import { UniverseRules } from '@/components/data/UniverseRules';
 import { CONSIDERED } from '@/config/universe-considered';
 import { resolveIn } from '@/lib/entities/registry';
 import { isStub } from '@/lib/entities/types';
+import { PAGE_KINDS, pageKindCounts } from '@/lib/universe/page-kinds';
 import { counts } from '@/lib/universe/report';
 import { UNIVERSE_FILE, universeEntries } from '@/lib/universe/store';
 import { whyCompany, type Membership } from '@/lib/universe/why';
@@ -69,6 +70,8 @@ export default function CompaniesMethodPage() {
   const entries = universeEntries();
   const c = counts(entries);
   const byTheme = Object.fromEntries(c.byTheme.map((t) => [t.theme, t.count]));
+  const kinds = pageKindCounts(entries);
+  const out = entries.filter((e) => !e.admitted).sort((a, b) => a.name.localeCompare(b.name));
   return (
     <Shell>
       <Page>
@@ -131,9 +134,70 @@ export default function CompaniesMethodPage() {
           </ul>
         </section>
 
-        <section>
+        <section className="mb-12">
           <Heading
             index="07"
+            title="What each page can show"
+            aside="Counted from identifiers, not promised"
+          />
+          <ul className="divide-y divide-subtle">
+            {PAGE_KINDS.map((k) => (
+              <li key={k.kind} className="py-3">
+                <p className="font-medium text-fg-primary">
+                  {k.label}{' '}
+                  <span className="text-sm font-normal text-fg-tertiary">
+                    · {kinds[k.kind]} companies
+                  </span>
+                </p>
+                <p className="mt-1 max-w-prose text-sm text-fg-secondary">{k.shows}</p>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-3 max-w-prose text-sm text-fg-secondary">
+            Quotes are delayed end-of-day closes from Yahoo Finance, kept to draw charts and compute
+            returns, never redistributed. Where a price table is empty the page says so and reads
+            the source live; it never draws a line it could not read.{' '}
+            <Link
+              href="/markets/directory"
+              className="text-accent underline-offset-4 hover:underline"
+            >
+              Filter all {c.tiers.A + c.tiers.B} companies →
+            </Link>
+          </p>
+        </section>
+
+        <section className="mb-12">
+          <Heading
+            index="08"
+            title="Considered and out, by test"
+            aside={`${c.out} companies, each with the test it failed`}
+          />
+          <p className="mb-3 max-w-prose text-sm text-fg-secondary">
+            Out is a statement about the evidence read, not about the company. The largest group
+            fails materiality: a thematic fund holds it, but under the floor or in a file that
+            prints no market value. Each reason below is the sentence the rule produced.
+          </p>
+          <details>
+            <summary className="tap cursor-pointer text-sm text-accent">
+              Show all {out.length} names
+            </summary>
+            <ul className="mt-2 divide-y divide-subtle">
+              {out.map((e) => (
+                <li key={e.slug} className="py-2 text-sm text-fg-secondary wrap-anywhere">
+                  <span className="font-medium text-fg-primary">{e.name}</span>
+                  {e.ids.ticker
+                    ? ` (${e.ids.ticker}${e.ids.exchange ? ` · ${e.ids.exchange}` : ''})`
+                    : ''}{' '}
+                  — fails {e.failed.join(' + ')}: {e.failed.map((t) => e.tests[t].reason).join(' ')}
+                </li>
+              ))}
+            </ul>
+          </details>
+        </section>
+
+        <section>
+          <Heading
+            index="09"
             title="By country"
             aside="Legal address where a registry says, else listing venue"
           />

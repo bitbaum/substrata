@@ -1,0 +1,94 @@
+{
+  "slug": "national-presto-industries",
+  "name": "National Presto Industries Inc",
+  "aliases": ["National Presto Inds Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "cik": "80172",
+    "ticker": "NPK",
+    "exchange": "US",
+    "cusip": "637215104",
+    "sedol": "2626802",
+    "isin": "US6372151042"
+  },
+  "areas": [
+    {
+      "area": "defence-tech"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3480&type=10-K&dateb=&owner=include&start=0&count=100",
+      "quote": "0000080172 NATIONAL PRESTO INDUSTRIES INC WI",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3480 (Ordnance & accessories, except vehicles & guided missiles): Defence & aerospace."
+    },
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-xar.xlsx",
+      "quote": "NATIONAL PRESTO INDS INC | NPK | 637215104 | 2626802 | 0.435398 | - | 144170.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Aerospace & Defense ETF (XAR, State Street): Defence & aerospace."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001437749-26-008214\",\"cik\":80172,\"entityName\":\"NATIONAL PRESTO INDUSTRIES INC\",\"loc\":\"US-WI\",\"end\":\"2025-06-29\",\"val\":504328539}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-29",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$504 million public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 504328539
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[80172,\"NATIONAL PRESTO INDUSTRIES INC\",\"NPK\",\"NYSE\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker NPK"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001437749-26-008214\",\"cik\":80172,\"entityName\":\"NATIONAL PRESTO INDUSTRIES INC\",\"loc\":\"US-WI\",\"end\":\"2025-06-29\",\"val\":504328539}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-29",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 80172"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-xar.xlsx",
+      "quote": "NATIONAL PRESTO INDS INC | NPK | 637215104 | 2626802 | 0.435398 | - | 144170.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

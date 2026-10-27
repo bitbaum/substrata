@@ -13,7 +13,7 @@ import { BarChart, LineChart, ShareBars, StatTiles, Timeline } from '@bitbaum/ch
  * model writes); chartkit takes fractions (0–1). Everything else spreads.
  * A kind this does not draw returns null, and chatkit draws its table.
  */
-export function renderChart(b: ChartBlock): ReactNode {
+export function renderChart(b: ChartBlock, otherLabel?: string): ReactNode {
   switch (b.chart) {
     case 'bars':
       return (
@@ -36,6 +36,7 @@ export function renderChart(b: ChartBlock): ReactNode {
         <ShareBars
           caption={b.caption}
           other={b.other === undefined ? undefined : b.other / 100}
+          otherLabel={otherLabel}
           rows={b.rows.map((r) => ({ label: r.label, share: r.share / 100, href: r.href }))}
         />
       );
@@ -51,4 +52,4 @@ export function renderChart(b: ChartBlock): ReactNode {
 }
 
 /** Passed to every chat Substrata draws: the panel, /chat, the dock. */
-export const chartRenderers: RichRenderers = { chart: renderChart };
+export const chartRenderers: RichRenderers = { chart: (b) => renderChart(b) };

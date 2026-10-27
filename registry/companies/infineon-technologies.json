@@ -1,0 +1,206 @@
+{
+  "slug": "infineon-technologies",
+  "name": "Infineon Technologies Ag",
+  "aliases": ["Infineon Technologies AG"],
+  "kind": "public",
+  "status": "active",
+  "country": "DE",
+  "ids": {
+    "qid": "Q311394",
+    "isin": "DE0006231004",
+    "ticker": "IFX",
+    "exchange": "GR",
+    "sedol": "5889505",
+    "cusip": "D35415104",
+    "domain": "infineon.cn",
+    "lei": "TSI2PJM6EPETEQ4X1U25"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    },
+    {
+      "area": "power-storage-grid"
+    },
+    {
+      "area": "mobility"
+    },
+    {
+      "area": "quantum"
+    },
+    {
+      "area": "foundry"
+    },
+    {
+      "area": "power-semiconductors"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.59,IFX GR,INFINEON TECHNOLOGIES AG,5889505,56.11383731241759,\"1,074,661.00\",\"60,303,352.52\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Artificial Intelligence & Technology ETF (AIQ, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "1.59,IFX GR,INFINEON TECHNOLOGIES AG,5889505,56.11383730238143,\"89,946.00\",\"5,047,215.21\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "fund",
+      "detail": "Held by Global X Autonomous & Electric Vehicles ETF (DRIV, Global X): Electric mobility."
+    },
+    {
+      "field": "area:quantum",
+      "grade": "registry",
+      "source": "https://www.defianceetfs.com/qtum-full-holdings/",
+      "quote": "IFX GR Infineon Technologies Ag 5889505 0.82% 764,088",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "quantum",
+      "basis": "fund",
+      "detail": "Held by Defiance Quantum ETF (QTUM, Defiance ETFs): Quantum."
+    },
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Infineon Technologies AG IFX.GY D35415104 Semiconductors 714,521 $40,094,532.36 0.36%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.59,IFX GR,INFINEON TECHNOLOGIES AG,5889505,56.11383731241759,\"1,074,661.00\",\"60,303,352.52\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$60 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 60303353
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "1.59,IFX GR,INFINEON TECHNOLOGIES AG,5889505,56.11383730238143,\"89,946.00\",\"5,047,215.21\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$5.0 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 5047215
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Infineon Technologies AG IFX.GY D35415104 Semiconductors 714,521 $40,094,532.36 0.36%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$40 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 40094532
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.59,IFX GR,INFINEON TECHNOLOGIES AG,5889505,56.11383731241759,\"1,074,661.00\",\"60,303,352.52\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker IFX"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.59,IFX GR,INFINEON TECHNOLOGIES AG,5889505,56.11383731241759,\"1,074,661.00\",\"60,303,352.52\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Infineon_Technologies",
+      "quote": "Infineon Technologies AG is a German company which designs and manufactures semiconductor devices.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q311394",
+      "quote": "Infineon Technologies (Q311394) — Wikidata item: Q311394",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:foundry",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Infineon_Technologies",
+      "quote": "Infineon Technologies AG is a German company which designs and manufactures semiconductor devices.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:power-semiconductors",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Infineon_Technologies",
+      "quote": "Infineon Technologies AG is a German company which designs and manufactures semiconductor devices.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q311394",
+      "quote": "Infineon Technologies (Q311394) — headquarters location: Neubiberg",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q311394",
+      "quote": "Infineon Technologies (Q311394) — official website: infineon.cn",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q311394",
+      "quote": "Infineon Technologies (Q311394) — Legal Entity Identifier: TSI2PJM6EPETEQ4X1U25",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Infineon Technologies AG is a German company which designs and manufactures semiconductor devices.",
+  "hq": "Neubiberg"
+}

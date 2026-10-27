@@ -1,0 +1,66 @@
+{
+  "slug": "oci",
+  "name": "OCI",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "KR",
+  "ids": {
+    "ticker": "456040",
+    "exchange": "KS"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://www.oci.co.kr/en/products/semiconductor/polysilicon",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Polysilicon."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.oci.co.kr/en/products/semiconductor/polysilicon",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Polysilicon."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG01BPC7CD2",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 456040"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.oci.co.kr/en/products/semiconductor/polysilicon",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

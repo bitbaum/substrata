@@ -1,0 +1,115 @@
+{
+  "slug": "shenzhen-dobot-h",
+  "name": "Shenzhen Dobot Corp Ltd-H",
+  "aliases": ["Dobot"],
+  "kind": "public",
+  "status": "active",
+  "country": "HK",
+  "ids": {
+    "ticker": "2432",
+    "exchange": "HK",
+    "sedol": "BTDQ4G1",
+    "qid": "Q55080223",
+    "domain": "dobot-robots.com"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    },
+    {
+      "area": "actuators"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.25,2432 HK,SHENZHEN DOBOT CORP LTD-H,BTDQ4G1,2.36579287883389,\"3,293,000.00\",\"7,790,555.95\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by Global X Robotics & Artificial Intelligence ETF (BOTZ, Global X): Robotics & autonomy."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.25,2432 HK,SHENZHEN DOBOT CORP LTD-H,BTDQ4G1,2.36579287883389,\"3,293,000.00\",\"7,790,555.95\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$7.8 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 7790556
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.25,2432 HK,SHENZHEN DOBOT CORP LTD-H,BTDQ4G1,2.36579287883389,\"3,293,000.00\",\"7,790,555.95\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 2432"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.25,2432 HK,SHENZHEN DOBOT CORP LTD-H,BTDQ4G1,2.36579287883389,\"3,293,000.00\",\"7,790,555.95\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Dobot",
+      "quote": "Shenzhen Dobot Corp Ltd, doing business as Dobot, is a provider of collaborative robots and the creator of desktop-grade robotic arms.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q55080223",
+      "quote": "Dobot (Q55080223) — Wikidata item: Q55080223",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:actuators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Dobot",
+      "quote": "Shenzhen Dobot Corp Ltd, doing business as Dobot, is a provider of collaborative robots and the creator of desktop-grade robotic arms.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q55080223",
+      "quote": "Dobot (Q55080223) — headquarters location: Shenzhen",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q55080223",
+      "quote": "Dobot (Q55080223) — official website: dobot-robots.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Shenzhen Dobot Corp Ltd, doing business as Dobot, is a provider of collaborative robots and the creator of desktop-grade robotic arms.",
+  "hq": "Shenzhen"
+}

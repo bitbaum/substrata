@@ -1,0 +1,80 @@
+{
+  "slug": "uranium-royalty",
+  "name": "Uranium Royalty Corp.",
+  "aliases": ["Uranium Royalty Corp", "Uranium     Royalty Corp."],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "UROY",
+    "exchange": "US",
+    "sedol": "BRJH5C7",
+    "cik": "2143673"
+  },
+  "areas": [
+    {
+      "area": "nuclear-energy"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:nuclear-energy",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.53,UROY,URANIUM ROYALTY CORP,BRJH5C7,3.4,\"7,434,382.00\",\"25,276,898.80\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "nuclear",
+      "basis": "fund",
+      "detail": "Held by Global X Uranium ETF (URA, Global X): Nuclear, SMRs & the fuel cycle."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.53,UROY,URANIUM ROYALTY CORP,BRJH5C7,3.4,\"7,434,382.00\",\"25,276,898.80\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$25 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 25276899
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.53,UROY,URANIUM ROYALTY CORP,BRJH5C7,3.4,\"7,434,382.00\",\"25,276,898.80\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker UROY"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q3I.json",
+      "quote": "{\"accn\":\"0001493152-26-040580\",\"cik\":2143673,\"entityName\":\"URANIUM     ROYALTY CORP.\",\"loc\":\"US-CO\",\"end\":\"2025-10-31\",\"val\":0}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-10-31",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 2143673"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.53,UROY,URANIUM ROYALTY CORP,BRJH5C7,3.4,\"7,434,382.00\",\"25,276,898.80\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

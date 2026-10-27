@@ -1,0 +1,67 @@
+{
+  "slug": "leapmotor",
+  "name": "Leapmotor",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q99510294",
+    "isin": "CNE100005K77",
+    "domain": "leapmotor.com"
+  },
+  "areas": [
+    {
+      "area": "electric-vehicles"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q99510294",
+      "quote": "Leapmotor (Q99510294) — Wikidata item: Q99510294",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:electric-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Leapmotor",
+      "quote": ", trading as Leapmotor, is a Chinese automobile manufacturer headquartered in Hangzhou, China, specializing in developing electric vehicles.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q99510294",
+      "quote": "Leapmotor (Q99510294) — headquarters location: Hangzhou",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q99510294",
+      "quote": "Leapmotor (Q99510294) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q99510294",
+      "quote": "Leapmotor (Q99510294) — official website: leapmotor.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "hq": "Hangzhou",
+  "country": "CN"
+}

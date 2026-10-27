@@ -1,0 +1,75 @@
+{
+  "slug": "cognition-ai",
+  "name": "Cognition AI",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q126095776",
+    "domain": "cognition.ai"
+  },
+  "areas": [
+    {
+      "area": "ai-software-tooling"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Cognition_AI",
+      "quote": ", doing business as Cognition, is an American artificial intelligence (AI) company headquartered in San Francisco, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q126095776",
+      "quote": "Cognition AI (Q126095776) — Wikidata item: Q126095776",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q126095776",
+      "quote": "Cognition AI (Q126095776) — headquarters location: San Francisco",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q126095776",
+      "quote": "Cognition AI (Q126095776) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q126095776",
+      "quote": "Cognition AI (Q126095776) — official website: https://www.cognition.ai",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Cognition_AI",
+      "quote": ", doing business as Cognition, is an American artificial intelligence (AI) company headquartered in San Francisco, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": ", doing business as Cognition, is an American artificial intelligence (AI) company headquartered in San Francisco, California.",
+  "country": "US",
+  "hq": "San Francisco"
+}

@@ -1,0 +1,127 @@
+{
+  "slug": "ipg-photonics",
+  "name": "IPG Photonics Corp",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "qid": "Q5973024",
+    "cik": "1111928",
+    "isin": "US44980X1090",
+    "ticker": "IPGP",
+    "exchange": "US",
+    "domain": "ntoire-polus.ru"
+  },
+  "areas": [
+    {
+      "area": "compute-semiconductors"
+    },
+    {
+      "area": "silicon-photonics"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3674&type=10-K&dateb=&owner=include&start=200&count=100",
+      "quote": "0001111928 IPG PHOTONICS CORP MA",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3674 (Semiconductors & related devices): Compute & semiconductors."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001111928-26-000068\",\"cik\":1111928,\"entityName\":\"IPG PHOTONICS CORP\",\"loc\":\"US-MA\",\"end\":\"2025-06-30\",\"val\":1800000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$1.8 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 1800000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[1111928,\"IPG PHOTONICS CORP\",\"IPGP\",\"Nasdaq\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker IPGP"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001111928-26-000068\",\"cik\":1111928,\"entityName\":\"IPG PHOTONICS CORP\",\"loc\":\"US-MA\",\"end\":\"2025-06-30\",\"val\":1800000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1111928"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[1111928,\"IPG PHOTONICS CORP\",\"IPGP\",\"Nasdaq\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/IPG_Photonics",
+      "quote": "IPG Photonics Corporation is an American manufacturer of fiber lasers.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5973024",
+      "quote": "IPG Photonics (Q5973024) — Wikidata item: Q5973024",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:silicon-photonics",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/IPG_Photonics",
+      "quote": "IPG Photonics Corporation is an American manufacturer of fiber lasers.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5973024",
+      "quote": "IPG Photonics (Q5973024) — headquarters location: Oxford",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5973024",
+      "quote": "IPG Photonics (Q5973024) — official website: ntoire-polus.ru",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "IPG Photonics Corporation is an American manufacturer of fiber lasers.",
+  "hq": "Oxford"
+}

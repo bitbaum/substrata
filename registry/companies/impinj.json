@@ -1,0 +1,133 @@
+{
+  "slug": "impinj",
+  "name": "Impinj",
+  "aliases": ["Impinj, Inc.", "Impinj Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "lei": "549300M26VGKSMMWWN17",
+    "isin": "US4532041096",
+    "cik": "1114995",
+    "qid": "Q4041316",
+    "ticker": "PI",
+    "exchange": "US",
+    "cusip": "453204109",
+    "sedol": "BYYGJZ9",
+    "domain": "impinj.com"
+  },
+  "areas": [
+    {
+      "area": "compute-semiconductors"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-xsd.xlsx",
+      "quote": "IMPINJ INC | PI | 453204109 | BYYGJZ9 | 2.832328 | - | 409221.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Semiconductor ETF (XSD, State Street): Compute & semiconductors."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-042813\",\"cik\":1114995,\"entityName\":\"IMPINJ, INC.\",\"loc\":\"US-WA\",\"end\":\"2025-06-30\",\"val\":2900000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$2.9 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 2900000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[1114995,\"IMPINJ INC\",\"PI\",\"Nasdaq\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker PI"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-042813\",\"cik\":1114995,\"entityName\":\"IMPINJ, INC.\",\"loc\":\"US-WA\",\"end\":\"2025-06-30\",\"val\":2900000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1114995"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US4532041096",
+      "quote": "\"lei\":\"549300M26VGKSMMWWN17\",\"entity\":{\"legalName\":{\"name\":\"IMPINJ, INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 549300M26VGKSMMWWN17"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3Fisin%20%3Flabel%20WHERE%20%7B%20VALUES%20%3Fisin%20%7B%20%22US45676K1034%22%20%22US76655K1034%22%20%22US46222L1089%22%20%22US0558691012%22%20%22US26740W1099%22%20%22US74767K1034%22%20%22US34984V2097%22%20%22US6752321025%22%20%22US48242W1062%22%20%22US5253271028%22%20%22US92552V1008%22%20%22US0320951017%22%20%22US70202L1026%22%20%22US8542311076%22%20%22US8485603067%22%20%22US72703X1063%22%20%22US87305R1095%22%20%22US87157D1090%22%20%22US91347P1057%22%20%22US83088M1027%22%20%22US4532041096%22%20%22US8269191024%22%20%22US7069151055%22%20%22US7392761034%22%20%22US57776J1007%22%20%22US3364331070%22%20%22US82982T1060%22%20%22US63942X1063%22%20%22US15675D1037%22%20%22US0231931058%22%20%22US97785W1062%22%20%22US1572101053%22%20%22US5006001011%22%20%22US35834F1049%22%20%22US30041T1043%22%20%7D%20%3Fitem%20wdt%3AP946%20%3Fisin%20.%20OPTIONAL%20%7B%20%3Fitem%20rdfs%3Alabel%20%3Flabel%20FILTER(LANG(%3Flabel)%20%3D%20%22en%22)%20%7D%20%7D",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q4041316\" }, \"label\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"Impinj\" }, \"isin\" : { \"type\" : \"literal\", \"value\" : \"US4532041096\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "qid",
+      "detail": "Wikidata QID Q4041316"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US4532041096",
+      "quote": "\"lei\":\"549300M26VGKSMMWWN17\",\"entity\":{\"legalName\":{\"name\":\"IMPINJ, INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4041316",
+      "quote": "Impinj (Q4041316) — headquarters location: Seattle",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4041316",
+      "quote": "Impinj (Q4041316) — official website: impinj.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Impinj",
+      "quote": "Impinj, Inc. is an American manufacturer of radio-frequency identification (RFID) devices and software.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "hq": "Seattle",
+  "summary": "Impinj, Inc. is an American manufacturer of radio-frequency identification (RFID) devices and software."
+}

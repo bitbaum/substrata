@@ -1,0 +1,149 @@
+{
+  "slug": "bruker",
+  "name": "Bruker Corp",
+  "aliases": ["Bruker Corporation"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "qid": "Q431454",
+    "isin": "US1167941087",
+    "ticker": "BRKR",
+    "exchange": "US",
+    "sedol": "2616137",
+    "cik": "1109354",
+    "domain": "bruker.com",
+    "lei": "LEBZ6VLQ6I8XB1NHVY15"
+  },
+  "areas": [
+    {
+      "area": "biotech-and-longevity"
+    },
+    {
+      "area": "synthetic-biology"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:biotech-and-longevity",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "0.32,BRKR,BRUKER CORP,2616137,58.23,\"5,776.00\",\"336,336.48\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "biotools",
+      "basis": "fund",
+      "detail": "Held by Global X Genomics & Biotechnology ETF (GNOM, Global X): Biotech tools."
+    },
+    {
+      "field": "area:biotech-and-longevity",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3826&type=10-K&dateb=&owner=include&start=0&count=100",
+      "quote": "0001109354 BRUKER CORP MA",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "biotools",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3826 (Laboratory analytical instruments): Biotech tools."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-082523\",\"cik\":1109354,\"entityName\":\"BRUKER CORPORATION\",\"loc\":\"US-MA\",\"end\":\"2025-06-30\",\"val\":4251097535}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$4.3 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 4251097535
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "0.32,BRKR,BRUKER CORP,2616137,58.23,\"5,776.00\",\"336,336.48\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker BRKR"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-082523\",\"cik\":1109354,\"entityName\":\"BRUKER CORPORATION\",\"loc\":\"US-MA\",\"end\":\"2025-06-30\",\"val\":4251097535}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1109354"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "0.32,BRKR,BRUKER CORP,2616137,58.23,\"5,776.00\",\"336,336.48\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Bruker",
+      "quote": "Bruker Corporation is an American manufacturer of scientific instruments for molecular and materials research, as well as for industrial and applied analysis.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q431454",
+      "quote": "Bruker (Q431454) — Wikidata item: Q431454",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:synthetic-biology",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Bruker",
+      "quote": "Bruker Corporation is an American manufacturer of scientific instruments for molecular and materials research, as well as for industrial and applied analysis.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q431454",
+      "quote": "Bruker (Q431454) — headquarters location: Billerica",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q431454",
+      "quote": "Bruker (Q431454) — official website: bruker.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q431454",
+      "quote": "Bruker (Q431454) — Legal Entity Identifier: LEBZ6VLQ6I8XB1NHVY15",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Bruker Corporation is an American manufacturer of scientific instruments for molecular and materials research, as well as for industrial and applied analysis.",
+  "hq": "Billerica"
+}

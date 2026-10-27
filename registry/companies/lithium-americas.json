@@ -1,0 +1,158 @@
+{
+  "slug": "lithium-americas",
+  "name": "Lithium Americas Corp.",
+  "aliases": ["Lithium Americas Corp"],
+  "kind": "public",
+  "status": "active",
+  "country": "CA",
+  "ids": {
+    "qid": "Q124655501",
+    "isin": "CA53681J1030",
+    "ticker": "LAC",
+    "exchange": "CN",
+    "sedol": "BRBS357",
+    "cik": "1966983",
+    "domain": "lithiumamericas.com"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    },
+    {
+      "area": "mobility"
+    },
+    {
+      "area": "advanced-materials"
+    },
+    {
+      "area": "critical-minerals"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "0.82,LAC CN,LITHIUM AMERICAS CORP,BRBS357,2.00306518662352,\"1,305,007.00\",\"2,614,014.09\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "fund",
+      "detail": "Held by Global X Autonomous & Electric Vehicles ETF (DRIV, Global X): Electric mobility."
+    },
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/lit_full-holdings_20261026.csv",
+      "quote": "0.24,LAC CN,LITHIUM AMERICAS CORP,BRBS357,2.003065191664668,\"1,413,693.00\",\"2,831,719.24\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by Global X Lithium & Battery Tech ETF (LIT, Global X): Energy storage, batteries & grid."
+    },
+    {
+      "field": "area:advanced-materials",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=1000&type=10-K&dateb=&owner=include&start=300&count=100",
+      "quote": "0001966983 LITHIUM AMERICAS CORP.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 1000 (Metal mining): Advanced materials & critical minerals."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-193861\",\"cik\":1966983,\"entityName\":\"LITHIUM AMERICAS CORP.\",\"loc\":\"CA-BC\",\"end\":\"2025-06-30\",\"val\":600000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$600 million public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 600000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "0.82,LAC CN,LITHIUM AMERICAS CORP,BRBS357,2.00306518662352,\"1,305,007.00\",\"2,614,014.09\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker LAC"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-193861\",\"cik\":1966983,\"entityName\":\"LITHIUM AMERICAS CORP.\",\"loc\":\"CA-BC\",\"end\":\"2025-06-30\",\"val\":600000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1966983"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "0.82,LAC CN,LITHIUM AMERICAS CORP,BRBS357,2.00306518662352,\"1,305,007.00\",\"2,614,014.09\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Lithium_Americas",
+      "quote": "Lithium Americas Corp. is a Canadian mining corporation. It is currently developing the Thacker Pass Lithium Mine in northern Nevada.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q124655501",
+      "quote": "Lithium Americas (Q124655501) — Wikidata item: Q124655501",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Lithium_Americas",
+      "quote": "Lithium Americas Corp. is a Canadian mining corporation. It is currently developing the Thacker Pass Lithium Mine in northern Nevada.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q124655501",
+      "quote": "Lithium Americas (Q124655501) — headquarters location: Vancouver",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q124655501",
+      "quote": "Lithium Americas (Q124655501) — official website: lithiumamericas.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Lithium Americas Corp. is a Canadian mining corporation. It is currently developing the Thacker Pass Lithium Mine in northern Nevada.",
+  "hq": "Vancouver"
+}

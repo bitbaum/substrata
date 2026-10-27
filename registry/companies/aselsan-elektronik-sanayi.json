@@ -1,0 +1,78 @@
+{
+  "slug": "aselsan-elektronik-sanayi",
+  "name": "Aselsan Elektronik Sanayi",
+  "aliases": ["Aselsan"],
+  "kind": "public",
+  "status": "active",
+  "ids": {
+    "ticker": "ASELS",
+    "exchange": "TI",
+    "sedol": "B03MP41"
+  },
+  "areas": [
+    {
+      "area": "defence-tech"
+    },
+    {
+      "area": "defence-autonomy"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.57,ASELS TI,ASELSAN ELEKTRONIK SANAYI,B03MP41,6.732010711555102,\"5,559,977.00\",\"37,429,824.72\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "fund",
+      "detail": "Held by Global X Defense Tech ETF (SHLD, Global X): Defence & aerospace."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.57,ASELS TI,ASELSAN ELEKTRONIK SANAYI,B03MP41,6.732010711555102,\"5,559,977.00\",\"37,429,824.72\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$37 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 37429825
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.57,ASELS TI,ASELSAN ELEKTRONIK SANAYI,B03MP41,6.732010711555102,\"5,559,977.00\",\"37,429,824.72\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker ASELS"
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Aselsan",
+      "quote": "Ş. is a Turkish defense corporation headquartered in Ankara, Turkey.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:defence-autonomy",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Aselsan",
+      "quote": "Ş. is a Turkish defense corporation headquartered in Ankara, Turkey.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Ş. is a Turkish defense corporation headquartered in Ankara, Turkey."
+}

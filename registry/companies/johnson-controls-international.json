@@ -1,0 +1,141 @@
+{
+  "slug": "johnson-controls-international",
+  "name": "Johnson Controls International plc",
+  "aliases": [
+    "Johnson Controls International PLC",
+    "Johnson Controls International Plc",
+    "Johnson Controls"
+  ],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "cik": "833444",
+    "ticker": "JCI",
+    "exchange": "US",
+    "cusip": "G51502105",
+    "qid": "Q667865",
+    "isin": "IE00BY7QL619",
+    "domain": "johnsoncontrols.com",
+    "lei": "3LB2NG8VUULSCV2NO430"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    },
+    {
+      "area": "data-centre-cooling"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Johnson Controls International Plc JCI G51502105 Electronic Equipment: Control and Filter 6,765,241 $997,873,047.50 8.97%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Johnson Controls International Plc JCI G51502105 Electronic Equipment: Control and Filter 6,765,241 $997,873,047.50 8.97%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$998 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 997873048
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Johnson Controls International Plc JCI G51502105 Electronic Equipment: Control and Filter 6,765,241 $997,873,047.50 8.97%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker JCI"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[833444,\"Johnson Controls International plc\",\"JCI\",\"NYSE\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 833444"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Johnson Controls International Plc JCI G51502105 Electronic Equipment: Control and Filter 6,765,241 $997,873,047.50 8.97%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Johnson_Controls",
+      "quote": "Johnson Controls International plc is an American multinational conglomerate headquartered in Cork, Ireland, that produces fire, HVAC, and security equipment for buildings.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q667865",
+      "quote": "Johnson Controls (Q667865) — Wikidata item: Q667865",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:data-centre-cooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Johnson_Controls",
+      "quote": "Johnson Controls International plc is an American multinational conglomerate headquartered in Cork, Ireland, that produces fire, HVAC, and security equipment for buildings.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q667865",
+      "quote": "Johnson Controls (Q667865) — headquarters location: Cork",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q667865",
+      "quote": "Johnson Controls (Q667865) — official website: johnsoncontrols.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q667865",
+      "quote": "Johnson Controls (Q667865) — Legal Entity Identifier: 3LB2NG8VUULSCV2NO430",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Johnson Controls International plc is an American multinational conglomerate headquartered in Cork, Ireland, that produces fire, HVAC, and security equipment for buildings.",
+  "hq": "Cork"
+}

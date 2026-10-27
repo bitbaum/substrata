@@ -1,0 +1,48 @@
+{
+  "slug": "silicon-quantum-computing",
+  "name": "Silicon Quantum Computing",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q135038419"
+  },
+  "areas": [
+    {
+      "area": "quantum-computing"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Silicon_Quantum_Computing",
+      "quote": "Silicon Quantum Computing Pty Ltd (SQC) is a Sydney, Australia-based quantum computing company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q135038419",
+      "quote": "Silicon Quantum Computing (Q135038419) — Wikidata item: Q135038419",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:quantum-computing",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Silicon_Quantum_Computing",
+      "quote": "Silicon Quantum Computing Pty Ltd (SQC) is a Sydney, Australia-based quantum computing company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Silicon Quantum Computing Pty Ltd (SQC) is a Sydney, Australia-based quantum computing company."
+}

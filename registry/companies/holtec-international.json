@@ -1,0 +1,75 @@
+{
+  "slug": "holtec-international",
+  "name": "Holtec International",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q16879913",
+    "domain": "holtecinternational.com"
+  },
+  "areas": [
+    {
+      "area": "fission-smr"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Holtec_International",
+      "quote": "Holtec International is an American supplier of equipment and systems for the nuclear energy industry.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q16879913",
+      "quote": "Holtec International (Q16879913) — Wikidata item: Q16879913",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:fission-smr",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Holtec_International",
+      "quote": "Holtec International is an American supplier of equipment and systems for the nuclear energy industry.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q16879913",
+      "quote": "Holtec International (Q16879913) — headquarters location: Jupiter",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q16879913",
+      "quote": "Holtec International (Q16879913) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q16879913",
+      "quote": "Holtec International (Q16879913) — official website: holtecinternational.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Holtec International is an American supplier of equipment and systems for the nuclear energy industry.",
+  "hq": "Jupiter",
+  "country": "US"
+}

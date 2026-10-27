@@ -1,0 +1,86 @@
+{
+  "slug": "colossal-biosciences",
+  "name": "Colossal Biosciences",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q109511106",
+    "domain": "colossal.com"
+  },
+  "areas": [
+    {
+      "area": "longevity"
+    },
+    {
+      "area": "synthetic-biology"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Colossal_Biosciences",
+      "quote": "Colossal Biosciences Inc. is an American biotechnology and genetic engineering company working to de-extinct several extinct animals, including the woolly mammoth, the Tasmanian tiger, the dire wolf, the dodo, the moa and the bluebuck.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q109511106",
+      "quote": "Colossal Biosciences (Q109511106) — Wikidata item: Q109511106",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:longevity",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Colossal_Biosciences",
+      "quote": "Colossal Biosciences Inc. is an American biotechnology and genetic engineering company working to de-extinct several extinct animals, including the woolly mammoth, the Tasmanian tiger, the dire wolf, the dodo, the moa and the bluebuck.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:synthetic-biology",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Colossal_Biosciences",
+      "quote": "Colossal Biosciences Inc. is an American biotechnology and genetic engineering company working to de-extinct several extinct animals, including the woolly mammoth, the Tasmanian tiger, the dire wolf, the dodo, the moa and the bluebuck.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q109511106",
+      "quote": "Colossal Biosciences (Q109511106) — headquarters location: Dallas",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q109511106",
+      "quote": "Colossal Biosciences (Q109511106) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q109511106",
+      "quote": "Colossal Biosciences (Q109511106) — official website: colossal.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Colossal Biosciences Inc. is an American biotechnology and genetic engineering company working to de-extinct several extinct animals, including the woolly mammoth, the Tasmanian tiger, the dire wolf, the dodo, the moa and the bluebuck.",
+  "hq": "Dallas",
+  "country": "US"
+}

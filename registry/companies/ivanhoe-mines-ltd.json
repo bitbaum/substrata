@@ -1,0 +1,116 @@
+{
+  "slug": "ivanhoe-mines-ltd",
+  "name": "Ivanhoe Mines Ltd",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "CA",
+  "ids": {
+    "qid": "Q16987739",
+    "isin": "CA46579R1047",
+    "ticker": "IVN",
+    "exchange": "CN",
+    "sedol": "BD73C40",
+    "domain": "ivanhoemines.com"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    },
+    {
+      "area": "critical-minerals"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "3.17,IVN CN,IVANHOE MINES LTD-CL A,BD73C40,6.543821506311356,\"30,534,962.00\",\"199,815,341.03\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "fund",
+      "detail": "Held by Global X Copper Miners ETF (COPX, Global X): Advanced materials & critical minerals."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "3.17,IVN CN,IVANHOE MINES LTD-CL A,BD73C40,6.543821506311356,\"30,534,962.00\",\"199,815,341.03\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$200 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 199815341
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "3.17,IVN CN,IVANHOE MINES LTD-CL A,BD73C40,6.543821506311356,\"30,534,962.00\",\"199,815,341.03\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker IVN"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "3.17,IVN CN,IVANHOE MINES LTD-CL A,BD73C40,6.543821506311356,\"30,534,962.00\",\"199,815,341.03\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Ivanhoe_Mines",
+      "quote": "Ivanhoe Mines is a Canadian mining company focused on advancing its three principal projects in Southern Africa: the development of new mines at the Kamoa-Kakula copper discoveries in the Democratic Republic of the Congo (DRC), the Platreef palladium-platinum-nickel-copper-rhodium-gold discovery in South Africa, and the extensive redevelopment and upgrading of the historic Kipu",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q16987739",
+      "quote": "Ivanhoe Mines (Q16987739) — Wikidata item: Q16987739",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Ivanhoe_Mines",
+      "quote": "Ivanhoe Mines is a Canadian mining company focused on advancing its three principal projects in Southern Africa: the development of new mines at the Kamoa-Kakula copper discoveries in the Democratic Republic of the Congo (DRC), the Platreef palladium-platinum-nickel-copper-rhodium-gold discovery in South Africa, and the extensive redevelopment and upgrading of the historic Kipu",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q16987739",
+      "quote": "Ivanhoe Mines (Q16987739) — headquarters location: Vancouver",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q16987739",
+      "quote": "Ivanhoe Mines (Q16987739) — official website: ivanhoemines.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Ivanhoe Mines is a Canadian mining company focused on advancing its three principal projects in Southern Africa: the development of new mines at the Kamoa-Kakula copper discoveries in the Democratic Republic of the Congo (DRC), the Platreef palladium-platinum-nickel-copper-rhodium-gold discovery in South Africa, and the extensive redevelopment and upgrading of the historic Kipu",
+  "hq": "Vancouver"
+}

@@ -1,0 +1,52 @@
+{
+  "slug": "sk-siltron-css",
+  "name": "SK Siltron CSS",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "country": "KR",
+  "ids": {},
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://www.sksiltroncss.com/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: makes Silicon carbide substrate, 200 mm semi-insulating."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.sksiltroncss.com/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: makes Silicon carbide substrate, 200 mm semi-insulating."
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.sksiltroncss.com/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

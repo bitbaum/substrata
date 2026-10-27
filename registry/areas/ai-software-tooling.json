@@ -1,0 +1,10 @@
+{
+  "slug": "ai-software-tooling",
+  "name": "AI software, tooling and data",
+  "parent": "frontier-ai",
+  "theme": "ai",
+  "definition": "Companies selling training data, evaluation, orchestration and developer tooling around frontier models.",
+  "why": "Data and tooling decide how efficiently scarce compute is used, and who captures value above the model.",
+  "bottlenecks": [],
+  "keyNumbers": []
+}

@@ -1,0 +1,57 @@
+{
+  "slug": "liquid-ai",
+  "name": "Liquid AI",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q141322490",
+    "domain": "liquid.ai"
+  },
+  "areas": [
+    {
+      "area": "frontier-labs"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Liquid_AI",
+      "quote": "Liquid AI is an American artificial intelligence company, an MIT spin-off, that develops liquid foundation models running directly on devices without a cloud connection.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q141322490",
+      "quote": "Liquid AI (Q141322490) — Wikidata item: Q141322490",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q141322490",
+      "quote": "Liquid AI (Q141322490) — official website: https://www.liquid.ai/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:frontier-labs",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Liquid_AI",
+      "quote": "Liquid AI is an American artificial intelligence company, an MIT spin-off, that develops liquid foundation models running directly on devices without a cloud connection.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Liquid AI is an American artificial intelligence company, an MIT spin-off, that develops liquid foundation models running directly on devices without a cloud connection."
+}

@@ -1,0 +1,66 @@
+{
+  "slug": "general-matter",
+  "name": "General Matter",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q134369638",
+    "domain": "generalmatter.com"
+  },
+  "areas": [
+    {
+      "area": "nuclear-fuel-cycle"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/General_Matter",
+      "quote": "General Matter is an American nuclear-fuel start up company, founded in 2024, that aims to develop domestic uranium enrichment capabilities for low-enriched uranium (LEU) and high-assay low-enriched uranium (HALEU).",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q134369638",
+      "quote": "General Matter (Q134369638) — Wikidata item: Q134369638",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:nuclear-fuel-cycle",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/General_Matter",
+      "quote": "General Matter is an American nuclear-fuel start up company, founded in 2024, that aims to develop domestic uranium enrichment capabilities for low-enriched uranium (LEU) and high-assay low-enriched uranium (HALEU).",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q134369638",
+      "quote": "General Matter (Q134369638) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q134369638",
+      "quote": "General Matter (Q134369638) — official website: generalmatter.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "General Matter is an American nuclear-fuel start up company, founded in 2024, that aims to develop domestic uranium enrichment capabilities for low-enriched uranium (LEU) and high-assay low-enriched uranium (HALEU).",
+  "country": "US"
+}

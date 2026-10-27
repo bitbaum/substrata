@@ -1,0 +1,138 @@
+{
+  "slug": "asm-international",
+  "name": "ASM International",
+  "aliases": ["Asm International Nv"],
+  "kind": "public",
+  "status": "active",
+  "country": "NL",
+  "ids": {
+    "qid": "Q2478569",
+    "isin": "NL0000334118",
+    "ticker": "ASM",
+    "exchange": "NA",
+    "domain": "asm.com",
+    "lei": "7245001I22ND6ZFHX623"
+  },
+  "areas": [
+    {
+      "area": "compute-semiconductors"
+    },
+    {
+      "area": "quantum"
+    },
+    {
+      "area": "semiconductor-equipment"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "stated",
+      "source": "https://www.asm.com/our-technology-products/ald",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Atomic layer deposition."
+    },
+    {
+      "field": "area:quantum",
+      "grade": "registry",
+      "source": "https://www.defianceetfs.com/qtum-full-holdings/",
+      "quote": "ASM NA Asm International Nv 5165294 0.96% 63,297",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "quantum",
+      "basis": "fund",
+      "detail": "Held by Defiance Quantum ETF (QTUM, Defiance ETFs): Quantum."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.asm.com/our-technology-products/ald",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Atomic layer deposition."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000F5L454",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker ASM"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.defianceetfs.com/qtum-full-holdings/",
+      "quote": "ASM NA Asm International Nv 5165294 0.96% 63,297",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/ASM_International",
+      "quote": "V. is a Dutch multinational corporation that designs, manufactures, sells, and services equipment used in the fabrication of semiconductor devices.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2478569",
+      "quote": "ASM International (Q2478569) — Wikidata item: Q2478569",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:semiconductor-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/ASM_International",
+      "quote": "V. is a Dutch multinational corporation that designs, manufactures, sells, and services equipment used in the fabrication of semiconductor devices.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2478569",
+      "quote": "ASM International (Q2478569) — headquarters location: Almere",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2478569",
+      "quote": "ASM International (Q2478569) — official website: asm.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2478569",
+      "quote": "ASM International (Q2478569) — Legal Entity Identifier: 7245001I22ND6ZFHX623",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "V. is a Dutch multinational corporation that designs, manufactures, sells, and services equipment used in the fabrication of semiconductor devices.",
+  "hq": "Almere"
+}

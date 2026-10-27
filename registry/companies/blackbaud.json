@@ -1,0 +1,105 @@
+{
+  "slug": "blackbaud",
+  "name": "Blackbaud, Inc.",
+  "aliases": ["Blackbaud Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "lei": "54930056X3HKFMNG3754",
+    "isin": "US09227Q1004",
+    "cik": "1280058",
+    "ticker": "BLKB",
+    "exchange": "US",
+    "cusip": "09227Q100"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=SKYY",
+      "quote": "Blackbaud, Inc. BLKB 09227Q100 Software 411,417 $22,656,734.19 0.64%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by First Trust Cloud Computing ETF (SKYY, First Trust): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001280058-26-000006\",\"cik\":1280058,\"entityName\":\"Blackbaud, Inc.\",\"loc\":\"US-SC\",\"end\":\"2025-06-30\",\"val\":1709331328}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$1.7 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 1709331328
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=SKYY",
+      "quote": "Blackbaud, Inc. BLKB 09227Q100 Software 411,417 $22,656,734.19 0.64%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$23 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 22656734
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=SKYY",
+      "quote": "Blackbaud, Inc. BLKB 09227Q100 Software 411,417 $22,656,734.19 0.64%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker BLKB"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001280058-26-000006\",\"cik\":1280058,\"entityName\":\"Blackbaud, Inc.\",\"loc\":\"US-SC\",\"end\":\"2025-06-30\",\"val\":1709331328}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1280058"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US09227Q1004",
+      "quote": "\"lei\":\"54930056X3HKFMNG3754\",\"entity\":{\"legalName\":{\"name\":\"BLACKBAUD, INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 54930056X3HKFMNG3754"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US09227Q1004",
+      "quote": "\"lei\":\"54930056X3HKFMNG3754\",\"entity\":{\"legalName\":{\"name\":\"BLACKBAUD, INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

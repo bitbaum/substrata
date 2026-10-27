@@ -1,0 +1,98 @@
+{
+  "slug": "jiangxi-copper-h",
+  "name": "Jiangxi Copper Co Ltd-H",
+  "aliases": ["Jiangxi Copper"],
+  "kind": "public",
+  "status": "active",
+  "country": "HK",
+  "ids": {
+    "ticker": "358",
+    "exchange": "HK",
+    "sedol": "6000305",
+    "qid": "Q1518015",
+    "isin": "CNE1000003K3"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    },
+    {
+      "area": "critical-minerals"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "2.26,358 HK,JIANGXI COPPER CO LTD-H,6000305,3.614972307628583,\"39,400,201.00\",\"142,430,635.53\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "fund",
+      "detail": "Held by Global X Copper Miners ETF (COPX, Global X): Advanced materials & critical minerals."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "2.26,358 HK,JIANGXI COPPER CO LTD-H,6000305,3.614972307628583,\"39,400,201.00\",\"142,430,635.53\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$142 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 142430636
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "2.26,358 HK,JIANGXI COPPER CO LTD-H,6000305,3.614972307628583,\"39,400,201.00\",\"142,430,635.53\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 358"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "2.26,358 HK,JIANGXI COPPER CO LTD-H,6000305,3.614972307628583,\"39,400,201.00\",\"142,430,635.53\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Jiangxi_Copper",
+      "quote": "Jiangxi Copper Company Limited is the largest integrated copper producer in China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1518015",
+      "quote": "Jiangxi Copper Company Limited (Q1518015) — Wikidata item: Q1518015",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Jiangxi_Copper",
+      "quote": "Jiangxi Copper Company Limited is the largest integrated copper producer in China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Jiangxi Copper Company Limited is the largest integrated copper producer in China."
+}

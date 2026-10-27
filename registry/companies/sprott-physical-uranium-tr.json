@@ -1,0 +1,68 @@
+{
+  "slug": "sprott-physical-uranium-tr",
+  "name": "Sprott Physical Uranium TR",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "CA",
+  "ids": {
+    "ticker": "U-U",
+    "exchange": "CN",
+    "sedol": "BNZKG52"
+  },
+  "areas": [
+    {
+      "area": "nuclear-energy"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:nuclear-energy",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "8.06,U-U CN,SPROTT PHYSICAL URANIUM TR,BNZKG52,18.89724489452702,\"20,395,270.00\",\"385,414,411.88\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "nuclear",
+      "basis": "fund",
+      "detail": "Held by Global X Uranium ETF (URA, Global X): Nuclear, SMRs & the fuel cycle."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "8.06,U-U CN,SPROTT PHYSICAL URANIUM TR,BNZKG52,18.89724489452702,\"20,395,270.00\",\"385,414,411.88\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$385 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 385414412
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "8.06,U-U CN,SPROTT PHYSICAL URANIUM TR,BNZKG52,18.89724489452702,\"20,395,270.00\",\"385,414,411.88\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker U-U"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "8.06,U-U CN,SPROTT PHYSICAL URANIUM TR,BNZKG52,18.89724489452702,\"20,395,270.00\",\"385,414,411.88\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

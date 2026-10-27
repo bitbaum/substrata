@@ -1,0 +1,155 @@
+{
+  "slug": "caterpillar",
+  "name": "Caterpillar Inc.",
+  "aliases": ["Caterpillar Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "qid": "Q459965",
+    "cik": "18230",
+    "lei": "WRJR7GS4GTRECRRTVX92",
+    "isin": "US1491231015",
+    "ticker": "CAT",
+    "exchange": "US",
+    "cusip": "149123101",
+    "domain": "caterpillar.com"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    },
+    {
+      "area": "data-centre-cooling"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKQ,CATERPILLAR INC,CAT,149123101,\"32,233\",\"$22,309,426.29\",1.25%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by ARK Autonomous Technology & Robotics ETF (ARKQ, ARK Invest): Robotics & autonomy."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKQ,CATERPILLAR INC,CAT,149123101,\"32,233\",\"$22,309,426.29\",1.25%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$22 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 22309426
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q4I.json",
+      "quote": "{\"accn\":\"0000018230-26-000008\",\"cik\":18230,\"entityName\":\"CATERPILLAR INC\",\"loc\":\"US-TX\",\"end\":\"2025-12-31\",\"val\":180900000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-12-31",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$181 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 180900000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKQ,CATERPILLAR INC,CAT,149123101,\"32,233\",\"$22,309,426.29\",1.25%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker CAT"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q4I.json",
+      "quote": "{\"accn\":\"0000018230-26-000008\",\"cik\":18230,\"entityName\":\"CATERPILLAR INC\",\"loc\":\"US-TX\",\"end\":\"2025-12-31\",\"val\":180900000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-12-31",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 18230"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US1491231015",
+      "quote": "\"lei\":\"WRJR7GS4GTRECRRTVX92\",\"entity\":{\"legalName\":{\"name\":\"CATERPILLAR INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) WRJR7GS4GTRECRRTVX92"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3Fisin%20%3Flabel%20WHERE%20%7B%20VALUES%20%3Fisin%20%7B%20%22US88160R1014%22%20%22US84615Q1031%22%20%22US67066G1040%22%20%22US69608A1088%22%20%22US50077B2079%22%20%22US02079K1079%22%20%22US8807701029%22%20%22US7731211089%22%20%22US0231351067%22%20%22US8740391003%22%20%22US0079031078%22%20%22US5024311095%22%20%22US2441991054%22%20%22US0080731088%22%20%22US8962391004%22%20%22US03945R1023%22%20%22US11135F1012%22%20%22US5004584018%22%20%22US87151X1019%22%20%22US46120E6023%22%20%22US0517741072%22%20%22US46125A1007%22%20%22US05605H1005%22%20%22US13321L1089%22%20%22US25809K1051%22%20%22US1491231015%22%20%22US8716071076%22%20%22US98386P1021%22%20%22US9509151083%22%20%22US02156V1098%22%20%22US7329081084%22%20%22US0567521085%22%20%22US05606L1008%22%20%22US5000811043%22%20%22US46269C1027%22%20%22US0926671043%22%20%22US8793601050%22%20%22US4228061093%22%20%22US4385161066%22%20%22US5398301094%22%20%22US88025U1097%22%20%22US90184D1000%22%20%22US88023B1035%22%20%22US40131M1099%22%20%22US4523271090%22%20%22US6323071042%22%20%22US00091E1091%22%20%22US5324571083%22%20%22US14167L1035%22%20%22US92337F1075%22%20%22US07373V1052%22%20%22US75629V1044%22%20%22US67080M1036%22%20%22US80810D1037%22%20%22US20451W1018%22%20%22US00650F1093%22%20%22US4622221004%22%20%22US45826J1051%22%20%22US0109111056%22%20%22US1241551027%22%20%22US81663L2007%22%20%22US03969T1097%22%20%22US74168J1016%22%20%22US69404D1081%22%20%22US65443P1021%22%20%22US35661P1003%22%20%22US3709201004%22%20%22US8110331092%22%20%22US45076A1016%22%20%22US1570851014%22%20%22US71535D1063%22%20%22US5015751044%22%20%22US74765K1051%22%20%22US43849R1059%22%20%22US6668071029%22%20%22US3695501086%22%20%22US8936411003%22%20%22US4464131063%22%20%22US75513E1010%22%20%22US8832031012%22%20%7D%20%3Fitem%20wdt%3AP946%20%3Fisin%20.%20OPTIONAL%20%7B%20%3Fitem%20rdfs%3Alabel%20%3Flabel%20FILTER(LANG(%3Flabel)%20%3D%20%22en%22)%20%7D%20%7D",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q459965\" }, \"label\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"Caterpillar Inc.\" }, \"isin\" : { \"type\" : \"literal\", \"value\" : \"US1491231015\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "qid",
+      "detail": "Wikidata QID Q459965"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US1491231015",
+      "quote": "\"lei\":\"WRJR7GS4GTRECRRTVX92\",\"entity\":{\"legalName\":{\"name\":\"CATERPILLAR INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Caterpillar_Inc.",
+      "quote": "Caterpillar Inc. is an American manufacturer of construction, mining, and other engineering equipment.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:data-centre-cooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Caterpillar_Inc.",
+      "quote": "Caterpillar Inc. is an American manufacturer of construction, mining, and other engineering equipment.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q459965",
+      "quote": "Caterpillar Inc. (Q459965) — headquarters location: Irving",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q459965",
+      "quote": "Caterpillar Inc. (Q459965) — official website: caterpillar.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Caterpillar Inc. is an American manufacturer of construction, mining, and other engineering equipment.",
+  "hq": "Irving"
+}

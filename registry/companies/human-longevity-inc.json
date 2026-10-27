@@ -1,0 +1,75 @@
+{
+  "slug": "human-longevity-inc",
+  "name": "Human Longevity Inc.",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q21070809",
+    "domain": "humanlongevity.com"
+  },
+  "areas": [
+    {
+      "area": "longevity"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Human_Longevity",
+      "quote": "Human Longevity, Inc. is a San Diego–based venture launched by Craig Venter, Robert Hariri and Peter Diamandis in 2013.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q21070809",
+      "quote": "Human Longevity (Q21070809) — Wikidata item: Q21070809",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:longevity",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Human_Longevity",
+      "quote": "Human Longevity, Inc. is a San Diego–based venture launched by Craig Venter, Robert Hariri and Peter Diamandis in 2013.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q21070809",
+      "quote": "Human Longevity (Q21070809) — headquarters location: San Diego",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q21070809",
+      "quote": "Human Longevity (Q21070809) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q21070809",
+      "quote": "Human Longevity (Q21070809) — official website: humanlongevity.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Human Longevity, Inc. is a San Diego–based venture launched by Craig Venter, Robert Hariri and Peter Diamandis in 2013.",
+  "hq": "San Diego",
+  "country": "US"
+}

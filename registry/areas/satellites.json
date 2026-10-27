@@ -1,0 +1,10 @@
+{
+  "slug": "satellites",
+  "name": "Satellites and constellations",
+  "parent": "space",
+  "theme": "space",
+  "definition": "Builders and operators of satellites, constellations and ground systems.",
+  "why": "Communications and Earth observation depend on a few buses, constellations and launch contracts.",
+  "bottlenecks": [],
+  "keyNumbers": []
+}

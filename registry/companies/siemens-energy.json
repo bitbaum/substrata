@@ -1,0 +1,135 @@
+{
+  "slug": "siemens-energy",
+  "name": "Siemens Energy",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "DE",
+  "ids": {
+    "qid": "Q89189545",
+    "isin": "DE000ENER6Y0",
+    "ticker": "ENR",
+    "exchange": "GR",
+    "cik": "1830056",
+    "domain": "siemens-energy.com",
+    "lei": "5299005CHJZ14D4FDJ62"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    },
+    {
+      "area": "grid-equipment"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "stated",
+      "source": "https://www.siemens-energy.com/global/en/home/products-services/product-offerings/gas-turbines.html",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Grid equipment and turbines."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.siemens-energy.com/global/en/home/products-services/product-offerings/gas-turbines.html",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Grid equipment and turbines."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG00XLWSW57",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker ENR"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG00XLWSW57",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1830056"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.siemens-energy.com/global/en/home/products-services/product-offerings/gas-turbines.html",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Siemens_Energy",
+      "quote": "Siemens Energy AG is a German publicly traded energy corporation formed through the spin-off of the former Gas and Power division of Siemens, and it includes full ownership of Siemens Gamesa.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q89189545",
+      "quote": "Siemens Energy AG (Q89189545) — Wikidata item: Q89189545",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Siemens_Energy",
+      "quote": "Siemens Energy AG is a German publicly traded energy corporation formed through the spin-off of the former Gas and Power division of Siemens, and it includes full ownership of Siemens Gamesa.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q89189545",
+      "quote": "Siemens Energy AG (Q89189545) — headquarters location: Munich",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q89189545",
+      "quote": "Siemens Energy AG (Q89189545) — official website: siemens-energy.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q89189545",
+      "quote": "Siemens Energy AG (Q89189545) — Legal Entity Identifier: 5299005CHJZ14D4FDJ62",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Siemens Energy AG is a German publicly traded energy corporation formed through the spin-off of the former Gas and Power division of Siemens, and it includes full ownership of Siemens Gamesa.",
+  "hq": "Munich"
+}

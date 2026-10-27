@@ -1,0 +1,144 @@
+{
+  "slug": "cummins",
+  "name": "Cummins",
+  "aliases": ["Cummins Inc.", "Cummins Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "qid": "Q173476",
+    "cik": "26172",
+    "lei": "ZUNI8PYC725B6H8JU438",
+    "isin": "US2310211063",
+    "ticker": "CMI",
+    "exchange": "US",
+    "cusip": "231021106",
+    "sedol": "2240202",
+    "domain": "cummins.com"
+  },
+  "areas": [
+    {
+      "area": "mobility"
+    },
+    {
+      "area": "data-centre-cooling"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-hail.xlsx",
+      "quote": "CUMMINS INC | CMI | 231021106 | 2240202 | 1.468732 | - | 448.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Kensho Smart Mobility ETF (HAIL, State Street): Electric mobility."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0000026172-26-000009\",\"cik\":26172,\"entityName\":\"CUMMINS INC.\",\"loc\":\"US-IN\",\"end\":\"2025-06-30\",\"val\":45100000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$45 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 45100000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[26172,\"CUMMINS INC\",\"CMI\",\"NYSE\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker CMI"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0000026172-26-000009\",\"cik\":26172,\"entityName\":\"CUMMINS INC.\",\"loc\":\"US-IN\",\"end\":\"2025-06-30\",\"val\":45100000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 26172"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US2310211063",
+      "quote": "\"lei\":\"ZUNI8PYC725B6H8JU438\",\"entity\":{\"legalName\":{\"name\":\"CUMMINS INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) ZUNI8PYC725B6H8JU438"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3Fisin%20%3Flabel%20WHERE%20%7B%20VALUES%20%3Fisin%20%7B%20%22US6153942023%22%20%22US4859241048%22%20%22US0970231058%22%20%22US9807451037%22%20%22US3696043013%22%20%22US85423L1035%22%20%22US05464C1018%22%20%22US2315611010%22%20%22US4432011082%22%20%22US4282911084%22%20%22US01741R1023%22%20%22US9182841000%22%20%22US5893781089%22%20%22US1442851036%22%20%22US92242T1016%22%20%22US0003611052%22%20%22US53947R1059%22%20%22US2641471097%22%20%22US52661A1088%22%20%22US04339D1054%22%20%22US0464331083%22%20%22US75776W1036%22%20%22US0869211039%22%20%22US31816X1063%22%20%22US92892B1035%22%20%22US6372151042%22%20%22US12763L1052%22%20%22US75644T1007%22%20%22US9870841007%22%20%22US70014A1043%22%20%22US80401C1009%22%20%22US92766K4031%22%20%22US00835T1079%22%20%22US92556W1045%22%20%22US4381283088%22%20%22US55087P1049%22%20%22US90353T1007%22%20%22US37045V1008%22%20%22US04523Y1055%22%20%22US01973R1014%22%20%22US7475251036%22%20%22US79589L1061%22%20%22US29082A1079%22%20%22US50202M1027%22%20%22US2310211063%22%20%22US9288811014%22%20%22US4280501085%22%20%22US76954A1034%22%20%22US0997241064%22%20%22US0240611030%22%20%22US2358252052%22%20%22US8923313071%22%20%22US60741F1049%22%20%22US91532F1021%22%20%22US26874R1086%22%20%22US01749D1054%22%20%22US5494982029%22%20%22US83422N1054%22%20%22US6882392011%22%20%22US6821891057%22%20%22US5592224019%22%20%22US8610121027%22%20%22US62914V1061%22%20%22US98422D1054%22%20%22US78397Q1094%22%20%22US03938L2034%22%20%22US6937181088%22%20%22US5165482036%22%20%22US37253A1034%22%20%22US0953061068%22%20%22US0537741052%22%20%22US5218652049%22%20%22US3453708600%22%20%22US26853E1029%22%20%22US68989M2026%22%20%22US72919P2020%22%20%22US4491721050%22%20%22US3665051054%22%20%22US73931J1097%22%20%22US00835Q2021%22%20%7D%20%3Fitem%20wdt%3AP946%20%3Fisin%20.%20OPTIONAL%20%7B%20%3Fitem%20rdfs%3Alabel%20%3Flabel%20FILTER(LANG(%3Flabel)%20%3D%20%22en%22)%20%7D%20%7D",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q173476\" }, \"label\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"Cummins\" }, \"isin\" : { \"type\" : \"literal\", \"value\" : \"US2310211063\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "qid",
+      "detail": "Wikidata QID Q173476"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US2310211063",
+      "quote": "\"lei\":\"ZUNI8PYC725B6H8JU438\",\"entity\":{\"legalName\":{\"name\":\"CUMMINS INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Cummins",
+      "quote": "Cummins Inc. is an American multinational corporation that designs, manufactures, and distributes diesel engines, electric vehicle components, and power generation products.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:data-centre-cooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Cummins",
+      "quote": "Cummins Inc. is an American multinational corporation that designs, manufactures, and distributes diesel engines, electric vehicle components, and power generation products.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q173476",
+      "quote": "Cummins (Q173476) — headquarters location: Columbus",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q173476",
+      "quote": "Cummins (Q173476) — official website: cummins.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Cummins Inc. is an American multinational corporation that designs, manufactures, and distributes diesel engines, electric vehicle components, and power generation products.",
+  "hq": "Columbus"
+}

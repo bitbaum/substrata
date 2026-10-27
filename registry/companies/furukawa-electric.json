@@ -1,0 +1,124 @@
+{
+  "slug": "furukawa-electric",
+  "name": "Furukawa Electric Co., Ltd.",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "JP",
+  "ids": {
+    "qid": "Q5509800",
+    "ticker": "5801",
+    "exchange": "JP",
+    "cusip": "J16464117",
+    "domain": "furukawa.co.jp",
+    "lei": "353800TJR1DQ3P1QR918"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    },
+    {
+      "area": "fusion"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Furukawa Electric Co., Ltd. 5801.JP J16464117 Electrical Components 391,200 $7,054,243.09 0.06%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Furukawa Electric Co., Ltd. 5801.JP J16464117 Electrical Components 391,200 $7,054,243.09 0.06%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$7.1 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 7054243
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Furukawa Electric Co., Ltd. 5801.JP J16464117 Electrical Components 391,200 $7,054,243.09 0.06%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 5801"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Furukawa Electric Co., Ltd. 5801.JP J16464117 Electrical Components 391,200 $7,054,243.09 0.06%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Furukawa_Electric",
+      "quote": ", Ltd. is a Japanese electric and electronics equipment company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5509800",
+      "quote": "Furukawa Electric (Q5509800) — Wikidata item: Q5509800",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:fusion",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Furukawa_Electric",
+      "quote": ", Ltd. is a Japanese electric and electronics equipment company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5509800",
+      "quote": "Furukawa Electric (Q5509800) — headquarters location: Ōtemachi",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5509800",
+      "quote": "Furukawa Electric (Q5509800) — official website: furukawa.co.jp",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5509800",
+      "quote": "Furukawa Electric (Q5509800) — Legal Entity Identifier: 353800TJR1DQ3P1QR918",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": ", Ltd. is a Japanese electric and electronics equipment company.",
+  "hq": "Ōtemachi"
+}

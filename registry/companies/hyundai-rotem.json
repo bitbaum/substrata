@@ -1,0 +1,76 @@
+{
+  "slug": "hyundai-rotem",
+  "name": "Hyundai Rotem",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q152517",
+    "domain": "hyundai-rotem.co.kr",
+    "isin": "KR7064350002"
+  },
+  "areas": [
+    {
+      "area": "defence-autonomy"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hyundai_Rotem",
+      "quote": "Hyundai Rotem Company, often referred to as Hyundai Rotem (Korean: 현대로템), is a South Korean manufacturer of railway rolling stock, railway signalling, defense products and plant equipment.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q152517",
+      "quote": "Hyundai Rotem (Q152517) — Wikidata item: Q152517",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q152517",
+      "quote": "Hyundai Rotem (Q152517) — headquarters location: Uiwang",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q152517",
+      "quote": "Hyundai Rotem (Q152517) — country (ISO 3166-1 alpha-2): KR",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q152517",
+      "quote": "Hyundai Rotem (Q152517) — official website: https://www.hyundai-rotem.co.kr",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:defence-autonomy",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hyundai_Rotem",
+      "quote": "Hyundai Rotem Company, often referred to as Hyundai Rotem (Korean: 현대로템), is a South Korean manufacturer of railway rolling stock, railway signalling, defense products and plant equipment.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Hyundai Rotem Company, often referred to as Hyundai Rotem (Korean: 현대로템), is a South Korean manufacturer of railway rolling stock, railway signalling, defense products and plant equipment.",
+  "country": "KR",
+  "hq": "Uiwang"
+}

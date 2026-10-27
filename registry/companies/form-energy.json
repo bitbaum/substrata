@@ -1,0 +1,66 @@
+{
+  "slug": "form-energy",
+  "name": "Form Energy",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q107803062",
+    "domain": "formenergy.com"
+  },
+  "areas": [
+    {
+      "area": "energy-storage"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Form_Energy",
+      "quote": "Form Energy is an American energy storage company focused on developing energy storage systems to enable a year-round electric grid.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q107803062",
+      "quote": "Form Energy (Q107803062) — Wikidata item: Q107803062",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:energy-storage",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Form_Energy",
+      "quote": "Form Energy is an American energy storage company focused on developing energy storage systems to enable a year-round electric grid.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q107803062",
+      "quote": "Form Energy (Q107803062) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q107803062",
+      "quote": "Form Energy (Q107803062) — official website: formenergy.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Form Energy is an American energy storage company focused on developing energy storage systems to enable a year-round electric grid.",
+  "country": "US"
+}

@@ -1,0 +1,153 @@
+{
+  "slug": "schneider-electric",
+  "name": "Schneider Electric",
+  "aliases": ["Schneider Electric SE"],
+  "kind": "public",
+  "status": "active",
+  "country": "FR",
+  "ids": {
+    "qid": "Q49053",
+    "isin": "FR0000121972",
+    "ticker": "SU",
+    "exchange": "FP",
+    "cusip": "F86921107",
+    "domain": "se.com",
+    "lei": "969500A1YF1XUYYXS284"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    },
+    {
+      "area": "power-storage-grid"
+    },
+    {
+      "area": "grid-equipment"
+    },
+    {
+      "area": "data-centre-cooling"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "stated",
+      "source": "https://www.se.com/us/en/work/products/critical-power-cooling-and-racks/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Electrical distribution and datacentre power."
+    },
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Schneider Electric SE SU.FP F86921107 Electrical Components 2,821,863 $743,467,424.12 6.68%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Schneider Electric SE SU.FP F86921107 Industrials 16,188 $4,265,001.66 0.57%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Artificial Intelligence and Robotics ETF (ROBT, First Trust): Robotics & autonomy."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.se.com/us/en/work/products/critical-power-cooling-and-racks/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Electrical distribution and datacentre power."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000BBWCH2",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker SU"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Schneider Electric SE SU.FP F86921107 Electrical Components 2,821,863 $743,467,424.12 6.68%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Schneider_Electric",
+      "quote": "Schneider Electric SE is a French multinational corporation that specializes in energy technology, covering electrification, automation, and digitalization for industry and homes.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q49053",
+      "quote": "Schneider Electric (Q49053) — Wikidata item: Q49053",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Schneider_Electric",
+      "quote": "Schneider Electric SE is a French multinational corporation that specializes in energy technology, covering electrification, automation, and digitalization for industry and homes.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:data-centre-cooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Schneider_Electric",
+      "quote": "Schneider Electric SE is a French multinational corporation that specializes in energy technology, covering electrification, automation, and digitalization for industry and homes.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q49053",
+      "quote": "Schneider Electric (Q49053) — official website: se.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q49053",
+      "quote": "Schneider Electric (Q49053) — Legal Entity Identifier: 969500A1YF1XUYYXS284",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Schneider Electric SE is a French multinational corporation that specializes in energy technology, covering electrification, automation, and digitalization for industry and homes."
+}

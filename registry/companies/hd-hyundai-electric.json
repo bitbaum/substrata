@@ -1,0 +1,115 @@
+{
+  "slug": "hd-hyundai-electric",
+  "name": "HD Hyundai Electric Co., Ltd.",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "KR",
+  "ids": {
+    "qid": "Q131187949",
+    "ticker": "267260",
+    "exchange": "KS",
+    "cusip": "Y3R1DD103",
+    "domain": "hd-hyundaielectric.com"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    },
+    {
+      "area": "grid-equipment"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "HD Hyundai Electric Co., Ltd. 267260.KS Y3R1DD103 Electrical Components 308,282 $104,146,963.11 0.94%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "HD Hyundai Electric Co., Ltd. 267260.KS Y3R1DD103 Electrical Components 308,282 $104,146,963.11 0.94%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$104 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 104146963
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "HD Hyundai Electric Co., Ltd. 267260.KS Y3R1DD103 Electrical Components 308,282 $104,146,963.11 0.94%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 267260"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "HD Hyundai Electric Co., Ltd. 267260.KS Y3R1DD103 Electrical Components 308,282 $104,146,963.11 0.94%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/HD_Hyundai_Electric",
+      "quote": "HD Hyundai Electric (Korean: HD현대일렉트릭) is a South Korean manufacturer of power transformers and other electrical equipment.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q131187949",
+      "quote": "HD Hyundai Electric (Q131187949) — Wikidata item: Q131187949",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/HD_Hyundai_Electric",
+      "quote": "HD Hyundai Electric (Korean: HD현대일렉트릭) is a South Korean manufacturer of power transformers and other electrical equipment.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q131187949",
+      "quote": "HD Hyundai Electric (Q131187949) — headquarters location: Seongnam",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q131187949",
+      "quote": "HD Hyundai Electric (Q131187949) — official website: hd-hyundaielectric.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "HD Hyundai Electric (Korean: HD현대일렉트릭) is a South Korean manufacturer of power transformers and other electrical equipment.",
+  "hq": "Seongnam"
+}

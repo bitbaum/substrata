@@ -1,0 +1,68 @@
+{
+  "slug": "kepco-engineering-construc",
+  "name": "Kepco Engineering & Construc",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "KR",
+  "ids": {
+    "ticker": "052690",
+    "exchange": "KS",
+    "sedol": "B4LW1M1"
+  },
+  "areas": [
+    {
+      "area": "nuclear-energy"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:nuclear-energy",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "1.58,052690 KS,KEPCO ENGINEERING & CONSTRUC,B4LW1M1,68.9264255790279,\"1,099,213.00\",\"75,764,823.04\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "nuclear",
+      "basis": "fund",
+      "detail": "Held by Global X Uranium ETF (URA, Global X): Nuclear, SMRs & the fuel cycle."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "1.58,052690 KS,KEPCO ENGINEERING & CONSTRUC,B4LW1M1,68.9264255790279,\"1,099,213.00\",\"75,764,823.04\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$76 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 75764823
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "1.58,052690 KS,KEPCO ENGINEERING & CONSTRUC,B4LW1M1,68.9264255790279,\"1,099,213.00\",\"75,764,823.04\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 052690"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "1.58,052690 KS,KEPCO ENGINEERING & CONSTRUC,B4LW1M1,68.9264255790279,\"1,099,213.00\",\"75,764,823.04\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

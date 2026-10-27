@@ -1,0 +1,150 @@
+{
+  "slug": "keyence",
+  "name": "Keyence Corporation",
+  "aliases": ["Keyence Corp"],
+  "kind": "public",
+  "status": "active",
+  "country": "JP",
+  "ids": {
+    "qid": "Q1475699",
+    "isin": "JP3236200006",
+    "ticker": "6861",
+    "exchange": "JP",
+    "sedol": "6490995",
+    "cusip": "J32491102",
+    "domain": "keyence.com",
+    "lei": "529900M7PQBS7A89DZ11"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    },
+    {
+      "area": "robot-sensors"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "8.38,6861 JP,KEYENCE CORP,6490995,490.3385474424495,\"530,664.00\",\"260,205,014.94\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by Global X Robotics & Artificial Intelligence ETF (BOTZ, Global X): Robotics & autonomy."
+    },
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Keyence Corporation 6861.JP J32491102 Information Technology 10,700 $5,249,620.56 0.70%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Artificial Intelligence and Robotics ETF (ROBT, First Trust): Robotics & autonomy."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "8.38,6861 JP,KEYENCE CORP,6490995,490.3385474424495,\"530,664.00\",\"260,205,014.94\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$260 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 260205015
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Keyence Corporation 6861.JP J32491102 Information Technology 10,700 $5,249,620.56 0.70%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$5.2 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 5249621
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "8.38,6861 JP,KEYENCE CORP,6490995,490.3385474424495,\"530,664.00\",\"260,205,014.94\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 6861"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "8.38,6861 JP,KEYENCE CORP,6490995,490.3385474424495,\"530,664.00\",\"260,205,014.94\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Keyence",
+      "quote": "Keyence Corporation is a Japan-based direct sales organization that develops and manufactures equipment for factory automation, sensors, measuring instruments, vision systems, barcode readers, laser markers and digital microscopes.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1475699",
+      "quote": "Keyence (Q1475699) — Wikidata item: Q1475699",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:robot-sensors",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Keyence",
+      "quote": "Keyence Corporation is a Japan-based direct sales organization that develops and manufactures equipment for factory automation, sensors, measuring instruments, vision systems, barcode readers, laser markers and digital microscopes.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1475699",
+      "quote": "Keyence (Q1475699) — headquarters location: Osaka",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1475699",
+      "quote": "Keyence (Q1475699) — official website: keyence.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1475699",
+      "quote": "Keyence (Q1475699) — Legal Entity Identifier: 529900M7PQBS7A89DZ11",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "Keyence Corporation is a Japan-based direct sales organization that develops and manufactures equipment for factory automation, sensors, measuring instruments, vision systems, barcode readers, laser markers and digital microscopes.",
+  "hq": "Osaka"
+}

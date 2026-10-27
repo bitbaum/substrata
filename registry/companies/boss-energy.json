@@ -1,0 +1,68 @@
+{
+  "slug": "boss-energy",
+  "name": "Boss Energy Ltd",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "AU",
+  "ids": {
+    "ticker": "BOE",
+    "exchange": "AU",
+    "sedol": "B1XLCQ6"
+  },
+  "areas": [
+    {
+      "area": "nuclear-energy"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:nuclear-energy",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.43,BOE AU,BOSS ENERGY LTD,B1XLCQ6,0.8912218160672446,\"23,174,241.00\",\"20,653,389.15\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "nuclear",
+      "basis": "fund",
+      "detail": "Held by Global X Uranium ETF (URA, Global X): Nuclear, SMRs & the fuel cycle."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.43,BOE AU,BOSS ENERGY LTD,B1XLCQ6,0.8912218160672446,\"23,174,241.00\",\"20,653,389.15\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$21 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 20653389
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.43,BOE AU,BOSS ENERGY LTD,B1XLCQ6,0.8912218160672446,\"23,174,241.00\",\"20,653,389.15\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker BOE"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.43,BOE AU,BOSS ENERGY LTD,B1XLCQ6,0.8912218160672446,\"23,174,241.00\",\"20,653,389.15\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "slug": "qiagen-n-v",
+  "name": "Qiagen N.V.",
+  "aliases": ["Qiagen"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "QGEN",
+    "exchange": "US",
+    "sedol": "BVPJWL3",
+    "cik": "1015820",
+    "qid": "Q315287",
+    "isin": "NL0000240000",
+    "domain": "qiagen.com",
+    "lei": "54930036WK3GMCN17Z57"
+  },
+  "areas": [
+    {
+      "area": "biotech-and-longevity"
+    },
+    {
+      "area": "synthetic-biology"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:biotech-and-longevity",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "3.63,QGEN,QIAGEN N.V.,BVPJWL3,50.37,\"76,432.00\",\"3,849,879.84\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "biotools",
+      "basis": "fund",
+      "detail": "Held by Global X Genomics & Biotechnology ETF (GNOM, Global X): Biotech tools."
+    },
+    {
+      "field": "size:revenue",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001015820.json",
+      "quote": "{\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"val\":2089999000,\"accn\":\"0001015820-26-000018\",\"fy\":2025,\"fp\":\"FY\",\"form\":\"20-F\",\"filed\":\"2026-03-20\",\"frame\":\"CY2025\"}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-12-31",
+      "test": "materiality",
+      "basis": "revenue",
+      "detail": "US$2.1 billion annual revenue (floor US$250 million).",
+      "usd": 2089999000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "3.63,QGEN,QIAGEN N.V.,BVPJWL3,50.37,\"76,432.00\",\"3,849,879.84\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker QGEN"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001015820.json",
+      "quote": "{\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"val\":2089999000,\"accn\":\"0001015820-26-000018\",\"fy\":2025,\"fp\":\"FY\",\"form\":\"20-F\",\"filed\":\"2026-03-20\",\"frame\":\"CY2025\"}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-12-31",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1015820"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "3.63,QGEN,QIAGEN N.V.,BVPJWL3,50.37,\"76,432.00\",\"3,849,879.84\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Qiagen",
+      "quote": "V. is a German-founded multinational provider of sample and assay technologies for molecular diagnostics, applied testing, academic research, and pharmaceutical research.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q315287",
+      "quote": "Qiagen (Q315287) — Wikidata item: Q315287",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:synthetic-biology",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Qiagen",
+      "quote": "V. is a German-founded multinational provider of sample and assay technologies for molecular diagnostics, applied testing, academic research, and pharmaceutical research.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q315287",
+      "quote": "Qiagen (Q315287) — headquarters location: Venlo",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q315287",
+      "quote": "Qiagen (Q315287) — official website: qiagen.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q315287",
+      "quote": "Qiagen (Q315287) — Legal Entity Identifier: 54930036WK3GMCN17Z57",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  },
+  "summary": "V. is a German-founded multinational provider of sample and assay technologies for molecular diagnostics, applied testing, academic research, and pharmaceutical research.",
+  "hq": "Venlo"
+}

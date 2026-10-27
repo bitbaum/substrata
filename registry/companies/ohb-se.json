@@ -1,0 +1,85 @@
+{
+  "slug": "ohb-se",
+  "name": "OHB SE",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q471019",
+    "isin": "DE0005936124",
+    "domain": "ohb.de",
+    "lei": "391200Y9EA2FRAPKRQ70"
+  },
+  "areas": [
+    {
+      "area": "satellites"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/OHB_SE",
+      "quote": "OHB SE, headquartered in Bremen, is a European space and technology group specializing in the development and implementation of complete space systems, the production of components for various launcher programs as well as the operation of satellite systems and the processing and provision of the data collected.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q471019",
+      "quote": "OHB SE (Q471019) — Wikidata item: Q471019",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:satellites",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/OHB_SE",
+      "quote": "OHB SE, headquartered in Bremen, is a European space and technology group specializing in the development and implementation of complete space systems, the production of components for various launcher programs as well as the operation of satellite systems and the processing and provision of the data collected.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q471019",
+      "quote": "OHB SE (Q471019) — headquarters location: Bremen",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q471019",
+      "quote": "OHB SE (Q471019) — country (ISO 3166-1 alpha-2): DE",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q471019",
+      "quote": "OHB SE (Q471019) — official website: ohb.de",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q471019",
+      "quote": "OHB SE (Q471019) — Legal Entity Identifier: 391200Y9EA2FRAPKRQ70",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "OHB SE, headquartered in Bremen, is a European space and technology group specializing in the development and implementation of complete space systems, the production of components for various launcher programs as well as the operation of satellite systems and the processing and provision of the data collected.",
+  "hq": "Bremen",
+  "country": "DE"
+}

@@ -1,0 +1,76 @@
+{
+  "slug": "almonty-industries",
+  "name": "Almonty Industries",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q30088080",
+    "isin": "CA0203987072",
+    "domain": "almonty.com"
+  },
+  "areas": [
+    {
+      "area": "critical-minerals"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Almonty_Industries",
+      "quote": "Almonty Industries Inc. is an American-Canadian international mining company primarily engaged in the extraction and development of tungsten resources.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q30088080",
+      "quote": "Almonty Industries (Q30088080) — Wikidata item: Q30088080",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Almonty_Industries",
+      "quote": "Almonty Industries Inc. is an American-Canadian international mining company primarily engaged in the extraction and development of tungsten resources.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q30088080",
+      "quote": "Almonty Industries (Q30088080) — headquarters location: Toronto",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q30088080",
+      "quote": "Almonty Industries (Q30088080) — country (ISO 3166-1 alpha-2): CA",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q30088080",
+      "quote": "Almonty Industries (Q30088080) — official website: almonty.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Almonty Industries Inc. is an American-Canadian international mining company primarily engaged in the extraction and development of tungsten resources.",
+  "hq": "Toronto",
+  "country": "CA"
+}
