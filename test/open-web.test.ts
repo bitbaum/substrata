@@ -320,3 +320,42 @@ test('a PDF is read as its text, through readPage and its address check', async 
   );
   assert.equal(big.ok, false);
 });
+
+test('a [W#] stays only on a sentence its page supports: no chip on the model’s own analysis', async () => {
+  const { webCiteSupported, withoutUnsupportedWebCites } =
+    await import('../lib/chat-agent/web-figures');
+  const { finishInCode } = await import('../lib/chat-agent/check-answer');
+  // Seen live: a stock-quote page cited for the opening's generic analysis.
+  const quote =
+    '[web_search] ' +
+    JSON.stringify({
+      results: [
+        {
+          cite_as: 'W1',
+          title: 'CoreWeave, Inc. (CRWV) Stock Price — Yahoo Finance',
+          passage: 'CoreWeave shares closed at 92.40, down 31% in October.',
+          url: 'https://finance.yahoo.com/quote/CRWV',
+        },
+      ],
+    });
+  const web = webPassagesIn([quote]);
+  const analysis = 'The sector looks stretched and lenders will grow cautious [W1].';
+  const figure = 'CoreWeave shares fell 31% in October [W1].';
+  const named = 'CoreWeave is the listed neocloud the post leans on [W1].';
+  assert.equal(webCiteSupported(analysis, web), false, 'nothing of it is on the page');
+  assert.equal(webCiteSupported(figure, web), true, 'the page prints the figure');
+  assert.equal(webCiteSupported(named, web), true, 'the page names it');
+  assert.equal(
+    withoutUnsupportedWebCites(`${analysis} ${figure}`, web),
+    `The sector looks stretched and lenders will grow cautious. ${figure}`,
+  );
+  const out = finishInCode(`${analysis} ${figure}`, {
+    facts: null,
+    gaps: [],
+    webCount: 1,
+    question: 'What is your take on this post?',
+    results: [quote],
+  });
+  assert.doesNotMatch(out, /cautious \[W1\]/, 'no chip on the analysis');
+  assert.match(out, /31% in October \[W1\]/, 'the supported sentence keeps its chip');
+});

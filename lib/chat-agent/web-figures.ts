@@ -8,6 +8,7 @@
  * most convincing kind of invention there is — it has a link.
  */
 import { numbersIn } from './grounding';
+import { sentencesIn } from './sentences';
 
 const YEAR = /^(19|20)\d{2}$/;
 
@@ -58,4 +59,70 @@ export function webFigureProblems(answer: string, passages: Map<number, string>)
   for (const sentence of answer.replace(/```[\s\S]*?```/g, ' ').split(/(?<=[.!?])\s+|\n+/))
     for (const f of unbackedWebFigures(sentence, passages)) out.add(f);
   return [...out];
+}
+
+// ---------------------------------------------------------------------------
+// A chip with nothing behind it. Seen live (2026-10-27, a screenshot of a post
+// about neoclouds): the opening's generic analysis ended in [W1], drawn as a
+// finance.yahoo.com chip, and the page — a stock quote — said nothing of the
+// kind. A sentence that cites a page must carry something the page holds: a
+// figure its passage prints (above) or a name its passage gives.
+// ---------------------------------------------------------------------------
+
+/** Capitalised words that open sentences, never names. */
+const COMMON = new Set(
+  'a an and as at both but by each even for from he here how if in it its many most no not of on our she so some still such that the their there these they this those to we what when where why with yet you your'.split(
+    ' ',
+  ),
+);
+
+/** Names a sentence gives: capitalised words that are not common openers, and acronyms. */
+function namesIn(sentence: string): string[] {
+  const plain = sentence.replace(/\[W\d+\]|[*_`]/g, '');
+  const words = plain.match(/(?<![\p{L}\p{N}])\p{Lu}[\p{L}\p{N}&'’-]*/gu) ?? [];
+  return words
+    .map((w) => w.replace(/(['’]s|['’-]+)$/u, ''))
+    .filter((w) => w.length >= 2 && !COMMON.has(w.toLowerCase()));
+}
+
+/**
+ * Whether the pages a sentence cites hold what it says: a figure they print,
+ * or — for a sentence with no figure — a name they give. True when it cites
+ * no page or one whose passage we do not have (nothing can be said).
+ */
+export function webCiteSupported(sentence: string, passages: Map<number, string>): boolean {
+  const cites = citesIn(sentence);
+  if (!cites.length || cites.some((n) => !passages.has(n))) return true;
+  const text = cites.map((n) => passages.get(n)!).join('\n');
+  const figures = checkedFigures(sentence);
+  if (figures.length) {
+    const known = numbersIn(text);
+    return figures.some((f) => known.has(f));
+  }
+  const lower = text.toLowerCase();
+  return namesIn(sentence).some((n) => lower.includes(n.toLowerCase()));
+}
+
+/**
+ * The answer with the [W#] taken off every sentence its pages do not support,
+ * so no chip stands on it; the sentence is then judged as uncited (default
+ * deny). Tables, code and headings are left to their own checks.
+ */
+export function withoutUnsupportedWebCites(answer: string, passages: Map<number, string>): string {
+  if (!passages.size) return answer;
+  let fence = false;
+  return answer
+    .split('\n')
+    .map((line) => {
+      if (/^\s*```/.test(line)) fence = !fence;
+      if (fence || /^\s*(```|#|\|)/.test(line) || !/\[W\d+\]/.test(line)) return line;
+      return sentencesIn(line)
+        .map((s) =>
+          webCiteSupported(s, passages)
+            ? s
+            : s.replace(/\s*\[W\d+\]/g, '').replace(/\s+([.!?])$/, '$1'),
+        )
+        .join(' ');
+    })
+    .join('\n');
 }
