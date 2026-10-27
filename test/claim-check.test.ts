@@ -22,6 +22,7 @@ import {
   withoutMaterialFigures,
 } from '../lib/chat-agent/claim-shape';
 import { bringsMaterial, parseReading } from '../lib/chat-agent/read-claims';
+import { sentencesIn } from '../lib/chat-agent/sentences';
 import type { AgentAnswer, AgentEvent } from '../lib/chat-agent/answer';
 import type { ModelTurn } from '../lib/chat-agent/turn';
 import { readerContext } from '../lib/chat-context';
@@ -145,6 +146,34 @@ test('a status stands only with a citation; a missing claim is added; material f
     withoutMaterialFigures('CoreWeave fell 38%. It is volatile.', reading),
     'It is volatile.',
   );
+});
+
+test('a link is never cut in two: no "](https://…))" fragment reaches the Reasoning', () => {
+  assert.deepEqual(sentencesIn('See [A. B](https://en.wikipedia.org/wiki/X_(y)). Next one.'), [
+    'See [A. B](https://en.wikipedia.org/wiki/X_(y)).',
+    'Next one.',
+  ]);
+  const f = load();
+  const reading = parseReading(JSON.stringify(f.reading))!;
+  // Seen live: the link's title held a full stop and a figure only the post gave.
+  const line =
+    '- Reasoning, not a sourced forecast: the post leans on one source ([Gartner: IaaS spend is $4.9T. Neoclouds sell IaaS](https://x.com/post/1)). Demand can still move.';
+  const kept = withoutMaterialFigures(line, reading);
+  assert.ok(
+    !kept.includes('](https://x.com') || kept.includes('([Gartner: IaaS spend'),
+    'the link goes whole or stays whole',
+  );
+  assert.match(kept, /Demand can still move\./);
+  const shaped = shapeClaimAnswer(`Bottom line [W1].\n\n### Reasoning\n\n${line}`, reading, {
+    webCount: 2,
+    from: 'screenshot',
+  });
+  for (const l of shaped.split('\n').filter((x) => x.includes('](https://x.com')))
+    assert.match(
+      l,
+      /\(\[Gartner: IaaS spend is \$4\.9T\. Neoclouds sell IaaS\]\(https:\/\/x\.com\/post\/1\)\)/,
+      l,
+    );
 });
 
 test('a claim that someone said something: Reported for the saying, Confirmed for the fact', () => {

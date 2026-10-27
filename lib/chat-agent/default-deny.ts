@@ -38,6 +38,7 @@ import { BOX_WORDS, GAP_SAYS } from './uncited';
 import { tidy } from './default-deny-tidy';
 import { BACKGROUND_LABEL } from './labels';
 import { unbackedWebFigures } from './web-figures';
+import { sentencesIn } from './sentences';
 
 export interface DenyContext {
   /** The question: a gap is said only for a link it asked about. */
@@ -244,14 +245,9 @@ export function defaultDeny(
       // "*What is missing**" (seen live, KfW).
       const lead = raw.match(/^\s*(?:(?:[-*•>]|\d+\.)(?=\s))?\s*/)?.[0] ?? '';
       const bg = reasoning || BACKGROUND_LABEL.test(raw);
-      // A link's title may hold a full stop: mask links while splitting.
-      const links: string[] = [];
-      const masked = raw
-        .slice(lead.length)
-        .replace(/\[[^\]]*\]\([^)]*\)/g, (m) => `\u0000${links.push(m) - 1}\u0000`);
-      const sentences = masked
-        .split(SPLIT)
-        .map((x) => x.replace(/\u0000(\d+)\u0000/g, (_, i: string) => links[Number(i)]).trim())
+      // A link's title may hold a full stop: it is never split (sentences.ts).
+      const sentences = sentencesIn(raw.slice(lead.length), SPLIT)
+        .map((x) => x.trim())
         .filter(Boolean);
       // The items under a sentence that ended "…would be:" or "…leads:" belong
       // to it, as long as they bring no figure of their own.

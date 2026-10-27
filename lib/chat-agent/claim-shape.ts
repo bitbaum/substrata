@@ -24,6 +24,7 @@ import type { Claim, Reading } from './read-claims';
 import { numbersIn } from './read-claims';
 import type { ResearchPassage } from './research-read';
 import { CITED, sectionsOf } from './research-shape';
+import { sentencesIn } from './sentences';
 
 export const STATUSES = ['Confirmed', 'Reported', 'Partly', 'Contradicted', 'Not found'] as const;
 export type ClaimStatus = (typeof STATUSES)[number];
@@ -118,8 +119,7 @@ export function withoutMaterialFigures(text: string, reading: Reading): string {
     .split('\n')
     .map((line) => {
       if (/^\s*(\||```|#)/.test(line)) return line;
-      return line
-        .split(/(?<=[.!?])\s+/)
+      return sentencesIn(line)
         .filter((s) => CITED.test(s) || !numbersIn(s).some((n) => material.has(n)))
         .join(' ');
     })
