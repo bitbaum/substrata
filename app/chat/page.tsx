@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { ResearchChat } from '@/components/portal/ResearchChat';
 import { Shell } from '@/components/portal/Shell';
-import { startQuestion } from '@/lib/home-asks';
 import { homeAsks, seedFor, starters } from '@/lib/starters';
 import { headers } from 'next/headers';
 
@@ -14,7 +13,7 @@ export const viewport: Viewport = {
 export default async function ChatPage({
   searchParams,
 }: {
-  searchParams: Promise<{ topic?: string; q?: string | string[] }>;
+  searchParams: Promise<{ topic?: string }>;
 }) {
   const params = await searchParams;
   const topic = typeof params.topic === 'string' ? params.topic.slice(0, 200) : '';
@@ -35,7 +34,9 @@ export default async function ChatPage({
           every other page. The widget's host directive for this region, left
           behind with the route. */}
       <div className="companion-page" data-fc-place="tab">
-        <ResearchChat topic={topic} start={startQuestion(params.q)} starters={asks} />
+        {/* `?q=` (a home question) and `?send=` (the home box's message) are
+            read in the browser by ResearchChat, where ChatApp sends them. */}
+        <ResearchChat topic={topic} starters={asks} />
       </div>
     </Shell>
   );

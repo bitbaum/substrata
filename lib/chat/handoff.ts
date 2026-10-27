@@ -3,8 +3,8 @@
  * not answer; it hands its message — words AND attachments — to /chat, which
  * sends it at once. The attachments travel through this tab's session store
  * under an id (`/chat?send=<id>`), read once and deleted: a picture never
- * reaches the server's logs or a URL. /chat sends it through chatkit's
- * composer (lib/chat/drive-composer.ts) as a new chat.
+ * reaches the server's logs or a URL. /chat gives it to chatkit's ChatApp as
+ * its `initialMessage`, which sends it once, as a new chat.
  *
  * A storage failure (a private window, a full quota) never blocks: a message
  * without attachments still goes by `/chat?q=`, and one with attachments is
@@ -93,6 +93,37 @@ export function takePending(
   } catch {
     return null;
   }
+}
+
+/** A handed-over attachment back as the File the paperclip would have picked. */
+export function fileOf(a: WireAttachment): File {
+  if (a.kind === 'text') return new File([a.content], a.name, { type: 'text/plain' });
+  const bytes = Uint8Array.from(atob(a.dataBase64), (c) => c.charCodeAt(0));
+  return new File([bytes], a.name, { type: a.mimeType });
+}
+
+/** What was taken per id this page: StrictMode's rehearsal render reads the same message again. */
+const taken = new Map<string, PendingSend | null>();
+
+/**
+ * The message the page at `href` was handed (`?send=<id>`), with its
+ * attachments as Files — or null. Read once per page load: the store's copy
+ * is deleted, so a reload never sends it again.
+ */
+export function handedOver(
+  href: string,
+  storage: StorageLike | null = session(),
+): { text: string; attachments: File[] } | null {
+  let id: string | null = null;
+  try {
+    id = new URL(href).searchParams.get(SEND_PARAM);
+  } catch {
+    return null;
+  }
+  if (!id) return null;
+  if (!taken.has(id)) taken.set(id, takePending(id, storage));
+  const message = taken.get(id);
+  return message ? { text: message.text, attachments: message.attachments.map(fileOf) } : null;
 }
 
 /** Where a handed-over message is opened. */

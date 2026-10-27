@@ -2,6 +2,11 @@
 
 What changed on substrata.orangecat.ch, newest first, in the words of someone using it. Every entry corresponds to a merged pull request and the numbers are the ones in the commits; fixes are listed with the same weight as features. This file is what the fleet map (`loki.orangecat.ch/api/fleet/map`) reads, and `/changelog` on the site renders from the map.
 
+## 2026-10-27
+
+### Fixed
+- Retry after a failed answer sends your screenshot again, not only your words, and the failed answer says why it failed. A question from the home page, a "Check this" on a figure and a screenshot handed over from the home box are now sent by the shared chat itself (chatkit 0.19) instead of being typed into the box for you.
+
 ## 2026-10-26
 
 ### Fixed

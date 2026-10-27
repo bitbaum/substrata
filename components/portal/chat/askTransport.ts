@@ -7,11 +7,17 @@
  *
  * Pictures and text files go as they were staged: validated again on the
  * server, never stored there; ChatApp keeps them on the device by name only.
- * A failed turn resolves as a failed message carrying the server's own words
- * — the "no model here reads pictures" sentence above all — rather than a
- * throw, which ChatApp would show as a generic failure.
+ * A failed turn throws `ChatTurnError` with the server's own words — the "no
+ * model here reads pictures" sentence above all — so that bubble says why,
+ * and Retry sends the turn again with its pictures (chatkit keeps them with a
+ * thrown failure, never with a returned one).
  */
-import type { ChatMessageData, ChatTurn, ChatTurnResult } from '@bitbaum/chatkit/react';
+import {
+  ChatTurnError,
+  type ChatMessageData,
+  type ChatTurn,
+  type ChatTurnResult,
+} from '@bitbaum/chatkit/react';
 import { QUESTION_LENGTH } from '@/config/substrata-chat';
 import { answerRow } from '@/lib/ask-row';
 import { fromWire } from '@/lib/chat/image';
@@ -21,7 +27,7 @@ import { readAnswerStream } from './stream';
 import { thinkingFor } from './thinking';
 import type { Turn, VerifyInput } from './types';
 
-/** "Check this" requests waiting for the turn that carries their words (useAutoAsk). */
+/** "Check this" requests waiting for the turn that carries their words (ResearchChat). */
 export const pendingChecks = new Map<string, VerifyInput>();
 
 /** What the server is sent as history: words, with what was read off a screenshot. */
@@ -49,10 +55,10 @@ export function askTransport(opts: {
   return async (turn: ChatTurn): Promise<ChatTurnResult> => {
     const text = turn.text.trim();
     if (text.length > QUESTION_LENGTH.max)
-      return {
-        content: `That is over ${QUESTION_LENGTH.max.toLocaleString('en')} characters — attach it as a text file instead.`,
-        failed: true,
-      };
+      throw new ChatTurnError(
+        `That is over ${QUESTION_LENGTH.max.toLocaleString('en')} characters — attach it as a text file instead.`,
+        { kind: 'too-long' },
+      );
     const verify = pendingChecks.get(text);
     pendingChecks.delete(text);
     const files = fromWire(turn.attachments);
@@ -67,8 +73,9 @@ export function askTransport(opts: {
           ? 'Reading your screenshot…'
           : 'Reading the question…',
     });
+    let response: Response;
     try {
-      const response = await fetch('/api/chat', {
+      response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -87,10 +94,17 @@ export function askTransport(opts: {
         }),
         signal: turn.signal,
       });
-      if (!response.ok) {
-        const result = await response.json().catch(() => ({}));
-        return { content: result.error || 'Request failed. Please retry.', failed: true };
-      }
+    } catch (e) {
+      if ((e as Error).name === 'AbortError') throw e;
+      throw new ChatTurnError('Connection lost. Please retry.', { kind: 'network' });
+    }
+    if (!response.ok) {
+      const result = await response.json().catch(() => ({}));
+      throw new ChatTurnError(result.error || 'Request failed. Please retry.', {
+        kind: `http-${response.status}`,
+      });
+    }
+    try {
       const data = await readAnswerStream(response, {
         status: (s) => turn.update({ status: s, steps: steps.map((label) => ({ label })) }),
         tool: (label) => {
@@ -107,7 +121,9 @@ export function askTransport(opts: {
         },
       });
       if (!data)
-        return { content: 'The model returned no answer. Please ask again.', failed: true };
+        throw new ChatTurnError('The model returned no answer. Please ask again.', {
+          kind: 'empty',
+        });
       const { answer, ...rest } = data;
       const evidence: Turn = {
         id: messageId,
@@ -126,11 +142,9 @@ export function askTransport(opts: {
         logId: messageId,
       } as ChatTurnResult;
     } catch (e) {
-      if ((e as Error).name === 'AbortError') throw e;
-      return {
-        content: e instanceof Error ? e.message : 'Connection lost. Please retry.',
-        failed: true,
-      };
+      if (e instanceof ChatTurnError || (e as Error).name === 'AbortError') throw e;
+      // The stream broke mid-answer; its raw error is for the console, not the reader.
+      throw new ChatTurnError('Connection lost. Please retry.', { kind: 'network' });
     }
   };
 }

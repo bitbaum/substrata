@@ -18,9 +18,10 @@ shrunk to 1024px in the browser before it is staged (Heidi's limits, in
 `lib/chat/image.ts`). Pictures and text files only: chatkit's composer refuses a
 PDF with a sentence. The home box does not answer; it hands the message, with
 its attachments, to /chat through the tab's session store
-(`lib/chat/handoff.ts`), and /chat sends it at once as a new chat, through the
-composer (`lib/chat/drive-composer.ts` — ChatApp 0.18 has no way for a page to
-send a message itself).
+(`lib/chat/handoff.ts`), and /chat sends it at once as a new chat: it is
+ChatApp's `initialMessage` (chatkit 0.19), which reads the pictures the way the
+paperclip does. A failed turn throws `ChatTurnError`, so Retry sends the
+pictures again.
 
 ## The answer
 
