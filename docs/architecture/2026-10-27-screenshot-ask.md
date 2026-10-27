@@ -37,7 +37,8 @@ post (long, with figures) — is a claim check (`lib/chat-agent/claim-check.ts`)
    (`lib/chat-agent/research-read.ts`) as "Checking: <claim>…"; a listed company
    in the market seed also gets the market tools.
 3. **Answer** (`lib/chat-agent/claim-shape.ts`): bottom line first, then one
-   line per claim — Confirmed, Partly, Contradicted or Not found — then the
+   line per claim — Confirmed, Reported (a source shows only that someone said
+   it), Partly, Contradicted or Not found — then the
    reasoning, labelled, and what would change the view. Every guard of the
    ordinary path runs (`lib/chat-agent/check-answer.ts`). Code then makes sure
    a status other than Not found stands only with a citation, every claim gets
