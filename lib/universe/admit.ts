@@ -132,6 +132,7 @@ function materialityTest(c: UniverseCandidate, rows: UniverseRow[]): TestResult 
         test: 'materiality',
         basis: size.basis,
         detail: `${usd(size.usd)} ${floor.measures} (floor ${usd(floor.floorUsd)}).`,
+        usd: size.usd,
         ...base(row),
       });
     else under.push(`${usd(size.usd)} ${size.basis} is under the ${usd(floor.floorUsd)} floor`);

@@ -316,7 +316,11 @@ test('listing join: seed first, then the universe ticker on a venue the price so
   assert.equal(spacex.marketCap, UNCHECKED_CAP);
   assert.equal(typeof spacex.cik, 'number');
   assert.equal(marketCompanyFor('akbastau-jv'), null, 'a stub has no listing');
-  assert.equal(venueExchange('CN'), null, 'every Canadian venue: not guessed');
+  assert.equal(
+    venueExchange('CN'),
+    'Canada',
+    'the Canadian composite tries the TSX then the TSX Venture, and the source’s own name for the symbol must agree (prices/line-name.ts)',
+  );
   assert.equal(venueExchange('Nasdaq'), 'NASDAQ');
   assert.deepEqual(listingFromKey('x', 'X', { ticker: '700', exchange: 'HK' })!.ticker, {
     exchange: 'Hong Kong',

@@ -59,6 +59,8 @@ export interface Admission {
   quote?: string;
   readOn: string;
   asOf: string;
+  /** US dollars, on a materiality row: the figure the source printed. */
+  usd?: number;
 }
 
 export interface TestResult {

@@ -37,10 +37,33 @@ const VENUES: Record<string, Exchange> = {
   LI: 'LSE',
   HK: 'Hong Kong',
   KS: 'Korea',
+  KQ: 'Korea',
   TT: 'Taiwan',
+  TW: 'Taiwan',
   CT: 'Toronto',
+  CN: 'Canada',
+  CV: 'TSX Venture',
   SW: 'SIX',
+  BZ: 'Sao Paulo',
+  SM: 'Madrid',
+  SQ: 'Madrid',
+  IM: 'Milan',
+  SS: 'Stockholm',
+  NO: 'Oslo',
+  DC: 'Copenhagen',
+  FH: 'Helsinki',
+  AV: 'Vienna',
+  BB: 'Brussels',
+  PL: 'Lisbon',
+  PW: 'Warsaw',
+  SJ: 'Johannesburg',
+  SP: 'Singapore',
+  TI: 'Tel Aviv',
+  IN: 'India',
 };
+
+/** Mainland China is one venue code to Bloomberg and two exchanges to Yahoo: the symbol tells which. */
+const CHINA_VENUES = new Set(['CH', 'C1', 'C2']);
 
 /** Symbols as the venue writes them: Hong Kong pads to four digits, Korea to six. */
 function symbolFor(exchange: Exchange, raw: string): string {
@@ -54,8 +77,12 @@ export const UNCHECKED_CAP =
   'this listing comes from the company universe and nobody has checked whether it has several share classes or is a depositary receipt, so its price times the share count is not presented as the market value';
 
 /** The exchange a universe venue code names, or null when the price source cannot tell. */
-export function venueExchange(venue: string | undefined): Exchange | null {
-  return venue ? (VENUES[venue.toUpperCase()] ?? null) : null;
+export function venueExchange(venue: string | undefined, symbol?: string): Exchange | null {
+  if (!venue) return null;
+  const v = venue.toUpperCase();
+  if (CHINA_VENUES.has(v) && symbol && /^\d{6}$/.test(symbol.trim()))
+    return /^[69]/.test(symbol) ? 'Shanghai' : /^[03]/.test(symbol) ? 'Shenzhen' : null;
+  return VENUES[v] ?? null;
 }
 
 /** The listing for a key from the universe, or null with no readable ticker. */
@@ -64,7 +91,7 @@ export function listingFromKey(
   name: string,
   key: MarketDataKey,
 ): MarketCompany | null {
-  const exchange = venueExchange(key.exchange);
+  const exchange = venueExchange(key.exchange, key.ticker);
   if (!key.ticker || !exchange) return null;
   const symbol = symbolFor(exchange, key.ticker);
   const usLike = (e: Exchange) => e === 'US' || e === 'NASDAQ' || e === 'NYSE';
@@ -108,6 +135,34 @@ export function noListingReason(slug: string): string {
     return 'Its identifiers in the company universe include no exchange ticker: it may be private, a subsidiary, or listed under a parent.';
   return `Its ticker ${entry.ids.ticker} is printed for venue “${entry.ids.exchange ?? 'unstated'}”, which the price source cannot be told apart on, so no line is read rather than a guessed one.`;
 }
+
+let tracked: MarketCompany[] | null = null;
+
+/**
+ * Every listing the daily run keeps prices and filings for: the hand-checked
+ * seed first, then each admitted universe company whose identifiers resolve to
+ * a line the price source serves. One line per ticker.
+ */
+export function trackedListings(): MarketCompany[] {
+  if (tracked) return tracked;
+  const seen = new Set<string>();
+  const out: MarketCompany[] = [];
+  const add = (c: MarketCompany | null) => {
+    if (!c || seen.has(tickerKey(c.ticker))) return;
+    seen.add(tickerKey(c.ticker));
+    out.push(c);
+  };
+  for (const c of MARKET_SEED) add(c);
+  for (const e of universeEntries()) {
+    const key = e.admitted ? marketDataKey(e) : null;
+    if (key) add(listingFromKey(e.slug, e.name, key));
+  }
+  tracked = out;
+  return out;
+}
+
+/** Whether a line is a seed line, checked by hand, or one synthesised from a fund's ticker and venue. */
+export const isSeedLine = (c: MarketCompany) => MARKET_SEED.includes(c);
 
 let byLine: Map<string, string> | null = null;
 

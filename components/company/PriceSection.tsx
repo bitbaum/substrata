@@ -4,7 +4,7 @@ import { noListingReason } from '@/lib/market-data/company';
 import { tickerLabel } from '@/lib/market-data/identity';
 import { isUnavailable } from '@/lib/market-data/prices/series';
 import { movingAverages, rangeViews, returnsTable, yearRange } from '@/lib/company-page/price-view';
-import { listingOf, pricesOf } from '@/lib/company-page/load';
+import { listingOf, pricesOf, expectNameOf } from '@/lib/company-page/load';
 import { Delta, EmptyState, SourceNote } from './parts';
 import { PriceRange } from './PriceRange';
 
@@ -27,7 +27,7 @@ export async function PriceSection({ slug, name }: { slug: string; name: string 
         topic="listing"
       />
     );
-  const h = await pricesOf(c.ticker.exchange, c.ticker.symbol);
+  const h = await pricesOf(c.ticker.exchange, c.ticker.symbol, expectNameOf(c));
   if (isUnavailable(h))
     return (
       <div className="mk-empty">

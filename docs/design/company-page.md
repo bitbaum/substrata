@@ -26,6 +26,7 @@ Each section answers one question. Its heading says what it holds.
 | 7 | Peers | How do comparable companies' shares compare? | same chain layer (A) or theme (B) |
 | 8 | What has happened / filings | Events and SEC filings on one axis | existing |
 | 9 | Take part, hiring | How to work there, own part of it, buy from it | existing |
+| 10 | What we do not know yet | Which of the above could not be filled, why, and from which documents? | `lib/company-page/unknowns.ts`, `components/company/Unknowns.tsx` |
 
 - **Header.** A listed company reads like a quote page: the name, the quote,
   and straight under it the share price's range row and chart. Its role in
@@ -72,6 +73,34 @@ Each section answers one question. Its heading says what it holds.
 - **Peers.** A table with name, ticker, last close, 1-year return and a
   1-year sparkline. On a phone each row becomes stacked rows with the same
   anatomy.
+
+- **What we do not know yet.** One row per gap, in one anatomy: what is
+  missing, why (the typed reason a read returned, or the identifier that is
+  absent), the documents that would fill it, and "Send evidence". Every row is
+  also a work-queue task, `company:<slug>#<box>` (boxes: `listing`, `prices`,
+  `financials`, `holders`, `relations`, `identity`, `country`), so a gap is a
+  request. The static half (no listing, no SEC id, no LEI, no relation) needs
+  no network read: `pnpm exec tsx scripts/research/company-gaps.ts` lists it
+  for the whole universe. A company with nothing missing says so in one line.
+  Nothing missing is estimated: a company that files nothing with the SEC shows
+  no revenue, margin, cash, debt or share count, and says where an annual
+  report would supply them.
+
+## Which prices the daily run keeps
+
+`/api/cron/prices` walks `trackedListings()` (`lib/market-data/company.ts`):
+the hand-checked seed first, every day, then each admitted universe company
+whose identifiers resolve to a line the price source serves, stalest first,
+until its time is up. A line that is not a seed line is stored, and drawn, only
+if the price source's own name for the symbol agrees with the company's
+(`lib/market-data/prices/line-name.ts`): a ticker can be another company's on
+another exchange, and a mismatch is refused with both names rather than
+drawn. A Bloomberg venue code that names several exchanges is read by the
+symbol where the symbol decides it (mainland China: 6xxxxx and 9xxxxx are
+Shanghai, 0xxxxx and 3xxxxx Shenzhen) and tried TSX then TSX Venture for the
+Canadian composite; any other is refused. While `research_price_points` is
+empty for a line, the page reads the source live (cached six hours in the
+process); when that fails it says so under Share price and lists the gap.
 
 ## The four kinds
 

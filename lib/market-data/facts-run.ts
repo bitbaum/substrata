@@ -5,7 +5,7 @@
  * alone, so a run that ran out of time picks up where it stopped next day.
  */
 import { database } from '@/lib/db';
-import { MARKET_SEED } from './identity';
+import { trackedListings } from './company';
 import { fundamentals } from './fundamentals/read';
 import { holders } from './holders/read';
 
@@ -23,7 +23,10 @@ export async function refreshMarketFacts(opts: { deadline: number }): Promise<Fa
     'INSERT INTO research_market_fact_runs DEFAULT VALUES RETURNING id',
   );
   const out: FactsRun = { looked: 0, stored: 0, failed: 0 };
-  for (const c of MARKET_SEED.filter((x) => x.cik)) {
+  // Seed first, then the universe's SEC filers, in the order they were tracked;
+  // a snapshot younger than FRESH_MS is skipped by the readers, so a run that
+  // ran out of time continues where it stopped.
+  for (const c of trackedListings().filter((x) => x.cik)) {
     if (Date.now() > opts.deadline) break;
     out.looked += 1;
     const [f, h] = await Promise.all([fundamentals(c, {}, FRESH_MS), holders(c, {}, FRESH_MS)]);

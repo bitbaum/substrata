@@ -4,7 +4,7 @@ import { Sparkline } from '@bitbaum/chartkit/react';
 
 import { isUnavailable } from '@/lib/market-data/prices/series';
 import { peerRow, peerSet } from '@/lib/company-page/peers';
-import { pricesOf } from '@/lib/company-page/load';
+import { pricesOf, expectNameOf } from '@/lib/company-page/load';
 import { marketHref } from '@/lib/links';
 import { Delta, EmptyState, SourceNote } from './parts';
 
@@ -23,7 +23,11 @@ export async function Peers({ slug, name }: { slug: string; name: string }) {
     );
   const rows = await Promise.all(
     set.peers.map(async (p) => {
-      const h = await pricesOf(p.company.ticker.exchange, p.company.ticker.symbol);
+      const h = await pricesOf(
+        p.company.ticker.exchange,
+        p.company.ticker.symbol,
+        expectNameOf(p.company),
+      );
       return isUnavailable(h)
         ? peerRow(p, null, '', 'prices unavailable')
         : peerRow(p, h.points, h.currency);

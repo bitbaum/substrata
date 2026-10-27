@@ -9,6 +9,7 @@ import { Financials } from './Financials';
 import { Holders } from './Holders';
 import { KeyStats } from './KeyStats';
 import { SectionLoading } from './parts';
+import { Unknowns } from './Unknowns';
 import { Peers } from './Peers';
 import { PriceSection } from './PriceSection';
 
@@ -74,6 +75,13 @@ export function marketSections({ slug, name }: { slug: string; name: string }): 
       importance: I.peers,
       evidence: 'listed companies at the same step or in the same theme',
       node: lazy('peer prices', <Peers slug={slug} name={name} />),
+    },
+    {
+      id: 'unknowns',
+      title: 'What we do not know yet',
+      importance: I.unknowns,
+      evidence: 'each gap, the documents that would fill it, and its task',
+      node: lazy('what is missing', <Unknowns slug={slug} name={name} />),
     },
   ];
 }
