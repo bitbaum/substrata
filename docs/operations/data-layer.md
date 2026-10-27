@@ -64,7 +64,7 @@ handed to the app role first, so a later re-run cannot die on "must be owner".
 
 ### Adding a migration
 
-1. Add `scripts/db/017-what-it-does.sql`, idempotent and additive.
+1. Add a new numbered .sql file under `scripts/db/` (next number, short name), idempotent and additive.
 2. `pnpm run verify` (it includes the idempotence rule and, when
    `SUBSTRATA_TEST_PG_URL` points at a scratch PostgreSQL, the runner test).
 3. Merge. The deploy applies it before the release.
