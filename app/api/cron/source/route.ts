@@ -18,9 +18,8 @@ export const maxDuration = 290;
  * the excerpt and writing `sourced(...)` in `config/substrata-coverage.ts`
  * themselves — a timer cannot make that claim on the site's behalf.
  *
- * Requires `scripts/db/004-source-sweep.sql` applied via
- * `scripts/provision-service.py` — the generic deploy workflow does not run
- * it automatically, same as `003-sweep.sql` before it.
+ * Requires `scripts/db/004-source-sweep.sql`, which the deploy applies before
+ * the release goes live (docs/operations/data-layer.md).
  */
 export async function POST(request: Request) {
   const secret = process.env.CRON_SECRET;

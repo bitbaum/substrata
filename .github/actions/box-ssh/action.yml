@@ -1,0 +1,25 @@
+name: Box SSH
+description: Trust the box and load the deploy key, so later steps can ssh ubuntu@bitbaum.
+inputs:
+  key:
+    description: HETZNER_SSH_PRIVATE_KEY
+    required: true
+  ip:
+    description: The org variable HETZNER_IP
+    required: true
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      env:
+        SSH_KEY: ${{ inputs.key }}
+        IP: ${{ inputs.ip }}
+      run: |
+        set -euo pipefail
+        [ -n "$SSH_KEY" ] || { echo "::error::HETZNER_SSH_PRIVATE_KEY is not set on this repository"; exit 1; }
+        [ -n "$IP" ] || { echo "::error::org variable HETZNER_IP is unset"; exit 1; }
+        mkdir -p ~/.ssh && chmod 700 ~/.ssh
+        printf '%s\n' "$SSH_KEY" > ~/.ssh/id_ed25519
+        chmod 600 ~/.ssh/id_ed25519
+        ssh-keyscan -H "$IP" >> ~/.ssh/known_hosts 2>/dev/null
+        ssh -o BatchMode=yes "ubuntu@$IP" 'echo "ssh to $(hostname) ok"'

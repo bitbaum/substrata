@@ -1,15 +1,149 @@
 name: Deploy
 
-# Push to main → deploy to bitbaum. All logic lives in one place:
-# bitbaum/loki/.github/workflows/selfhost-deploy.yml
+# Push to main → deploy to bitbaum, in three parts:
+#
+#   data-layer  BEFORE the release: wait for CI, apply pending scripts/db/*.sql
+#               (each in one transaction, recorded in public.schema_migrations),
+#               install deploy/systemd/* units. A failure here stops the deploy
+#               and the live release is never touched.
+#   deploy      the fleet's shared pipeline, unchanged: bitbaum/loki
+#               .github/workflows/selfhost-deploy.yml builds, swaps, health-checks.
+#   backfill    AFTER the release, once ever: the price backfill. It cannot block or
+#               fail the deploy; an unfinished backfill is retried by the next one.
+#
+# What runs and how to add a migration or timer: docs/operations/data-layer.md.
+# Break-glass without a root shell: set the repository variable
+# SUBSTRATA_SKIP_DATA_LAYER=1 (Settings, Secrets and variables, Actions, Variables)
+# and re-run; the deploy then ships code only. Remove it once the cause is fixed.
 on:
   workflow_dispatch: {}
   push:
     branches: [main]
 
 jobs:
+  data-layer:
+    name: data layer → bitbaum
+    runs-on: ubuntu-latest
+    # Includes the wait for CI (ci-gate.sh gives it up to 25 minutes).
+    timeout-minutes: 45
+    # Never cancel one in flight: a migration is a transaction, and a cancelled
+    # job between two files would only leave the next deploy to finish it.
+    concurrency:
+      group: substrata-data-layer
+      cancel-in-progress: false
+    outputs:
+      proceed: ${{ steps.gate.outputs.proceed }}
+    env:
+      BOX: ubuntu@${{ vars.HETZNER_IP }}
+      SKIP: ${{ vars.SUBSTRATA_SKIP_DATA_LAYER }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Fleet tooling and the CI gate
+        id: gate
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set +e
+          if [ "$SKIP" = "1" ]; then
+            echo "::warning::SUBSTRATA_SKIP_DATA_LAYER=1 — migrations and timers are NOT applied by this deploy"
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git clone --quiet --depth 1 https://github.com/bitbaum/loki.git "$RUNNER_TEMP/fleet-tooling" || exit 1
+          # The same gate the shared deploy uses, with the same exclusion of this
+          # workflow's own runs. Migrations are applied only for a commit CI passed.
+          wf="${GITHUB_WORKFLOW_REF#*/*/}"; wf="${wf%%@*}"
+          CI_GATE_EXCLUDE_PATH="$wf" bash "$RUNNER_TEMP/fleet-tooling/scripts/hetzner/ci-gate.sh" "$GITHUB_REPOSITORY" "$GITHUB_SHA"
+          rc=$?
+          case "$rc" in
+            0) echo "proceed=true" >> "$GITHUB_OUTPUT" ;;
+            3) echo "proceed=false" >> "$GITHUB_OUTPUT"; echo "::notice::commit superseded — a newer push will deploy" ;;
+            *) echo "::error::CI is not green for $GITHUB_SHA — data layer and deploy blocked"; exit 1 ;;
+          esac
+
+      - uses: ./.github/actions/box-ssh
+        if: steps.gate.outputs.proceed == 'true'
+        with:
+          key: ${{ secrets.HETZNER_SSH_PRIVATE_KEY }}
+          ip: ${{ vars.HETZNER_IP }}
+
+      - uses: pnpm/action-setup@v6
+        if: steps.gate.outputs.proceed == 'true'
+      - run: pnpm config set store-dir ~/.pnpm-store --global
+        if: steps.gate.outputs.proceed == 'true'
+      - uses: actions/setup-node@v7
+        if: steps.gate.outputs.proceed == 'true'
+        with:
+          node-version-file: '.nvmrc'
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+        if: steps.gate.outputs.proceed == 'true'
+
+      - name: Migrations (plan, then apply)
+        if: steps.gate.outputs.proceed == 'true'
+        run: |
+          pnpm exec tsx scripts/ops/data-layer.ts migrate --dry-run
+          pnpm exec tsx scripts/ops/data-layer.ts migrate
+
+      - name: Timers (deploy/systemd)
+        if: steps.gate.outputs.proceed == 'true'
+        run: pnpm exec tsx scripts/ops/data-layer.ts timers
+
   deploy:
+    needs: data-layer
     uses: bitbaum/loki/.github/workflows/selfhost-deploy.yml@main
     with:
       app: substrata
     secrets: inherit
+
+  backfill:
+    name: price backfill (once)
+    needs: [data-layer, deploy]
+    if: needs.data-layer.outputs.proceed == 'true'
+    runs-on: ubuntu-latest
+    # Whatever happens here, the deploy stays green: the live release is already
+    # serving, and the daily timer keeps prices current. Unrecorded = tried again.
+    continue-on-error: true
+    timeout-minutes: 50
+    env:
+      BOX: ubuntu@${{ vars.HETZNER_IP }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/box-ssh
+        with:
+          key: ${{ secrets.HETZNER_SSH_PRIVATE_KEY }}
+          ip: ${{ vars.HETZNER_IP }}
+      - uses: pnpm/action-setup@v6
+      - run: pnpm config set store-dir ~/.pnpm-store --global
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: '.nvmrc'
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      - name: Is the backfill due?
+        id: due
+        run: |
+          out=$(pnpm exec tsx scripts/ops/data-layer.ts backfill --dry-run)
+          echo "$out"
+          if grep -q 'would run' <<<"$out"; then echo "due=true" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Backfill (database through an ssh tunnel; the URL never reaches a log)
+        if: steps.due.outputs.due == 'true'
+        run: |
+          set -euo pipefail
+          f="$RUNNER_TEMP/substrata.env"
+          scp -q -o BatchMode=yes "$BOX:/opt/substrata/shared/.env" "$f"
+          chmod 600 "$f"
+          url=$(grep -m1 '^DATABASE_URL=' "$f" | cut -d= -f2- | tr -d "\"'\r")
+          rm -f "$f"
+          [ -n "$url" ] || { echo "::error::no DATABASE_URL in the box env"; exit 1; }
+          echo "::add-mask::$url"
+          pw=$(node -e 'process.stdout.write(decodeURIComponent(new URL(process.argv[1]).password))' "$url")
+          [ -z "$pw" ] || echo "::add-mask::$pw"
+          ssh -o BatchMode=yes -f -N -L 15432:127.0.0.1:5432 "$BOX"
+          for _ in $(seq 1 40); do (exec 3<>/dev/tcp/127.0.0.1/15432) 2>/dev/null && break; sleep 0.25; done
+          url="${url/@localhost:5432/@127.0.0.1:15432}"
+          url="${url/@127.0.0.1:5432/@127.0.0.1:15432}"
+          SUBSTRATA_BACKFILL_DATABASE_URL="$url" pnpm exec tsx scripts/ops/data-layer.ts backfill

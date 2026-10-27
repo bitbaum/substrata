@@ -1,0 +1,9 @@
+[Unit]
+Description=appcron substrata POST /api/cron/prices
+After=network-online.target substrata-app.service
+Wants=network-online.target
+OnFailure=notify-failure@%n.service
+
+[Service]
+Type=oneshot
+ExecStart=/opt/_appcron/run.sh substrata 4022 /api/cron/prices POST

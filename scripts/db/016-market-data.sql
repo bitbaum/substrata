@@ -1,8 +1,8 @@
 BEGIN;
 
 -- Market data (lib/market-data). Additive and idempotent, like every file here;
--- apply with scripts/provision-service.py before /api/cron/prices reaches
--- production (docs/INFRASTRUCTURE.md, "Market data").
+-- the deploy applies it before /api/cron/prices reaches production
+-- (docs/operations/data-layer.md; docs/INFRASTRUCTURE.md, "Market data").
 
 -- Daily closes, one row per listing, source and trading day. `close` is the
 -- source's split-adjusted close (dividends not added back); the basis is
