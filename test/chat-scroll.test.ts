@@ -25,25 +25,11 @@ test('/chat exports viewport with interactiveWidget: resizes-content', () => {
   );
 });
 
-test('/chat renders through ChatScreen filling the visual viewport', () => {
+test('/chat renders through ChatApp filling the visual viewport', () => {
   const code = chat();
-  assert.match(
-    code,
-    /<ChatScreen\s[\s\S]*?fill="viewport"/,
-    '/chat must use ChatScreen fill="viewport"',
-  );
-  assert.match(
-    code,
-    /header=\{[\s\S]*?className="ck-glass"/,
-    'the floating header needs a ck-glass way back',
-  );
-  assert.match(
-    code,
-    /share=\{\{ title: 'Ask Substrata' \}\}/,
-    'Copy · Listen · Share under answers',
-  );
-  // The dock keeps its own column; it lives inside a fixed panel.
-  assert.match(code, /className="companion is-compact"/, 'the dock keeps the compact column');
+  assert.match(code, /<ChatApp\s[\s\S]*?fill=\{compact \? 'parent' : 'viewport'\}/);
+  assert.match(code, /headerStart=\{[\s\S]*?className="ck-glass"/, 'a ck-glass way back home');
+  assert.match(code, /'companion is-compact'/, 'the dock keeps the compact column');
 });
 
 test('ask.css computes no chat height of its own', () => {
@@ -71,7 +57,7 @@ test('ask.css gives the conversation the whole phone display and keeps the windo
   );
   assert.match(
     s,
-    /@media \(min-width: 768px\) \{[\s\S]*?\.companion-page > \.ck-screen-viewport \{\s*height:\s*calc\(var\(--ck-viewport-height, 100dvh\) - var\(--spacing-topbar\)\)/,
+    /@media \(min-width: 768px\) \{[\s\S]*?\.companion-page \.ck-app-viewport \{\s*height:\s*calc\(var\(--ck-viewport-height, 100dvh\) - var\(--spacing-topbar\)\)/,
     'from 768px the screen takes the height under the top bar',
   );
   const chatPage = readFileSync(join(ROOT, 'app/chat/page.tsx'), 'utf8');
@@ -91,7 +77,7 @@ test('the panel is chatkit’s screen filling the sheet: its thread is the scrol
   const s = css();
   assert.match(
     s,
-    /\.ask-sheet-body > \.ck-screen \{[\s\S]*?flex:\s*1;[\s\S]*?min-height:\s*0/,
+    /\.companion \{[\s\S]*?flex:\s*1;[\s\S]*?min-height:\s*0[\s\S]*?\.ask-sheet-body > \.companion/,
     'the screen takes the sheet’s height, so chatkit’s thread scrolls inside it',
   );
   assert.doesNotMatch(s, /\.companion\.is-compact \.ck-thread/, 'no hand-made scroller');

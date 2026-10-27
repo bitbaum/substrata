@@ -56,7 +56,7 @@ export function researchInstruction(plan: ResearchPlan, passages: ResearchPassag
 /** Sentences that state a forecast as fact with nothing cited behind them. */
 const FORECAST =
   /\b(will (reach|grow|rise|increase|decline|fall|drop|double|triple|exceed|hit|surge|soar|outstrip|remain|stay|be)|(is|are) (expected|projected|forecast|set|poised|likely) to|forecasts? (show|say|that)|by 20[3-9]\d\b)/i;
-const CITED = /\[W\d+\]|\[[^\]]+\]\((https?:\/\/|\/)[^)]+\)/;
+export const CITED = /\[W\d+\]|\[[^\]]+\]\((https?:\/\/|\/)[^)]+\)/;
 const LABELLED =
   /^\s*(?:[-*•>]\s*)?(?:\*\*|_)?(reasoning, not a sourced forecast|from general knowledge)/i;
 
@@ -88,7 +88,7 @@ interface Section {
   body: string;
 }
 
-function sectionsOf(answer: string): { lead: string; sections: Section[] } {
+export function sectionsOf(answer: string): { lead: string; sections: Section[] } {
   const parts = answer.split(/\n(?=#{2,4} )/);
   const first = /^#{2,4} /.test(parts[0]) ? '' : (parts.shift() ?? '');
   const sections = parts.map((p) => {

@@ -24,7 +24,7 @@ export async function allowRequest(request: Request, lane: string, limit: number
   );
   return result.rows[0].hits <= limit;
 }
-export async function boundedJson(request: Request) {
+export async function boundedJson(request: Request, maxBytes = 20000) {
   const reader = request.body?.getReader();
   if (!reader) throw new Error('Missing body');
   const parts: Uint8Array[] = [];
@@ -33,7 +33,7 @@ export async function boundedJson(request: Request) {
     const { done, value } = await reader.read();
     if (done) break;
     size += value.length;
-    if (size > 20000) {
+    if (size > maxBytes) {
       await reader.cancel();
       throw new Error('Body too large');
     }

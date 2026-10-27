@@ -4,11 +4,13 @@ import { COMPANY } from '@/config/substrata';
 import { policyTotals } from '@/config/substrata-policy';
 import { portalTotals } from '@/lib/bottlenecks';
 import { homeFeed } from '@/lib/home-feed';
+import { homeMarkets } from '@/lib/home-markets';
 import { homeAsks, seedFor } from '@/lib/starters';
 import { worstNow } from '@/lib/worst-now';
 import { Page, Shell } from '@/components/portal/Shell';
 import { Doors } from './_home/Doors';
 import { HomeHero } from './_home/HomeHero';
+import { HomeMarkets } from './_home/HomeMarkets';
 import { HomeNumbers } from './_home/HomeNumbers';
 import { HomeStatus } from './_home/HomeStatus';
 import { WhatChanged } from './_home/WhatChanged';
@@ -21,9 +23,10 @@ export const metadata: Metadata = {
 };
 
 /**
- * The front page, in order: ask (the hero is the Ask box), what is worst right
- * now, what changed, the corpus in four numbers, which door is yours. Then a
- * calm footer. Six short sections; on 2026-10-09 the page measured 18,686px
+ * The front page, in order: ask (the hero is the Ask box, the same box as
+ * /chat), what is worst right now, what changed, the listed names on the
+ * chain (only from stored closes), the corpus in four numbers, which door is
+ * yours. Then a calm footer. Short sections; on 2026-10-09 the page measured 18,686px
  * on a phone and said nothing first, and the discipline is that it stays
  * short — what left it is still on the site (config/what-it-solves.ts for
  * the role views, the chips on /bottlenecks, the latest rule at the top of
@@ -48,7 +51,7 @@ export default async function HomePage() {
   const now = new Date();
   const totals = portalTotals();
   const board = worstNow(3);
-  const feed = await homeFeed(now);
+  const [feed, markets] = await Promise.all([homeFeed(now), homeMarkets()]);
 
   return (
     <Shell reader="client" status={<HomeStatus freshness={feed.freshness} now={now} />}>
@@ -61,6 +64,7 @@ export default async function HomePage() {
             <WhatChanged feed={feed} now={now} />
           </div>
 
+          <HomeMarkets {...markets} />
           <HomeNumbers totals={totals} policy={policyTotals()} />
           <Doors />
         </div>

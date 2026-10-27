@@ -18,4 +18,9 @@ minimumReleaseAgeExclude:
   - '@bitbaum/geo-kit'
   - bip-kit
   - '@bitbaum/chatkit'
-  - '@bitbaum/chartkit'
+  - '@bitbaum/chartkit@0.2.0'
+  - '@bitbaum/design-tokens@1.2.0'
+  - '@bitbaum/listkit@0.2.1'
+  - '@bitbaum/searchkit@0.2.2'
+  - '@bitbaum/whenkit@0.3.2'
+  - '@bitbaum/accountkit@0.8.0'
