@@ -1,0 +1,10 @@
+{
+  "slug": "nuclear-energy",
+  "name": "Nuclear fission and fusion",
+  "parent": null,
+  "theme": "nuclear",
+  "definition": "Reactor designers, fuel-cycle companies and fusion developers.",
+  "why": "Firm low-carbon power is the scarcest input to new data-centre capacity.",
+  "bottlenecks": ["uranium-conversion-and-enrichment", "smr-first-of-a-kind-licensing"],
+  "keyNumbers": []
+}

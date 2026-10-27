@@ -1,0 +1,10 @@
+{
+  "slug": "robot-foundation-models",
+  "name": "Robot foundation models",
+  "parent": "robotics",
+  "theme": "robotics",
+  "definition": "Companies building general learned policies for robot control.",
+  "why": "Control software is the other half of the humanoid problem and shares the frontier-AI compute pipeline.",
+  "bottlenecks": [],
+  "keyNumbers": []
+}

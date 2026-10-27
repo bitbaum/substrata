@@ -1,0 +1,10 @@
+{
+  "slug": "advanced-packaging",
+  "name": "Advanced packaging and test",
+  "parent": "compute-semiconductors",
+  "theme": "compute",
+  "definition": "Outsourced and integrated packaging that joins logic and memory dies into one module, and the test houses behind it.",
+  "why": "CoWoS-class capacity has repeatedly been the binding step between a finished wafer and a shipped accelerator.",
+  "bottlenecks": ["advanced-packaging-capacity"],
+  "keyNumbers": []
+}

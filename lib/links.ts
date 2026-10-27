@@ -174,6 +174,8 @@ export const ROUTES = [
   '/chat',
   '/account',
   '/account/settings',
+  '/areas',
+  '/areas/:slug',
   '/exposure',
   '/exposure.csv',
   '/xray',

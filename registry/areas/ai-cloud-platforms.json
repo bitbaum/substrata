@@ -1,0 +1,10 @@
+{
+  "slug": "ai-cloud-platforms",
+  "name": "AI cloud and model platforms",
+  "parent": "frontier-ai",
+  "theme": "ai",
+  "definition": "Hyperscale and specialist clouds that rent accelerators and host or resell models.",
+  "why": "They hold the capex and the data-centre pipeline that turns chip supply into usable training and inference capacity.",
+  "bottlenecks": ["advanced-packaging-capacity"],
+  "keyNumbers": []
+}

@@ -1,0 +1,92 @@
+{
+  "slug": "moderna",
+  "name": "Moderna, Inc.",
+  "aliases": ["Moderna Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "MRNA",
+    "exchange": "US",
+    "sedol": "BGSXTS3",
+    "cik": "1682852"
+  },
+  "areas": [
+    {
+      "area": "biotech-and-longevity"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:biotech-and-longevity",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "10.30,MRNA,MODERNA INC,BGSXTS3,198.85,\"54,946.00\",\"10,926,012.10\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "biotools",
+      "basis": "fund",
+      "detail": "Held by Global X Genomics & Biotechnology ETF (GNOM, Global X): Biotech tools."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "10.30,MRNA,MODERNA INC,BGSXTS3,198.85,\"54,946.00\",\"10,926,012.10\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$11 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 10926012
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001682852-26-000033\",\"cik\":1682852,\"entityName\":\"Moderna, Inc.\",\"loc\":\"US-MA\",\"end\":\"2025-06-30\",\"val\":9900000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$9.9 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 9900000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "10.30,MRNA,MODERNA INC,BGSXTS3,198.85,\"54,946.00\",\"10,926,012.10\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker MRNA"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001682852-26-000033\",\"cik\":1682852,\"entityName\":\"Moderna, Inc.\",\"loc\":\"US-MA\",\"end\":\"2025-06-30\",\"val\":9900000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1682852"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "10.30,MRNA,MODERNA INC,BGSXTS3,198.85,\"54,946.00\",\"10,926,012.10\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "slug": "keppel-dc-reit",
+  "name": "Keppel DC Reit",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "SG",
+  "ids": {
+    "ticker": "KDCREIT",
+    "exchange": "SP",
+    "sedol": "BT9Q186"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "4.54,KDCREIT SP,KEPPEL DC REIT,BT9Q186,1.647086374550035,\"52,556,268.00\",\"86,564,712.92\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Data Center & Digital Infrastructure ETF (DTCR, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "4.54,KDCREIT SP,KEPPEL DC REIT,BT9Q186,1.647086374550035,\"52,556,268.00\",\"86,564,712.92\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$87 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 86564713
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "4.54,KDCREIT SP,KEPPEL DC REIT,BT9Q186,1.647086374550035,\"52,556,268.00\",\"86,564,712.92\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker KDCREIT"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "4.54,KDCREIT SP,KEPPEL DC REIT,BT9Q186,1.647086374550035,\"52,556,268.00\",\"86,564,712.92\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

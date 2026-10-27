@@ -1,0 +1,78 @@
+{
+  "slug": "syensqo",
+  "name": "Syensqo",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "BE",
+  "ids": {
+    "ticker": "SYENS",
+    "exchange": "BB",
+    "cik": "2004340"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://www.fuelsandlubes.com/syensqo-unveils-immersion-cooling-fluids-for-ai-data-centres/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: makes Two-phase dielectric immersion coolant."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.fuelsandlubes.com/syensqo-unveils-immersion-cooling-fluids-for-ai-data-centres/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: makes Two-phase dielectric immersion coolant."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG01KBN5R42",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker SYENS"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG01KBN5R42",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 2004340"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.fuelsandlubes.com/syensqo-unveils-immersion-cooling-fluids-for-ai-data-centres/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "slug": "johnson-matthey",
+  "name": "Johnson Matthey",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "GB",
+  "ids": {
+    "ticker": "JMAT",
+    "exchange": "LN"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://matthey.com/products-and-markets/pgms-and-circularity/pgm-markets/ruthenium",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: PGM refining."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://matthey.com/products-and-markets/pgms-and-circularity/pgm-markets/ruthenium",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: PGM refining."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000BDNS10",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker JMAT"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://matthey.com/products-and-markets/pgms-and-circularity/pgm-markets/ruthenium",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

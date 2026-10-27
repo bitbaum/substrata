@@ -1,0 +1,10 @@
+{
+  "slug": "space",
+  "name": "Space",
+  "parent": null,
+  "theme": "space",
+  "definition": "Launch, satellites, constellations and in-space infrastructure.",
+  "why": "Launch and satellite supply are themselves concentrated, and space is a proposed home for future compute and power.",
+  "bottlenecks": [],
+  "keyNumbers": []
+}

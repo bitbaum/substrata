@@ -1,0 +1,58 @@
+{
+  "slug": "cenergy",
+  "name": "Cenergy Holdings SA",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "ids": {
+    "ticker": "CENER",
+    "exchange": "GA",
+    "cusip": "B1R3JD102"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Cenergy Holdings SA CENER.GA B1R3JD102 Electrical Components 956,942 $22,805,481.65 0.21%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Cenergy Holdings SA CENER.GA B1R3JD102 Electrical Components 956,942 $22,805,481.65 0.21%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$23 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 22805482
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Cenergy Holdings SA CENER.GA B1R3JD102 Electrical Components 956,942 $22,805,481.65 0.21%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker CENER"
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

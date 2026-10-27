@@ -1,0 +1,75 @@
+{
+  "slug": "figure-ai",
+  "name": "Figure AI",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q124989007",
+    "domain": "figure.ai"
+  },
+  "areas": [
+    {
+      "area": "humanoids"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Figure_AI",
+      "quote": "Figure AI, Inc. is an American robotics company developing humanoid robots that operate via artificial intelligence.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q124989007",
+      "quote": "Figure AI (Q124989007) — Wikidata item: Q124989007",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q124989007",
+      "quote": "Figure AI (Q124989007) — headquarters location: Sunnyvale",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q124989007",
+      "quote": "Figure AI (Q124989007) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q124989007",
+      "quote": "Figure AI (Q124989007) — official website: https://www.figure.ai/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:humanoids",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Figure_AI",
+      "quote": "Figure AI, Inc. is an American robotics company developing humanoid robots that operate via artificial intelligence.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Figure AI, Inc. is an American robotics company developing humanoid robots that operate via artificial intelligence.",
+  "country": "US",
+  "hq": "Sunnyvale"
+}

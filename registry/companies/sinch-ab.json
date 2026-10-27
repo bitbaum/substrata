@@ -1,0 +1,68 @@
+{
+  "slug": "sinch-ab",
+  "name": "Sinch AB",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "SE",
+  "ids": {
+    "ticker": "SINCH",
+    "exchange": "SS",
+    "sedol": "BKP8Q11"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/clou_full-holdings_20261026.csv",
+      "quote": "2.09,SINCH SS,SINCH AB,BKP8Q11,4.791363296464533,\"1,884,249.00\",\"9,028,121.50\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Cloud Computing ETF (CLOU, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/clou_full-holdings_20261026.csv",
+      "quote": "2.09,SINCH SS,SINCH AB,BKP8Q11,4.791363296464533,\"1,884,249.00\",\"9,028,121.50\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$9.0 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 9028122
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/clou_full-holdings_20261026.csv",
+      "quote": "2.09,SINCH SS,SINCH AB,BKP8Q11,4.791363296464533,\"1,884,249.00\",\"9,028,121.50\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker SINCH"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/clou_full-holdings_20261026.csv",
+      "quote": "2.09,SINCH SS,SINCH AB,BKP8Q11,4.791363296464533,\"1,884,249.00\",\"9,028,121.50\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

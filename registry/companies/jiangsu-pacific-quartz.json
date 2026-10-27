@@ -1,0 +1,66 @@
+{
+  "slug": "jiangsu-pacific-quartz",
+  "name": "Jiangsu Pacific Quartz",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "CN",
+  "ids": {
+    "ticker": "603688",
+    "exchange": "CH"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://www.quartzpacificglobal.com/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: makes Crucible-grade high-purity quartz sand."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.quartzpacificglobal.com/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: makes Crucible-grade high-purity quartz sand."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG002WFY9G2",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 603688"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.quartzpacificglobal.com/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

@@ -10,16 +10,6 @@ import type { Considered } from '@/lib/universe/types';
 
 export const CONSIDERED: readonly Considered[] = [
   {
-    name: 'Figure AI',
-    looked: [
-      'Thematic fund holdings read here (private: no fund files it)',
-      'SEC EDGAR company tickers (no registrant)',
-      'figure.ai news page for a stated round or valuation (not opened from the build sandbox)',
-    ],
-    why: 'Identity and theme are easy to state but no materiality figure (a round or valuation) was opened and quoted. A stated round from the company or a lead investor admits it.',
-    on: '2026-10-25',
-  },
-  {
     name: 'Unitree Robotics',
     looked: [
       'Thematic fund holdings read here (not held)',

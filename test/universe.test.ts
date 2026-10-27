@@ -4,6 +4,7 @@
  * Ask and the pages — on fixtures for the rule, on the committed evidence for
  * the rest.
  */
+import { registeredCompany } from '@/lib/registry/load';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
@@ -124,7 +125,8 @@ test('the owner’s question answers itself from the committed evidence', () => 
   }
   const spacex = whyCompany('SpaceX', { file: false });
   assert.ok(spacex.status === 'in' && spacex.themes.includes('Space & launch'));
-  assert.equal(whyCompany('Figure AI', { file: false }).status, 'considered');
+  // Registered by hand since: a private company is now on the list on its own cited identity.
+  assert.equal(whyCompany('Figure AI', { file: false }).status, 'in');
 });
 
 test('a name nobody has looked at files a gap task, and the demand is counted', () => {
@@ -157,6 +159,10 @@ test('every tier B company is a registry entity with a page, cited on all three 
   const b = universeEntries().filter((e) => e.tier === 'B');
   assert.ok(b.length >= 150, `only ${b.length} tier B companies`);
   for (const e of b) {
+    if (e.registered && registeredCompany(e.slug)?.origin.by !== 'migration') {
+      assert.ok(e.admittedBy.length > 0, `${e.slug}: registered with no evidence`);
+      continue; // a registered company is in because it is registered, not by the old three tests
+    }
     for (const t of ['theme', 'materiality', 'identity'] as const)
       assert.ok(
         e.tests[t].evidence.some((a) => a.source),

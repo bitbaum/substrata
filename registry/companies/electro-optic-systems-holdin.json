@@ -1,0 +1,68 @@
+{
+  "slug": "electro-optic-systems-holdin",
+  "name": "Electro Optic Systems Holdin",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "AU",
+  "ids": {
+    "ticker": "EOS",
+    "exchange": "AU",
+    "sedol": "6293990"
+  },
+  "areas": [
+    {
+      "area": "defence-tech"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.15,EOS AU,ELECTRO OPTIC SYSTEMS HOLDIN,6293990,6.168377767224489,\"1,589,815.00\",\"9,806,579.50\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "fund",
+      "detail": "Held by Global X Defense Tech ETF (SHLD, Global X): Defence & aerospace."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.15,EOS AU,ELECTRO OPTIC SYSTEMS HOLDIN,6293990,6.168377767224489,\"1,589,815.00\",\"9,806,579.50\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$9.8 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 9806580
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.15,EOS AU,ELECTRO OPTIC SYSTEMS HOLDIN,6293990,6.168377767224489,\"1,589,815.00\",\"9,806,579.50\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker EOS"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "0.15,EOS AU,ELECTRO OPTIC SYSTEMS HOLDIN,6293990,6.168377767224489,\"1,589,815.00\",\"9,806,579.50\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

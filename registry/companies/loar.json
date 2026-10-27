@@ -1,0 +1,94 @@
+{
+  "slug": "loar",
+  "name": "Loar Holdings Inc.",
+  "aliases": ["Loar Holdings Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "cik": "2000178",
+    "ticker": "LOAR",
+    "exchange": "US",
+    "cusip": "53947R105",
+    "sedol": "BLDCK32",
+    "isin": "US53947R1059"
+  },
+  "areas": [
+    {
+      "area": "defence-tech"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3728&type=10-K&dateb=&owner=include&start=0&count=100",
+      "quote": "0002000178 Loar Holdings Inc. NY",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3728 (Aircraft parts & auxiliary equipment, NEC): Defence & aerospace."
+    },
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-xar.xlsx",
+      "quote": "LOAR HOLDINGS INC | LOAR | 53947R105 | BLDCK32 | 1.303053 | - | 1038346.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Aerospace & Defense ETF (XAR, State Street): Defence & aerospace."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0002000178-26-000003\",\"cik\":2000178,\"entityName\":\"Loar Holdings Inc.\",\"loc\":\"US-NY\",\"end\":\"2025-06-30\",\"val\":8100000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$8.1 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 8100000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[2000178,\"Loar Holdings Inc.\",\"LOAR\",\"NYSE\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker LOAR"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0002000178-26-000003\",\"cik\":2000178,\"entityName\":\"Loar Holdings Inc.\",\"loc\":\"US-NY\",\"end\":\"2025-06-30\",\"val\":8100000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 2000178"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-xar.xlsx",
+      "quote": "LOAR HOLDINGS INC | LOAR | 53947R105 | BLDCK32 | 1.303053 | - | 1038346.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

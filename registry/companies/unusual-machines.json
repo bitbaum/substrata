@@ -1,0 +1,97 @@
+{
+  "slug": "unusual-machines",
+  "name": "Unusual Machines, Inc.",
+  "aliases": ["Unusual Machines Inc /Us"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "UMAC",
+    "exchange": "US",
+    "sedol": "BQXNTY4",
+    "cik": "1956955",
+    "cusip": "91532F102",
+    "isin": "US91532F1021"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    },
+    {
+      "area": "mobility"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.22,UMAC,UNUSUAL MACHINES INC /US,BQXNTY4,16.62,\"418,440.00\",\"6,954,472.80\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by Global X Robotics & Artificial Intelligence ETF (BOTZ, Global X): Robotics & autonomy."
+    },
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-hail.xlsx",
+      "quote": "UNUSUAL MACHINES INC /US | UMAC | 91532F102 | BQXNTY4 | 1.29036 | - | 12365.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Kensho Smart Mobility ETF (HAIL, State Street): Electric mobility."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.22,UMAC,UNUSUAL MACHINES INC /US,BQXNTY4,16.62,\"418,440.00\",\"6,954,472.80\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$7.0 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 6954473
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.22,UMAC,UNUSUAL MACHINES INC /US,BQXNTY4,16.62,\"418,440.00\",\"6,954,472.80\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker UMAC"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001683168-26-001730\",\"cik\":1956955,\"entityName\":\"Unusual Machines, Inc.\",\"loc\":\"US-FL\",\"end\":\"2025-06-30\",\"val\":197646688}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1956955"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.22,UMAC,UNUSUAL MACHINES INC /US,BQXNTY4,16.62,\"418,440.00\",\"6,954,472.80\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

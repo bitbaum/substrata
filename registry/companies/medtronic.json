@@ -1,0 +1,80 @@
+{
+  "slug": "medtronic",
+  "name": "Medtronic plc",
+  "aliases": ["Medtronic Plc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "cik": "1613103",
+    "ticker": "MDT",
+    "exchange": "US",
+    "cusip": "G5960L103"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Medtronic Plc MDT G5960L103 Health Care 34,681 $3,287,411.99 0.44%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Artificial Intelligence and Robotics ETF (ROBT, First Trust): Robotics & autonomy."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q3I.json",
+      "quote": "{\"accn\":\"0001628280-26-044354\",\"cik\":1613103,\"entityName\":\"Medtronic plc\",\"loc\":\"IE-\",\"end\":\"2025-10-24\",\"val\":120100000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-10-24",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$120 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 120100000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Medtronic Plc MDT G5960L103 Health Care 34,681 $3,287,411.99 0.44%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker MDT"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q3I.json",
+      "quote": "{\"accn\":\"0001628280-26-044354\",\"cik\":1613103,\"entityName\":\"Medtronic plc\",\"loc\":\"IE-\",\"end\":\"2025-10-24\",\"val\":120100000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-10-24",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1613103"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Medtronic Plc MDT G5960L103 Health Care 34,681 $3,287,411.99 0.44%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

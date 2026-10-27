@@ -1,0 +1,121 @@
+{
+  "slug": "kodiak-ai",
+  "name": "Kodiak AI, Inc.",
+  "aliases": ["Kodiak AI Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "KDK",
+    "exchange": "US",
+    "cusip": "500081104",
+    "isin": "US5000811043",
+    "sedol": "BVBFG46",
+    "cik": "1853138"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    },
+    {
+      "area": "mobility"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKQ,KODIAK AI INC,KDK,500081104,\"5,748,110\",\"$5,978,034.40\",0.34%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by ARK Autonomous Technology & Robotics ETF (ARKQ, ARK Invest): Robotics & autonomy."
+    },
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.06,KDK,KODIAK AI INC,BVBFG46,1.04,\"1,672,963.00\",\"1,739,881.52\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by Global X Robotics & Artificial Intelligence ETF (BOTZ, Global X): Robotics & autonomy."
+    },
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-hail.xlsx",
+      "quote": "KODIAK AI INC | KDK | 500081104 | BVBFG46 | 0.318819 | - | 48823.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Kensho Smart Mobility ETF (HAIL, State Street): Electric mobility."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKQ,KODIAK AI INC,KDK,500081104,\"5,748,110\",\"$5,978,034.40\",0.34%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$6.0 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 5978034
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001628280-26-016910\",\"cik\":1853138,\"entityName\":\"Kodiak AI, Inc.\",\"loc\":\"US-CA\",\"end\":\"2025-06-30\",\"val\":559000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$559 million public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 559000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKQ,KODIAK AI INC,KDK,500081104,\"5,748,110\",\"$5,978,034.40\",0.34%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker KDK"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001628280-26-016910\",\"cik\":1853138,\"entityName\":\"Kodiak AI, Inc.\",\"loc\":\"US-CA\",\"end\":\"2025-06-30\",\"val\":559000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1853138"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKQ,KODIAK AI INC,KDK,500081104,\"5,748,110\",\"$5,978,034.40\",0.34%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

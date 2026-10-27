@@ -1,0 +1,79 @@
+{
+  "slug": "harmonic-drive-systems",
+  "name": "Harmonic Drive Systems",
+  "aliases": ["Harmonic Drive Systems Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "JP",
+  "ids": {
+    "ticker": "6324",
+    "exchange": "JP",
+    "sedol": "6108179"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "stated",
+      "source": "https://www.harmonicdrive.net/technology/harmonicdrive",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Strain-wave reduction gears."
+    },
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.84,6324 JP,HARMONIC DRIVE SYSTEMS INC,6108179,32.30002855521046,\"806,858.00\",\"26,061,536.44\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by Global X Robotics & Artificial Intelligence ETF (BOTZ, Global X): Robotics & autonomy."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.harmonicdrive.net/technology/harmonicdrive",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Strain-wave reduction gears."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000BCZPZ8",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 6324"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.84,6324 JP,HARMONIC DRIVE SYSTEMS INC,6108179,32.30002855521046,\"806,858.00\",\"26,061,536.44\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

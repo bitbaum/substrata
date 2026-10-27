@@ -1,0 +1,92 @@
+{
+  "slug": "procore-technologies",
+  "name": "Procore Technologies, Inc.",
+  "aliases": ["Procore Technologies Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "PCOR",
+    "exchange": "US",
+    "sedol": "BLH11J8",
+    "cik": "1611052"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/clou_full-holdings_20261026.csv",
+      "quote": "2.98,PCOR,PROCORE TECHNOLOGIES INC,BLH11J8,62.77,\"205,454.00\",\"12,896,347.58\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Cloud Computing ETF (CLOU, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/clou_full-holdings_20261026.csv",
+      "quote": "2.98,PCOR,PROCORE TECHNOLOGIES INC,BLH11J8,62.77,\"205,454.00\",\"12,896,347.58\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$13 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 12896348
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001628280-26-011055\",\"cik\":1611052,\"entityName\":\"Procore Technologies, Inc.\",\"loc\":\"US-CA\",\"end\":\"2025-06-30\",\"val\":8209500000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$8.2 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 8209500000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/clou_full-holdings_20261026.csv",
+      "quote": "2.98,PCOR,PROCORE TECHNOLOGIES INC,BLH11J8,62.77,\"205,454.00\",\"12,896,347.58\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker PCOR"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001628280-26-011055\",\"cik\":1611052,\"entityName\":\"Procore Technologies, Inc.\",\"loc\":\"US-CA\",\"end\":\"2025-06-30\",\"val\":8209500000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1611052"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/clou_full-holdings_20261026.csv",
+      "quote": "2.98,PCOR,PROCORE TECHNOLOGIES INC,BLH11J8,62.77,\"205,454.00\",\"12,896,347.58\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

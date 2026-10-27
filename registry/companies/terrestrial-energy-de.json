@@ -1,0 +1,80 @@
+{
+  "slug": "terrestrial-energy-de",
+  "name": "Terrestrial Energy Inc. /DE/",
+  "aliases": ["Terrestrial Energy Inc", "Terrestrial Energy Inc."],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "IMSR",
+    "exchange": "US",
+    "sedol": "BVK6BG7",
+    "cik": "2019804"
+  },
+  "areas": [
+    {
+      "area": "nuclear-energy"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:nuclear-energy",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.24,IMSR,TERRESTRIAL ENERGY INC,BVK6BG7,2.94,\"3,895,245.00\",\"11,452,020.30\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "nuclear",
+      "basis": "fund",
+      "detail": "Held by Global X Uranium ETF (URA, Global X): Nuclear, SMRs & the fuel cycle."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.24,IMSR,TERRESTRIAL ENERGY INC,BVK6BG7,2.94,\"3,895,245.00\",\"11,452,020.30\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$11 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 11452020
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.24,IMSR,TERRESTRIAL ENERGY INC,BVK6BG7,2.94,\"3,895,245.00\",\"11,452,020.30\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker IMSR"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001104659-26-036846\",\"cik\":2019804,\"entityName\":\"TERRESTRIAL ENERGY INC.\",\"loc\":\"US-NC\",\"end\":\"2025-06-30\",\"val\":191475000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 2019804"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "0.24,IMSR,TERRESTRIAL ENERGY INC,BVK6BG7,2.94,\"3,895,245.00\",\"11,452,020.30\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

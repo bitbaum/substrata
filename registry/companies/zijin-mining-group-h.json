@@ -1,0 +1,68 @@
+{
+  "slug": "zijin-mining-group-h",
+  "name": "Zijin Mining Group Co Ltd-H",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "HK",
+  "ids": {
+    "ticker": "2899",
+    "exchange": "HK",
+    "sedol": "6725299"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "4.05,2899 HK,ZIJIN MINING GROUP CO LTD-H,6725299,3.535942588776464,\"72,409,535.00\",\"256,035,958.64\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "fund",
+      "detail": "Held by Global X Copper Miners ETF (COPX, Global X): Advanced materials & critical minerals."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "4.05,2899 HK,ZIJIN MINING GROUP CO LTD-H,6725299,3.535942588776464,\"72,409,535.00\",\"256,035,958.64\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$256 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 256035959
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "4.05,2899 HK,ZIJIN MINING GROUP CO LTD-H,6725299,3.535942588776464,\"72,409,535.00\",\"256,035,958.64\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 2899"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "4.05,2899 HK,ZIJIN MINING GROUP CO LTD-H,6725299,3.535942588776464,\"72,409,535.00\",\"256,035,958.64\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "slug": "umicore",
+  "name": "Umicore",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "BE",
+  "ids": {
+    "ticker": "UMI",
+    "exchange": "BB"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://www.umicore.com/en/markets-products/metals/ruthenium/about/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: PGM refining and recycling."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.umicore.com/en/markets-products/metals/ruthenium/about/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: PGM refining and recycling."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000BN6FD2",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker UMI"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.umicore.com/en/markets-products/metals/ruthenium/about/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

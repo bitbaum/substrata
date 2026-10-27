@@ -1,0 +1,82 @@
+{
+  "slug": "v2x",
+  "name": "V2X, Inc.",
+  "aliases": ["V2x Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "cik": "1601548",
+    "ticker": "VVX",
+    "exchange": "US",
+    "cusip": "92242T101",
+    "sedol": "BQS2V17",
+    "isin": "US92242T1016"
+  },
+  "areas": [
+    {
+      "area": "defence-tech"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-xar.xlsx",
+      "quote": "V2X INC | VVX | 92242T101 | BQS2V17 | 1.410952 | - | 923083.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Aerospace & Defense ETF (XAR, State Street): Defence & aerospace."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001601548-26-000015\",\"cik\":1601548,\"entityName\":\"V2X, Inc.\",\"loc\":\"US-VA\",\"end\":\"2025-06-27\",\"val\":701960177}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-27",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$702 million public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 701960177
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[1601548,\"V2X, Inc.\",\"VVX\",\"NYSE\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker VVX"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001601548-26-000015\",\"cik\":1601548,\"entityName\":\"V2X, Inc.\",\"loc\":\"US-VA\",\"end\":\"2025-06-27\",\"val\":701960177}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-27",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1601548"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-xar.xlsx",
+      "quote": "V2X INC | VVX | 92242T101 | BQS2V17 | 1.410952 | - | 923083.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

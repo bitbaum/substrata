@@ -1,0 +1,95 @@
+{
+  "slug": "bhp-group-ltd",
+  "name": "BHP Group Ltd",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "AU",
+  "ids": {
+    "ticker": "BHP",
+    "exchange": "AU",
+    "sedol": "6144690"
+  },
+  "areas": [
+    {
+      "area": "nuclear-energy"
+    },
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "5.40,BHP AU,BHP GROUP LTD,6144690,39.03130504297977,\"8,738,762.00\",\"341,085,285.32\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "fund",
+      "detail": "Held by Global X Copper Miners ETF (COPX, Global X): Advanced materials & critical minerals."
+    },
+    {
+      "field": "area:nuclear-energy",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "2.19,BHP AU,BHP GROUP LTD,6144690,39.03130504406206,\"2,685,871.00\",\"104,833,050.31\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "nuclear",
+      "basis": "fund",
+      "detail": "Held by Global X Uranium ETF (URA, Global X): Nuclear, SMRs & the fuel cycle."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "5.40,BHP AU,BHP GROUP LTD,6144690,39.03130504297977,\"8,738,762.00\",\"341,085,285.32\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$341 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 341085285
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "2.19,BHP AU,BHP GROUP LTD,6144690,39.03130504406206,\"2,685,871.00\",\"104,833,050.31\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$105 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 104833050
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "5.40,BHP AU,BHP GROUP LTD,6144690,39.03130504297977,\"8,738,762.00\",\"341,085,285.32\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker BHP"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "5.40,BHP AU,BHP GROUP LTD,6144690,39.03130504297977,\"8,738,762.00\",\"341,085,285.32\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

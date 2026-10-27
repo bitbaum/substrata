@@ -1,0 +1,93 @@
+{
+  "slug": "tecan-group-registered",
+  "name": "Tecan Group AG (Registered)",
+  "aliases": ["Tecan Group AG"],
+  "kind": "public",
+  "status": "active",
+  "country": "CH",
+  "ids": {
+    "ticker": "TECN",
+    "exchange": "SW",
+    "sedol": "7110902",
+    "cusip": "H84774167"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "1.01,TECN SW,TECAN GROUP AG-REG,7110902,293.1544921407186,\"106,880.00\",\"31,332,352.12\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by Global X Robotics & Artificial Intelligence ETF (BOTZ, Global X): Robotics & autonomy."
+    },
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Tecan Group AG (Registered) TECN.SW H84774167 Health Care 22,650 $6,639,548.12 0.89%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Artificial Intelligence and Robotics ETF (ROBT, First Trust): Robotics & autonomy."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "1.01,TECN SW,TECAN GROUP AG-REG,7110902,293.1544921407186,\"106,880.00\",\"31,332,352.12\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$31 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 31332352
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Tecan Group AG (Registered) TECN.SW H84774167 Health Care 22,650 $6,639,548.12 0.89%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$6.6 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 6639548
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "1.01,TECN SW,TECAN GROUP AG-REG,7110902,293.1544921407186,\"106,880.00\",\"31,332,352.12\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker TECN"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "1.01,TECN SW,TECAN GROUP AG-REG,7110902,293.1544921407186,\"106,880.00\",\"31,332,352.12\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

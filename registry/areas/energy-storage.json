@@ -1,0 +1,10 @@
+{
+  "slug": "energy-storage",
+  "name": "Energy storage and batteries",
+  "parent": "power-storage-grid",
+  "theme": "grid",
+  "definition": "Cell makers, pack and stationary storage integrators, and battery materials.",
+  "why": "Storage firms intermittent power and supplies robots and vehicles.",
+  "bottlenecks": ["battery-grade-lithium-chemicals"],
+  "keyNumbers": []
+}

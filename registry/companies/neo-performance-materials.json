@@ -1,0 +1,66 @@
+{
+  "slug": "neo-performance-materials",
+  "name": "Neo Performance Materials",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "CA",
+  "ids": {
+    "ticker": "NEO",
+    "exchange": "CN"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://www.neomaterials.com/neo-performance-materials-opens-state-of-the-art-permanent-magnet-facility-in-europe/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Rare-earth magnets and materials."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.neomaterials.com/neo-performance-materials-opens-state-of-the-art-permanent-magnet-facility-in-europe/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Rare-earth magnets and materials."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG00HZRFTV0",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker NEO"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.neomaterials.com/neo-performance-materials-opens-state-of-the-art-permanent-magnet-facility-in-europe/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

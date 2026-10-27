@@ -1,0 +1,68 @@
+{
+  "slug": "alupar-investimento-s-a-unit",
+  "name": "Alupar Investimento S.A (Unit)",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "BR",
+  "ids": {
+    "ticker": "ALUP11",
+    "exchange": "BZ",
+    "cusip": "P0R676126"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Alupar Investimento S.A (Unit) ALUP11.BZ P0R676126 Conventional Electricity 4,950,679 $29,353,571.39 0.26%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Alupar Investimento S.A (Unit) ALUP11.BZ P0R676126 Conventional Electricity 4,950,679 $29,353,571.39 0.26%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$29 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 29353571
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Alupar Investimento S.A (Unit) ALUP11.BZ P0R676126 Conventional Electricity 4,950,679 $29,353,571.39 0.26%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker ALUP11"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Alupar Investimento S.A (Unit) ALUP11.BZ P0R676126 Conventional Electricity 4,950,679 $29,353,571.39 0.26%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

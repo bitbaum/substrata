@@ -1,0 +1,93 @@
+{
+  "slug": "azz",
+  "name": "AZZ Inc.",
+  "aliases": ["Azz Inc.", "Azz Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "lei": "549300HD1X2NFLWPYC83",
+    "isin": "US0024741045",
+    "cik": "8947",
+    "ticker": "AZZ",
+    "exchange": "US",
+    "cusip": "002474104"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "AZZ Inc. AZZ 002474104 Paints and Coatings 14,133 $1,885,200.87 0.02%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q3I.json",
+      "quote": "{\"accn\":\"0000008947-26-000068\",\"cik\":8947,\"entityName\":\"AZZ Inc.\",\"loc\":\"US-TX\",\"end\":\"2025-08-31\",\"val\":3332353625}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-08-31",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$3.3 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 3332353625
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "AZZ Inc. AZZ 002474104 Paints and Coatings 14,133 $1,885,200.87 0.02%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker AZZ"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q3I.json",
+      "quote": "{\"accn\":\"0000008947-26-000068\",\"cik\":8947,\"entityName\":\"AZZ Inc.\",\"loc\":\"US-TX\",\"end\":\"2025-08-31\",\"val\":3332353625}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-08-31",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 8947"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US0024741045",
+      "quote": "\"lei\":\"549300HD1X2NFLWPYC83\",\"entity\":{\"legalName\":{\"name\":\"AZZ INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 549300HD1X2NFLWPYC83"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US0024741045",
+      "quote": "\"lei\":\"549300HD1X2NFLWPYC83\",\"entity\":{\"legalName\":{\"name\":\"AZZ INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "slug": "develop-global",
+  "name": "Develop Global Ltd",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "AU",
+  "ids": {
+    "ticker": "DVP",
+    "exchange": "AU",
+    "sedol": "BNVQGB0"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "0.42,DVP AU,DEVELOP GLOBAL LTD,BNVQGB0,2.68770043745105,\"9,954,028.00\",\"26,753,445.41\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "fund",
+      "detail": "Held by Global X Copper Miners ETF (COPX, Global X): Advanced materials & critical minerals."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "0.42,DVP AU,DEVELOP GLOBAL LTD,BNVQGB0,2.68770043745105,\"9,954,028.00\",\"26,753,445.41\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$27 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 26753445
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "0.42,DVP AU,DEVELOP GLOBAL LTD,BNVQGB0,2.68770043745105,\"9,954,028.00\",\"26,753,445.41\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker DVP"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "0.42,DVP AU,DEVELOP GLOBAL LTD,BNVQGB0,2.68770043745105,\"9,954,028.00\",\"26,753,445.41\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

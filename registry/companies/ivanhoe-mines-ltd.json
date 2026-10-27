@@ -1,0 +1,68 @@
+{
+  "slug": "ivanhoe-mines-ltd",
+  "name": "Ivanhoe Mines Ltd",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "CA",
+  "ids": {
+    "ticker": "IVN",
+    "exchange": "CN",
+    "sedol": "BD73C40"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "3.17,IVN CN,IVANHOE MINES LTD-CL A,BD73C40,6.543821506311356,\"30,534,962.00\",\"199,815,341.03\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "fund",
+      "detail": "Held by Global X Copper Miners ETF (COPX, Global X): Advanced materials & critical minerals."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "3.17,IVN CN,IVANHOE MINES LTD-CL A,BD73C40,6.543821506311356,\"30,534,962.00\",\"199,815,341.03\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$200 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 199815341
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "3.17,IVN CN,IVANHOE MINES LTD-CL A,BD73C40,6.543821506311356,\"30,534,962.00\",\"199,815,341.03\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker IVN"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "3.17,IVN CN,IVANHOE MINES LTD-CL A,BD73C40,6.543821506311356,\"30,534,962.00\",\"199,815,341.03\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

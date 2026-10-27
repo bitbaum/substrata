@@ -1,0 +1,144 @@
+{
+  "slug": "palo-alto-networks",
+  "name": "Palo Alto Networks",
+  "aliases": ["Palo Alto Networks, Inc.", "Palo Alto Networks, Inc", "Palo Alto Networks Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "lei": "549300QXR2YVZV231H43",
+    "isin": "US6974351057",
+    "cik": "1327567",
+    "qid": "Q7128508",
+    "ticker": "PANW",
+    "exchange": "US",
+    "cusip": "697435105"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    },
+    {
+      "area": "robotics"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Palo Alto Networks, Inc. PANW 697435105 Information Technology 31,220 $12,190,161.20 1.63%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Artificial Intelligence and Robotics ETF (ROBT, First Trust): Robotics & autonomy."
+    },
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=SKYY",
+      "quote": "Palo Alto Networks, Inc. PANW 697435105 Software 51,742 $20,203,181.32 0.57%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by First Trust Cloud Computing ETF (SKYY, First Trust): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q4I.json",
+      "quote": "{\"accn\":\"0001327567-26-000023\",\"cik\":1327567,\"entityName\":\"Palo Alto Networks, Inc\",\"loc\":\"US-CA\",\"end\":\"2026-01-31\",\"val\":123400000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2026-01-31",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$123 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 123400000000
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Palo Alto Networks, Inc. PANW 697435105 Information Technology 31,220 $12,190,161.20 1.63%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$12 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 12190161
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=SKYY",
+      "quote": "Palo Alto Networks, Inc. PANW 697435105 Software 51,742 $20,203,181.32 0.57%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$20 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 20203181
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Palo Alto Networks, Inc. PANW 697435105 Information Technology 31,220 $12,190,161.20 1.63%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker PANW"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q4I.json",
+      "quote": "{\"accn\":\"0001327567-26-000023\",\"cik\":1327567,\"entityName\":\"Palo Alto Networks, Inc\",\"loc\":\"US-CA\",\"end\":\"2026-01-31\",\"val\":123400000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2026-01-31",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1327567"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US6974351057",
+      "quote": "\"lei\":\"549300QXR2YVZV231H43\",\"entity\":{\"legalName\":{\"name\":\"PALO ALTO NETWORKS, INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 549300QXR2YVZV231H43"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3Fisin%20%3Flabel%20WHERE%20%7B%20VALUES%20%3Fisin%20%7B%20%22US59516C1062%22%20%22US68236H2040%22%20%22US92839U2069%22%20%22US45569U1016%22%20%22US29355A1079%22%20%22US83417M1045%22%20%22US28617B6065%22%20%22US6078281002%22%20%22US0585861083%22%20%22US50125G3074%22%20%22US81758H1068%22%20%22US65481N1000%22%20%22US7311054099%22%20%22US03782L1017%22%20%22US12468P1049%22%20%22US2681501092%22%20%22US81730H1095%22%20%22US6536561086%22%20%22US30303M1027%22%20%22US18915M1071%22%20%22US4592001014%22%20%22US81762P1021%22%20%22US6974351057%22%20%22US17275R1023%22%20%22US7055731035%22%20%22US79466L3024%22%20%22US1273871087%22%20%22US01609W1027%22%20%22US90364P1057%22%20%22US08975B1098%22%20%22US5738741041%22%20%22US7437131094%22%20%22US5949181045%22%20%22US7739031091%22%20%22US5951121038%22%20%22US02079K3059%22%20%22US1924221039%22%20%22US88554D2053%22%20%22US4824801009%22%20%22US5128073062%22%20%22US69370C1009%22%20%22US23804L1035%22%20%22US0378331005%22%20%22US1924461023%22%20%22US2910111044%22%20%22US68213N1090%22%20%22US09239B1098%22%20%22US36262G1013%22%20%22US4581401001%22%20%22US4781601046%22%20%22US8334451098%22%20%22US0527691069%22%20%22US8636671013%22%20%22US00971T1016%22%20%22US0404132054%22%20%22US47215P1066%22%20%22US00724F1012%22%20%22US60937P1066%22%20%22US8825081040%22%20%22US0326541051%22%20%22US0382221051%22%20%22US5950171042%22%20%22US0316521006%22%20%22US29362U1043%22%20%22US6098391054%22%20%22US1727551004%22%20%22US7509171069%22%20%22US9282981086%22%20%22US2545431015%22%20%22US55405Y1001%22%20%22US6833441057%22%20%22US8168501018%22%20%22US0538071038%22%20%22US3463751087%22%20%22US04626A1034%22%20%22US00246W1036%22%20%22US0079731008%22%20%22US00676P1075%22%20%22US5184151042%22%20%22US19247G1076%22%20%7D%20%3Fitem%20wdt%3AP946%20%3Fisin%20.%20OPTIONAL%20%7B%20%3Fitem%20rdfs%3Alabel%20%3Flabel%20FILTER(LANG(%3Flabel)%20%3D%20%22en%22)%20%7D%20%7D",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q7128508\" }, \"label\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"Palo Alto Networks\" }, \"isin\" : { \"type\" : \"literal\", \"value\" : \"US6974351057\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "qid",
+      "detail": "Wikidata QID Q7128508"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US6974351057",
+      "quote": "\"lei\":\"549300QXR2YVZV231H43\",\"entity\":{\"legalName\":{\"name\":\"PALO ALTO NETWORKS, INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

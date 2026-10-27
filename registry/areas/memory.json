@@ -1,0 +1,10 @@
+{
+  "slug": "memory",
+  "name": "Memory",
+  "parent": "compute-semiconductors",
+  "theme": "compute",
+  "definition": "Makers of DRAM, HBM and NAND flash.",
+  "why": "High-bandwidth memory stacking yield limits how many accelerators ship.",
+  "bottlenecks": ["high-bandwidth-memory-stacking-yield"],
+  "keyNumbers": []
+}

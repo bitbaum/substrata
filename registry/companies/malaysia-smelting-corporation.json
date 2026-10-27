@@ -1,0 +1,52 @@
+{
+  "slug": "malaysia-smelting-corporation",
+  "name": "Malaysia Smelting Corporation",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "country": "MY",
+  "ids": {},
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://www.msmelt.com/our-business.php",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: makes High-purity tin, EUV droplet grade."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.msmelt.com/our-business.php",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: makes High-purity tin, EUV droplet grade."
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.msmelt.com/our-business.php",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

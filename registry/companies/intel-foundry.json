@@ -1,0 +1,52 @@
+{
+  "slug": "intel-foundry",
+  "name": "Intel Foundry",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "country": "US",
+  "ids": {},
+  "areas": [
+    {
+      "area": "compute-semiconductors"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "stated",
+      "source": "https://www.intel.com/content/www/us/en/foundry/process.html",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Leading-edge foundry."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.intel.com/content/www/us/en/foundry/process.html",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Leading-edge foundry."
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.intel.com/content/www/us/en/foundry/process.html",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

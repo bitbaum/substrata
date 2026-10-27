@@ -1,0 +1,80 @@
+{
+  "slug": "caris-life-sciences",
+  "name": "Caris Life Sciences, Inc.",
+  "aliases": ["Caris Life Sciences Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "CAI",
+    "exchange": "US",
+    "sedol": "BT18HP9",
+    "cik": "2019410"
+  },
+  "areas": [
+    {
+      "area": "biotech-and-longevity"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:biotech-and-longevity",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "2.94,CAI,CARIS LIFE SCIENCES INC,BT18HP9,32.455,\"96,052.00\",\"3,117,367.66\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "biotools",
+      "basis": "fund",
+      "detail": "Held by Global X Genomics & Biotechnology ETF (GNOM, Global X): Biotech tools."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0002019410-26-000016\",\"cik\":2019410,\"entityName\":\"CARIS LIFE SCIENCES, INC.\",\"loc\":\"US-TX\",\"end\":\"2025-06-30\",\"val\":3870000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$3.9 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 3870000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "2.94,CAI,CARIS LIFE SCIENCES INC,BT18HP9,32.455,\"96,052.00\",\"3,117,367.66\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker CAI"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0002019410-26-000016\",\"cik\":2019410,\"entityName\":\"CARIS LIFE SCIENCES, INC.\",\"loc\":\"US-TX\",\"end\":\"2025-06-30\",\"val\":3870000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 2019410"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "2.94,CAI,CARIS LIFE SCIENCES INC,BT18HP9,32.455,\"96,052.00\",\"3,117,367.66\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "slug": "praxis-precision-medicines",
+  "name": "Praxis Precision Medicines, Inc.",
+  "aliases": ["Praxis Precision Medicines I"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "PRAX",
+    "exchange": "US",
+    "sedol": "BQ721R4",
+    "cik": "1689548"
+  },
+  "areas": [
+    {
+      "area": "biotech-and-longevity"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:biotech-and-longevity",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "2.28,PRAX,PRAXIS PRECISION MEDICINES I,BQ721R4,267.39,\"9,057.00\",\"2,421,751.23\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "biotools",
+      "basis": "fund",
+      "detail": "Held by Global X Genomics & Biotechnology ETF (GNOM, Global X): Biotech tools."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001689548-26-000029\",\"cik\":1689548,\"entityName\":\"PRAXIS PRECISION MEDICINES, INC.\",\"loc\":\"US-MA\",\"end\":\"2025-06-30\",\"val\":883200000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$883 million public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 883200000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "2.28,PRAX,PRAXIS PRECISION MEDICINES I,BQ721R4,267.39,\"9,057.00\",\"2,421,751.23\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker PRAX"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001689548-26-000029\",\"cik\":1689548,\"entityName\":\"PRAXIS PRECISION MEDICINES, INC.\",\"loc\":\"US-MA\",\"end\":\"2025-06-30\",\"val\":883200000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1689548"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/gnom_full-holdings_20261026.csv",
+      "quote": "2.28,PRAX,PRAXIS PRECISION MEDICINES I,BQ721R4,267.39,\"9,057.00\",\"2,421,751.23\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

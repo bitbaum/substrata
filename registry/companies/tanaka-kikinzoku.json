@@ -1,0 +1,52 @@
+{
+  "slug": "tanaka-kikinzoku",
+  "name": "Tanaka Kikinzoku",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "country": "JP",
+  "ids": {},
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://www.newsfilecorp.com/release/130663/Neues-Verfahren-von-TANAKA-erzeugt-ultradnne-RutheniumHalbleiterschichten-von-hoher-Qualitt",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: makes Ruthenium, sputtering and ALD grade."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.newsfilecorp.com/release/130663/Neues-Verfahren-von-TANAKA-erzeugt-ultradnne-RutheniumHalbleiterschichten-von-hoher-Qualitt",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: makes Ruthenium, sputtering and ALD grade."
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.newsfilecorp.com/release/130663/Neues-Verfahren-von-TANAKA-erzeugt-ultradnne-RutheniumHalbleiterschichten-von-hoher-Qualitt",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

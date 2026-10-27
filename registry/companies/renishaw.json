@@ -1,0 +1,66 @@
+{
+  "slug": "renishaw",
+  "name": "Renishaw",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "GB",
+  "ids": {
+    "ticker": "RSW",
+    "exchange": "LN"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "stated",
+      "source": "https://www.renishaw.com/en/encoders-for-position-and-motion-control--6331",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Encoders and metrology."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.renishaw.com/en/encoders-for-position-and-motion-control--6331",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Encoders and metrology."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000BDZV65",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker RSW"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.renishaw.com/en/encoders-for-position-and-motion-control--6331",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

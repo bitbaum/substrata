@@ -1,0 +1,68 @@
+{
+  "slug": "boliden-ab",
+  "name": "Boliden AB",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "SE",
+  "ids": {
+    "ticker": "BOL",
+    "exchange": "SS",
+    "sedol": "BPYTZ57"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "4.63,BOL SS,BOLIDEN AB,BPYTZ57,49.71127290965536,\"5,885,728.00\",\"292,587,030.88\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "fund",
+      "detail": "Held by Global X Copper Miners ETF (COPX, Global X): Advanced materials & critical minerals."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "4.63,BOL SS,BOLIDEN AB,BPYTZ57,49.71127290965536,\"5,885,728.00\",\"292,587,030.88\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$293 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 292587031
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "4.63,BOL SS,BOLIDEN AB,BPYTZ57,49.71127290965536,\"5,885,728.00\",\"292,587,030.88\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker BOL"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "4.63,BOL SS,BOLIDEN AB,BPYTZ57,49.71127290965536,\"5,885,728.00\",\"292,587,030.88\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

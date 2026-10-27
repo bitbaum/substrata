@@ -1,0 +1,80 @@
+{
+  "slug": "ericsson-lm-telephone",
+  "name": "Ericsson LM Telephone Co",
+  "aliases": ["Ericsson (LM) Tel-SP"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "ERIC",
+    "exchange": "US",
+    "sedol": "2031730",
+    "cik": "717826"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.32,ERIC,ERICSSON (LM) TEL-SP ADR,2031730,10.89,\"3,019,472.00\",\"32,882,050.08\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Artificial Intelligence & Technology ETF (AIQ, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.32,ERIC,ERICSSON (LM) TEL-SP ADR,2031730,10.89,\"3,019,472.00\",\"32,882,050.08\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$33 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 32882050
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.32,ERIC,ERICSSON (LM) TEL-SP ADR,2031730,10.89,\"3,019,472.00\",\"32,882,050.08\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker ERIC"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[717826,\"ERICSSON LM TELEPHONE CO\",\"ERIC\",\"Nasdaq\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 717826"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.32,ERIC,ERICSSON (LM) TEL-SP ADR,2031730,10.89,\"3,019,472.00\",\"32,882,050.08\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

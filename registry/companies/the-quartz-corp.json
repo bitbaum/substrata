@@ -1,0 +1,52 @@
+{
+  "slug": "the-quartz-corp",
+  "name": "The Quartz Corp",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "country": "NO",
+  "ids": {},
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://www.thequartzcorp.com/high-purity-quartz",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: High-purity quartz sand."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.thequartzcorp.com/high-purity-quartz",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: High-purity quartz sand."
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.thequartzcorp.com/high-purity-quartz",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

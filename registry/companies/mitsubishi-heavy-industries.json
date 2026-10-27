@@ -1,0 +1,68 @@
+{
+  "slug": "mitsubishi-heavy-industries",
+  "name": "Mitsubishi Heavy Industries",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "JP",
+  "ids": {
+    "ticker": "7011",
+    "exchange": "JP",
+    "sedol": "6597067"
+  },
+  "areas": [
+    {
+      "area": "nuclear-energy"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:nuclear-energy",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "2.21,7011 JP,MITSUBISHI HEAVY INDUSTRIES,6597067,22.21023574595497,\"4,759,912.00\",\"105,718,767.65\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "nuclear",
+      "basis": "fund",
+      "detail": "Held by Global X Uranium ETF (URA, Global X): Nuclear, SMRs & the fuel cycle."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "2.21,7011 JP,MITSUBISHI HEAVY INDUSTRIES,6597067,22.21023574595497,\"4,759,912.00\",\"105,718,767.65\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$106 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 105718768
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "2.21,7011 JP,MITSUBISHI HEAVY INDUSTRIES,6597067,22.21023574595497,\"4,759,912.00\",\"105,718,767.65\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 7011"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "2.21,7011 JP,MITSUBISHI HEAVY INDUSTRIES,6597067,22.21023574595497,\"4,759,912.00\",\"105,718,767.65\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

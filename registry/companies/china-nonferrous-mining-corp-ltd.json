@@ -1,0 +1,68 @@
+{
+  "slug": "china-nonferrous-mining-corp-ltd",
+  "name": "China Nonferrous Mining Corp",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "HK",
+  "ids": {
+    "ticker": "1258",
+    "exchange": "HK",
+    "sedol": "B890GY2"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "1.28,1258 HK,CHINA NONFERROUS MINING CORP,B890GY2,1.595890454647239,\"50,463,300.00\",\"80,533,898.78\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "fund",
+      "detail": "Held by Global X Copper Miners ETF (COPX, Global X): Advanced materials & critical minerals."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "1.28,1258 HK,CHINA NONFERROUS MINING CORP,B890GY2,1.595890454647239,\"50,463,300.00\",\"80,533,898.78\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$81 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 80533899
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "1.28,1258 HK,CHINA NONFERROUS MINING CORP,B890GY2,1.595890454647239,\"50,463,300.00\",\"80,533,898.78\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 1258"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/copx_full-holdings_20261026.csv",
+      "quote": "1.28,1258 HK,CHINA NONFERROUS MINING CORP,B890GY2,1.595890454647239,\"50,463,300.00\",\"80,533,898.78\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

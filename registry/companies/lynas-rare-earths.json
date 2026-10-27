@@ -1,0 +1,66 @@
+{
+  "slug": "lynas-rare-earths",
+  "name": "Lynas Rare Earths",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "AU",
+  "ids": {
+    "ticker": "LYC",
+    "exchange": "AU"
+  },
+  "areas": [
+    {
+      "area": "advanced-materials"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:advanced-materials",
+      "grade": "stated",
+      "source": "https://lynasrareearths.com/about-us/about-lynas-rare-earths/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "materials",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Rare-earth mining and separation."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://lynasrareearths.com/about-us/about-lynas-rare-earths/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Rare-earth mining and separation."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.openfigi.com/id/BBG000BSCDH5",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker LYC"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://lynasrareearths.com/about-us/about-lynas-rare-earths/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

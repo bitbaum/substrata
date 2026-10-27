@@ -1,0 +1,80 @@
+{
+  "slug": "garmin",
+  "name": "Garmin Ltd",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "GRMN",
+    "exchange": "US",
+    "cusip": "B3Z5T14",
+    "cik": "1121788"
+  },
+  "areas": [
+    {
+      "area": "defence-tech"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3812&type=10-K&dateb=&owner=include&start=0&count=100",
+      "quote": "0001121788 GARMIN LTD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3812 (Search, detection, navigation, guidance, aeronautical systems): Defence & aerospace."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-056028\",\"cik\":1121788,\"entityName\":\"GARMIN LTD\",\"loc\":\"CH-\",\"end\":\"2025-06-27\",\"val\":34219000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-27",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$34 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 34219000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[1121788,\"GARMIN LTD\",\"GRMN\",\"NYSE\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker GRMN"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-056028\",\"cik\":1121788,\"entityName\":\"GARMIN LTD\",\"loc\":\"CH-\",\"end\":\"2025-06-27\",\"val\":34219000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-27",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1121788"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_SPACE_EXPLORATION_&_INNOVATION_ETF_ARKX_HOLDINGS.csv",
+      "quote": "01/02/2026,ARKX,GARMIN LTD,GRMN UN,B3Z5T14,\"37,855\",\"$7,678,886.75\",1.49%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-01-02",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "slug": "dxc-technology",
+  "name": "DXC Technology Co",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "DXC",
+    "exchange": "US",
+    "sedol": "BYXD7B3",
+    "cik": "1688568"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.49,DXC,DXC TECHNOLOGY CO,BYXD7B3,16.3,\"3,032,560.00\",\"49,430,728.00\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Artificial Intelligence & Technology ETF (AIQ, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.49,DXC,DXC TECHNOLOGY CO,BYXD7B3,16.3,\"3,032,560.00\",\"49,430,728.00\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$49 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 49430728
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q3I.json",
+      "quote": "{\"accn\":\"0001688568-26-000022\",\"cik\":1688568,\"entityName\":\"DXC TECHNOLOGY CO\",\"loc\":\"US-VA\",\"end\":\"2025-09-30\",\"val\":2363606269}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-09-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$2.4 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 2363606269
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.49,DXC,DXC TECHNOLOGY CO,BYXD7B3,16.3,\"3,032,560.00\",\"49,430,728.00\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker DXC"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q3I.json",
+      "quote": "{\"accn\":\"0001688568-26-000022\",\"cik\":1688568,\"entityName\":\"DXC TECHNOLOGY CO\",\"loc\":\"US-VA\",\"end\":\"2025-09-30\",\"val\":2363606269}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-09-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1688568"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "0.49,DXC,DXC TECHNOLOGY CO,BYXD7B3,16.3,\"3,032,560.00\",\"49,430,728.00\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

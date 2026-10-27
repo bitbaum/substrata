@@ -1,0 +1,68 @@
+{
+  "slug": "spie-s-a",
+  "name": "Spie S.A.",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "FR",
+  "ids": {
+    "ticker": "SPIE",
+    "exchange": "FP",
+    "cusip": "F8691R101"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "SPIE S.A. SPIE.FP F8691R101 Engineering and Contracting Services 2,336,034 $109,776,227.69 0.99%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "SPIE S.A. SPIE.FP F8691R101 Engineering and Contracting Services 2,336,034 $109,776,227.69 0.99%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$110 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 109776228
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "SPIE S.A. SPIE.FP F8691R101 Engineering and Contracting Services 2,336,034 $109,776,227.69 0.99%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker SPIE"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "SPIE S.A. SPIE.FP F8691R101 Engineering and Contracting Services 2,336,034 $109,776,227.69 0.99%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

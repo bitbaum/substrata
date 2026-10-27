@@ -1,0 +1,120 @@
+{
+  "slug": "netapp",
+  "name": "NetApp, Inc.",
+  "aliases": ["Netapp, Inc."],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "lei": "QTX3D84DZDD5JYOCYH15",
+    "isin": "US64110D1046",
+    "cik": "1002047",
+    "ticker": "NTAP",
+    "exchange": "US",
+    "cusip": "64110D104"
+  },
+  "areas": [
+    {
+      "area": "compute-semiconductors"
+    },
+    {
+      "area": "frontier-ai"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=SKYY",
+      "quote": "NetApp, Inc. NTAP 64110D104 Technology Hardware, Storage & Peripherals 320,137 $71,096,024.96 2.01%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by First Trust Cloud Computing ETF (SKYY, First Trust): AI labs, cloud & data centres."
+    },
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3572&type=10-K&dateb=&owner=include&start=0&count=100",
+      "quote": "0001002047 NetApp, Inc. CA",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3572 (Computer storage devices): Compute & semiconductors."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q3I.json",
+      "quote": "{\"accn\":\"0001193125-26-259683\",\"cik\":1002047,\"entityName\":\"NetApp, Inc.\",\"loc\":\"US-CA\",\"end\":\"2025-10-24\",\"val\":17100000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-10-24",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$17 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 17100000000
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=SKYY",
+      "quote": "NetApp, Inc. NTAP 64110D104 Technology Hardware, Storage & Peripherals 320,137 $71,096,024.96 2.01%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$71 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 71096025
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=SKYY",
+      "quote": "NetApp, Inc. NTAP 64110D104 Technology Hardware, Storage & Peripherals 320,137 $71,096,024.96 2.01%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker NTAP"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q3I.json",
+      "quote": "{\"accn\":\"0001193125-26-259683\",\"cik\":1002047,\"entityName\":\"NetApp, Inc.\",\"loc\":\"US-CA\",\"end\":\"2025-10-24\",\"val\":17100000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-10-24",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1002047"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US64110D1046",
+      "quote": "\"lei\":\"QTX3D84DZDD5JYOCYH15\",\"entity\":{\"legalName\":{\"name\":\"NETAPP, INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) QTX3D84DZDD5JYOCYH15"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US64110D1046",
+      "quote": "\"lei\":\"QTX3D84DZDD5JYOCYH15\",\"entity\":{\"legalName\":{\"name\":\"NETAPP, INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

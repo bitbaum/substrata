@@ -1,0 +1,10 @@
+{
+  "slug": "foundry",
+  "name": "Foundries",
+  "parent": "compute-semiconductors",
+  "theme": "compute",
+  "definition": "Contract manufacturers of logic chips at leading and mature nodes.",
+  "why": "Leading-edge capacity sits in very few places, so foundry allocation is a geopolitical and commercial gate for AI and robotics.",
+  "bottlenecks": ["leading-edge-foundry-capacity"],
+  "keyNumbers": []
+}

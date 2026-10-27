@@ -1,0 +1,106 @@
+{
+  "slug": "ttm-technologies",
+  "name": "TTM Technologies",
+  "aliases": ["TTM Technologies, Inc.", "TTM Technologies Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "lei": "549300SC4BDOIS008048",
+    "isin": "US87305R1095",
+    "cik": "1116942",
+    "qid": "Q123269714",
+    "ticker": "TTMI",
+    "exchange": "US",
+    "cusip": "87305R109",
+    "sedol": "2635659"
+  },
+  "areas": [
+    {
+      "area": "space"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:space",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-rokt.xlsx",
+      "quote": "TTM TECHNOLOGIES | TTMI | 87305R109 | 2635659 | 1.243481 | - | 22077.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "space",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Kensho Final Frontiers ETF (ROKT, State Street): Space & launch."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-051976\",\"cik\":1116942,\"entityName\":\"TTM TECHNOLOGIES, INC.\",\"loc\":\"US-CA\",\"end\":\"2025-06-30\",\"val\":4165937635000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$4166 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 4165937635000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[1116942,\"TTM TECHNOLOGIES INC\",\"TTMI\",\"Nasdaq\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker TTMI"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-051976\",\"cik\":1116942,\"entityName\":\"TTM TECHNOLOGIES, INC.\",\"loc\":\"US-CA\",\"end\":\"2025-06-30\",\"val\":4165937635000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1116942"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US87305R1095",
+      "quote": "\"lei\":\"549300SC4BDOIS008048\",\"entity\":{\"legalName\":{\"name\":\"TTM TECHNOLOGIES, INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 549300SC4BDOIS008048"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3Fisin%20%3Flabel%20WHERE%20%7B%20VALUES%20%3Fisin%20%7B%20%22US45676K1034%22%20%22US76655K1034%22%20%22US46222L1089%22%20%22US0558691012%22%20%22US26740W1099%22%20%22US74767K1034%22%20%22US34984V2097%22%20%22US6752321025%22%20%22US48242W1062%22%20%22US5253271028%22%20%22US92552V1008%22%20%22US0320951017%22%20%22US70202L1026%22%20%22US8542311076%22%20%22US8485603067%22%20%22US72703X1063%22%20%22US87305R1095%22%20%22US87157D1090%22%20%22US91347P1057%22%20%22US83088M1027%22%20%22US4532041096%22%20%22US8269191024%22%20%22US7069151055%22%20%22US7392761034%22%20%22US57776J1007%22%20%22US3364331070%22%20%22US82982T1060%22%20%22US63942X1063%22%20%22US15675D1037%22%20%22US0231931058%22%20%22US97785W1062%22%20%22US1572101053%22%20%22US5006001011%22%20%22US35834F1049%22%20%22US30041T1043%22%20%7D%20%3Fitem%20wdt%3AP946%20%3Fisin%20.%20OPTIONAL%20%7B%20%3Fitem%20rdfs%3Alabel%20%3Flabel%20FILTER(LANG(%3Flabel)%20%3D%20%22en%22)%20%7D%20%7D",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q123269714\" }, \"label\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"TTM Technologies\" }, \"isin\" : { \"type\" : \"literal\", \"value\" : \"US87305R1095\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "qid",
+      "detail": "Wikidata QID Q123269714"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US87305R1095",
+      "quote": "\"lei\":\"549300SC4BDOIS008048\",\"entity\":{\"legalName\":{\"name\":\"TTM TECHNOLOGIES, INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "slug": "quantum-computing",
+  "name": "Quantum computing",
+  "parent": "quantum",
+  "theme": "quantum",
+  "definition": "Superconducting, ion-trap, photonic, neutral-atom and spin-qubit developers.",
+  "why": "Competing modalities; none yet commercially decisive.",
+  "bottlenecks": [],
+  "keyNumbers": []
+}

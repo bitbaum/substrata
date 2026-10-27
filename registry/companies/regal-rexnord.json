@@ -1,0 +1,79 @@
+{
+  "slug": "regal-rexnord",
+  "name": "Regal Rexnord Corp",
+  "aliases": ["Regal Rexnord Corporation"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "cik": "82811",
+    "ticker": "RRX",
+    "exchange": "US"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3569&type=10-K&dateb=&owner=include&start=0&count=100",
+      "quote": "0000082811 REGAL REXNORD CORP WI",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3569 (General industrial machinery & equipment, NEC): Robotics & autonomy."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0000082811-26-000054\",\"cik\":82811,\"entityName\":\"REGAL REXNORD CORPORATION\",\"loc\":\"US-WI\",\"end\":\"2025-06-30\",\"val\":9500000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$9.5 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 9500000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[82811,\"REGAL REXNORD CORP\",\"RRX\",\"NYSE\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker RRX"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0000082811-26-000054\",\"cik\":82811,\"entityName\":\"REGAL REXNORD CORPORATION\",\"loc\":\"US-WI\",\"end\":\"2025-06-30\",\"val\":9500000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 82811"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[82811,\"REGAL REXNORD CORP\",\"RRX\",\"NYSE\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

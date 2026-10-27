@@ -1,0 +1,68 @@
+{
+  "slug": "equatorial-energia",
+  "name": "Equatorial Energia SA",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "BR",
+  "ids": {
+    "ticker": "EQTL3",
+    "exchange": "BZ",
+    "cusip": "P3773H104"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Equatorial Energia SA EQTL3.BZ P3773H104 Conventional Electricity 16,861,270 $108,676,732.91 0.98%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Equatorial Energia SA EQTL3.BZ P3773H104 Conventional Electricity 16,861,270 $108,676,732.91 0.98%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$109 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 108676733
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Equatorial Energia SA EQTL3.BZ P3773H104 Conventional Electricity 16,861,270 $108,676,732.91 0.98%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker EQTL3"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "Equatorial Energia SA EQTL3.BZ P3773H104 Conventional Electricity 16,861,270 $108,676,732.91 0.98%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

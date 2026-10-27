@@ -1,0 +1,14 @@
+{
+  "slug": "data-centres",
+  "name": "Data centres",
+  "parent": "frontier-ai",
+  "theme": "ai",
+  "definition": "Builders, owners and operators of large compute facilities, plus the cooling and electrical equipment inside them.",
+  "why": "Power, land, cooling and grid interconnection, not chips alone, now gate how fast new compute comes online.",
+  "bottlenecks": [
+    "grid-interconnection-queues",
+    "two-phase-dielectric-immersion-coolant",
+    "large-power-transformer-slots"
+  ],
+  "keyNumbers": []
+}

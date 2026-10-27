@@ -1,0 +1,69 @@
+{
+  "slug": "thales",
+  "name": "Thales SA",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "HO",
+    "exchange": "US",
+    "cusip": "4162791",
+    "sedol": "4162791"
+  },
+  "areas": [
+    {
+      "area": "defence-tech"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "3.54,HO FP,THALES SA,4162791,260.3369065812176,\"896,597.00\",\"233,417,289.43\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "fund",
+      "detail": "Held by Global X Defense Tech ETF (SHLD, Global X): Defence & aerospace."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "3.54,HO FP,THALES SA,4162791,260.3369065812176,\"896,597.00\",\"233,417,289.43\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$233 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 233417289
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/shld_full-holdings_20261026.csv",
+      "quote": "3.54,HO FP,THALES SA,4162791,260.3369065812176,\"896,597.00\",\"233,417,289.43\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker HO"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_SPACE_EXPLORATION_&_INNOVATION_ETF_ARKX_HOLDINGS.csv",
+      "quote": "01/02/2026,ARKX,THALES SA,HO,4162791,\"40,981\",\"$11,067,355.10\",2.14%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-01-02",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

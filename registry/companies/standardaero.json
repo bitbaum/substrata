@@ -1,0 +1,82 @@
+{
+  "slug": "standardaero",
+  "name": "StandardAero, Inc.",
+  "aliases": ["Standardaero Inc"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "cik": "2025410",
+    "ticker": "SARO",
+    "exchange": "US",
+    "cusip": "85423L103",
+    "sedol": "BQPDNZ1",
+    "isin": "US85423L1035"
+  },
+  "areas": [
+    {
+      "area": "defence-tech"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:defence-tech",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-xar.xlsx",
+      "quote": "STANDARDAERO INC | SARO | 85423L103 | BQPDNZ1 | 2.73918 | - | 6134803.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "defence",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Aerospace & Defense ETF (XAR, State Street): Defence & aerospace."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-072618\",\"cik\":2025410,\"entityName\":\"StandardAero, Inc.\",\"loc\":\"US-AZ\",\"end\":\"2025-06-30\",\"val\":4465333414}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$4.5 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 4465333414
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[2025410,\"StandardAero, Inc.\",\"SARO\",\"NYSE\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker SARO"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-072618\",\"cik\":2025410,\"entityName\":\"StandardAero, Inc.\",\"loc\":\"US-AZ\",\"end\":\"2025-06-30\",\"val\":4465333414}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-30",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 2025410"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-xar.xlsx",
+      "quote": "STANDARDAERO INC | SARO | 85423L103 | BQPDNZ1 | 2.73918 | - | 6134803.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

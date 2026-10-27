@@ -1,0 +1,68 @@
+{
+  "slug": "nac-kazatomprom-jsc",
+  "name": "NAC Kazatomprom JSC",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "GB",
+  "ids": {
+    "ticker": "KAP",
+    "exchange": "LI",
+    "sedol": "BGXQL36"
+  },
+  "areas": [
+    {
+      "area": "nuclear-energy"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:nuclear-energy",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "4.86,KAP LI,NAC KAZATOMPROM JSC-GDR REGS,BGXQL36,60.7,\"3,833,339.00\",\"232,683,677.30\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "nuclear",
+      "basis": "fund",
+      "detail": "Held by Global X Uranium ETF (URA, Global X): Nuclear, SMRs & the fuel cycle."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "4.86,KAP LI,NAC KAZATOMPROM JSC-GDR REGS,BGXQL36,60.7,\"3,833,339.00\",\"232,683,677.30\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$233 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 232683677
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "4.86,KAP LI,NAC KAZATOMPROM JSC-GDR REGS,BGXQL36,60.7,\"3,833,339.00\",\"232,683,677.30\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker KAP"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "4.86,KAP LI,NAC KAZATOMPROM JSC-GDR REGS,BGXQL36,60.7,\"3,833,339.00\",\"232,683,677.30\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

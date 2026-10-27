@@ -1,0 +1,10 @@
+{
+  "slug": "compute-semiconductors",
+  "name": "Compute and semiconductors",
+  "parent": null,
+  "theme": "compute",
+  "definition": "Companies that design, make, package or equip the making of chips and memory.",
+  "why": "Every other area runs on it, and its steps (EUV, leading-edge foundry, HBM, packaging) are the best-documented single points of dependence.",
+  "bottlenecks": ["leading-edge-foundry-capacity", "euv-lithography-scanners"],
+  "keyNumbers": []
+}

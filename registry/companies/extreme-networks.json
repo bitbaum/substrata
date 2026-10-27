@@ -1,0 +1,79 @@
+{
+  "slug": "extreme-networks",
+  "name": "Extreme Networks Inc",
+  "aliases": ["Extreme Networks, Inc."],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "cik": "1078271",
+    "ticker": "EXTR",
+    "exchange": "US"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3576&type=10-K&dateb=&owner=include&start=0&count=100",
+      "quote": "0001078271 EXTREME NETWORKS INC NC",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3576 (Computer communications equipment): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q4I.json",
+      "quote": "{\"accn\":\"0001193125-26-352872\",\"cik\":1078271,\"entityName\":\"EXTREME NETWORKS, INC.\",\"loc\":\"US-NC\",\"end\":\"2025-12-31\",\"val\":1500000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-12-31",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$1.5 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 1500000000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[1078271,\"EXTREME NETWORKS INC\",\"EXTR\",\"Nasdaq\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker EXTR"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q4I.json",
+      "quote": "{\"accn\":\"0001193125-26-352872\",\"cik\":1078271,\"entityName\":\"EXTREME NETWORKS, INC.\",\"loc\":\"US-NC\",\"end\":\"2025-12-31\",\"val\":1500000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-12-31",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1078271"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.sec.gov/files/company_tickers_exchange.json",
+      "quote": "[1078271,\"EXTREME NETWORKS INC\",\"EXTR\",\"Nasdaq\"]",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "slug": "china-tower-h",
+  "name": "China Tower Corp Ltd-H",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "HK",
+  "ids": {
+    "ticker": "788",
+    "exchange": "HK",
+    "sedol": "BTVMCY5"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "2.38,788 HK,CHINA TOWER CORP LTD-H,BTVMCY5,1.129360177895831,\"40,057,150.00\",\"45,238,950.05\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Data Center & Digital Infrastructure ETF (DTCR, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "2.38,788 HK,CHINA TOWER CORP LTD-H,BTVMCY5,1.129360177895831,\"40,057,150.00\",\"45,238,950.05\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$45 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 45238950
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "2.38,788 HK,CHINA TOWER CORP LTD-H,BTVMCY5,1.129360177895831,\"40,057,150.00\",\"45,238,950.05\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 788"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "2.38,788 HK,CHINA TOWER CORP LTD-H,BTVMCY5,1.129360177895831,\"40,057,150.00\",\"45,238,950.05\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

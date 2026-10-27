@@ -1,0 +1,52 @@
+{
+  "slug": "jsr",
+  "name": "JSR",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "country": "JP",
+  "ids": {},
+  "areas": [
+    {
+      "area": "compute-semiconductors"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "stated",
+      "source": "https://www.jsr.co.jp/jsr_e/products/em/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Photoresists."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.jsr.co.jp/jsr_e/products/em/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Photoresists."
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.jsr.co.jp/jsr_e/products/em/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

@@ -1,0 +1,264 @@
+{
+  "slug": "nvidia",
+  "name": "NVIDIA",
+  "aliases": ["Nvidia Corporation", "Nvidia Corp", "Nvidia", "NVIDIA Corporation"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "NVDA",
+    "exchange": "Nasdaq",
+    "cik": "1045810",
+    "lei": "549300S4KLFTLO7GSQ80",
+    "isin": "US67066G1040",
+    "cusip": "67066G104",
+    "sedol": "2379504",
+    "qid": "Q182477"
+  },
+  "areas": [
+    {
+      "area": "compute-semiconductors"
+    },
+    {
+      "area": "frontier-ai"
+    },
+    {
+      "area": "robotics"
+    },
+    {
+      "area": "power-storage-grid"
+    },
+    {
+      "area": "mobility"
+    },
+    {
+      "area": "quantum"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "stated",
+      "source": "https://www.nvidia.com/en-us/data-center/products/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "chain-role",
+      "detail": "Hand-verified role in a tracked chain: Accelerators and interconnect."
+    },
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv",
+      "quote": "10/27/2026,ARKQ,NVIDIA CORP,NVDA,67066G104,\"492,778\",\"$106,440,048.00\",5.98%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by ARK Autonomous Technology & Robotics ETF (ARKQ, ARK Invest): Robotics & autonomy."
+    },
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/aiq_full-holdings_20261026.csv",
+      "quote": "2.89,NVDA,NVIDIA CORP,2379504,216.0,\"1,355,604.00\",\"292,810,464.00\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Artificial Intelligence & Technology ETF (AIQ, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "8.06,NVDA,NVIDIA CORP,2379504,216.0,\"1,158,941.00\",\"250,331,256.00\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by Global X Robotics & Artificial Intelligence ETF (BOTZ, Global X): Robotics & autonomy."
+    },
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/driv_full-holdings_20261026.csv",
+      "quote": "3.59,NVDA,NVIDIA CORP,2379504,216.0,\"52,703.00\",\"11,383,848.00\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "fund",
+      "detail": "Held by Global X Autonomous & Electric Vehicles ETF (DRIV, Global X): Electric mobility."
+    },
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/dtcr_full-holdings_20261026.csv",
+      "quote": "2.24,NVDA,NVIDIA CORP,2379504,216.0,\"197,493.00\",\"42,658,488.00\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by Global X Data Center & Digital Infrastructure ETF (DTCR, Global X): AI labs, cloud & data centres."
+    },
+    {
+      "field": "area:quantum",
+      "grade": "registry",
+      "source": "https://www.defianceetfs.com/qtum-full-holdings/",
+      "quote": "NVDA Nvidia Corp 67066G104 1.36% 330,775",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "quantum",
+      "basis": "fund",
+      "detail": "Held by Defiance Quantum ETF (QTUM, Defiance ETFs): Quantum."
+    },
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=FTXL",
+      "quote": "NVIDIA Corporation NVDA 67066G104 Semiconductors 408,006 $88,129,296.00 7.85%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Semiconductor ETF (FTXL, First Trust): Compute & semiconductors."
+    },
+    {
+      "field": "area:power-storage-grid",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=GRID",
+      "quote": "NVIDIA Corporation NVDA 67066G104 Semiconductors 1,093,467 $236,188,872.00 2.12%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "grid",
+      "basis": "fund",
+      "detail": "Held by First Trust NASDAQ Clean Edge Smart Grid Infrastructure Index Fund (GRID, First Trust): Energy storage, batteries & grid."
+    },
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "NVIDIA Corporation NVDA 67066G104 Information Technology 25,089 $5,419,224.00 0.72%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Artificial Intelligence and Robotics ETF (ROBT, First Trust): Robotics & autonomy."
+    },
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3674&type=10-K&dateb=&owner=include&start=200&count=100",
+      "quote": "0001045810 NVIDIA CORP CA",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3674 (Semiconductors & related devices): Compute & semiconductors."
+    },
+    {
+      "field": "area:mobility",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-hail.xlsx",
+      "quote": "NVIDIA CORP | NVDA | 67066G104 | 2379504 | 1.910956 | - | 1409.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "mobility",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Kensho Smart Mobility ETF (HAIL, State Street): Electric mobility."
+    },
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-xsd.xlsx",
+      "quote": "NVIDIA CORP | NVDA | 67066G104 | 2379504 | 2.615089 | - | 301270.0 | USD",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "fund",
+      "detail": "Held by SPDR S&P Semiconductor ETF (XSD, State Street): Compute & semiconductors."
+    },
+    {
+      "field": "size:chain-role",
+      "grade": "stated",
+      "source": "https://www.nvidia.com/en-us/data-center/products/",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "materiality",
+      "basis": "chain-role",
+      "detail": "Hand-verified chain role: Accelerators and interconnect."
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1045810",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker NVDA"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1045810",
+      "carried": true,
+      "readOn": "",
+      "asOf": "",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1045810"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US67066G1040",
+      "quote": "\"lei\":\"549300S4KLFTLO7GSQ80\",\"entity\":{\"legalName\":{\"name\":\"NVIDIA CORPORATION\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 549300S4KLFTLO7GSQ80"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://query.wikidata.org/sparql?format=json&query=SELECT%20%3Fitem%20%3Fisin%20%3Flabel%20WHERE%20%7B%20VALUES%20%3Fisin%20%7B%20%22US88160R1014%22%20%22US84615Q1031%22%20%22US67066G1040%22%20%22US69608A1088%22%20%22US50077B2079%22%20%22US02079K1079%22%20%22US8807701029%22%20%22US7731211089%22%20%22US0231351067%22%20%22US8740391003%22%20%22US0079031078%22%20%22US5024311095%22%20%22US2441991054%22%20%22US0080731088%22%20%22US8962391004%22%20%22US03945R1023%22%20%22US11135F1012%22%20%22US5004584018%22%20%22US87151X1019%22%20%22US46120E6023%22%20%22US0517741072%22%20%22US46125A1007%22%20%22US05605H1005%22%20%22US13321L1089%22%20%22US25809K1051%22%20%22US1491231015%22%20%22US8716071076%22%20%22US98386P1021%22%20%22US9509151083%22%20%22US02156V1098%22%20%22US7329081084%22%20%22US0567521085%22%20%22US05606L1008%22%20%22US5000811043%22%20%22US46269C1027%22%20%22US0926671043%22%20%22US8793601050%22%20%22US4228061093%22%20%22US4385161066%22%20%22US5398301094%22%20%22US88025U1097%22%20%22US90184D1000%22%20%22US88023B1035%22%20%22US40131M1099%22%20%22US4523271090%22%20%22US6323071042%22%20%22US00091E1091%22%20%22US5324571083%22%20%22US14167L1035%22%20%22US92337F1075%22%20%22US07373V1052%22%20%22US75629V1044%22%20%22US67080M1036%22%20%22US80810D1037%22%20%22US20451W1018%22%20%22US00650F1093%22%20%22US4622221004%22%20%22US45826J1051%22%20%22US0109111056%22%20%22US1241551027%22%20%22US81663L2007%22%20%22US03969T1097%22%20%22US74168J1016%22%20%22US69404D1081%22%20%22US65443P1021%22%20%22US35661P1003%22%20%22US3709201004%22%20%22US8110331092%22%20%22US45076A1016%22%20%22US1570851014%22%20%22US71535D1063%22%20%22US5015751044%22%20%22US74765K1051%22%20%22US43849R1059%22%20%22US6668071029%22%20%22US3695501086%22%20%22US8936411003%22%20%22US4464131063%22%20%22US75513E1010%22%20%22US8832031012%22%20%7D%20%3Fitem%20wdt%3AP946%20%3Fisin%20.%20OPTIONAL%20%7B%20%3Fitem%20rdfs%3Alabel%20%3Flabel%20FILTER(LANG(%3Flabel)%20%3D%20%22en%22)%20%7D%20%7D",
+      "quote": "{ \"item\" : { \"type\" : \"uri\", \"value\" : \"http://www.wikidata.org/entity/Q182477\" }, \"label\" : { \"xml:lang\" : \"en\", \"type\" : \"literal\", \"value\" : \"Nvidia\" }, \"isin\" : { \"type\" : \"literal\", \"value\" : \"US67066G1040\" } }",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "qid",
+      "detail": "Wikidata QID Q182477"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US67066G1040",
+      "quote": "\"lei\":\"549300S4KLFTLO7GSQ80\",\"entity\":{\"legalName\":{\"name\":\"NVIDIA CORPORATION\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

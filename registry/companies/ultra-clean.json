@@ -1,0 +1,105 @@
+{
+  "slug": "ultra-clean",
+  "name": "Ultra Clean Holdings, Inc.",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "lei": "5493007L6LS7QX18PE75",
+    "isin": "US90385V1070",
+    "cik": "1275014",
+    "ticker": "UCTT",
+    "exchange": "US",
+    "cusip": "90385V107"
+  },
+  "areas": [
+    {
+      "area": "compute-semiconductors"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=FTXL",
+      "quote": "Ultra Clean Holdings, Inc. UCTT 90385V107 Production Technology Equipment 85,402 $3,989,127.42 0.36%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Semiconductor ETF (FTXL, First Trust): Compute & semiconductors."
+    },
+    {
+      "field": "area:compute-semiconductors",
+      "grade": "registry",
+      "source": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&SIC=3674&type=10-K&dateb=&owner=include&start=400&count=100",
+      "quote": "0001275014 Ultra Clean Holdings, Inc. CA",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "compute",
+      "basis": "sic",
+      "detail": "Files with the SEC under SIC 3674 (Semiconductors & related devices): Compute & semiconductors."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001628280-26-010744\",\"cik\":1275014,\"entityName\":\"Ultra Clean Holdings, Inc.\",\"loc\":\"US-CA\",\"end\":\"2025-06-27\",\"val\":1019600000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-27",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$1.0 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 1019600000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=FTXL",
+      "quote": "Ultra Clean Holdings, Inc. UCTT 90385V107 Production Technology Equipment 85,402 $3,989,127.42 0.36%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker UCTT"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001628280-26-010744\",\"cik\":1275014,\"entityName\":\"Ultra Clean Holdings, Inc.\",\"loc\":\"US-CA\",\"end\":\"2025-06-27\",\"val\":1019600000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-27",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1275014"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US90385V1070",
+      "quote": "\"lei\":\"5493007L6LS7QX18PE75\",\"entity\":{\"legalName\":{\"name\":\"ULTRA CLEAN HOLDINGS, INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "lei",
+      "detail": "LEI (GLEIF) 5493007L6LS7QX18PE75"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://api.gleif.org/api/v1/lei-records?filter%5Bisin%5D=US90385V1070",
+      "quote": "\"lei\":\"5493007L6LS7QX18PE75\",\"entity\":{\"legalName\":{\"name\":\"ULTRA CLEAN HOLDINGS, INC.\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

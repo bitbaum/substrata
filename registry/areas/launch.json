@@ -1,0 +1,10 @@
+{
+  "slug": "launch",
+  "name": "Launch",
+  "parent": "space",
+  "theme": "space",
+  "definition": "Companies that put payloads into orbit.",
+  "why": "Launch cost and cadence set what can be deployed in orbit.",
+  "bottlenecks": [],
+  "keyNumbers": []
+}

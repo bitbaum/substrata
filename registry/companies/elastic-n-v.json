@@ -1,0 +1,122 @@
+{
+  "slug": "elastic-n-v",
+  "name": "Elastic N.V.",
+  "aliases": ["Elastic Nv"],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "cik": "1707753",
+    "ticker": "ESTC",
+    "exchange": "US",
+    "cusip": "N14506104"
+  },
+  "areas": [
+    {
+      "area": "frontier-ai"
+    },
+    {
+      "area": "robotics"
+    },
+    {
+      "area": "quantum"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:quantum",
+      "grade": "registry",
+      "source": "https://www.defianceetfs.com/qtum-full-holdings/",
+      "quote": "ESTC Elastic Nv N14506104 2.21% 1,090,720",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "theme",
+      "theme": "quantum",
+      "basis": "fund",
+      "detail": "Held by Defiance Quantum ETF (QTUM, Defiance ETFs): Quantum."
+    },
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=ROBT",
+      "quote": "Elastic N.V. ESTC N14506104 Information Technology 32,230 $3,425,726.70 0.46%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by First Trust Nasdaq Artificial Intelligence and Robotics ETF (ROBT, First Trust): Robotics & autonomy."
+    },
+    {
+      "field": "area:frontier-ai",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=SKYY",
+      "quote": "Elastic N.V. ESTC N14506104 Software 202,690 $21,543,920.10 0.61%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "ai",
+      "basis": "fund",
+      "detail": "Held by First Trust Cloud Computing ETF (SKYY, First Trust): AI labs, cloud & data centres."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q3I.json",
+      "quote": "{\"accn\":\"0001707753-26-000018\",\"cik\":1707753,\"entityName\":\"Elastic N.V.\",\"loc\":\"-\",\"end\":\"2025-10-31\",\"val\":9400000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-10-31",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$9.4 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 9400000000
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=SKYY",
+      "quote": "Elastic N.V. ESTC N14506104 Software 202,690 $21,543,920.10 0.61%",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$22 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 21543920
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://www.defianceetfs.com/qtum-full-holdings/",
+      "quote": "ESTC Elastic Nv N14506104 2.21% 1,090,720",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker ESTC"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q3I.json",
+      "quote": "{\"accn\":\"0001707753-26-000018\",\"cik\":1707753,\"entityName\":\"Elastic N.V.\",\"loc\":\"-\",\"end\":\"2025-10-31\",\"val\":9400000000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-10-31",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1707753"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.defianceetfs.com/qtum-full-holdings/",
+      "quote": "ESTC Elastic Nv N14506104 2.21% 1,090,720",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

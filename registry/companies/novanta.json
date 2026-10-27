@@ -1,0 +1,80 @@
+{
+  "slug": "novanta",
+  "name": "Novanta Inc",
+  "aliases": ["Novanta Inc."],
+  "kind": "public",
+  "status": "active",
+  "country": "US",
+  "ids": {
+    "ticker": "NOVT",
+    "exchange": "US",
+    "sedol": "BD8S5H8",
+    "cik": "1076930"
+  },
+  "areas": [
+    {
+      "area": "robotics"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:robotics",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.13,NOVT,NOVANTA INC,BD8S5H8,144.02,\"27,509.00\",\"3,961,846.18\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "robotics",
+      "basis": "fund",
+      "detail": "Held by Global X Robotics & Artificial Intelligence ETF (BOTZ, Global X): Robotics & autonomy."
+    },
+    {
+      "field": "size:public-float",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-064230\",\"cik\":1076930,\"entityName\":\"NOVANTA INC.\",\"loc\":\"US-MA\",\"end\":\"2025-06-27\",\"val\":3496559430000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-27",
+      "test": "materiality",
+      "basis": "public-float",
+      "detail": "US$3497 billion public float on its SEC 10-K cover (floor US$250 million).",
+      "usd": 3496559430000
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.13,NOVT,NOVANTA INC,BD8S5H8,144.02,\"27,509.00\",\"3,961,846.18\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker NOVT"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://data.sec.gov/api/xbrl/frames/dei/EntityPublicFloat/USD/CY2025Q2I.json",
+      "quote": "{\"accn\":\"0001193125-26-064230\",\"cik\":1076930,\"entityName\":\"NOVANTA INC.\",\"loc\":\"US-MA\",\"end\":\"2025-06-27\",\"val\":3496559430000}",
+      "readOn": "2026-10-27",
+      "asOf": "2025-06-27",
+      "test": "identity",
+      "basis": "cik",
+      "detail": "SEC CIK 1076930"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/botz_full-holdings_20261026.csv",
+      "quote": "0.13,NOVT,NOVANTA INC,BD8S5H8,144.02,\"27,509.00\",\"3,961,846.18\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country US as the source states it."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}

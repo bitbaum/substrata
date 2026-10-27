@@ -1,0 +1,68 @@
+{
+  "slug": "doosan-enerbility",
+  "name": "Doosan Enerbility Co Ltd",
+  "aliases": [],
+  "kind": "public",
+  "status": "active",
+  "country": "KR",
+  "ids": {
+    "ticker": "034020",
+    "exchange": "KS",
+    "sedol": "6294670"
+  },
+  "areas": [
+    {
+      "area": "nuclear-energy"
+    }
+  ],
+  "evidence": [
+    {
+      "field": "area:nuclear-energy",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "2.08,034020 KS,DOOSAN ENERBILITY CO LTD,6294670,43.53247931215365,\"2,291,442.00\",\"99,752,151.46\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "theme",
+      "theme": "nuclear",
+      "basis": "fund",
+      "detail": "Held by Global X Uranium ETF (URA, Global X): Nuclear, SMRs & the fuel cycle."
+    },
+    {
+      "field": "size:fund-position",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "2.08,034020 KS,DOOSAN ENERBILITY CO LTD,6294670,43.53247931215365,\"2,291,442.00\",\"99,752,151.46\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "materiality",
+      "basis": "fund-position",
+      "detail": "US$100 million held by one thematic fund (floor US$5.0 million).",
+      "usd": 99752151
+    },
+    {
+      "field": "ids.ticker",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "2.08,034020 KS,DOOSAN ENERBILITY CO LTD,6294670,43.53247931215365,\"2,291,442.00\",\"99,752,151.46\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "test": "identity",
+      "basis": "ticker",
+      "detail": "Exchange ticker 034020"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://assets.globalxetfs.com/funds/holdings/ura_full-holdings_20261026.csv",
+      "quote": "2.08,034020 KS,DOOSAN ENERBILITY CO LTD,6294670,43.53247931215365,\"2,291,442.00\",\"99,752,151.46\"",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-26",
+      "detail": "Country from its listing venue or hand-verified role."
+    }
+  ],
+  "origin": {
+    "by": "migration",
+    "on": "2026-10-27"
+  }
+}
