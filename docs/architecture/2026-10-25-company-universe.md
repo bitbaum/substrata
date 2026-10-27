@@ -45,19 +45,22 @@ the fact is for):
 | **Materiality** | A cited figure clears one floor: a thematic fund holds ≥ US$5 million of it; SEC 10-K cover public float ≥ US$250 million; market cap ≥ US$500 million; revenue ≥ US$250 million; a private valuation ≥ US$1 billion; a private round ≥ US$100 million. Or its chokepoint role is hand-verified (tier A). | A theme alone admits every shell company with "robotics" in its name. The floors are figures a source prints; we never compute one (no paid market-data feed). |
 | **Identity** | It resolves to at least one registry id: exchange ticker, SEC CIK, LEI, Wikidata QID, or a company-registry number. | A reader (or the market-data workstream) must be able to look it up. A name is not an identity. |
 
-### 1.1 Themes — eleven, small, extensible in config
+### 1.1 Themes — twelve, small, extensible in config
 
 `THEMES` in `config/universe-themes.ts`: compute & semiconductors · AI labs,
 cloud & data centres · robotics & autonomy · space & launch · nuclear (SMRs and
 the fuel cycle) · energy storage, batteries & grid · electric mobility ·
-advanced materials & critical minerals · quantum · photonics · biotech tools.
+advanced materials & critical minerals · quantum · photonics · biotech tools ·
+defence & aerospace (added 2026-10-27, see §6).
 
 Chosen as the branches whose bottlenecks the site already tracks or which
 consume them: compute is the root; AI and data centres are its demand;
 robotics, mobility and storage consume the magnet, battery and grid
 chokepoints; nuclear and grid decide whether compute is energised; materials is
 where most tracked chokepoints sit; space, quantum, photonics and biotech tools
-are frontier branches with their own single-source steps. Adding a theme is one
+are frontier branches with their own single-source steps; defence competes
+for the same magnets, gallium, germanium, tungsten and chips as the civilian
+branches and is held by a few prime contractors. Adding a theme is one
 row plus at least one source (a fund, a SIC code or an industry class) in
 `config/universe-sources.ts`; `test/universe.test.ts` fails a source naming a
 theme that does not exist, and an admitted universe with an empty theme.
@@ -152,8 +155,9 @@ data agent closes it through `add.ts universe`.
 
 | Adapter | Reads | Establishes |
 | --- | --- | --- |
-| `etf-holdings.ts` (+ `etf-parse.ts`, `xlsx.ts`) | 14 issuer holdings files: ARK ARKQ, ARKX, ARKG; Global X BOTZ, AIQ, DTCR, DRIV, LIT, URA, COPX; First Trust GRID; Defiance QTUM; State Street ROKT, XSD | theme (the fund's), identity (ticker+venue, CUSIP/SEDOL → ISIN), size (`fund-position`, where the file prints a market value) |
-| `edgar-universe.ts` | `company_tickers_exchange.json`; XBRL frames `dei:EntityPublicFloat` (four instants of 2025); `browse-edgar` by SIC 3674, 3827, 3691, 3761, 3826, 1094 | identity (CIK), size (`public-float`), theme (`sic`) |
+| `etf-holdings.ts` (+ `etf-parse.ts`, `xlsx.ts`) | 22 issuer holdings files: ARK ARKQ, ARKX, ARKG; Global X BOTZ, AIQ, DTCR, DRIV, LIT, URA, COPX, SHLD, CLOU, GNOM; First Trust GRID, ROBT, FTXL, SKYY; Defiance QTUM; State Street ROKT, XSD, XAR, HAIL | theme (the fund's), identity (ticker+venue, CUSIP/SEDOL → ISIN), size (`fund-position`, where the file prints a market value) |
+| `edgar-universe.ts` | `company_tickers_exchange.json`; XBRL frames `dei:EntityPublicFloat` (four instants of 2025); `browse-edgar` by 20 SIC codes (`SIC_THEMES`; 2026-10-27 added 3559, 3571, 3572, 3576, 3569, 3711, 3612, 3613, 3621, 1000, 3812, 3480, 3721, 3728) | identity (CIK), size (`public-float`), theme (`sic`) |
+| `edgar-revenue.ts` | SEC XBRL company facts, annual revenue in USD, for a candidate with a CIK and no cleared size | size (`revenue`), dollars only |
 | `registry-ids.ts` | GLEIF `lei-records?filter[isin]`; Wikidata SPARQL by ISIN (P946) | LEI with legal-address country; QID with the English label |
 | `wikidata-universe.ts` | SPARQL by industry class (P452) for each `WIKIDATA_INDUSTRIES` row | theme + QID only |
 
@@ -206,3 +210,56 @@ The known holes, each a next adapter rather than a rule change:
 - **The Ask**: `company_membership` in `lib/chat-tools/universe.ts`.
 - **Data agents**: facet `universe` in `scripts/research/add.ts`;
   `prompts/data-entry.md` § "Company universe evidence".
+
+## 6. Second wave (2026-10-27): breadth, and what was left out on purpose
+
+The first wave was 594 admitted from 731 candidates. The second wave read 22
+holdings files instead of 14 and 20 SEC industry codes instead of 6, added the
+twelfth theme, **defence & aerospace** (State Street XAR, Global X SHLD, SEC
+SICs 3812, 3480, 3721, 3728, Wikidata "weapons industry"), and added one
+materiality source (`lib/sources/edgar-revenue.ts`): a filer that states no
+public float because it files no 10-K cover (a 20-F or 40-F filer such as Arm)
+can clear the `revenue` floor on its own tagged annual revenue **in US dollars
+only** — a filer reporting in euros or yen is left to a source that states a
+dollar figure, because no exchange rate is ever invented. The same rule re-ran:
+**793 admitted (tier A 133, tier B 660) from 1,013 candidates; 220 considered
+and not admitted** (materiality 219, theme 8, identity 6; one name may fail
+several). Evidence rows: 1,784 → 3,091; a dollar revenue was read for 34 filers, which
+admitted 12 of them.
+
+Admitted by theme (overlapping, tier A included): compute 109 · AI & data
+centres 162 · robotics 155 · space 36 · nuclear 40 · storage & grid 126 ·
+electric mobility 95 · materials 121 · quantum 68 · photonics 2 · biotech tools
+65 · defence 86. By country, 34: US 474, JP 54, CA 35, KR 32, HK 28, DE 22, GB
+20, AU 17, TW 16, CN 12, BR 9, FR 9, and 22 more with 5 or fewer; 11 with none
+stated.
+
+**Funds read and then not used, because their subject is not a theme.** A
+holdings row proves interest in the FUND's theme, so a fund is only a source for
+a theme its name states. Read on 2026-10-27 and dropped: State Street KOMP
+("new economies", 500 holdings across fintech, genomics, mobility and more),
+XME (metals and mining incl. steel and coal, not critical minerals), Global X
+PAVE (US infrastructure construction), HYDR, CTEC, RNRG, First Trust QCLN and
+FAN (renewable generation is not storage or grid). Using them admitted 1,063
+companies and made "theme" mean nothing. Not read at all: iShares, Invesco,
+VanEck, Range (see `FUNDS_NOT_READ`). State Street's files print weights, not
+market values, so XAR, HAIL, ROKT and XSD place a company in a theme and give
+it an identifier but cannot clear the size floor alone.
+
+**What stays out, and why** (published at `/data/companies`): a name is out when
+its only evidence is a fund that prints no market value or a position under the
+US$5 million floor, a private company with no stated round or valuation, or a
+company whose identifiers resolve to no registry. Airbus, ABB and most large
+non-US names held only through State Street files are out today for exactly
+that reason. This is a statement about the evidence read, not the company: the
+fix is a cited size figure, not a lower floor.
+
+Still holes, each a next adapter: **photonics** (2: no thematic fund file and
+no SIC code isolates it); **non-US companies held only by funds that print no
+market value** (a free per-venue market-cap source, or index methodology
+floors, would fix it); **US filers outside the SIC codes read**, which are
+found only if a fund holds them or their SIC is added; **private companies**
+(Figure, Unitree and TerraPower stay in `CONSIDERED`; SpaceX is admitted
+because the SEC ticker file and two fund files list it as Space Exploration
+Technologies, SPCX, with its own CIK and LEI — if that is wrong, the evidence
+rows on its page are the place to say so).
