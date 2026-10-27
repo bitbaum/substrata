@@ -282,7 +282,9 @@ only there, it is a gap, and the gap says "not in an open source".
 | SEC EDGAR | public domain; fair-access limits | declared user agent, under 10 requests per second |
 | GLEIF | CC0 | use freely |
 | arXiv API | metadata CC0 | respect 1 request per 3 seconds |
-| OpenCorporates | free tier needs an API key and attribution; bulk use is share-alike | not a default; only if the owner gets a key; flagged **licence risk** |
+| OpenCorporates | free tier 200 requests a month; share-alike (open-data projects only) | **not built on**; licence risk; a paid key would lift it |
+| OpenSanctions | CC BY-NC | **not built on**; official lists (OFAC, Federal Register, EU Official Journal) are read directly |
+| Epoch AI datasets | CC BY 4.0, credit the source; modelled figures are estimates | use with attribution; labelled `estimated` with their intervals |
 | Companies House (UK) | OGL, free API key | optional adapter |
 | Press articles | copyright | one or two sentences as a quote with publisher and URL; never reproduced wholesale; skip if robots.txt or terms forbid fetching |
 | Crunchbase, PitchBook, Tianyancha, Qichacha, LinkedIn | paid or forbids scraping | **never used** |
@@ -352,30 +354,29 @@ registry slug differs from a stub slug (a duplicate), the stub slug redirects wi
 ## 7. What customers want to read: prioritised
 
 Institutional investors, analysts, strategists and policymakers ask a few
-questions again and again. Ordered by value over effort, each one a view over the
-same registry and relation data, each with the evidence rule (no cite, no number):
+questions again and again. Ordered by value over effort; each is a view over the
+registry and the relation data, each keeps the evidence rule (no cite, no number),
+and each names where its data is openly available. A research pass on
+2026-10-28 (pointers only; every value is re-opened before it is stored) produced
+the list.
 
-1. **Market map per area** (areas pages): who is in the area, by kind and country,
-   with role, and the gaps. First, because the registry is the product.
-2. **Who funds whom**: investors, rounds, strategic stakes and cloud-credit
-   deals between labs, cloud, chip and robotics firms, from filings and quoted
-   releases. A directed graph with dates.
-3. **Compute and capex tracker**: disclosed GPUs, data-centre MW, capex guidance
-   by company, from filings and company posts; stated vs reported labelled.
-4. **Private valuation ladder**: each private company's rounds in order, with
-   date, amount, lead, label and source. Never a current "value".
-5. **Supply-chain dependency graph** per product (humanoid, accelerator, frontier
-   cluster): the existing exposure model extended to registered companies.
-6. **Jurisdictional exposure and sanctions**: entities on the Entity List, SDN,
-   1260H and EU lists; export-control touchpoints by company and area.
-7. **Talent flows**: moves between labs, from named public announcements and
-   papers' affiliations, as dated events.
-8. **Timelines**: model releases, plant start-ups, launches, regulatory decisions,
-   per area, extending the events model.
-9. **Concentration**: who supplies how much of an area (shares only where a source
-   prints them).
-10. **Change feed**: new registrations, status changes (acquired, defunct),
-    refreshed figures; the reason people come back.
+| # | Page | The question | Open data |
+| --- | --- | --- | --- |
+| 1 | Market map per area | Who is in this area, by kind and country, with role and gaps? | the registry itself |
+| 2 | Compute and data-centre capacity tracker | Who has how much AI capacity, and when does it come online? | Epoch AI data centres and clusters (CC BY 4.0), company filings |
+| 3 | Capex ledger | How much do hyperscalers and labs spend, and is it funded? | SEC EDGAR XBRL APIs (10 requests per second, declared user agent) |
+| 4 | Private valuation ladder | What was each private company worth at each round, who led, stated or reported? | company posts, SEC Form D datasets (no valuation field), Epoch AI companies |
+| 5 | Share of scarce capacity by vendor | Which designer consumes how much wafer, CoWoS and HBM supply? | Epoch AI chip components (CC BY 4.0, modelled, shown as estimates with intervals) |
+| 6 | Supply-chain dependency map | If a foundry, scanner or magnet supplier stops, what breaks? | 10-K and 20-F supplier disclosures; the exposure model (`docs/architecture/2026-10-27-company-exposure.md`) |
+| 7 | Export-control and sanctions exposure | Is this name on the Entity List, 1260H, OFAC or EU lists, and what does that block? | Federal Register notices, OFAC list downloads, the EU Official Journal (read the notice, not a law-firm summary) |
+| 8 | Power and interconnection constraints | Where is power the binding limit, and for how long? | EIA, Epoch data-centre power, utility filings |
+| 9 | Who funds whom | Investors, strategic stakes and compute-for-equity deals between labs, clouds and chip firms | filings and quoted releases, dated |
+| 10 | Catalyst calendar | What lands next: IPOs, permits, first power, launches, tape-outs? | filings, HKEX, SSE and SEC notices; the events pipeline |
+| 11 | Capability and benchmark tracker | Which models lead on which tasks, at what training compute? | Epoch benchmarking and AI models data (CC BY 4.0) |
+| 12 | Inference economics | Is serving profitable and how fast do prices fall? | provider price pages (dated), Epoch hardware data |
+| 13 | Talent flows | Where are researchers and postings moving? | arXiv and OpenAlex affiliations, Epoch hiring archive, named announcements |
+| 14 | Financing-risk board | Is the build-out ahead of the revenue that funds it? | filings; any survey figure only from its primary |
+| 15 | Change feed | New registrations, status changes, refreshed figures | the registry's git history |
 
 ## 8. Slices
 
