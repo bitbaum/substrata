@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@bitbaum/accountkit':
-        specifier: github:bitbaum/accountkit#a303242f586d7ac2b2568bbe8d3da94d8b0be768
-        version: https://codeload.github.com/bitbaum/accountkit/tar.gz/a303242f586d7ac2b2568bbe8d3da94d8b0be768(next@16.4.2(@babel/core@7.29.7)(@types/node@26.6.5)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)
+        specifier: ^0.8.0
+        version: 0.8.0(next@16.4.2(@babel/core@7.29.7)(@types/node@26.6.5)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)
       '@bitbaum/ai-kit':
         specifier: ^1.21.4
         version: 1.21.4(react@19.3.1)
@@ -220,9 +220,8 @@ packages:
     resolution: {integrity: sha512-Vj1jF3cPfxg7OAfoI7QnVKLoILlm2JF9pnVHrX8qx7AHMiYWT+NDAA7jChlNgRS4WTLc/fD1lXLmPixluj+3Gg==}
     engines: {node: '>=6.9.0'}
 
-  '@bitbaum/accountkit@https://codeload.github.com/bitbaum/accountkit/tar.gz/a303242f586d7ac2b2568bbe8d3da94d8b0be768':
-    resolution: {gitHosted: true, integrity: sha512-S3bzvjY9tsiGY1csbjk0bldez4pgBbBYvS1/7OEkUwrQy7gRSHlTKy/2krsB+dJnn6YzLZ3HTt/Cvc/SGlmgEw==, tarball: https://codeload.github.com/bitbaum/accountkit/tar.gz/a303242f586d7ac2b2568bbe8d3da94d8b0be768}
-    version: 0.8.0
+  '@bitbaum/accountkit@0.8.0':
+    resolution: {integrity: sha512-vHQBkiL86Tf2EwXUGsWmzu+1QSg3PtT2uWX4frmc3RbB1tm7EHjvptWORF77MQc6seyNNi39uO+brqgJcegtyA==}
     engines: {node: '>=20'}
     peerDependencies:
       '@better-auth/passkey': ^1.7.10
@@ -2990,7 +2989,7 @@ snapshots:
       '@babel/helper-string-parser': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
 
-  '@bitbaum/accountkit@https://codeload.github.com/bitbaum/accountkit/tar.gz/a303242f586d7ac2b2568bbe8d3da94d8b0be768(next@16.4.2(@babel/core@7.29.7)(@types/node@26.6.5)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)':
+  '@bitbaum/accountkit@0.8.0(next@16.4.2(@babel/core@7.29.7)(@types/node@26.6.5)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)':
     dependencies:
       limitkit: 0.2.0
       react: 19.3.1
