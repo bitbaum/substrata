@@ -6,9 +6,13 @@
   "status": "active",
   "country": "KR",
   "ids": {
+    "qid": "Q370719",
+    "domain": "skhynix.com",
+    "cik": "2120882",
+    "lei": "988400XAIK6XISWQV045",
+    "isin": "KR7000660001",
     "ticker": "000660",
     "exchange": "KS",
-    "cik": "2120882",
     "sedol": "6450267",
     "cusip": "Y8085F100"
   },
@@ -21,6 +25,9 @@
     },
     {
       "area": "robotics"
+    },
+    {
+      "area": "memory"
     }
   ],
   "evidence": [
@@ -125,10 +132,60 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/SK_Hynix",
+      "quote": ", stylized SK hynix, is a South Korean semiconductor company that manufactures dynamic random-access memory (DRAM) chips and flash memory chips.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q370719",
+      "quote": "SK Hynix (Q370719) — Wikidata item: Q370719",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q370719",
+      "quote": "SK Hynix (Q370719) — headquarters location: Icheon",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q370719",
+      "quote": "SK Hynix (Q370719) — official website: https://www.skhynix.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q370719",
+      "quote": "SK Hynix (Q370719) — Legal Entity Identifier: 988400XAIK6XISWQV045",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:memory",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/SK_Hynix",
+      "quote": ", stylized SK hynix, is a South Korean semiconductor company that manufactures dynamic random-access memory (DRAM) chips and flash memory chips.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": ", stylized SK hynix, is a South Korean semiconductor company that manufactures dynamic random-access memory (DRAM) chips and flash memory chips.",
+  "hq": "Icheon"
 }

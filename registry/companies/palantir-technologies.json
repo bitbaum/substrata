@@ -11,14 +11,15 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q2047336",
+    "domain": "palantir.com",
+    "cik": "1321655",
     "lei": "549300UVN46B3BBDHO85",
     "isin": "US69608A1088",
     "ticker": "PLTR",
     "exchange": "US",
     "cusip": "69608A108",
-    "sedol": "BN78DQ4",
-    "cik": "1321655",
-    "qid": "Q2047336"
+    "sedol": "BN78DQ4"
   },
   "areas": [
     {
@@ -32,6 +33,9 @@
     },
     {
       "area": "defence-tech"
+    },
+    {
+      "area": "ai-software-tooling"
     }
   ],
   "evidence": [
@@ -207,10 +211,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Palantir",
+      "quote": "Palantir Technologies Inc. is an American publicly traded company that develops data integration and analytics software.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2047336",
+      "quote": "Palantir Technologies (Q2047336) — headquarters location: Miami",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2047336",
+      "quote": "Palantir Technologies (Q2047336) — official website: https://www.palantir.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Palantir",
+      "quote": "Palantir Technologies Inc. is an American publicly traded company that develops data integration and analytics software.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Palantir Technologies Inc. is an American publicly traded company that develops data integration and analytics software.",
+  "hq": "Miami"
 }

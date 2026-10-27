@@ -1,0 +1,75 @@
+{
+  "slug": "unitree-robotics",
+  "name": "Unitree Robotics",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q106369174",
+    "domain": "unitree.com"
+  },
+  "areas": [
+    {
+      "area": "humanoids"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Unitree_Robotics",
+      "quote": ", doing business as Unitree Robotics, is a robotics company based in Hangzhou, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q106369174",
+      "quote": "Unitree Robotics (Q106369174) — Wikidata item: Q106369174",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q106369174",
+      "quote": "Unitree Robotics (Q106369174) — headquarters location: Hangzhou",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q106369174",
+      "quote": "Unitree Robotics (Q106369174) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q106369174",
+      "quote": "Unitree Robotics (Q106369174) — official website: https://www.unitree.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:humanoids",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Unitree_Robotics",
+      "quote": ", doing business as Unitree Robotics, is a robotics company based in Hangzhou, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": ", doing business as Unitree Robotics, is a robotics company based in Hangzhou, China.",
+  "country": "CN",
+  "hq": "Hangzhou"
+}

@@ -1,0 +1,57 @@
+{
+  "slug": "iluvatar-corex",
+  "name": "Iluvatar CoreX",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q132153290",
+    "domain": "iluvatar.com"
+  },
+  "areas": [
+    {
+      "area": "ai-accelerators"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Iluvatar_CoreX",
+      "quote": "Shanghai Tianshu Zhixin Semiconductor Co. Ltd. is a Chinese technology company headquartered in Shanghai.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q132153290",
+      "quote": "Iluvatar CoreX (Q132153290) — Wikidata item: Q132153290",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q132153290",
+      "quote": "Iluvatar CoreX (Q132153290) — official website: https://www.iluvatar.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-accelerators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Iluvatar_CoreX",
+      "quote": "Shanghai Tianshu Zhixin Semiconductor Co. Ltd. is a Chinese technology company headquartered in Shanghai.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Shanghai Tianshu Zhixin Semiconductor Co. Ltd. is a Chinese technology company headquartered in Shanghai."
+}

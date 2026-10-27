@@ -1,0 +1,94 @@
+{
+  "slug": "duke-energy",
+  "name": "Duke Energy",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q1264404",
+    "domain": "duke-energy.com",
+    "cik": "1326160",
+    "lei": "I1BZKREC126H0VB1BL91",
+    "isin": "US26441C2044"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Duke_Energy",
+      "quote": "Duke Energy Corporation is an American electric power and natural gas holding company headquartered in Charlotte, North Carolina.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1264404",
+      "quote": "Duke Energy (Q1264404) — Wikidata item: Q1264404",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1264404",
+      "quote": "Duke Energy (Q1264404) — headquarters location: Charlotte",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1264404",
+      "quote": "Duke Energy (Q1264404) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1264404",
+      "quote": "Duke Energy (Q1264404) — official website: https://www.duke-energy.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1264404",
+      "quote": "Duke Energy (Q1264404) — SEC Central Index Key: 1326160",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1264404",
+      "quote": "Duke Energy (Q1264404) — Legal Entity Identifier: I1BZKREC126H0VB1BL91",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:power-storage-grid",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Duke_Energy",
+      "quote": "Duke Energy Corporation is an American electric power and natural gas holding company headquartered in Charlotte, North Carolina.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Duke Energy Corporation is an American electric power and natural gas holding company headquartered in Charlotte, North Carolina.",
+  "country": "US",
+  "hq": "Charlotte"
+}

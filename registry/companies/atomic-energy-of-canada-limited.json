@@ -1,0 +1,75 @@
+{
+  "slug": "atomic-energy-of-canada-limited",
+  "name": "Atomic Energy of Canada Limited",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q757601",
+    "domain": "aecl.ca"
+  },
+  "areas": [
+    {
+      "area": "fission-smr"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Atomic_Energy_of_Canada_Limited",
+      "quote": "Atomic Energy of Canada Limited is a Canadian Crown corporation and the largest nuclear science and technology laboratory in Canada.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q757601",
+      "quote": "Atomic Energy of Canada Limited (Q757601) — Wikidata item: Q757601",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q757601",
+      "quote": "Atomic Energy of Canada Limited (Q757601) — headquarters location: Chalk River",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q757601",
+      "quote": "Atomic Energy of Canada Limited (Q757601) — country (ISO 3166-1 alpha-2): CA",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q757601",
+      "quote": "Atomic Energy of Canada Limited (Q757601) — official website: https://www.aecl.ca/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:fission-smr",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Atomic_Energy_of_Canada_Limited",
+      "quote": "Atomic Energy of Canada Limited is a Canadian Crown corporation and the largest nuclear science and technology laboratory in Canada.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Atomic Energy of Canada Limited is a Canadian Crown corporation and the largest nuclear science and technology laboratory in Canada.",
+  "country": "CA",
+  "hq": "Chalk River"
+}

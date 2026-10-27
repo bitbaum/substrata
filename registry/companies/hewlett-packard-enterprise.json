@@ -6,13 +6,14 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q19923099",
+    "domain": "hpe.com",
+    "cik": "1645590",
     "lei": "549300BX44RGX6ANDV88",
     "isin": "US42824C1099",
     "ticker": "HPE",
     "exchange": "US",
     "sedol": "BYVYWS0",
-    "cik": "1645590",
-    "qid": "Q19923099",
     "cusip": "42824C109"
   },
   "areas": [
@@ -21,6 +22,9 @@
     },
     {
       "area": "quantum"
+    },
+    {
+      "area": "ai-cloud-platforms"
     }
   ],
   "evidence": [
@@ -172,10 +176,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hewlett_Packard_Enterprise",
+      "quote": "The Hewlett Packard Enterprise Company (HPE) is an American multinational information technology company based in Spring, Texas.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q19923099",
+      "quote": "Hewlett Packard Enterprise (Q19923099) — headquarters location: Spring",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q19923099",
+      "quote": "Hewlett Packard Enterprise (Q19923099) — official website: https://www.hpe.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hewlett_Packard_Enterprise",
+      "quote": "The Hewlett Packard Enterprise Company (HPE) is an American multinational information technology company based in Spring, Texas.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "The Hewlett Packard Enterprise Company (HPE) is an American multinational information technology company based in Spring, Texas.",
+  "hq": "Spring"
 }

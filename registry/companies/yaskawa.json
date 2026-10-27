@@ -6,6 +6,11 @@
   "status": "active",
   "country": "JP",
   "ids": {
+    "qid": "Q2620239",
+    "domain": "yaskawa.co.jp",
+    "cik": "1297681",
+    "lei": "3538003K39GR98R0CK58",
+    "isin": "JP3932000007",
     "ticker": "6506",
     "exchange": "JP",
     "sedol": "6986041",
@@ -14,6 +19,9 @@
   "areas": [
     {
       "area": "robotics"
+    },
+    {
+      "area": "industrial-robots"
     }
   ],
   "evidence": [
@@ -83,10 +91,68 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Yaskawa_Electric_Corporation",
+      "quote": "The Yaskawa Electric Corporation is a Japanese manufacturer of servos, motion controllers, AC motor drives, switches and industrial robots.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2620239",
+      "quote": "Yaskawa Electric Corporation (Q2620239) — Wikidata item: Q2620239",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2620239",
+      "quote": "Yaskawa Electric Corporation (Q2620239) — headquarters location: Kitakyūshū",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2620239",
+      "quote": "Yaskawa Electric Corporation (Q2620239) — official website: http://www.yaskawa.co.jp/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2620239",
+      "quote": "Yaskawa Electric Corporation (Q2620239) — SEC Central Index Key: 1297681",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2620239",
+      "quote": "Yaskawa Electric Corporation (Q2620239) — Legal Entity Identifier: 3538003K39GR98R0CK58",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:industrial-robots",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Yaskawa_Electric_Corporation",
+      "quote": "The Yaskawa Electric Corporation is a Japanese manufacturer of servos, motion controllers, AC motor drives, switches and industrial robots.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "The Yaskawa Electric Corporation is a Japanese manufacturer of servos, motion controllers, AC motor drives, switches and industrial robots.",
+  "hq": "Kitakyūshū"
 }

@@ -1,0 +1,85 @@
+{
+  "slug": "abb-group",
+  "name": "ABB Group",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q52825",
+    "domain": "global.abb",
+    "lei": "5493000LKVGOO9PELI61",
+    "isin": "CH0012221716"
+  },
+  "areas": [
+    {
+      "area": "industrial-robots"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/ABB",
+      "quote": "ABB Group is a Swedish-Swiss technology company, that operates in the fields of electrification and automation.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q52825",
+      "quote": "ABB Group (Q52825) — Wikidata item: Q52825",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q52825",
+      "quote": "ABB Group (Q52825) — headquarters location: Zurich",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q52825",
+      "quote": "ABB Group (Q52825) — country (ISO 3166-1 alpha-2): CH",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q52825",
+      "quote": "ABB Group (Q52825) — official website: https://global.abb/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q52825",
+      "quote": "ABB Group (Q52825) — Legal Entity Identifier: 5493000LKVGOO9PELI61",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:industrial-robots",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/ABB",
+      "quote": "ABB Group is a Swedish-Swiss technology company, that operates in the fields of electrification and automation.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "ABB Group is a Swedish-Swiss technology company, that operates in the fields of electrification and automation.",
+  "country": "CH",
+  "hq": "Zurich"
+}

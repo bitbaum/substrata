@@ -1,0 +1,94 @@
+{
+  "slug": "thermo-fisher-scientific",
+  "name": "Thermo Fisher Scientific",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q643674",
+    "domain": "thermofisher.com",
+    "cik": "97745",
+    "lei": "HCHV7422L5HDJZCRFL38",
+    "isin": "US8835561023"
+  },
+  "areas": [
+    {
+      "area": "synthetic-biology"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Thermo_Fisher_Scientific",
+      "quote": "Thermo Fisher Scientific Inc. is an American life science and clinical research company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q643674",
+      "quote": "Thermo Fisher Scientific Inc. (Q643674) — Wikidata item: Q643674",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q643674",
+      "quote": "Thermo Fisher Scientific Inc. (Q643674) — headquarters location: Waltham",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q643674",
+      "quote": "Thermo Fisher Scientific Inc. (Q643674) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q643674",
+      "quote": "Thermo Fisher Scientific Inc. (Q643674) — official website: https://www.thermofisher.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q643674",
+      "quote": "Thermo Fisher Scientific Inc. (Q643674) — SEC Central Index Key: 97745",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q643674",
+      "quote": "Thermo Fisher Scientific Inc. (Q643674) — Legal Entity Identifier: HCHV7422L5HDJZCRFL38",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:synthetic-biology",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Thermo_Fisher_Scientific",
+      "quote": "Thermo Fisher Scientific Inc. is an American life science and clinical research company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Thermo Fisher Scientific Inc. is an American life science and clinical research company.",
+  "country": "US",
+  "hq": "Waltham"
+}

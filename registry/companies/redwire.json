@@ -6,9 +6,11 @@
   "status": "active",
   "country": "US",
   "ids": {
-    "cik": "1819810",
     "qid": "Q106432676",
+    "domain": "rdw.com",
+    "lei": "967600YQKOF5HRNICY03",
     "isin": "US75776W1036",
+    "cik": "1819810",
     "ticker": "RDW",
     "exchange": "US",
     "cusip": "75776W103",
@@ -20,6 +22,9 @@
     },
     {
       "area": "defence-tech"
+    },
+    {
+      "area": "satellites"
     }
   ],
   "evidence": [
@@ -100,10 +105,43 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Redwire",
+      "quote": "Redwire Corporation is an American aerospace manufacturer and space infrastructure technology company headquartered in Jacksonville, Florida.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q106432676",
+      "quote": "Redwire (Q106432676) — official website: https://rdw.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q106432676",
+      "quote": "Redwire (Q106432676) — Legal Entity Identifier: 967600YQKOF5HRNICY03",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:satellites",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Redwire",
+      "quote": "Redwire Corporation is an American aerospace manufacturer and space infrastructure technology company headquartered in Jacksonville, Florida.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Redwire Corporation is an American aerospace manufacturer and space infrastructure technology company headquartered in Jacksonville, Florida."
 }

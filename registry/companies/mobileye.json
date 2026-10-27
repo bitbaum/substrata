@@ -1,0 +1,94 @@
+{
+  "slug": "mobileye",
+  "name": "Mobileye",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q2901365",
+    "domain": "mobileye.com",
+    "cik": "1910139",
+    "lei": "213800LGCIT32XWAK965",
+    "isin": "NL0010831061"
+  },
+  "areas": [
+    {
+      "area": "autonomous-vehicles"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Mobileye",
+      "quote": "Mobileye Global Inc. is a United States-domiciled, Israel-headquartered autonomous driving company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2901365",
+      "quote": "Mobileye (Q2901365) — Wikidata item: Q2901365",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2901365",
+      "quote": "Mobileye (Q2901365) — headquarters location: Jerusalem",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2901365",
+      "quote": "Mobileye (Q2901365) — country (ISO 3166-1 alpha-2): PS",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2901365",
+      "quote": "Mobileye (Q2901365) — official website: https://www.mobileye.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2901365",
+      "quote": "Mobileye (Q2901365) — SEC Central Index Key: 1910139",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2901365",
+      "quote": "Mobileye (Q2901365) — Legal Entity Identifier: 213800LGCIT32XWAK965",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Mobileye",
+      "quote": "Mobileye Global Inc. is a United States-domiciled, Israel-headquartered autonomous driving company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Mobileye Global Inc. is a United States-domiciled, Israel-headquartered autonomous driving company.",
+  "country": "PS",
+  "hq": "Jerusalem"
+}

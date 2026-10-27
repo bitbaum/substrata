@@ -1,0 +1,66 @@
+{
+  "slug": "vulcan-elements",
+  "name": "Vulcan Elements",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q136335029",
+    "domain": "vulcanelements.com",
+    "cik": "2005797"
+  },
+  "areas": [
+    {
+      "area": "rare-earths-magnets"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Vulcan_Elements",
+      "quote": "Vulcan Elements is a startup manufacturer of rare earth magnets located in Durham, North Carolina.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q136335029",
+      "quote": "Vulcan Elements (Q136335029) — Wikidata item: Q136335029",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q136335029",
+      "quote": "Vulcan Elements (Q136335029) — official website: https://vulcanelements.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q136335029",
+      "quote": "Vulcan Elements (Q136335029) — SEC Central Index Key: 2005797",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:rare-earths-magnets",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Vulcan_Elements",
+      "quote": "Vulcan Elements is a startup manufacturer of rare earth magnets located in Durham, North Carolina.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Vulcan Elements is a startup manufacturer of rare earth magnets located in Durham, North Carolina."
+}

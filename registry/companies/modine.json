@@ -6,10 +6,10 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q1509926",
     "lei": "Z35SZFYJR8GZZRSIUU09",
     "isin": "US6078281002",
     "cik": "67347",
-    "qid": "Q1509926",
     "ticker": "MOD",
     "exchange": "US",
     "cusip": "607828100",
@@ -18,6 +18,9 @@
   "areas": [
     {
       "area": "mobility"
+    },
+    {
+      "area": "data-centre-cooling"
     }
   ],
   "evidence": [
@@ -97,10 +100,27 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Modine",
+      "quote": "Modine is a surname. Notable people include:Matthew Modine, American film actor Nola Fairbanks, American actress Ruby Modine, American actress and singer, daughter of Matthew Arthur B.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:data-centre-cooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Modine",
+      "quote": "Modine is a surname. Notable people include:Matthew Modine, American film actor Nola Fairbanks, American actress Ruby Modine, American actress and singer, daughter of Matthew Arthur B.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Modine is a surname. Notable people include:Matthew Modine, American film actor Nola Fairbanks, American actress Ruby Modine, American actress and singer, daughter of Matthew Arthur B."
 }

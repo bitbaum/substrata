@@ -1,0 +1,75 @@
+{
+  "slug": "safe-superintelligence-inc",
+  "name": "Safe Superintelligence Inc.",
+  "aliases": [],
+  "kind": "lab",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q130302670",
+    "domain": "ssi.inc"
+  },
+  "areas": [
+    {
+      "area": "frontier-labs"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Safe_Superintelligence_Inc.",
+      "quote": "Safe Superintelligence Inc. (SSI) is an American artificial intelligence company founded by Ilya Sutskever, the former chief scientist of OpenAI, Daniel Gross, former head of Apple’s AI efforts, and Daniel Levy, an investor and former AI researcher at OpenAI.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q130302670",
+      "quote": "Safe Superintelligence Inc. (Q130302670) — Wikidata item: Q130302670",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q130302670",
+      "quote": "Safe Superintelligence Inc. (Q130302670) — headquarters location: Palo Alto",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q130302670",
+      "quote": "Safe Superintelligence Inc. (Q130302670) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q130302670",
+      "quote": "Safe Superintelligence Inc. (Q130302670) — official website: https://ssi.inc/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:frontier-labs",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Safe_Superintelligence_Inc.",
+      "quote": "Safe Superintelligence Inc. (SSI) is an American artificial intelligence company founded by Ilya Sutskever, the former chief scientist of OpenAI, Daniel Gross, former head of Apple’s AI efforts, and Daniel Levy, an investor and former AI researcher at OpenAI.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Safe Superintelligence Inc. (SSI) is an American artificial intelligence company founded by Ilya Sutskever, the former chief scientist of OpenAI, Daniel Gross, former head of Apple’s AI efforts, and Daniel Levy, an investor and former AI researcher at OpenAI.",
+  "country": "US",
+  "hq": "Palo Alto"
+}

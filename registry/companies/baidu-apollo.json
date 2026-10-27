@@ -1,0 +1,48 @@
+{
+  "slug": "baidu-apollo",
+  "name": "Baidu Apollo",
+  "aliases": [],
+  "kind": "subsidiary",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q60752917"
+  },
+  "areas": [
+    {
+      "area": "autonomous-vehicles"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Apolong",
+      "quote": "The Apolong, sometimes referred to as the Baidu Apollo project, is a driverless vehicle developed by Baidu, King Long and a consortium of more than 40 companies.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q60752917",
+      "quote": "Apolong (Q60752917) — Wikidata item: Q60752917",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Apolong",
+      "quote": "The Apolong, sometimes referred to as the Baidu Apollo project, is a driverless vehicle developed by Baidu, King Long and a consortium of more than 40 companies.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "The Apolong, sometimes referred to as the Baidu Apollo project, is a driverless vehicle developed by Baidu, King Long and a consortium of more than 40 companies."
+}

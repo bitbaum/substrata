@@ -2,11 +2,13 @@
   "slug": "kuka",
   "name": "KUKA",
   "aliases": ["Kuka"],
-  "kind": "unclassified",
+  "kind": "subsidiary",
   "status": "active",
   "country": "DE",
   "ids": {
     "qid": "Q163566",
+    "domain": "kuka.com",
+    "lei": "529900VPRFDDIN7BE119",
     "isin": "DE0006204407"
   },
   "areas": [
@@ -15,6 +17,9 @@
     },
     {
       "area": "defence-tech"
+    },
+    {
+      "area": "industrial-robots"
     }
   ],
   "evidence": [
@@ -72,10 +77,52 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country DE as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/KUKA",
+      "quote": "KUKA SE & Co. KGaA is a German automation and robotics company headquartered in Augsburg, Bavaria.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q163566",
+      "quote": "KUKA (Q163566) — headquarters location: Augsburg",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q163566",
+      "quote": "KUKA (Q163566) — official website: https://www.kuka.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q163566",
+      "quote": "KUKA (Q163566) — Legal Entity Identifier: 529900VPRFDDIN7BE119",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:industrial-robots",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/KUKA",
+      "quote": "KUKA SE & Co. KGaA is a German automation and robotics company headquartered in Augsburg, Bavaria.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "KUKA SE & Co. KGaA is a German automation and robotics company headquartered in Augsburg, Bavaria.",
+  "hq": "Augsburg"
 }

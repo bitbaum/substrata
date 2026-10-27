@@ -6,10 +6,11 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q21036456",
+    "domain": "hubbell.com",
+    "cik": "48898",
     "lei": "54930088VDQ6840Y6597",
     "isin": "US4435106079",
-    "cik": "48898",
-    "qid": "Q21036456",
     "ticker": "HUBB",
     "exchange": "US",
     "cusip": "443510607"
@@ -17,6 +18,9 @@
   "areas": [
     {
       "area": "power-storage-grid"
+    },
+    {
+      "area": "data-centre-cooling"
     }
   ],
   "evidence": [
@@ -108,10 +112,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hubbell_Incorporated",
+      "quote": "Hubbell Incorporated, headquartered in Shelton, Connecticut, is an American company that designs, manufactures, and sells electrical and electronic products for non-residential and residential construction, industrial, and utility applications.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q21036456",
+      "quote": "Hubbell Incorporated (Q21036456) — headquarters location: Shelton",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q21036456",
+      "quote": "Hubbell Incorporated (Q21036456) — official website: http://www.hubbell.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:data-centre-cooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hubbell_Incorporated",
+      "quote": "Hubbell Incorporated, headquartered in Shelton, Connecticut, is an American company that designs, manufactures, and sells electrical and electronic products for non-residential and residential construction, industrial, and utility applications.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Hubbell Incorporated, headquartered in Shelton, Connecticut, is an American company that designs, manufactures, and sells electrical and electronic products for non-residential and residential construction, industrial, and utility applications.",
+  "hq": "Shelton"
 }

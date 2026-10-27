@@ -6,7 +6,11 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q7829730",
+    "domain": "towerjazz.com",
     "cik": "928876",
+    "lei": "54930086ZSNXZOUX0C54",
+    "isin": "IL0010823792",
     "ticker": "TSEM",
     "exchange": "US",
     "cusip": "M87915274"
@@ -17,6 +21,9 @@
     },
     {
       "area": "quantum"
+    },
+    {
+      "area": "foundry"
     }
   ],
   "evidence": [
@@ -86,10 +93,60 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Tower_Semiconductor",
+      "quote": "(Nasdaq/TASE: TSEM) is an Israeli company that manufactures integrated circuits using specialty process technologies, including SiGe, BiCMOS, Silicon Photonics, SOI, mixed-signal and RFCMOS, CMOS image sensors, non-imaging sensors, power management (BCD), and non-volatile memory (NVM) as well as MEMS capabilities.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7829730",
+      "quote": "Tower Semiconductor Ltd. (Q7829730) — Wikidata item: Q7829730",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7829730",
+      "quote": "Tower Semiconductor Ltd. (Q7829730) — headquarters location: Migdal HaEmek",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7829730",
+      "quote": "Tower Semiconductor Ltd. (Q7829730) — official website: http://www.towerjazz.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7829730",
+      "quote": "Tower Semiconductor Ltd. (Q7829730) — Legal Entity Identifier: 54930086ZSNXZOUX0C54",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:foundry",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Tower_Semiconductor",
+      "quote": "(Nasdaq/TASE: TSEM) is an Israeli company that manufactures integrated circuits using specialty process technologies, including SiGe, BiCMOS, Silicon Photonics, SOI, mixed-signal and RFCMOS, CMOS image sensors, non-imaging sensors, power management (BCD), and non-volatile memory (NVM) as well as MEMS capabilities.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "(Nasdaq/TASE: TSEM) is an Israeli company that manufactures integrated circuits using specialty process technologies, including SiGe, BiCMOS, Silicon Photonics, SOI, mixed-signal and RFCMOS, CMOS image sensors, non-imaging sensors, power management (BCD), and non-volatile memory (NVM) as well as MEMS capabilities.",
+  "hq": "Migdal HaEmek"
 }

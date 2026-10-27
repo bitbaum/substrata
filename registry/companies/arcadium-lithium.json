@@ -1,0 +1,75 @@
+{
+  "slug": "arcadium-lithium",
+  "name": "Arcadium Lithium",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q131308915",
+    "domain": "arcadiumlithium.com",
+    "cik": "1977303"
+  },
+  "areas": [
+    {
+      "area": "energy-storage"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Arcadium_Lithium",
+      "quote": "Arcadium Lithium plc was a specialty chemicals manufacturing company focused on lithium production.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q131308915",
+      "quote": "Arcadium Lithium (Q131308915) — Wikidata item: Q131308915",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q131308915",
+      "quote": "Arcadium Lithium (Q131308915) — country (ISO 3166-1 alpha-2): AR",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q131308915",
+      "quote": "Arcadium Lithium (Q131308915) — official website: https://arcadiumlithium.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q131308915",
+      "quote": "Arcadium Lithium (Q131308915) — SEC Central Index Key: 1977303",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:energy-storage",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Arcadium_Lithium",
+      "quote": "Arcadium Lithium plc was a specialty chemicals manufacturing company focused on lithium production.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Arcadium Lithium plc was a specialty chemicals manufacturing company focused on lithium production.",
+  "country": "AR"
+}

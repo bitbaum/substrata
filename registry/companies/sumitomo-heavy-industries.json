@@ -1,0 +1,85 @@
+{
+  "slug": "sumitomo-heavy-industries",
+  "name": "Sumitomo Heavy Industries",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q1808912",
+    "domain": "shi.co.jp",
+    "lei": "353800VSTEIRMBC3S374",
+    "isin": "JP3405400007"
+  },
+  "areas": [
+    {
+      "area": "reducers-gearboxes"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Sumitomo_Heavy_Industries",
+      "quote": "Sumitomo Heavy Industries, Ltd.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1808912",
+      "quote": "Sumitomo Heavy Industries (Q1808912) — Wikidata item: Q1808912",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1808912",
+      "quote": "Sumitomo Heavy Industries (Q1808912) — headquarters location: Ōsaki",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1808912",
+      "quote": "Sumitomo Heavy Industries (Q1808912) — country (ISO 3166-1 alpha-2): JP",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1808912",
+      "quote": "Sumitomo Heavy Industries (Q1808912) — official website: http://www.shi.co.jp/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1808912",
+      "quote": "Sumitomo Heavy Industries (Q1808912) — Legal Entity Identifier: 353800VSTEIRMBC3S374",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:reducers-gearboxes",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Sumitomo_Heavy_Industries",
+      "quote": "Sumitomo Heavy Industries, Ltd.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Sumitomo Heavy Industries, Ltd.",
+  "country": "JP",
+  "hq": "Ōsaki"
+}

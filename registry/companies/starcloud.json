@@ -1,0 +1,86 @@
+{
+  "slug": "starcloud",
+  "name": "Starcloud",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q137690980",
+    "domain": "starcloud.com"
+  },
+  "areas": [
+    {
+      "area": "data-centres"
+    },
+    {
+      "area": "satellites"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Starcloud",
+      "quote": "Starcloud, Inc. is a United States-based company that designs, builds, and deploys data centers in space using proprietary technology.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q137690980",
+      "quote": "Starcloud (Q137690980) — Wikidata item: Q137690980",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q137690980",
+      "quote": "Starcloud (Q137690980) — headquarters location: Redmond",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q137690980",
+      "quote": "Starcloud (Q137690980) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q137690980",
+      "quote": "Starcloud (Q137690980) — official website: https://www.starcloud.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:data-centres",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Starcloud",
+      "quote": "Starcloud, Inc. is a United States-based company that designs, builds, and deploys data centers in space using proprietary technology.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:satellites",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Starcloud",
+      "quote": "Starcloud, Inc. is a United States-based company that designs, builds, and deploys data centers in space using proprietary technology.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Starcloud, Inc. is a United States-based company that designs, builds, and deploys data centers in space using proprietary technology.",
+  "country": "US",
+  "hq": "Redmond"
+}

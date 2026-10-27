@@ -6,10 +6,11 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q5380128",
+    "domain": "entegris.com",
+    "cik": "1101302",
     "lei": "IYX6OWO7BT5DKO3BYG52",
     "isin": "US29362U1043",
-    "cik": "1101302",
-    "qid": "Q5380128",
     "ticker": "ENTG",
     "exchange": "US",
     "cusip": "29362U104"
@@ -17,6 +18,12 @@
   "areas": [
     {
       "area": "compute-semiconductors"
+    },
+    {
+      "area": "wafers-substrates"
+    },
+    {
+      "area": "advanced-materials"
     }
   ],
   "evidence": [
@@ -108,10 +115,52 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Entegris",
+      "quote": "Entegris, Inc. is a supplier of materials for the semiconductor and other high-tech industries.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5380128",
+      "quote": "Entegris (Q5380128) — headquarters location: Billerica",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5380128",
+      "quote": "Entegris (Q5380128) — official website: http://www.entegris.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:wafers-substrates",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Entegris",
+      "quote": "Entegris, Inc. is a supplier of materials for the semiconductor and other high-tech industries.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:advanced-materials",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Entegris",
+      "quote": "Entegris, Inc. is a supplier of materials for the semiconductor and other high-tech industries.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Entegris, Inc. is a supplier of materials for the semiconductor and other high-tech industries.",
+  "hq": "Billerica"
 }

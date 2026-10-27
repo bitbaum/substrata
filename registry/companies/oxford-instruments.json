@@ -1,0 +1,85 @@
+{
+  "slug": "oxford-instruments",
+  "name": "Oxford Instruments",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q7115375",
+    "domain": "oxinst.com",
+    "lei": "213800J364EZD6UCE231",
+    "isin": "GB0006650450"
+  },
+  "areas": [
+    {
+      "area": "quantum-computing"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Oxford_Instruments",
+      "quote": "Oxford Instruments plc is a United Kingdom manufacturing and research company that designs and manufactures tools and systems for industry and research.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7115375",
+      "quote": "Oxford Instruments (Q7115375) — Wikidata item: Q7115375",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7115375",
+      "quote": "Oxford Instruments (Q7115375) — headquarters location: Abingdon-on-Thames",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7115375",
+      "quote": "Oxford Instruments (Q7115375) — country (ISO 3166-1 alpha-2): GB",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7115375",
+      "quote": "Oxford Instruments (Q7115375) — official website: https://www.oxinst.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7115375",
+      "quote": "Oxford Instruments (Q7115375) — Legal Entity Identifier: 213800J364EZD6UCE231",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:quantum-computing",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Oxford_Instruments",
+      "quote": "Oxford Instruments plc is a United Kingdom manufacturing and research company that designs and manufactures tools and systems for industry and research.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Oxford Instruments plc is a United Kingdom manufacturing and research company that designs and manufactures tools and systems for industry and research.",
+  "country": "GB",
+  "hq": "Abingdon-on-Thames"
+}

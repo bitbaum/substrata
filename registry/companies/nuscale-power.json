@@ -6,6 +6,9 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q7067710",
+    "domain": "nuscalepower.com",
+    "isin": "US67079K1007",
     "ticker": "SMR",
     "exchange": "US",
     "sedol": "BNXK803",
@@ -14,6 +17,9 @@
   "areas": [
     {
       "area": "nuclear-energy"
+    },
+    {
+      "area": "fission-smr"
     }
   ],
   "evidence": [
@@ -83,10 +89,52 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/NuScale_Power",
+      "quote": "NuScale Power Corporation is a publicly traded American company that markets its proposed designs for small modular reactors (SMRs).",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7067710",
+      "quote": "NuScale (Q7067710) — Wikidata item: Q7067710",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7067710",
+      "quote": "NuScale (Q7067710) — headquarters location: Corvallis",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7067710",
+      "quote": "NuScale (Q7067710) — official website: http://www.nuscalepower.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:fission-smr",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/NuScale_Power",
+      "quote": "NuScale Power Corporation is a publicly traded American company that markets its proposed designs for small modular reactors (SMRs).",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "NuScale Power Corporation is a publicly traded American company that markets its proposed designs for small modular reactors (SMRs).",
+  "hq": "Corvallis"
 }

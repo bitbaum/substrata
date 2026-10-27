@@ -1,0 +1,75 @@
+{
+  "slug": "comau",
+  "name": "Comau",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q2271894",
+    "domain": "comau.com"
+  },
+  "areas": [
+    {
+      "area": "industrial-robots"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Comau",
+      "quote": "A. is an Italian multinational company in the automation field based in Turin, Italy.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2271894",
+      "quote": "Comau (Q2271894) — Wikidata item: Q2271894",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2271894",
+      "quote": "Comau (Q2271894) — headquarters location: Turin",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2271894",
+      "quote": "Comau (Q2271894) — country (ISO 3166-1 alpha-2): IT",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2271894",
+      "quote": "Comau (Q2271894) — official website: http://www.comau.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:industrial-robots",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Comau",
+      "quote": "A. is an Italian multinational company in the automation field based in Turin, Italy.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "A. is an Italian multinational company in the automation field based in Turin, Italy.",
+  "country": "IT",
+  "hq": "Turin"
+}

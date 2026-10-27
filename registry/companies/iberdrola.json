@@ -1,0 +1,94 @@
+{
+  "slug": "iberdrola",
+  "name": "Iberdrola",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q1437502",
+    "domain": "iberdrola.com",
+    "cik": "1360587",
+    "lei": "5QK37QC7NWOJ8D7WVQ45",
+    "isin": "ES0144580Y14"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Iberdrola",
+      "quote": "A. is a Spanish multinational electric utility company based in Bilbao, Spain.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1437502",
+      "quote": "Iberdrola (Q1437502) — Wikidata item: Q1437502",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1437502",
+      "quote": "Iberdrola (Q1437502) — headquarters location: Bilbao",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1437502",
+      "quote": "Iberdrola (Q1437502) — country (ISO 3166-1 alpha-2): ES",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1437502",
+      "quote": "Iberdrola (Q1437502) — official website: https://www.iberdrola.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1437502",
+      "quote": "Iberdrola (Q1437502) — SEC Central Index Key: 1360587",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1437502",
+      "quote": "Iberdrola (Q1437502) — Legal Entity Identifier: 5QK37QC7NWOJ8D7WVQ45",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:power-storage-grid",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Iberdrola",
+      "quote": "A. is a Spanish multinational electric utility company based in Bilbao, Spain.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "A. is a Spanish multinational electric utility company based in Bilbao, Spain.",
+  "country": "ES",
+  "hq": "Bilbao"
+}

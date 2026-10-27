@@ -1,0 +1,75 @@
+{
+  "slug": "baichuan",
+  "name": "Baichuan",
+  "aliases": [],
+  "kind": "lab",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q130270689",
+    "domain": "baichuan-ai.com"
+  },
+  "areas": [
+    {
+      "area": "frontier-labs"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Baichuan",
+      "quote": "Baichuan AI is an artificial intelligence (AI) company based in Beijing, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q130270689",
+      "quote": "Baichuan (Q130270689) — Wikidata item: Q130270689",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q130270689",
+      "quote": "Baichuan (Q130270689) — headquarters location: Beijing",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q130270689",
+      "quote": "Baichuan (Q130270689) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q130270689",
+      "quote": "Baichuan (Q130270689) — official website: http://www.baichuan-ai.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:frontier-labs",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Baichuan",
+      "quote": "Baichuan AI is an artificial intelligence (AI) company based in Beijing, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Baichuan AI is an artificial intelligence (AI) company based in Beijing, China.",
+  "country": "CN",
+  "hq": "Beijing"
+}

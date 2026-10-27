@@ -1,0 +1,66 @@
+{
+  "slug": "toyota-research-institute",
+  "name": "Toyota Research Institute",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q24874330",
+    "domain": "tri.global"
+  },
+  "areas": [
+    {
+      "area": "humanoids"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Toyota_Research_Institute",
+      "quote": "The Toyota Research Institute is a research and scientific development subsidiary of Toyota Motor Corporation.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q24874330",
+      "quote": "Toyota Research Institute (Q24874330) — Wikidata item: Q24874330",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q24874330",
+      "quote": "Toyota Research Institute (Q24874330) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q24874330",
+      "quote": "Toyota Research Institute (Q24874330) — official website: http://www.tri.global/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:humanoids",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Toyota_Research_Institute",
+      "quote": "The Toyota Research Institute is a research and scientific development subsidiary of Toyota Motor Corporation.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "The Toyota Research Institute is a research and scientific development subsidiary of Toyota Motor Corporation.",
+  "country": "US"
+}

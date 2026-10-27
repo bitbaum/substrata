@@ -6,6 +6,8 @@
   "status": "active",
   "country": "KR",
   "ids": {
+    "qid": "Q109464416",
+    "domain": "lgensol.com",
     "ticker": "373220",
     "exchange": "KS",
     "sedol": "BNSP8W5"
@@ -16,6 +18,9 @@
     },
     {
       "area": "mobility"
+    },
+    {
+      "area": "energy-storage"
     }
   ],
   "evidence": [
@@ -86,10 +91,52 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/LG_Energy_Solution",
+      "quote": "LG Energy Solution Ltd. is a battery company headquartered in Seoul, South Korea.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q109464416",
+      "quote": "LG Energy Solution (Q109464416) — Wikidata item: Q109464416",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q109464416",
+      "quote": "LG Energy Solution (Q109464416) — headquarters location: Seoul",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q109464416",
+      "quote": "LG Energy Solution (Q109464416) — official website: https://www.lgensol.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:energy-storage",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/LG_Energy_Solution",
+      "quote": "LG Energy Solution Ltd. is a battery company headquartered in Seoul, South Korea.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "LG Energy Solution Ltd. is a battery company headquartered in Seoul, South Korea.",
+  "hq": "Seoul"
 }

@@ -41,6 +41,7 @@ import { RESOURCE_TOOLS } from './resources';
 import { SCENARIO_TOOLS } from './scenario';
 import { withAliases, type Args, type ChatTool } from './tool';
 import { TRADE_RULE_TOOLS } from './trade-rules';
+import { FRONTIER_TOOLS } from './frontier';
 import { UNIVERSE_TOOLS } from './universe';
 import { WEB_TOOLS } from './web';
 
@@ -53,6 +54,8 @@ export const CHAT_TOOLS: readonly ChatTool[] = [
   ...MARKET_TOOLS,
   // Why a company is or is not covered: the written admission rule.
   ...UNIVERSE_TOOLS,
+  // The registry: who is tracked in an area, and what is known of one company (private labs included).
+  ...FRONTIER_TOOLS,
   ...RESOURCE_TOOLS,
   ...PRODUCER_TOOLS,
   ...TRADE_RULE_TOOLS,

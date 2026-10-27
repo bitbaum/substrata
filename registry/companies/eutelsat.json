@@ -1,0 +1,84 @@
+{
+  "slug": "eutelsat",
+  "name": "Eutelsat",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q848336",
+    "domain": "eutelsat.com",
+    "lei": "549300MCOOY1V7P2PG30"
+  },
+  "areas": [
+    {
+      "area": "satellites"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Eutelsat",
+      "quote": ", trading as Eutelsat Group is a French satellite operator. Providing coverage over the entire European continent, the Middle East, Africa, Asia and the Americas, it has been the world's third-largest satellite operator in terms of revenues.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q848336",
+      "quote": "Eutelsat (Q848336) — Wikidata item: Q848336",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q848336",
+      "quote": "Eutelsat (Q848336) — headquarters location: Issy-les-Moulineaux",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q848336",
+      "quote": "Eutelsat (Q848336) — country (ISO 3166-1 alpha-2): FR",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q848336",
+      "quote": "Eutelsat (Q848336) — official website: https://www.eutelsat.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q848336",
+      "quote": "Eutelsat (Q848336) — Legal Entity Identifier: 549300MCOOY1V7P2PG30",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:satellites",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Eutelsat",
+      "quote": ", trading as Eutelsat Group is a French satellite operator. Providing coverage over the entire European continent, the Middle East, Africa, Asia and the Americas, it has been the world's third-largest satellite operator in terms of revenues.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": ", trading as Eutelsat Group is a French satellite operator. Providing coverage over the entire European continent, the Middle East, Africa, Asia and the Americas, it has been the world's third-largest satellite operator in terms of revenues.",
+  "country": "FR",
+  "hq": "Issy-les-Moulineaux"
+}

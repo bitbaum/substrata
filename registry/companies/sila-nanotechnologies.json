@@ -1,0 +1,66 @@
+{
+  "slug": "sila-nanotechnologies",
+  "name": "Sila Nanotechnologies",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q64142529",
+    "domain": "silanano.com"
+  },
+  "areas": [
+    {
+      "area": "energy-storage"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Sila_Nanotechnologies",
+      "quote": "Sila Nanotechnologies, Inc. is an American battery manufacturer that produces lithium–silicon batteries using nanoengineered silicon particles.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q64142529",
+      "quote": "Sila Nanotechnologies (United States) (Q64142529) — Wikidata item: Q64142529",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q64142529",
+      "quote": "Sila Nanotechnologies (United States) (Q64142529) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q64142529",
+      "quote": "Sila Nanotechnologies (United States) (Q64142529) — official website: https://silanano.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:energy-storage",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Sila_Nanotechnologies",
+      "quote": "Sila Nanotechnologies, Inc. is an American battery manufacturer that produces lithium–silicon batteries using nanoengineered silicon particles.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Sila Nanotechnologies, Inc. is an American battery manufacturer that produces lithium–silicon batteries using nanoengineered silicon particles.",
+  "country": "US"
+}

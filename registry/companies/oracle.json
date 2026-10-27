@@ -6,14 +6,15 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q19900",
+    "domain": "oracle.com",
+    "cik": "1341439",
     "lei": "1Z4GXXU7ZHVWFCD8TV52",
     "isin": "US68389X1054",
     "ticker": "ORCL",
     "exchange": "US",
     "sedol": "2661568",
-    "qid": "Q19900",
-    "cusip": "68389X105",
-    "cik": "1341439"
+    "cusip": "68389X105"
   },
   "areas": [
     {
@@ -24,6 +25,9 @@
     },
     {
       "area": "quantum"
+    },
+    {
+      "area": "ai-cloud-platforms"
     }
   ],
   "evidence": [
@@ -175,10 +179,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Oracle_Corporation",
+      "quote": "Oracle Corporation is an American multinational technology company headquartered in Austin, Texas.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q19900",
+      "quote": "Oracle Corporation (Q19900) — headquarters location: Austin",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q19900",
+      "quote": "Oracle Corporation (Q19900) — official website: https://www.oracle.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Oracle_Corporation",
+      "quote": "Oracle Corporation is an American multinational technology company headquartered in Austin, Texas.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Oracle Corporation is an American multinational technology company headquartered in Austin, Texas.",
+  "hq": "Austin"
 }

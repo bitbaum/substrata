@@ -6,10 +6,11 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q66",
+    "domain": "boeing.com",
+    "cik": "12927",
     "lei": "RVHJWBXLJ1RFUBSY1F30",
     "isin": "US0970231058",
-    "cik": "12927",
-    "qid": "Q66",
     "ticker": "BA",
     "exchange": "US",
     "cusip": "097023105",
@@ -21,6 +22,9 @@
     },
     {
       "area": "defence-tech"
+    },
+    {
+      "area": "launch"
     }
   ],
   "evidence": [
@@ -148,10 +152,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Boeing",
+      "quote": "The Boeing Company is an American multinational corporation that designs and manufactures airplanes, rotorcraft, rockets, satellites, and missiles worldwide.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q66",
+      "quote": "Boeing (Q66) — headquarters location: Chicago",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q66",
+      "quote": "Boeing (Q66) — official website: https://boeing.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:launch",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Boeing",
+      "quote": "The Boeing Company is an American multinational corporation that designs and manufactures airplanes, rotorcraft, rockets, satellites, and missiles worldwide.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "The Boeing Company is an American multinational corporation that designs and manufactures airplanes, rotorcraft, rockets, satellites, and missiles worldwide.",
+  "hq": "Chicago"
 }

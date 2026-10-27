@@ -1,0 +1,85 @@
+{
+  "slug": "cyrusone",
+  "name": "CyrusOne",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q16953751",
+    "domain": "cyrusone.com",
+    "lei": "5493006S177ZK2ZNBU43",
+    "isin": "US23283R1005"
+  },
+  "areas": [
+    {
+      "area": "data-centres"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/CyrusOne",
+      "quote": "CyrusOne, Inc. owns and operates over 40 carrier-neutral data centers in North America, Europe, and Asia, where it provides colocation and peering services.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q16953751",
+      "quote": "CyrusOne (Q16953751) — Wikidata item: Q16953751",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q16953751",
+      "quote": "CyrusOne (Q16953751) — headquarters location: Carrollton",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q16953751",
+      "quote": "CyrusOne (Q16953751) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q16953751",
+      "quote": "CyrusOne (Q16953751) — official website: https://www.cyrusone.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q16953751",
+      "quote": "CyrusOne (Q16953751) — Legal Entity Identifier: 5493006S177ZK2ZNBU43",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:data-centres",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/CyrusOne",
+      "quote": "CyrusOne, Inc. owns and operates over 40 carrier-neutral data centers in North America, Europe, and Asia, where it provides colocation and peering services.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "CyrusOne, Inc. owns and operates over 40 carrier-neutral data centers in North America, Europe, and Asia, where it provides colocation and peering services.",
+  "country": "US",
+  "hq": "Carrollton"
+}

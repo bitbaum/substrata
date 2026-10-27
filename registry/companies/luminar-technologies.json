@@ -1,0 +1,105 @@
+{
+  "slug": "luminar-technologies",
+  "name": "Luminar Technologies",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q106240666",
+    "domain": "luminartech.com",
+    "cik": "1781531",
+    "lei": "549300AVGXLDWYMI4298",
+    "isin": "US5504243032"
+  },
+  "areas": [
+    {
+      "area": "robot-sensors"
+    },
+    {
+      "area": "autonomous-vehicles"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Luminar_Technologies",
+      "quote": "Luminar Technologies Inc. was an American technology company that developed vision-based lidar and machine perception technologies, primarily for self-driving cars.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q106240666",
+      "quote": "Luminar Technologies (Q106240666) — Wikidata item: Q106240666",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q106240666",
+      "quote": "Luminar Technologies (Q106240666) — headquarters location: Orlando",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q106240666",
+      "quote": "Luminar Technologies (Q106240666) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q106240666",
+      "quote": "Luminar Technologies (Q106240666) — official website: https://www.luminartech.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q106240666",
+      "quote": "Luminar Technologies (Q106240666) — SEC Central Index Key: 1781531",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q106240666",
+      "quote": "Luminar Technologies (Q106240666) — Legal Entity Identifier: 549300AVGXLDWYMI4298",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:robot-sensors",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Luminar_Technologies",
+      "quote": "Luminar Technologies Inc. was an American technology company that developed vision-based lidar and machine perception technologies, primarily for self-driving cars.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Luminar_Technologies",
+      "quote": "Luminar Technologies Inc. was an American technology company that developed vision-based lidar and machine perception technologies, primarily for self-driving cars.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Luminar Technologies Inc. was an American technology company that developed vision-based lidar and machine perception technologies, primarily for self-driving cars.",
+  "country": "US",
+  "hq": "Orlando"
+}

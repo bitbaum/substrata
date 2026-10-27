@@ -1,0 +1,66 @@
+{
+  "slug": "deeproute-ai",
+  "name": "DeepRoute.ai",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q111943403"
+  },
+  "areas": [
+    {
+      "area": "autonomous-vehicles"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/DeepRoute.ai",
+      "quote": "ai is a Chinese autonomous driving company founded in 2019 and headquartered in Shenzhen, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q111943403",
+      "quote": "DeepRoute.ai (Q111943403) — Wikidata item: Q111943403",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q111943403",
+      "quote": "DeepRoute.ai (Q111943403) — headquarters location: Shenzhen",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q111943403",
+      "quote": "DeepRoute.ai (Q111943403) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/DeepRoute.ai",
+      "quote": "ai is a Chinese autonomous driving company founded in 2019 and headquartered in Shenzhen, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "ai is a Chinese autonomous driving company founded in 2019 and headquartered in Shenzhen, China.",
+  "country": "CN",
+  "hq": "Shenzhen"
+}

@@ -1,0 +1,48 @@
+{
+  "slug": "microsoft-ai",
+  "name": "Microsoft AI",
+  "aliases": [],
+  "kind": "subsidiary",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q125891217"
+  },
+  "areas": [
+    {
+      "area": "frontier-labs"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Microsoft_AI",
+      "quote": "Microsoft AI (MAI) is an American artificial intelligence (AI) research laboratory which serves as a division of Microsoft.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q125891217",
+      "quote": "Microsoft AI (Q125891217) — Wikidata item: Q125891217",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:frontier-labs",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Microsoft_AI",
+      "quote": "Microsoft AI (MAI) is an American artificial intelligence (AI) research laboratory which serves as a division of Microsoft.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Microsoft AI (MAI) is an American artificial intelligence (AI) research laboratory which serves as a division of Microsoft."
+}

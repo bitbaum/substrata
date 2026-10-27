@@ -1,0 +1,94 @@
+{
+  "slug": "entergy",
+  "name": "Entergy",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q1344587",
+    "domain": "entergy.com",
+    "cik": "65984",
+    "lei": "4XM3TW50JULSLG8BNC79",
+    "isin": "US29364G1031"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Entergy",
+      "quote": "Entergy Corporation is an American energy company engaged in electric power production and retail distribution operations in the Deep South of the United States.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1344587",
+      "quote": "Entergy (Q1344587) — Wikidata item: Q1344587",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1344587",
+      "quote": "Entergy (Q1344587) — headquarters location: New Orleans",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1344587",
+      "quote": "Entergy (Q1344587) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1344587",
+      "quote": "Entergy (Q1344587) — official website: https://www.entergy.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1344587",
+      "quote": "Entergy (Q1344587) — SEC Central Index Key: 65984",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1344587",
+      "quote": "Entergy (Q1344587) — Legal Entity Identifier: 4XM3TW50JULSLG8BNC79",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:power-storage-grid",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Entergy",
+      "quote": "Entergy Corporation is an American energy company engaged in electric power production and retail distribution operations in the Deep South of the United States.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Entergy Corporation is an American energy company engaged in electric power production and retail distribution operations in the Deep South of the United States.",
+  "country": "US",
+  "hq": "New Orleans"
+}

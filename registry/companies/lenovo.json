@@ -1,0 +1,76 @@
+{
+  "slug": "lenovo",
+  "name": "Lenovo",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q14799",
+    "domain": "lenovo.com",
+    "isin": "HK0992009065"
+  },
+  "areas": [
+    {
+      "area": "ai-cloud-platforms"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Lenovo",
+      "quote": "Lenovo Group Limited, trading as Lenovo, is a Hong Kong–based Chinese multinational corporation and technology company specializing in designing, manufacturing, and marketing consumer electronics, personal computers, software, servers, converged and hyperconverged infrastructure solutions, and related services.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q14799",
+      "quote": "Lenovo (Q14799) — Wikidata item: Q14799",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q14799",
+      "quote": "Lenovo (Q14799) — headquarters location: Beijing",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q14799",
+      "quote": "Lenovo (Q14799) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q14799",
+      "quote": "Lenovo (Q14799) — official website: https://www.lenovo.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Lenovo",
+      "quote": "Lenovo Group Limited, trading as Lenovo, is a Hong Kong–based Chinese multinational corporation and technology company specializing in designing, manufacturing, and marketing consumer electronics, personal computers, software, servers, converged and hyperconverged infrastructure solutions, and related services.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Lenovo Group Limited, trading as Lenovo, is a Hong Kong–based Chinese multinational corporation and technology company specializing in designing, manufacturing, and marketing consumer electronics, personal computers, software, servers, converged and hyperconverged infrastructure solutions, and related services.",
+  "country": "CN",
+  "hq": "Beijing"
+}

@@ -6,6 +6,10 @@
   "status": "active",
   "country": "JP",
   "ids": {
+    "qid": "Q53238",
+    "domain": "hitachi.com",
+    "lei": "549300T6IPOCDWLKC615",
+    "isin": "JP3788600009",
     "ticker": "6501",
     "exchange": "JP",
     "cusip": "J20454112"
@@ -16,6 +20,12 @@
     },
     {
       "area": "quantum"
+    },
+    {
+      "area": "grid-equipment"
+    },
+    {
+      "area": "ai-software-tooling"
     }
   ],
   "evidence": [
@@ -74,10 +84,68 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hitachi",
+      "quote": "Hitachi, Ltd. is a Japanese multinational conglomerate founded in 1910 and headquartered in Chiyoda, Tokyo.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q53238",
+      "quote": "Hitachi (Q53238) — Wikidata item: Q53238",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q53238",
+      "quote": "Hitachi (Q53238) — headquarters location: Marunouchi",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q53238",
+      "quote": "Hitachi (Q53238) — official website: https://www.hitachi.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q53238",
+      "quote": "Hitachi (Q53238) — Legal Entity Identifier: 549300T6IPOCDWLKC615",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hitachi",
+      "quote": "Hitachi, Ltd. is a Japanese multinational conglomerate founded in 1910 and headquartered in Chiyoda, Tokyo.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hitachi",
+      "quote": "Hitachi, Ltd. is a Japanese multinational conglomerate founded in 1910 and headquartered in Chiyoda, Tokyo.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Hitachi, Ltd. is a Japanese multinational conglomerate founded in 1910 and headquartered in Chiyoda, Tokyo.",
+  "hq": "Marunouchi"
 }

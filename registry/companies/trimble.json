@@ -6,13 +6,14 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q2297063",
+    "domain": "trimble.com",
+    "cik": "864749",
     "lei": "549300E2MI7NSZFQWS19",
     "isin": "US8962391004",
     "ticker": "TRMB",
     "exchange": "US",
     "cusip": "896239100",
-    "cik": "864749",
-    "qid": "Q2297063",
     "sedol": "2903958"
   },
   "areas": [
@@ -24,6 +25,9 @@
     },
     {
       "area": "mobility"
+    },
+    {
+      "area": "robot-sensors"
     }
   ],
   "evidence": [
@@ -151,10 +155,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Trimble_Inc.",
+      "quote": "Trimble Inc. is an American software, hardware, and services technology company that was founded in 1978.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2297063",
+      "quote": "Trimble (Q2297063) — headquarters location: Westminster",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2297063",
+      "quote": "Trimble (Q2297063) — official website: http://www.trimble.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:robot-sensors",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Trimble_Inc.",
+      "quote": "Trimble Inc. is an American software, hardware, and services technology company that was founded in 1978.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Trimble Inc. is an American software, hardware, and services technology company that was founded in 1978.",
+  "hq": "Westminster"
 }

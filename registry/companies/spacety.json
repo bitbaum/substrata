@@ -1,0 +1,75 @@
+{
+  "slug": "spacety",
+  "name": "Spacety",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q111386234",
+    "domain": "spacety.com"
+  },
+  "areas": [
+    {
+      "area": "satellites"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Spacety",
+      "quote": "Spacety, officially called Changsha Tianyi Space Science and Technology Research Institute Co.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q111386234",
+      "quote": "Changsha Tianyi Space Science and Technology Research Institute Co. Ltd. (Q111386234) — Wikidata item: Q111386234",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q111386234",
+      "quote": "Changsha Tianyi Space Science and Technology Research Institute Co. Ltd. (Q111386234) — headquarters location: Changsha",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q111386234",
+      "quote": "Changsha Tianyi Space Science and Technology Research Institute Co. Ltd. (Q111386234) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q111386234",
+      "quote": "Changsha Tianyi Space Science and Technology Research Institute Co. Ltd. (Q111386234) — official website: http://www.spacety.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:satellites",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Spacety",
+      "quote": "Spacety, officially called Changsha Tianyi Space Science and Technology Research Institute Co.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Spacety, officially called Changsha Tianyi Space Science and Technology Research Institute Co.",
+  "country": "CN",
+  "hq": "Changsha"
+}

@@ -1,0 +1,85 @@
+{
+  "slug": "constellation-energy",
+  "name": "Constellation Energy",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q259195",
+    "domain": "constellation.com",
+    "lei": "549300F8Y20RYGNGV346",
+    "isin": "US2103711006"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Constellation_Energy",
+      "quote": "Constellation Energy Corporation is an American energy company headquartered in Baltimore, Maryland.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q259195",
+      "quote": "Constellation Energy (Q259195) — Wikidata item: Q259195",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q259195",
+      "quote": "Constellation Energy (Q259195) — headquarters location: Baltimore",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q259195",
+      "quote": "Constellation Energy (Q259195) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q259195",
+      "quote": "Constellation Energy (Q259195) — official website: https://www.constellation.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q259195",
+      "quote": "Constellation Energy (Q259195) — Legal Entity Identifier: 549300F8Y20RYGNGV346",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:power-storage-grid",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Constellation_Energy",
+      "quote": "Constellation Energy Corporation is an American energy company headquartered in Baltimore, Maryland.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Constellation Energy Corporation is an American energy company headquartered in Baltimore, Maryland.",
+  "country": "US",
+  "hq": "Baltimore"
+}

@@ -1,0 +1,85 @@
+{
+  "slug": "soitec",
+  "name": "Soitec",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q3488995",
+    "domain": "soitec.com",
+    "lei": "969500ZR92SQCU9TST26",
+    "isin": "FR0013227113"
+  },
+  "areas": [
+    {
+      "area": "wafers-substrates"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Soitec",
+      "quote": "Soitec is a French multinational corporation that manufactures substrates used in the manufacturing of semiconductors.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q3488995",
+      "quote": "Soitec (Q3488995) — Wikidata item: Q3488995",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q3488995",
+      "quote": "Soitec (Q3488995) — headquarters location: Bernin",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q3488995",
+      "quote": "Soitec (Q3488995) — country (ISO 3166-1 alpha-2): FR",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q3488995",
+      "quote": "Soitec (Q3488995) — official website: https://www.soitec.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q3488995",
+      "quote": "Soitec (Q3488995) — Legal Entity Identifier: 969500ZR92SQCU9TST26",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:wafers-substrates",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Soitec",
+      "quote": "Soitec is a French multinational corporation that manufactures substrates used in the manufacturing of semiconductors.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Soitec is a French multinational corporation that manufactures substrates used in the manufacturing of semiconductors.",
+  "country": "FR",
+  "hq": "Bernin"
+}

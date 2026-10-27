@@ -6,13 +6,14 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q780442",
+    "domain": "uber.com",
+    "cik": "1543151",
     "lei": "549300B2FTG34FILDR98",
     "isin": "US90353T1007",
     "ticker": "UBER",
     "exchange": "US",
     "sedol": "BK6N347",
-    "cik": "1543151",
-    "qid": "Q780442",
     "cusip": "90353T100"
   },
   "areas": [
@@ -21,6 +22,9 @@
     },
     {
       "area": "mobility"
+    },
+    {
+      "area": "autonomous-vehicles"
     }
   ],
   "evidence": [
@@ -124,10 +128,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Uber",
+      "quote": "Uber Technologies, Inc. is an American multinational transportation company that provides ride-hailing services, courier services, food delivery, and freight transport.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q780442",
+      "quote": "Uber (Q780442) — headquarters location: San Francisco",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q780442",
+      "quote": "Uber (Q780442) — official website: https://www.uber.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Uber",
+      "quote": "Uber Technologies, Inc. is an American multinational transportation company that provides ride-hailing services, courier services, food delivery, and freight transport.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Uber Technologies, Inc. is an American multinational transportation company that provides ride-hailing services, courier services, food delivery, and freight transport.",
+  "hq": "San Francisco"
 }

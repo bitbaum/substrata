@@ -6,13 +6,14 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q898208",
+    "domain": "honeywell.com",
+    "cik": "773840",
     "lei": "ISRPG12PN4EIEOEMW547",
     "isin": "US4385162056",
     "ticker": "HON",
     "exchange": "US",
     "cusip": "438516106",
-    "cik": "773840",
-    "qid": "Q898208",
     "sedol": "BN7RHC5"
   },
   "areas": [
@@ -24,6 +25,9 @@
     },
     {
       "area": "quantum"
+    },
+    {
+      "area": "quantum-computing"
     }
   ],
   "evidence": [
@@ -139,10 +143,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Honeywell",
+      "quote": "Honeywell International Inc. was an American publicly traded, multinational automation corporation headquartered in Charlotte, North Carolina.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q898208",
+      "quote": "Honeywell (Q898208) — headquarters location: Charlotte",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q898208",
+      "quote": "Honeywell (Q898208) — official website: https://www.honeywell.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:quantum-computing",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Honeywell",
+      "quote": "Honeywell International Inc. was an American publicly traded, multinational automation corporation headquartered in Charlotte, North Carolina.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Honeywell International Inc. was an American publicly traded, multinational automation corporation headquartered in Charlotte, North Carolina.",
+  "hq": "Charlotte"
 }

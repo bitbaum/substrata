@@ -1,0 +1,75 @@
+{
+  "slug": "deepseek",
+  "name": "DeepSeek",
+  "aliases": [],
+  "kind": "lab",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q131577453",
+    "domain": "deepseek.com"
+  },
+  "areas": [
+    {
+      "area": "frontier-labs"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/DeepSeek",
+      "quote": ", doing business as DeepSeek, is a Chinese artificial intelligence (AI) company that develops open weights large language models (LLMs).",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q131577453",
+      "quote": "DeepSeek (Q131577453) — Wikidata item: Q131577453",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q131577453",
+      "quote": "DeepSeek (Q131577453) — headquarters location: Hangzhou",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q131577453",
+      "quote": "DeepSeek (Q131577453) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q131577453",
+      "quote": "DeepSeek (Q131577453) — official website: https://deepseek.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:frontier-labs",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/DeepSeek",
+      "quote": ", doing business as DeepSeek, is a Chinese artificial intelligence (AI) company that develops open weights large language models (LLMs).",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": ", doing business as DeepSeek, is a Chinese artificial intelligence (AI) company that develops open weights large language models (LLMs).",
+  "country": "CN",
+  "hq": "Hangzhou"
+}

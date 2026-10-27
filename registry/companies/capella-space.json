@@ -1,0 +1,75 @@
+{
+  "slug": "capella-space",
+  "name": "Capella Space",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q43401532",
+    "domain": "capellaspace.com",
+    "cik": "1706815"
+  },
+  "areas": [
+    {
+      "area": "satellites"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Capella_Space",
+      "quote": "Capella Space is an American satellite manufacturer and operator.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q43401532",
+      "quote": "Capella Space (Q43401532) — Wikidata item: Q43401532",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q43401532",
+      "quote": "Capella Space (Q43401532) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q43401532",
+      "quote": "Capella Space (Q43401532) — official website: https://www.capellaspace.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q43401532",
+      "quote": "Capella Space (Q43401532) — SEC Central Index Key: 1706815",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:satellites",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Capella_Space",
+      "quote": "Capella Space is an American satellite manufacturer and operator.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Capella Space is an American satellite manufacturer and operator.",
+  "country": "US"
+}

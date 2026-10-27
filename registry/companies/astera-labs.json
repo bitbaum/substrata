@@ -6,9 +6,10 @@
   "status": "active",
   "country": "US",
   "ids": {
-    "cik": "1736297",
     "qid": "Q125028873",
+    "domain": "asteralabs.com",
     "isin": "US04626A1034",
+    "cik": "1736297",
     "ticker": "ALAB",
     "exchange": "US",
     "cusip": "04626A103",
@@ -20,6 +21,9 @@
     },
     {
       "area": "quantum"
+    },
+    {
+      "area": "networking-interconnect"
     }
   ],
   "evidence": [
@@ -136,10 +140,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Astera_Labs",
+      "quote": ", headquartered in San Jose, California, is a fabless manufacturing company that develops connectivity technologies and related software that are used in data centers serving the artificial intelligence and cloud-computing markets.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q125028873",
+      "quote": "Astera Labs (Q125028873) — headquarters location: Santa Clara",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q125028873",
+      "quote": "Astera Labs (Q125028873) — official website: https://www.asteralabs.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:networking-interconnect",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Astera_Labs",
+      "quote": ", headquartered in San Jose, California, is a fabless manufacturing company that develops connectivity technologies and related software that are used in data centers serving the artificial intelligence and cloud-computing markets.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": ", headquartered in San Jose, California, is a fabless manufacturing company that develops connectivity technologies and related software that are used in data centers serving the artificial intelligence and cloud-computing markets.",
+  "hq": "Santa Clara"
 }

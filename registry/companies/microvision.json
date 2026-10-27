@@ -1,0 +1,48 @@
+{
+  "slug": "microvision",
+  "name": "MicroVision",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q1475303"
+  },
+  "areas": [
+    {
+      "area": "robot-sensors"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Microvision",
+      "quote": "The Microvision is the first handheld game console that used interchangeable cartridges and in that sense is reprogrammable.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1475303",
+      "quote": "Microvision (Q1475303) — Wikidata item: Q1475303",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:robot-sensors",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Microvision",
+      "quote": "The Microvision is the first handheld game console that used interchangeable cartridges and in that sense is reprogrammable.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "The Microvision is the first handheld game console that used interchangeable cartridges and in that sense is reprogrammable."
+}

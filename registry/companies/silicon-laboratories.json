@@ -6,10 +6,11 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q2286044",
+    "domain": "silabs.com",
+    "cik": "1038074",
     "lei": "4PRDF8Q9TDHRVZKZSZ47",
     "isin": "US8269191024",
-    "cik": "1038074",
-    "qid": "Q2286044",
     "ticker": "SLAB",
     "exchange": "US",
     "cusip": "826919102",
@@ -18,6 +19,9 @@
   "areas": [
     {
       "area": "compute-semiconductors"
+    },
+    {
+      "area": "silicon-photonics"
     }
   ],
   "evidence": [
@@ -109,10 +113,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Silicon_Labs",
+      "quote": ", commonly referred to as Silicon Labs, is a fabless global technology company that designs and manufactures semiconductors, other silicon devices and software, which it sells to electronics design engineers and manufacturers in Internet of Things (IoT) infrastructure worldwide.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2286044",
+      "quote": "Silicon Laboratories (Q2286044) — headquarters location: Austin",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2286044",
+      "quote": "Silicon Laboratories (Q2286044) — official website: http://www.silabs.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:silicon-photonics",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Silicon_Labs",
+      "quote": ", commonly referred to as Silicon Labs, is a fabless global technology company that designs and manufactures semiconductors, other silicon devices and software, which it sells to electronics design engineers and manufacturers in Internet of Things (IoT) infrastructure worldwide.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": ", commonly referred to as Silicon Labs, is a fabless global technology company that designs and manufactures semiconductors, other silicon devices and software, which it sells to electronics design engineers and manufacturers in Internet of Things (IoT) infrastructure worldwide.",
+  "hq": "Austin"
 }

@@ -1,0 +1,94 @@
+{
+  "slug": "vistra-corp",
+  "name": "Vistra Corp.",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q104158381",
+    "domain": "vistracorp.com",
+    "cik": "1692819",
+    "lei": "549300KP43CPCUJOOG15",
+    "isin": "US92840M1027"
+  },
+  "areas": [
+    {
+      "area": "power-storage-grid"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Vistra_Corp.",
+      "quote": "Vistra Corp. is an integrated retail electricity and power generation company based in Irving, Texas.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q104158381",
+      "quote": "Vistra (Q104158381) — Wikidata item: Q104158381",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q104158381",
+      "quote": "Vistra (Q104158381) — headquarters location: Irving",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q104158381",
+      "quote": "Vistra (Q104158381) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q104158381",
+      "quote": "Vistra (Q104158381) — official website: https://www.vistracorp.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q104158381",
+      "quote": "Vistra (Q104158381) — SEC Central Index Key: 1692819",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q104158381",
+      "quote": "Vistra (Q104158381) — Legal Entity Identifier: 549300KP43CPCUJOOG15",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:power-storage-grid",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Vistra_Corp.",
+      "quote": "Vistra Corp. is an integrated retail electricity and power generation company based in Irving, Texas.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Vistra Corp. is an integrated retail electricity and power generation company based in Irving, Texas.",
+  "country": "US",
+  "hq": "Irving"
+}

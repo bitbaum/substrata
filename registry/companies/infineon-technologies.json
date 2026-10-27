@@ -6,6 +6,10 @@
   "status": "active",
   "country": "DE",
   "ids": {
+    "qid": "Q311394",
+    "domain": "infineon.com",
+    "lei": "TSI2PJM6EPETEQ4X1U25",
+    "isin": "DE0006231004",
     "ticker": "IFX",
     "exchange": "GR",
     "sedol": "5889505",
@@ -23,6 +27,12 @@
     },
     {
       "area": "quantum"
+    },
+    {
+      "area": "foundry"
+    },
+    {
+      "area": "power-semiconductors"
     }
   ],
   "evidence": [
@@ -129,10 +139,68 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Infineon_Technologies",
+      "quote": "Infineon Technologies AG is a German company which designs and manufactures semiconductor devices.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q311394",
+      "quote": "Infineon Technologies (Q311394) — Wikidata item: Q311394",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q311394",
+      "quote": "Infineon Technologies (Q311394) — headquarters location: Neubiberg",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q311394",
+      "quote": "Infineon Technologies (Q311394) — official website: https://www.infineon.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q311394",
+      "quote": "Infineon Technologies (Q311394) — Legal Entity Identifier: TSI2PJM6EPETEQ4X1U25",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:foundry",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Infineon_Technologies",
+      "quote": "Infineon Technologies AG is a German company which designs and manufactures semiconductor devices.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:power-semiconductors",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Infineon_Technologies",
+      "quote": "Infineon Technologies AG is a German company which designs and manufactures semiconductor devices.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Infineon Technologies AG is a German company which designs and manufactures semiconductor devices.",
+  "hq": "Neubiberg"
 }

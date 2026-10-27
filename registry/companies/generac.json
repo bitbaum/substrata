@@ -6,10 +6,11 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q5531627",
+    "domain": "generac.com",
+    "cik": "1474735",
     "lei": "529900S2H2AHJHSFFI84",
     "isin": "US3687361044",
-    "cik": "1474735",
-    "qid": "Q5531627",
     "ticker": "GNRC",
     "exchange": "US",
     "cusip": "368736104"
@@ -17,6 +18,9 @@
   "areas": [
     {
       "area": "power-storage-grid"
+    },
+    {
+      "area": "data-centre-cooling"
     }
   ],
   "evidence": [
@@ -120,10 +124,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Generac",
+      "quote": ", commonly referred to as Generac, is an American manufacturer of backup power generation products for residential, light commercial, and industrial markets.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5531627",
+      "quote": "Generac Holdings Inc. (Q5531627) — headquarters location: Waukesha",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5531627",
+      "quote": "Generac Holdings Inc. (Q5531627) — official website: http://www.generac.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:data-centre-cooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Generac",
+      "quote": ", commonly referred to as Generac, is an American manufacturer of backup power generation products for residential, light commercial, and industrial markets.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": ", commonly referred to as Generac, is an American manufacturer of backup power generation products for residential, light commercial, and industrial markets.",
+  "hq": "Waukesha"
 }

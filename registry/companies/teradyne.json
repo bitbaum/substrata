@@ -6,13 +6,14 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q2404292",
+    "domain": "teradyne.com",
+    "cik": "97210",
     "lei": "C3X4YJ278QNZHRJULN75",
     "isin": "US8807701029",
     "ticker": "TER",
     "exchange": "US",
-    "cusip": "880770102",
-    "cik": "97210",
-    "qid": "Q2404292"
+    "cusip": "880770102"
   },
   "areas": [
     {
@@ -23,6 +24,12 @@
     },
     {
       "area": "quantum"
+    },
+    {
+      "area": "advanced-packaging"
+    },
+    {
+      "area": "industrial-robots"
     }
   ],
   "evidence": [
@@ -162,10 +169,52 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Teradyne",
+      "quote": "Teradyne, Inc. is an American automatic test equipment (ATE) designer and manufacturer based in North Reading, Massachusetts.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2404292",
+      "quote": "Teradyne (Q2404292) — headquarters location: North Reading",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2404292",
+      "quote": "Teradyne (Q2404292) — official website: https://www.teradyne.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:advanced-packaging",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Teradyne",
+      "quote": "Teradyne, Inc. is an American automatic test equipment (ATE) designer and manufacturer based in North Reading, Massachusetts.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:industrial-robots",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Teradyne",
+      "quote": "Teradyne, Inc. is an American automatic test equipment (ATE) designer and manufacturer based in North Reading, Massachusetts.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Teradyne, Inc. is an American automatic test equipment (ATE) designer and manufacturer based in North Reading, Massachusetts.",
+  "hq": "North Reading"
 }

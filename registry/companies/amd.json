@@ -10,14 +10,15 @@
   "status": "active",
   "country": "US",
   "ids": {
-    "ticker": "AMD",
-    "exchange": "Nasdaq",
+    "qid": "Q128896",
+    "domain": "amd.com",
     "cik": "2488",
     "lei": "R2I72C950HOYXII45366",
     "isin": "US0079031078",
+    "ticker": "AMD",
+    "exchange": "Nasdaq",
     "cusip": "007903107",
-    "sedol": "2007849",
-    "qid": "Q128896"
+    "sedol": "2007849"
   },
   "areas": [
     {
@@ -31,6 +32,9 @@
     },
     {
       "area": "quantum"
+    },
+    {
+      "area": "ai-accelerators"
     }
   ],
   "evidence": [
@@ -205,10 +209,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/AMD",
+      "quote": "Advanced Micro Devices, Inc. (AMD) is an American multinational semiconductor company headquartered in Santa Clara, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q128896",
+      "quote": "AMD (Q128896) — headquarters location: Santa Clara",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q128896",
+      "quote": "AMD (Q128896) — official website: https://www.amd.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-accelerators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/AMD",
+      "quote": "Advanced Micro Devices, Inc. (AMD) is an American multinational semiconductor company headquartered in Santa Clara, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Advanced Micro Devices, Inc. (AMD) is an American multinational semiconductor company headquartered in Santa Clara, California.",
+  "hq": "Santa Clara"
 }

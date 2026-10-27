@@ -1,0 +1,75 @@
+{
+  "slug": "may-mobility",
+  "name": "May Mobility",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q137049542",
+    "domain": "maymobility.com"
+  },
+  "areas": [
+    {
+      "area": "autonomous-vehicles"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/May_Mobility",
+      "quote": "May Mobility, Inc is an American technology company that develops and operates autonomous vehicle and robotaxi services.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q137049542",
+      "quote": "May Mobility (Q137049542) — Wikidata item: Q137049542",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q137049542",
+      "quote": "May Mobility (Q137049542) — headquarters location: Ann Arbor",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q137049542",
+      "quote": "May Mobility (Q137049542) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q137049542",
+      "quote": "May Mobility (Q137049542) — official website: https://maymobility.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/May_Mobility",
+      "quote": "May Mobility, Inc is an American technology company that develops and operates autonomous vehicle and robotaxi services.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "May Mobility, Inc is an American technology company that develops and operates autonomous vehicle and robotaxi services.",
+  "country": "US",
+  "hq": "Ann Arbor"
+}

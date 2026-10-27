@@ -1,0 +1,84 @@
+{
+  "slug": "buck-institute-for-research-on-aging",
+  "name": "Buck Institute for Research on Aging",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q4982877",
+    "domain": "buckinstitute.org",
+    "lei": "549300KOAYBTXOF3DD90"
+  },
+  "areas": [
+    {
+      "area": "longevity"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Buck_Institute_for_Research_on_Aging",
+      "quote": "The Buck Institute for Research on Aging is an independent nonprofit biomedical research institute located in Novato, California, that researches aging and age-related disease.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4982877",
+      "quote": "Buck Institute for Research on Aging (Q4982877) — Wikidata item: Q4982877",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4982877",
+      "quote": "Buck Institute for Research on Aging (Q4982877) — headquarters location: Los Angeles",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4982877",
+      "quote": "Buck Institute for Research on Aging (Q4982877) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4982877",
+      "quote": "Buck Institute for Research on Aging (Q4982877) — official website: http://www.buckinstitute.org/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q4982877",
+      "quote": "Buck Institute for Research on Aging (Q4982877) — Legal Entity Identifier: 549300KOAYBTXOF3DD90",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:longevity",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Buck_Institute_for_Research_on_Aging",
+      "quote": "The Buck Institute for Research on Aging is an independent nonprofit biomedical research institute located in Novato, California, that researches aging and age-related disease.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "The Buck Institute for Research on Aging is an independent nonprofit biomedical research institute located in Novato, California, that researches aging and age-related disease.",
+  "country": "US",
+  "hq": "Los Angeles"
+}

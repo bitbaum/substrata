@@ -6,14 +6,21 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q851641",
+    "domain": "equinix.com",
+    "cik": "1101239",
+    "lei": "549300EVUN2BTLJ3GT74",
+    "isin": "US29444U5020",
     "ticker": "EQIX",
     "exchange": "US",
-    "sedol": "BVLZX12",
-    "cik": "1101239"
+    "sedol": "BVLZX12"
   },
   "areas": [
     {
       "area": "frontier-ai"
+    },
+    {
+      "area": "data-centres"
     }
   ],
   "evidence": [
@@ -83,10 +90,60 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Equinix",
+      "quote": ", is an American multinational internet and data center company headquartered in Redwood City, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q851641",
+      "quote": "Equinix (Q851641) — Wikidata item: Q851641",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q851641",
+      "quote": "Equinix (Q851641) — headquarters location: Redwood City",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q851641",
+      "quote": "Equinix (Q851641) — official website: https://www.equinix.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q851641",
+      "quote": "Equinix (Q851641) — Legal Entity Identifier: 549300EVUN2BTLJ3GT74",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:data-centres",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Equinix",
+      "quote": ", is an American multinational internet and data center company headquartered in Redwood City, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": ", is an American multinational internet and data center company headquartered in Redwood City, California.",
+  "hq": "Redwood City"
 }

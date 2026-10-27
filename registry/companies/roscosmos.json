@@ -1,0 +1,75 @@
+{
+  "slug": "roscosmos",
+  "name": "Roscosmos",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q190795",
+    "domain": "roscosmos.ru"
+  },
+  "areas": [
+    {
+      "area": "launch"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Roscosmos",
+      "quote": "The State Corporation for Space Activities \"Roscosmos\", is a state corporation of the Russian Federation responsible for space flights, cosmonautics programs, and aerospace research.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q190795",
+      "quote": "Roscosmos State Corporation (Q190795) — Wikidata item: Q190795",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q190795",
+      "quote": "Roscosmos State Corporation (Q190795) — headquarters location: Moscow",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q190795",
+      "quote": "Roscosmos State Corporation (Q190795) — country (ISO 3166-1 alpha-2): RU",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q190795",
+      "quote": "Roscosmos State Corporation (Q190795) — official website: https://www.roscosmos.ru/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:launch",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Roscosmos",
+      "quote": "The State Corporation for Space Activities \"Roscosmos\", is a state corporation of the Russian Federation responsible for space flights, cosmonautics programs, and aerospace research.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "The State Corporation for Space Activities \"Roscosmos\", is a state corporation of the Russian Federation responsible for space flights, cosmonautics programs, and aerospace research.",
+  "country": "RU",
+  "hq": "Moscow"
+}

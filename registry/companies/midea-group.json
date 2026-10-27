@@ -1,0 +1,76 @@
+{
+  "slug": "midea-group",
+  "name": "Midea Group",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q2609533",
+    "domain": "midea.com",
+    "isin": "CNE100001QQ5"
+  },
+  "areas": [
+    {
+      "area": "industrial-robots"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Midea_Group",
+      "quote": "Midea Group is a Chinese electrical appliance manufacturer, headquartered in Beijiao town, Shunde District, Foshan, Guangdong and listed on Shenzhen Stock Exchange since 2013.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2609533",
+      "quote": "Midea (Q2609533) — Wikidata item: Q2609533",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2609533",
+      "quote": "Midea (Q2609533) — headquarters location: Beijiao Town",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2609533",
+      "quote": "Midea (Q2609533) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q2609533",
+      "quote": "Midea (Q2609533) — official website: https://www.midea.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:industrial-robots",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Midea_Group",
+      "quote": "Midea Group is a Chinese electrical appliance manufacturer, headquartered in Beijiao town, Shunde District, Foshan, Guangdong and listed on Shenzhen Stock Exchange since 2013.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Midea Group is a Chinese electrical appliance manufacturer, headquartered in Beijiao town, Shunde District, Foshan, Guangdong and listed on Shenzhen Stock Exchange since 2013.",
+  "country": "CN",
+  "hq": "Beijiao Town"
+}

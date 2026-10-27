@@ -6,10 +6,11 @@
   "status": "active",
   "country": "US",
   "ids": {
-    "lei": "549300MCTENUWL2GJL61",
-    "isin": "US00108J1097",
-    "cik": "1680062",
     "qid": "Q125936376",
+    "domain": "acmr.com",
+    "isin": "US00108J1097",
+    "lei": "549300MCTENUWL2GJL61",
+    "cik": "1680062",
     "ticker": "ACMR",
     "exchange": "US",
     "cusip": "00108J109"
@@ -17,6 +18,9 @@
   "areas": [
     {
       "area": "compute-semiconductors"
+    },
+    {
+      "area": "semiconductor-equipment"
     }
   ],
   "evidence": [
@@ -108,10 +112,35 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/ACM_Research",
+      "quote": "ACM Research, Inc. (ACMR) is a publicly traded American semiconductor company that engages in the manufacture and sale of single-wafer wet cleaning equipment used to improve product yield.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q125936376",
+      "quote": "ACM Research (Q125936376) — official website: https://www.acmr.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:semiconductor-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/ACM_Research",
+      "quote": "ACM Research, Inc. (ACMR) is a publicly traded American semiconductor company that engages in the manufacture and sale of single-wafer wet cleaning equipment used to improve product yield.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "ACM Research, Inc. (ACMR) is a publicly traded American semiconductor company that engages in the manufacture and sale of single-wafer wet cleaning equipment used to improve product yield."
 }

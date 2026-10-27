@@ -1,0 +1,85 @@
+{
+  "slug": "ciena",
+  "name": "Ciena",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q1091783",
+    "domain": "ciena.com",
+    "lei": "W0CZ7N0GH8UIGXDM1H41",
+    "isin": "US1717793095"
+  },
+  "areas": [
+    {
+      "area": "silicon-photonics"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Ciena",
+      "quote": "Ciena Corporation is an American optical networking systems and software company based in Hanover, Maryland.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1091783",
+      "quote": "Ciena (Q1091783) — Wikidata item: Q1091783",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1091783",
+      "quote": "Ciena (Q1091783) — headquarters location: Hanover",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1091783",
+      "quote": "Ciena (Q1091783) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1091783",
+      "quote": "Ciena (Q1091783) — official website: http://www.ciena.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1091783",
+      "quote": "Ciena (Q1091783) — Legal Entity Identifier: W0CZ7N0GH8UIGXDM1H41",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:silicon-photonics",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Ciena",
+      "quote": "Ciena Corporation is an American optical networking systems and software company based in Hanover, Maryland.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Ciena Corporation is an American optical networking systems and software company based in Hanover, Maryland.",
+  "country": "US",
+  "hq": "Hanover"
+}

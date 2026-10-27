@@ -1,0 +1,48 @@
+{
+  "slug": "applied-intuition",
+  "name": "Applied Intuition",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q23761814"
+  },
+  "areas": [
+    {
+      "area": "autonomous-vehicles"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Qasar_Younis",
+      "quote": "Qasar Younis is a Pakistani American businessman and venture capitalist who is the CEO and co-founder of Applied Intuition.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q23761814",
+      "quote": "Qasar Younis (Q23761814) — Wikidata item: Q23761814",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Qasar_Younis",
+      "quote": "Qasar Younis is a Pakistani American businessman and venture capitalist who is the CEO and co-founder of Applied Intuition.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Qasar Younis is a Pakistani American businessman and venture capitalist who is the CEO and co-founder of Applied Intuition."
+}

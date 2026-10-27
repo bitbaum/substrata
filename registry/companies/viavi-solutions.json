@@ -6,6 +6,9 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q28222763",
+    "domain": "viavisolutions.com",
+    "isin": "US9255501051",
     "cik": "912093",
     "ticker": "VIAV",
     "exchange": "US"
@@ -13,6 +16,9 @@
   "areas": [
     {
       "area": "compute-semiconductors"
+    },
+    {
+      "area": "silicon-photonics"
     }
   ],
   "evidence": [
@@ -70,10 +76,52 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Viavi_Solutions",
+      "quote": ", formerly part of JDS Uniphase Corporation (JDSU), is an American network test, measurement and assurance technology company based in Chandler, Arizona.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q28222763",
+      "quote": "VIAVI Solutions (Q28222763) — Wikidata item: Q28222763",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q28222763",
+      "quote": "VIAVI Solutions (Q28222763) — headquarters location: Milpitas",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q28222763",
+      "quote": "VIAVI Solutions (Q28222763) — official website: http://www.viavisolutions.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:silicon-photonics",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Viavi_Solutions",
+      "quote": ", formerly part of JDS Uniphase Corporation (JDSU), is an American network test, measurement and assurance technology company based in Chandler, Arizona.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": ", formerly part of JDS Uniphase Corporation (JDSU), is an American network test, measurement and assurance technology company based in Chandler, Arizona.",
+  "hq": "Milpitas"
 }

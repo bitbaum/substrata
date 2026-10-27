@@ -6,10 +6,11 @@
   "status": "active",
   "country": "US",
   "ids": {
-    "lei": "25490004LNKJ84MFYY24",
-    "isin": "US76954A1034",
-    "cik": "1874178",
     "qid": "Q7338847",
+    "domain": "rivian.com",
+    "isin": "US76954A1034",
+    "lei": "25490004LNKJ84MFYY24",
+    "cik": "1874178",
     "ticker": "RIVN",
     "exchange": "US",
     "cusip": "76954A103",
@@ -18,6 +19,9 @@
   "areas": [
     {
       "area": "mobility"
+    },
+    {
+      "area": "electric-vehicles"
     }
   ],
   "evidence": [
@@ -109,10 +113,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Rivian",
+      "quote": ", is an American electric vehicle manufacturer and automotive technology company founded in 2009.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7338847",
+      "quote": "Rivian Automotive (Q7338847) — headquarters location: Detroit",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q7338847",
+      "quote": "Rivian Automotive (Q7338847) — official website: https://rivian.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:electric-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Rivian",
+      "quote": ", is an American electric vehicle manufacturer and automotive technology company founded in 2009.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": ", is an American electric vehicle manufacturer and automotive technology company founded in 2009.",
+  "hq": "Detroit"
 }

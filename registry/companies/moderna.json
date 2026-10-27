@@ -6,14 +6,21 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q17081612",
+    "domain": "modernatx.com",
+    "cik": "1682852",
+    "lei": "549300EI6OKH5K5Q2G38",
+    "isin": "US60770K1079",
     "ticker": "MRNA",
     "exchange": "US",
-    "sedol": "BGSXTS3",
-    "cik": "1682852"
+    "sedol": "BGSXTS3"
   },
   "areas": [
     {
       "area": "biotech-and-longevity"
+    },
+    {
+      "area": "synthetic-biology"
     }
   ],
   "evidence": [
@@ -83,10 +90,60 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Moderna",
+      "quote": "Moderna, Inc. is an American pharmaceutical and biotechnology company based in Cambridge, Massachusetts, that focuses on RNA therapeutics, primarily mRNA vaccines.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17081612",
+      "quote": "Moderna (Q17081612) — Wikidata item: Q17081612",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17081612",
+      "quote": "Moderna (Q17081612) — headquarters location: Cambridge",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17081612",
+      "quote": "Moderna (Q17081612) — official website: https://www.modernatx.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q17081612",
+      "quote": "Moderna (Q17081612) — Legal Entity Identifier: 549300EI6OKH5K5Q2G38",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:synthetic-biology",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Moderna",
+      "quote": "Moderna, Inc. is an American pharmaceutical and biotechnology company based in Cambridge, Massachusetts, that focuses on RNA therapeutics, primarily mRNA vaccines.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Moderna, Inc. is an American pharmaceutical and biotechnology company based in Cambridge, Massachusetts, that focuses on RNA therapeutics, primarily mRNA vaccines.",
+  "hq": "Cambridge"
 }

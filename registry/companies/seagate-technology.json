@@ -6,10 +6,14 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q705392",
+    "domain": "seagate.com",
+    "cik": "1137789",
+    "lei": "44WLCTE321JACKS7ED43",
+    "isin": "IE00BKVD2N49",
     "ticker": "STX",
     "exchange": "US",
-    "sedol": "BKVD2N4",
-    "cik": "1137789"
+    "sedol": "BKVD2N4"
   },
   "areas": [
     {
@@ -17,6 +21,9 @@
     },
     {
       "area": "frontier-ai"
+    },
+    {
+      "area": "memory"
     }
   ],
   "evidence": [
@@ -86,10 +93,60 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Seagate_Technology",
+      "quote": "Seagate Technology Holdings plc is an international data storage company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q705392",
+      "quote": "Seagate Technology (Q705392) — Wikidata item: Q705392",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q705392",
+      "quote": "Seagate Technology (Q705392) — headquarters location: Cupertino",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q705392",
+      "quote": "Seagate Technology (Q705392) — official website: http://www.seagate.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q705392",
+      "quote": "Seagate Technology (Q705392) — Legal Entity Identifier: 44WLCTE321JACKS7ED43",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:memory",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Seagate_Technology",
+      "quote": "Seagate Technology Holdings plc is an international data storage company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Seagate Technology Holdings plc is an international data storage company.",
+  "hq": "Cupertino"
 }

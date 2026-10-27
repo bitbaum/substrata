@@ -1,0 +1,38 @@
+{
+  "slug": "foxconn",
+  "name": "Foxconn",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {},
+  "areas": [
+    {
+      "area": "data-centres"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Foxconn",
+      "quote": ", Ltd. (鴻海精密工業股份有限公司), doing business as Hon Hai Technology Group (鴻海科技集團) in Taiwan, Foxconn Technology Group (富士康科技集团) in China, and Foxconn (富士康) internationally, is a Taiwanese multinational electronics contract manufacturer established in 1974 with headquarters in Tucheng District, New Taipei City, Taiwan.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:data-centres",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Foxconn",
+      "quote": ", Ltd. (鴻海精密工業股份有限公司), doing business as Hon Hai Technology Group (鴻海科技集團) in Taiwan, Foxconn Technology Group (富士康科技集团) in China, and Foxconn (富士康) internationally, is a Taiwanese multinational electronics contract manufacturer established in 1974 with headquarters in Tucheng District, New Taipei City, Taiwan.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": ", Ltd. (鴻海精密工業股份有限公司), doing business as Hon Hai Technology Group (鴻海科技集團) in Taiwan, Foxconn Technology Group (富士康科技集团) in China, and Foxconn (富士康) internationally, is a Taiwanese multinational electronics contract manufacturer established in 1974 with headquarters in Tucheng District, New Taipei City, Taiwan."
+}

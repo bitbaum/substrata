@@ -1,0 +1,85 @@
+{
+  "slug": "zijin-mining",
+  "name": "Zijin Mining",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q202841",
+    "domain": "es.zijinmining.com",
+    "lei": "836800JRNL2393Z2I561",
+    "isin": "CNE100000502"
+  },
+  "areas": [
+    {
+      "area": "critical-minerals"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Zijin_Mining",
+      "quote": ", Limited is a publicly-traded partly state-owned mining company headquartered in Longyan, Fujian, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q202841",
+      "quote": "Zijin Mining Group (Q202841) — Wikidata item: Q202841",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q202841",
+      "quote": "Zijin Mining Group (Q202841) — headquarters location: Longyan",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q202841",
+      "quote": "Zijin Mining Group (Q202841) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q202841",
+      "quote": "Zijin Mining Group (Q202841) — official website: https://es.zijinmining.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q202841",
+      "quote": "Zijin Mining Group (Q202841) — Legal Entity Identifier: 836800JRNL2393Z2I561",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Zijin_Mining",
+      "quote": ", Limited is a publicly-traded partly state-owned mining company headquartered in Longyan, Fujian, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": ", Limited is a publicly-traded partly state-owned mining company headquartered in Longyan, Fujian, China.",
+  "country": "CN",
+  "hq": "Longyan"
+}

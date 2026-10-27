@@ -6,12 +6,20 @@
   "status": "active",
   "country": "JP",
   "ids": {
+    "qid": "Q123512001",
+    "domain": "resonac.com",
     "ticker": "4004",
     "exchange": "JP"
   },
   "areas": [
     {
       "area": "advanced-materials"
+    },
+    {
+      "area": "advanced-packaging"
+    },
+    {
+      "area": "wafers-substrates"
     }
   ],
   "evidence": [
@@ -57,10 +65,60 @@
       "readOn": "",
       "asOf": "",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Resonac",
+      "quote": "Resonac , formerly Showa Denko K. K. , is a Japanese chemical company producing chemical products and industrial materials.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q123512001",
+      "quote": "Resonac Holdings Corporation (Q123512001) — Wikidata item: Q123512001",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q123512001",
+      "quote": "Resonac Holdings Corporation (Q123512001) — headquarters location: Tokyo",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q123512001",
+      "quote": "Resonac Holdings Corporation (Q123512001) — official website: https://www.resonac.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:advanced-packaging",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Resonac",
+      "quote": "Resonac , formerly Showa Denko K. K. , is a Japanese chemical company producing chemical products and industrial materials.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:wafers-substrates",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Resonac",
+      "quote": "Resonac , formerly Showa Denko K. K. , is a Japanese chemical company producing chemical products and industrial materials.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Resonac , formerly Showa Denko K. K. , is a Japanese chemical company producing chemical products and industrial materials.",
+  "hq": "Tokyo"
 }

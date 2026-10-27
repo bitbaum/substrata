@@ -6,6 +6,10 @@
   "status": "active",
   "country": "KR",
   "ids": {
+    "qid": "Q21120876",
+    "domain": "samsungsdi.co.kr",
+    "lei": "9884002AESDO4YW87G32",
+    "isin": "KR7006401004",
     "ticker": "006400",
     "exchange": "KS",
     "sedol": "6771645",
@@ -17,6 +21,9 @@
     },
     {
       "area": "mobility"
+    },
+    {
+      "area": "energy-storage"
     }
   ],
   "evidence": [
@@ -111,10 +118,60 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Samsung_SDI",
+      "quote": ", Ltd. is a battery and electronic materials manufacturer headquartered in Yongin, Gyeonggi-do, South Korea.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q21120876",
+      "quote": "Samsung SDI (Q21120876) — Wikidata item: Q21120876",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q21120876",
+      "quote": "Samsung SDI (Q21120876) — headquarters location: Yongin",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q21120876",
+      "quote": "Samsung SDI (Q21120876) — official website: http://www.samsungsdi.co.kr",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q21120876",
+      "quote": "Samsung SDI (Q21120876) — Legal Entity Identifier: 9884002AESDO4YW87G32",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:energy-storage",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Samsung_SDI",
+      "quote": ", Ltd. is a battery and electronic materials manufacturer headquartered in Yongin, Gyeonggi-do, South Korea.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": ", Ltd. is a battery and electronic materials manufacturer headquartered in Yongin, Gyeonggi-do, South Korea.",
+  "hq": "Yongin"
 }

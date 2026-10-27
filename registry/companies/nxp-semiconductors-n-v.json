@@ -6,10 +6,14 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q1155668",
+    "domain": "ru.nxp.com",
+    "cik": "1413447",
+    "lei": "724500M9BY5293JDF951",
+    "isin": "NL0009538784",
     "ticker": "NXPI",
     "exchange": "US",
     "sedol": "B505PN7",
-    "cik": "1413447",
     "cusip": "N6596X109"
   },
   "areas": [
@@ -30,6 +34,9 @@
     },
     {
       "area": "quantum"
+    },
+    {
+      "area": "foundry"
     }
   ],
   "evidence": [
@@ -243,10 +250,60 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/NXP_Semiconductors",
+      "quote": "V. is a Dutch semiconductor manufacturing and design company with headquarters in Eindhoven, Netherlands.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1155668",
+      "quote": "NXP Semiconductors (Q1155668) — Wikidata item: Q1155668",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1155668",
+      "quote": "NXP Semiconductors (Q1155668) — headquarters location: Eindhoven",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1155668",
+      "quote": "NXP Semiconductors (Q1155668) — official website: http://www.ru.nxp.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1155668",
+      "quote": "NXP Semiconductors (Q1155668) — Legal Entity Identifier: 724500M9BY5293JDF951",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:foundry",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/NXP_Semiconductors",
+      "quote": "V. is a Dutch semiconductor manufacturing and design company with headquarters in Eindhoven, Netherlands.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "V. is a Dutch semiconductor manufacturing and design company with headquarters in Eindhoven, Netherlands.",
+  "hq": "Eindhoven"
 }

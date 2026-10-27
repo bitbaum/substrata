@@ -1,0 +1,93 @@
+{
+  "slug": "revvity",
+  "name": "Revvity",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q120467527",
+    "domain": "revvity.com",
+    "cik": "31791",
+    "lei": "549300IKL1SDPFI7N655"
+  },
+  "areas": [
+    {
+      "area": "synthetic-biology"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Revvity",
+      "quote": "Revvity, Inc. is a multinational company headquartered in Waltham, Massachusetts, USA, in the life sciences and diagnostics business that is focused on selling to the pharmaceutical and biotechnology industries, especially in relation to approaches making use of new cell therapy or gene therapy developments.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q120467527",
+      "quote": "Revvity Inc. (Q120467527) — Wikidata item: Q120467527",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q120467527",
+      "quote": "Revvity Inc. (Q120467527) — headquarters location: Waltham",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q120467527",
+      "quote": "Revvity Inc. (Q120467527) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q120467527",
+      "quote": "Revvity Inc. (Q120467527) — official website: http://revvity.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q120467527",
+      "quote": "Revvity Inc. (Q120467527) — SEC Central Index Key: 31791",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q120467527",
+      "quote": "Revvity Inc. (Q120467527) — Legal Entity Identifier: 549300IKL1SDPFI7N655",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:synthetic-biology",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Revvity",
+      "quote": "Revvity, Inc. is a multinational company headquartered in Waltham, Massachusetts, USA, in the life sciences and diagnostics business that is focused on selling to the pharmaceutical and biotechnology industries, especially in relation to approaches making use of new cell therapy or gene therapy developments.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Revvity, Inc. is a multinational company headquartered in Waltham, Massachusetts, USA, in the life sciences and diagnostics business that is focused on selling to the pharmaceutical and biotechnology industries, especially in relation to approaches making use of new cell therapy or gene therapy developments.",
+  "country": "US",
+  "hq": "Waltham"
+}

@@ -1,0 +1,57 @@
+{
+  "slug": "last-energy",
+  "name": "Last Energy",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q115518424"
+  },
+  "areas": [
+    {
+      "area": "fission-smr"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Last_Energy",
+      "quote": "Last Energy is an American commercial developer of micro-modular nuclear power plants, established in 2019 by Bret Kugelmass as the commercial spinoff of the Energy Impact Center, an American clean energy research institute.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q115518424",
+      "quote": "Last Energy (Q115518424) — Wikidata item: Q115518424",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q115518424",
+      "quote": "Last Energy (Q115518424) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:fission-smr",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Last_Energy",
+      "quote": "Last Energy is an American commercial developer of micro-modular nuclear power plants, established in 2019 by Bret Kugelmass as the commercial spinoff of the Energy Impact Center, an American clean energy research institute.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Last Energy is an American commercial developer of micro-modular nuclear power plants, established in 2019 by Bret Kugelmass as the commercial spinoff of the Energy Impact Center, an American clean energy research institute.",
+  "country": "US"
+}

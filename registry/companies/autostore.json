@@ -6,16 +6,20 @@
   "status": "active",
   "country": "NO",
   "ids": {
+    "qid": "Q106457791",
+    "domain": "autostoresystem.com",
+    "isin": "BMG0670A1099",
     "ticker": "AUTO",
     "exchange": "NO",
     "sedol": "BN49G27",
-    "qid": "Q106457791",
-    "isin": "BMG0670A1099",
     "cusip": "G0670A109"
   },
   "areas": [
     {
       "area": "robotics"
+    },
+    {
+      "area": "industrial-robots"
     }
   ],
   "evidence": [
@@ -109,10 +113,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country NO as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/AutoStore",
+      "quote": "AutoStore AS is a Norwegian manufacturer of automated storage and retrieval systems (AS/RS), that combine automation, software and AI to enable intelligent fulfillment.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q106457791",
+      "quote": "AutoStore (Q106457791) — headquarters location: Nedre Vats",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q106457791",
+      "quote": "AutoStore (Q106457791) — official website: https://autostoresystem.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:industrial-robots",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/AutoStore",
+      "quote": "AutoStore AS is a Norwegian manufacturer of automated storage and retrieval systems (AS/RS), that combine automation, software and AI to enable intelligent fulfillment.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "AutoStore AS is a Norwegian manufacturer of automated storage and retrieval systems (AS/RS), that combine automation, software and AI to enable intelligent fulfillment.",
+  "hq": "Nedre Vats"
 }

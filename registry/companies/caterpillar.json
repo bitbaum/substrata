@@ -6,17 +6,21 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q459965",
+    "domain": "caterpillar.com",
+    "cik": "18230",
     "lei": "WRJR7GS4GTRECRRTVX92",
     "isin": "US1491231015",
     "ticker": "CAT",
     "exchange": "US",
-    "cusip": "149123101",
-    "cik": "18230",
-    "qid": "Q459965"
+    "cusip": "149123101"
   },
   "areas": [
     {
       "area": "robotics"
+    },
+    {
+      "area": "data-centre-cooling"
     }
   ],
   "evidence": [
@@ -108,10 +112,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Caterpillar_Inc.",
+      "quote": "Caterpillar Inc. is an American manufacturer of construction, mining, and other engineering equipment.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q459965",
+      "quote": "Caterpillar Inc. (Q459965) — headquarters location: Irving",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q459965",
+      "quote": "Caterpillar Inc. (Q459965) — official website: https://www.caterpillar.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:data-centre-cooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Caterpillar_Inc.",
+      "quote": "Caterpillar Inc. is an American manufacturer of construction, mining, and other engineering equipment.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Caterpillar Inc. is an American manufacturer of construction, mining, and other engineering equipment.",
+  "hq": "Irving"
 }

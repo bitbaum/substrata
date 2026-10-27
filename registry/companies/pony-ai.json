@@ -6,12 +6,13 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q65056153",
+    "domain": "pony.ai",
+    "isin": "US7329081084",
     "ticker": "PONY",
     "exchange": "US",
     "cusip": "732908108",
-    "isin": "US7329081084",
     "sedol": "BRWKBD6",
-    "qid": "Q65056153",
     "cik": "1969302"
   },
   "areas": [
@@ -23,6 +24,9 @@
     },
     {
       "area": "mobility"
+    },
+    {
+      "area": "autonomous-vehicles"
     }
   ],
   "evidence": [
@@ -151,10 +155,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Pony.ai",
+      "quote": "Pony AI Inc. is a Chinese autonomous vehicle technology company co-located in Silicon Valley, Beijing, and Guangzhou.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q65056153",
+      "quote": "Pony.ai (Q65056153) — headquarters location: Fremont",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q65056153",
+      "quote": "Pony.ai (Q65056153) — official website: http://www.pony.ai/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Pony.ai",
+      "quote": "Pony AI Inc. is a Chinese autonomous vehicle technology company co-located in Silicon Valley, Beijing, and Guangzhou.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Pony AI Inc. is a Chinese autonomous vehicle technology company co-located in Silicon Valley, Beijing, and Guangzhou.",
+  "hq": "Fremont"
 }

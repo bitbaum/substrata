@@ -1,0 +1,75 @@
+{
+  "slug": "orbex",
+  "name": "Orbex",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q60775638",
+    "domain": "orbex.space"
+  },
+  "areas": [
+    {
+      "area": "launch"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Orbex",
+      "quote": ", or Orbex, was a United Kingdom-based aerospace company that was developing commercial orbital launch vehicles, namely a small rocket called Prime and a medium-lift rocket called Proxima.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q60775638",
+      "quote": "Orbex (Q60775638) — Wikidata item: Q60775638",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q60775638",
+      "quote": "Orbex (Q60775638) — headquarters location: Forres",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q60775638",
+      "quote": "Orbex (Q60775638) — country (ISO 3166-1 alpha-2): GB",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q60775638",
+      "quote": "Orbex (Q60775638) — official website: https://orbex.space/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:launch",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Orbex",
+      "quote": ", or Orbex, was a United Kingdom-based aerospace company that was developing commercial orbital launch vehicles, namely a small rocket called Prime and a medium-lift rocket called Proxima.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": ", or Orbex, was a United Kingdom-based aerospace company that was developing commercial orbital launch vehicles, namely a small rocket called Prime and a medium-lift rocket called Proxima.",
+  "country": "GB",
+  "hq": "Forres"
+}

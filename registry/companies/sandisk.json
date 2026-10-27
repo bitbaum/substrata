@@ -13,6 +13,9 @@
   "areas": [
     {
       "area": "compute-semiconductors"
+    },
+    {
+      "area": "memory"
     }
   ],
   "evidence": [
@@ -70,10 +73,27 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Sandisk",
+      "quote": "Sandisk Corporation is an American multinational computer semiconductor company based in Milpitas, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:memory",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Sandisk",
+      "quote": "Sandisk Corporation is an American multinational computer semiconductor company based in Milpitas, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Sandisk Corporation is an American multinational computer semiconductor company based in Milpitas, California."
 }

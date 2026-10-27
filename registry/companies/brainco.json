@@ -1,0 +1,48 @@
+{
+  "slug": "brainco",
+  "name": "BrainCo",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q132470893"
+  },
+  "areas": [
+    {
+      "area": "neurotech-bci"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/BrainCo",
+      "quote": "BrainCo Inc. is a neurotechnology company headquartered in Hangzhou, Zhejiang, China, with an office in Somerville, Massachusetts, United States.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q132470893",
+      "quote": "BrainCo (Q132470893) — Wikidata item: Q132470893",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:neurotech-bci",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/BrainCo",
+      "quote": "BrainCo Inc. is a neurotechnology company headquartered in Hangzhou, Zhejiang, China, with an office in Somerville, Massachusetts, United States.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "BrainCo Inc. is a neurotechnology company headquartered in Hangzhou, Zhejiang, China, with an office in Somerville, Massachusetts, United States."
+}

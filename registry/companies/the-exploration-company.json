@@ -1,0 +1,75 @@
+{
+  "slug": "the-exploration-company",
+  "name": "The Exploration Company",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q121291156",
+    "domain": "exploration.space"
+  },
+  "areas": [
+    {
+      "area": "satellites"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/The_Exploration_Company",
+      "quote": "The Exploration Company (TEC) is a European aerospace company developing reusable spacecraft.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q121291156",
+      "quote": "The Exploration Company (Q121291156) — Wikidata item: Q121291156",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q121291156",
+      "quote": "The Exploration Company (Q121291156) — headquarters location: Oberpfaffenhofen",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q121291156",
+      "quote": "The Exploration Company (Q121291156) — country (ISO 3166-1 alpha-2): DE",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q121291156",
+      "quote": "The Exploration Company (Q121291156) — official website: https://www.exploration.space/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:satellites",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/The_Exploration_Company",
+      "quote": "The Exploration Company (TEC) is a European aerospace company developing reusable spacecraft.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "The Exploration Company (TEC) is a European aerospace company developing reusable spacecraft.",
+  "country": "DE",
+  "hq": "Oberpfaffenhofen"
+}

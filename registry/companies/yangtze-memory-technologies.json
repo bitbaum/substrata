@@ -1,0 +1,84 @@
+{
+  "slug": "yangtze-memory-technologies",
+  "name": "Yangtze Memory Technologies",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q28415694",
+    "domain": "ymtc.com",
+    "lei": "6556005YROCAUJN2J624"
+  },
+  "areas": [
+    {
+      "area": "memory"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Yangtze_Memory_Technologies",
+      "quote": "Yangtze Memory Technologies Corp. (YMTC) is a Chinese semiconductor integrated device manufacturer specializing in flash memory (NAND) chips.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q28415694",
+      "quote": "Yangtze Memory Technology Corp (Q28415694) — Wikidata item: Q28415694",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q28415694",
+      "quote": "Yangtze Memory Technology Corp (Q28415694) — headquarters location: Wuhan",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q28415694",
+      "quote": "Yangtze Memory Technology Corp (Q28415694) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q28415694",
+      "quote": "Yangtze Memory Technology Corp (Q28415694) — official website: https://www.ymtc.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q28415694",
+      "quote": "Yangtze Memory Technology Corp (Q28415694) — Legal Entity Identifier: 6556005YROCAUJN2J624",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:memory",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Yangtze_Memory_Technologies",
+      "quote": "Yangtze Memory Technologies Corp. (YMTC) is a Chinese semiconductor integrated device manufacturer specializing in flash memory (NAND) chips.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Yangtze Memory Technologies Corp. (YMTC) is a Chinese semiconductor integrated device manufacturer specializing in flash memory (NAND) chips.",
+  "country": "CN",
+  "hq": "Wuhan"
+}

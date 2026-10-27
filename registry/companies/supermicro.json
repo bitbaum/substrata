@@ -6,6 +6,10 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q1817174",
+    "domain": "supermicro.com",
+    "lei": "54930022CZO1N2UGVW07",
+    "isin": "US86800U1043",
     "ticker": "SMCI",
     "exchange": "Nasdaq",
     "cik": "1375365",
@@ -17,6 +21,9 @@
     },
     {
       "area": "frontier-ai"
+    },
+    {
+      "area": "data-centres"
     }
   ],
   "evidence": [
@@ -109,10 +116,60 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Supermicro",
+      "quote": ", doing business as Supermicro, is an American information technology company based in San Jose, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1817174",
+      "quote": "Supermicro (Q1817174) — Wikidata item: Q1817174",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1817174",
+      "quote": "Supermicro (Q1817174) — headquarters location: San Jose",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1817174",
+      "quote": "Supermicro (Q1817174) — official website: https://www.supermicro.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1817174",
+      "quote": "Supermicro (Q1817174) — Legal Entity Identifier: 54930022CZO1N2UGVW07",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:data-centres",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Supermicro",
+      "quote": ", doing business as Supermicro, is an American information technology company based in San Jose, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": ", doing business as Supermicro, is an American information technology company based in San Jose, California.",
+  "hq": "San Jose"
 }

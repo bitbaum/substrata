@@ -1,0 +1,48 @@
+{
+  "slug": "axelera-ai",
+  "name": "Axelera AI",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q133456370"
+  },
+  "areas": [
+    {
+      "area": "ai-accelerators"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Axelera_AI",
+      "quote": "Axelera AI is a Netherlands-based chip company founded in 2021 as a spin-off from imec.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q133456370",
+      "quote": "Axelera AI (Q133456370) — Wikidata item: Q133456370",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-accelerators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Axelera_AI",
+      "quote": "Axelera AI is a Netherlands-based chip company founded in 2021 as a spin-off from imec.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Axelera AI is a Netherlands-based chip company founded in 2021 as a spin-off from imec."
+}

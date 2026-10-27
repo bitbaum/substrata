@@ -1,0 +1,75 @@
+{
+  "slug": "nuro",
+  "name": "Nuro",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q55627135",
+    "domain": "nuro.ai"
+  },
+  "areas": [
+    {
+      "area": "autonomous-vehicles"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Nuro",
+      "quote": "Nuro, Inc. is an American autonomous vehicle technology company based in Mountain View, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q55627135",
+      "quote": "Nuro (Q55627135) — Wikidata item: Q55627135",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q55627135",
+      "quote": "Nuro (Q55627135) — headquarters location: Mountain View",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q55627135",
+      "quote": "Nuro (Q55627135) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q55627135",
+      "quote": "Nuro (Q55627135) — official website: http://nuro.ai/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Nuro",
+      "quote": "Nuro, Inc. is an American autonomous vehicle technology company based in Mountain View, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Nuro, Inc. is an American autonomous vehicle technology company based in Mountain View, California.",
+  "country": "US",
+  "hq": "Mountain View"
+}

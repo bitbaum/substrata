@@ -6,18 +6,22 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q632240",
+    "domain": "lilly.com",
+    "cik": "59478",
     "lei": "FRDRIPF3EKNDJ2CQJL29",
     "isin": "US5324571083",
     "ticker": "LLY",
     "exchange": "US",
     "cusip": "532457108",
-    "sedol": "2516152",
-    "cik": "59478",
-    "qid": "Q632240"
+    "sedol": "2516152"
   },
   "areas": [
     {
       "area": "biotech-and-longevity"
+    },
+    {
+      "area": "synthetic-biology"
     }
   ],
   "evidence": [
@@ -121,10 +125,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Eli_Lilly_and_Company",
+      "quote": "Eli Lilly and Company, doing business as Lilly, is an American multinational pharmaceutical company headquartered in Indianapolis, Indiana, with offices in 36 countries.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q632240",
+      "quote": "Eli Lilly and Company (Q632240) — headquarters location: Indianapolis",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q632240",
+      "quote": "Eli Lilly and Company (Q632240) — official website: https://www.lilly.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:synthetic-biology",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Eli_Lilly_and_Company",
+      "quote": "Eli Lilly and Company, doing business as Lilly, is an American multinational pharmaceutical company headquartered in Indianapolis, Indiana, with offices in 36 countries.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Eli Lilly and Company, doing business as Lilly, is an American multinational pharmaceutical company headquartered in Indianapolis, Indiana, with offices in 36 countries.",
+  "hq": "Indianapolis"
 }

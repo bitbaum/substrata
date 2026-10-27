@@ -1,0 +1,84 @@
+{
+  "slug": "astra-space",
+  "name": "Astra Space",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q18156798",
+    "domain": "astra.com",
+    "cik": "1814329"
+  },
+  "areas": [
+    {
+      "area": "launch"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Astra_Space",
+      "quote": ", formerly known as Ventions, LLC from 2005 - 2016, is an American space company based in Alameda, California, with facilities in Atwater, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q18156798",
+      "quote": "Astra (Q18156798) — Wikidata item: Q18156798",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q18156798",
+      "quote": "Astra (Q18156798) — headquarters location: Alameda",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q18156798",
+      "quote": "Astra (Q18156798) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q18156798",
+      "quote": "Astra (Q18156798) — official website: http://astra.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q18156798",
+      "quote": "Astra (Q18156798) — SEC Central Index Key: 1814329",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:launch",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Astra_Space",
+      "quote": ", formerly known as Ventions, LLC from 2005 - 2016, is an American space company based in Alameda, California, with facilities in Atwater, California.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": ", formerly known as Ventions, LLC from 2005 - 2016, is an American space company based in Alameda, California, with facilities in Atwater, California.",
+  "country": "US",
+  "hq": "Alameda"
+}

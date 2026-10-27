@@ -1,0 +1,75 @@
+{
+  "slug": "quantinuum",
+  "name": "Quantinuum",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q65072145",
+    "domain": "cambridgequantum.com"
+  },
+  "areas": [
+    {
+      "area": "quantum-computing"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Quantinuum",
+      "quote": "Quantinuum is a quantum computing company formed by the merger of Cambridge Quantum and Honeywell Quantum Solutions.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q65072145",
+      "quote": "Cambridge Quantum Computing (Q65072145) — Wikidata item: Q65072145",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q65072145",
+      "quote": "Cambridge Quantum Computing (Q65072145) — headquarters location: Cambridge",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q65072145",
+      "quote": "Cambridge Quantum Computing (Q65072145) — country (ISO 3166-1 alpha-2): GB",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q65072145",
+      "quote": "Cambridge Quantum Computing (Q65072145) — official website: http://cambridgequantum.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:quantum-computing",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Quantinuum",
+      "quote": "Quantinuum is a quantum computing company formed by the merger of Cambridge Quantum and Honeywell Quantum Solutions.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Quantinuum is a quantum computing company formed by the merger of Cambridge Quantum and Honeywell Quantum Solutions.",
+  "country": "GB",
+  "hq": "Cambridge"
+}

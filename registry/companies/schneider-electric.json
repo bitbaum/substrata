@@ -6,6 +6,10 @@
   "status": "active",
   "country": "FR",
   "ids": {
+    "qid": "Q49053",
+    "domain": "se.com",
+    "lei": "969500A1YF1XUYYXS284",
+    "isin": "FR0000121972",
     "ticker": "SU",
     "exchange": "FP",
     "cusip": "F86921107"
@@ -16,6 +20,12 @@
     },
     {
       "area": "power-storage-grid"
+    },
+    {
+      "area": "grid-equipment"
+    },
+    {
+      "area": "data-centre-cooling"
     }
   ],
   "evidence": [
@@ -85,10 +95,68 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Schneider_Electric",
+      "quote": "Schneider Electric SE is a French multinational corporation that specializes in energy technology, covering electrification, automation, and digitalization for industry and homes.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q49053",
+      "quote": "Schneider Electric (Q49053) — Wikidata item: Q49053",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q49053",
+      "quote": "Schneider Electric (Q49053) — headquarters location: Rueil-Malmaison",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q49053",
+      "quote": "Schneider Electric (Q49053) — official website: https://www.se.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q49053",
+      "quote": "Schneider Electric (Q49053) — Legal Entity Identifier: 969500A1YF1XUYYXS284",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Schneider_Electric",
+      "quote": "Schneider Electric SE is a French multinational corporation that specializes in energy technology, covering electrification, automation, and digitalization for industry and homes.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:data-centre-cooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Schneider_Electric",
+      "quote": "Schneider Electric SE is a French multinational corporation that specializes in energy technology, covering electrification, automation, and digitalization for industry and homes.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Schneider Electric SE is a French multinational corporation that specializes in energy technology, covering electrification, automation, and digitalization for industry and homes.",
+  "hq": "Rueil-Malmaison"
 }

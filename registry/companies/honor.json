@@ -1,0 +1,75 @@
+{
+  "slug": "honor",
+  "name": "Honor",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q27070331",
+    "domain": "honor.com"
+  },
+  "areas": [
+    {
+      "area": "humanoids"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Honor_(company)",
+      "quote": ", commonly known as Honor, is a Chinese consumer electronics company majority-owned by Shenzhen Zhixin New Information Technology Co.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q27070331",
+      "quote": "Honor (Q27070331) — Wikidata item: Q27070331",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q27070331",
+      "quote": "Honor (Q27070331) — headquarters location: Shenzhen",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q27070331",
+      "quote": "Honor (Q27070331) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q27070331",
+      "quote": "Honor (Q27070331) — official website: https://www.honor.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:humanoids",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Honor_(company)",
+      "quote": ", commonly known as Honor, is a Chinese consumer electronics company majority-owned by Shenzhen Zhixin New Information Technology Co.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": ", commonly known as Honor, is a Chinese consumer electronics company majority-owned by Shenzhen Zhixin New Information Technology Co.",
+  "country": "CN",
+  "hq": "Shenzhen"
+}

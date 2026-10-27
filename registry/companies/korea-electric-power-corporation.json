@@ -1,0 +1,94 @@
+{
+  "slug": "korea-electric-power-corporation",
+  "name": "Korea Electric Power Corporation",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q486737",
+    "domain": "home.kepco.co.kr",
+    "cik": "887225",
+    "lei": "988400QG33WS7JEIV602",
+    "isin": "US5006311063"
+  },
+  "areas": [
+    {
+      "area": "grid-equipment"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Korea_Electric_Power_Corporation",
+      "quote": "Korea Electric Power Corporation, better known as KEPCO (Korean: 켑코) or Hanjeon (Korean: 한전), is the largest electric utility in South Korea, responsible for the generation, transmission and distribution of electricity and the development of electric power projects including those in nuclear power, wind power and coal.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q486737",
+      "quote": "Korea Electric Power Corporation (Q486737) — Wikidata item: Q486737",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q486737",
+      "quote": "Korea Electric Power Corporation (Q486737) — headquarters location: Naju",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q486737",
+      "quote": "Korea Electric Power Corporation (Q486737) — country (ISO 3166-1 alpha-2): KR",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q486737",
+      "quote": "Korea Electric Power Corporation (Q486737) — official website: http://home.kepco.co.kr/kepco/EN/main.do",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.cik",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q486737",
+      "quote": "Korea Electric Power Corporation (Q486737) — SEC Central Index Key: 887225",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q486737",
+      "quote": "Korea Electric Power Corporation (Q486737) — Legal Entity Identifier: 988400QG33WS7JEIV602",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Korea_Electric_Power_Corporation",
+      "quote": "Korea Electric Power Corporation, better known as KEPCO (Korean: 켑코) or Hanjeon (Korean: 한전), is the largest electric utility in South Korea, responsible for the generation, transmission and distribution of electricity and the development of electric power projects including those in nuclear power, wind power and coal.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Korea Electric Power Corporation, better known as KEPCO (Korean: 켑코) or Hanjeon (Korean: 한전), is the largest electric utility in South Korea, responsible for the generation, transmission and distribution of electricity and the development of electric power projects including those in nuclear power, wind power and coal.",
+  "country": "KR",
+  "hq": "Naju"
+}

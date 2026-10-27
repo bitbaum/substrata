@@ -1,0 +1,76 @@
+{
+  "slug": "be-semiconductor-industries",
+  "name": "BE Semiconductor Industries",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q48988067",
+    "domain": "besi.com",
+    "lei": "7245007A1YFLI2GNYX06",
+    "isin": "NL0012866412"
+  },
+  "areas": [
+    {
+      "area": "semiconductor-equipment"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Besi",
+      "quote": ", commonly known as Besi, is a Dutch multinational company that designs and manufactures semiconductor equipment.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q48988067",
+      "quote": "Besi (Q48988067) — Wikidata item: Q48988067",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q48988067",
+      "quote": "Besi (Q48988067) — headquarters location: Duiven",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q48988067",
+      "quote": "Besi (Q48988067) — official website: https://www.besi.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q48988067",
+      "quote": "Besi (Q48988067) — Legal Entity Identifier: 7245007A1YFLI2GNYX06",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:semiconductor-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Besi",
+      "quote": ", commonly known as Besi, is a Dutch multinational company that designs and manufactures semiconductor equipment.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": ", commonly known as Besi, is a Dutch multinational company that designs and manufactures semiconductor equipment.",
+  "hq": "Duiven"
+}

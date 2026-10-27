@@ -1,0 +1,85 @@
+{
+  "slug": "saic-motor",
+  "name": "SAIC Motor",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q910401",
+    "domain": "saicmotor.com",
+    "lei": "30030001QBC7EXJJGT71",
+    "isin": "CNE000000TY6"
+  },
+  "areas": [
+    {
+      "area": "electric-vehicles"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/SAIC_Motor",
+      "quote": ", Ltd. is a Chinese state-owned automobile manufacturer headquartered in Anting, Shanghai.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q910401",
+      "quote": "SAIC Motor (Q910401) — Wikidata item: Q910401",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q910401",
+      "quote": "SAIC Motor (Q910401) — headquarters location: Shanghai",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q910401",
+      "quote": "SAIC Motor (Q910401) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q910401",
+      "quote": "SAIC Motor (Q910401) — official website: https://www.saicmotor.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q910401",
+      "quote": "SAIC Motor (Q910401) — Legal Entity Identifier: 30030001QBC7EXJJGT71",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:electric-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/SAIC_Motor",
+      "quote": ", Ltd. is a Chinese state-owned automobile manufacturer headquartered in Anting, Shanghai.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": ", Ltd. is a Chinese state-owned automobile manufacturer headquartered in Anting, Shanghai.",
+  "country": "CN",
+  "hq": "Shanghai"
+}

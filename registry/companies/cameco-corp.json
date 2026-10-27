@@ -6,10 +6,13 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q1028449",
+    "domain": "cameco.com",
+    "lei": "N4BHALMXL3GMZKCUON55",
+    "isin": "US13321L1089",
     "ticker": "CCJ",
     "exchange": "US",
     "cusip": "13321L108",
-    "isin": "US13321L1089",
     "sedol": "2166160",
     "cik": "1009001"
   },
@@ -19,6 +22,9 @@
     },
     {
       "area": "nuclear-energy"
+    },
+    {
+      "area": "nuclear-fuel-cycle"
     }
   ],
   "evidence": [
@@ -111,10 +117,60 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Cameco",
+      "quote": "Cameco Corporation is the world's largest publicly traded uranium company, based in Saskatoon, Saskatchewan, Canada.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1028449",
+      "quote": "Cameco (Q1028449) — Wikidata item: Q1028449",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1028449",
+      "quote": "Cameco (Q1028449) — headquarters location: Saskatoon",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1028449",
+      "quote": "Cameco (Q1028449) — official website: https://www.cameco.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1028449",
+      "quote": "Cameco (Q1028449) — Legal Entity Identifier: N4BHALMXL3GMZKCUON55",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:nuclear-fuel-cycle",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Cameco",
+      "quote": "Cameco Corporation is the world's largest publicly traded uranium company, based in Saskatoon, Saskatchewan, Canada.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Cameco Corporation is the world's largest publicly traded uranium company, based in Saskatoon, Saskatchewan, Canada.",
+  "hq": "Saskatoon"
 }

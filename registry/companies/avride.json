@@ -1,0 +1,75 @@
+{
+  "slug": "avride",
+  "name": "Avride",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q131870791",
+    "domain": "avride.ai"
+  },
+  "areas": [
+    {
+      "area": "autonomous-vehicles"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Avride",
+      "quote": "Avride Inc. is a developer of vehicular automation technology, including self-driving cars, robotaxis, and delivery robots.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q131870791",
+      "quote": "Avride (Q131870791) — Wikidata item: Q131870791",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q131870791",
+      "quote": "Avride (Q131870791) — headquarters location: Newburyport",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q131870791",
+      "quote": "Avride (Q131870791) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q131870791",
+      "quote": "Avride (Q131870791) — official website: https://www.avride.ai/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Avride",
+      "quote": "Avride Inc. is a developer of vehicular automation technology, including self-driving cars, robotaxis, and delivery robots.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Avride Inc. is a developer of vehicular automation technology, including self-driving cars, robotaxis, and delivery robots.",
+  "country": "US",
+  "hq": "Newburyport"
+}

@@ -1,0 +1,76 @@
+{
+  "slug": "urenco-group",
+  "name": "Urenco Group",
+  "aliases": [],
+  "kind": "state-owned",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q1432506",
+    "domain": "urenco.com",
+    "isin": "XS0365327930"
+  },
+  "areas": [
+    {
+      "area": "nuclear-fuel-cycle"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Urenco_Group",
+      "quote": "ON and RWE. The Urenco Group operates several uranium enrichment plants in Germany, the Netherlands, the United Kingdom and the United States.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1432506",
+      "quote": "Urenco Group (Q1432506) — Wikidata item: Q1432506",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1432506",
+      "quote": "Urenco Group (Q1432506) — headquarters location: Stoke Poges",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1432506",
+      "quote": "Urenco Group (Q1432506) — country (ISO 3166-1 alpha-2): GB",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1432506",
+      "quote": "Urenco Group (Q1432506) — official website: http://www.urenco.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:nuclear-fuel-cycle",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Urenco_Group",
+      "quote": "ON and RWE. The Urenco Group operates several uranium enrichment plants in Germany, the Netherlands, the United Kingdom and the United States.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "ON and RWE. The Urenco Group operates several uranium enrichment plants in Germany, the Netherlands, the United Kingdom and the United States.",
+  "country": "GB",
+  "hq": "Stoke Poges"
+}

@@ -46,7 +46,8 @@ test('the migration kept the list: same slugs, tiers, themes and evidence as the
     const a = afterBy.get(b.slug);
     assert.ok(a, `${b.slug} is not registered`);
     assert.equal(a.tier, b.tier, `${b.slug} tier`);
-    assert.deepEqual(a.themes, b.themes, `${b.slug} themes`);
+    // Enrichment may add a theme (a lab also in robotics); it never drops one.
+    for (const t of b.themes) assert.ok(a.themes.includes(t), `${b.slug} theme ${t}`);
     assert.deepEqual(a.admittedBy, b.admittedBy, `${b.slug} evidence`);
     assert.equal(a.name, b.name);
     assert.equal(a.country, b.country);

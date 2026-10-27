@@ -1,0 +1,48 @@
+{
+  "slug": "hygon",
+  "name": "Hygon",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q124607404"
+  },
+  "areas": [
+    {
+      "area": "ai-accelerators"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hygon_Information_Technology",
+      "quote": "Hygon Information Technology is a publicly listed Chinese fabless semiconductor company headquartered in Beijing.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q124607404",
+      "quote": "Hygon Information Technology (Q124607404) — Wikidata item: Q124607404",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-accelerators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Hygon_Information_Technology",
+      "quote": "Hygon Information Technology is a publicly listed Chinese fabless semiconductor company headquartered in Beijing.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Hygon Information Technology is a publicly listed Chinese fabless semiconductor company headquartered in Beijing."
+}

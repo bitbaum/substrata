@@ -6,6 +6,9 @@
   "status": "active",
   "country": "CA",
   "ids": {
+    "qid": "Q5257824",
+    "domain": "denisonmines.com",
+    "isin": "CA2483561072",
     "ticker": "DML",
     "exchange": "CN",
     "sedol": "2003223"
@@ -13,6 +16,9 @@
   "areas": [
     {
       "area": "nuclear-energy"
+    },
+    {
+      "area": "nuclear-fuel-cycle"
     }
   ],
   "evidence": [
@@ -59,10 +65,52 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Denison_Mines",
+      "quote": "Denison Mines Corp. is a Canadian uranium exploration, development, and production company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5257824",
+      "quote": "Denison Mines (Q5257824) — Wikidata item: Q5257824",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5257824",
+      "quote": "Denison Mines (Q5257824) — headquarters location: Toronto",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5257824",
+      "quote": "Denison Mines (Q5257824) — official website: http://www.denisonmines.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:nuclear-fuel-cycle",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Denison_Mines",
+      "quote": "Denison Mines Corp. is a Canadian uranium exploration, development, and production company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Denison Mines Corp. is a Canadian uranium exploration, development, and production company.",
+  "hq": "Toronto"
 }

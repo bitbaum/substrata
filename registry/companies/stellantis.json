@@ -1,0 +1,76 @@
+{
+  "slug": "stellantis",
+  "name": "Stellantis",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q97439162",
+    "domain": "stellantis.com",
+    "lei": "549300LKT9PW7ZIBDF31",
+    "isin": "NL00150001Q9"
+  },
+  "areas": [
+    {
+      "area": "autonomous-vehicles"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Stellantis",
+      "quote": "V.A. and the US-based Chrysler, completed in stages between 2009 and 2014.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q97439162",
+      "quote": "Stellantis (Q97439162) — Wikidata item: Q97439162",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q97439162",
+      "quote": "Stellantis (Q97439162) — headquarters location: Amsterdam",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q97439162",
+      "quote": "Stellantis (Q97439162) — official website: https://www.stellantis.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q97439162",
+      "quote": "Stellantis (Q97439162) — Legal Entity Identifier: 549300LKT9PW7ZIBDF31",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Stellantis",
+      "quote": "V.A. and the US-based Chrysler, completed in stages between 2009 and 2014.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "V.A. and the US-based Chrysler, completed in stages between 2009 and 2014.",
+  "hq": "Amsterdam"
+}

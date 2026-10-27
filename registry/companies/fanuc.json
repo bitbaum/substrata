@@ -6,6 +6,10 @@
   "status": "active",
   "country": "JP",
   "ids": {
+    "qid": "Q212116",
+    "domain": "fanuc.co.jp",
+    "lei": "529900QTSW745LOKW705",
+    "isin": "JP3802400006",
     "ticker": "6954",
     "exchange": "JP",
     "cik": "1446596",
@@ -18,6 +22,9 @@
     },
     {
       "area": "robotics"
+    },
+    {
+      "area": "industrial-robots"
     }
   ],
   "evidence": [
@@ -110,10 +117,60 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/FANUC",
+      "quote": "FANUC is a Japanese group of companies that provides automation products and services such as robotics and computer numerical control (NC) systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q212116",
+      "quote": "FANUC (Q212116) — Wikidata item: Q212116",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q212116",
+      "quote": "FANUC (Q212116) — headquarters location: Oshino",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q212116",
+      "quote": "FANUC (Q212116) — official website: https://www.fanuc.co.jp/index.html",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q212116",
+      "quote": "FANUC (Q212116) — Legal Entity Identifier: 529900QTSW745LOKW705",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:industrial-robots",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/FANUC",
+      "quote": "FANUC is a Japanese group of companies that provides automation products and services such as robotics and computer numerical control (NC) systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "FANUC is a Japanese group of companies that provides automation products and services such as robotics and computer numerical control (NC) systems.",
+  "hq": "Oshino"
 }

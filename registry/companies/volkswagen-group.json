@@ -1,0 +1,85 @@
+{
+  "slug": "volkswagen-group",
+  "name": "Volkswagen Group",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q156578",
+    "domain": "volkswagenag.com",
+    "lei": "529900NNUPAGGOMPXZ31",
+    "isin": "DE0007664005"
+  },
+  "areas": [
+    {
+      "area": "autonomous-vehicles"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Volkswagen_Group",
+      "quote": "Volkswagen Aktiengesellschaft, trading as Volkswagen Group, is a German multinational conglomerate automotive manufacturer headquartered in Wolfsburg, Lower Saxony, Germany.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q156578",
+      "quote": "Volkswagen Group (Q156578) — Wikidata item: Q156578",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q156578",
+      "quote": "Volkswagen Group (Q156578) — headquarters location: Wolfsburg",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q156578",
+      "quote": "Volkswagen Group (Q156578) — country (ISO 3166-1 alpha-2): DE",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q156578",
+      "quote": "Volkswagen Group (Q156578) — official website: https://www.volkswagenag.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q156578",
+      "quote": "Volkswagen Group (Q156578) — Legal Entity Identifier: 529900NNUPAGGOMPXZ31",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Volkswagen_Group",
+      "quote": "Volkswagen Aktiengesellschaft, trading as Volkswagen Group, is a German multinational conglomerate automotive manufacturer headquartered in Wolfsburg, Lower Saxony, Germany.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Volkswagen Aktiengesellschaft, trading as Volkswagen Group, is a German multinational conglomerate automotive manufacturer headquartered in Wolfsburg, Lower Saxony, Germany.",
+  "country": "DE",
+  "hq": "Wolfsburg"
+}

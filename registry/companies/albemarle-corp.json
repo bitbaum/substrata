@@ -6,10 +6,14 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q127074",
+    "domain": "albemarle.com",
+    "cik": "915913",
+    "lei": "HDBLS2Q6GV1LSKQPBS54",
+    "isin": "US0126531013",
     "ticker": "ALB",
     "exchange": "US",
-    "sedol": "2046853",
-    "cik": "915913"
+    "sedol": "2046853"
   },
   "areas": [
     {
@@ -17,6 +21,12 @@
     },
     {
       "area": "mobility"
+    },
+    {
+      "area": "critical-minerals"
+    },
+    {
+      "area": "energy-storage"
     }
   ],
   "evidence": [
@@ -98,10 +108,68 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Albemarle_Corporation",
+      "quote": "Albemarle Corporation is an American specialty chemicals and mining company headquartered in Charlotte, North Carolina.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q127074",
+      "quote": "Albemarle Corporation (Q127074) — Wikidata item: Q127074",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q127074",
+      "quote": "Albemarle Corporation (Q127074) — headquarters location: Baton Rouge",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q127074",
+      "quote": "Albemarle Corporation (Q127074) — official website: http://www.albemarle.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q127074",
+      "quote": "Albemarle Corporation (Q127074) — Legal Entity Identifier: HDBLS2Q6GV1LSKQPBS54",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Albemarle_Corporation",
+      "quote": "Albemarle Corporation is an American specialty chemicals and mining company headquartered in Charlotte, North Carolina.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:energy-storage",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Albemarle_Corporation",
+      "quote": "Albemarle Corporation is an American specialty chemicals and mining company headquartered in Charlotte, North Carolina.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Albemarle Corporation is an American specialty chemicals and mining company headquartered in Charlotte, North Carolina.",
+  "hq": "Baton Rouge"
 }

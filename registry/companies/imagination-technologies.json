@@ -1,0 +1,75 @@
+{
+  "slug": "imagination-technologies",
+  "name": "Imagination Technologies",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q1119662",
+    "domain": "imaginationtech.com"
+  },
+  "areas": [
+    {
+      "area": "eda-ip"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Imagination_Technologies",
+      "quote": "Imagination Technologies Group Limited is a British semiconductor and software design company owned by Canyon Bridge Capital Partners, a private equity fund based in Beijing that is ultimately owned by the Chinese government.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1119662",
+      "quote": "Imagination Technologies (Q1119662) — Wikidata item: Q1119662",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1119662",
+      "quote": "Imagination Technologies (Q1119662) — headquarters location: Kings Langley",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1119662",
+      "quote": "Imagination Technologies (Q1119662) — country (ISO 3166-1 alpha-2): GB",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1119662",
+      "quote": "Imagination Technologies (Q1119662) — official website: https://www.imaginationtech.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:eda-ip",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Imagination_Technologies",
+      "quote": "Imagination Technologies Group Limited is a British semiconductor and software design company owned by Canyon Bridge Capital Partners, a private equity fund based in Beijing that is ultimately owned by the Chinese government.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Imagination Technologies Group Limited is a British semiconductor and software design company owned by Canyon Bridge Capital Partners, a private equity fund based in Beijing that is ultimately owned by the Chinese government.",
+  "country": "GB",
+  "hq": "Kings Langley"
+}

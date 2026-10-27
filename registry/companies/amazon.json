@@ -12,14 +12,15 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q3884",
+    "domain": "amazon.com",
+    "cik": "1018724",
     "lei": "ZXTILKJKG63JELOEG630",
     "isin": "US0231351067",
     "ticker": "AMZN",
     "exchange": "US",
     "cusip": "023135106",
-    "sedol": "2000019",
-    "cik": "1018724",
-    "qid": "Q3884"
+    "sedol": "2000019"
   },
   "areas": [
     {
@@ -30,6 +31,9 @@
     },
     {
       "area": "quantum"
+    },
+    {
+      "area": "ai-cloud-platforms"
     }
   ],
   "evidence": [
@@ -229,10 +233,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Amazon_(company)",
+      "quote": "com, Inc. is an American multinational conglomerate engaged in e-commerce, retail, cloud computing, online advertising, digital streaming, entertainment, and artificial intelligence.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q3884",
+      "quote": "Amazon (Q3884) — headquarters location: Seattle",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q3884",
+      "quote": "Amazon (Q3884) — official website: https://www.amazon.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Amazon_(company)",
+      "quote": "com, Inc. is an American multinational conglomerate engaged in e-commerce, retail, cloud computing, online advertising, digital streaming, entertainment, and artificial intelligence.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "com, Inc. is an American multinational conglomerate engaged in e-commerce, retail, cloud computing, online advertising, digital streaming, entertainment, and artificial intelligence.",
+  "hq": "Seattle"
 }

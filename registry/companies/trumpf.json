@@ -2,13 +2,19 @@
   "slug": "trumpf",
   "name": "Trumpf",
   "aliases": [],
-  "kind": "unclassified",
+  "kind": "private",
   "status": "active",
   "country": "DE",
-  "ids": {},
+  "ids": {
+    "qid": "Q724429",
+    "domain": "trumpf.com"
+  },
   "areas": [
     {
       "area": "compute-semiconductors"
+    },
+    {
+      "area": "semiconductor-equipment"
     }
   ],
   "evidence": [
@@ -43,10 +49,52 @@
       "readOn": "",
       "asOf": "",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Trumpf",
+      "quote": "TRUMPF SE + Co. KG is a German family-owned company based in Ditzingen near Stuttgart, Baden-Württemberg.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q724429",
+      "quote": "Trumpf (Q724429) — Wikidata item: Q724429",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q724429",
+      "quote": "Trumpf (Q724429) — headquarters location: Ditzingen",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q724429",
+      "quote": "Trumpf (Q724429) — official website: https://www.trumpf.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:semiconductor-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Trumpf",
+      "quote": "TRUMPF SE + Co. KG is a German family-owned company based in Ditzingen near Stuttgart, Baden-Württemberg.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "TRUMPF SE + Co. KG is a German family-owned company based in Ditzingen near Stuttgart, Baden-Württemberg.",
+  "hq": "Ditzingen"
 }

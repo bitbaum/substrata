@@ -6,14 +6,21 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q393762",
+    "domain": "agilent.com",
+    "cik": "1090872",
+    "lei": "QUIX8Y7A2WP0XRMW7G29",
+    "isin": "US00846U1016",
     "ticker": "A",
     "exchange": "US",
-    "sedol": "2520153",
-    "cik": "1090872"
+    "sedol": "2520153"
   },
   "areas": [
     {
       "area": "biotech-and-longevity"
+    },
+    {
+      "area": "synthetic-biology"
     }
   ],
   "evidence": [
@@ -83,10 +90,60 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Agilent_Technologies",
+      "quote": "Agilent Technologies, Inc. is an American global company headquartered in Santa Clara, California, that provides instruments, software, services, and consumables for laboratories.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q393762",
+      "quote": "Agilent Technologies (Q393762) — Wikidata item: Q393762",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q393762",
+      "quote": "Agilent Technologies (Q393762) — headquarters location: Santa Clara",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q393762",
+      "quote": "Agilent Technologies (Q393762) — official website: http://www.agilent.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q393762",
+      "quote": "Agilent Technologies (Q393762) — Legal Entity Identifier: QUIX8Y7A2WP0XRMW7G29",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:synthetic-biology",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Agilent_Technologies",
+      "quote": "Agilent Technologies, Inc. is an American global company headquartered in Santa Clara, California, that provides instruments, software, services, and consumables for laboratories.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Agilent Technologies, Inc. is an American global company headquartered in Santa Clara, California, that provides instruments, software, services, and consumables for laboratories.",
+  "hq": "Santa Clara"
 }

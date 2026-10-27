@@ -1,0 +1,75 @@
+{
+  "slug": "ls-cable-system",
+  "name": "LS Cable & System",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q489456",
+    "domain": "lscns.com"
+  },
+  "areas": [
+    {
+      "area": "grid-equipment"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/LS_Cable_%26_System",
+      "quote": "LS Cable & System is a South Korea-based industrial corporation with global operations and one of the biggest cable manufacturers worldwide.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q489456",
+      "quote": "LS Cable & System (Q489456) — Wikidata item: Q489456",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q489456",
+      "quote": "LS Cable & System (Q489456) — headquarters location: Anyang",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q489456",
+      "quote": "LS Cable & System (Q489456) — country (ISO 3166-1 alpha-2): KR",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q489456",
+      "quote": "LS Cable & System (Q489456) — official website: http://www.lscns.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/LS_Cable_%26_System",
+      "quote": "LS Cable & System is a South Korea-based industrial corporation with global operations and one of the biggest cable manufacturers worldwide.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "LS Cable & System is a South Korea-based industrial corporation with global operations and one of the biggest cable manufacturers worldwide.",
+  "country": "KR",
+  "hq": "Anyang"
+}

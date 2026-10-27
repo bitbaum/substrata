@@ -1,0 +1,96 @@
+{
+  "slug": "nio-inc",
+  "name": "NIO Inc.",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q29921278",
+    "domain": "nio.com",
+    "lei": "549300JBU4TV5OCKJV96",
+    "isin": "US62914V1061"
+  },
+  "areas": [
+    {
+      "area": "autonomous-vehicles"
+    },
+    {
+      "area": "electric-vehicles"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Nio_Inc.",
+      "quote": "Nio Inc. is a Chinese electric vehicle manufacturer headquartered in Shanghai.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q29921278",
+      "quote": "Nio Inc. (Q29921278) — Wikidata item: Q29921278",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q29921278",
+      "quote": "Nio Inc. (Q29921278) — headquarters location: Hefei",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q29921278",
+      "quote": "Nio Inc. (Q29921278) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q29921278",
+      "quote": "Nio Inc. (Q29921278) — official website: https://www.nio.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q29921278",
+      "quote": "Nio Inc. (Q29921278) — Legal Entity Identifier: 549300JBU4TV5OCKJV96",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Nio_Inc.",
+      "quote": "Nio Inc. is a Chinese electric vehicle manufacturer headquartered in Shanghai.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:electric-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Nio_Inc.",
+      "quote": "Nio Inc. is a Chinese electric vehicle manufacturer headquartered in Shanghai.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Nio Inc. is a Chinese electric vehicle manufacturer headquartered in Shanghai.",
+  "country": "CN",
+  "hq": "Hefei"
+}

@@ -1,0 +1,75 @@
+{
+  "slug": "moore-threads",
+  "name": "Moore Threads",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q111937231",
+    "domain": "mthreads.com"
+  },
+  "areas": [
+    {
+      "area": "ai-accelerators"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Moore_Threads",
+      "quote": "Moore Threads Technology Co. Ltd is a Chinese company specializing in graphics processing unit (GPU) design.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q111937231",
+      "quote": "Moore Threads (Q111937231) — Wikidata item: Q111937231",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q111937231",
+      "quote": "Moore Threads (Q111937231) — headquarters location: Beijing",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q111937231",
+      "quote": "Moore Threads (Q111937231) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q111937231",
+      "quote": "Moore Threads (Q111937231) — official website: https://www.mthreads.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-accelerators",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Moore_Threads",
+      "quote": "Moore Threads Technology Co. Ltd is a Chinese company specializing in graphics processing unit (GPU) design.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Moore Threads Technology Co. Ltd is a Chinese company specializing in graphics processing unit (GPU) design.",
+  "country": "CN",
+  "hq": "Beijing"
+}

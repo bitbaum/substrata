@@ -1,0 +1,48 @@
+{
+  "slug": "physical-intelligence",
+  "name": "Physical Intelligence",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q261719"
+  },
+  "areas": [
+    {
+      "area": "robot-foundation-models"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Theory_of_multiple_intelligences",
+      "quote": "The theory of multiple intelligences (MI) posits that human intelligence is not a single general ability but comprises various distinct modalities, such as linguistic, logical-mathematical, musical, and spatial intelligences.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q261719",
+      "quote": "theory of multiple intelligences (Q261719) — Wikidata item: Q261719",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:robot-foundation-models",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Theory_of_multiple_intelligences",
+      "quote": "The theory of multiple intelligences (MI) posits that human intelligence is not a single general ability but comprises various distinct modalities, such as linguistic, logical-mathematical, musical, and spatial intelligences.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "The theory of multiple intelligences (MI) posits that human intelligence is not a single general ability but comprises various distinct modalities, such as linguistic, logical-mathematical, musical, and spatial intelligences."
+}

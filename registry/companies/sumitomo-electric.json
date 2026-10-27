@@ -6,6 +6,10 @@
   "status": "active",
   "country": "JP",
   "ids": {
+    "qid": "Q1814247",
+    "domain": "sumitomoelectric.com",
+    "lei": "5493005SP87FL5TOS202",
+    "isin": "JP3407400005",
     "ticker": "5802",
     "exchange": "JP",
     "cik": "95227",
@@ -17,6 +21,9 @@
     },
     {
       "area": "advanced-materials"
+    },
+    {
+      "area": "grid-equipment"
     }
   ],
   "evidence": [
@@ -85,10 +92,60 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Sumitomo_Electric_Industries",
+      "quote": "Sumitomo Electric Industries, Ltd. is a manufacturer of electric wire and optical fiber cables.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1814247",
+      "quote": "Sumitomo Electric Industries (Q1814247) — Wikidata item: Q1814247",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1814247",
+      "quote": "Sumitomo Electric Industries (Q1814247) — headquarters location: Osaka",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1814247",
+      "quote": "Sumitomo Electric Industries (Q1814247) — official website: https://sumitomoelectric.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1814247",
+      "quote": "Sumitomo Electric Industries (Q1814247) — Legal Entity Identifier: 5493005SP87FL5TOS202",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Sumitomo_Electric_Industries",
+      "quote": "Sumitomo Electric Industries, Ltd. is a manufacturer of electric wire and optical fiber cables.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Sumitomo Electric Industries, Ltd. is a manufacturer of electric wire and optical fiber cables.",
+  "hq": "Osaka"
 }

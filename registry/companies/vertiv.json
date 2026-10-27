@@ -6,6 +6,10 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q5370909",
+    "domain": "vertiv.com",
+    "lei": "549300KTTIRAOGXCRV69",
+    "isin": "US92537N1081",
     "ticker": "VRT",
     "exchange": "NYSE",
     "cik": "1674101"
@@ -13,6 +17,12 @@
   "areas": [
     {
       "area": "compute-semiconductors"
+    },
+    {
+      "area": "data-centre-cooling"
+    },
+    {
+      "area": "grid-equipment"
     }
   ],
   "evidence": [
@@ -69,10 +79,68 @@
       "readOn": "",
       "asOf": "",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Vertiv",
+      "quote": "Vertiv Holdings Co. is an American provider of infrastructure and services for data centers, communication networks, and commercial and industrial environments.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5370909",
+      "quote": "Vertiv (Q5370909) — Wikidata item: Q5370909",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5370909",
+      "quote": "Vertiv (Q5370909) — headquarters location: Westerville",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5370909",
+      "quote": "Vertiv (Q5370909) — official website: https://www.vertiv.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5370909",
+      "quote": "Vertiv (Q5370909) — Legal Entity Identifier: 549300KTTIRAOGXCRV69",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:data-centre-cooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Vertiv",
+      "quote": "Vertiv Holdings Co. is an American provider of infrastructure and services for data centers, communication networks, and commercial and industrial environments.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Vertiv",
+      "quote": "Vertiv Holdings Co. is an American provider of infrastructure and services for data centers, communication networks, and commercial and industrial environments.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Vertiv Holdings Co. is an American provider of infrastructure and services for data centers, communication networks, and commercial and industrial environments.",
+  "hq": "Westerville"
 }

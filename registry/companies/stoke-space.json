@@ -1,0 +1,75 @@
+{
+  "slug": "stoke-space",
+  "name": "Stoke Space",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q110236286",
+    "domain": "stokespace.com"
+  },
+  "areas": [
+    {
+      "area": "launch"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Stoke_Space",
+      "quote": "Stoke Space Technologies is an American rocket company based in Kent, Washington.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q110236286",
+      "quote": "Stoke Space (Q110236286) — Wikidata item: Q110236286",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q110236286",
+      "quote": "Stoke Space (Q110236286) — headquarters location: Kent",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q110236286",
+      "quote": "Stoke Space (Q110236286) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q110236286",
+      "quote": "Stoke Space (Q110236286) — official website: https://www.stokespace.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:launch",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Stoke_Space",
+      "quote": "Stoke Space Technologies is an American rocket company based in Kent, Washington.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Stoke Space Technologies is an American rocket company based in Kent, Washington.",
+  "country": "US",
+  "hq": "Kent"
+}

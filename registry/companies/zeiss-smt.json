@@ -1,0 +1,75 @@
+{
+  "slug": "zeiss-smt",
+  "name": "Zeiss SMT",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q15108623",
+    "domain": "zeiss.com"
+  },
+  "areas": [
+    {
+      "area": "semiconductor-equipment"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Carl_Zeiss_SMT",
+      "quote": "Carl Zeiss SMT GmbH comprises the semiconductor manufacturing technology (SMT) business group of ZEISS and develops and produces equipment for the manufacture of microchips.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q15108623",
+      "quote": "Carl Zeiss SMT (Q15108623) — Wikidata item: Q15108623",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q15108623",
+      "quote": "Carl Zeiss SMT (Q15108623) — headquarters location: Oberkochen",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q15108623",
+      "quote": "Carl Zeiss SMT (Q15108623) — country (ISO 3166-1 alpha-2): DE",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q15108623",
+      "quote": "Carl Zeiss SMT (Q15108623) — official website: http://www.zeiss.com/smt",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:semiconductor-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Carl_Zeiss_SMT",
+      "quote": "Carl Zeiss SMT GmbH comprises the semiconductor manufacturing technology (SMT) business group of ZEISS and develops and produces equipment for the manufacture of microchips.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Carl Zeiss SMT GmbH comprises the semiconductor manufacturing technology (SMT) business group of ZEISS and develops and produces equipment for the manufacture of microchips.",
+  "country": "DE",
+  "hq": "Oberkochen"
+}

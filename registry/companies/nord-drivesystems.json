@@ -1,0 +1,75 @@
+{
+  "slug": "nord-drivesystems",
+  "name": "Nord Drivesystems",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q1282751",
+    "domain": "nord.com"
+  },
+  "areas": [
+    {
+      "area": "reducers-gearboxes"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Nord_Drivesystems",
+      "quote": "Nord Drivesystems is a German worldwide mechanical and electronic solutions company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1282751",
+      "quote": "Nord Drivesystems (Q1282751) — Wikidata item: Q1282751",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1282751",
+      "quote": "Nord Drivesystems (Q1282751) — headquarters location: Bargteheide",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1282751",
+      "quote": "Nord Drivesystems (Q1282751) — country (ISO 3166-1 alpha-2): DE",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1282751",
+      "quote": "Nord Drivesystems (Q1282751) — official website: http://www.nord.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:reducers-gearboxes",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Nord_Drivesystems",
+      "quote": "Nord Drivesystems is a German worldwide mechanical and electronic solutions company.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Nord Drivesystems is a German worldwide mechanical and electronic solutions company.",
+  "country": "DE",
+  "hq": "Bargteheide"
+}

@@ -6,12 +6,19 @@
   "status": "active",
   "country": "DE",
   "ids": {
+    "qid": "Q535517",
+    "domain": "wacker.com",
+    "lei": "0NURKC5Q3CJYZPPK5046",
+    "isin": "DE000WCH8881",
     "ticker": "WCH",
     "exchange": "GR"
   },
   "areas": [
     {
       "area": "advanced-materials"
+    },
+    {
+      "area": "wafers-substrates"
     }
   ],
   "evidence": [
@@ -57,10 +64,60 @@
       "readOn": "",
       "asOf": "",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Wacker_Chemie",
+      "quote": "Wacker Chemie AG is a German multinational chemical company which was founded in 1914 by Alexander Wacker.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q535517",
+      "quote": "Wacker Chemie AG (Q535517) — Wikidata item: Q535517",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q535517",
+      "quote": "Wacker Chemie AG (Q535517) — headquarters location: Munich",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q535517",
+      "quote": "Wacker Chemie AG (Q535517) — official website: http://www.wacker.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q535517",
+      "quote": "Wacker Chemie AG (Q535517) — Legal Entity Identifier: 0NURKC5Q3CJYZPPK5046",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:wafers-substrates",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Wacker_Chemie",
+      "quote": "Wacker Chemie AG is a German multinational chemical company which was founded in 1914 by Alexander Wacker.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Wacker Chemie AG is a German multinational chemical company which was founded in 1914 by Alexander Wacker.",
+  "hq": "Munich"
 }

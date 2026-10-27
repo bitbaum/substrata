@@ -6,14 +6,21 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q1453620",
+    "domain": "fcx.com",
+    "cik": "831259",
+    "lei": "549300IRDTHJQ1PVET45",
+    "isin": "US35671D8570",
     "ticker": "FCX",
     "exchange": "US",
-    "sedol": "2352118",
-    "cik": "831259"
+    "sedol": "2352118"
   },
   "areas": [
     {
       "area": "advanced-materials"
+    },
+    {
+      "area": "critical-minerals"
     }
   ],
   "evidence": [
@@ -95,10 +102,60 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Freeport-McMoRan",
+      "quote": ", often called Freeport, is an American mining company based in the Freeport-McMoRan Center, in Phoenix, Arizona.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1453620",
+      "quote": "Freeport-McMoRan (Q1453620) — Wikidata item: Q1453620",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1453620",
+      "quote": "Freeport-McMoRan (Q1453620) — headquarters location: Phoenix",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1453620",
+      "quote": "Freeport-McMoRan (Q1453620) — official website: http://www.fcx.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1453620",
+      "quote": "Freeport-McMoRan (Q1453620) — Legal Entity Identifier: 549300IRDTHJQ1PVET45",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:critical-minerals",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Freeport-McMoRan",
+      "quote": ", often called Freeport, is an American mining company based in the Freeport-McMoRan Center, in Phoenix, Arizona.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": ", often called Freeport, is an American mining company based in the Freeport-McMoRan Center, in Phoenix, Arizona.",
+  "hq": "Phoenix"
 }

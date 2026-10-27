@@ -1,0 +1,75 @@
+{
+  "slug": "changxin-memory-technologies",
+  "name": "ChangXin Memory Technologies",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q60787452",
+    "domain": "cxmt.com"
+  },
+  "areas": [
+    {
+      "area": "memory"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/ChangXin_Memory_Technologies",
+      "quote": "ChangXin Memory Technologies (CXMT) is a Chinese semiconductor integrated device manufacturer headquartered in Hefei, Anhui, specializing in the production of DRAM memory.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q60787452",
+      "quote": "Changxin Memory Technologies (Q60787452) — Wikidata item: Q60787452",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q60787452",
+      "quote": "Changxin Memory Technologies (Q60787452) — headquarters location: Hefei",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q60787452",
+      "quote": "Changxin Memory Technologies (Q60787452) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q60787452",
+      "quote": "Changxin Memory Technologies (Q60787452) — official website: https://www.cxmt.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:memory",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/ChangXin_Memory_Technologies",
+      "quote": "ChangXin Memory Technologies (CXMT) is a Chinese semiconductor integrated device manufacturer headquartered in Hefei, Anhui, specializing in the production of DRAM memory.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "ChangXin Memory Technologies (CXMT) is a Chinese semiconductor integrated device manufacturer headquartered in Hefei, Anhui, specializing in the production of DRAM memory.",
+  "country": "CN",
+  "hq": "Hefei"
+}

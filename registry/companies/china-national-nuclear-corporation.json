@@ -1,0 +1,86 @@
+{
+  "slug": "china-national-nuclear-corporation",
+  "name": "China National Nuclear Corporation",
+  "aliases": [],
+  "kind": "state-owned",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q1073337",
+    "domain": "en.cnnc.com.cn"
+  },
+  "areas": [
+    {
+      "area": "nuclear-fuel-cycle"
+    },
+    {
+      "area": "fission-smr"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/China_National_Nuclear_Corporation",
+      "quote": "The China National Nuclear Corporation is a state-owned enterprise founded in 1955 in Beijing.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1073337",
+      "quote": "China National Nuclear Corporation (Q1073337) — Wikidata item: Q1073337",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1073337",
+      "quote": "China National Nuclear Corporation (Q1073337) — headquarters location: Beijing",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1073337",
+      "quote": "China National Nuclear Corporation (Q1073337) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1073337",
+      "quote": "China National Nuclear Corporation (Q1073337) — official website: https://en.cnnc.com.cn/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:nuclear-fuel-cycle",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/China_National_Nuclear_Corporation",
+      "quote": "The China National Nuclear Corporation is a state-owned enterprise founded in 1955 in Beijing.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:fission-smr",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/China_National_Nuclear_Corporation",
+      "quote": "The China National Nuclear Corporation is a state-owned enterprise founded in 1955 in Beijing.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "The China National Nuclear Corporation is a state-owned enterprise founded in 1955 in Beijing.",
+  "country": "CN",
+  "hq": "Beijing"
+}

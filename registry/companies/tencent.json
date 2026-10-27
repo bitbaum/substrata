@@ -6,6 +6,10 @@
   "status": "active",
   "country": "HK",
   "ids": {
+    "qid": "Q860580",
+    "domain": "tencent.com",
+    "lei": "254900N4SLUMW4XUYY11",
+    "isin": "KYG875721634",
     "ticker": "700",
     "exchange": "HK",
     "sedol": "BMMV2K8",
@@ -17,6 +21,12 @@
     },
     {
       "area": "robotics"
+    },
+    {
+      "area": "ai-cloud-platforms"
+    },
+    {
+      "area": "frontier-labs"
     }
   ],
   "evidence": [
@@ -75,10 +85,68 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Tencent",
+      "quote": "Tencent is a Chinese multinational technology conglomerate and holding company headquartered in Shenzhen.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q860580",
+      "quote": "Tencent (Q860580) — Wikidata item: Q860580",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q860580",
+      "quote": "Tencent (Q860580) — headquarters location: Maling",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q860580",
+      "quote": "Tencent (Q860580) — official website: https://www.tencent.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q860580",
+      "quote": "Tencent (Q860580) — Legal Entity Identifier: 254900N4SLUMW4XUYY11",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-cloud-platforms",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Tencent",
+      "quote": "Tencent is a Chinese multinational technology conglomerate and holding company headquartered in Shenzhen.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:frontier-labs",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Tencent",
+      "quote": "Tencent is a Chinese multinational technology conglomerate and holding company headquartered in Shenzhen.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Tencent is a Chinese multinational technology conglomerate and holding company headquartered in Shenzhen.",
+  "hq": "Maling"
 }

@@ -1,0 +1,76 @@
+{
+  "slug": "xanadu-quantum-technologies",
+  "name": "Xanadu Quantum Technologies",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q47462279",
+    "domain": "xanadu.ai",
+    "isin": "CA98390R1029"
+  },
+  "areas": [
+    {
+      "area": "quantum-computing"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Xanadu_Quantum_Technologies",
+      "quote": "Xanadu Quantum Technologies is a Canadian quantum computing hardware and software company headquartered in Toronto, Ontario.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q47462279",
+      "quote": "Xanadu, Inc (Q47462279) — Wikidata item: Q47462279",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q47462279",
+      "quote": "Xanadu, Inc (Q47462279) — headquarters location: Toronto",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q47462279",
+      "quote": "Xanadu, Inc (Q47462279) — country (ISO 3166-1 alpha-2): CA",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q47462279",
+      "quote": "Xanadu, Inc (Q47462279) — official website: http://www.xanadu.ai/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:quantum-computing",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Xanadu_Quantum_Technologies",
+      "quote": "Xanadu Quantum Technologies is a Canadian quantum computing hardware and software company headquartered in Toronto, Ontario.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Xanadu Quantum Technologies is a Canadian quantum computing hardware and software company headquartered in Toronto, Ontario.",
+  "country": "CA",
+  "hq": "Toronto"
+}

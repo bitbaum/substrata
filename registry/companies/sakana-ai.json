@@ -1,0 +1,75 @@
+{
+  "slug": "sakana-ai",
+  "name": "Sakana AI",
+  "aliases": [],
+  "kind": "lab",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q126691075",
+    "domain": "sakana.ai"
+  },
+  "areas": [
+    {
+      "area": "frontier-labs"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Sakana_AI",
+      "quote": "Sakana AI Co, Ltd. is a Japanese artificial intelligence company based in Tokyo.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q126691075",
+      "quote": "Sakana AI (Q126691075) — Wikidata item: Q126691075",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q126691075",
+      "quote": "Sakana AI (Q126691075) — headquarters location: Minato",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q126691075",
+      "quote": "Sakana AI (Q126691075) — country (ISO 3166-1 alpha-2): JP",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q126691075",
+      "quote": "Sakana AI (Q126691075) — official website: https://sakana.ai/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:frontier-labs",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Sakana_AI",
+      "quote": "Sakana AI Co, Ltd. is a Japanese artificial intelligence company based in Tokyo.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Sakana AI Co, Ltd. is a Japanese artificial intelligence company based in Tokyo.",
+  "country": "JP",
+  "hq": "Minato"
+}

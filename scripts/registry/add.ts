@@ -119,10 +119,21 @@ export async function addOne(item: Item, today: string): Promise<string> {
   if (!title) return `SKIP ${item.name}: ${why}`;
   const r = await resolveTitle(title, today, polite);
   if (!r) return `SKIP ${item.name}: no page ${title}`;
-  const nameWords = nameKey(item.name).split(' ');
-  const says = nameKey(`${r.page.title} ${r.page.extract}`);
-  if (!nameWords.some((w) => w.length > 2 && says.includes(w)) && !item.title)
-    return `SKIP ${item.name}: page "${r.page.title}" does not mention it`;
+  // The page must be about the company, not a product: the title (after redirects) shares a word
+  // with the name, and Wikipedia's short description does not call it a model, chatbot or the like.
+  const words = (x: string) =>
+    nameKey(x.replace(/\s*\(.*\)$/, ''))
+      .split(' ')
+      .filter((w) => w.length > 2);
+  const titleWords = new Set(words(r.page.title));
+  if (!words(item.name).some((w) => titleWords.has(w)))
+    return `SKIP ${item.name}: the page "${r.page.title}" is about something else`;
+  if (
+    /chatbot|language model|image model|family of|product line|architecture|programming language|operating system|video game|film|album|song|band\b|mine\b|building/i.test(
+      r.page.description ?? '',
+    )
+  )
+    return `SKIP ${item.name}: the page "${r.page.title}" is a product, not a company (${r.page.description})`;
   const c = draftCompany(r, {
     name: item.name,
     slug: item.slug,
@@ -151,8 +162,16 @@ export async function addOne(item: Item, today: string): Promise<string> {
 function enrich(file: string, fresh: Company): string {
   const have = JSON.parse(readFileSync(file, 'utf8')) as Company;
   const seen = new Set(have.evidence.map((e) => e.field));
-  const rows = fresh.evidence.filter((e) => !seen.has(e.field));
-  if (!rows.length && !(have.kind === 'unclassified' && fresh.kind !== 'unclassified'))
+  const haveAreas = new Set(have.areas.map((a) => a.area));
+  const newAreas = fresh.areas.filter((a) => !haveAreas.has(a.area));
+  const rows = fresh.evidence.filter(
+    (e) =>
+      !seen.has(e.field) &&
+      (!e.field.startsWith('ids.') || !(e.field.slice(4) in have.ids)) &&
+      (!e.field.startsWith('area:') || newAreas.some((a) => `area:${a.area}` === e.field)),
+  );
+  const kindUp = have.kind === 'unclassified' && fresh.kind !== 'unclassified';
+  if (!rows.length && !kindUp && !newAreas.length)
     return `SKIP ${have.slug}: already registered, nothing to add`;
   const added = new Set(rows.map((e) => e.field));
   const next: Company = {
@@ -160,13 +179,10 @@ function enrich(file: string, fresh: Company): string {
     ...(!have.summary && added.has('summary') && fresh.summary ? { summary: fresh.summary } : {}),
     ...(!have.hq && added.has('hq') && fresh.hq ? { hq: fresh.hq } : {}),
     ...(!have.country && added.has('country') && fresh.country ? { country: fresh.country } : {}),
-    kind: have.kind === 'unclassified' ? fresh.kind : have.kind,
+    kind: kindUp ? fresh.kind : have.kind,
     ids: { ...fresh.ids, ...have.ids },
-    areas: have.areas.length ? have.areas : fresh.areas,
-    evidence: [
-      ...have.evidence,
-      ...rows.filter((e) => !e.field.startsWith('ids.') || !(e.field.slice(4) in have.ids)),
-    ],
+    areas: [...have.areas, ...newAreas],
+    evidence: [...have.evidence, ...rows],
   };
   writeFileSync(file, JSON.stringify(next, null, 2) + '\n');
   return `ENRICH ${have.slug}: added ${[...added].join(', ') || 'kind'}`;

@@ -6,6 +6,10 @@
   "status": "active",
   "country": "DE",
   "ids": {
+    "qid": "Q89189545",
+    "domain": "siemens-energy.com",
+    "lei": "5299005CHJZ14D4FDJ62",
+    "isin": "DE000ENER6Y0",
     "ticker": "ENR",
     "exchange": "GR",
     "cik": "1830056"
@@ -13,6 +17,9 @@
   "areas": [
     {
       "area": "power-storage-grid"
+    },
+    {
+      "area": "grid-equipment"
     }
   ],
   "evidence": [
@@ -69,10 +76,60 @@
       "readOn": "",
       "asOf": "",
       "detail": "Country from its listing venue or hand-verified role."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Siemens_Energy",
+      "quote": "Siemens Energy AG is a German publicly traded energy corporation formed through the spin-off of the former Gas and Power division of Siemens, and it includes full ownership of Siemens Gamesa.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q89189545",
+      "quote": "Siemens Energy AG (Q89189545) — Wikidata item: Q89189545",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q89189545",
+      "quote": "Siemens Energy AG (Q89189545) — headquarters location: Munich",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q89189545",
+      "quote": "Siemens Energy AG (Q89189545) — official website: https://www.siemens-energy.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q89189545",
+      "quote": "Siemens Energy AG (Q89189545) — Legal Entity Identifier: 5299005CHJZ14D4FDJ62",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Siemens_Energy",
+      "quote": "Siemens Energy AG is a German publicly traded energy corporation formed through the spin-off of the former Gas and Power division of Siemens, and it includes full ownership of Siemens Gamesa.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Siemens Energy AG is a German publicly traded energy corporation formed through the spin-off of the former Gas and Power division of Siemens, and it includes full ownership of Siemens Gamesa.",
+  "hq": "Munich"
 }

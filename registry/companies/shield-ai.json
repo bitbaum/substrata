@@ -1,0 +1,75 @@
+{
+  "slug": "shield-ai",
+  "name": "Shield AI",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q114658539",
+    "domain": "shield.ai"
+  },
+  "areas": [
+    {
+      "area": "defence-autonomy"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Shield_AI",
+      "quote": "Shield AI is an American aerospace and defense technology company based in San Diego, California, United States.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q114658539",
+      "quote": "Shield AI (Q114658539) — Wikidata item: Q114658539",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q114658539",
+      "quote": "Shield AI (Q114658539) — headquarters location: San Diego",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q114658539",
+      "quote": "Shield AI (Q114658539) — country (ISO 3166-1 alpha-2): US",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q114658539",
+      "quote": "Shield AI (Q114658539) — official website: https://shield.ai/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:defence-autonomy",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Shield_AI",
+      "quote": "Shield AI is an American aerospace and defense technology company based in San Diego, California, United States.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Shield AI is an American aerospace and defense technology company based in San Diego, California, United States.",
+  "country": "US",
+  "hq": "San Diego"
+}

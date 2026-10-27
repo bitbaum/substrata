@@ -1,0 +1,57 @@
+{
+  "slug": "emerald-cloud-lab",
+  "name": "Emerald Cloud Lab",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q85759131",
+    "domain": "emeraldcloudlab.com"
+  },
+  "areas": [
+    {
+      "area": "synthetic-biology"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Emerald_Cloud_Lab",
+      "quote": "Emerald Cloud Lab (ECL) is a privately owned biotech startup.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q85759131",
+      "quote": "Emerald Cloud Lab (Q85759131) — Wikidata item: Q85759131",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q85759131",
+      "quote": "Emerald Cloud Lab (Q85759131) — official website: https://www.emeraldcloudlab.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:synthetic-biology",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Emerald_Cloud_Lab",
+      "quote": "Emerald Cloud Lab (ECL) is a privately owned biotech startup.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Emerald Cloud Lab (ECL) is a privately owned biotech startup."
+}

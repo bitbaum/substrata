@@ -6,11 +6,13 @@
   "status": "active",
   "country": "US",
   "ids": {
-    "ticker": "WOLF",
-    "exchange": "NYSE",
+    "qid": "Q5183828",
+    "domain": "wolfspeed.com",
     "cik": "895419",
     "lei": "549300OGU88P3AW3TO93",
     "isin": "US97785W1062",
+    "ticker": "WOLF",
+    "exchange": "NYSE",
     "cusip": "97785W106",
     "sedol": "BVBFJH0"
   },
@@ -20,6 +22,9 @@
     },
     {
       "area": "advanced-materials"
+    },
+    {
+      "area": "power-semiconductors"
     }
   ],
   "evidence": [
@@ -111,10 +116,52 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Wolfspeed",
+      "quote": "Wolfspeed, Inc. is an American developer and manufacturer of wide-bandgap semiconductors, focused on silicon carbide materials and devices for power applications such as transportation, power supplies, power inverters, and wireless systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5183828",
+      "quote": "Wolfspeed (Q5183828) — Wikidata item: Q5183828",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5183828",
+      "quote": "Wolfspeed (Q5183828) — headquarters location: Durham",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q5183828",
+      "quote": "Wolfspeed (Q5183828) — official website: https://www.wolfspeed.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:power-semiconductors",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Wolfspeed",
+      "quote": "Wolfspeed, Inc. is an American developer and manufacturer of wide-bandgap semiconductors, focused on silicon carbide materials and devices for power applications such as transportation, power supplies, power inverters, and wireless systems.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "Wolfspeed, Inc. is an American developer and manufacturer of wide-bandgap semiconductors, focused on silicon carbide materials and devices for power applications such as transportation, power supplies, power inverters, and wireless systems.",
+  "hq": "Durham"
 }

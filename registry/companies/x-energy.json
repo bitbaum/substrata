@@ -6,12 +6,13 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q30633271",
+    "domain": "x-energy.com",
+    "isin": "US98386P1021",
     "ticker": "XE",
     "exchange": "US",
     "cusip": "98386P102",
-    "isin": "US98386P1021",
     "sedol": "BW0TQY6",
-    "qid": "Q30633271",
     "cik": "2088896"
   },
   "areas": [
@@ -20,6 +21,9 @@
     },
     {
       "area": "nuclear-energy"
+    },
+    {
+      "area": "fission-smr"
     }
   ],
   "evidence": [
@@ -112,10 +116,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/X-energy",
+      "quote": "X-Energy, Inc. is a publicly traded American nuclear reactor and fuel engineering company, headquartered in Rockville, Maryland.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q30633271",
+      "quote": "X-Energy (Q30633271) — headquarters location: Greenbelt",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q30633271",
+      "quote": "X-Energy (Q30633271) — official website: https://x-energy.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:fission-smr",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/X-energy",
+      "quote": "X-Energy, Inc. is a publicly traded American nuclear reactor and fuel engineering company, headquartered in Rockville, Maryland.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "X-Energy, Inc. is a publicly traded American nuclear reactor and fuel engineering company, headquartered in Rockville, Maryland.",
+  "hq": "Greenbelt"
 }

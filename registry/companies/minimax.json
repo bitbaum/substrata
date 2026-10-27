@@ -1,0 +1,87 @@
+{
+  "slug": "minimax",
+  "name": "MiniMax",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q130263208",
+    "domain": "minimax.io",
+    "isin": "KYG6181S1093"
+  },
+  "areas": [
+    {
+      "area": "frontier-labs"
+    },
+    {
+      "area": "ai-software-tooling"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/MiniMax_Group",
+      "quote": "MiniMax Group Inc. is an artificial intelligence (AI) company based in Shanghai, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q130263208",
+      "quote": "MiniMax Group (Q130263208) — Wikidata item: Q130263208",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q130263208",
+      "quote": "MiniMax Group (Q130263208) — headquarters location: Shanghai",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q130263208",
+      "quote": "MiniMax Group (Q130263208) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q130263208",
+      "quote": "MiniMax Group (Q130263208) — official website: https://www.minimax.io/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:frontier-labs",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/MiniMax_Group",
+      "quote": "MiniMax Group Inc. is an artificial intelligence (AI) company based in Shanghai, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:ai-software-tooling",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/MiniMax_Group",
+      "quote": "MiniMax Group Inc. is an artificial intelligence (AI) company based in Shanghai, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "MiniMax Group Inc. is an artificial intelligence (AI) company based in Shanghai, China.",
+  "country": "CN",
+  "hq": "Shanghai"
+}

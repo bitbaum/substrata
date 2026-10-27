@@ -6,14 +6,20 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q99036143",
+    "domain": "quantumscape.com",
+    "cik": "1811414",
+    "isin": "US74767V1098",
     "ticker": "QS",
     "exchange": "US",
-    "sedol": "BMC73Z8",
-    "cik": "1811414"
+    "sedol": "BMC73Z8"
   },
   "areas": [
     {
       "area": "mobility"
+    },
+    {
+      "area": "energy-storage"
     }
   ],
   "evidence": [
@@ -71,10 +77,52 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-26",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/QuantumScape",
+      "quote": "QuantumScape Corporation is an American company that researches and develops solid-state rechargeable lithium metal batteries for use in electric cars.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q99036143",
+      "quote": "QuantumScape (Q99036143) — Wikidata item: Q99036143",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q99036143",
+      "quote": "QuantumScape (Q99036143) — headquarters location: San Jose",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q99036143",
+      "quote": "QuantumScape (Q99036143) — official website: https://www.quantumscape.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:energy-storage",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/QuantumScape",
+      "quote": "QuantumScape Corporation is an American company that researches and develops solid-state rechargeable lithium metal batteries for use in electric cars.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "QuantumScape Corporation is an American company that researches and develops solid-state rechargeable lithium metal batteries for use in electric cars.",
+  "hq": "San Jose"
 }

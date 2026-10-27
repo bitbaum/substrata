@@ -1,0 +1,84 @@
+{
+  "slug": "carl-zeiss-ag",
+  "name": "Carl Zeiss AG",
+  "aliases": [],
+  "kind": "private",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q282186",
+    "domain": "zeiss.com",
+    "lei": "5299000XH7YX33EJZP65"
+  },
+  "areas": [
+    {
+      "area": "semiconductor-equipment"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Zeiss_(company)",
+      "quote": "Zeiss is a German manufacturer of optical systems and optoelectronics, founded in Jena, Germany, in 1846 by optician Carl Zeiss.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q282186",
+      "quote": "Carl Zeiss AG (Q282186) — Wikidata item: Q282186",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q282186",
+      "quote": "Carl Zeiss AG (Q282186) — headquarters location: Oberkochen",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q282186",
+      "quote": "Carl Zeiss AG (Q282186) — country (ISO 3166-1 alpha-2): DE",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q282186",
+      "quote": "Carl Zeiss AG (Q282186) — official website: https://www.zeiss.com",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.lei",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q282186",
+      "quote": "Carl Zeiss AG (Q282186) — Legal Entity Identifier: 5299000XH7YX33EJZP65",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:semiconductor-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Zeiss_(company)",
+      "quote": "Zeiss is a German manufacturer of optical systems and optoelectronics, founded in Jena, Germany, in 1846 by optician Carl Zeiss.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Zeiss is a German manufacturer of optical systems and optoelectronics, founded in Jena, Germany, in 1846 by optician Carl Zeiss.",
+  "country": "DE",
+  "hq": "Oberkochen"
+}

@@ -1,0 +1,66 @@
+{
+  "slug": "orbbec",
+  "name": "Orbbec",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q138391538"
+  },
+  "areas": [
+    {
+      "area": "robot-sensors"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Orbbec",
+      "quote": "Orbbec is a Chinese technology company specializing in the design and manufacture of 3D vision sensors, AI algorithms, and visual perception solutions.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q138391538",
+      "quote": "Orbbec Inc. (Q138391538) — Wikidata item: Q138391538",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q138391538",
+      "quote": "Orbbec Inc. (Q138391538) — headquarters location: Shenzhen",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q138391538",
+      "quote": "Orbbec Inc. (Q138391538) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:robot-sensors",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Orbbec",
+      "quote": "Orbbec is a Chinese technology company specializing in the design and manufacture of 3D vision sensors, AI algorithms, and visual perception solutions.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Orbbec is a Chinese technology company specializing in the design and manufacture of 3D vision sensors, AI algorithms, and visual perception solutions.",
+  "country": "CN",
+  "hq": "Shenzhen"
+}

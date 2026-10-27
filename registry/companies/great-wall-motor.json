@@ -1,0 +1,76 @@
+{
+  "slug": "great-wall-motor",
+  "name": "Great Wall Motor",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q1117001",
+    "domain": "gwm.com.cn",
+    "isin": "CNE100000338"
+  },
+  "areas": [
+    {
+      "area": "electric-vehicles"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Great_Wall_Motor",
+      "quote": "Great Wall Motor Company Limited, trading as GWM, is a Chinese automobile manufacturer headquartered in Baoding, Hebei, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1117001",
+      "quote": "Great Wall Motor (Q1117001) — Wikidata item: Q1117001",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1117001",
+      "quote": "Great Wall Motor (Q1117001) — headquarters location: Baoding",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1117001",
+      "quote": "Great Wall Motor (Q1117001) — country (ISO 3166-1 alpha-2): CN",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q1117001",
+      "quote": "Great Wall Motor (Q1117001) — official website: http://www.gwm.com.cn/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:electric-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/Great_Wall_Motor",
+      "quote": "Great Wall Motor Company Limited, trading as GWM, is a Chinese automobile manufacturer headquartered in Baoding, Hebei, China.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "Great Wall Motor Company Limited, trading as GWM, is a Chinese automobile manufacturer headquartered in Baoding, Hebei, China.",
+  "country": "CN",
+  "hq": "Baoding"
+}

@@ -6,12 +6,13 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q112892633",
+    "domain": "weride.ai",
+    "isin": "US9509151083",
     "ticker": "WRD",
     "exchange": "US",
     "cusip": "950915108",
-    "isin": "US9509151083",
     "sedol": "BMYDW80",
-    "qid": "Q112892633",
     "cik": "1867729"
   },
   "areas": [
@@ -20,6 +21,9 @@
     },
     {
       "area": "mobility"
+    },
+    {
+      "area": "autonomous-vehicles"
     }
   ],
   "evidence": [
@@ -124,10 +128,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/WeRide",
+      "quote": "WeRide Inc. is an autonomous driving technology company. It holds driverless permits in 9 countries including China, the US, the UAE, Saudi Arabia, Belgium, Switzerland, Singapore, Spain and France.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q112892633",
+      "quote": "WeRide (Q112892633) — headquarters location: Guangzhou",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q112892633",
+      "quote": "WeRide (Q112892633) — official website: https://www.weride.ai/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:autonomous-vehicles",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/WeRide",
+      "quote": "WeRide Inc. is an autonomous driving technology company. It holds driverless permits in 9 countries including China, the US, the UAE, Saudi Arabia, Belgium, Switzerland, Singapore, Spain and France.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "WeRide Inc. is an autonomous driving technology company. It holds driverless permits in 9 countries including China, the US, the UAE, Saudi Arabia, Belgium, Switzerland, Singapore, Spain and France.",
+  "hq": "Guangzhou"
 }

@@ -6,17 +6,21 @@
   "status": "active",
   "country": "US",
   "ids": {
+    "qid": "Q118957699",
+    "domain": "gevernova.com",
+    "isin": "US36828A1016",
     "ticker": "GEV",
     "exchange": "NYSE",
     "cik": "1996810",
     "lei": "254900DP080RU6OK2553",
-    "isin": "US36828A1016",
-    "qid": "Q118957699",
     "cusip": "36828A101"
   },
   "areas": [
     {
       "area": "power-storage-grid"
+    },
+    {
+      "area": "grid-equipment"
     }
   ],
   "evidence": [
@@ -107,10 +111,44 @@
       "readOn": "2026-10-27",
       "asOf": "2026-10-27",
       "detail": "Country US as the source states it."
+    },
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/GE_Vernova",
+      "quote": "GE Vernova, Inc. is an energy equipment manufacturing and services company headquartered in Cambridge, Massachusetts.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "hq",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q118957699",
+      "quote": "GE Vernova (Q118957699) — headquarters location: Cambridge",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q118957699",
+      "quote": "GE Vernova (Q118957699) — official website: https://www.gevernova.com/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:grid-equipment",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/GE_Vernova",
+      "quote": "GE Vernova, Inc. is an energy equipment manufacturing and services company headquartered in Cambridge, Massachusetts.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
     }
   ],
   "origin": {
     "by": "migration",
     "on": "2026-10-27"
-  }
+  },
+  "summary": "GE Vernova, Inc. is an energy equipment manufacturing and services company headquartered in Cambridge, Massachusetts.",
+  "hq": "Cambridge"
 }

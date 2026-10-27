@@ -1,0 +1,66 @@
+{
+  "slug": "pld-space",
+  "name": "PLD Space",
+  "aliases": [],
+  "kind": "unclassified",
+  "status": "active",
+  "jurisdictions": [],
+  "ids": {
+    "qid": "Q21076153",
+    "domain": "pldspace.com"
+  },
+  "areas": [
+    {
+      "area": "launch"
+    }
+  ],
+  "figures": [],
+  "evidence": [
+    {
+      "field": "summary",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/PLD_Space",
+      "quote": "L. is a Spanish company developing two partially-reusable launch vehicles called Miura 1 and Miura 5.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.qid",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q21076153",
+      "quote": "PLD Space (Q21076153) — Wikidata item: Q21076153",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "country",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q21076153",
+      "quote": "PLD Space (Q21076153) — country (ISO 3166-1 alpha-2): ES",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "ids.domain",
+      "grade": "registry",
+      "source": "https://www.wikidata.org/wiki/Q21076153",
+      "quote": "PLD Space (Q21076153) — official website: https://pldspace.com/en/",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    },
+    {
+      "field": "area:launch",
+      "grade": "reported",
+      "source": "https://en.wikipedia.org/wiki/PLD_Space",
+      "quote": "L. is a Spanish company developing two partially-reusable launch vehicles called Miura 1 and Miura 5.",
+      "readOn": "2026-10-27",
+      "asOf": "2026-10-27"
+    }
+  ],
+  "origin": {
+    "by": "company:add",
+    "on": "2026-10-27"
+  },
+  "summary": "L. is a Spanish company developing two partially-reusable launch vehicles called Miura 1 and Miura 5.",
+  "country": "ES"
+}
