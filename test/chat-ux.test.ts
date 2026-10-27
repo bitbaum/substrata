@@ -1,13 +1,11 @@
 /**
- * Contract tests for the Ask surfaces:
- * 1. /chat's empty state has a clear call-to-action after the headline.
- * 2. The page's composer is labelled and focusable from that CTA.
- * 3. The panel over a page is chatkit's ChatScreen in a sheet (phone) or a
- *    right-hand panel (desktop) with one title row — Ask Substrata · Expand ·
- *    Close — and its composer is AskComposer: "+" for a screenshot,
- *    microphone, send, and no model label unless the reader's own key is set
- *    (owner, 2026-10-23: "The chat didn't scroll, no way to expand … this is
- *    terrible"; 2026-10-27: "there was no way for me to attach the screenshots").
+ * Contract tests for the Ask surfaces. The chat app is chatkit's `ChatApp`
+ * (0.18): the header (Chats · title · New chat · …), the chat list, temporary
+ * chat, titles, the queue, Stop and the reopen on reload are the fleet's, the
+ * same as Heidi's and Loki's. Substrata gives it a transport, its evidence in
+ * the slots, and the composer configuration the home box shares: "+" for a
+ * screenshot, microphone, send (owner, 2026-10-27: "how I can open the chat
+ * that will look exactly like all the other chats").
  */
 
 import { test } from 'node:test';
@@ -18,40 +16,36 @@ import { join } from 'node:path';
 const ROOT = new URL('..', import.meta.url).pathname;
 const read = (p: string) => readFileSync(join(ROOT, p), 'utf8');
 
-test('/chat empty state includes a clear call-to-action after the headline', () => {
+test('Ask is chatkit’s ChatApp, not an assembly of its pieces', () => {
   const code = read('components/portal/ResearchChat.tsx');
-  assert.match(
-    code,
-    /ask-cta[\s\S]*?Ask a question now/,
-    'ResearchChat empty state must render a call-to-action button after the headline',
-  );
-  assert.match(code, /onClick=\{focusInput\}/, 'CTA button must trigger focusInput');
+  assert.equal(code.match(/<ChatApp\b/g)?.length, 1, 'one ChatApp, in both frames');
+  for (const piece of ['ChatScreen', 'ChatThread', 'Composer', 'ChatStarters'])
+    assert.ok(!new RegExp(`<${piece}\\b`).test(code), `no hand-built <${piece}>`);
+  assert.match(code, /localConversationStore\(\{ key: 'substrata-ask' \}\)/, 'chats on the device');
+  assert.match(code, /rememberKey=\{OPEN_CHAT_KEY\}/, 'a reload and Expand reopen the open chat');
+  assert.match(code, /renderers: chartRenderers/, 'charts are chartkit’s');
+  assert.match(code, /<AnswerFooter turn=\{turn\} \/>/, 'the evidence under each answer');
+  assert.match(code, /share: \{ title: 'Ask Substrata' \}/, 'Copy · Listen · Share');
 });
 
-test('one composer everywhere: AskComposer on the home page, the panel and /chat', () => {
-  const code = read('components/portal/ResearchChat.tsx');
-  assert.equal(code.match(/<AskComposer\b/g)?.length, 1, 'built once, placed in both frames');
-  assert.match(code, /inputRef=\{inputRef\}/, 'AskComposer must receive inputRef');
-  assert.doesNotMatch(code, /<Composer\b/, 'no second composer configuration');
-  assert.match(read('app/_home/AskBox.tsx'), /<AskComposer\b/, 'the home box is the same box');
-  const box = read('components/portal/chat/AskComposer.tsx');
-  assert.equal(box.match(/<Composer\b/g)?.length, 1);
-  assert.doesNotMatch(box, /header=/, 'no kicker over the box');
-  assert.doesNotMatch(box, /attach=\{false\}/, 'screenshots attach (owner, 2026-10-27)');
+test('one composer configuration: the home box, the panel and /chat', () => {
+  const box = read('components/portal/chat/askComposer.ts');
+  assert.doesNotMatch(box, /attach: false/, 'screenshots attach (owner, 2026-10-27)');
   assert.match(box, /maxFiles: MAX_IMAGES/);
   assert.match(box, /maxImageEdge: MAX_IMAGE_EDGE/, 'a screenshot shrinks in the browser first');
   assert.match(box, /maxImageBytes: MAX_IMAGE_BYTES/);
-  assert.match(box, /attachmentOnlyText=\{ATTACHMENT_ONLY_TEXT\}/, 'a picture alone can be sent');
-  assert.match(box, /queue=\{Boolean\(onStop\)\}/, 'a message can be queued while a turn runs');
+  assert.match(box, /attachmentOnlyText: ATTACHMENT_ONLY_TEXT/, 'a picture alone can be sent');
+  assert.match(read('components/portal/ResearchChat.tsx'), /\.\.\.askComposerProps\(\)/);
+  assert.match(read('app/_home/AskBox.tsx'), /\.\.\.\(askComposerProps\(\)/);
   assert.doesNotMatch(read('app/styles/ask.css'), /\.ask-composer-label/);
 });
 
-test('the panel is chatkit’s ChatScreen in a sheet with one title row', () => {
+test('the panel is chatkit’s ChatApp in a sheet with one title row', () => {
   const chat = read('components/portal/ResearchChat.tsx');
   assert.match(
     chat,
-    /<AskPanel[\s\S]*?<ChatScreen[\s\S]*?fill="parent"/,
-    'compact = ChatScreen in AskPanel',
+    /fill=\{compact \? 'parent' : 'viewport'\}[\s\S]*?<AskPanel/,
+    'compact = ChatApp filling AskPanel',
   );
   const panel = read('components/portal/AskPanel.tsx');
   assert.match(
@@ -77,21 +71,19 @@ test('the model chip only with a key; the way to a key is the footnote line', ()
   const tools = read('components/portal/chat/AskTools.tsx');
   assert.match(tools, /if \(!keys\.active\) return null;/, 'nothing in the slot without a key');
   assert.doesNotMatch(tools, /[>`'"]Model: /, 'no "Model: Auto" label anywhere');
-  assert.match(chat, /Use your own AI key/, 'the way to a key is the footnote line');
+  assert.match(chat, /Use your own AI key/);
 });
 
-test('Expand hands the whole thread to /chat under its id', () => {
+test('Expand opens /chat on the same chat; messages from elsewhere start a new one', () => {
   const chat = read('components/portal/ResearchChat.tsx');
-  assert.match(
-    chat,
-    /saveThread\(\{ id, conversationId: chat\.conversationIdNow\(\), topic, onPath, turns: chat\.turns \}\)/,
-  );
-  assert.match(chat, /router\.push\(chatHref\(id\)\)/);
-  assert.match(chat, /loadThread\(threadId\)/, '/chat picks the thread up');
-  assert.match(read('app/chat/page.tsx'), /threadId=\{threadId\}/);
+  assert.match(chat, /router\.push\('\/chat'\)/, 'Expand is only a bigger frame');
+  assert.match(chat, /removeItem\(OPEN_CHAT_KEY\)/, 'a question from elsewhere is a new chat');
+  const auto = read('components/portal/chat/useAutoAsk.ts');
+  assert.match(auto, /takePending\(handed\)/, 'the home box’s message, attachments and all');
+  assert.match(auto, /sendThroughComposer/);
 });
 
 test('"N records read" is the thought row above the answer, not a line under it', () => {
-  assert.match(read('components/portal/ResearchChat.tsx'), /thinking: thinkingFor\(t\)/);
+  assert.match(read('components/portal/chat/askTransport.ts'), /thinking: thinkingFor\(evidence\)/);
   assert.doesNotMatch(read('components/portal/chat/AnswerFooter.tsx'), /records? read/);
 });

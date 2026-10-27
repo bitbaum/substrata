@@ -7,14 +7,20 @@ screenshots … I'm not sure what the quality of answer would be."
 
 ## The box
 
-One composer on the home page, in the Ask panel and on /chat:
-`components/portal/chat/AskComposer.tsx`, chatkit's `Composer` with
-attachments on — Camera · Photos · Files on a phone, paste and drop, the picture
+The Ask panel and /chat are chatkit's `ChatApp` (`components/portal/ResearchChat.tsx`):
+the header, the chat list, temporary chat, titles, the queue and the reopen on
+reload are the fleet's. Readers' chats are kept on their device
+(`localConversationStore`); Substrata keeps no conversation on its server.
+Substrata gives it a transport (`components/portal/chat/askTransport.ts`) and one
+composer configuration (`components/portal/chat/askComposer.ts`), shared with
+the home box: Camera · Photos · Files on a phone, paste and drop, the picture
 shrunk to 1024px in the browser before it is staged (Heidi's limits, in
 `lib/chat/image.ts`). Pictures and text files only: chatkit's composer refuses a
 PDF with a sentence. The home box does not answer; it hands the message, with
 its attachments, to /chat through the tab's session store
-(`lib/chat/handoff.ts`), and /chat sends it at once.
+(`lib/chat/handoff.ts`), and /chat sends it at once as a new chat, through the
+composer (`lib/chat/drive-composer.ts` — ChatApp 0.18 has no way for a page to
+send a message itself).
 
 ## The answer
 

@@ -5,7 +5,7 @@ import type { useAiKey } from '../ai-key/useAiKey';
 import { SharedModelSelect } from './AskTools';
 import { ContributeForm } from './ContributeForm';
 import type { useAssistantStatus } from './useAssistantStatus';
-import type { useChatSession } from './useChatSession';
+import type { useContribution } from './useContribution';
 
 type Status = ReturnType<typeof useAssistantStatus>;
 
@@ -23,7 +23,7 @@ export function ComposerBeside({
   model,
   setModel,
 }: {
-  chat: ReturnType<typeof useChatSession>;
+  chat: ReturnType<typeof useContribution>;
   keys: ReturnType<typeof useAiKey>;
   keyOpen: boolean;
   onKeyDone: () => void;
@@ -36,7 +36,7 @@ export function ComposerBeside({
       {keyOpen && (
         <div className="ask-key">
           {!keys.active && (
-            <SharedModelSelect models={models} model={model} setModel={setModel} busy={chat.busy} />
+            <SharedModelSelect models={models} model={model} setModel={setModel} busy={false} />
           )}
           <AiKeyPanel keys={keys} onDone={() => onKeyDone()} />
         </div>
@@ -55,6 +55,11 @@ export function ComposerBeside({
           </>
         )}
       </p>
+      {chat.error && (
+        <p className="ask-aside" role="alert">
+          {chat.error}
+        </p>
+      )}
       {chat.contribute && <ContributeForm busy={chat.busy} onSubmit={chat.sendContribution} />}
     </>
   );
