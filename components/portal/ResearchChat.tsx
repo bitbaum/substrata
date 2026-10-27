@@ -2,25 +2,24 @@
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useMemo, useRef, useState } from 'react';
-import { ChatApp } from '@bitbaum/chatkit/react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { ChatApp, type ChatAppHandle } from '@bitbaum/chatkit/react';
 import { localConversationStore } from '@bitbaum/chatkit';
 import { HOME_LINK } from '@/config/site-nav';
 import type { CheckRequest } from '@/lib/ask-bridge';
-import { SEND_PARAM } from '@/lib/chat/handoff';
+import { handedOver, SEND_PARAM } from '@/lib/chat/handoff';
 import { logIdFor } from '@/lib/chat/log-id';
 import { useAiKey } from './ai-key/useAiKey';
 import { AskPanel } from './AskPanel';
 import { AnswerFooter } from './chat/AnswerFooter';
 import { askComposerProps, titleAfterAnswer } from './chat/askComposer';
 import { AskTools } from './chat/AskTools';
-import { askTransport } from './chat/askTransport';
+import { askTransport, pendingChecks } from './chat/askTransport';
 import { chartRenderers } from './chat/chartRenderers';
 import { ComposerBeside } from './chat/ComposerBeside';
 import { renderLink } from './chat/links';
 import type { Turn } from './chat/types';
 import { useAssistantStatus } from './chat/useAssistantStatus';
-import { useAutoAsk } from './chat/useAutoAsk';
 import { useContribution } from './chat/useContribution';
 
 /** The device's chats, one store for the panel and /chat: Expand opens the same chat. */
@@ -52,7 +51,6 @@ export function ResearchChat({
   open = true,
   onClose,
   pending,
-  start,
   starters,
 }: {
   topic: string;
@@ -62,10 +60,8 @@ export function ResearchChat({
   /** The panel: shown or hidden (it stays mounted, so the chat survives Close). */
   open?: boolean;
   onClose?: () => void;
-  /** A "Check this" request to send as soon as the panel is open. */
+  /** A "Check this" request to send, as a new chat, as soon as the panel is open. */
   pending?: (CheckRequest & { id: number }) | null;
-  /** A question to send as soon as the page opens (`/chat?q=`). */
-  start?: string;
   /** The empty screen's questions: drawn from the corpus per facet (lib/starters.ts). */
   starters: readonly { label: string; question: string }[];
 }) {
@@ -74,20 +70,29 @@ export function ResearchChat({
   const keys = useAiKey();
   const contribution = useContribution(topic);
   const [keyOpen, setKeyOpen] = useState(false);
-  const root = useRef<HTMLDivElement>(null);
-  // A message arriving from elsewhere is a new question: it opens a new chat,
-  // not the one that was open (ChatApp reopens the remembered chat on load).
-  useState(() => {
-    if (typeof window === 'undefined') return;
-    const fresh = start || pending || new URL(window.location.href).searchParams.has(SEND_PARAM);
-    if (fresh)
-      try {
-        window.localStorage.removeItem(OPEN_CHAT_KEY);
-      } catch {
-        // Blocked storage: nothing was remembered either.
-      }
-  });
-  useAutoAsk(root, pending, start);
+  const chat = useRef<ChatAppHandle>(null);
+  // What the home box handed /chat (`?send=`, lib/chat/handoff.ts): ChatApp
+  // sends it once, as a new chat. The panel is never handed anything.
+  const [arrival] = useState(() =>
+    compact || typeof window === 'undefined' ? null : handedOver(window.location.href),
+  );
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    if (!url.searchParams.has(SEND_PARAM)) return;
+    url.searchParams.delete(SEND_PARAM);
+    window.history.replaceState(window.history.state, '', url);
+  }, []);
+  // "Check this" from a figure: a new chat, sent for the reader.
+  const checked = useRef<number | null>(null);
+  useEffect(() => {
+    if (!pending || checked.current === pending.id) return;
+    checked.current = pending.id;
+    const subject = pending.value ? `${pending.value} — "${pending.claim}"` : `"${pending.claim}"`;
+    const text = `Check this: ${subject}`;
+    // The transport reads the claim's source with the turn that carries these words.
+    pendingChecks.set(text, { claim: pending.claim, value: pending.value, source: pending.source });
+    void chat.current?.send(text, [], { newChat: true });
+  }, [pending]);
 
   // ChatApp reads the newest transport at send time, so a changed model or key applies at once.
   const keyFields = keys.requestFields;
@@ -111,14 +116,22 @@ export function ResearchChat({
   );
 
   const app = (
-    <div ref={root} className={compact ? 'companion is-compact' : 'companion'}>
+    <div className={compact ? 'companion is-compact' : 'companion'}>
       <ChatApp
+        ref={chat}
         name="Ask Substrata"
         transport={transport}
         store={STORE}
         rememberKey={OPEN_CHAT_KEY}
         makeTitle={titleAfterAnswer}
+        initialMessage={arrival}
+        // A question from the home page (`/chat?q=`) is asked at once, as a new chat.
+        deepLinkParam={compact ? undefined : 'q'}
+        deepLinkAutoSend
         fill={compact ? 'parent' : 'viewport'}
+        // The panel is ~30rem wide whatever the window: its chat list is the
+        // drawer, never a rail that leaves the answer a 12rem column.
+        railQuery={compact ? 'not all' : undefined}
         starters={starters.map((s) => ({ label: s.label, prompt: s.question }))}
         startersTitle="Ask about a bottleneck, a company or a rule — or add a screenshot of a post and its claims are checked."
         composer={{

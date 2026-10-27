@@ -15,6 +15,7 @@
 import { REASONING } from './labels';
 import type { ResearchPlan, SubQuestion } from './research-plan';
 import type { ResearchPassage } from './research-read';
+import { sentencesIn } from './sentences';
 
 /** The sections, in order. The bottom line is the prose before the first heading. */
 export const SECTIONS = [
@@ -66,8 +67,7 @@ export function uncitedForecasts(answer: string): string[] {
   for (const line of answer.split('\n')) {
     if (/^\s*```/.test(line)) fence = !fence;
     if (fence || /^\s*```|^\s*#|^\s*\|/.test(line) || LABELLED.test(line)) continue;
-    for (const s of line.split(/(?<=[.!?])\s+/))
-      if (FORECAST.test(s) && !CITED.test(s)) out.push(s.trim());
+    for (const s of sentencesIn(line)) if (FORECAST.test(s) && !CITED.test(s)) out.push(s.trim());
   }
   return out;
 }

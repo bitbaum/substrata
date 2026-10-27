@@ -9,6 +9,10 @@
  * - every claim the reading found gets exactly one status line, in order;
  * - a status other than "Not found" stands only with a citation behind it;
  *   without one the line is rewritten, in code, from the reading itself;
+ * - a claim that someone SAID something is "Reported" when the source only
+ *   shows they said it, and "Confirmed" only when it establishes the fact
+ *   itself: "Confirmed" over "Gartner estimates a $4.9T gap [W2]" told the
+ *   reader the gap was real, when the page showed only that Gartner said so;
  * - a figure that comes only from the material, stated anywhere else without
  *   a citation, goes — the post's own words are the reader's material, never
  *   a source, and an unverified claim is never repeated as fact;
@@ -20,8 +24,9 @@ import type { Claim, Reading } from './read-claims';
 import { numbersIn } from './read-claims';
 import type { ResearchPassage } from './research-read';
 import { CITED, sectionsOf } from './research-shape';
+import { sentencesIn } from './sentences';
 
-export const STATUSES = ['Confirmed', 'Partly', 'Contradicted', 'Not found'] as const;
+export const STATUSES = ['Confirmed', 'Reported', 'Partly', 'Contradicted', 'Not found'] as const;
 export type ClaimStatus = (typeof STATUSES)[number];
 
 export const CLAIMS_HEADING = 'Claim by claim';
@@ -46,7 +51,7 @@ export function claimInstruction(
     ...claims,
     "## Answer the reader's actual question, in exactly this shape",
     '1. No heading: the bottom line in 2–3 sentences — your take, resting only on what the pages and records above confirm, each figure cited.',
-    `### ${CLAIMS_HEADING} — one line per claim, in order, exactly: \`- **C1 · Confirmed** — what the source says, cited [W#]\`. Status is one of ${STATUSES.join(', ')}. Confirmed, Partly or Contradicted ONLY with a citation to a page or record above that says so; otherwise Not found.`,
+    `### ${CLAIMS_HEADING} — one line per claim, in order, exactly: \`- **C1 · Confirmed** — what the source says, cited [W#]\`. Status is one of ${STATUSES.join(', ')}. Confirmed, Reported, Partly or Contradicted ONLY with a citation to a page or record above that says so; otherwise Not found. For a claim that someone said, warned or estimated something: Reported when the page shows only that they said it (name them: "Gartner estimates…"); Confirmed only when the page establishes the thing itself.`,
     `### Reasoning — what it adds up to, each line opening "${REASONING}", with no figure in it.`,
     '### What would change the view — the evidence that would move it, one line each.',
     'Do not write a Sources section; it is added from your citations.',
@@ -55,7 +60,7 @@ export function claimInstruction(
 }
 
 const LINE =
-  /^\s*[-*]\s*\*\*\s*(C\d+)\s*[·:\-–—]\s*(confirmed|partly|contradicted|not found)\s*\*\*\s*[—–:-]?\s*(.*)$/i;
+  /^\s*[-*]\s*\*\*\s*(C\d+)\s*[·:\-–—]\s*(confirmed|reported|partly|contradicted|not found)\s*\*\*\s*[—–:-]?\s*(.*)$/i;
 
 /** The model's status lines, by claim id. */
 export function claimLines(section: string): Map<string, { status: ClaimStatus; rest: string }> {
@@ -73,6 +78,21 @@ const cites = (s: string, webCount: number) =>
   [...s.matchAll(/\[W(\d+)\]/g)].some((m) => Number(m[1]) >= 1 && Number(m[1]) <= webCount) ||
   /\[[^\]]+\]\((https?:\/\/|\/)[^)]+\)/.test(s);
 
+/** A source line that only shows who said it: it names the speaker, or reports a saying. */
+const REPORTING =
+  /\b(said|says|told|wrote|writes|warn(s|ed)?|estimat(es|ed)|predict(s|ed)|claim(s|ed)|stat(es|ed)|according to|quoted|report(s|ed))\b/i;
+
+/**
+ * The status a source line earns. An attributed claim's "Confirmed" stays
+ * only when the line stands on the fact, not on the speaker: a line that
+ * names who said it, or reports a saying, confirms the saying — "Reported".
+ */
+export function statusFor(claim: Claim, status: ClaimStatus, rest: string): ClaimStatus {
+  if (status !== 'Confirmed' || (claim.kind !== 'quote' && !claim.who)) return status;
+  const speaker = claim.who && rest.toLowerCase().includes(claim.who.toLowerCase());
+  return speaker || REPORTING.test(rest) ? 'Reported' : status;
+}
+
 /** One claim's line, as the reader sees it. */
 function lineFor(
   claim: Claim,
@@ -81,7 +101,7 @@ function lineFor(
   from: string,
 ) {
   if (model && model.status !== 'Not found' && cites(model.rest, webCount))
-    return `- **${model.status}** — ${model.rest}`;
+    return `- **${statusFor(claim, model.status, model.rest)}** — ${model.rest}`;
   const said = claim.who ? `${claim.who}, per the ${from}` : `the ${from}`;
   return `- **Not found** — ${said}: “${claim.text}” No source read for this answer confirms or refutes it.`;
 }
@@ -99,8 +119,7 @@ export function withoutMaterialFigures(text: string, reading: Reading): string {
     .split('\n')
     .map((line) => {
       if (/^\s*(\||```|#)/.test(line)) return line;
-      return line
-        .split(/(?<=[.!?])\s+/)
+      return sentencesIn(line)
         .filter((s) => CITED.test(s) || !numbersIn(s).some((n) => material.has(n)))
         .join(' ');
     })

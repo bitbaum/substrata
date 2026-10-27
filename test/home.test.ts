@@ -11,7 +11,7 @@ import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 
 import { QUESTION_LENGTH } from '../config/substrata-chat';
-import { askHref, startQuestion } from '../lib/home-asks';
+import { askHref } from '../lib/home-asks';
 import { homeAsks, starters } from '../lib/starters';
 import { whatChangedRows, type HomeFeed } from '../lib/home-feed';
 import { worstNow } from '../lib/worst-now';
@@ -104,10 +104,7 @@ test('home questions: four from the corpus, no two of one kind, all sendable', (
   );
   for (const a of asks) {
     assert.ok(a.question.length >= QUESTION_LENGTH.min && a.question.length <= QUESTION_LENGTH.max);
-    assert.equal(
-      startQuestion(new URL(askHref(a.question), 'http://x').searchParams.get('q') ?? ''),
-      a.question,
-    );
+    assert.equal(new URL(askHref(a.question), 'http://x').searchParams.get('q'), a.question);
   }
   // Another day, another four — the page is served from a cache keyed by the date.
   assert.notDeepEqual(homeAsks('2026-10-24'), asks);
@@ -115,12 +112,13 @@ test('home questions: four from the corpus, no two of one kind, all sendable', (
   assert.match(page, /homeAsks\(seedFor\(now\)\)/, 'the page seeds its questions with today');
 });
 
-test('a question parameter is trimmed, bounded and ignored when it is not a question', () => {
-  assert.equal(startQuestion(undefined), '');
-  assert.equal(startQuestion(['a', 'b']), '');
-  assert.equal(startQuestion(' x '), '');
-  assert.equal(startQuestion('  Who makes wafers? '), 'Who makes wafers?');
-  assert.equal(startQuestion('a'.repeat(9000)).length, QUESTION_LENGTH.max);
+test('a question link is trimmed and bounded; /chat sends it through ChatApp', () => {
+  const q = (href: string) => new URL(href, 'http://x').searchParams.get('q') ?? '';
+  assert.equal(q(askHref('  Who makes wafers? ')), 'Who makes wafers?');
+  assert.equal(q(askHref('a'.repeat(9000))).length, QUESTION_LENGTH.max);
+  const chat = read('components/portal/ResearchChat.tsx');
+  assert.match(chat, /deepLinkParam=\{compact \? undefined : 'q'\}/, 'only the page reads ?q=');
+  assert.match(chat, /deepLinkAutoSend/, 'a home question is asked at once');
 });
 
 test('the market strip: stored closes only, the day named, nothing without them', async () => {

@@ -16,6 +16,7 @@
  */
 import type { ChatMessage } from '@bitbaum/ai-kit';
 import { REVISION_RULE, type ModelTurn } from './turn';
+import { sentencesIn } from './sentences';
 
 /** A figure as written: digits with separators, an optional decimal, and its unit or %. */
 const FIGURE =
@@ -51,8 +52,7 @@ export function withoutSentencesHolding(answer: string, figures: string[]): stri
   return answer
     .split('\n')
     .flatMap((line) => {
-      const kept = line
-        .split(/(?<=[.!?])\s+/)
+      const kept = sentencesIn(line)
         .filter((sentence) => !figures.some((f) => sentence.includes(f)))
         .join(' ');
       // A line emptied by the removal goes; a blank line the answer had stays.

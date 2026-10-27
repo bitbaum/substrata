@@ -5,6 +5,11 @@ What changed on substrata.orangecat.ch, newest first, in the words of someone us
 ## 2026-10-27
 
 ### Fixed
+- Retry after a failed answer sends your screenshot again, not only your words, and the failed answer says why it failed. A question from the home page, a "Check this" on a figure and a screenshot handed over from the home box are now sent by the shared chat itself (chatkit 0.19) instead of being typed into the box for you.
+- A checked claim that someone said something now says what was checked: **Reported** when a source shows only that they said it, **Confirmed** only when a source establishes the thing itself.
+- No more half-links like "](https://x.com/…))" in an answer's reasoning: a link whose title held a full stop was cut in two when a sentence around it was removed.
+- A source chip stands only on a sentence the page supports — a figure it prints or a name it gives — not on the answer's own analysis.
+- The Ask panel on a wide screen gives the answer its full width; the chat list opens as a drawer from the Chats button.
 - A company page scrolls under your finger on a phone. The "On this page" strip pulled the page back about 70px each time the section you were reading changed, so a swipe moved the page forward and then back. The strip now moves only itself. (#267)
 
 ## 2026-10-26

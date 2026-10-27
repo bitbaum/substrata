@@ -36,7 +36,7 @@ import { openWithSummary, tableProse } from './table-prose';
 import { attachCitations } from './attach-citations';
 import { defaultDeny } from './default-deny';
 import { answerFirst } from './open-first';
-import { webFigureProblems, webPassagesIn } from './web-figures';
+import { webFigureProblems, webPassagesIn, withoutUnsupportedWebCites } from './web-figures';
 import { withoutInternals } from './internal';
 import { dropUncited, oneGapEach, tableEntityWords, uncitedClaims, webCountIn } from './uncited';
 import type { ModelTurn } from './turn';
@@ -158,7 +158,10 @@ export function finishInCode(
   },
 ): string {
   const { facts, gaps } = opts;
-  const shaped = facts ? openWithSummary(tableProse(answer, facts), facts.summary) : answer;
+  const web = webPassagesIn(opts.results);
+  // A [W#] stays only on a sentence its page supports: no chip on the model's own analysis.
+  const supported = withoutUnsupportedWebCites(answer, web);
+  const shaped = facts ? openWithSummary(tableProse(supported, facts), facts.summary) : supported;
   const claims = uncitedClaims(shaped, {
     gaps,
     entities: tableEntityWords(facts),
@@ -180,7 +183,7 @@ export function finishInCode(
         summary: facts?.summary ?? [],
         webCount: opts.webCount,
         evidence,
-        web: webPassagesIn(opts.results),
+        web,
         reasoningSections: opts.reasoningSections,
       }).answer
     : honest;
