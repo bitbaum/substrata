@@ -78,6 +78,50 @@ export const FUNDS: readonly Fund[] = [
     format: 'globalx-csv' as const,
     url: `https://assets.globalxetfs.com/funds/holdings/${t}_full-holdings_{date}.csv`,
   })),
+  ...(
+    [
+      ['shld', 'Global X Defense Tech ETF', 'defence'],
+      ['clou', 'Global X Cloud Computing ETF', 'ai'],
+      ['gnom', 'Global X Genomics & Biotechnology ETF', 'biotools'],
+    ] as const
+  ).map(([t, name, theme]) => ({
+    id: `globalx-${t}`,
+    ticker: t.toUpperCase(),
+    name,
+    issuer: 'Global X',
+    theme,
+    format: 'globalx-csv' as const,
+    url: `https://assets.globalxetfs.com/funds/holdings/${t}_full-holdings_{date}.csv`,
+  })),
+  ...(
+    [
+      ['xar', 'SPDR S&P Aerospace & Defense ETF', 'defence'],
+      ['hail', 'SPDR S&P Kensho Smart Mobility ETF', 'mobility'],
+    ] as const
+  ).map(([t, name, theme]) => ({
+    id: `ssga-${t}`,
+    ticker: t.toUpperCase(),
+    name,
+    issuer: 'State Street',
+    theme,
+    format: 'ssga-xlsx' as const,
+    url: `https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-${t}.xlsx`,
+  })),
+  ...(
+    [
+      ['ROBT', 'First Trust Nasdaq Artificial Intelligence and Robotics ETF', 'robotics'],
+      ['FTXL', 'First Trust Nasdaq Semiconductor ETF', 'compute'],
+      ['SKYY', 'First Trust Cloud Computing ETF', 'ai'],
+    ] as const
+  ).map(([t, name, theme]) => ({
+    id: `ft-${t.toLowerCase()}`,
+    ticker: t,
+    name,
+    issuer: 'First Trust',
+    theme,
+    format: 'ft-html' as const,
+    url: `https://www.ftportfolios.com/Retail/Etf/EtfHoldings.aspx?Ticker=${t}`,
+  })),
   {
     id: 'ft-grid',
     ticker: 'GRID',
@@ -151,6 +195,28 @@ export const SIC_THEMES: readonly { sic: string; label: string; theme: ThemeId }
   { sic: '3761', label: 'Guided missiles & space vehicles', theme: 'space' },
   { sic: '3826', label: 'Laboratory analytical instruments', theme: 'biotools' },
   { sic: '1094', label: 'Uranium-radium-vanadium ores', theme: 'nuclear' },
+  { sic: '3559', label: 'Special industry machinery, NEC', theme: 'compute' },
+  { sic: '3572', label: 'Computer storage devices', theme: 'compute' },
+  { sic: '3571', label: 'Electronic computers', theme: 'ai' },
+  { sic: '3576', label: 'Computer communications equipment', theme: 'ai' },
+  { sic: '3569', label: 'General industrial machinery & equipment, NEC', theme: 'robotics' },
+  { sic: '3711', label: 'Motor vehicles & passenger car bodies', theme: 'mobility' },
+  { sic: '3612', label: 'Power, distribution & specialty transformers', theme: 'grid' },
+  { sic: '3613', label: 'Switchgear & switchboard apparatus', theme: 'grid' },
+  { sic: '3621', label: 'Motors & generators', theme: 'grid' },
+  { sic: '1000', label: 'Metal mining', theme: 'materials' },
+  {
+    sic: '3812',
+    label: 'Search, detection, navigation, guidance, aeronautical systems',
+    theme: 'defence',
+  },
+  {
+    sic: '3480',
+    label: 'Ordnance & accessories, except vehicles & guided missiles',
+    theme: 'defence',
+  },
+  { sic: '3721', label: 'Aircraft', theme: 'defence' },
+  { sic: '3728', label: 'Aircraft parts & auxiliary equipment, NEC', theme: 'defence' },
 ];
 
 /**
@@ -168,4 +234,5 @@ export const WIKIDATA_INDUSTRIES: readonly { qid: string; label: string; theme: 
   { qid: 'Q122198663', label: 'electric vehicle industry', theme: 'mobility' },
   { qid: 'Q467054', label: 'photonics', theme: 'photonics' },
   { qid: 'Q1469765', label: 'optical communication', theme: 'photonics' },
+  { qid: 'Q392933', label: 'weapons industry', theme: 'defence' },
 ];

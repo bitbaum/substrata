@@ -41,6 +41,7 @@ export const THEME_IDS = [
   'quantum',
   'photonics',
   'biotools',
+  'defence',
 ] as const;
 
 export type ThemeId = (typeof THEME_IDS)[number];
@@ -126,6 +127,14 @@ export const THEMES: readonly Theme[] = [
     covers: 'Sequencers, lab instruments and the platforms that make biology programmable.',
     why: 'The frontier branch most dependent on compute and on a few instrument makers.',
     topics: ['manufacturing'],
+  },
+  {
+    id: 'defence',
+    label: 'Defence & aerospace',
+    covers:
+      'Builds military aircraft, missiles, munitions, drones, naval and land systems, or the electronics and sensors inside them.',
+    why: 'State buyers compete for the same rare-earth magnets, gallium, germanium, tungsten and chips as the civilian branches, and a few prime contractors hold the demand.',
+    topics: ['space', 'manufacturing'],
   },
 ];
 

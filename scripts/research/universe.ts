@@ -26,6 +26,7 @@ import {
   sicRow,
   tickerRow,
 } from '@/lib/sources/edgar-universe';
+import { readRevenue, revenueRow } from '@/lib/sources/edgar-revenue';
 import { nameKey } from '@/lib/sources/name-key';
 import { leiForIsin, leiRow, qidRow, qidsForIsins } from '@/lib/sources/registry-ids';
 import { industryMembers, industryRow } from '@/lib/sources/wikidata-universe';
@@ -128,6 +129,30 @@ async function build(today: string) {
     const f = cik ? floats.get(cik) : undefined;
     if (f) rows.push(floatRow(slug, f, today));
   }
+
+  // A filer with no float over the floor (a foreign private issuer files no 10-K
+  // cover) may still state annual revenue in dollars: read it, and let the
+  // revenue floor decide. Only companies that have no cleared size yet.
+  const cleared = (slug: string) =>
+    rows.some(
+      (r) =>
+        r.company === slug &&
+        r.establishes.size &&
+        r.establishes.size.usd >=
+          (SIZE_FLOORS.find((f) => f.basis === r.establishes.size!.basis)?.floorUsd ?? Infinity),
+    );
+  let revenues = 0;
+  for (const slug of new Set(rows.map((r) => r.company))) {
+    if (cleared(slug) || MARKET_PARTICIPANTS.some((p) => p.slug === slug)) continue;
+    const cik = rows.find((r) => r.company === slug && r.establishes.ids?.cik)?.establishes.ids
+      ?.cik;
+    if (!cik) continue;
+    const read = await readRevenue(cik);
+    if (!read) continue;
+    rows.push(revenueRow(slug, read, today));
+    revenues++;
+  }
+  log(`edgar revenue: ${revenues} companies with a dollar revenue read`);
 
   // Registry identifiers by ISIN: LEI (GLEIF) and QID (Wikidata).
   const isins = new Map<string, string>();
