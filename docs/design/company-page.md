@@ -15,7 +15,7 @@ Each section answers one question. Its heading says what it holds.
 
 | # | Section | The one question | Source (code) |
 |---|---|---|---|
-| — | Header | Which company and line is this, and what did it last close at? | `lib/company-page/quote.ts` over `priceHistory` |
+| — | Header | Which company and line is this, and what did it last close at? | `lib/company-page/price-view.ts` over `priceHistory` |
 | 1 | Share price | How has the share done? | `prices/{store,compute}` |
 | 2 | Key statistics | How big is it, and is it growing? | `fundamentals` + `present.marketCap` |
 | 3 | Financials | Revenue and net income, year by year | `fundamentals` (annual XBRL) |
