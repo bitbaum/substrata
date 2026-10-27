@@ -1,6 +1,83 @@
 [
   {
     "evidence": "candidate",
+    "asOf": "2025-12-27",
+    "source": {
+      "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000018/amd-20251227.htm",
+      "quote": "We utilize Taiwan Semiconductor Manufacturing Company Limited (TSMC) for the production of wafers for our HPC, FPGA and adaptive SoC products",
+      "readOn": "2026-10-27"
+    },
+    "submittedBy": {
+      "agent": "data-agent",
+      "model": "unrecorded",
+      "runId": "exposure-2026-10-27"
+    },
+    "from": "company:amd",
+    "to": "company:tsmc",
+    "type": "buys_from",
+    "grade": "stated",
+    "note": "Wafers for HPC, FPGA and adaptive SoC products; the filing does not name the node."
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2025-11-02",
+    "source": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/avgo-20251102.htm",
+      "quote": "The majority of our front-end wafer manufacturing operations is outsourced to external foundries, including Taiwan Semiconductor Manufacturing Company Limited (\"TSMC\").",
+      "readOn": "2026-10-27"
+    },
+    "submittedBy": {
+      "agent": "data-agent",
+      "model": "unrecorded",
+      "runId": "exposure-2026-10-27"
+    },
+    "from": "company:broadcom",
+    "to": "company:tsmc",
+    "type": "buys_from",
+    "grade": "stated",
+    "note": "Names the foundry, not the node."
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2025",
+    "source": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000104/crwv-20251231.htm",
+      "quote": "as a result of our obligations in our current customer contracts, all of the GPUs used in our infrastructure today are NVIDIA GPUs.",
+      "readOn": "2026-10-27",
+      "locator": "Item 1A, risk factors"
+    },
+    "submittedBy": {
+      "agent": "data-agent",
+      "model": "unrecorded",
+      "runId": "exposure-2026-10-27"
+    },
+    "from": "company:coreweave",
+    "to": "company:nvidia",
+    "type": "buys_from",
+    "grade": "stated",
+    "note": "Its customers specify NVIDIA GPUs by contract, per the same filing."
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2025-12-27",
+    "source": {
+      "url": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000011/intc-20251227.htm",
+      "quote": "We expect to continue to use TSMC and other third-party foundry suppliers for various key tiles in a number of current and future products.",
+      "readOn": "2026-10-27"
+    },
+    "submittedBy": {
+      "agent": "data-agent",
+      "model": "unrecorded",
+      "runId": "exposure-2026-10-27"
+    },
+    "from": "company:intel",
+    "to": "company:tsmc",
+    "type": "buys_from",
+    "grade": "stated",
+    "note": "Intel also makes its own chips; the sentence is about third-party foundry capacity for some tiles."
+  },
+  {
+    "evidence": "candidate",
     "asOf": "2025",
     "source": {
       "url": "https://www.kazatomprom.kz/storage/6c/kap_ir_2025_encjwwsl.pdf",
@@ -46,6 +123,126 @@
     "to": "country:ru",
     "type": "ships_to",
     "grade": "stated"
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2026-01-25",
+    "source": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+      "quote": "We engage with independent subcontractors and contract manufacturers such as Hon Hai Precision Industry Co., Ltd., Wistron Corporation, and Fabrinet to perform assembly, testing and packaging of our final products.",
+      "readOn": "2026-10-27",
+      "locator": "Item 1, Manufacturing"
+    },
+    "submittedBy": {
+      "agent": "data-agent",
+      "model": "unrecorded",
+      "runId": "exposure-2026-10-27"
+    },
+    "from": "company:nvidia",
+    "to": "company:hon-hai-precision-industry",
+    "type": "buys_from",
+    "grade": "stated",
+    "note": "Assembly, testing and packaging of final products; not wafer packaging."
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2026-01-25",
+    "source": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+      "quote": "We purchase memory from SK Hynix Inc., Micron Technology, Inc., and Samsung.",
+      "readOn": "2026-10-27",
+      "locator": "Item 1, Manufacturing"
+    },
+    "submittedBy": {
+      "agent": "data-agent",
+      "model": "unrecorded",
+      "runId": "exposure-2026-10-27"
+    },
+    "from": "company:nvidia",
+    "to": "company:micron",
+    "type": "buys_from",
+    "grade": "stated",
+    "note": "Memory in general; the filing does not say HBM."
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2026-01-25",
+    "source": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+      "quote": "We utilize foundries, such as Taiwan Semiconductor Manufacturing Company Limited, or TSMC, and Samsung Electronics Co., Ltd., or Samsung, to produce our semiconductor wafers.",
+      "readOn": "2026-10-27",
+      "locator": "Item 1, Manufacturing"
+    },
+    "submittedBy": {
+      "agent": "data-agent",
+      "model": "unrecorded",
+      "runId": "exposure-2026-10-27"
+    },
+    "from": "company:nvidia",
+    "to": "company:samsung-foundry",
+    "type": "buys_from",
+    "grade": "stated",
+    "note": "The filing says Samsung Electronics as a foundry; it does not name the Samsung Foundry business unit."
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2026-01-25",
+    "source": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+      "quote": "We purchase memory from SK Hynix Inc., Micron Technology, Inc., and Samsung.",
+      "readOn": "2026-10-27",
+      "locator": "Item 1, Manufacturing"
+    },
+    "submittedBy": {
+      "agent": "data-agent",
+      "model": "unrecorded",
+      "runId": "exposure-2026-10-27"
+    },
+    "from": "company:nvidia",
+    "to": "company:samsung-memory",
+    "type": "buys_from",
+    "grade": "stated",
+    "note": "Memory in general; the filing says Samsung, not its memory business unit."
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2026-01-25",
+    "source": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+      "quote": "We purchase memory from SK Hynix Inc., Micron Technology, Inc., and Samsung.",
+      "readOn": "2026-10-27",
+      "locator": "Item 1, Manufacturing"
+    },
+    "submittedBy": {
+      "agent": "data-agent",
+      "model": "unrecorded",
+      "runId": "exposure-2026-10-27"
+    },
+    "from": "company:nvidia",
+    "to": "company:sk-hynix",
+    "type": "buys_from",
+    "grade": "stated",
+    "note": "Memory in general; the filing does not say HBM."
+  },
+  {
+    "evidence": "candidate",
+    "asOf": "2026-01-25",
+    "source": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+      "quote": "We utilize foundries, such as Taiwan Semiconductor Manufacturing Company Limited, or TSMC, and Samsung Electronics Co., Ltd., or Samsung, to produce our semiconductor wafers.",
+      "readOn": "2026-10-27",
+      "locator": "Item 1, Manufacturing"
+    },
+    "submittedBy": {
+      "agent": "data-agent",
+      "model": "unrecorded",
+      "runId": "exposure-2026-10-27"
+    },
+    "from": "company:nvidia",
+    "to": "company:tsmc",
+    "type": "buys_from",
+    "grade": "stated",
+    "note": "Names the foundry, not the process node. The sentence also names Samsung."
   },
   {
     "evidence": "candidate",
