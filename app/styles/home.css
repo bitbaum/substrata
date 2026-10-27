@@ -10,6 +10,7 @@
 }
 .home-hero {
   margin-bottom: 2.5rem;
+  padding-top: clamp(0.5rem, 4vh, 3rem);
 }
 .home-hero-title {
   font: 600 clamp(2rem, 6vw, 3.25rem) / 1.08 var(--font-heading);
@@ -29,9 +30,10 @@
 .home-ask {
   margin-top: 1.5rem;
 }
-/* chatkit's text box is 40px tall; every control here is a full target. */
+/* ONE large box, as on a chat app's new-chat screen: room for a sentence
+   before anyone types, every control a full target. */
 .home-ask .ck-input {
-  min-height: var(--size-target);
+  min-height: 4.5rem;
 }
 .home-asks-label {
   margin: 1rem 0 0.5rem;
@@ -390,4 +392,61 @@
 }
 .home-section > .home-feed-note {
   margin: 0 0 0.75rem;
+}
+
+/* Listed names on the chain (HomeMarkets): ONE row — name and ticker, a
+   month's line, the change and the close — the line in the same place on
+   every row. Monochrome: a price move is not a status. */
+.home-markets {
+  border-top: 1px solid var(--color-border-subtle);
+}
+.home-market {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 4.5rem 6.5rem;
+  align-items: center;
+  column-gap: 0.75rem;
+  min-height: var(--size-target);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+  color: var(--color-fg-primary);
+}
+a.home-market:hover .home-market-name {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.home-market-name {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  font-weight: 550;
+}
+.home-market-ticker {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  font-weight: 400;
+  color: var(--color-fg-tertiary);
+}
+.home-market-spark {
+  width: 100%;
+  height: 1.75rem;
+  color: var(--color-fg-secondary);
+}
+.home-market-move {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-variant-numeric: tabular-nums;
+}
+.home-market-change {
+  font-weight: 600;
+}
+.home-market-close {
+  font-size: 0.8rem;
+  color: var(--color-fg-tertiary);
+  white-space: nowrap;
+}
+@media (min-width: 640px) {
+  .home-market {
+    grid-template-columns: minmax(0, 1fr) 8rem 8rem;
+  }
 }
