@@ -18,9 +18,32 @@
 
 /* The pill floats over every page but the front page and /chat. At the end of
    a page it would sit on the last lines (a company page's sources, 2026-10-27),
-   so the footer keeps room for it — and for the feedback launcher on a phone. */
-body:has(.ask-dock-toggle) .site-footer {
-  padding-bottom: calc(var(--widget-reserve, 0px) + 4.5rem);
+   so the footer keeps room for it (from 768px; a phone has no pill). */
+@media (min-width: 768px) {
+  body:has(.ask-dock-toggle) .site-footer {
+    padding-bottom: calc(var(--widget-reserve, 0px) + 4.5rem);
+  }
+}
+
+/* From 768px the pill floats beside the page column, not over it: the column
+   keeps a right gutter as wide as the pill and its offset (1.25rem + a 4rem
+   pill + 0.75rem), so no figure scrolls under it. Without it the pill sat on
+   NVIDIA's "Largest fall from a peak" figure at 1440px (2026-10-27). A phone
+   has no gutter to spare, and no pill: see below. */
+@media (min-width: 768px) {
+  body:has(.ask-dock-toggle) .page-column {
+    padding-right: 6rem;
+  }
+}
+
+/* Phones: Ask is the top-bar button (TopBar .shell-ask); a floating pill here
+   covers the text above the tab bar — it sat on NVIDIA's "Largest fall from a
+   peak" at 390px. This rule was lost when Ask moved to chatkit (#140), which
+   left two Asks on every phone page. The panel still opens from the bar. */
+@media (max-width: 767px) {
+  .ask-dock-toggle {
+    display: none;
+  }
 }
 
 .ask-dock-toggle {

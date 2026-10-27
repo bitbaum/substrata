@@ -6,7 +6,8 @@
  * their data is per request (sweep leads, SEC filings, open roles) or needs
  * those rows (ways to take part). They take their place on the same scale
  * from here, so the reading order the owner asked for is one list a test can
- * hold: header → share price → key statistics → financials → what it holds →
+ * hold: header → share price → key statistics → role in the chain (listed
+ * companies) → financials → what it holds →
  * ownership → how it does business → numbers → what has happened → unread
  * leads → what could loosen its grip → ways to take part → hiring → others at
  * the same step → peers → what it connects to → sources → discussion. The
@@ -17,6 +18,10 @@ export const COMPANY_SECTION_IMPORTANCE = {
   // docs/design/company-page.md): first after the header, on every company.
   price: 6,
   'key-stats': 7,
+  // A listed company's role in the chain (the lede and the five tiles) reads
+  // after its quote and key statistics, as on a quote page; an unlisted one
+  // keeps it in the header and has no such section.
+  'chain-role': 7.5,
   financials: 8,
   chokepoints: 10,
   ownership: 20,
