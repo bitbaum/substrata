@@ -17,6 +17,7 @@ import { whatChangedRows, type HomeFeed } from '../lib/home-feed';
 import { worstNow } from '../lib/worst-now';
 import { WorstNow } from '../app/_home/WorstNow';
 import type { DeskItem } from '../lib/desk';
+import type { PriceHistory } from '../lib/market-data/prices/series';
 
 const root = new URL('../', import.meta.url);
 const read = (path: string) => readFileSync(new URL(path, root), 'utf8');
@@ -120,4 +121,60 @@ test('a question parameter is trimmed, bounded and ignored when it is not a ques
   assert.equal(startQuestion(' x '), '');
   assert.equal(startQuestion('  Who makes wafers? '), 'Who makes wafers?');
   assert.equal(startQuestion('a'.repeat(9000)).length, QUESTION_LENGTH.max);
+});
+
+test('the market strip: stored closes only, the day named, nothing without them', async () => {
+  const { closeLabel, homeMarkets, marketRow, sparkPath, STRIP_SLUGS } =
+    await import('../lib/home-markets');
+  const { MARKET_SEED } = await import('../lib/market-data/identity');
+  const { BASIS, DELAY } = await import('../lib/market-data/prices/series');
+  const nvidia = MARKET_SEED.find((c) => c.slug === 'nvidia')!;
+  const points = [
+    { date: '2026-09-25', close: 100 },
+    { date: '2026-10-23', close: 110 },
+    { date: '2026-10-26', close: 99 },
+  ];
+  const history: PriceHistory = {
+    ticker: nvidia.ticker,
+    currency: 'USD',
+    points,
+    source: { name: 'Stored source', url: '', terms: '' },
+    asOf: '2026-10-26',
+    fetchedAt: '2026-10-26T22:00:00Z',
+    basis: BASIS,
+    delay: DELAY,
+    via: 'stored',
+  };
+  const row = marketRow(nvidia, history)!;
+  assert.equal(row.changeLabel, '−10.0%', 'the change on the previous close');
+  assert.equal(row.asOf, '2026-10-26');
+  assert.equal(closeLabel(row), '99.00 USD');
+  assert.equal(row.spark.length, 2, 'a month of closes: 2026-09-25 is outside it');
+  assert.equal(sparkPath([1, 1, 1]), '0.0,14.0 48.0,14.0 96.0,14.0', 'a flat line, not a NaN');
+  assert.equal(sparkPath([5]), '');
+  // Nothing stored: no strip at all.
+  assert.deepEqual(await homeMarkets(async () => null), { rows: [], source: null });
+  // A store that hangs: the page does not wait past the deadline.
+  const slow = await homeMarkets(() => new Promise(() => {}), 20);
+  assert.equal(slow.rows.length, 0);
+  const some = await homeMarkets(async (c) => (c.slug === 'nvidia' ? history : null));
+  assert.equal(some.rows.length, 1);
+  assert.equal(some.source, 'Stored source');
+  for (const slug of STRIP_SLUGS)
+    assert.ok(
+      MARKET_SEED.some((c) => c.slug === slug),
+      `${slug} is in the market seed`,
+    );
+  const page = read('app/_home/HomeMarkets.tsx');
+  assert.match(page, /if \(!rows\.length\) return null;/, 'no strip of guesses');
+  assert.match(page, /not live/, 'end of day, said');
+});
+
+test('the hero is one box — the same AskComposer as /chat — and the questions to start from', () => {
+  const hero = read('app/_home/HomeHero.tsx');
+  assert.match(hero, /<AskBox asks=\{asks\} \/>/);
+  const box = read('app/_home/AskBox.tsx');
+  assert.match(box, /<AskComposer\b/);
+  assert.match(box, /savePending\(\{ text, attachments \}\)/, 'attachments travel to /chat');
+  assert.equal((hero.match(/<h1/g) ?? []).length, 1);
 });

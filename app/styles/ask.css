@@ -16,6 +16,13 @@
   gap: 0.75rem;
 }
 
+/* The pill floats over every page but the front page and /chat. At the end of
+   a page it would sit on the last lines (a company page's sources, 2026-10-27),
+   so the footer keeps room for it — and for the feedback launcher on a phone. */
+body:has(.ask-dock-toggle) .site-footer {
+  padding-bottom: calc(var(--widget-reserve, 0px) + 4.5rem);
+}
+
 .ask-dock-toggle {
   min-height: 3rem;
   min-width: 3rem;
