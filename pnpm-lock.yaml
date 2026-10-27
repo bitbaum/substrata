@@ -9,38 +9,38 @@ importers:
   .:
     dependencies:
       '@bitbaum/accountkit':
-        specifier: github:bitbaum/accountkit#9c8d93ade6945615b5204d8eaad5c717078b7e17
-        version: https://codeload.github.com/bitbaum/accountkit/tar.gz/9c8d93ade6945615b5204d8eaad5c717078b7e17(next@16.4.2(@babel/core@7.29.7)(@types/node@26.6.5)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)
+        specifier: github:bitbaum/accountkit#a303242f586d7ac2b2568bbe8d3da94d8b0be768
+        version: https://codeload.github.com/bitbaum/accountkit/tar.gz/a303242f586d7ac2b2568bbe8d3da94d8b0be768(next@16.4.2(@babel/core@7.29.7)(@types/node@26.6.5)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)
       '@bitbaum/ai-kit':
         specifier: ^1.21.4
         version: 1.21.4(react@19.3.1)
       '@bitbaum/chartkit':
-        specifier: github:bitbaum/chartkit#55da9bdcee82eac9473d77a1316af322a6e3b20c
-        version: https://codeload.github.com/bitbaum/chartkit/tar.gz/55da9bdcee82eac9473d77a1316af322a6e3b20c(react@19.3.1)
+        specifier: ^0.2.0
+        version: 0.2.0(react@19.3.1)
       '@bitbaum/chatkit':
-        specifier: ^0.17.0
-        version: 0.17.0(react@19.3.1)
+        specifier: ^0.17.1
+        version: 0.17.1(react@19.3.1)
       '@bitbaum/design-tokens':
-        specifier: github:bitbaum/design-tokens#8e786a43220d267ccf6b5cd6119a012f1a52dfff
-        version: https://codeload.github.com/bitbaum/design-tokens/tar.gz/8e786a43220d267ccf6b5cd6119a012f1a52dfff
+        specifier: ^1.2.0
+        version: 1.2.0
       '@bitbaum/geo-kit':
-        specifier: github:bitbaum/geo-kit#fce36b959056799d500371181468844aed7ed513
-        version: https://codeload.github.com/bitbaum/geo-kit/tar.gz/fce36b959056799d500371181468844aed7ed513
+        specifier: ^0.1.1
+        version: 0.1.1
       '@bitbaum/searchkit':
-        specifier: github:bitbaum/searchkit#09532b1974c7cb92f38c98decaeed334f3ffea72
-        version: https://codeload.github.com/bitbaum/searchkit/tar.gz/09532b1974c7cb92f38c98decaeed334f3ffea72(react@19.3.1)
+        specifier: ^0.2.2
+        version: 0.2.2(react@19.3.1)
       '@bitbaum/whenkit':
-        specifier: github:bitbaum/whenkit#v0.3.2
-        version: https://codeload.github.com/bitbaum/whenkit/tar.gz/f5e0a24208187091c2ca792008cdd7695a19910f(react@19.3.1)
+        specifier: ^0.3.2
+        version: 0.3.2(react@19.3.1)
       bip-kit:
-        specifier: ^0.6.0
-        version: 0.6.0(react@19.3.1)
+        specifier: ^0.6.1
+        version: 0.6.1(react@19.3.1)
       d3-geo:
         specifier: ^3.1.1
         version: 3.1.1
       listkit:
-        specifier: github:bitbaum/listkit#cca70801aacbbf5310c976b0610ca469ba869e97
-        version: '@bitbaum/listkit@https://codeload.github.com/bitbaum/listkit/tar.gz/cca70801aacbbf5310c976b0610ca469ba869e97'
+        specifier: npm:@bitbaum/listkit@^0.2.1
+        version: '@bitbaum/listkit@0.2.1'
       next:
         specifier: 16.4.2
         version: 16.4.2(@babel/core@7.29.7)(@types/node@26.6.5)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -220,14 +220,14 @@ packages:
     resolution: {integrity: sha512-Vj1jF3cPfxg7OAfoI7QnVKLoILlm2JF9pnVHrX8qx7AHMiYWT+NDAA7jChlNgRS4WTLc/fD1lXLmPixluj+3Gg==}
     engines: {node: '>=6.9.0'}
 
-  '@bitbaum/accountkit@https://codeload.github.com/bitbaum/accountkit/tar.gz/9c8d93ade6945615b5204d8eaad5c717078b7e17':
-    resolution: {gitHosted: true, integrity: sha512-b76dnYb9nc4fuS5KX0UT4Lu5C3OZbQIFKouOPA74s7ZlY748EmTAz6JGHxnJ5Xh6Fw7UZxeFzYDvgKYi7pd8oQ==, tarball: https://codeload.github.com/bitbaum/accountkit/tar.gz/9c8d93ade6945615b5204d8eaad5c717078b7e17}
-    version: 0.6.2
+  '@bitbaum/accountkit@https://codeload.github.com/bitbaum/accountkit/tar.gz/a303242f586d7ac2b2568bbe8d3da94d8b0be768':
+    resolution: {gitHosted: true, integrity: sha512-S3bzvjY9tsiGY1csbjk0bldez4pgBbBYvS1/7OEkUwrQy7gRSHlTKy/2krsB+dJnn6YzLZ3HTt/Cvc/SGlmgEw==, tarball: https://codeload.github.com/bitbaum/accountkit/tar.gz/a303242f586d7ac2b2568bbe8d3da94d8b0be768}
+    version: 0.8.0
     engines: {node: '>=20'}
     peerDependencies:
-      '@better-auth/passkey': ^1.7.7
+      '@better-auth/passkey': ^1.7.10
       '@bitbaum/mail-kit': ^0.2.0
-      better-auth: ^1.7.7
+      better-auth: ^1.7.10
       drizzle-orm: ^0.45.4
       next: ^16.4.0
       react: '>=18'
@@ -252,38 +252,33 @@ packages:
       react:
         optional: true
 
-  '@bitbaum/chartkit@https://codeload.github.com/bitbaum/chartkit/tar.gz/55da9bdcee82eac9473d77a1316af322a6e3b20c':
-    resolution: {gitHosted: true, integrity: sha512-xw2WCeHaRp11GqthmxwoyRmc4PmybHDx/9yCbm4lhzMRJ/lS71zQT69IH5WOnCKuMr19I+1Ui5Axp1/Qkjj/MA==, tarball: https://codeload.github.com/bitbaum/chartkit/tar.gz/55da9bdcee82eac9473d77a1316af322a6e3b20c}
-    version: 0.1.1
+  '@bitbaum/chartkit@0.2.0':
+    resolution: {integrity: sha512-KQ5PN1lj+FulpBB1NlczSUGX1OjC4gT5Rn2kSwkPCF0a+B8kpqe6BLHpWVu6rSB/iN5X7OLQfORK2+RpVfN7IA==}
     engines: {node: '>=20'}
     peerDependencies:
       react: ^19
 
-  '@bitbaum/chatkit@0.17.0':
-    resolution: {integrity: sha512-9Q8nsvMi86akETbi4cWTYPqMiH60DksmAY8c1O+VVs6WqHYCpXeiLd6WGRGFVAW1Zbl4gYSoQA0+i0OOV8l5IA==}
+  '@bitbaum/chatkit@0.17.1':
+    resolution: {integrity: sha512-obLB5G0sjgPlSrmjX18ln8LAuXJeLFetIT+/7TvXT94ZID6HcICuptdW+r/zUE7ZXPsZbghSzHG9aB47JNyJ+g==}
     engines: {node: '>=20'}
     hasBin: true
     peerDependencies:
       react: '>=18'
 
-  '@bitbaum/design-tokens@https://codeload.github.com/bitbaum/design-tokens/tar.gz/8e786a43220d267ccf6b5cd6119a012f1a52dfff':
-    resolution: {gitHosted: true, integrity: sha512-henmOzj7OGmR4+HstNareRk7leYKNZ7sZbyr66OrGAnTA5m3yK18Wvq7qfQejO678lUydaYI4ifLLGbkrPj3tQ==, tarball: https://codeload.github.com/bitbaum/design-tokens/tar.gz/8e786a43220d267ccf6b5cd6119a012f1a52dfff}
-    version: 1.2.0
+  '@bitbaum/design-tokens@1.2.0':
+    resolution: {integrity: sha512-13TSrgYbEzSqt5FNfW3HSJIFcenUto8nKlk4J4IUsepL0gsTBoZ0YDMiJTaJKmR8sPPmcCS94Z/xgUBQW43itw==}
     engines: {node: '>=20'}
 
-  '@bitbaum/geo-kit@https://codeload.github.com/bitbaum/geo-kit/tar.gz/fce36b959056799d500371181468844aed7ed513':
-    resolution: {gitHosted: true, integrity: sha512-XsCtYqbH8d8dJa1DJWAi7pu5K5fOHoGY/T0e39lQ8GypGavjgxv1W6TBHRG7A/YW+88Ysac4Hh+xQmba1/9kXA==, tarball: https://codeload.github.com/bitbaum/geo-kit/tar.gz/fce36b959056799d500371181468844aed7ed513}
-    version: 0.1.1
+  '@bitbaum/geo-kit@0.1.1':
+    resolution: {integrity: sha512-WozxmyHftt4V4S694LqC4JHXzWIxa8ZbjHwmLBGxKjKpZCU+IUAGO91RApj5/+AIcmuZazgDYHoav6FpporzOg==}
     engines: {node: '>=20'}
 
-  '@bitbaum/listkit@https://codeload.github.com/bitbaum/listkit/tar.gz/cca70801aacbbf5310c976b0610ca469ba869e97':
-    resolution: {gitHosted: true, integrity: sha512-x8cGms0PaCql7Qd/nC5j1I5/DvgXNBQZnBZ0Gf5mkMBIv5F5zzKYJhq0GqX/4F0utbZN5xtmkxUrq9oXot3cJQ==, tarball: https://codeload.github.com/bitbaum/listkit/tar.gz/cca70801aacbbf5310c976b0610ca469ba869e97}
-    version: 0.2.1
+  '@bitbaum/listkit@0.2.1':
+    resolution: {integrity: sha512-eQR7k8jiAQRzXlXveYbYguzgiZtrqjw4O3Kr+ucLwG/rwBva73em6k2cPgkPC8ebrxSTQ4MYeSndy/Vb9KUiIQ==}
     engines: {node: '>=20'}
 
-  '@bitbaum/searchkit@https://codeload.github.com/bitbaum/searchkit/tar.gz/09532b1974c7cb92f38c98decaeed334f3ffea72':
-    resolution: {gitHosted: true, tarball: https://codeload.github.com/bitbaum/searchkit/tar.gz/09532b1974c7cb92f38c98decaeed334f3ffea72}
-    version: 0.2.2
+  '@bitbaum/searchkit@0.2.2':
+    resolution: {integrity: sha512-LvUqHepcwd488rSUu7EmRzcgfNYtz1RP4qnyPFMQ7nL1/DSwW1TGiiVWoT3/ytE4zmK/mWEFJxx5g77fidLe0w==}
     peerDependencies:
       react: '>=18'
     peerDependenciesMeta:
@@ -296,9 +291,8 @@ packages:
     peerDependencies:
       react: '>=18'
 
-  '@bitbaum/whenkit@https://codeload.github.com/bitbaum/whenkit/tar.gz/f5e0a24208187091c2ca792008cdd7695a19910f':
-    resolution: {gitHosted: true, integrity: sha512-y7wjFst8elmua4bfjhbRDw1U+qndxXeMXG32C5N8GokV3UIdGgO1LZYJFu0OrUftfvcgoERXJ7Nl6goITwarpA==, tarball: https://codeload.github.com/bitbaum/whenkit/tar.gz/f5e0a24208187091c2ca792008cdd7695a19910f}
-    version: 0.3.2
+  '@bitbaum/whenkit@0.3.2':
+    resolution: {integrity: sha512-5s4PFqGBxxlT0dx5LLLGC5ba35q532DSqAD6aMx9IV+hRtUpz4H8zPsuDVPPD3vST2KCCxla3ZFvBCdejS9H3g==}
     engines: {node: '>=20'}
     peerDependencies:
       react: '>=18'
@@ -1242,8 +1236,8 @@ packages:
     engines: {node: '>=6.0.0'}
     hasBin: true
 
-  bip-kit@0.6.0:
-    resolution: {integrity: sha512-evyb2/RtTK7EXrQBde3misyHj/vCZYxJLVBv285iPa3nKl8Mr60sAIspCaSL6SFY0872Jz5MX7gf/uJ0Avvtew==}
+  bip-kit@0.6.1:
+    resolution: {integrity: sha512-lwWnRDCuhrO5YzBeaASjQwVoyIcDwGqEH3cskqa2ylIgyPagtVE6+ppDze+rkEBzVmKkUXREW5ydXOr2Kw3Oow==}
     engines: {node: '>=20'}
     peerDependencies:
       katex: '>=0.16'
@@ -2996,7 +2990,7 @@ snapshots:
       '@babel/helper-string-parser': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
 
-  '@bitbaum/accountkit@https://codeload.github.com/bitbaum/accountkit/tar.gz/9c8d93ade6945615b5204d8eaad5c717078b7e17(next@16.4.2(@babel/core@7.29.7)(@types/node@26.6.5)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)':
+  '@bitbaum/accountkit@https://codeload.github.com/bitbaum/accountkit/tar.gz/a303242f586d7ac2b2568bbe8d3da94d8b0be768(next@16.4.2(@babel/core@7.29.7)(@types/node@26.6.5)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)':
     dependencies:
       limitkit: 0.2.0
       react: 19.3.1
@@ -3013,21 +3007,21 @@ snapshots:
     transitivePeerDependencies:
       - canvas
 
-  '@bitbaum/chartkit@https://codeload.github.com/bitbaum/chartkit/tar.gz/55da9bdcee82eac9473d77a1316af322a6e3b20c(react@19.3.1)':
+  '@bitbaum/chartkit@0.2.0(react@19.3.1)':
     dependencies:
       react: 19.3.1
 
-  '@bitbaum/chatkit@0.17.0(react@19.3.1)':
+  '@bitbaum/chatkit@0.17.1(react@19.3.1)':
     dependencies:
       react: 19.3.1
 
-  '@bitbaum/design-tokens@https://codeload.github.com/bitbaum/design-tokens/tar.gz/8e786a43220d267ccf6b5cd6119a012f1a52dfff': {}
+  '@bitbaum/design-tokens@1.2.0': {}
 
-  '@bitbaum/geo-kit@https://codeload.github.com/bitbaum/geo-kit/tar.gz/fce36b959056799d500371181468844aed7ed513': {}
+  '@bitbaum/geo-kit@0.1.1': {}
 
-  '@bitbaum/listkit@https://codeload.github.com/bitbaum/listkit/tar.gz/cca70801aacbbf5310c976b0610ca469ba869e97': {}
+  '@bitbaum/listkit@0.2.1': {}
 
-  '@bitbaum/searchkit@https://codeload.github.com/bitbaum/searchkit/tar.gz/09532b1974c7cb92f38c98decaeed334f3ffea72(react@19.3.1)':
+  '@bitbaum/searchkit@0.2.2(react@19.3.1)':
     optionalDependencies:
       react: 19.3.1
 
@@ -3036,7 +3030,7 @@ snapshots:
       react: 19.3.1
       zod: 4.6.7
 
-  '@bitbaum/whenkit@https://codeload.github.com/bitbaum/whenkit/tar.gz/f5e0a24208187091c2ca792008cdd7695a19910f(react@19.3.1)':
+  '@bitbaum/whenkit@0.3.2(react@19.3.1)':
     dependencies:
       react: 19.3.1
 
@@ -3806,7 +3800,7 @@ snapshots:
 
   baseline-browser-mapping@2.11.19: {}
 
-  bip-kit@0.6.0(react@19.3.1):
+  bip-kit@0.6.1(react@19.3.1):
     dependencies:
       react: 19.3.1
 
