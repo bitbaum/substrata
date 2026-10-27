@@ -59,6 +59,8 @@ export type Answer = {
   verdict?: Verdict;
   /** What the reader is likely to say next — one tap sends it. */
   replies?: string[];
+  /** Claim check: the reader's screenshot or post as read (lib/chat-agent/claim-check.ts). */
+  material?: string;
 };
 
 export type Turn = {
@@ -79,6 +81,10 @@ export type Turn = {
   replies?: string[];
   /** How long the answer took, question sent to answer done: the thought row's time. */
   durationMs?: number;
+  /** A question's attachments, by NAME only: pictures are never kept. */
+  attachments?: string[];
+  /** A question with a screenshot or a pasted post: the text the model read off it. */
+  material?: string;
 };
 
 export type StreamEvent =

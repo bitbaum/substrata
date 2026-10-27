@@ -20,6 +20,9 @@ import { filingsFor } from '@/lib/filings-store';
 import { itemsFor } from '@/lib/science-read';
 import { SITE } from '@/lib/site';
 import { QUESTION_LENGTH } from '@/config/substrata-chat';
+import { CHAT_BODY_BYTES, readAttachedText, readImages } from '@/lib/chat/image';
+import { bringsMaterial } from '@/lib/chat-agent/read-claims';
+import { runClaimCheck } from '@/lib/chat-agent/claim-check';
 
 export const dynamic = 'force-dynamic';
 
@@ -59,7 +62,7 @@ export async function POST(request: Request) {
   if (!sameOrigin(request)) return Response.json({ error: 'Origin not allowed' }, { status: 403 });
   let input: unknown;
   try {
-    input = await boundedJson(request);
+    input = await boundedJson(request, CHAT_BODY_BYTES);
   } catch {
     return Response.json({ error: 'Invalid request' }, { status: 400 });
   }
@@ -81,6 +84,11 @@ export async function POST(request: Request) {
   const reader = await readerKey(input);
   if ('error' in reader) return Response.json({ error: reader.error }, { status: 400 });
   const byok = reader.key ?? undefined;
+  // Pictures (validated data URLs, never stored) and attached text files (lib/chat/image.ts).
+  const pictures = readImages((input as { images?: unknown })?.images);
+  if (!pictures.ok) return Response.json({ error: pictures.error }, { status: 400 });
+  const images = pictures.images;
+  const attached = readAttachedText((input as { attached?: unknown })?.attached);
   const verify = verifyFromBody((input as { verify?: unknown })?.verify);
   if (verify === 'invalid')
     return Response.json({ error: 'Invalid claim to check.' }, { status: 400 });
@@ -123,7 +131,9 @@ export async function POST(request: Request) {
     // The free tier's budgets are small and shared; a reader's own frontier
     // key is metered by nobody but them, so it gets room to think.
     // Research mode writes six sections (research.ts): more room, same caps otherwise.
-    const analysis = typeof question === 'string' && !verify && isAnalysis(question);
+    const material =
+      typeof question === 'string' && !verify && bringsMaterial({ question, images, attached });
+    const analysis = typeof question === 'string' && !verify && (material || isAnalysis(question));
     const limits = byok
       ? { maxTokens: analysis ? 6000 : 4096, timeoutMs: 60_000, signal: request.signal }
       : // 1800 cut answers mid-word once reasoning took its share (2026-10-02).
@@ -156,7 +166,8 @@ export async function POST(request: Request) {
     const log = chatTurnLog({
       conversationId: uuidOrNull((input as { conversationId?: unknown })?.conversationId),
       messageId: uuidOrNull((input as { messageId?: unknown })?.messageId),
-      question: typeof question === 'string' ? question : (verify?.claim ?? ''),
+      // A picture is never logged; that one came is.
+      question: `${typeof question === 'string' ? question : (verify?.claim ?? '')}${images.length ? ` [${images.length} picture(s) attached]` : ''}${attached ? ' [text attached]' : ''}`,
       surface: onPath,
     });
     const encoder = new TextEncoder();
@@ -182,7 +193,9 @@ export async function POST(request: Request) {
           }
         };
         try {
-          await runAgent({
+          await (material ? runClaimCheck : runAgent)({
+            images,
+            attached,
             question: typeof question === 'string' ? question : '',
             history,
             verify,

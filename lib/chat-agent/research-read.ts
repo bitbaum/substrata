@@ -125,6 +125,8 @@ export async function readForPlan(
   env: ToolEnv,
   emit: (event: AgentEvent) => void,
   limits: typeof READ_LIMITS = READ_LIMITS,
+  /** The step's verb: "Searching" (research mode), "Checking" (a claim from a screenshot). */
+  verb = 'Searching',
 ): Promise<ResearchRead> {
   const empty: ResearchRead = {
     passages: [],
@@ -136,7 +138,7 @@ export async function readForPlan(
   const until = Date.now() + limits.deadlineMs;
   const lookups = await Promise.all(
     plan.subQuestions.map((sub) => {
-      const label = `Searching: ${sub.ask}…`;
+      const label = `${verb}: ${sub.ask}…`;
       env.ledger.trail.push(label);
       emit({ type: 'tool', label });
       return bounded(
