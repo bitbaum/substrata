@@ -5,6 +5,8 @@ import { COMPANY_SECTION_IMPORTANCE } from '@/lib/company-sections';
 import { marketCompanyFor } from '@/lib/market-data/company';
 import { participantBySlug } from '@/lib/participants';
 import { Business } from './Business';
+import { ConstrainedBy } from './ConstrainedBy';
+import { Constrains } from './Constrains';
 import { Financials } from './Financials';
 import { Holders } from './Holders';
 import { KeyStats } from './KeyStats';
@@ -34,6 +36,20 @@ export function marketSections({ slug, name }: { slug: string; name: string }): 
       importance: I.price,
       evidence: listed ? 'delayed end-of-day closes' : 'no listing known',
       node: lazy('closing prices', <PriceSection slug={slug} name={name} />),
+    },
+    {
+      id: 'constrained-by',
+      title: 'What constrains it',
+      importance: I['constrained-by'],
+      evidence: 'chokepoints it rests on and who holds them, each with its sentence',
+      node: <ConstrainedBy slug={slug} name={name} />,
+    },
+    {
+      id: 'constrains',
+      title: 'What it constrains',
+      importance: I.constrains,
+      evidence: 'who waits on what it holds, each with its sentence',
+      node: <Constrains slug={slug} name={name} />,
     },
     {
       id: 'key-stats',

@@ -108,7 +108,7 @@ const GROUPS: {
   },
 ];
 
-const GRADE: Record<string, string> = {
+export const GRADE: Record<string, string> = {
   stated: 'stated',
   corroborated: 'two sources',
   derived: 'worked out',

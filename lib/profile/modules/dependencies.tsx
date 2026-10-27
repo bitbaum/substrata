@@ -46,7 +46,10 @@ export function dependencyGroups(entity: Entity): Group[] {
 export const dependencies: ProfileModule<Group[]> = {
   id: 'dependencies',
   title: t('profile.dependencies.title'),
-  appliesTo: ['company', 'bottleneck'],
+  // A company's sentences are "What constrains it" and "What it constrains"
+  // (components/company/ConstrainedBy.tsx); this module reads a bottleneck from
+  // the other end.
+  appliesTo: ['bottleneck'],
   importance: 36,
   load(entity) {
     const groups = dependencyGroups(entity);

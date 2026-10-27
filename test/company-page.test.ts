@@ -61,10 +61,12 @@ const history = (points = nvdaPoints): PriceHistory => ({
 const P = (pairs: [string, number][]) => pairs.map(([date, close]) => ({ date, close }));
 
 test('the frame comes first after the header, in the documented order', () => {
-  assert.deepEqual(COMPANY_SECTION_ORDER.slice(0, 5), [
+  assert.deepEqual(COMPANY_SECTION_ORDER.slice(0, 7), [
     'price',
     'key-stats',
     'chain-role',
+    'constrained-by',
+    'constrains',
     'financials',
     'chokepoints',
   ]);
