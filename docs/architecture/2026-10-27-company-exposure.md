@@ -150,7 +150,7 @@ per row (the other party, the relation, the grade, the date, the source):
 3. **What it holds outright**: today's section, unchanged.
 4. **Alternatives**: inside (1), per chokepoint.
 
-The lede never opens on "holds 0 of N". `headline()` in `lib/company-exposure/headline.ts`:
+The sections are `components/company/ConstrainedBy.tsx` and `components/company/Constrains.tsx`, in the market frame of every company kind (profiled, identified, named); the lede and the first two tiles read the same model (`app/markets/[slug]/_sections/Lede.tsx`, `app/markets/[slug]/_sections/AtAGlance.tsx`). The lede never opens on "holds 0 of N". `headline()` in `lib/company-exposure/headline.ts`:
 
 - holds something: "Holds 1 bottleneck outright; exposed to 5 of the 33 …; a constraint on 8
   organisations on record."

@@ -28,6 +28,13 @@ export interface ExposureData {
   slugOf(name: string): string | null;
 }
 
+/** An identified company can carry its slug as its name; its first alias is the printed one. */
+function pageName(id: string, fallback: string): string {
+  const entity = resolveEntity(id);
+  if (!entity) return fallback;
+  return entity.name === entity.key && entity.aka[0] ? entity.aka[0] : entity.name;
+}
+
 const SLUG_BY_NAME = new Map(MARKET_PARTICIPANTS.map((p) => [p.name, p.slug]));
 
 export function corpus(): ExposureData {

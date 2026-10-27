@@ -22,6 +22,10 @@ export const COMPANY_SECTION_IMPORTANCE = {
   // after its quote and key statistics, as on a quote page; an unlisted one
   // keeps it in the header and has no such section.
   'chain-role': 7.5,
+  // What constrains it, what it constrains (lib/company-exposure): the answer to
+  // "is this a bottleneck?" sits with the role, ahead of the numbers.
+  'constrained-by': 7.6,
+  constrains: 7.7,
   financials: 8,
   chokepoints: 10,
   ownership: 20,

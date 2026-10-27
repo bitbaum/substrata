@@ -19,6 +19,7 @@ Each section answers one question. Its heading says what it holds.
 | 1 | Share price | How has the share done? | `prices/{store,compute}` |
 | 2 | Key statistics | How big is it, and is it growing? | `fundamentals` + `present.marketCap` |
 | 2a | Role in the chain (listed only) | What is it to the chain: bottlenecks held, grade, cited role? | `lib/company-profile`, `app/markets/[slug]/_sections/AtAGlance.tsx` |
+| 2b | What constrains it / What it constrains | What does it rest on, who waits on it, and what are the alternatives? | `lib/company-exposure`, `components/company/ConstrainedBy.tsx`, `components/company/Constrains.tsx` |
 | 3 | Financials | Revenue and net income, year by year | `fundamentals` (annual XBRL) |
 | 4 | What it holds (tier A) | Which chokepoints does it control? | existing module |
 | 5 | Who owns it | Who holds the shares, and what is "the rest"? | `holders` (13G/13D, proxy, Form 4) |
@@ -38,6 +39,14 @@ Each section answers one question. Its heading says what it holds.
   with its 1-day change and date, and the label "Delayed end-of-day · Yahoo
   Finance" with a link. Themes appear as links. The quote streams in its own
   Suspense boundary, so a slow price source never holds up the name.
+- **What constrains it / What it constrains.** The page never leads with "holds 0
+  of N". A company is, in this order: constrained by chokepoints it rests on
+  (hardest binding first, each with who holds it, whether one maker is all there
+  is, written alternatives and what blocks them), a constraint on the
+  organisations that wait on what it holds or allocates, and, last, a holder of
+  chokepoints outright. A company with nothing recorded says exactly what is
+  unknown, as the dossier's own task, never as a zero. Model and rules:
+  `docs/architecture/2026-10-27-company-exposure.md`.
 - **Share price.** A line chart (chartkit `LineChart` with `markers="auto"`
   and `area`: a range of more than 60 closes is a clean line over a light
   fill, with each close's value on hover and keyboard focus; a short range
