@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@bitbaum/accountkit':
-        specifier: ^0.8.0
-        version: 0.8.0(next@16.4.2(@babel/core@7.29.7)(@types/node@26.6.5)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)
+        specifier: ^0.9.1
+        version: 0.9.1(next@16.4.2(@babel/core@7.29.7)(@types/node@26.6.5)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)
       '@bitbaum/ai-kit':
         specifier: ^1.21.4
         version: 1.21.4(react@19.3.1)
@@ -18,8 +18,8 @@ importers:
         specifier: ^0.5.0
         version: 0.5.0(react@19.3.1)
       '@bitbaum/chatkit':
-        specifier: ^0.21.1
-        version: 0.21.1(react@19.3.1)
+        specifier: github:bitbaum/chatkit#378430bdaa52f11d56bf91880977980c707b86f0
+        version: https://codeload.github.com/bitbaum/chatkit/tar.gz/378430bdaa52f11d56bf91880977980c707b86f0(react@19.3.1)
       '@bitbaum/design-tokens':
         specifier: ^1.2.0
         version: 1.2.0
@@ -220,8 +220,8 @@ packages:
     resolution: {integrity: sha512-Vj1jF3cPfxg7OAfoI7QnVKLoILlm2JF9pnVHrX8qx7AHMiYWT+NDAA7jChlNgRS4WTLc/fD1lXLmPixluj+3Gg==}
     engines: {node: '>=6.9.0'}
 
-  '@bitbaum/accountkit@0.8.0':
-    resolution: {integrity: sha512-vHQBkiL86Tf2EwXUGsWmzu+1QSg3PtT2uWX4frmc3RbB1tm7EHjvptWORF77MQc6seyNNi39uO+brqgJcegtyA==}
+  '@bitbaum/accountkit@0.9.1':
+    resolution: {integrity: sha512-Y2q4VkbJV7S1uJlBT5FgzYPqecUB3tYu/1b8ln46bYdYcKrDOyKpioyisypDVKPoG4n3h+4xWf6XTbI8lR21PQ==}
     engines: {node: '>=20'}
     peerDependencies:
       '@better-auth/passkey': ^1.7.10
@@ -257,8 +257,9 @@ packages:
     peerDependencies:
       react: '>=18'
 
-  '@bitbaum/chatkit@0.21.1':
-    resolution: {integrity: sha512-4zTtBHEDJV3oTh8j8DlCGDpiIHC7jHlbhCgBip0QEFy+Py88P9+ZqVZWEeCvYi3IDt3X0WiBCLsM8B6PZRGKNw==}
+  '@bitbaum/chatkit@https://codeload.github.com/bitbaum/chatkit/tar.gz/378430bdaa52f11d56bf91880977980c707b86f0':
+    resolution: {gitHosted: true, integrity: sha512-u9UxQDjL7E0l9cyQO3hjdg+8uo8TtzkhKqTxxNQ8ykK4QmYF1HvDDhkSpMV4kQLQcEOl1cQ6zAlSenw2wqyUYg==, tarball: https://codeload.github.com/bitbaum/chatkit/tar.gz/378430bdaa52f11d56bf91880977980c707b86f0}
+    version: 0.21.2
     engines: {node: '>=20'}
     hasBin: true
     peerDependencies:
@@ -3068,7 +3069,7 @@ snapshots:
       '@babel/helper-string-parser': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
 
-  '@bitbaum/accountkit@0.8.0(next@16.4.2(@babel/core@7.29.7)(@types/node@26.6.5)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)':
+  '@bitbaum/accountkit@0.9.1(next@16.4.2(@babel/core@7.29.7)(@types/node@26.6.5)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)':
     dependencies:
       limitkit: 0.2.0
       react: 19.3.1
@@ -3089,7 +3090,7 @@ snapshots:
     dependencies:
       react: 19.3.1
 
-  '@bitbaum/chatkit@0.21.1(react@19.3.1)':
+  '@bitbaum/chatkit@https://codeload.github.com/bitbaum/chatkit/tar.gz/378430bdaa52f11d56bf91880977980c707b86f0(react@19.3.1)':
     dependencies:
       pdfjs-dist: 6.4.299
       react: 19.3.1
