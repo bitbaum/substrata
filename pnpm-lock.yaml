@@ -15,8 +15,8 @@ importers:
         specifier: ^1.21.4
         version: 1.21.4(react@19.3.1)
       '@bitbaum/chartkit':
-        specifier: ^0.3.0
-        version: 0.3.0(react@19.3.1)
+        specifier: ^0.5.0
+        version: 0.5.0(react@19.3.1)
       '@bitbaum/chatkit':
         specifier: ^0.21.1
         version: 0.21.1(react@19.3.1)
@@ -24,14 +24,14 @@ importers:
         specifier: ^1.2.0
         version: 1.2.0
       '@bitbaum/geo-kit':
-        specifier: ^0.1.1
-        version: 0.1.1
+        specifier: ^0.1.2
+        version: 0.1.2
       '@bitbaum/searchkit':
-        specifier: ^0.2.2
-        version: 0.2.2(react@19.3.1)
+        specifier: ^0.2.3
+        version: 0.2.3(react@19.3.1)
       '@bitbaum/whenkit':
-        specifier: ^0.3.2
-        version: 0.3.2(react@19.3.1)
+        specifier: ^0.3.3
+        version: 0.3.3(react@19.3.1)
       bip-kit:
         specifier: ^0.6.1
         version: 0.6.1(react@19.3.1)
@@ -39,8 +39,8 @@ importers:
         specifier: ^3.1.1
         version: 3.1.1
       listkit:
-        specifier: npm:@bitbaum/listkit@^0.2.1
-        version: '@bitbaum/listkit@0.2.1'
+        specifier: npm:@bitbaum/listkit@^0.2.2
+        version: '@bitbaum/listkit@0.2.2'
       next:
         specifier: 16.4.2
         version: 16.4.2(@babel/core@7.29.7)(@types/node@26.6.5)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -251,11 +251,11 @@ packages:
       react:
         optional: true
 
-  '@bitbaum/chartkit@0.3.0':
-    resolution: {integrity: sha512-sQt49L+TU/8m4QFW0Pwg6GMhwmmXtJpZj//2g2VvM1dqPaElD/oljsGbHDkRab8yH+iiYHc7WIjpNdEgevkWkw==}
+  '@bitbaum/chartkit@0.5.0':
+    resolution: {integrity: sha512-0qf8Ib72tXz3EsbPULzeKWMvw+2sOb0+Uc39d1qiXDcTDttMjWTCPMGIthdj4zYM6IjNXfujEb8m0x42yWwp9Q==}
     engines: {node: '>=20'}
     peerDependencies:
-      react: ^19
+      react: '>=18'
 
   '@bitbaum/chatkit@0.21.1':
     resolution: {integrity: sha512-4zTtBHEDJV3oTh8j8DlCGDpiIHC7jHlbhCgBip0QEFy+Py88P9+ZqVZWEeCvYi3IDt3X0WiBCLsM8B6PZRGKNw==}
@@ -268,16 +268,16 @@ packages:
     resolution: {integrity: sha512-13TSrgYbEzSqt5FNfW3HSJIFcenUto8nKlk4J4IUsepL0gsTBoZ0YDMiJTaJKmR8sPPmcCS94Z/xgUBQW43itw==}
     engines: {node: '>=20'}
 
-  '@bitbaum/geo-kit@0.1.1':
-    resolution: {integrity: sha512-WozxmyHftt4V4S694LqC4JHXzWIxa8ZbjHwmLBGxKjKpZCU+IUAGO91RApj5/+AIcmuZazgDYHoav6FpporzOg==}
+  '@bitbaum/geo-kit@0.1.2':
+    resolution: {integrity: sha512-0+tvcB3joZ8x9QMMrHfJbi1S3uPs+vqB4emxXJMdL/KxPLYkXcgdPqnKC5k1Ll+dJ2p/N6FCiPNRU/vWObBA1Q==}
     engines: {node: '>=20'}
 
-  '@bitbaum/listkit@0.2.1':
-    resolution: {integrity: sha512-eQR7k8jiAQRzXlXveYbYguzgiZtrqjw4O3Kr+ucLwG/rwBva73em6k2cPgkPC8ebrxSTQ4MYeSndy/Vb9KUiIQ==}
+  '@bitbaum/listkit@0.2.2':
+    resolution: {integrity: sha512-MS7SpPodTaxXYccXW565M3sIYaDCHSpWFlJB77FdkE/fM7uktxn0u25p0BSWC97i4U6uCqPedYVt1xV34sGXnQ==}
     engines: {node: '>=20'}
 
-  '@bitbaum/searchkit@0.2.2':
-    resolution: {integrity: sha512-LvUqHepcwd488rSUu7EmRzcgfNYtz1RP4qnyPFMQ7nL1/DSwW1TGiiVWoT3/ytE4zmK/mWEFJxx5g77fidLe0w==}
+  '@bitbaum/searchkit@0.2.3':
+    resolution: {integrity: sha512-eUN4f2kxn53Z0gz2f94NVcc+mt+taKnpmUr49tCLULKfx+Z/BYfc/tljOD+MUQIC4n/HMxEicey5GjhGOl5fvw==}
     peerDependencies:
       react: '>=18'
     peerDependenciesMeta:
@@ -290,8 +290,8 @@ packages:
     peerDependencies:
       react: '>=18'
 
-  '@bitbaum/whenkit@0.3.2':
-    resolution: {integrity: sha512-5s4PFqGBxxlT0dx5LLLGC5ba35q532DSqAD6aMx9IV+hRtUpz4H8zPsuDVPPD3vST2KCCxla3ZFvBCdejS9H3g==}
+  '@bitbaum/whenkit@0.3.3':
+    resolution: {integrity: sha512-wcnaDv89gx6Z1gvbDjCs/4dNx5xc2eSDTEG+kUhxKJTJdElLe02AJeEER4krHqcIyqG//JyFGAb0BJiOBHETCg==}
     engines: {node: '>=20'}
     peerDependencies:
       react: '>=18'
@@ -3085,7 +3085,7 @@ snapshots:
     transitivePeerDependencies:
       - canvas
 
-  '@bitbaum/chartkit@0.3.0(react@19.3.1)':
+  '@bitbaum/chartkit@0.5.0(react@19.3.1)':
     dependencies:
       react: 19.3.1
 
@@ -3096,11 +3096,11 @@ snapshots:
 
   '@bitbaum/design-tokens@1.2.0': {}
 
-  '@bitbaum/geo-kit@0.1.1': {}
+  '@bitbaum/geo-kit@0.1.2': {}
 
-  '@bitbaum/listkit@0.2.1': {}
+  '@bitbaum/listkit@0.2.2': {}
 
-  '@bitbaum/searchkit@0.2.2(react@19.3.1)':
+  '@bitbaum/searchkit@0.2.3(react@19.3.1)':
     optionalDependencies:
       react: 19.3.1
 
@@ -3109,7 +3109,7 @@ snapshots:
       react: 19.3.1
       zod: 4.6.7
 
-  '@bitbaum/whenkit@0.3.2(react@19.3.1)':
+  '@bitbaum/whenkit@0.3.3(react@19.3.1)':
     dependencies:
       react: 19.3.1
 
