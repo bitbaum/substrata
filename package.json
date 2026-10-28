@@ -43,7 +43,7 @@
   "dependencies": {
     "@bitbaum/accountkit": "^0.9.1",
     "@bitbaum/ai-kit": "^1.21.4",
-    "@bitbaum/chartkit": "^0.5.0",
+    "@bitbaum/chartkit": "^0.6.0",
     "@bitbaum/chatkit": "^0.21.2",
     "@bitbaum/design-tokens": "^1.2.0",
     "@bitbaum/geo-kit": "^0.1.2",
