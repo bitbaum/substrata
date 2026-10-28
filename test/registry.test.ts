@@ -37,8 +37,18 @@ test('every registry file is valid', () => {
   registry();
 });
 
-test('the migration kept the list: same slugs, tiers, themes and evidence as the filter', () => {
-  const before = buildUniverse().entries.filter((e) => e.admitted);
+test('the migration kept the list on its recorded date: same slugs, tiers, themes and evidence', () => {
+  const migrationDates = new Set(
+    registeredCompanies()
+      .filter((c) => c.origin.by === 'migration')
+      .map((c) => c.origin.on),
+  );
+  assert.equal(migrationDates.size, 1, 'review separate migration waves explicitly');
+  const [migrationDate] = migrationDates;
+  // Migration evidence is historical. Comparing it with today's freshness
+  // filter drops evidence at midnight (Deere's public float on 2026-10-28),
+  // even though the registry correctly retains the original cited record.
+  const before = buildUniverse(undefined, migrationDate).entries.filter((e) => e.admitted);
   const after = universe().entries.filter((e) => e.admitted && e.registered);
   const afterBy = new Map(after.map((e) => [e.slug, e]));
   assert.ok(before.length >= 793);
