@@ -18,8 +18,8 @@ importers:
         specifier: ^1.21.5
         version: 1.21.5(react@19.3.1)
       '@bitbaum/chartkit':
-        specifier: ^0.6.0
-        version: 0.6.0(react@19.3.1)
+        specifier: github:bitbaum/chartkit#3c24f7323d2a73ad58902c20e190c0a483f755ee
+        version: https://codeload.github.com/bitbaum/chartkit/tar.gz/3c24f7323d2a73ad58902c20e190c0a483f755ee(react@19.3.1)
       '@bitbaum/chatkit':
         specifier: ^0.21.2
         version: 0.21.2(react@19.3.1)
@@ -332,8 +332,9 @@ packages:
       react:
         optional: true
 
-  '@bitbaum/chartkit@0.6.0':
-    resolution: {integrity: sha512-AB3R/6qjpYvvgdvjT5plZ8eoZsq/ybGeGKdzsu0K6TJb3UBRkt7DsJwSvu7c4bIWC9WJAnTDvRKvykRHUyO6fQ==}
+  '@bitbaum/chartkit@https://codeload.github.com/bitbaum/chartkit/tar.gz/3c24f7323d2a73ad58902c20e190c0a483f755ee':
+    resolution: {gitHosted: true, integrity: sha512-OBVEkSIkY5USeKuRj52ti34rWdz1vI0pO0O2H8OVEc0WSAdhSEL4F99S+bjBoPxCZubwxYtNE+obqBnJN1q3YQ==, tarball: https://codeload.github.com/bitbaum/chartkit/tar.gz/3c24f7323d2a73ad58902c20e190c0a483f755ee}
+    version: 0.7.0
     engines: {node: '>=20'}
     peerDependencies:
       react: '>=18'
@@ -3474,7 +3475,7 @@ snapshots:
     transitivePeerDependencies:
       - canvas
 
-  '@bitbaum/chartkit@0.6.0(react@19.3.1)':
+  '@bitbaum/chartkit@https://codeload.github.com/bitbaum/chartkit/tar.gz/3c24f7323d2a73ad58902c20e190c0a483f755ee(react@19.3.1)':
     dependencies:
       react: 19.3.1
 
