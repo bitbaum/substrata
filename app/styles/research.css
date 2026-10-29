@@ -19,7 +19,8 @@
 .research-search input,
 .research-search select,
 .research-form input:not([type='checkbox']),
-.research-form textarea {
+.research-form textarea,
+.research-input {
   border: 1px solid var(--color-border-strong);
   border-radius: 0.4rem;
   padding: 0.8rem;

@@ -2,6 +2,11 @@
 
 What changed on substrata.orangecat.ch, newest first, in the words of someone using it. Every entry corresponds to a merged pull request and the numbers are the ones in the commits; fixes are listed with the same weight as features. This file is what the fleet map (`loki.orangecat.ch/api/fleet/map`) reads, and `/changelog` on the site renders from the map.
 
+## 2026-10-29
+
+### Added
+- A Substrata account of your own: sign up with an email and a password or a passkey, and turn on two-step codes, at `/sign-up`. "Continue with OrangeCat" is one way in, no longer the only one, and everything you followed through OrangeCat stays yours. You sign in once more after this change.
+
 ## 2026-10-27
 
 ### Fixed

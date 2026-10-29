@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { after } from 'next/server';
 
-import { authEnabled, currentSession, signIn, isReviewer } from '@/lib/auth';
+import { authEnabled, currentSession, isReviewer, signInHref } from '@/lib/auth';
 import { EVENTS } from '@/config/substrata-events';
 import { MARKET_PARTICIPANTS } from '@/lib/participants';
 import { Empty, Page, Shell, SectionHeader } from '@/components/portal/Shell';
@@ -46,14 +46,17 @@ function SignedOut() {
           lede="Sign in and choose the bottlenecks you care about. The desk collects what moved on them — verified events and fresh leads from the web — and lets you work through it."
         />
         {authEnabled ? (
-          <form
-            action={async () => {
-              'use server';
-              await signIn('orangecat', { redirectTo: '/account' });
-            }}
-          >
-            <button className="research-button">Continue with OrangeCat</button>
-          </form>
+          <div className="flex flex-wrap items-center gap-4">
+            <a href={signInHref('/account')} className="research-button">
+              Sign in
+            </a>
+            <a
+              href={signInHref('/account', 'sign-up')}
+              className="text-accent underline-offset-4 hover:underline"
+            >
+              Create an account
+            </a>
+          </div>
         ) : (
           <p>Account sign-in is being configured.</p>
         )}

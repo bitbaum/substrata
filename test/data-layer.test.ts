@@ -135,7 +135,7 @@ test('plan, ledger present: recorded files skip, new ones apply, nothing is prob
   const plan = await planMigrations(db.run, files);
   assert.deepEqual(
     plan.steps.filter((s) => s.action === 'apply').map((s) => s.name),
-    ['016-market-data.sql'],
+    [files.at(-1)!.name],
   );
   assert.equal(plan.steps.filter((s) => s.action === 'skip').length, files.length - 1);
   assert.ok(!db.calls.some((c) => /unnest/.test(c)));
@@ -148,11 +148,14 @@ test('plan, first run: baseline only what exists; say what is missing for the re
   });
   const plan = await planMigrations(fake({ tables: have }).run, files);
   const last = plan.steps.at(-1)!;
-  assert.equal(last.name, '016-market-data.sql');
+  // The newest file, whichever it is; it creates at least one table.
+  const newest = files.at(-1)!;
+  const table = declaredObjects(newest.sql).tables[0];
+  assert.equal(last.name, newest.name);
   assert.equal(last.action, 'apply');
-  assert.ok(last.missing.some((m) => m.includes('research_price_points')));
+  assert.ok(last.missing.some((m) => m.includes(table)));
   assert.ok(plan.steps.slice(0, -1).every((s) => s.action === 'baseline'));
-  assert.match(describePlan(plan).join('\n'), /missing: .*research_price_points/);
+  assert.match(describePlan(plan).join('\n'), new RegExp(`missing: .*${table}`));
 });
 
 test('plan refuses a ledger read that came back short', async () => {
