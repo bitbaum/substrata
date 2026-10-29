@@ -74,7 +74,7 @@ test('database that predates the ledger: complete files are recorded, incomplete
   if (!ADMIN) return t.skip('SUBSTRATA_TEST_PG_URL is not set');
   const db = await scratch();
   try {
-    for (const f of files.slice(0, -1)) await db.run(f.sql); // how 001..015 got there
+    for (const f of files.slice(0, -1)) await db.run(f.sql); // every file but the newest got there by hand
     await db.run('DROP TABLE research_source_runs;'); // one file left incomplete on purpose
     const plan = await planMigrations(db.run, files);
     const by = Object.fromEntries(plan.steps.map((s) => [s.name, s]));
@@ -82,7 +82,7 @@ test('database that predates the ledger: complete files are recorded, incomplete
     assert.equal(by['001-research-service.sql'].action, 'baseline');
     assert.equal(by['004-source-sweep.sql'].action, 'apply');
     assert.deepEqual(by['004-source-sweep.sql'].missing, ['table research_source_runs']);
-    assert.equal(by['016-market-data.sql'].action, 'apply');
+    assert.equal(by[files.at(-1)!.name].action, 'apply'); // the newest, whatever its number
     await applyMigrations(db.run, plan, files, 'substrata', quiet);
     assert.equal(
       await db.run(

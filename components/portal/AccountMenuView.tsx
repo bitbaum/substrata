@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
-import { continueWithOrangeCat, signOutOfSubstrata } from '@/lib/account-actions';
+import { signOutOfSubstrata } from '@/lib/account-actions';
+import { signInHref } from '@/lib/sign-in-href';
 import { ACCOUNT_NAV } from '@/config/site-nav';
 import { DetailsMenu } from './DetailsMenu';
 import { ThemeToggle } from './ThemeToggle';
@@ -40,11 +41,14 @@ export function AccountMenuView({ reader }: { reader: Reader }) {
         <div className="account-menu-panel">
           <p className="account-menu-label">Research desk</p>
           {reader.authEnabled ? (
-            <form action={continueWithOrangeCat}>
-              <button type="submit" className="account-menu-action">
-                Continue with OrangeCat
-              </button>
-            </form>
+            <>
+              <a href={signInHref('/account')} className="account-menu-action">
+                Sign in
+              </a>
+              <a href={signInHref('/account', 'sign-up')} className="account-menu-link">
+                Create an account
+              </a>
+            </>
           ) : (
             <p className="px-3 py-2 text-sm text-fg-tertiary">Sign-in is being configured.</p>
           )}

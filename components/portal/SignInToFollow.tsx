@@ -1,4 +1,4 @@
-import { authEnabled, signIn } from '@/lib/auth';
+import { authEnabled, signInHref } from '@/lib/auth';
 
 /**
  * The follow action a signed-out reader sees. Before this, the follow buttons
@@ -8,17 +8,13 @@ import { authEnabled, signIn } from '@/lib/auth';
 export function SignInToFollow({ returnTo, what }: { returnTo: string; what: string }) {
   if (!authEnabled) return null;
   return (
-    <form
-      className="follow-wrap"
-      action={async () => {
-        'use server';
-        await signIn('orangecat', { redirectTo: returnTo });
-      }}
-    >
-      <button className="follow-btn">Follow {what} on my desk</button>
+    <div className="follow-wrap">
+      <a href={signInHref(returnTo)} className="follow-btn inline-flex items-center">
+        Follow {what} on my desk
+      </a>
       <span className="follow-hint">
-        Sign in with OrangeCat to follow; you come back to this page.
+        Sign in or create an account to follow; you come back to this page.
       </span>
-    </form>
+    </div>
   );
 }
