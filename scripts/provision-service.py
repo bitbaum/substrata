@@ -52,7 +52,7 @@ if existing_client and 'ORANGECAT_OAUTH_CLIENT_SECRET' not in env:
 env.setdefault('ORANGECAT_OAUTH_CLIENT_SECRET', secrets.token_urlsafe(36))
 hashed = hashlib.sha256(env['ORANGECAT_OAUTH_CLIENT_SECRET'].encode()).hexdigest()
 sql('postgres', f"""INSERT INTO public.oauth_clients(client_id,name,client_secret_hash,redirect_uris,allowed_scopes,is_confidential,is_trusted)
-VALUES('substrata','Substrata','{hashed}',ARRAY['https://substrata.orangecat.ch/api/auth/callback/orangecat'],ARRAY['openid','profile','email'],true,false)
+VALUES('substrata','Substrata','{hashed}',ARRAY['https://substrata.orangecat.ch/api/auth/oauth2/callback/orangecat','https://substrata.orangecat.ch/api/auth/callback/orangecat'],ARRAY['openid','profile','email'],true,false)
 ON CONFLICT(client_id) DO UPDATE SET name=EXCLUDED.name,redirect_uris=EXCLUDED.redirect_uris,allowed_scopes=EXCLUDED.allowed_scopes;""", True)
 for key in ('GROQ_API_KEY', 'OPENROUTER_API_KEY'):
     if reference.get(key):

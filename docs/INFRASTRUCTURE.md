@@ -28,7 +28,7 @@ provisioning script applies it once, as the app role, when it creates the role
 and database; that is the only step that needs a root shell, and only on a new
 box.
 
-Every numbered file under `scripts/db/` (`001` to `016` so far) is applied by the
+Every numbered file under `scripts/db/` (`001` to `017` so far) is applied by the
 normal deploy, before the new release goes live: `scripts/ops/data-layer.ts
 migrate` runs each pending file in one transaction, records it in
 `public.schema_migrations`, and stops the deploy on a failure with the live
@@ -52,6 +52,8 @@ correctly on `/data`.
 per-question latency — durations and call counts only, no question text — for
 the p50/p90 on /data#ask-latency; the same line goes to the journal as
 `substrata ask-timing {…}`.
+`017-accounts.sql` holds the account tables; see "Authentication and
+contributions" below.
 
 ### Chat review
 
@@ -184,8 +186,18 @@ ready (`reviewQueue()` in `lib/event-draft-store.ts`).
 
 ## Authentication and contributions
 
-Auth.js uses OrangeCat OIDC with state and PKCE, client-secret-post, and only
-openid/profile/email scopes. No local password store. A verified identity is
+Accounts are the fleet's account package, `@bitbaum/accountkit` (`lib/auth.ts`):
+an email and a password, a passkey, two-step codes, or "Continue with OrangeCat"
+(OIDC with PKCE, client-secret-post, only openid/profile/email scopes). Screens
+are `/sign-in`, `/sign-up` and `/account/settings#account`. The tables are
+`017-accounts.sql` (`users`, `accounts`, `sessions`, `verifications`,
+`passkeys`, `two_factors`); passwords are stored only as slow salted hashes.
+No mail is sent yet, so the sign-in link and address confirmation stay hidden.
+A person whose first way in was OrangeCat keeps their OrangeCat actor id as
+the id desks, follows and saved keys use (`legacyIdentityProvider`), so rows
+from before accounts stay theirs. OrangeCat's client must list
+`https://substrata.orangecat.ch/api/auth/oauth2/callback/orangecat` as a
+redirect URI (`scripts/provision-service.py` registers it). An account is
 required for saved interests; reading, questions and contributions are public.
 `SUBSTRATA_REVIEWER_ACTOR_IDS` grants private inbox access at `/review`.
 Reviewer identities are resolved from the existing owner identity during setup.

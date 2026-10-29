@@ -8,7 +8,6 @@ import { bottlenecksCsv, csvCell, researchExport } from '../lib/research-export'
 import { boundedJson, sameOrigin } from '../lib/request-guards';
 import { chainDiagram } from '../lib/chain-diagram';
 import { chatContext } from '../lib/chat/retrieve';
-import { hasAuthenticatedSubject } from '../lib/identity';
 
 test('atlas counts partition actual bottlenecks and never turn missing coverage into data', () => {
   const stages = atlasData();
@@ -71,11 +70,6 @@ test('a broad topic question surfaces the actual chokepoints, not development-ba
     (d) => d.kind === 'bottleneck' || d.topics.includes('robotics') || /robot/i.test(d.title),
   );
   assert.ok(onTopic, 'no actuation/robotics chokepoint or tagged record was retrieved');
-});
-test('an authenticated OIDC subject is usable without an optional profile email', () => {
-  assert.equal(hasAuthenticatedSubject({ sub: 'actor-123' }), true);
-  assert.equal(hasAuthenticatedSubject({ sub: '' }), false);
-  assert.equal(hasAuthenticatedSubject(null), false);
 });
 test('exported chain figures explain relationships and refuse arbitrary slugs', () => {
   const bottleneck = BOTTLENECKS.find((b) => b.producers.length > 0)!;
