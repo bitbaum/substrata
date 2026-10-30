@@ -11,8 +11,9 @@
  *   surface so crossings read, with a chevron for direction and, unless the
  *   reader asked for less motion, a light that runs along it input to output.
  *
- * Pure drawing and picking against the view's basis (globe-trace.ts); the
- * frame loop decides when to call it.
+ * Pure drawing and picking against the view's basis (the fast projection of
+ * `@bitbaum/geo-kit/map`); the renderer's frame loop decides when to call it,
+ * through its `over` and `pickFirst` hooks (globe-renderer.ts).
  */
 import { geoDistance, geoInterpolate, type GeoProjection } from 'd3-geo';
 

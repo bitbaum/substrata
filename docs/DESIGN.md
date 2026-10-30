@@ -41,7 +41,7 @@ nowhere else. Every motion is still for `prefers-reduced-motion`.
 
 | Motion | What it answers | Where |
 |---|---|---|
-| The globe flies to a country, along the great circle, pulling back on a long turn | "Where is that?" | `globe-motion.ts` |
+| The globe flies to a country, along the great circle, pulling back on a long turn | "Where is that?" | `@bitbaum/geo-kit/map` (`flight`) |
 | A ring opens from the picked country as the globe arrives | "That one — here" | `globe-marks.ts` |
 | Picking a resource turns the globe to its largest producer | "Where does it come from?" | `Globe.tsx` |
 | A site flies in close; a route is framed whole | "Show me that place" / "Show me the chain" | `Globe.tsx` |
