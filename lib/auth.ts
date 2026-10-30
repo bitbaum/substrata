@@ -27,7 +27,15 @@ export { signInHref };
  * else is their account id.
  */
 export const { GET, POST, getSession, authStatus, getAuth } = createAuthRuntime({
-  site: { url: SITE.url, title: SITE.name, slug: 'substrata' },
+  site: {
+    url: SITE.url,
+    title: SITE.name,
+    slug: 'substrata',
+    // AUTH_URL is where this server is reached (the public origin on the box,
+    // http://localhost:3000 in the browser-smoke journey). Trusting it keeps
+    // better-auth's origin check on in CI instead of switching it off.
+    trustedOrigins: process.env.AUTH_URL?.trim() ? [process.env.AUTH_URL.trim()] : [],
+  },
   // Substrata sends no mail yet: the sign-in link and address confirmation
   // stay hidden, and a password account signs in at once.
   mail: { configured: false, send: async () => {} },
