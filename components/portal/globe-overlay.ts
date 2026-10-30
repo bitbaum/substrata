@@ -16,9 +16,9 @@
  */
 import { geoDistance, geoInterpolate, type GeoProjection } from 'd3-geo';
 
-import { centreOf } from './globe-cull';
+import { basisOf, centreOf, pack, project, type Basis, type Packed } from '@bitbaum/geo-kit/map';
+
 import type { Palette } from './globe-paint';
-import { basisOf, pack, project, type Basis, type Packed } from './globe-trace';
 
 const FULL = Math.PI * 2;
 /** Samples per arc: smooth at full zoom, cheap at 25 arcs. */

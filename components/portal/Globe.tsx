@@ -13,34 +13,29 @@
  * everywhere a browser runs this page — so there is no second, flat map to
  * fall back to. Drawn only when something changes; idle, it costs nothing.
  *
- * Split by job: geometry (globe-geo), movement (globe-motion), picking
- * (globe-pick), painting (globe-paint), sites and routes (globe-overlay),
- * the frame loop (globe-loop), input (globe-input) and what it may do
- * (globe-control). This file wires them to the page: selection, the text
+ * The Earth, its movement, input and picking are the fleet's one map
+ * renderer (`@bitbaum/geo-kit/map`, which Solon's map of communes draws with
+ * too). What is Substrata's: the countries keyed by ISO code (globe-geo), the
+ * colours and the layer's fills (globe-paint), the sites and routes
+ * (globe-overlay) and the figures and pulse (globe-marks), drawn over the
+ * Earth each frame. This file wires them to the page: selection, the text
  * alternative, the zoom buttons and the hover card.
  * Every country is also reachable by name in the panel's search, which is
  * how Malta or Singapore are reached on a phone.
  */
 import { useEffect, useRef, useState } from 'react';
 
-import { useGlobeControl, type Hover } from './globe-control';
 import {
   cameraFor,
-  focusOf,
   clampTilt,
+  focusOf,
   loadWorld,
   type CountryFeature,
   type World,
 } from './globe-geo';
-import { useGlobeInput } from './globe-input';
-import { useGlobeLoop } from './globe-loop';
-import { EMPTY_OVERLAY, type Overlay, type SitePoint } from './globe-overlay';
-import { useOverlay } from './globe-overlay-state';
-import { pickIndex, type Pickable } from './globe-pick';
+import { useGlobeRenderer, type Hover } from './globe-renderer';
 import { useMapView } from './map-view';
 import type { WorldMapProps } from './WorldMap';
-
-const NO_SITES: SitePoint[] = [];
 
 /**
  * Where to face a route from: the mean of the countries on it, so as much of
@@ -109,18 +104,20 @@ export default function Globe({
   }, [loadAttempt]);
 
   const frame = useMapView(wrap);
-  const overlayRef = useRef<Overlay>(EMPTY_OVERLAY);
-  const loop = useGlobeLoop({ canvasRef, world, frame, bins, selected, callouts, overlayRef });
-  const { cameraRef, touchedRef, invalidate, fly } = loop;
-  const hoverSite = useOverlay({ overlayRef, world, sites, site, routes, invalidate });
-
-  const index = useRef<Pickable[]>([]);
-  const byIso = useRef(new Map<string, CountryFeature>());
-  useEffect(() => {
-    if (!world) return;
-    index.current = pickIndex(world.countries.filter((c) => c.properties.iso));
-    byIso.current = new Map(world.countries.map((c) => [c.properties.iso, c]));
-  }, [world]);
+  const { mapRef, byIso } = useGlobeRenderer({
+    canvasRef,
+    world,
+    frame,
+    bins,
+    selected,
+    callouts,
+    keep,
+    sites,
+    site,
+    routes,
+    setHover,
+    setFacing,
+  });
 
   // Face the selected country: at once on first draw, by a flight after.
   // With no country picked but a resource painted, face where it comes from:
@@ -131,6 +128,7 @@ export default function Globe({
   const lead = callouts?.[0]?.iso ?? '';
   const opened = site ? sites?.find((s) => s.id === site) : undefined;
   useEffect(() => {
+    const map = mapRef.current;
     const key = opened
       ? `site:${opened.id}`
       : selected
@@ -140,12 +138,12 @@ export default function Globe({
           : lead
             ? `lead:${lead}`
             : '';
-    if (!world || faced.current === key) return;
+    if (!world || !map || faced.current === key) return;
     const first = faced.current === null;
     faced.current = key;
     const target = selected ? byIso.current.get(selected) : undefined;
     const top = !selected && lead ? byIso.current.get(lead) : undefined;
-    const c = cameraRef.current;
+    const c = map.camera();
     // A site is a point, not a country: come in close, so its neighbours
     // separate into their own dots.
     const span = !selected && routes?.length ? routeCentre(routes, byIso.current) : null;
@@ -164,23 +162,11 @@ export default function Globe({
                 k: 1,
               }
             : { center: c.center, k: Math.min(c.k, 1) };
-    if (!first) return fly(to);
-    cameraRef.current = to;
-    touchedRef.current = performance.now();
-    invalidate();
-  }, [world, selected, lead, opened, routes, cameraRef, touchedRef, fly, invalidate]);
+    if (first) map.jumpTo(to);
+    else map.flyTo(to);
+  }, [world, selected, lead, opened, routes, mapRef, byIso]);
 
-  const controlRef = useGlobeControl({
-    loop,
-    index,
-    keep,
-    sites: sites ?? NO_SITES,
-    hoverSite,
-    setHover,
-    setFacing,
-  });
-  useGlobeInput(canvasRef, controlRef);
-  const chosen = selected ? world?.countries.find((c) => c.properties.iso === selected) : undefined;
+  const chosen = selected ? world?.countries.find((c) => c.id === selected) : undefined;
 
   return (
     <div ref={wrap} className="wm" data-loading={!world || undefined}>
@@ -249,19 +235,15 @@ export default function Globe({
         </div>
       )}
       <div className="wm-zoom" role="group" aria-label="Zoom">
-        <button type="button" onClick={() => controlRef.current?.zoomBy(1.5)} aria-label="Zoom in">
+        <button type="button" onClick={() => mapRef.current?.zoomBy(1.5)} aria-label="Zoom in">
           +
         </button>
-        <button
-          type="button"
-          onClick={() => controlRef.current?.zoomBy(1 / 1.5)}
-          aria-label="Zoom out"
-        >
+        <button type="button" onClick={() => mapRef.current?.zoomBy(1 / 1.5)} aria-label="Zoom out">
           −
         </button>
         <button
           type="button"
-          onClick={() => controlRef.current?.zoomBy('home')}
+          onClick={() => mapRef.current?.zoomBy('home')}
           aria-label="Show the whole globe"
         >
           ⟲
