@@ -48,7 +48,7 @@
     "@bitbaum/chartkit": "^0.7.0",
     "@bitbaum/chatkit": "^0.21.3",
     "@bitbaum/design-tokens": "^1.2.0",
-    "@bitbaum/geo-kit": "^0.1.2",
+    "@bitbaum/geo-kit": "^0.2.0",
     "@bitbaum/searchkit": "^0.2.3",
     "@bitbaum/whenkit": "^0.3.3",
     "better-auth": "^1.7.14",
