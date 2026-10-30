@@ -4,7 +4,11 @@ import { drizzle } from 'drizzle-orm/node-postgres';
 import { authSchema } from '@bitbaum/accountkit/auth/schema';
 import { isDeliverable } from '@bitbaum/accountkit/auth';
 import { createAuthRuntime } from '@bitbaum/accountkit/auth/next';
-import { database } from './db';
+import { accountsDatabase } from './db';
+import { within } from './within';
+
+/** How long a page waits for a session before treating the reader as signed out. */
+export const SESSION_READ_TIMEOUT_MS = 4000;
 import { SITE } from './site';
 import { signInHref } from './sign-in-href';
 
@@ -28,7 +32,7 @@ export const { GET, POST, getSession, authStatus, getAuth } = createAuthRuntime(
   // stay hidden, and a password account signs in at once.
   mail: { configured: false, send: async () => {} },
   isDatabaseConfigured: () => Boolean(process.env.DATABASE_URL),
-  getDatabase: () => drizzle(database(), { schema: authSchema }),
+  getDatabase: () => drizzle(accountsDatabase(), { schema: authSchema }),
   legacyIdentityProvider: 'orangecat',
 });
 
@@ -69,7 +73,10 @@ export async function auth(): Promise<SubstrataSession | null> {
 export async function currentSession(): Promise<SubstrataSession | null> {
   if (!authEnabled) return null;
   try {
-    return await auth();
+    // A session read that does not answer is "signed out" after a few seconds,
+    // not a page that hangs. On 2026-10-30 every page 502'd for hours while
+    // session reads hung and /api/health still answered; a restart cleared it.
+    return await within(auth(), SESSION_READ_TIMEOUT_MS, 'session read');
   } catch (error) {
     console.error(
       'session read failed',
