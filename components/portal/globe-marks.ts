@@ -1,19 +1,19 @@
 /**
  * What the globe draws on top of the land: the figures at the countries that
  * matter most for the painted layer, and the ring that opens from a country
- * as the globe flies to it. Kept apart from globe-paint.ts, which paints the
- * Earth itself; these are annotations on it.
+ * as the globe flies to it. The Earth itself is painted by the fleet's
+ * renderer (`@bitbaum/geo-kit/map`); these are annotations on it, drawn
+ * through its `over` hook.
  */
+import { project, type Basis } from '@bitbaum/geo-kit/map';
+
 import { focusOf, type CountryFeature } from './globe-geo';
 import { paintOverlay, type Overlay } from './globe-overlay';
 import type { Palette } from './globe-paint';
-import { project, type Basis } from './globe-trace';
 
 const FULL = Math.PI * 2;
 
 export interface GlobeMarks {
-  hover?: CountryFeature;
-  selected?: CountryFeature;
   /** Figures at the countries that matter most for this layer. */
   callouts?: { feature: CountryFeature; text: string }[];
   /** A ring opening from a just-picked country; t runs 0 → 1 with the flight. */

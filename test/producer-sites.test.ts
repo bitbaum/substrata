@@ -37,12 +37,12 @@ test('no dot lands inside another country', () => {
   for (const p of FILE.places) {
     const own = byIso.get(p.iso2);
     assert.ok(own, `${p.iso2} is on the map`);
-    if (geoContains(own, [p.lon, p.lat])) {
+    if (geoContains(own.geometry, [p.lon, p.lat])) {
       inside += 1;
       continue;
     }
     // A coastal plant can sit just offshore at 1:50m. In a neighbour, never.
-    const other = world.countries.find((c) => geoContains(c, [p.lon, p.lat]));
+    const other = world.countries.find((c) => geoContains(c.geometry, [p.lon, p.lat]));
     assert.equal(other, undefined, `${p.location} (${p.iso2}) lands in ${other?.properties.iso}`);
   }
   assert.ok(inside / FILE.places.length > 0.95, `${inside}/${FILE.places.length} inside`);

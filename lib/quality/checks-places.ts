@@ -49,9 +49,9 @@ export function placeChecks(): CheckResult[] {
       places.places,
       (p) => {
         const own = byIso.get(p.iso2);
-        if (own && geoContains(own, [p.lon, p.lat])) return null;
+        if (own && geoContains(own.geometry, [p.lon, p.lat])) return null;
         // Offshore at 1:50m is a coastal plant; inside a neighbour is a wrong match.
-        const other = world.countries.find((c) => geoContains(c, [p.lon, p.lat]));
+        const other = world.countries.find((c) => geoContains(c.geometry, [p.lon, p.lat]));
         return other || !own
           ? {
               row: `${p.iso2}: ${p.location.slice(0, 60)}`,
