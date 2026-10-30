@@ -35,6 +35,7 @@
     "check:places-layout": "node scripts/ux/places-layout.mjs",
     "check:profile-layout": "node scripts/ux/profile-layout.mjs",
     "check:company-layout": "node scripts/ux/company-layout.mjs",
+    "check:account-journey": "node scripts/ux/account-journey.mjs",
     "check:file-inputs": "chatkit-check-file-inputs app components lib",
     "verify": "pnpm run format:check && pnpm run type-check && pnpm run lint && pnpm run check:file-inputs && pnpm run test",
     "format": "prettier --write .",

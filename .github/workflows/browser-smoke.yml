@@ -42,3 +42,62 @@ jobs:
           name: chart-consumer-layouts
           path: layout-artifacts/
           if-no-files-found: ignore
+
+  # An account can be made and used: sign up, signed in, sign out, sign back
+  # in, and a wrong password refused, in Chromium against the production build
+  # and a PostgreSQL built from scripts/db/*.sql. Substrata sends no account
+  # mail, so the fleet's shared journey does not fit; scripts/ux/account-journey.mjs
+  # drives Substrata's own screens. NODE_ENV=test and TEST stay unset: better-auth
+  # skips its origin check under either, and this must pass with it on.
+  account:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: app
+          POSTGRES_PASSWORD: app
+          POSTGRES_DB: substrata
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U app -d substrata"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      DATABASE_URL: postgres://app:app@127.0.0.1:5432/substrata
+      AUTH_URL: http://localhost:3000
+      AUTH_SECRET: synthetic-substrata-journey-secret-at-least-32-chars
+      NEXT_TELEMETRY_DISABLED: '1'
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - run: pnpm config set store-dir ~/.pnpm-store --global
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: '.nvmrc'
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Schema from the committed scripts
+        run: for file in scripts/db/[0-9]*.sql; do psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -q -f "$file"; done
+      - run: pnpm exec playwright-core install --with-deps chromium
+      - run: pnpm run build
+      - name: Sign up, sign out, sign back in, wrong password refused
+        run: |
+          set -euo pipefail
+          pnpm run start --hostname 127.0.0.1 --port 3000 > "$RUNNER_TEMP/substrata-account-server.log" 2>&1 &
+          app_pid=$!
+          trap 'kill "$app_pid" 2>/dev/null || true' EXIT
+          for attempt in $(seq 1 60); do
+            if curl -fsS http://localhost:3000/sign-in > /dev/null; then break; fi
+            sleep 1
+          done
+          pnpm run check:account-journey --base http://localhost:3000
+      - name: Server log
+        if: always()
+        run: cat "$RUNNER_TEMP/substrata-account-server.log" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: account-journey
+          path: layout-artifacts/account/
+          if-no-files-found: ignore
