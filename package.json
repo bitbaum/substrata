@@ -56,7 +56,7 @@
     "d3-geo": "^3.1.1",
     "drizzle-orm": "^0.45.4",
     "listkit": "npm:@bitbaum/listkit@^0.2.2",
-    "next": "16.4.2",
+    "next": "16.4.3",
     "pg": "^8.23.1",
     "react": "19.3.1",
     "react-dom": "19.3.1",
@@ -69,7 +69,7 @@
     "zod": "^4.6.7"
   },
   "devDependencies": {
-    "@electric-sql/pglite": "^0.5.12",
+    "@electric-sql/pglite": "^0.5.13",
     "@tailwindcss/postcss": "^4",
     "@types/d3-geo": "^3.1.1",
     "@types/geojson": "^7946.0.16",
@@ -80,7 +80,7 @@
     "@types/topojson-client": "^3.1.5",
     "@types/topojson-specification": "^1.0.5",
     "eslint": "^10",
-    "eslint-config-next": "^16.4.2",
+    "eslint-config-next": "^16.4.3",
     "espree": "^11.2.0",
     "playwright-core": "^1.64.1",
     "prettier": "3.9.10",
