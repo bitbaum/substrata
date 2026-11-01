@@ -187,12 +187,17 @@ ready (`reviewQueue()` in `lib/event-draft-store.ts`).
 ## Authentication and contributions
 
 Accounts are the fleet's account package, `@bitbaum/accountkit` (`lib/auth.ts`):
-an email and a password, a passkey, two-step codes, or "Continue with OrangeCat"
-(OIDC with PKCE, client-secret-post, only openid/profile/email scopes). Screens
+an email and a password, a passkey, two-step codes, a sign-in link by email,
+"Continue with OrangeCat" (OIDC with PKCE, client-secret-post, only
+openid/profile/email scopes), or the shared sign-in for Google, Apple, GitHub,
+X and Facebook (`SIGNIN_ISSUER`, `SIGNIN_CLIENT_ID`, `SIGNIN_CLIENT_SECRET`). Screens
 are `/sign-in`, `/sign-up` and `/account/settings#account`. The tables are
 `017-accounts.sql` (`users`, `accounts`, `sessions`, `verifications`,
 `passkeys`, `two_factors`); passwords are stored only as slow salted hashes.
-No mail is sent yet, so the sign-in link and address confirmation stay hidden.
+Account mail (the sign-in link, "Forgot your password?" and address
+confirmation) goes through `createAuthMailer` and the fleet's `RESEND_API_KEY`;
+without that key those options are hidden, never offered and undeliverable.
+Confirming an address is never a wall: sign-up signs a person in at once.
 A person whose first way in was OrangeCat keeps their OrangeCat actor id as
 the id desks, follows and saved keys use (`legacyIdentityProvider`), so rows
 from before accounts stay theirs. OrangeCat's client must list

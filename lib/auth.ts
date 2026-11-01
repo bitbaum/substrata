@@ -4,6 +4,7 @@ import { drizzle } from 'drizzle-orm/node-postgres';
 import { authSchema } from '@bitbaum/accountkit/auth/schema';
 import { isDeliverable } from '@bitbaum/accountkit/auth';
 import { createAuthRuntime } from '@bitbaum/accountkit/auth/next';
+import { createAuthMailer } from '@bitbaum/accountkit/auth/mail';
 import { accountsDatabase } from './db';
 import { within } from './within';
 
@@ -26,6 +27,11 @@ export { signInHref };
  * with no data migration (SUBSTRATA_REVIEWER_ACTOR_IDS included). Everyone
  * else is their account id.
  */
+const authMailer = createAuthMailer({ site: { url: SITE.url, title: SITE.name } });
+
+/** Whether account mail can be sent; the screens offer the link and recovery only then. */
+export const mailConfigured = () => authMailer.configured;
+
 export const { GET, POST, getSession, authStatus, getAuth } = createAuthRuntime({
   site: {
     url: SITE.url,
@@ -36,9 +42,10 @@ export const { GET, POST, getSession, authStatus, getAuth } = createAuthRuntime(
     // better-auth's origin check on in CI instead of switching it off.
     trustedOrigins: process.env.AUTH_URL?.trim() ? [process.env.AUTH_URL.trim()] : [],
   },
-  // Substrata sends no mail yet: the sign-in link and address confirmation
-  // stay hidden, and a password account signs in at once.
-  mail: { configured: false, send: async () => {} },
+  // Account mail (sign-in link, password recovery, address confirmation)
+  // through the fleet transport. Without RESEND_API_KEY those options stay
+  // hidden; a password account signs in at once either way.
+  mail: authMailer,
   isDatabaseConfigured: () => Boolean(process.env.DATABASE_URL),
   getDatabase: () => drizzle(accountsDatabase(), { schema: authSchema }),
   legacyIdentityProvider: 'orangecat',
