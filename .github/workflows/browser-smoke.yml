@@ -43,12 +43,14 @@ jobs:
           path: layout-artifacts/
           if-no-files-found: ignore
 
-  # An account can be made and used: sign up, signed in, sign out, sign back
-  # in, and a wrong password refused, in Chromium against the production build
-  # and a PostgreSQL built from scripts/db/*.sql. Substrata sends no account
-  # mail, so the fleet's shared journey does not fit; scripts/ux/account-journey.mjs
-  # drives Substrata's own screens. NODE_ENV=test and TEST stay unset: better-auth
-  # skips its origin check under either, and this must pass with it on.
+  # An account can be made and used: every way in is offered, sign up, signed
+  # in, sign out, sign back in, and a wrong password refused, in Chromium against
+  # the production build and a PostgreSQL built from scripts/db/*.sql.
+  # scripts/ux/account-journey.mjs drives Substrata's own screens. NODE_ENV=test
+  # and TEST stay unset: better-auth skips its origin check under either, and
+  # this must pass with it on. The two OIDC clients below are synthetic and
+  # unreachable on purpose: they switch the OrangeCat and shared sign-in buttons
+  # on so the journey can assert them; nothing is clicked through to an issuer.
   account:
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -68,6 +70,12 @@ jobs:
       AUTH_URL: http://localhost:3000
       AUTH_SECRET: synthetic-substrata-journey-secret-at-least-32-chars
       NEXT_TELEMETRY_DISABLED: '1'
+      ORANGECAT_OAUTH_ISSUER: https://orangecat.example.test
+      ORANGECAT_OAUTH_CLIENT_ID: substrata-journey
+      ORANGECAT_OAUTH_CLIENT_SECRET: synthetic-journey-client-secret
+      SIGNIN_ISSUER: https://signin.example.test
+      SIGNIN_CLIENT_ID: substrata-journey
+      SIGNIN_CLIENT_SECRET: synthetic-journey-client-secret
     steps:
       - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6

@@ -3,7 +3,7 @@ import { authLabelsFor, signInMethods } from '@bitbaum/accountkit/auth';
 import { returnPath } from '@bitbaum/accountkit/orangecat';
 import { SubstrataSignUp } from '@/components/portal/AccountScreens';
 import { Page, SectionHeader, Shell } from '@/components/portal/Shell';
-import { authEnabled, currentSession, signInHref } from '@/lib/auth';
+import { authEnabled, currentSession, mailConfigured, signInHref } from '@/lib/auth';
 
 export const dynamic = 'force-dynamic';
 export const metadata = { title: 'Create an account', robots: { index: false } };
@@ -28,7 +28,7 @@ export default async function SignUpPage({
           {authEnabled ? (
             <SubstrataSignUp
               labels={labels}
-              methods={signInMethods(process.env, false)}
+              methods={signInMethods(process.env, mailConfigured())}
               next={next}
               signInHref={signInHref(next)}
             />

@@ -3,7 +3,7 @@ import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { authLabelsFor, isDeliverable, signInMethods } from '@bitbaum/accountkit/auth';
 
-import { currentSession, getAuth, getSession, isReviewer } from '@/lib/auth';
+import { currentSession, getAuth, getSession, isReviewer, mailConfigured } from '@/lib/auth';
 import { SubstrataAccount } from '@/components/portal/AccountScreens';
 import { MARKET_PARTICIPANTS } from '@/lib/participants';
 import { Page, Shell } from '@/components/portal/Shell';
@@ -123,7 +123,7 @@ export default async function DeskSettingsPage({
           </div>
           <SubstrataAccount
             labels={authLabelsFor('en')}
-            methods={signInMethods(process.env, false)}
+            methods={signInMethods(process.env, mailConfigured())}
             user={{
               name: account.user.name ?? '',
               email: isDeliverable(account.user.email) ? account.user.email : null,

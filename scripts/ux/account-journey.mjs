@@ -1,12 +1,19 @@
 #!/usr/bin/env node
 /**
  * Substrata's account journey, in a real browser against a running production
- * build and a real PostgreSQL (scripts/db/*.sql applied). The fleet's shared
- * journey assumes account mail; Substrata sends none (lib/auth.ts,
- * `mail.configured: false`), so a password account signs in at once, and this
- * drives Substrata's own screens:
+ * build and a real PostgreSQL (scripts/db/*.sql applied). It drives
+ * Substrata's own screens:
  *
- *   sign up → signed in → sign out → sign back in → a wrong password is refused
+ *   every way in is offered → sign up → signed in → sign out → sign back in →
+ *   a wrong password is refused
+ *
+ * "Every way in" is read from the same env the server has: the passkey and the
+ * password always; the sign-in link and "Forgot your password?" only with
+ * account mail (RESEND_API_KEY); "Continue with OrangeCat" with
+ * ORANGECAT_OAUTH_*, and the shared sign-in with SIGNIN_*. CI sets synthetic
+ * OIDC clients so both buttons are asserted; nothing is clicked through.
+ * Without mail a password account signs in at once, as it does with mail
+ * (confirmation never stands in front of the desk).
  *
  *   AUTH_URL=http://localhost:3000 node scripts/ux/account-journey.mjs --base http://localhost:3000
  *
@@ -66,7 +73,43 @@ const browser = await chromium.launch(
 const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
 page.on('pageerror', (error) => console.error('page error:', error.message));
 
+const { authLabelsFor, signInMethods } = await import('@bitbaum/accountkit/auth');
+const labels = authLabelsFor('en');
+const mailKey = (process.env.RESEND_API_KEY ?? '').trim();
+const expected = signInMethods(
+  process.env,
+  Boolean(mailKey) && !mailKey.startsWith('re_placeholder'),
+);
+
+/** Whether a button with exactly this name is on screen. */
+const shows = (name) =>
+  page
+    .getByRole('button', { name, exact: true })
+    .first()
+    .isVisible({ timeout: 10_000 })
+    .catch(() => false);
+
 try {
+  // 0. Every way in this deployment has switched on is offered, and nothing else.
+  for (const path of ['/sign-in', '/sign-up']) {
+    await page.goto(`${BASE}${path}`);
+    await page.locator('#acct-email').waitFor({ state: 'visible', timeout: 20_000 });
+    check(await page.locator('#acct-password').isVisible(), `${path} offers email and password`);
+    for (const [on, name] of [
+      [expected.orangecat, labels.withOrangecat],
+      [expected.signin, labels.withSignin],
+    ]) {
+      check((await shows(name)) === on, `${path} ${on ? 'shows' : 'hides'} "${name}"`);
+    }
+  }
+  await page.goto(`${BASE}/sign-in`);
+  check(await shows(labels.withPasskey), '/sign-in offers a passkey');
+  check(
+    (await shows(labels.withLink)) === expected.magicLink,
+    `/sign-in ${expected.magicLink ? 'offers' : 'hides'} the sign-in link (account mail ${expected.magicLink ? 'on' : 'off'})`,
+  );
+  await page.screenshot({ path: `${OUT}/sign-in-methods.png`, fullPage: true });
+
   // 1. Sign up with an email and a password.
   await page.goto(`${BASE}/sign-up`);
   await fillCredentials(page, PASSWORD);
@@ -74,7 +117,7 @@ try {
   await page.getByRole('button', { name: 'Create an account', exact: true }).click();
   await page.waitForURL((url) => url.pathname === '/account', { timeout: 20_000 });
 
-  // 2. Signed in at once (no mail): the session and the header both say so.
+  // 2. Signed in at once: the session and the header both say so.
   check((await sessionEmail(page)) === EMAIL, 'sign-up signs the new account in at once');
   check(await headerShowsSignedIn(page), 'the header shows the account menu, not "Sign in"');
   await page.screenshot({ path: `${OUT}/desk-signed-in.png`, fullPage: true });
