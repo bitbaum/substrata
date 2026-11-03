@@ -12,8 +12,8 @@ importers:
         specifier: ^1.7.14
         version: 1.7.14(@better-auth/core@1.7.14(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(better-call@1.4.4(zod@4.6.7))(jose@6.2.12)(kysely@0.29.7)(nanostores@1.5.5))(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(better-auth@1.7.14(drizzle-orm@0.45.4(@electric-sql/pglite@0.5.13)(@types/pg@8.23.1)(kysely@0.29.7)(pg@8.23.1))(next@16.4.3(@babel/core@7.29.7)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(pg@8.23.1)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(better-call@1.4.4(zod@4.6.7))(nanostores@1.5.5)
       '@bitbaum/accountkit':
-        specifier: ^0.26.1
-        version: 0.26.1(80bb0f32f9bda65fb672c578e0a434dd)
+        specifier: ^0.27.0
+        version: 0.27.0(80bb0f32f9bda65fb672c578e0a434dd)
       '@bitbaum/ai-kit':
         specifier: ^1.24.0
         version: 1.24.0(react@19.3.1)
@@ -304,8 +304,8 @@ packages:
   '@better-fetch/fetch@1.3.3':
     resolution: {integrity: sha512-U6SlDt/GUWtK2JAxS/NhdoYTEim+EL1G5byz2TUj83KjLZBUpYzb5SmX0aXaCnbGkAjFKnV/o/0+cyXMbEcqqg==}
 
-  '@bitbaum/accountkit@0.26.1':
-    resolution: {integrity: sha512-eVl3vfUWPqXq54rQx2HIrAbJ55xcVk9mD3yUOYgkjynMIPKvcLv39RAckqlWV2Xg/N5OaY/ijIKfHjbozVnNrA==}
+  '@bitbaum/accountkit@0.27.0':
+    resolution: {integrity: sha512-5dBGE8va8x6qnZGKTGDPu72w9b3/MqTGZG+BpsynQ05MF1FsEcN3EkYNXQhZshpjW139qyG9CTym/jFLVP8ilA==}
     engines: {node: '>=20'}
     hasBin: true
     peerDependencies:
@@ -3480,7 +3480,7 @@ snapshots:
 
   '@better-fetch/fetch@1.3.3': {}
 
-  '@bitbaum/accountkit@0.26.1(80bb0f32f9bda65fb672c578e0a434dd)':
+  '@bitbaum/accountkit@0.27.0(80bb0f32f9bda65fb672c578e0a434dd)':
     dependencies:
       '@noble/curves': 2.4.0
       '@scure/base': 2.4.0
