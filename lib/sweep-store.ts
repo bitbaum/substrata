@@ -69,12 +69,28 @@ export interface SweepOutcome {
 }
 
 /**
+ * Stop starting new nodes after this long; the box wrapper allows 300s.
+ * Stopping at 200s bounds the run well inside the curl timeout so the service
+ * never exits with status 28.
+ */
+export const SWEEP_RUN_BUDGET_MS = 200_000;
+
+export interface RunScheduledSweepOptions {
+  budgetMs?: number;
+  signal?: AbortSignal;
+}
+
+/**
  * Sweep the least-recently-looked-at nodes.
  *
  * Rotating by `last_swept` means a bounded run still covers everything over
  * time, and a node that keeps failing does not monopolise the budget.
  */
-export async function runScheduledSweep(): Promise<SweepOutcome & { skipped?: string }> {
+export async function runScheduledSweep({
+  budgetMs = SWEEP_RUN_BUDGET_MS,
+  signal,
+}: RunScheduledSweepOptions = {}): Promise<SweepOutcome & { skipped?: string }> {
+  const started = Date.now();
   const db = database();
   const all = nodes();
   const settings = await sweepSettings();
@@ -111,6 +127,9 @@ export async function runScheduledSweep(): Promise<SweepOutcome & { skipped?: st
   const outcome: SweepOutcome = { swept: [], found: 0, couldNotLook: 0 };
 
   for (const node of queue) {
+    if (Date.now() - started > budgetMs || signal?.aborted) {
+      break;
+    }
     const { found, blind } = await sweepAndStore(node, settings);
     if (blind) outcome.couldNotLook += 1;
     outcome.found += found;

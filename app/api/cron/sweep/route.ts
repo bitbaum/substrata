@@ -29,7 +29,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const outcome = await runScheduledSweep();
+    const outcome = await runScheduledSweep({ signal: request.signal });
     return Response.json({ ok: true, ...outcome });
   } catch (error) {
     console.error('sweep failed', error instanceof Error ? error.name : 'unknown');
