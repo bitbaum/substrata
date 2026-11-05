@@ -33,7 +33,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const outcome = await runScheduledSourcing();
+    const outcome = await runScheduledSourcing({ signal: request.signal });
     return Response.json({ ok: true, ...outcome });
   } catch (error) {
     console.error('source run failed', error instanceof Error ? error.name : 'unknown');

@@ -18,6 +18,19 @@ import { examineRow, unsourcedRows } from './source';
 /** Small on purpose, same reasoning as the event sweep: each row costs several web calls. */
 const ROWS_PER_RUN = 4;
 
+/**
+ * Stop starting new rows after this long; the box wrapper allows 300s.
+ * Stopping at 200s bounds the run well inside the curl timeout so the service
+ * never exits with status 28.
+ */
+export const SOURCE_RUN_BUDGET_MS = 200_000;
+
+export interface RunScheduledSourcingOptions {
+  limit?: number;
+  budgetMs?: number;
+  signal?: AbortSignal;
+}
+
 export interface SourceOutcome {
   examined: string[];
   found: number;
@@ -35,7 +48,15 @@ function candidateId(material: string, producer: string, url: string): string {
  * unsourced set over time, and a row that keeps coming back "nothing" does
  * not monopolise the budget forever.
  */
-export async function runScheduledSourcing(limit = ROWS_PER_RUN): Promise<SourceOutcome> {
+export async function runScheduledSourcing(
+  limitOrOptions?: number | RunScheduledSourcingOptions,
+): Promise<SourceOutcome> {
+  const options: RunScheduledSourcingOptions =
+    typeof limitOrOptions === 'number' ? { limit: limitOrOptions } : (limitOrOptions ?? {});
+  const limit = options.limit ?? ROWS_PER_RUN;
+  const budgetMs = options.budgetMs ?? SOURCE_RUN_BUDGET_MS;
+  const signal = options.signal;
+  const started = Date.now();
   const db = database();
   const all = unsourcedRows();
 
@@ -61,8 +82,12 @@ export async function runScheduledSourcing(limit = ROWS_PER_RUN): Promise<Source
   const outcome: SourceOutcome = { examined: [], found: 0, couldNotLook: 0 };
 
   for (const { material, producer } of queue) {
+    if (Date.now() - started > budgetMs || signal?.aborted) {
+      break;
+    }
     const key = evidenceKey(material, producer.name);
-    const { row } = await examineRow(producer, material);
+    const remainingMs = Math.max(0, budgetMs - (Date.now() - started));
+    const { row } = await examineRow(producer, material, { signal, timeoutMs: remainingMs });
     if (row.status === 'could_not_look') outcome.couldNotLook += 1;
 
     for (const candidate of row.candidates) {
