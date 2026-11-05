@@ -95,3 +95,43 @@ test('a page naming both, far apart, is not a match', () => {
     ' Somewhere else entirely, unrelated crucible-grade quartz sand is discussed in general.';
   assert.equal(matchOnPage(page, ['Ferrotec'], material), null);
 });
+
+import { readFileSync } from 'node:fs';
+import { SOURCE_RUN_BUDGET_MS } from '../lib/source-store';
+
+test('the scheduled sourcing run enforces a runtime budget within the 300s box wrapper', () => {
+  // The box wrapper invokes curl with --max-time 300s; an unbounded run that takes
+  // longer causes curl exit 28 and fails the systemd unit.
+  assert.ok(
+    SOURCE_RUN_BUDGET_MS <= 250_000,
+    `budget must be comfortably under 300s: ${SOURCE_RUN_BUDGET_MS}`,
+  );
+  assert.ok(SOURCE_RUN_BUDGET_MS >= 60_000, 'budget must allow meaningful work');
+
+  const store = readFileSync(new URL('../lib/source-store.ts', import.meta.url), 'utf8');
+  assert.ok(
+    store.includes('Date.now() - started > budgetMs'),
+    'runScheduledSourcing must stop starting new rows when budgetMs is exceeded',
+  );
+  assert.ok(
+    store.includes('signal?.aborted'),
+    'runScheduledSourcing must abort when signal is aborted',
+  );
+
+  const route = readFileSync(new URL('../app/api/cron/source/route.ts', import.meta.url), 'utf8');
+  assert.ok(
+    route.includes('runScheduledSourcing({ signal: request.signal })'),
+    'the route must forward the request abort signal',
+  );
+});
+
+test('sourcing reads candidate pages concurrently rather than serially', () => {
+  // Reading candidate pages serially accumulated up to 8 * 15s = 120s per row,
+  // pushing a 4-row scheduled run past curl 300s. Promise.all bounds page
+  // reading to a single timeout window.
+  const sourceCode = readFileSync(new URL('../lib/source.ts', import.meta.url), 'utf8');
+  assert.ok(
+    sourceCode.includes('Promise.all'),
+    'candidate pages must be fetched concurrently with Promise.all',
+  );
+});

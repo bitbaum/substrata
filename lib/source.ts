@@ -204,13 +204,17 @@ export interface Examined {
 export async function examineRow(
   producer: { name: string; aliases?: string[] },
   material: string,
+  options: { signal?: AbortSignal; timeoutMs?: number } = {},
 ): Promise<Examined> {
   const names = namesFor(producer);
   const query = queryFor(producer.name, material);
   const checkedAt = new Date().toISOString();
   const base = { material, producer: producer.name, query, checkedAt };
 
-  const search = await webSearch(query, { limit: RESULTS_PER_ROW, timeoutMs: 15_000 });
+  const search = await webSearch(query, {
+    limit: RESULTS_PER_ROW,
+    timeoutMs: Math.min(15_000, options.timeoutMs ?? 15_000),
+  });
 
   if (search.status === 'could_not_look') {
     return {
@@ -224,9 +228,22 @@ export async function examineRow(
     return { row: { ...base, status: 'nothing', candidates: [] }, searchWasEmpty: true };
   }
 
+  const targets = readOrder(search.results, names).slice(0, PAGES_PER_ROW);
+
+  // In parallel: candidate pages read one after the other was the slowest step,
+  // accumulating up to 8 × 15s timeouts; neither page depends on the other.
+  const pages = await Promise.all(
+    targets.map(async (result) => {
+      const page = await readPage(result.url, {
+        timeoutMs: Math.min(15_000, options.timeoutMs ?? 15_000),
+        maxChars: 60_000,
+      });
+      return { result, page };
+    }),
+  );
+
   const candidates: SourceCandidate[] = [];
-  for (const result of readOrder(search.results, names).slice(0, PAGES_PER_ROW)) {
-    const page = await readPage(result.url, { timeoutMs: 15_000, maxChars: 60_000 });
+  for (const { result, page } of pages) {
     if (!page.ok) continue;
     const match = matchOnPage(page.text, names, material);
     if (match) {
