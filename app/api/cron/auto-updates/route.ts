@@ -19,7 +19,7 @@ export async function POST(request: Request) {
     return Response.json({ error: 'Not authorised.' }, { status: 401 });
   }
   try {
-    const outcome = await runAutoUpdates();
+    const outcome = await runAutoUpdates(new Date(), { signal: request.signal });
     return Response.json({ ok: true, ...outcome });
   } catch (error) {
     // The message only: a stack or a request could carry a reader's key.

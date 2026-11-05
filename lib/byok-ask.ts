@@ -17,10 +17,11 @@ export function byokModelLabel(config: Pick<ByokConfig, 'vendor' | 'model'>): st
   return `${config.vendor}/${config.model} (reader's key)`;
 }
 
-export function byokAsk(config: ByokConfig): Ask {
+export function byokAsk(config: ByokConfig, signal?: AbortSignal): Ask {
   const { chain, env, extraHeaders } = byokChain(config, BYOK_SITE);
   if (chain.length === 0) throw new ByokError(config.vendor, 'That key names no model.');
   return async (messages) => {
+    if (signal?.aborted) throw new ByokError(config.vendor, 'Aborted.');
     try {
       const result = await complete({
         chain,
@@ -29,6 +30,7 @@ export function byokAsk(config: ByokConfig): Ask {
         messages,
         maxTokens: 2_000,
         timeoutMs: 45_000,
+        signal,
       });
       return result.text;
     } catch (error) {
