@@ -5,6 +5,14 @@ export const dynamic = 'force-dynamic';
 export const maxDuration = 290;
 
 /**
+ * Stop starting new price/fact fetches after this long; the box wrapper allows 300s.
+ * Stopping at 200s bounds the run well inside the curl timeout so the service
+ * never exits with status 28.
+ */
+export const PRICES_RUN_BUDGET_MS = 200_000;
+export const PRICES_PORTION_MS = 140_000;
+
+/**
  * The daily market-data run, called by a systemd timer through
  * `/opt/_appcron/run.sh` with `Authorization: Bearer $CRON_SECRET` — the same
  * gate as /api/cron/series. Daily closes for every seed listing first, then the
@@ -20,9 +28,13 @@ export async function POST(request: Request) {
     return Response.json({ error: 'Not authorised.' }, { status: 401 });
   }
   const started = Date.now();
+  const signal = request.signal;
   try {
-    const prices = await fetchAllPrices({}, { deadline: started + 150_000 });
-    const facts = await refreshMarketFacts({ deadline: started + 240_000 });
+    const prices = await fetchAllPrices({}, { deadline: started + PRICES_PORTION_MS, signal });
+    const facts = await refreshMarketFacts({
+      deadline: started + PRICES_RUN_BUDGET_MS,
+      signal,
+    });
     return Response.json({ ok: true, prices, facts });
   } catch (error) {
     console.error('market data run failed', error instanceof Error ? error.name : 'unknown');

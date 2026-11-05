@@ -69,7 +69,7 @@ async function latestDays(): Promise<Map<string, string>> {
  */
 export async function fetchAllPrices(
   deps: FetchDeps = {},
-  opts: { deadline?: number } = {},
+  opts: { deadline?: number; signal?: AbortSignal } = {},
 ): Promise<PriceRun> {
   const db = database();
   const latest = await latestDays();
@@ -89,8 +89,16 @@ export async function fetchAllPrices(
       ),
   ];
   for (const c of order) {
+    if (opts.signal?.aborted) break;
     if (opts.deadline && Date.now() > opts.deadline) break;
-    const got = await fetchPrices(c.ticker, deps, undefined, isSeedLine(c) ? undefined : c.name);
+    const remainingMs = opts.deadline ? Math.max(0, opts.deadline - Date.now()) : undefined;
+    if (remainingMs !== undefined && remainingMs < 5_000) break;
+    const reqDeps = {
+      ...deps,
+      signal: opts.signal,
+      timeoutMs: remainingMs ? Math.min(15_000, remainingMs) : deps.timeoutMs,
+    };
+    const got = await fetchPrices(c.ticker, reqDeps, undefined, isSeedLine(c) ? undefined : c.name);
     if ('failed' in got) {
       out.failed += 1;
       out.errors.push(`${tickerKey(c.ticker)}: ${got.failed.join('; ')}`);

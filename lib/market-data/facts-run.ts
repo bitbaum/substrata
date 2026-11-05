@@ -17,7 +17,10 @@ export interface FactsRun {
   failed: number;
 }
 
-export async function refreshMarketFacts(opts: { deadline: number }): Promise<FactsRun> {
+export async function refreshMarketFacts(opts: {
+  deadline: number;
+  signal?: AbortSignal;
+}): Promise<FactsRun> {
   const db = database();
   const run = await db.query<{ id: string }>(
     'INSERT INTO research_market_fact_runs DEFAULT VALUES RETURNING id',
@@ -27,9 +30,16 @@ export async function refreshMarketFacts(opts: { deadline: number }): Promise<Fa
   // a snapshot younger than FRESH_MS is skipped by the readers, so a run that
   // ran out of time continues where it stopped.
   for (const c of trackedListings().filter((x) => x.cik)) {
+    if (opts.signal?.aborted) break;
     if (Date.now() > opts.deadline) break;
+    const remainingMs = Math.max(0, opts.deadline - Date.now());
+    if (remainingMs < 5_000) break;
     out.looked += 1;
-    const [f, h] = await Promise.all([fundamentals(c, {}, FRESH_MS), holders(c, {}, FRESH_MS)]);
+    const reqDeps = { signal: opts.signal, timeoutMs: Math.min(15_000, remainingMs) };
+    const [f, h] = await Promise.all([
+      fundamentals(c, reqDeps, FRESH_MS),
+      holders(c, reqDeps, FRESH_MS),
+    ]);
     // A typed "not available" (no XBRL at the SEC) is a stored answer, not a failure.
     const failed = [f, h].filter((x) => 'unavailable' in x && /could not be read/.test(x.reason));
     if (failed.length) out.failed += 1;
