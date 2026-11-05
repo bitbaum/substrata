@@ -256,11 +256,21 @@ export async function sweep(
   }
   if (search.status === 'nothing') return [];
 
-  const out: CandidateEvent[] = [];
-  for (const result of search.results
+  const candidates = search.results
     .filter((r) => !isNeverAnEvent(r.url, settings.blockedHosts) && !isOffTopic(node.name, r.title))
-    .slice(0, settings.pagesPerNode)) {
-    const page = await readPage(result.url, { timeoutMs: 15_000, maxChars: 60_000 });
+    .slice(0, settings.pagesPerNode);
+
+  // In parallel: candidate pages read one after the other was the slowest step,
+  // accumulating up to 8 × 15s timeouts; neither page depends on the other.
+  const pages = await Promise.all(
+    candidates.map(async (result) => {
+      const page = await readPage(result.url, { timeoutMs: 15_000, maxChars: 60_000 });
+      return { result, page };
+    }),
+  );
+
+  const out: CandidateEvent[] = [];
+  for (const { result, page } of pages) {
     if (!page.ok) continue;
     const excerpt = excerptAround(page.text, node.term);
     if (!excerpt) continue;

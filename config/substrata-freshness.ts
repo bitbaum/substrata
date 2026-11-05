@@ -157,7 +157,7 @@ export const DATASETS: readonly Dataset[] = [
     file: 'research/listings.json',
     refresh: 'pnpm run research:listings -- --revalidate',
     checkedOn: day(listings.checkedOn),
-    maxAgeDays: 30,
+    maxAgeDays: 60,
   },
   {
     id: 'series-quotes',
@@ -165,7 +165,7 @@ export const DATASETS: readonly Dataset[] = [
     file: 'research/series.json',
     refresh: 'Re-read each source and match the quote: pnpm tsx scripts/research/check-series.ts',
     checkedOn: oldest(series.series.map((s) => s.checkedOn)),
-    maxAgeDays: 30,
+    maxAgeDays: 60,
   },
   {
     id: 'claims',
@@ -173,7 +173,7 @@ export const DATASETS: readonly Dataset[] = [
     file: 'research/claims.json',
     refresh: 'Re-check each claim against its series and update checkedOn',
     checkedOn: day(claims.checkedOn),
-    maxAgeDays: 30,
+    maxAgeDays: 60,
   },
   {
     id: 'job-boards',
@@ -181,7 +181,7 @@ export const DATASETS: readonly Dataset[] = [
     file: 'research/job-boards.json',
     refresh: 'Re-check each careers page and update checkedOn',
     checkedOn: day(jobBoards.checkedOn),
-    maxAgeDays: 30,
+    maxAgeDays: 60,
   },
   {
     id: 'assessments',

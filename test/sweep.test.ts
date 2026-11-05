@@ -12,6 +12,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
 
 import { isNeverAnEvent, looksLikeAReference, nodes } from '../lib/sweep';
+import { SWEEP_RUN_BUDGET_MS } from '../lib/sweep-store';
 import { BOTTLENECKS } from '../lib/bottlenecks';
 
 test('the sweep covers every bottleneck in the corpus', () => {
@@ -134,4 +135,41 @@ test('the producer-sourcing cron route is guarded the same way', () => {
   assert.ok(route.includes('401'), 'a wrong secret must be refused');
   assert.ok(route.includes('503'), 'an unconfigured secret must refuse, not allow');
   assert.ok(!/export async function GET/.test(route), 'a sourcing run is not a GET');
+});
+
+test('the scheduled sweep enforces a runtime budget within the 300s box wrapper', () => {
+  // The box wrapper invokes curl with --max-time 300s; an unbounded run that takes
+  // longer causes curl exit 28 and fails the systemd unit.
+  assert.ok(
+    SWEEP_RUN_BUDGET_MS <= 250_000,
+    `budget must be comfortably under 300s: ${SWEEP_RUN_BUDGET_MS}`,
+  );
+  assert.ok(SWEEP_RUN_BUDGET_MS >= 60_000, 'budget must allow meaningful work');
+
+  const store = readFileSync(new URL('../lib/sweep-store.ts', import.meta.url), 'utf8');
+  assert.ok(
+    store.includes('Date.now() - started > budgetMs'),
+    'runScheduledSweep must stop starting new nodes when budgetMs is exceeded',
+  );
+  assert.ok(
+    store.includes('signal?.aborted'),
+    'runScheduledSweep must abort when signal is aborted',
+  );
+
+  const route = readFileSync(new URL('../app/api/cron/sweep/route.ts', import.meta.url), 'utf8');
+  assert.ok(
+    route.includes('runScheduledSweep({ signal: request.signal })'),
+    'the route must forward the request abort signal',
+  );
+});
+
+test('sweep reads candidate pages concurrently rather than serially', () => {
+  // Reading candidate pages serially accumulated up to 8 * 15s = 120s per node,
+  // pushing a 4-8 node scheduled run past curl 300s. Promise.all bounds page
+  // reading to a single timeout window.
+  const sweepCode = readFileSync(new URL('../lib/sweep.ts', import.meta.url), 'utf8');
+  assert.ok(
+    sweepCode.includes('Promise.all'),
+    'candidate pages must be fetched concurrently with Promise.all',
+  );
 });
