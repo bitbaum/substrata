@@ -16,12 +16,29 @@ import { SITE } from './site';
 const USER_AGENT = `Substrata research (${SITE.url}; cato@orangecat.ch)`;
 const GAP_MS = 1_000;
 
+/**
+ * Stop starting new boards after this long; the box wrapper allows 300s.
+ * Stopping at 200s bounds the run well inside the curl timeout so the service
+ * never exits with status 28.
+ */
+export const JOBS_RUN_BUDGET_MS = 200_000;
+
+export interface FetchJobsOptions {
+  budgetMs?: number;
+  signal?: AbortSignal;
+}
+
 export interface JobRun {
   boards: number;
   seen: number;
   jobsNew: number;
   closed: number;
   failed: number;
+}
+
+function timeoutSignal(timeoutMs: number, parentSignal?: AbortSignal): AbortSignal {
+  const timeout = AbortSignal.timeout(timeoutMs);
+  return parentSignal ? AbortSignal.any([parentSignal, timeout]) : timeout;
 }
 
 async function upsert(slug: string, p: Posting): Promise<boolean> {
@@ -57,7 +74,11 @@ async function upsert(slug: string, p: Posting): Promise<boolean> {
   return result.rows[0]?.inserted === true;
 }
 
-export async function fetchJobs(): Promise<JobRun> {
+export async function fetchJobs({
+  budgetMs = JOBS_RUN_BUDGET_MS,
+  signal,
+}: FetchJobsOptions = {}): Promise<JobRun> {
+  const started = Date.now();
   const db = database();
   const run = await db.query<{ id: string }>(
     'INSERT INTO research_job_runs DEFAULT VALUES RETURNING id',
@@ -65,23 +86,27 @@ export async function fetchJobs(): Promise<JobRun> {
   const outcome: JobRun = { boards: 0, seen: 0, jobsNew: 0, closed: 0, failed: 0 };
 
   for (const b of liveBoards()) {
+    if (Date.now() - started > budgetMs || signal?.aborted) break;
+    const remainingMs = Math.max(0, budgetMs - (Date.now() - started));
+    if (remainingMs < 1_000) break;
     outcome.boards += 1;
     try {
       const response = await fetch(boardUrl(b.ats, b.board), {
         headers: { 'User-Agent': USER_AGENT, Accept: 'application/json' },
-        signal: AbortSignal.timeout(30_000),
+        signal: timeoutSignal(Math.min(15_000, remainingMs), signal),
       });
       if (!response.ok) throw new Error(String(response.status));
       const postings = parseBoard(b.ats, b.board, b.company, await response.json()).map(classify);
       const ids: string[] = [];
       for (const p of postings) {
+        if (Date.now() - started > budgetMs || signal?.aborted) break;
         ids.push(p.id);
         if (await upsert(b.slug, p)) outcome.jobsNew += 1;
       }
       outcome.seen += postings.length;
       // An empty answer is more often a changed format than a company that
       // stopped hiring overnight; closing everything on it would be a guess.
-      if (postings.length === 0) continue;
+      if (postings.length === 0 || signal?.aborted || Date.now() - started > budgetMs) continue;
       const closed = await db.query(
         `UPDATE research_jobs SET closed_at = now()
           WHERE id LIKE $1 AND closed_at IS NULL AND NOT (id = ANY($2::text[]))`,

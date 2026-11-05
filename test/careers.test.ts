@@ -221,3 +221,29 @@ test('a region is one filter: "europe" selects any European country, never a gue
   assert.equal(new Set(codes).size, codes.length, 'no country sits in two regions');
   assert.ok(codes.every((c) => /^[A-Z]{2}$/.test(c)));
 });
+
+import { readFileSync } from 'node:fs';
+import { JOBS_RUN_BUDGET_MS } from '../lib/careers-store';
+
+test('the scheduled jobs fetch enforces a runtime budget within the 300s box wrapper', () => {
+  // The box wrapper invokes curl with --max-time 300s; an unbounded run that takes
+  // longer causes curl exit 28 and fails the systemd unit.
+  assert.ok(
+    JOBS_RUN_BUDGET_MS <= 250_000,
+    `budget must be comfortably under 300s: ${JOBS_RUN_BUDGET_MS}`,
+  );
+  assert.ok(JOBS_RUN_BUDGET_MS >= 60_000, 'budget must allow meaningful work');
+
+  const store = readFileSync(new URL('../lib/careers-store.ts', import.meta.url), 'utf8');
+  assert.ok(
+    store.includes('Date.now() - started > budgetMs'),
+    'fetchJobs must stop starting new boards when budgetMs is exceeded',
+  );
+  assert.ok(store.includes('signal?.aborted'), 'fetchJobs must abort when signal is aborted');
+
+  const route = readFileSync(new URL('../app/api/cron/jobs/route.ts', import.meta.url), 'utf8');
+  assert.ok(
+    route.includes('fetchJobs({ signal: request.signal })'),
+    'the route must forward the request abort signal',
+  );
+});

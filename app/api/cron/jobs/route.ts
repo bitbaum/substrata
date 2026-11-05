@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     return Response.json({ error: 'Not authorised.' }, { status: 401 });
   }
   try {
-    return Response.json({ ok: true, ...(await fetchJobs()) });
+    return Response.json({ ok: true, ...(await fetchJobs({ signal: request.signal })) });
   } catch (error) {
     console.error('jobs fetch failed', error instanceof Error ? error.name : 'unknown');
     return Response.json({ error: 'Jobs fetch failed.' }, { status: 503 });
