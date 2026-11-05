@@ -60,12 +60,20 @@ function classify(code: number): LinkStatus {
   return 'server';
 }
 
-async function once(url: string, method: 'HEAD' | 'GET', agent: string, timeoutMs: number) {
+async function once(
+  url: string,
+  method: 'HEAD' | 'GET',
+  agent: string,
+  timeoutMs: number,
+  signal?: AbortSignal,
+) {
+  const timeout = AbortSignal.timeout(timeoutMs);
+  const combinedSignal = signal ? AbortSignal.any([signal, timeout]) : timeout;
   const response = await fetch(url, {
     method,
     headers: { 'User-Agent': agent, Accept: '*/*' },
     redirect: 'follow',
-    signal: AbortSignal.timeout(timeoutMs),
+    signal: combinedSignal,
   });
   // Drain without reading a whole PDF into memory.
   await response.body?.cancel().catch(() => undefined);
@@ -73,13 +81,21 @@ async function once(url: string, method: 'HEAD' | 'GET', agent: string, timeoutM
 }
 
 /** HEAD first, GET when HEAD is refused; three tries with backoff on timeouts and 5xx only. */
-export async function probeUrl(url: string, timeoutMs = 15_000): Promise<LinkResult> {
+export async function probeUrl(
+  url: string,
+  timeoutMs = 15_000,
+  signal?: AbortSignal,
+): Promise<LinkResult> {
   let last: LinkResult = { url, status: 'error', code: null, detail: '' };
   for (let attempt = 0; attempt < 3; attempt++) {
+    if (signal?.aborted) break;
     if (attempt > 0) await sleep(1000 * 2 ** attempt);
+    if (signal?.aborted) break;
     try {
-      let code = await once(url, 'HEAD', AGENTS[0], timeoutMs);
-      if (code >= 400) code = await once(url, 'GET', AGENTS[attempt % 2], timeoutMs);
+      let code = await once(url, 'HEAD', AGENTS[0], timeoutMs, signal);
+      if (code >= 400 && !signal?.aborted) {
+        code = await once(url, 'GET', AGENTS[attempt % 2], timeoutMs, signal);
+      }
       const status = classify(code);
       last = { url, status, code, detail: `HTTP ${code}` };
       if (status !== 'server') return last;
@@ -96,12 +112,15 @@ export async function pool<T, R>(
   limit: number,
   deadline: number,
   work: (item: T) => Promise<R>,
+  signal?: AbortSignal,
 ): Promise<R[]> {
   const out: R[] = [];
   let next = 0;
   const lane = async () => {
-    while (next < items.length && Date.now() < deadline) {
-      const item = items[next++];
+    while (next < items.length && Date.now() < deadline && !signal?.aborted) {
+      const idx = next++;
+      if (idx >= items.length) break;
+      const item = items[idx];
       out.push(await work(item));
     }
   };
@@ -120,15 +139,18 @@ export interface QuoteResult {
 export async function quotesAt(
   url: string,
   quotes: readonly { key: string; quote: string }[],
+  signal?: AbortSignal,
+  timeoutMs = 40_000,
 ): Promise<QuoteResult[]> {
   const pages = new Map<string, Promise<string>>();
   const read = (u: string, agent: string) => {
-    if (!pages.has(agent)) pages.set(agent, pageText(u, agent, 40_000));
+    if (!pages.has(agent)) pages.set(agent, pageText(u, agent, timeoutMs, signal));
     return pages.get(agent)!;
   };
   const out: QuoteResult[] = [];
   for (const q of quotes) {
-    const { verdict, detail } = await quoteOnPage(url, q.quote, read);
+    if (signal?.aborted) break;
+    const { verdict, detail } = await quoteOnPage(url, q.quote, read, signal);
     out.push({ key: q.key, url, verdict, detail });
   }
   return out;

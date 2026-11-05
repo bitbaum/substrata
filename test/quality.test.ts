@@ -155,3 +155,25 @@ test('a USGS row whose footnote pushed its values down a line is still read as o
   assert.ok(argentina?.text.includes('13,800') && argentina.text.includes('4,400,000'));
   assert.ok(!argentina?.text.includes('82,700'), 'the next country leaked into the row');
 });
+
+import { readFileSync } from 'node:fs';
+import { SCHEDULED } from '../lib/quality/run';
+
+test('the scheduled quality run enforces a runtime budget within the 300s box wrapper', () => {
+  // The box wrapper invokes curl with --max-time 300s; an unbounded run that takes
+  // longer causes curl exit 28 and fails the systemd unit.
+  assert.ok(
+    SCHEDULED.budgetMs <= 250_000,
+    `budget must be comfortably under 300s: ${SCHEDULED.budgetMs}`,
+  );
+  assert.ok(SCHEDULED.budgetMs >= 60_000, 'budget must allow meaningful work');
+
+  const store = readFileSync(new URL('../lib/quality/run.ts', import.meta.url), 'utf8');
+  assert.ok(store.includes('signal?.aborted'), 'runQuality must abort when signal is aborted');
+
+  const route = readFileSync(new URL('../app/api/cron/quality/route.ts', import.meta.url), 'utf8');
+  assert.ok(
+    route.includes('signal: request.signal'),
+    'the route must forward the request abort signal',
+  );
+});
