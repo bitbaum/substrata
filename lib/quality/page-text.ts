@@ -94,11 +94,14 @@ export async function pageText(
   url: string,
   agent = AGENTS[0],
   timeoutMs = 45_000,
+  signal?: AbortSignal,
 ): Promise<string> {
+  const timeout = AbortSignal.timeout(timeoutMs);
+  const combinedSignal = signal ? AbortSignal.any([signal, timeout]) : timeout;
   const response = await fetch(url, {
     headers: { 'User-Agent': agent, Accept: '*/*' },
     redirect: 'follow',
-    signal: AbortSignal.timeout(timeoutMs),
+    signal: combinedSignal,
   });
   if (!response.ok) throw new ReadError(`HTTP ${response.status}`, response.status);
   const type = response.headers.get('content-type') ?? '';
@@ -140,11 +143,13 @@ export async function quoteOnPage(
   url: string,
   quote: string,
   read: (url: string, agent: string) => Promise<string> = pageText,
+  signal?: AbortSignal,
 ): Promise<{ verdict: QuoteVerdict; detail: string }> {
   const parts = quoteParts(quote);
   let failure = '';
   let readOnce = false;
   for (const agent of AGENTS) {
+    if (signal?.aborted) break;
     try {
       const text = normalise(await read(url, agent));
       readOnce = true;

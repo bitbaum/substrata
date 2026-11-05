@@ -18,7 +18,9 @@ export async function POST(request: Request) {
     return Response.json({ error: 'Not authorised.' }, { status: 401 });
   }
   try {
-    const { looked, failed, cannotTell, errors } = await runQuality(dbStore);
+    const { looked, failed, cannotTell, errors } = await runQuality(dbStore, {
+      signal: request.signal,
+    });
     return Response.json({ ok: true, looked, failed, cannotTell, errors });
   } catch (error) {
     console.error('quality run failed', error instanceof Error ? error.name : 'unknown');

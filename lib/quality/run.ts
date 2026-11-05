@@ -36,7 +36,7 @@ export const SCHEDULED: RunLimits = {
   quotePages: 25,
   figi: 20,
   mcsChapters: 2,
-  budgetMs: 220_000,
+  budgetMs: 200_000,
 };
 export const EVERYTHING: RunLimits = {
   links: 1e9,
@@ -45,6 +45,11 @@ export const EVERYTHING: RunLimits = {
   mcsChapters: 1e9,
   budgetMs: 3_600_000,
 };
+
+export interface RunQualityOptions {
+  limits?: RunLimits;
+  signal?: AbortSignal;
+}
 
 /** Keys least recently looked at first; never-looked-at before all. */
 function stalest<T>(
@@ -69,7 +74,16 @@ const fromVerdict = (v: RowVerdict): StoredCheck => ({
   checkedAt: now(),
 });
 
-export async function runQuality(store: CheckStore, limits: RunLimits = SCHEDULED) {
+export async function runQuality(
+  store: CheckStore,
+  limitsOrOptions: RunLimits | RunQualityOptions = SCHEDULED,
+) {
+  const options: RunQualityOptions =
+    'budgetMs' in limitsOrOptions
+      ? { limits: limitsOrOptions }
+      : (limitsOrOptions as RunQualityOptions);
+  const limits = options.limits ?? SCHEDULED;
+  const signal = options.signal;
   const deadline = Date.now() + limits.budgetMs;
   const id = await store.startRun();
   const before = await store.load();
@@ -78,25 +92,39 @@ export async function runQuality(store: CheckStore, limits: RunLimits = SCHEDULE
   const fresh: StoredCheck[] = [];
   const errors: string[] = [];
 
-  try {
-    fresh.push(...(await secVerdicts()).map(fromVerdict));
-  } catch (error) {
-    errors.push(`sec: ${(error as Error).message}`);
+  if (!signal?.aborted && Date.now() < deadline) {
+    try {
+      fresh.push(
+        ...(await secVerdicts(signal, Math.max(1000, deadline - Date.now()))).map(fromVerdict),
+      );
+    } catch (error) {
+      errors.push(`sec: ${(error as Error).message}`);
+    }
   }
-  try {
-    fresh.push(
-      ...(await figiVerdicts(stalest(figiSlugs(), (s) => s, seen('figi'), limits.figi))).map(
-        fromVerdict,
-      ),
-    );
-  } catch (error) {
-    errors.push(`figi: ${(error as Error).message}`);
+  if (!signal?.aborted && Date.now() < deadline) {
+    try {
+      fresh.push(
+        ...(
+          await figiVerdicts(
+            stalest(figiSlugs(), (s) => s, seen('figi'), limits.figi),
+            signal,
+            deadline,
+          )
+        ).map(fromVerdict),
+      );
+    } catch (error) {
+      errors.push(`figi: ${(error as Error).message}`);
+    }
   }
   const pdfSeen = new Map([...seen('usgs-pdf')].map(([k, at]) => [k.split(':')[0], at]));
   for (const slug of stalest(mcsSlugs(), (s) => s, pdfSeen, limits.mcsChapters)) {
-    if (Date.now() > deadline) break;
+    if (Date.now() > deadline || signal?.aborted) break;
     try {
-      fresh.push(...(await mcsVerdicts(slug)).map(fromVerdict));
+      fresh.push(
+        ...(await mcsVerdicts(slug, signal, Math.max(1000, deadline - Date.now()))).map(
+          fromVerdict,
+        ),
+      );
     } catch (error) {
       errors.push(`usgs-pdf ${slug}: ${(error as Error).message}`);
     }
@@ -116,11 +144,18 @@ export async function runQuality(store: CheckStore, limits: RunLimits = SCHEDULE
     ]),
   );
   const pickedPages = stalest(pages, (u) => u, pageAge, limits.quotePages);
-  const quoteRuns = await pool(pickedPages, 4, deadline, (url) =>
-    quotesAt(
-      url,
-      quotes.filter((q) => q.url === url),
-    ),
+  const quoteRuns = await pool(
+    pickedPages,
+    4,
+    deadline,
+    (url) =>
+      quotesAt(
+        url,
+        quotes.filter((q) => q.url === url),
+        signal,
+        Math.min(40_000, Math.max(1000, deadline - Date.now())),
+      ),
+    signal,
   );
   for (const q of quoteRuns.flat())
     fresh.push({
@@ -136,7 +171,18 @@ export async function runQuality(store: CheckStore, limits: RunLimits = SCHEDULE
   // Link health, stalest first.
   const urls = [...urlsWithRows(linkTargets()).keys()];
   const picked = stalest(urls, (u) => u, seen('link'), limits.links);
-  const links = await pool(picked, 8, deadline, (url) => probeUrl(url));
+  const links = await pool(
+    picked,
+    8,
+    deadline,
+    (url) =>
+      probeUrl(
+        url,
+        Math.min(15_000, Math.max(1000, Math.floor((deadline - Date.now()) / 3))),
+        signal,
+      ),
+    signal,
+  );
   for (const l of links)
     fresh.push({
       kind: 'link',

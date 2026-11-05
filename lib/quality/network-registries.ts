@@ -44,10 +44,12 @@ export function secLines() {
 }
 
 /** Every SEC line against company_tickers_exchange.json. */
-export async function secVerdicts(): Promise<RowVerdict[]> {
+export async function secVerdicts(signal?: AbortSignal, timeoutMs = 60_000): Promise<RowVerdict[]> {
+  const timeout = AbortSignal.timeout(timeoutMs);
+  const combinedSignal = signal ? AbortSignal.any([signal, timeout]) : timeout;
   const response = await fetch('https://www.sec.gov/files/company_tickers_exchange.json', {
     headers: { 'User-Agent': SEC_AGENT },
-    signal: AbortSignal.timeout(60_000),
+    signal: combinedSignal,
   });
   if (!response.ok) throw new Error(`SEC ticker file: HTTP ${response.status}`);
   const file = (await response.json()) as { data: [number, string, string, string][] };
@@ -72,20 +74,27 @@ export async function secVerdicts(): Promise<RowVerdict[]> {
 }
 
 /** A slice of OpenFIGI lines: does the FIGI still map to the ticker and exchange the file records? */
-export async function figiVerdicts(slugs: readonly string[]): Promise<RowVerdict[]> {
+export async function figiVerdicts(
+  slugs: readonly string[],
+  signal?: AbortSignal,
+  deadline = Infinity,
+): Promise<RowVerdict[]> {
   const lines = tradedListings().flatMap(([slug, l]) =>
     slugs.includes(slug) && l.primary?.figi ? [{ slug, line: l.primary }] : [],
   );
   const out: RowVerdict[] = [];
   for (let i = 0; i < lines.length; i += 10) {
+    if (signal?.aborted || Date.now() > deadline) break;
     const batch = lines.slice(i, i + 10);
+    const timeout = AbortSignal.timeout(Math.min(30_000, Math.max(1000, deadline - Date.now())));
+    const combinedSignal = signal ? AbortSignal.any([signal, timeout]) : timeout;
     const response = await fetch('https://api.openfigi.com/v3/mapping', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(
         batch.map(({ line }) => ({ idType: 'ID_BB_GLOBAL', idValue: line.figi })),
       ),
-      signal: AbortSignal.timeout(30_000),
+      signal: combinedSignal,
     });
     if (response.status === 429) break;
     if (!response.ok) throw new Error(`OpenFIGI mapping: HTTP ${response.status}`);
@@ -109,7 +118,9 @@ export async function figiVerdicts(slugs: readonly string[]): Promise<RowVerdict
       });
     });
     // Unkeyed OpenFIGI allows 25 mapping requests a minute.
-    await new Promise((r) => setTimeout(r, 2600));
+    if (i + 10 < lines.length && !signal?.aborted && Date.now() < deadline) {
+      await new Promise((r) => setTimeout(r, 2600));
+    }
   }
   return out;
 }
@@ -143,10 +154,14 @@ export function rowWindows(text: string): { head: string; text: string }[] {
 }
 
 /** One MCS chapter: is each row's printed value on the row that names that country in the PDF? */
-export async function mcsVerdicts(slug: string): Promise<RowVerdict[]> {
+export async function mcsVerdicts(
+  slug: string,
+  signal?: AbortSignal,
+  timeoutMs = 45_000,
+): Promise<RowVerdict[]> {
   const ch = (mcs.chapters as unknown as UsgsChapter[]).find((c) => c.slug === slug);
   if (!ch) return [];
-  const windows = rowWindows(await pageText(ch.url));
+  const windows = rowWindows(await pageText(ch.url, undefined, timeoutMs, signal));
   return ch.rows.map((row) => {
     const head = squash(row.name).slice(0, 12);
     const raws = Object.values(row.cells)
