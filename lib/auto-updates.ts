@@ -22,7 +22,12 @@ import { parseFollows, railsOf } from './follows';
 /** Leads per reader per hourly run, so one reader's backlog cannot hold up the next. */
 export const AUTO_DRAFTS_PER_RUN = 5;
 /** The box wrapper gives a run 300 s; stop starting drafts well before. */
-const RUN_BUDGET_MS = 200_000;
+export const AUTO_UPDATES_RUN_BUDGET_MS = 200_000;
+
+export interface RunAutoUpdatesOptions {
+  budgetMs?: number;
+  signal?: AbortSignal;
+}
 
 export interface AutoUpdateOutcome {
   readers: number;
@@ -57,13 +62,20 @@ async function optedIn(): Promise<{ actorId: string; topics: unknown }[]> {
   return rows.map((r) => ({ actorId: r.actor_id, topics: r.topics }));
 }
 
-export async function runAutoUpdates(now = new Date()): Promise<AutoUpdateOutcome> {
+export async function runAutoUpdates(
+  now = new Date(),
+  { budgetMs = AUTO_UPDATES_RUN_BUDGET_MS, signal }: RunAutoUpdatesOptions = {},
+): Promise<AutoUpdateOutcome> {
   const started = Date.now();
   const day = utcDayKey(now);
   const outcome: AutoUpdateOutcome = { readers: 0, drafted: 0, modelCalls: 0, skipped: [] };
 
   for (const reader of await optedIn()) {
-    const left = RUN_BUDGET_MS - (Date.now() - started);
+    if (signal?.aborted) {
+      outcome.skipped.push('aborted');
+      break;
+    }
+    const left = budgetMs - (Date.now() - started);
     if (left < 30_000) {
       outcome.skipped.push('time');
       break;
@@ -84,9 +96,10 @@ export async function runAutoUpdates(now = new Date()): Promise<AutoUpdateOutcom
       limit: Math.min(room, AUTO_DRAFTS_PER_RUN),
     });
     if (leads.length === 0) continue;
-    const result = await draftLeads(leads, byokAsk(key), {
+    const result = await draftLeads(leads, byokAsk(key, signal), {
       model: byokModelLabel(key),
       budgetMs: left - 20_000,
+      signal,
     });
     await addToday(reader.actorId, day, result.modelCalls);
     outcome.drafted += result.drafted;

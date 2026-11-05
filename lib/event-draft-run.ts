@@ -108,7 +108,15 @@ async function save(
 export async function draftLeads(
   leads: readonly DraftLead[],
   ask: Ask,
-  { model, budgetMs }: { model: string; budgetMs: number },
+  {
+    model,
+    budgetMs,
+    signal,
+  }: {
+    model: string;
+    budgetMs: number;
+    signal?: AbortSignal;
+  },
 ): Promise<DraftRunOutcome> {
   const db = database();
   const started = Date.now();
@@ -128,8 +136,8 @@ export async function draftLeads(
   const known = new Map(EVENTS.map((e) => [e.source, e.id]));
 
   for (const lead of leads) {
-    if (Date.now() - started > budgetMs) {
-      outcome.stopped = 'time';
+    if (Date.now() - started > budgetMs || signal?.aborted) {
+      outcome.stopped = signal?.aborted ? 'aborted' : 'time';
       break;
     }
     // Already in the corpus: say so without spending a model call on it.
@@ -141,13 +149,21 @@ export async function draftLeads(
       outcome.results.push({ id: lead.id, status: 'duplicate', reason });
       continue;
     }
-    const page = await readPage(lead.url, { timeoutMs: 15_000, maxChars: 60_000 });
+    const remainingMs = Math.max(0, budgetMs - (Date.now() - started));
+    const page = await readPage(lead.url, {
+      timeoutMs: Math.min(15_000, remainingMs),
+      maxChars: 60_000,
+    });
     if (!page.ok) {
       const reason = 'The page could not be fetched.';
       await save(lead, { status: 'could_not_read', reason }, null, null);
       outcome.couldNotRead += 1;
       outcome.results.push({ id: lead.id, status: 'could_not_read', reason });
       continue;
+    }
+    if (Date.now() - started > budgetMs || signal?.aborted) {
+      outcome.stopped = signal?.aborted ? 'aborted' : 'time';
+      break;
     }
     let result: DraftOutcome;
     try {

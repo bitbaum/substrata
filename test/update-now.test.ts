@@ -63,3 +63,28 @@ test('the news page scope covers every bottleneck, so any reader can refresh the
   // Signed out (no actor) still gets every name: no sign-in stands between a reader and fresh news.
   assert.equal((await scopeNames({ kind: 'all' }, null))?.length, BOTTLENECKS.length);
 });
+
+import { readFileSync } from 'node:fs';
+import { AUTO_UPDATES_RUN_BUDGET_MS } from '../lib/auto-updates';
+
+test('the scheduled auto-updates run enforces a runtime budget within the 300s box wrapper', () => {
+  // The box wrapper invokes curl with --max-time 300s; an unbounded run that takes
+  // longer causes curl exit 28 and fails the systemd unit.
+  assert.ok(
+    AUTO_UPDATES_RUN_BUDGET_MS <= 250_000,
+    `budget must be comfortably under 300s: ${AUTO_UPDATES_RUN_BUDGET_MS}`,
+  );
+  assert.ok(AUTO_UPDATES_RUN_BUDGET_MS >= 60_000, 'budget must allow meaningful work');
+
+  const store = readFileSync(new URL('../lib/auto-updates.ts', import.meta.url), 'utf8');
+  assert.ok(store.includes('signal?.aborted'), 'runAutoUpdates must abort when signal is aborted');
+
+  const route = readFileSync(
+    new URL('../app/api/cron/auto-updates/route.ts', import.meta.url),
+    'utf8',
+  );
+  assert.ok(
+    route.includes('runAutoUpdates(new Date(), { signal: request.signal })'),
+    'the route must forward the request abort signal',
+  );
+});
