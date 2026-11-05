@@ -279,3 +279,29 @@ test('science rows on the desk: one per work, a mark key the desk accepts, a swi
   assert.equal(applyFilter(rows, filter, none).length, 1);
   assert.equal(applyFilter(rows, { ...filter, showScience: false }, none).length, 0);
 });
+
+import { readFileSync } from 'node:fs';
+import { SCIENCE_RUN_BUDGET_MS } from '../lib/science-store';
+
+test('the scheduled science fetch enforces a runtime budget within the 300s box wrapper', () => {
+  // The box wrapper invokes curl with --max-time 300s; an unbounded run that takes
+  // longer causes curl exit 28 and fails the systemd unit.
+  assert.ok(
+    SCIENCE_RUN_BUDGET_MS <= 250_000,
+    `budget must be comfortably under 300s: ${SCIENCE_RUN_BUDGET_MS}`,
+  );
+  assert.ok(SCIENCE_RUN_BUDGET_MS >= 60_000, 'budget must allow meaningful work');
+
+  const store = readFileSync(new URL('../lib/science-store.ts', import.meta.url), 'utf8');
+  assert.ok(
+    store.includes('Date.now() - started > budgetMs'),
+    'fetchScience must stop starting new bottlenecks when budgetMs is exceeded',
+  );
+  assert.ok(store.includes('signal?.aborted'), 'fetchScience must abort when signal is aborted');
+
+  const route = readFileSync(new URL('../app/api/cron/science/route.ts', import.meta.url), 'utf8');
+  assert.ok(
+    route.includes('fetchScience(new Date(), only, { signal: request.signal })'),
+    'the route must forward the request abort signal',
+  );
+});

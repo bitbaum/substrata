@@ -18,7 +18,10 @@ export async function POST(request: Request) {
   }
   const only = new URL(request.url).searchParams.get('bottleneck') ?? undefined;
   try {
-    return Response.json({ ok: true, ...(await fetchScience(new Date(), only)) });
+    return Response.json({
+      ok: true,
+      ...(await fetchScience(new Date(), only, { signal: request.signal })),
+    });
   } catch (error) {
     console.error('science fetch failed', error instanceof Error ? error.name : 'unknown');
     return Response.json({ error: 'Science fetch failed.' }, { status: 503 });

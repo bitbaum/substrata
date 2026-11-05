@@ -25,20 +25,43 @@ export const BOTTLENECKS_PER_RUN = 2;
 export const REFRESH_HOURS = 20;
 const ARXIV_GAP_MS = 3_100;
 
+/**
+ * Stop starting new bottlenecks after this long; the box wrapper allows 300s.
+ * Stopping at 200s bounds the run well inside the curl timeout so the service
+ * never exits with status 28.
+ */
+export const SCIENCE_RUN_BUDGET_MS = 200_000;
+
+export interface FetchScienceOptions {
+  budgetMs?: number;
+  signal?: AbortSignal;
+}
+
+function timeoutSignal(timeoutMs: number, parentSignal?: AbortSignal): AbortSignal {
+  const timeout = AbortSignal.timeout(timeoutMs);
+  return parentSignal ? AbortSignal.any([parentSignal, timeout]) : timeout;
+}
+
 /** One retry: the grant APIs drop a request now and then under no load at all. */
-async function get(url: string, init: RequestInit = {}, tries = 2): Promise<Response> {
+async function get(
+  url: string,
+  init: RequestInit = {},
+  tries = 2,
+  signal?: AbortSignal,
+  timeoutMs = 15_000,
+): Promise<Response> {
   try {
     const response = await fetch(url, {
       ...init,
       headers: { 'User-Agent': USER_AGENT, Accept: 'application/json', ...init.headers },
-      signal: AbortSignal.timeout(30_000),
+      signal: timeoutSignal(timeoutMs, signal),
     });
     if (!response.ok) throw new Error(`${new URL(url).hostname} ${response.status}`);
     return response;
   } catch (error) {
-    if (tries <= 1) throw error;
+    if (tries <= 1 || signal?.aborted) throw error;
     await new Promise((r) => setTimeout(r, 2_000));
-    return get(url, init, tries - 1);
+    return get(url, init, tries - 1, signal, timeoutMs);
   }
 }
 
@@ -46,9 +69,13 @@ async function get(url: string, init: RequestInit = {}, tries = 2): Promise<Resp
 export async function collect(
   q: ScienceQuery,
   now: Date = new Date(),
+  options: { signal?: AbortSignal; remainingMs?: () => number } = {},
 ): Promise<{ items: ScienceItem[]; failed: string[] }> {
   const failed: string[] = [];
   const attempt = async (name: string, run: () => Promise<ScienceItem[]>) => {
+    if (options.signal?.aborted || (options.remainingMs && options.remainingMs() < 1_000)) {
+      return [];
+    }
     try {
       return await run();
     } catch (error) {
@@ -56,42 +83,80 @@ export async function collect(
       return [];
     }
   };
+  const reqTimeout = () => Math.min(15_000, options.remainingMs ? options.remainingMs() : 15_000);
   const batches = await Promise.all([
     attempt('openalex', async () => [
-      ...parseOpenAlex(await (await get(openAlexUrl(q, now, 'recent'))).json()),
-      ...parseOpenAlex(await (await get(openAlexUrl(q, now, 'cited'))).json()),
+      ...parseOpenAlex(
+        await (
+          await get(openAlexUrl(q, now, 'recent'), {}, 2, options.signal, reqTimeout())
+        ).json(),
+      ),
+      ...parseOpenAlex(
+        await (await get(openAlexUrl(q, now, 'cited'), {}, 2, options.signal, reqTimeout())).json(),
+      ),
     ]),
     attempt('nsf', async () => {
       const out: ScienceItem[] = [];
-      for (const phrase of q.phrases)
-        out.push(...parseNsf(await (await get(nsfUrl(phrase, now))).json()));
+      for (const phrase of q.phrases) {
+        if (options.signal?.aborted || (options.remainingMs && options.remainingMs() < 1_000))
+          break;
+        out.push(
+          ...parseNsf(
+            await (await get(nsfUrl(phrase, now), {}, 2, options.signal, reqTimeout())).json(),
+          ),
+        );
+      }
       return out;
     }),
     attempt('openaire', async () => {
       const out: ScienceItem[] = [];
-      for (const phrase of q.phrases)
-        out.push(...parseOpenAire(await (await get(openAireUrl(phrase, now))).json()));
+      for (const phrase of q.phrases) {
+        if (options.signal?.aborted || (options.remainingMs && options.remainingMs() < 1_000))
+          break;
+        out.push(
+          ...parseOpenAire(
+            await (await get(openAireUrl(phrase, now), {}, 2, options.signal, reqTimeout())).json(),
+          ),
+        );
+      }
       return out;
     }),
     attempt('doe', async () =>
       parseUsaSpending(
         await (
-          await get(USASPENDING_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: usaSpendingBody(q, now),
-          })
+          await get(
+            USASPENDING_URL,
+            {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: usaSpendingBody(q, now),
+            },
+            2,
+            options.signal,
+            reqTimeout(),
+          )
         ).json(),
       ),
     ),
   ]);
   // arXiv last and alone: it is the one source that asks for a pause.
-  const arxiv = await attempt('arxiv', async () => {
-    await new Promise((r) => setTimeout(r, ARXIV_GAP_MS));
-    return parseArxiv(
-      await (await get(arxivUrl(q), { headers: { Accept: 'application/atom+xml' } })).text(),
-    );
-  });
+  const arxiv =
+    options.signal?.aborted || (options.remainingMs && options.remainingMs() < 4_000)
+      ? []
+      : await attempt('arxiv', async () => {
+          await new Promise((r) => setTimeout(r, ARXIV_GAP_MS));
+          return parseArxiv(
+            await (
+              await get(
+                arxivUrl(q),
+                { headers: { Accept: 'application/atom+xml' } },
+                2,
+                options.signal,
+                reqTimeout(),
+              )
+            ).text(),
+          );
+        });
   return { items: [...batches.flat(), ...arxiv], failed };
 }
 
@@ -167,7 +232,12 @@ async function due(now: Date): Promise<string[]> {
     .slice(0, BOTTLENECKS_PER_RUN);
 }
 
-export async function fetchScience(now: Date = new Date(), only?: string): Promise<ScienceRun> {
+export async function fetchScience(
+  now: Date = new Date(),
+  only?: string,
+  { budgetMs = SCIENCE_RUN_BUDGET_MS, signal }: FetchScienceOptions = {},
+): Promise<ScienceRun> {
+  const started = Date.now();
   const db = database();
   const names = only ? [only].filter((n) => n in SCIENCE_QUERIES) : await due(now);
   const run = await db.query<{ id: string }>(
@@ -175,9 +245,12 @@ export async function fetchScience(now: Date = new Date(), only?: string): Promi
     [names],
   );
   const outcome: ScienceRun = { bottlenecks: names, fetched: 0, kept: 0, itemsNew: 0, failed: [] };
+  const remaining = () => Math.max(0, budgetMs - (Date.now() - started));
+
   for (const name of names) {
+    if (Date.now() - started > budgetMs || signal?.aborted) break;
     const q = SCIENCE_QUERIES[name];
-    const { items, failed } = await collect(q, now);
+    const { items, failed } = await collect(q, now, { signal, remainingMs: remaining });
     outcome.fetched += items.length;
     outcome.failed.push(...failed.map((f) => `${name}: ${f}`));
     for (const item of items) {
