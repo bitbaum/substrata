@@ -196,3 +196,34 @@ test('the Ask gets strings to copy and a line chart chatkit accepts', async () =
     'Not computed: the listing is a depositary receipt, so its price times the share count is not the market value without the ratio.',
   );
 });
+
+import { readFileSync } from 'node:fs';
+import { PRICES_RUN_BUDGET_MS } from '../app/api/cron/prices/route';
+
+test('the scheduled prices run enforces a runtime budget within the 300s box wrapper', () => {
+  // The box wrapper invokes curl with --max-time 300s; an unbounded run that takes
+  // longer causes curl exit 28 and fails the systemd unit.
+  assert.ok(
+    PRICES_RUN_BUDGET_MS <= 250_000,
+    `budget must be comfortably under 300s: ${PRICES_RUN_BUDGET_MS}`,
+  );
+  assert.ok(PRICES_RUN_BUDGET_MS >= 60_000, 'budget must allow meaningful work');
+
+  const store = readFileSync(
+    new URL('../lib/market-data/prices/store.ts', import.meta.url),
+    'utf8',
+  );
+  assert.ok(
+    store.includes('opts.signal?.aborted'),
+    'fetchAllPrices must abort when signal is aborted',
+  );
+
+  const facts = readFileSync(new URL('../lib/market-data/facts-run.ts', import.meta.url), 'utf8');
+  assert.ok(
+    facts.includes('opts.signal?.aborted'),
+    'refreshMarketFacts must abort when signal is aborted',
+  );
+
+  const route = readFileSync(new URL('../app/api/cron/prices/route.ts', import.meta.url), 'utf8');
+  assert.ok(route.includes('request.signal'), 'the route must forward the request abort signal');
+});
