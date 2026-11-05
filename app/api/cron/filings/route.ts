@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     return Response.json({ error: 'Not authorised.' }, { status: 401 });
   }
   try {
-    return Response.json({ ok: true, ...(await fetchFilings()) });
+    return Response.json({ ok: true, ...(await fetchFilings({ signal: request.signal })) });
   } catch (error) {
     console.error('filings fetch failed', error instanceof Error ? error.name : 'unknown');
     return Response.json({ error: 'Filings fetch failed.' }, { status: 503 });

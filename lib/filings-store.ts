@@ -15,13 +15,34 @@ const USER_AGENT = 'Substrata research cato@orangecat.ch';
 const BACKFILL_DAYS = 120;
 const GAP_MS = 200;
 
+/**
+ * Stop starting new fetches after this long; the box wrapper allows 300s.
+ * Stopping at 200s bounds the run well inside the curl timeout so the service
+ * never exits with status 28.
+ */
+export const FILINGS_RUN_BUDGET_MS = 200_000;
+
+export interface FetchFilingsOptions {
+  budgetMs?: number;
+  signal?: AbortSignal;
+}
+
 export interface FilingRun {
   registrants: number;
   filingsNew: number;
   failed: number;
 }
 
-export async function fetchFilings(): Promise<FilingRun> {
+function timeoutSignal(timeoutMs: number, parentSignal?: AbortSignal): AbortSignal {
+  const timeout = AbortSignal.timeout(timeoutMs);
+  return parentSignal ? AbortSignal.any([parentSignal, timeout]) : timeout;
+}
+
+export async function fetchFilings({
+  budgetMs = FILINGS_RUN_BUDGET_MS,
+  signal,
+}: FetchFilingsOptions = {}): Promise<FilingRun> {
+  const started = Date.now();
   const db = database();
   const run = await db.query<{ id: string }>(
     'INSERT INTO research_filing_runs DEFAULT VALUES RETURNING id',
@@ -32,11 +53,15 @@ export async function fetchFilings(): Promise<FilingRun> {
   // A feed that cannot be read only means this run leans on the rotation.
   const inFeeds = new Set<number>();
   for (const form of FEED_FORMS) {
+    if (Date.now() - started > budgetMs || signal?.aborted) break;
     for (let page = 0; page < FEED_PAGES; page++) {
+      if (Date.now() - started > budgetMs || signal?.aborted) break;
+      const remainingMs = Math.max(0, budgetMs - (Date.now() - started));
+      if (remainingMs < 1_000) break;
       try {
         const response = await fetch(feedUrl(form, page), {
           headers: { 'User-Agent': USER_AGENT },
-          signal: AbortSignal.timeout(15_000),
+          signal: timeoutSignal(Math.min(15_000, remainingMs), signal),
         });
         if (response.ok) for (const cik of ciksInFeed(await response.text())) inFeeds.add(cik);
       } catch {
@@ -51,12 +76,15 @@ export async function fetchFilings(): Promise<FilingRun> {
     inFeeds,
     new Date().getUTCHours(),
   )) {
+    if (Date.now() - started > budgetMs || signal?.aborted) break;
+    const remainingMs = Math.max(0, budgetMs - (Date.now() - started));
+    if (remainingMs < 1_000) break;
     outcome.registrants += 1;
     try {
       const cik = String(registrant.cik).padStart(10, '0');
       const response = await fetch(`https://data.sec.gov/submissions/CIK${cik}.json`, {
         headers: { 'User-Agent': USER_AGENT, Accept: 'application/json' },
-        signal: AbortSignal.timeout(15_000),
+        signal: timeoutSignal(Math.min(15_000, remainingMs), signal),
       });
       if (!response.ok) throw new Error(String(response.status));
       for (const f of parseSubmissions(await response.json(), since)) {
