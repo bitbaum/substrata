@@ -63,7 +63,7 @@
     "react-dom": "19.3.1",
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",
-    "sitekit": "npm:@bitbaum/sitekit@^0.6.1",
+    "sitekit": "npm:@bitbaum/sitekit@^0.7.0",
     "threadkit": "^0.1.1",
     "topojson-client": "^3.1.0",
     "unpdf": "1.9.1",
