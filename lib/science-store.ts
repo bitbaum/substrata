@@ -168,7 +168,21 @@ export interface ScienceRun {
   failed: string[];
 }
 
+export function cleanDate(d: string | null | undefined): string | null {
+  if (!d) return null;
+  const match = d.match(/^\d{4}-\d{2}-\d{2}/);
+  return match ? match[0] : null;
+}
+
+export function cleanInt(n: unknown): number | null {
+  if (n === null || n === undefined || n === '') return null;
+  const num = Number(n);
+  return Number.isInteger(num) ? num : null;
+}
+
 async function save(bottleneck: string, item: ScienceItem, score: number, matched: string[]) {
+  const tk = titleKey(item.title);
+  if (!tk) return 0;
   const placed = placeItem(item);
   const result = await database().query<{ inserted: boolean }>(
     `INSERT INTO research_science_items
@@ -192,23 +206,23 @@ async function save(bottleneck: string, item: ScienceItem, score: number, matche
      RETURNING (xmax = 0) AS inserted`,
     [
       bottleneck,
-      titleKey(item.title),
+      tk,
       item.id,
       item.source,
       item.kind,
       item.title,
       item.abstract.slice(0, 4000),
       item.venue,
-      item.year,
-      item.publishedOn,
+      cleanInt(item.year),
+      cleanDate(item.publishedOn),
       item.url,
       item.doi,
       item.pdfUrl,
-      item.citations,
+      cleanInt(item.citations),
       JSON.stringify(item.institutions.slice(0, 12)),
       item.funder,
       item.programme,
-      item.amount,
+      Number.isFinite(Number(item.amount)) ? Number(item.amount) : null,
       item.currency,
       score,
       matched,
@@ -257,7 +271,13 @@ export async function fetchScience(
       const { score, matched } = relevance(item, q);
       if (score < MIN_RELEVANCE) continue;
       outcome.kept += 1;
-      outcome.itemsNew += await save(name, item, score, matched);
+      try {
+        outcome.itemsNew += await save(name, item, score, matched);
+      } catch (error) {
+        outcome.failed.push(
+          `${name}: save ${item.id} (${error instanceof Error ? error.message : 'error'})`,
+        );
+      }
     }
     await db.query(
       `INSERT INTO research_science_cursor (bottleneck, searched_at) VALUES ($1, now())
