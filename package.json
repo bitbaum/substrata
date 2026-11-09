@@ -48,7 +48,7 @@
     "@bitbaum/chartkit": "^0.7.0",
     "@bitbaum/chatkit": "^0.22.1",
     "@bitbaum/design-tokens": "^1.5.2",
-    "@bitbaum/geo-kit": "^0.4.0",
+    "@bitbaum/geo-kit": "^0.5.0",
     "@bitbaum/mail-kit": "^0.2.0",
     "@bitbaum/searchkit": "^0.2.3",
     "@bitbaum/whenkit": "^0.3.3",
