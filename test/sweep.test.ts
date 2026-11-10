@@ -155,11 +155,26 @@ test('the scheduled sweep enforces a runtime budget within the 300s box wrapper'
     store.includes('signal?.aborted'),
     'runScheduledSweep must abort when signal is aborted',
   );
+  assert.ok(
+    store.includes('remainingMs < 10_000'),
+    'runScheduledSweep must not start new nodes when remaining budget is small',
+  );
+  assert.ok(
+    store.includes('timeoutMs: remainingMs'),
+    'runScheduledSweep must pass remaining budget down to sweepAndStore',
+  );
 
   const route = readFileSync(new URL('../app/api/cron/sweep/route.ts', import.meta.url), 'utf8');
   assert.ok(
     route.includes('runScheduledSweep({ signal: request.signal })'),
     'the route must forward the request abort signal',
+  );
+
+  const sweepCode = readFileSync(new URL('../lib/sweep.ts', import.meta.url), 'utf8');
+  assert.ok(sweepCode.includes('options.signal?.aborted'), 'sweep must check abort signal');
+  assert.ok(
+    sweepCode.includes('options.timeoutMs'),
+    'sweep must bound search and page timeouts by options.timeoutMs',
   );
 });
 

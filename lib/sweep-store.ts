@@ -4,6 +4,7 @@ import {
   nodes,
   parseSweepSettings,
   sweep,
+  type SweepOptions,
   type SweepSettings,
 } from './sweep';
 
@@ -24,9 +25,10 @@ import {
 async function sweepAndStore(
   node: { name: string; term: string },
   settings: SweepSettings,
+  options: SweepOptions = {},
 ): Promise<{ found: number; blind: boolean }> {
   const db = database();
-  const candidates = await sweep(node, settings);
+  const candidates = await sweep(node, settings, options);
   const blind = candidates.some((c) => c.status === 'could_not_look');
   let found = 0;
 
@@ -130,7 +132,14 @@ export async function runScheduledSweep({
     if (Date.now() - started > budgetMs || signal?.aborted) {
       break;
     }
-    const { found, blind } = await sweepAndStore(node, settings);
+    const remainingMs = Math.max(0, budgetMs - (Date.now() - started));
+    if (remainingMs < 10_000) {
+      break;
+    }
+    const { found, blind } = await sweepAndStore(node, settings, {
+      signal,
+      timeoutMs: remainingMs,
+    });
     if (blind) outcome.couldNotLook += 1;
     outcome.found += found;
     outcome.swept.push(node.name);
