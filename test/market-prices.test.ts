@@ -226,4 +226,30 @@ test('the scheduled prices run enforces a runtime budget within the 300s box wra
 
   const route = readFileSync(new URL('../app/api/cron/prices/route.ts', import.meta.url), 'utf8');
   assert.ok(route.includes('request.signal'), 'the route must forward the request abort signal');
+  assert.ok(
+    route.includes('AbortSignal.timeout(PRICES_RUN_BUDGET_MS)'),
+    'the route must create a timeout signal for the overall run budget',
+  );
+  assert.ok(
+    route.includes('AbortSignal.timeout(PRICES_PORTION_MS)'),
+    'the route must create a timeout signal for the prices portion budget',
+  );
+
+  const holders = readFileSync(
+    new URL('../lib/market-data/holders/read.ts', import.meta.url),
+    'utf8',
+  );
+  assert.ok(
+    holders.includes('deps.signal?.aborted'),
+    'gatherHolders must check abort signal across loops and reads',
+  );
+
+  const chain = readFileSync(
+    new URL('../lib/market-data/prices/chain.ts', import.meta.url),
+    'utf8',
+  );
+  assert.ok(
+    chain.includes('deps.signal?.aborted'),
+    'fetchPrices must check abort signal across adapters and alts',
+  );
 });

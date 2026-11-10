@@ -93,9 +93,14 @@ export async function fetchAllPrices(
     if (opts.deadline && Date.now() > opts.deadline) break;
     const remainingMs = opts.deadline ? Math.max(0, opts.deadline - Date.now()) : undefined;
     if (remainingMs !== undefined && remainingMs < 5_000) break;
+    const timeoutSignal = remainingMs !== undefined ? AbortSignal.timeout(remainingMs) : undefined;
+    const tickerSignal =
+      opts.signal && timeoutSignal
+        ? AbortSignal.any([opts.signal, timeoutSignal])
+        : (opts.signal ?? timeoutSignal);
     const reqDeps = {
       ...deps,
-      signal: opts.signal,
+      signal: tickerSignal,
       timeoutMs: remainingMs ? Math.min(15_000, remainingMs) : deps.timeoutMs,
     };
     const got = await fetchPrices(c.ticker, reqDeps, undefined, isSeedLine(c) ? undefined : c.name);

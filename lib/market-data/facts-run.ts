@@ -35,7 +35,11 @@ export async function refreshMarketFacts(opts: {
     const remainingMs = Math.max(0, opts.deadline - Date.now());
     if (remainingMs < 5_000) break;
     out.looked += 1;
-    const reqDeps = { signal: opts.signal, timeoutMs: Math.min(15_000, remainingMs) };
+    const timeoutSignal = AbortSignal.timeout(remainingMs);
+    const companySignal = opts.signal
+      ? AbortSignal.any([opts.signal, timeoutSignal])
+      : timeoutSignal;
+    const reqDeps = { signal: companySignal, timeoutMs: Math.min(15_000, remainingMs) };
     const [f, h] = await Promise.all([
       fundamentals(c, reqDeps, FRESH_MS),
       holders(c, reqDeps, FRESH_MS),

@@ -49,7 +49,7 @@ export async function gatherHolders(
   const filings: Filing[] = await listFilings(c.cik, deps);
   const proxyFiling = filings.find((f) => f.form === 'DEF 14A');
   let proxy: HoldersInput['proxy'] = null;
-  if (proxyFiling) {
+  if (proxyFiling && !deps.signal?.aborted) {
     const doc = await readDocument(proxyFiling.url, deps);
     const table = doc.ok ? parseProxyTable(squash(doc.text)) : null;
     if (table?.rows.length) proxy = { table, url: proxyFiling.url, filed: proxyFiling.filed };
@@ -59,6 +59,7 @@ export async function gatherHolders(
     (f) => SCHEDULE_FORMS.test(f.form) && f.url.endsWith('primary_doc.xml'),
   );
   for (const f of structured.slice(0, MAX_SCHEDULES)) {
+    if (deps.signal?.aborted) break;
     const url = rawXmlUrl(f.url);
     const xml = await text(url, deps);
     const s = xml ? parseSchedule13Xml(xml) : null;
@@ -68,6 +69,7 @@ export async function gatherHolders(
   }
   const insiders: HoldersInput['insiders'] = [];
   for (const f of filings.filter((x) => x.form === '4').slice(0, MAX_FORM4)) {
+    if (deps.signal?.aborted) break;
     const xml = await text(rawXmlUrl(f.url), deps);
     const parsed = xml ? parseForm4(xml) : null;
     if (parsed) insiders.push({ ...parsed, url: f.url });

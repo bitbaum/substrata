@@ -74,12 +74,15 @@ async function openWebFetch(url: string, deps: DocumentDeps): Promise<FetchedBod
   const doFetch = deps.fetch ?? globalThis.fetch;
   let target = url;
   for (let hop = 0; hop <= 3; hop++) {
+    if (deps.signal?.aborted) throw new Error('Aborted');
     const verdict = await validateFetchTarget(target, deps.lookup);
     if (!verdict.ok) throw Object.assign(new Error(verdict.reason), { permanent: true });
+    const timeout = AbortSignal.timeout(deps.timeoutMs ?? 30_000);
+    const combinedSignal = deps.signal ? AbortSignal.any([deps.signal, timeout]) : timeout;
     const res = await doFetch(verdict.url.toString(), {
       redirect: 'manual',
       headers: { 'User-Agent': USER_AGENT, Accept: ACCEPT },
-      signal: AbortSignal.timeout(deps.timeoutMs ?? 30_000),
+      signal: combinedSignal,
     });
     if (res.status >= 300 && res.status < 400) {
       const location = res.headers.get('location');

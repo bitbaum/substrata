@@ -64,6 +64,7 @@ function yahooFrom(host: 'query1' | 'query2'): PriceAdapter {
     async fetch(t, deps, expectName) {
       let last: Error | null = null;
       for (const alt of hasAltSymbol(t) ? [false, true] : [false]) {
+        if (deps.signal?.aborted) break;
         try {
           const fetched = await sourceFetch(yahooChartUrl(t, host, alt), 'application/json', deps);
           const parsed = parseYahooChart(bodyText(fetched));
@@ -103,6 +104,7 @@ export async function fetchPrices(
   // Server reads never write the source cache to disk unless a script asks.
   const d: FetchDeps = { cacheDir: null, ...deps };
   for (const a of adapters) {
+    if (deps.signal?.aborted) break;
     try {
       return { ...(await a.fetch(t, d, expectName)), adapter: a.id };
     } catch (error) {

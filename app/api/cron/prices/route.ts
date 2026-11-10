@@ -28,9 +28,15 @@ export async function POST(request: Request) {
     return Response.json({ error: 'Not authorised.' }, { status: 401 });
   }
   const started = Date.now();
-  const signal = request.signal;
+  const runTimeout = AbortSignal.timeout(PRICES_RUN_BUDGET_MS);
+  const signal = request.signal ? AbortSignal.any([request.signal, runTimeout]) : runTimeout;
+  const pricesTimeout = AbortSignal.timeout(PRICES_PORTION_MS);
+  const pricesSignal = AbortSignal.any([signal, pricesTimeout]);
   try {
-    const prices = await fetchAllPrices({}, { deadline: started + PRICES_PORTION_MS, signal });
+    const prices = await fetchAllPrices(
+      {},
+      { deadline: started + PRICES_PORTION_MS, signal: pricesSignal },
+    );
     const facts = await refreshMarketFacts({
       deadline: started + PRICES_RUN_BUDGET_MS,
       signal,
