@@ -39,12 +39,31 @@ const DAY = 24 * 60 * 60 * 1000;
 
 const lastCall = new Map<string, number>();
 
-async function pace(rule: HostRule, deps: FetchDeps): Promise<void> {
-  if (deps.signal?.aborted) return;
+function defaultSleep(ms: number, signal?: AbortSignal): Promise<void> {
+  if (!signal) return new Promise((r) => setTimeout(r, ms));
+  if (signal.aborted) return Promise.resolve();
+  return new Promise((resolve) => {
+    const onAbort = () => {
+      clearTimeout(timer);
+      resolve();
+    };
+    const timer = setTimeout(() => {
+      signal.removeEventListener('abort', onAbort);
+      resolve();
+    }, ms);
+    signal.addEventListener('abort', onAbort, { once: true });
+  });
+}
+
+async function pace(rule: HostRule, deps: FetchDeps, signal?: AbortSignal): Promise<void> {
+  const s = signal ?? deps.signal;
+  if (s?.aborted) return;
   const now = deps.now ?? Date.now;
-  const sleep = deps.sleep ?? ((ms: number) => new Promise((r) => setTimeout(r, ms)));
   const wait = (lastCall.get(rule.host) ?? 0) + rule.minIntervalMs - now();
-  if (wait > 0 && !deps.signal?.aborted) await sleep(wait);
+  if (wait > 0 && !s?.aborted) {
+    if (deps.sleep) await deps.sleep(wait);
+    else await defaultSleep(wait, s);
+  }
   lastCall.set(rule.host, now());
 }
 
@@ -112,25 +131,28 @@ export async function sourceFetch(
     if (hit) return hit;
   }
   const doFetch = deps.fetch ?? globalThis.fetch;
-  const sleep = deps.sleep ?? ((ms: number) => new Promise((r) => setTimeout(r, ms)));
   const timeout = AbortSignal.timeout(deps.timeoutMs ?? rule.timeoutMs ?? 60_000);
   const combinedSignal = deps.signal ? AbortSignal.any([deps.signal, timeout]) : timeout;
   let res: Response;
   for (let attempt = 1; ; attempt++) {
-    if (deps.signal?.aborted) throw new Error('Aborted');
-    await pace(rule, deps);
-    if (deps.signal?.aborted) throw new Error('Aborted');
+    if (combinedSignal.aborted) throw new Error('Aborted');
+    await pace(rule, deps, combinedSignal);
+    if (combinedSignal.aborted) throw new Error('Aborted');
     res = await doFetch(url, {
       headers: { 'User-Agent': rule.userAgent, Accept: accept, 'Accept-Encoding': 'gzip, deflate' },
       redirect: 'follow',
       signal: combinedSignal,
     });
     // Asked to slow down: wait as told (or 15 s, 30 s), at most three times.
-    if (res.status !== 429 || attempt > 3 || deps.signal?.aborted) break;
+    if (res.status !== 429 || attempt > 3 || combinedSignal.aborted) break;
     const retryAfter = Number(res.headers.get('retry-after'));
-    await sleep(
-      Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter * 1000 : 15_000 * attempt,
-    );
+    const retryWait =
+      Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter * 1000 : 15_000 * attempt;
+    const maxWait = deps.timeoutMs
+      ? Math.min(retryWait, deps.timeoutMs)
+      : Math.min(retryWait, 30_000);
+    if (deps.sleep) await deps.sleep(maxWait);
+    else await defaultSleep(maxWait, combinedSignal);
   }
   // A redirect may only land on an allowed host too.
   if (res.url) assertAllowed(res.url);
