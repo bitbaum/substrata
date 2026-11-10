@@ -19,8 +19,8 @@
  */
 
 import path from 'node:path';
-import type { ContentBlock } from 'bip-kit';
-import { readCollection, readEntry, type CollectionEntry } from 'bip-kit/node';
+import type { ContentBlock } from '@bitbaum/bip-kit';
+import { readCollection, readEntry, type CollectionEntry } from '@bitbaum/bip-kit/node';
 
 const NOTES_DIR = path.join(process.cwd(), 'content', 'notes');
 

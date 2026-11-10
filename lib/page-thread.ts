@@ -6,7 +6,7 @@ import {
   type Message,
   type Participant,
   type Thread,
-} from 'threadkit';
+} from '@bitbaum/threadkit';
 import { database } from './db';
 
 const ASSISTANT = 'substrata-factcheck';

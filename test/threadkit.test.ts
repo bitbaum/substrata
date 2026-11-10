@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { canWrite, visibleMessages } from 'threadkit';
+import { canWrite, visibleMessages } from '@bitbaum/threadkit';
 import { pageThread } from '../lib/page-thread';
 
 test('page threads let a signed-in reader write and a public observer only read', () => {
