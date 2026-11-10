@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { ArticleBody } from 'bip-kit/react';
+import { ArticleBody } from '@bitbaum/bip-kit/react';
 
 import { allNotes, noteBySlug } from '@/lib/notes';
 import { noteHref } from '@/lib/links';

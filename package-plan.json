@@ -14,7 +14,7 @@
       ]
     },
     "publishing": {
-      "package": "bip-kit",
+      "package": "@bitbaum/bip-kit",
       "exception": "BipKit's release roadmap and changelog templates do not model Substrata's evidence-led research updates. BipKit is used for authored learning and notes articles; the custom roadmap remains a research feed, not a product release log."
     },
     "design": {
@@ -54,7 +54,7 @@
       ]
     },
     "articles": {
-      "package": "bip-kit",
+      "package": "@bitbaum/bip-kit",
       "bindings": [
         {
           "file": "app/notes/[slug]/page.tsx",
@@ -112,7 +112,7 @@
       ]
     },
     "threads": {
-      "package": "threadkit",
+      "package": "@bitbaum/threadkit",
       "bindings": [
         {
           "file": "lib/page-thread.ts",

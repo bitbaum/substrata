@@ -17,6 +17,9 @@ importers:
       '@bitbaum/ai-kit':
         specifier: ^1.24.0
         version: 1.24.0(react@19.3.1)
+      '@bitbaum/bip-kit':
+        specifier: ^0.6.1
+        version: 0.6.1(react@19.3.1)
       '@bitbaum/chartkit':
         specifier: ^0.8.0
         version: 0.8.0(react@19.3.1)
@@ -35,15 +38,15 @@ importers:
       '@bitbaum/searchkit':
         specifier: ^0.2.3
         version: 0.2.3(react@19.3.1)
+      '@bitbaum/threadkit':
+        specifier: ^0.1.1
+        version: 0.1.1
       '@bitbaum/whenkit':
         specifier: ^0.3.3
         version: 0.3.3(react@19.3.1)
       better-auth:
         specifier: ^1.7.17
         version: 1.7.17(drizzle-orm@0.45.4(@electric-sql/pglite@0.5.15)(@types/pg@8.23.1)(kysely@0.29.7)(pg@8.23.1))(next@16.4.5(@babel/core@7.29.7)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(pg@8.23.1)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
-      bip-kit:
-        specifier: ^0.6.1
-        version: 0.6.1(react@19.3.1)
       d3-geo:
         specifier: ^3.1.2
         version: 3.1.2
@@ -74,9 +77,6 @@ importers:
       sitekit:
         specifier: npm:@bitbaum/sitekit@^0.7.0
         version: '@bitbaum/sitekit@0.7.0(react@19.3.1)'
-      threadkit:
-        specifier: ^0.1.1
-        version: 0.1.1
       topojson-client:
         specifier: ^3.1.0
         version: 3.1.0
@@ -336,6 +336,22 @@ packages:
       react:
         optional: true
 
+  '@bitbaum/bip-kit@0.6.1':
+    resolution: {integrity: sha512-bDcAeO3+X+Dh+TVKioYWoYBdk3bgSFJSUMR4Af5K2qemRXjN4bfPrSUQWWDH7s2UlOIf297Ot28/0WPij7wVvQ==}
+    engines: {node: '>=20'}
+    peerDependencies:
+      katex: '>=0.16'
+      mermaid: '>=10'
+      react: '>=18'
+      shiki: '>=1'
+    peerDependenciesMeta:
+      katex:
+        optional: true
+      mermaid:
+        optional: true
+      shiki:
+        optional: true
+
   '@bitbaum/chartkit@0.8.0':
     resolution: {integrity: sha512-dAuIGmpmHpHf+EsFOsJPyQlL5LFpp/dIQCiPIk2jWD6JjTT7LDGGUT1L/X5SNXz/lFMfYcnyxdig9Go3iaQaSQ==}
     engines: {node: '>=20'}
@@ -387,6 +403,10 @@ packages:
     engines: {node: '>=20'}
     peerDependencies:
       react: '>=18'
+
+  '@bitbaum/threadkit@0.1.1':
+    resolution: {integrity: sha512-tNsM2bVHBzmXaNzrsMeDipjNUssTwgeRIUVLA+SzzPOUSa21wgzX5Majo9HfEtTR4gxyHCrIFYzUWsvbdAkrRw==}
+    engines: {node: '>=20'}
 
   '@bitbaum/whenkit@0.3.3':
     resolution: {integrity: sha512-wcnaDv89gx6Z1gvbDjCs/4dNx5xc2eSDTEG+kUhxKJTJdElLe02AJeEER4krHqcIyqG//JyFGAb0BJiOBHETCg==}
@@ -1558,22 +1578,6 @@ packages:
       zod: ^4.0.0
     peerDependenciesMeta:
       zod:
-        optional: true
-
-  bip-kit@0.6.1:
-    resolution: {integrity: sha512-lwWnRDCuhrO5YzBeaASjQwVoyIcDwGqEH3cskqa2ylIgyPagtVE6+ppDze+rkEBzVmKkUXREW5ydXOr2Kw3Oow==}
-    engines: {node: '>=20'}
-    peerDependencies:
-      katex: '>=0.16'
-      mermaid: '>=10'
-      react: '>=18'
-      shiki: '>=1'
-    peerDependenciesMeta:
-      katex:
-        optional: true
-      mermaid:
-        optional: true
-      shiki:
         optional: true
 
   boolbase@2.0.0:
@@ -3125,10 +3129,6 @@ packages:
     resolution: {integrity: sha512-uxc/zpqFg6x7C8vOE7lh6Lbda8eEL9zmVm/PLeTPBRhh1xCgdWaQ+J1CUieGpIfm2HdtsUpRv+HshiasBMcc6A==}
     engines: {node: '>=6'}
 
-  threadkit@0.1.1:
-    resolution: {integrity: sha512-8QaApyuvVx43XFFiwop7ySC0SsXlXvWtgFFBiGH6rIZEFtZmCIWERPK8OjhMnuu30PDB3fijNi6f5Av+qJ/fTw==}
-    engines: {node: '>=18'}
-
   tinyglobby@0.2.17:
     resolution: {integrity: sha512-wXR/dYpcqKmfWpEdZjiKJOwCNFndD0DMnrW/cYjVGttEkBfVgcLFHoNrlj47mjOVic9yyNu65alsgF4NQyTa2g==}
     engines: {node: '>=12.0.0'}
@@ -3504,6 +3504,10 @@ snapshots:
     transitivePeerDependencies:
       - canvas
 
+  '@bitbaum/bip-kit@0.6.1(react@19.3.1)':
+    dependencies:
+      react: 19.3.1
+
   '@bitbaum/chartkit@0.8.0(react@19.3.1)':
     dependencies:
       react: 19.3.1
@@ -3532,6 +3536,8 @@ snapshots:
     dependencies:
       react: 19.3.1
       zod: 4.6.7
+
+  '@bitbaum/threadkit@0.1.1': {}
 
   '@bitbaum/whenkit@0.3.3(react@19.3.1)':
     dependencies:
@@ -4522,10 +4528,6 @@ snapshots:
       set-cookie-parser: 3.2.1
     optionalDependencies:
       zod: 4.6.7
-
-  bip-kit@0.6.1(react@19.3.1):
-    dependencies:
-      react: 19.3.1
 
   boolbase@2.0.0: {}
 
@@ -6465,8 +6467,6 @@ snapshots:
   tailwindcss@4.3.4: {}
 
   tapable@2.3.3: {}
-
-  threadkit@0.1.1: {}
 
   tinyglobby@0.2.17:
     dependencies:

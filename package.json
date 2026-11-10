@@ -53,7 +53,7 @@
     "@bitbaum/searchkit": "^0.2.3",
     "@bitbaum/whenkit": "^0.3.3",
     "better-auth": "^1.7.17",
-    "bip-kit": "^0.6.1",
+    "@bitbaum/bip-kit": "^0.6.1",
     "d3-geo": "^3.1.2",
     "drizzle-orm": "^0.45.4",
     "listkit": "npm:@bitbaum/listkit@^0.2.2",
@@ -64,7 +64,7 @@
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",
     "sitekit": "npm:@bitbaum/sitekit@^0.7.0",
-    "threadkit": "^0.1.1",
+    "@bitbaum/threadkit": "^0.1.1",
     "topojson-client": "^3.1.0",
     "unpdf": "1.9.1",
     "zod": "^4.6.7"
