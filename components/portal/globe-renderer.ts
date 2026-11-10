@@ -12,7 +12,7 @@ import { useRouter } from 'next/navigation';
 import { createMap, type MapController, type View } from '@bitbaum/geo-kit/map';
 
 import { HOME, LIMITS, isCountry, type CountryFeature, type World } from './globe-geo';
-import { paintMarks } from './globe-marks';
+import { calloutLabels, calloutStyles, paintMarks } from './globe-marks';
 import { EMPTY_OVERLAY, pickSite, type Overlay, type SitePoint } from './globe-overlay';
 import { useOverlay, type RouteHop } from './globe-overlay-state';
 import { fillsFor, readPalette, type Palette } from './globe-paint';
@@ -95,6 +95,8 @@ export function useGlobeRenderer({
       limits: LIMITS,
       home: HOME,
       idleTurn: true,
+      labels: calloutLabels(calloutsRef.current),
+      labelStyles: calloutStyles(palette),
       onSelect: (id) => {
         if (isCountry(id)) go({ country: id });
       },
@@ -131,7 +133,6 @@ export function useGlobeRenderer({
           overlay.arcs.length > 0 && !reducedMotion() && f.sinceTouch < ROUTES_RUN_FOR;
         const picked = selectedRef.current ? byIso.current.get(selectedRef.current) : undefined;
         paintMarks(c, basis, paletteRef.current ?? palette, {
-          callouts: calloutsRef.current,
           // The pulse rides the flight to a picked country: one ring that
           // opens from where the country is and fades as the globe arrives.
           pulse: f.flight !== null && picked ? { feature: picked, t: f.flight } : undefined,
@@ -147,6 +148,7 @@ export function useGlobeRenderer({
       paletteRef.current = next;
       map.setPalette(next);
       map.setFills(fillsFor(ctx, next, binsRef.current));
+      map.setLabels(calloutLabels(calloutsRef.current), calloutStyles(next));
     };
     const media = window.matchMedia('(prefers-color-scheme: dark)');
     media.addEventListener('change', recolour);
@@ -177,7 +179,11 @@ export function useGlobeRenderer({
       const feature = byIso.current.get(c.iso);
       return feature ? [{ feature, text: c.text }] : [];
     });
-    mapRef.current?.invalidate();
+    if (paletteRef.current)
+      mapRef.current?.setLabels(
+        calloutLabels(calloutsRef.current),
+        calloutStyles(paletteRef.current),
+      );
   }, [callouts, world]);
 
   useEffect(() => {
