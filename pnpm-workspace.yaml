@@ -8,20 +8,12 @@ allowBuilds:
   # same shape loki uses). If the listkit pin moves, pnpm prints the new key.
   listkit@https://codeload.github.com/bitbaum/listkit/tar.gz/69cb4f4ef12d6a2a56b56db1bb4d4ac14aced525: true
 
-# Our own packages, exempt from the minimum-release-age supply-chain window BY
-# NAME. A version-pinned entry refuses every release not listed in it, so a
-# fix shipped upstream could not be installed until someone edited this file
-# (the fleet-wide trap of 2026-09-11). Third-party packages keep the window.
+# Our own packages are published by our own tagged workflows; minimumReleaseAge
+# would refuse each fresh publish until it ages. One scope glob covers every
+# @bitbaum package; the four unscoped ones are named (fleet SHARED.md).
 minimumReleaseAgeExclude:
-  - '@bitbaum/sitekit'
-  - '@bitbaum/ai-kit'
-  - '@bitbaum/geo-kit'
+  - "@bitbaum/*"
+  - limitkit
   - bip-kit
-  - '@bitbaum/chatkit'
-  - '@bitbaum/chartkit@0.2.0 || 0.3.0 || 0.5.0 || 0.6.0 || 0.7.0'
-  - '@bitbaum/design-tokens@1.2.0 || 1.4.0 || 1.5.2'
-  - '@bitbaum/listkit@0.2.1 || 0.2.2'
-  - '@bitbaum/searchkit@0.2.2 || 0.2.3'
-  - '@bitbaum/whenkit@0.3.2 || 0.3.3'
-  - '@bitbaum/accountkit@0.8.0 || 0.9.1 || 0.10.0 || 0.12.0 || 0.13.0 || 0.14.0 || 0.15.0 || 0.16.0 || 0.18.1 || 0.20.0 || 0.23.0 || 0.23.1 || 0.24.0 || 0.25.0 || 0.26.1 || 0.27.0'
-  - limitkit@0.2.1
+  - threadkit
+  - ai-forms
