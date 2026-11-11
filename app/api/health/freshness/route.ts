@@ -4,9 +4,10 @@ export const dynamic = 'force-dynamic';
 
 /**
  * Every feed, dataset and queue with its state — the machine face of
- * /data/freshness. 200 when nothing is stale or failing, 503 when something
- * is, so an uptime monitor can page on it; "late" and "not scheduled" are in
- * the body but do not fail it.
+ * /data/freshness. Returns 200 with the full report (ok: false when something
+ * is stale or failing, so the footer badge and readers see what needs attention
+ * without failing as an HTTP service-unavailable error on page views); "late"
+ * and "not scheduled" are reported in the body and do not fail ok.
  */
 export async function GET() {
   const report = await freshnessReport();
@@ -38,6 +39,6 @@ export async function GET() {
       })),
       reviewQueue: report.queue,
     },
-    { status: report.ok ? 200 : 503, headers: { 'Cache-Control': 'no-store' } },
+    { status: 200, headers: { 'Cache-Control': 'no-store' } },
   );
 }

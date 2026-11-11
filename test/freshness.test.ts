@@ -104,3 +104,21 @@ test('drafting is reported on demand, never late: it runs only on readers’ own
   assert.equal(drafts.everyHours, null, 'no clock runs drafting, so none may make it late');
   for (const f of FEEDS.filter((f) => f.onDemand)) assert.equal(f.everyHours, null, f.id);
 });
+
+test('the machine face /api/health/freshness answers 200 without failing page loads', async () => {
+  const { GET } = await import('../app/api/health/freshness/route');
+  const response = await GET();
+  assert.equal(response.status, 200);
+  assert.equal(response.headers.get('Cache-Control'), 'no-store');
+  const body = (await response.json()) as {
+    ok: boolean;
+    state: string;
+    checkedAt: string;
+    feeds: unknown[];
+    datasets: unknown[];
+  };
+  assert.equal(typeof body.ok, 'boolean');
+  assert.equal(typeof body.state, 'string');
+  assert.ok(Array.isArray(body.feeds));
+  assert.ok(Array.isArray(body.datasets));
+});
