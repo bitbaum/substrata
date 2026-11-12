@@ -14,11 +14,10 @@ const nextConfig = {
     { source: '/mandate', destination: '/about', permanent: true },
     { source: '/acting', destination: '/about', permanent: true },
     { source: '/disclosure', destination: '/about', permanent: true },
-    // The member portal is the desk. Temporary, so a portal page of its own
-    // can take the address back without a cached redirect in the way.
-    { source: '/portal', destination: '/account', permanent: false },
-    { source: '/portal/:path*', destination: '/account', permanent: false },
-    { source: '/desk', destination: '/account', permanent: false },
+    // The member portal is the desk at /account.
+    { source: '/portal', destination: '/account', permanent: true },
+    { source: '/portal/:path*', destination: '/account', permanent: true },
+    { source: '/desk', destination: '/account', permanent: true },
   ],
 };
 export default nextConfig;
