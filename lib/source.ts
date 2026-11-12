@@ -10,6 +10,7 @@
  * a row is SOURCED; it only ever returns a candidate, exactly as
  * `research_source_candidates` expects.
  */
+import type { SearchReport } from '@/lib/search-note';
 import { readPage, webSearch, type WebResult } from '@bitbaum/ai-kit/web';
 
 import { MATERIALS } from '@/config/substrata';
@@ -204,7 +205,12 @@ export interface Examined {
 export async function examineRow(
   producer: { name: string; aliases?: string[] },
   material: string,
-  options: { signal?: AbortSignal; timeoutMs?: number } = {},
+  options: {
+    signal?: AbortSignal;
+    timeoutMs?: number;
+    /** Told how the search went (lib/search-note.ts), for the run's record. */
+    onSearch?: (result: SearchReport) => void;
+  } = {},
 ): Promise<Examined> {
   const names = namesFor(producer);
   const query = queryFor(producer.name, material);
@@ -215,6 +221,7 @@ export async function examineRow(
     limit: RESULTS_PER_ROW,
     timeoutMs: Math.min(15_000, options.timeoutMs ?? 15_000),
   });
+  options.onSearch?.(search);
 
   if (search.status === 'could_not_look') {
     return {
