@@ -96,6 +96,18 @@
         {
           "file": "components/portal/chat/chartRenderers.tsx",
           "symbols": ["BarChart", "LineChart", "ShareBars", "StatTiles", "Timeline"]
+        },
+        {
+          "file": "components/portal/Status.tsx",
+          "symbols": ["Meter"]
+        },
+        {
+          "file": "components/quality/Trend.tsx",
+          "symbols": ["LineChart"]
+        },
+        {
+          "file": "lib/profile/modules/quantities.tsx",
+          "symbols": ["Meter"]
         }
       ]
     },
