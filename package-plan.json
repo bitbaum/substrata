@@ -57,6 +57,14 @@
         {
           "file": "app/_home/AskBox.tsx",
           "symbols": ["Composer"]
+        },
+        {
+          "file": "components/portal/Inquire.tsx",
+          "symbols": ["Composer"]
+        },
+        {
+          "file": "components/portal/chat/ContributeForm.tsx",
+          "symbols": ["Composer"]
         }
       ]
     },
