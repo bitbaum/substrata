@@ -3,6 +3,7 @@
  * (`lib/sweep-store.ts`) is the only caller; its queue is the only queue.
  */
 import { createHash } from 'node:crypto';
+import { searchProviders } from '@/lib/web-search';
 import { webSearch, readPage } from '@bitbaum/ai-kit/web';
 
 import { MATERIALS } from '@/config/substrata';
@@ -135,7 +136,7 @@ export async function sweep(
   const search = await webSearch(
     query,
     { limit: RESULTS_PER_NODE, timeoutMs: searchTimeout },
-    customFetch ? { fetch: customFetch } : {},
+    { providers: searchProviders(customFetch) },
   );
 
   if (options.signal?.aborted) return [];

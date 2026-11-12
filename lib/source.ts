@@ -11,6 +11,7 @@
  * `research_source_candidates` expects.
  */
 import { readPage, webSearch, type WebResult } from '@bitbaum/ai-kit/web';
+import { searchProviders } from './web-search';
 
 import { MATERIALS } from '@/config/substrata';
 import { COVERAGE, type Producer } from '@/config/substrata-coverage';
@@ -211,10 +212,11 @@ export async function examineRow(
   const checkedAt = new Date().toISOString();
   const base = { material, producer: producer.name, query, checkedAt };
 
-  const search = await webSearch(query, {
-    limit: RESULTS_PER_ROW,
-    timeoutMs: Math.min(15_000, options.timeoutMs ?? 15_000),
-  });
+  const search = await webSearch(
+    query,
+    { limit: RESULTS_PER_ROW, timeoutMs: Math.min(15_000, options.timeoutMs ?? 15_000) },
+    { providers: searchProviders() },
+  );
 
   if (search.status === 'could_not_look') {
     return {
