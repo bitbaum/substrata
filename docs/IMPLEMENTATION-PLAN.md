@@ -52,7 +52,10 @@ for sourced errors.
   The UI is not a shared package (`SHARED.md`). Substrata's companion is a
   thread that *calls* that engine. Health exposes `ai: configured`.
 - Comments: `threadkit` (permission is participation). Storage is Postgres
-  `research_page_messages`. AI fact-check is an `ai` participant.
+  `research_page_messages`. AI fact-check is an `ai` participant. The thread
+  and its box are `@bitbaum/chatkit`'s `CommentThread`
+  (`components/portal/PageDiscussion.tsx`), so the box is chatkit's Composer
+  with the microphone (`/api/transcribe`).
 - Map: a canvas globe on `d3-geo` and `topojson-client`
   (`components/portal/Globe.tsx`, `globe-*.ts`).
 

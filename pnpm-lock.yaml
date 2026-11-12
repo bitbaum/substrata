@@ -24,8 +24,8 @@ importers:
         specifier: ^0.8.0
         version: 0.8.0(react@19.3.1)
       '@bitbaum/chatkit':
-        specifier: ^0.22.1
-        version: 0.22.1(react@19.3.1)
+        specifier: ^0.28.0
+        version: 0.28.0(react@19.3.1)
       '@bitbaum/design-tokens':
         specifier: ^1.5.2
         version: 1.5.2
@@ -355,8 +355,8 @@ packages:
     peerDependencies:
       react: '>=18'
 
-  '@bitbaum/chatkit@0.22.1':
-    resolution: {integrity: sha512-hAvxeJbpsMS6Jn0TTNyiVRpbhmsQqx52dG6woCH+UbZCZhuK4czldjIU8LpHppMk/NDuz7Yg+phKxJ6HDNiIkw==}
+  '@bitbaum/chatkit@0.28.0':
+    resolution: {integrity: sha512-HHvgqIhIXXf+GOONaCsLVR5p9ah46nfhmNv6pMVUJtYm5gAFiN01+ZlUIHrYWvQxs6W4mF8qwzp2bv6Oo7tSxw==}
     engines: {node: '>=20'}
     hasBin: true
     peerDependencies:
@@ -3511,7 +3511,7 @@ snapshots:
     dependencies:
       react: 19.3.1
 
-  '@bitbaum/chatkit@0.22.1(react@19.3.1)':
+  '@bitbaum/chatkit@0.28.0(react@19.3.1)':
     dependencies:
       pdfjs-dist: 6.4.299
       react: 19.3.1

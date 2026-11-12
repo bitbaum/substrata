@@ -65,6 +65,10 @@
         {
           "file": "components/portal/chat/ContributeForm.tsx",
           "symbols": ["Composer"]
+        },
+        {
+          "file": "components/portal/PageDiscussion.tsx",
+          "symbols": ["CommentThread"]
         }
       ]
     },

@@ -17,26 +17,17 @@
 .page-discussion h2 {
   font: 600 1.4rem var(--font-heading);
 }
-.page-comments {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin: 1.2rem 0;
+/* The thread and its box are chatkit's CommentThread (its styles.css); this
+   only places it under the fact-check panel. */
+.page-discussion-thread {
+  margin-top: 1.2rem;
+  max-width: 40rem;
 }
-.comment-meta {
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-fg-tertiary);
-}
-.comment-form,
 .factcheck-panel {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   max-width: 40rem;
-}
-.factcheck-panel {
   padding: 1rem;
   border: 1px solid var(--color-border-subtle);
   background: var(--color-surface-raised);
