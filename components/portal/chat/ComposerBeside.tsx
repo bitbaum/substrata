@@ -55,12 +55,7 @@ export function ComposerBeside({
           </>
         )}
       </p>
-      {chat.error && (
-        <p className="ask-aside" role="alert">
-          {chat.error}
-        </p>
-      )}
-      {chat.contribute && <ContributeForm busy={chat.busy} onSubmit={chat.sendContribution} />}
+      {chat.contribute && <ContributeForm chat={chat} />}
     </>
   );
 }
