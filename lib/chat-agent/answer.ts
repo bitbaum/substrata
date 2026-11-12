@@ -30,6 +30,8 @@ export interface AgentAnswer {
   tables?: AnswerTable[];
   /** Charts built in code from tool rows (lib/chat/answer-chart.ts). */
   charts?: AnswerChart[];
+  /** How the web search went, when the web was searched (lib/chat-tools/ledger.ts). */
+  webSearch?: Ledger['webSearch'];
   followUps: string[];
   /** The tool calls made, in order, as the reader-facing labels. */
   trail: string[];

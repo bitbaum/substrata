@@ -31,6 +31,20 @@ export interface Ledger {
   tables: AnswerTable[];
   /** Charts built in code from tool rows (prices, holders), drawn under the answer (lib/chat/answer-chart.ts). */
   charts: AnswerChart[];
+  /**
+   * How the web searches of this answer went, the best of them: `found` once
+   * any brought pages back, else `nothing` (an engine answered, empty), else
+   * `could_not_look` (no engine answered). Unset when the web was not searched.
+   */
+  webSearch?: WebSearchOutcome;
+}
+
+export type WebSearchOutcome = 'found' | 'nothing' | 'could_not_look';
+const RANK: Record<WebSearchOutcome, number> = { could_not_look: 0, nothing: 1, found: 2 };
+
+/** Record one search's outcome; the best outcome of the answer is the one kept. */
+export function noteWebSearch(ledger: Ledger, outcome: WebSearchOutcome) {
+  if (!ledger.webSearch || RANK[outcome] > RANK[ledger.webSearch]) ledger.webSearch = outcome;
 }
 
 export function emptyLedger(): Ledger {

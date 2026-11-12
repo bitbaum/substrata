@@ -230,6 +230,7 @@ export async function runResearch(input: ResearchInput): Promise<void> {
     web: ledger.web,
     leads: ledger.leads,
     ...(ledger.tables.length ? { tables: ledger.tables } : {}),
+    ...(ledger.webSearch ? { webSearch: ledger.webSearch } : {}),
     followUps: followUpsFor(sources.map((s) => ({ title: s.title, kind: s.kind }))),
     trail: ledger.trail,
     outside: ledger.web.length > 0,

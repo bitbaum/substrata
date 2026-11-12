@@ -53,6 +53,8 @@ export type Answer = {
   trail?: string[];
   /** Whether the answer went past the corpus. Said on screen, not implied. */
   outside?: boolean;
+  /** How the web search went, when the web was searched: said under the answer when it brought no page. */
+  webSearch?: 'found' | 'nothing' | 'could_not_look';
   /** No model answered; this is the honest fallback. */
   degraded?: boolean;
   /** Verify mode: the verdict the answer opened with. */
@@ -76,6 +78,8 @@ export type Turn = {
   followUps?: string[];
   trail?: string[];
   outside?: boolean;
+  /** How the web search went, when the web was searched: said under the answer when it brought no page. */
+  webSearch?: 'found' | 'nothing' | 'could_not_look';
   degraded?: boolean;
   verdict?: Verdict;
   replies?: string[];

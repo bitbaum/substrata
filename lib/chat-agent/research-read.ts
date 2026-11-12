@@ -16,7 +16,7 @@
  * `[web_search]` result, so every guard that reads web passages
  * (web-figures.ts, default-deny.ts, uncited.ts) reads these too.
  */
-import type { ToolEnv } from '../chat-tools/ledger';
+import { noteWebSearch, type ToolEnv } from '../chat-tools/ledger';
 import { domainOf, type WebFinding, type WebLookup } from '../chat-web';
 import type { AgentEvent } from './answer';
 import type { ResearchPlan, SubQuestion } from './research-plan';
@@ -148,6 +148,7 @@ export async function readForPlan(
     }),
   );
   const couldNotLook = lookups.filter((l) => l.status === 'could_not_look').length;
+  for (const l of lookups) if (l.status !== 'off') noteWebSearch(env.ledger, l.status);
   const found = plan.subQuestions.map((sub, i) => {
     const l = lookups[i];
     return { sub, findings: l.status === 'found' ? l.findings : [] };
