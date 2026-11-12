@@ -137,19 +137,29 @@ test('a failing feed says why: its last failed run crashed, or achieved nothing'
     id bigserial PRIMARY KEY, started_at timestamptz NOT NULL DEFAULT now(), finished_at timestamptz,
     nodes_swept integer NOT NULL DEFAULT 0, candidates_found integer NOT NULL DEFAULT 0,
     could_not_look integer NOT NULL DEFAULT 0)`);
+  // The migration that adds the run's search note, applied as the deploy would.
+  await db.exec(
+    readFileSync(join(process.cwd(), 'scripts/db/018-search-notes.sql'), 'utf8')
+      .replace(/^\s*(BEGIN|COMMIT);\s*$/gm, '')
+      .replace(/ALTER TABLE research_source_runs.*$/m, ''),
+  );
   const sweep = FEEDS.find((f) => f.id === 'sweep')!;
   const read = async () =>
     (
-      await db.query<{ last_ok: Date | null; last_failure: Date | null; crashed: boolean | null }>(
-        feedSql(sweep),
-      )
+      await db.query<{
+        last_ok: Date | null;
+        last_failure: Date | null;
+        crashed: boolean | null;
+        failure_note: string | null;
+      }>(feedSql(sweep))
     ).rows[0];
   assert.equal((await read()).crashed, null);
   // A run in which every search could not look: failed, not crashed.
-  await db.exec(`INSERT INTO research_sweep_runs(started_at, finished_at, nodes_swept, could_not_look)
-    VALUES (now() - interval '3 hours', now() - interval '3 hours', 12, 12)`);
+  await db.exec(`INSERT INTO research_sweep_runs(started_at, finished_at, nodes_swept, could_not_look, search_note)
+    VALUES (now() - interval '3 hours', now() - interval '3 hours', 12, 12, 'searxng unreachable')`);
   let row = await read();
   assert.equal(row.crashed, false);
+  assert.equal(row.failure_note, 'searxng unreachable');
   assert.ok(row.last_failure && !row.last_ok);
   // A later run that never finished: crashed.
   await db.exec(`INSERT INTO research_sweep_runs(started_at) VALUES (now() - interval '2 hours')`);

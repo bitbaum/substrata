@@ -68,6 +68,11 @@ export interface Feed {
    */
   failedMeans: string;
   /**
+   * A text column of the run table that says what the run's searches did
+   * (lib/search-note.ts), shown with `failedMeans`. Constant, never input.
+   */
+  noteColumn?: 'search_note';
+  /**
    * Set when the feed runs when a reader asks, not on a clock — then it is
    * reported as "on demand" with this reason, never as late. Drafting is one:
    * it runs only on readers' own AI keys (George, 2026-09-25).
@@ -85,6 +90,7 @@ export const FEEDS: readonly Feed[] = [
     everyHours: 'settings',
     failedWhen: 'nodes_swept > 0 AND could_not_look >= nodes_swept',
     failedMeans: 'In the last failed run, no search reached a search backend.',
+    noteColumn: 'search_note',
   },
   {
     id: 'drafts',
@@ -171,6 +177,7 @@ export const FEEDS: readonly Feed[] = [
     everyHours: 6,
     failedWhen: 'rows_examined > 0 AND could_not_look >= rows_examined',
     failedMeans: 'In the last failed run, no search reached a search backend.',
+    noteColumn: 'search_note',
   },
   {
     id: 'quality',

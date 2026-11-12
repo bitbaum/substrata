@@ -1,4 +1,5 @@
 import { database } from './db';
+import { searchNotes } from '@/lib/search-note';
 import {
   DEFAULT_SWEEP_SETTINGS,
   nodes,
@@ -127,6 +128,7 @@ export async function runScheduledSweep({
   const runId = run.rows[0].id;
 
   const outcome: SweepOutcome = { swept: [], found: 0, couldNotLook: 0 };
+  const notes = searchNotes();
 
   for (const node of queue) {
     if (Date.now() - started > budgetMs || signal?.aborted) {
@@ -139,6 +141,7 @@ export async function runScheduledSweep({
     const { found, blind } = await sweepAndStore(node, settings, {
       signal,
       timeoutMs: remainingMs,
+      onSearch: notes.add,
     });
     if (blind) outcome.couldNotLook += 1;
     outcome.found += found;
@@ -147,9 +150,10 @@ export async function runScheduledSweep({
 
   await db.query(
     `UPDATE research_sweep_runs
-        SET finished_at = now(), nodes_swept = $2, candidates_found = $3, could_not_look = $4
+        SET finished_at = now(), nodes_swept = $2, candidates_found = $3, could_not_look = $4,
+            search_note = $5
       WHERE id = $1`,
-    [runId, outcome.swept.length, outcome.found, outcome.couldNotLook],
+    [runId, outcome.swept.length, outcome.found, outcome.couldNotLook, notes.note],
   );
 
   return outcome;

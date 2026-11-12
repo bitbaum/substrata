@@ -2,6 +2,7 @@
  * What counts as a candidate event, in one place. The box timer's sweep
  * (`lib/sweep-store.ts`) is the only caller; its queue is the only queue.
  */
+import type { SearchReport } from '@/lib/search-note';
 import { createHash } from 'node:crypto';
 import { searchProviders } from '@/lib/web-search';
 import { webSearch, readPage } from '@bitbaum/ai-kit/web';
@@ -112,6 +113,8 @@ function idFor(url: string): string {
 export interface SweepOptions {
   signal?: AbortSignal;
   timeoutMs?: number;
+  /** Told how the search went (lib/search-note.ts), for the run's record. */
+  onSearch?: (result: SearchReport) => void;
 }
 
 export async function sweep(
@@ -138,6 +141,7 @@ export async function sweep(
     { limit: RESULTS_PER_NODE, timeoutMs: searchTimeout },
     { providers: searchProviders(customFetch) },
   );
+  options.onSearch?.(search);
 
   if (options.signal?.aborted) return [];
   if (search.status === 'could_not_look') {
