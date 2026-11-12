@@ -3,6 +3,8 @@
  * accepted events and claims. Each re-derives its answer from the committed
  * files, so `verify` runs them and the page shows them without a network.
  */
+import { isISODate } from '@bitbaum/whenkit';
+
 import claimsFile from '@/research/claims.json';
 import { BOTTLENECKS } from '@/lib/bottlenecks';
 import { DEPENDENCIES } from '@/config/substrata-dependencies';
@@ -18,7 +20,6 @@ const BOTTLENECK_NAMES = new Set(BOTTLENECKS.map((b) => b.name));
 const BOTTLENECK_SLUGS = new Set(BOTTLENECKS.map((b) => b.slug));
 const COMPANY_NAMES = new Set(PARTICIPANTS.map((p) => p.name));
 const isUrl = (u: unknown): u is string => typeof u === 'string' && /^https?:\/\/\S+$/.test(u);
-const isDay = (d: unknown): d is string => typeof d === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(d);
 
 function producerChecks(): CheckResult[] {
   const rows = BOTTLENECKS.flatMap((b) => b.producers.map((p) => ({ b, p })));
@@ -88,7 +89,7 @@ function dependencyChecks(): CheckResult[] {
       },
       rows,
       ({ d, row }) =>
-        isUrl(d.source) && d.quote.trim().length >= 20 && isDay(d.readOn)
+        isUrl(d.source) && d.quote.trim().length >= 20 && isISODate(d.readOn)
           ? null
           : { row, problem: 'source, quote or date missing', link: d.source },
     ),
@@ -137,7 +138,10 @@ function eventChecks(): CheckResult[] {
       },
       rows,
       ({ e, row }) =>
-        isUrl(e.source) && e.quote.trim().length >= 20 && isDay(e.date) && isDay(e.acceptedOn)
+        isUrl(e.source) &&
+        e.quote.trim().length >= 20 &&
+        isISODate(e.date) &&
+        isISODate(e.acceptedOn)
           ? null
           : { row, problem: 'source, quote or a date missing', link: e.source },
     ),

@@ -102,6 +102,42 @@
           "file": "components/ui/date-input.tsx",
           "symbols": ["DateInput"],
           "usageFiles": ["components/review/LeadDraft.tsx"]
+        },
+        {
+          "file": "lib/entry/vocab.ts",
+          "symbols": ["isISODate"]
+        },
+        {
+          "file": "lib/registry/schema.ts",
+          "symbols": ["isISODate"]
+        },
+        {
+          "file": "lib/graph/validate.ts",
+          "symbols": ["isISODate"]
+        },
+        {
+          "file": "lib/event-rules.ts",
+          "symbols": ["isISODate"]
+        },
+        {
+          "file": "lib/event-draft.ts",
+          "symbols": ["isISODate"]
+        },
+        {
+          "file": "lib/quality/checks-corpus.ts",
+          "symbols": ["isISODate"]
+        },
+        {
+          "file": "lib/quality/checks-misc.ts",
+          "symbols": ["isISODate"]
+        },
+        {
+          "file": "lib/market-data/prices/compute.ts",
+          "symbols": ["addDays", "daysBetween"]
+        },
+        {
+          "file": "lib/starters.ts",
+          "symbols": ["daysBetween", "isISODate"]
         }
       ]
     },

@@ -9,6 +9,8 @@
  * and reach a page. `test/events.test.ts` checks the committed corpus against
  * the same vocabularies.
  */
+import { isISODate } from '@bitbaum/whenkit';
+
 import { MATERIALS } from '@/config/substrata';
 import { CHOKEPOINTS, COVERAGE } from '@/config/substrata-coverage';
 import { PARTICIPANTS } from '@/config/substrata-participants';
@@ -41,7 +43,6 @@ export const PARTICIPANT_NAMES: readonly string[] = [
   ]),
 ];
 
-const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 export const HEADLINE_MAX = 120;
 
 /**
@@ -139,9 +140,9 @@ function isParticipant(name: string): boolean {
 export function eventProblems(event: CoverageEvent, pageText?: string): string[] {
   const out: string[] = [];
   const today = new Date().toISOString().slice(0, 10);
-  if (!ISO_DATE.test(event.date)) out.push('The date is not a YYYY-MM-DD date.');
+  if (!isISODate(event.date)) out.push('The date is not a YYYY-MM-DD date.');
   else if (event.date > today) out.push('The date is in the future.');
-  if (!ISO_DATE.test(event.acceptedOn)) out.push('The acceptance date is missing.');
+  if (!isISODate(event.acceptedOn)) out.push('The acceptance date is missing.');
   else if (event.date > event.acceptedOn) out.push('Accepted before it happened.');
   if (!event.headline.trim()) out.push('The headline is empty.');
   if (event.headline.length > HEADLINE_MAX)

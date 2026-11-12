@@ -15,6 +15,8 @@
  *   - Max drawdown is the largest peak-to-trough fall of the closes in the
  *     range, with the two dates.
  */
+import { addDays, daysBetween } from '@bitbaum/whenkit';
+
 import { RANGES, rangeStart, type PricePoint, type Range } from './series';
 
 export interface WindowReturn {
@@ -77,14 +79,7 @@ export function closeOnOrBefore(
   return found;
 }
 
-const dayBefore = (iso: string) => {
-  const d = new Date(`${iso}T00:00:00Z`);
-  d.setUTCDate(d.getUTCDate() - 1);
-  return d.toISOString().slice(0, 10);
-};
-
 const GRACE_DAYS = 7;
-const daysBetween = (a: string, b: string) => (Date.parse(b) - Date.parse(a)) / 86_400_000;
 
 export function windowReturn(points: readonly PricePoint[], range: Range): WindowReturn {
   const to = points.at(-1);
@@ -96,7 +91,7 @@ export function windowReturn(points: readonly PricePoint[], range: Range): Windo
   // the `from` date travels with the figure, so the window is never misstated.
   const first = points[0];
   const from =
-    closeOnOrBefore(points, range === 'YTD' ? dayBefore(start) : start) ??
+    closeOnOrBefore(points, range === 'YTD' ? addDays(start, -1) : start) ??
     (range !== 'YTD' && daysBetween(start, first.date) <= GRACE_DAYS ? first : undefined);
   if (!from || from.date === to.date)
     return {

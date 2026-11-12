@@ -17,6 +17,8 @@
  * A draft is never published. It waits in `research_event_drafts` until a
  * reviewer accepts it, and even then it reaches a page only through a commit.
  */
+import { isISODate } from '@bitbaum/whenkit';
+
 import type { CoverageEvent, EventEffect, EventKind } from '@/config/substrata-events';
 import {
   BOTTLENECK_NAMES,
@@ -135,7 +137,7 @@ export function readDraft(
 
   const notes: string[] = [];
   let date = str(reply.date);
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || date > today) {
+  if (!isISODate(date) || date > today) {
     notes.push('No usable date on the page — set it by hand.');
     date = '';
   } else {
