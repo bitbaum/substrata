@@ -193,6 +193,9 @@ and `pnpm run research:accept-events` carries it into
 up to four recent unchecked finds that report a change, labelled as not yet
 checked.
 
+How every scheduled run works, what it needs, where it leaves a trace and how
+to tell why it stopped: `docs/operations/auto-updates.md`.
+
 There is no hand-run CLI and no committed worklist any more (removed
 2026-09-25): SearXNG is only reachable from the box, and a second queue in git
 went stale while the timers ran. To force a run, start the unit on the box:

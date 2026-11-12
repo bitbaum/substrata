@@ -70,23 +70,33 @@ export interface FreshnessReport {
 }
 
 /** One row about a feed's runs. Table names and conditions are constants from the config, never input. */
-export function feedSql(feed: Pick<Feed, 'table' | 'failedWhen'>): string {
+export function feedSql(feed: Pick<Feed, 'table' | 'failedWhen' | 'noteColumn'>): string {
+  const lastFailed = `FROM ${feed.table}
+        WHERE (finished_at IS NULL AND started_at < now() - interval '${CRASHED_AFTER_MINUTES} minutes')
+           OR (finished_at IS NOT NULL AND (${feed.failedWhen}))
+        ORDER BY started_at DESC LIMIT 1`;
   return `SELECT
       (SELECT max(finished_at) FROM ${feed.table}
         WHERE finished_at IS NOT NULL AND NOT (${feed.failedWhen})) AS last_ok,
       (SELECT max(started_at) FROM ${feed.table}
         WHERE (finished_at IS NULL AND started_at < now() - interval '${CRASHED_AFTER_MINUTES} minutes')
            OR (finished_at IS NOT NULL AND (${feed.failedWhen}))) AS last_failure,
-      (SELECT finished_at IS NULL FROM ${feed.table}
-        WHERE (finished_at IS NULL AND started_at < now() - interval '${CRASHED_AFTER_MINUTES} minutes')
-           OR (finished_at IS NOT NULL AND (${feed.failedWhen}))
-        ORDER BY started_at DESC LIMIT 1) AS crashed,
+      (SELECT finished_at IS NULL ${lastFailed}) AS crashed,
+      ${feed.noteColumn ? `(SELECT ${feed.noteColumn} ${lastFailed})` : 'NULL::text'} AS failure_note,
       (SELECT count(*) FROM ${feed.table} WHERE started_at > now() - interval '7 days') AS runs`;
 }
 
-/** Why a feed is failing, in words: its last failed run crashed, or achieved nothing. */
-export function failureNote(feed: Pick<Feed, 'failedMeans'>, crashed: boolean): string {
-  return crashed ? 'The last failed run started and did not finish.' : feed.failedMeans;
+/**
+ * Why a feed is failing, in words: its last failed run crashed, or achieved
+ * nothing — with what its search backends did, where the run recorded it.
+ */
+export function failureNote(
+  feed: Pick<Feed, 'failedMeans'>,
+  crashed: boolean,
+  recorded?: string | null,
+): string {
+  if (crashed) return 'The last failed run started and did not finish.';
+  return recorded ? `${feed.failedMeans} Search backends: ${recorded}.` : feed.failedMeans;
 }
 
 async function readFeed(feed: Feed, sweepEvery: number): Promise<FeedRow> {
@@ -97,6 +107,7 @@ async function readFeed(feed: Feed, sweepEvery: number): Promise<FeedRow> {
       last_ok: Date | null;
       last_failure: Date | null;
       crashed: boolean | null;
+      failure_note: string | null;
       runs: string;
     }>(sql);
     const row = result.rows[0];
@@ -116,7 +127,7 @@ async function readFeed(feed: Feed, sweepEvery: number): Promise<FeedRow> {
         (everyHours === null
           ? 'No timer on the server runs this yet.'
           : state === 'failing'
-            ? failureNote(feed, Boolean(row?.crashed))
+            ? failureNote(feed, Boolean(row?.crashed), row?.failure_note)
             : undefined),
     };
   } catch (error) {
