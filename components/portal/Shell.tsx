@@ -10,6 +10,8 @@
  */
 import React from 'react';
 import Link from 'next/link';
+import type { SiteChrome } from 'sitekit';
+import { SiteFooter } from 'sitekit/react';
 
 import { siteChrome } from '@/config/site-content';
 import { FOOTER_NAV } from '@/config/site-nav';
@@ -21,25 +23,28 @@ import { AccountMenu } from './AccountMenu';
 import { FreshnessBadge } from './FreshnessBadge';
 import { SectionNav } from './SectionNav';
 
-function Footer({ note, status }: { note: string; status: React.ReactNode }) {
+/**
+ * The footer is sitekit's (`SiteFooter`, application appearance): its layout,
+ * link targets and spacing are the package's; the note, the links and the
+ * freshness line are Substrata's. The wrapper keeps the room the feedback
+ * launcher and the Ask pill need below it (shell-overlays.css, ask.css).
+ */
+function Footer({ chrome, status }: { chrome: SiteChrome; status: React.ReactNode }) {
   return (
-    <footer className="site-footer mt-auto border-t border-subtle">
-      <div className="mx-auto flex max-w-shell flex-col gap-4 px-4 py-6 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-        <div className="max-w-xl">
-          <p className="text-xs leading-relaxed text-fg-muted">{note}</p>
-          {status}
-        </div>
-        <nav aria-label="About Substrata" className="site-footer-nav">
-          {FOOTER_NAV.map((item) => (
-            <Link key={item.href} href={item.href}>
-              {item.label}
-            </Link>
-          ))}
-          <a href={SITE.repo}>Source</a>
-          <a href={correctionUrl('Substrata')}>Correction</a>
-        </nav>
-      </div>
-    </footer>
+    <div className="site-footer mt-auto">
+      <SiteFooter
+        appearance="application"
+        chrome={chrome}
+        Link={Link}
+        label="About Substrata"
+        links={[
+          ...FOOTER_NAV.map(({ href, label }) => ({ href, label })),
+          { href: SITE.repo, label: 'Source' },
+          { href: correctionUrl('Substrata'), label: 'Correction' },
+        ]}
+        extra={status}
+      />
+    </div>
   );
 }
 
@@ -62,9 +67,7 @@ export async function Shell({
   reader?: 'server' | 'client';
 }) {
   const chrome = siteChrome();
-  const foot = footer ? (
-    <Footer note={chrome.footerNote} status={status ?? <FreshnessBadge />} />
-  ) : null;
+  const foot = footer ? <Footer chrome={chrome} status={status ?? <FreshnessBadge />} /> : null;
   if (reader === 'client') {
     return (
       <AppFrame

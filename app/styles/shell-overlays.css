@@ -234,22 +234,17 @@
 .site-footer {
   padding-bottom: var(--widget-reserve, 0px);
 }
-.site-footer-nav {
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 1.25rem;
-  font-size: 0.875rem;
-}
-.site-footer-nav a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: var(--size-target);
-  min-height: var(--size-target);
-  color: var(--color-fg-secondary);
-}
-.site-footer-nav a:hover {
-  color: var(--color-fg-primary);
+/* The footer itself is sitekit's (SiteFooter); these map its variables to the
+   design tokens and to the shell's column. */
+.site-footer {
+  --sk-fg: var(--color-fg-primary);
+  --sk-muted: var(--color-fg-secondary);
+  --sk-line: var(--color-border-subtle);
+  --sk-bg: var(--color-surface-page);
+  --sk-font: var(--font-sans);
+  --sk-width: var(--spacing-shell);
+  --sk-gutter: clamp(1rem, 4vw, 2rem);
+  --sk-footer-gap: 0px;
 }
 
 /* --------------------------------------------------------- account menu */

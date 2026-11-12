@@ -37,6 +37,7 @@ import './styles/company-market.css';
 import './styles/section-nav.css';
 import './styles/science-pipeline.css';
 import './styles/shell.css';
+import 'sitekit/styles.css';
 import './styles/shell-overlays.css';
 import { SITE } from '@/lib/site';
 import { AskDock } from '@/components/portal/AskDock';
