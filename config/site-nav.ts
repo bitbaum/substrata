@@ -248,7 +248,11 @@ export const NAV_ACTION: NavLink = LINK.join;
 
 /** Personal pages. The account menu only; never in the research list. */
 export const ACCOUNT_NAV = {
-  desk: { label: 'Desk', href: '/account', hint: 'Your saved research, follows and leads.' },
+  desk: {
+    label: 'Desk',
+    href: '/account',
+    hint: 'Your member portal: saved research, follows and leads.',
+  },
   settings: {
     label: 'Settings',
     href: '/account/settings',

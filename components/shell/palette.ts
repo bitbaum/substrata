@@ -38,9 +38,11 @@ export function paletteEntries({
   signedIn: boolean;
   reviewer: boolean;
 }): PaletteEntry[] {
+  // The desk is offered to everyone: signed out, it says what it is and how
+  // to sign in. Settings and the inbox need a session.
   const account = signedIn
     ? [ACCOUNT_NAV.desk, ACCOUNT_NAV.settings, ...(reviewer ? [ACCOUNT_NAV.inbox] : [])]
-    : [];
+    : [ACCOUNT_NAV.desk];
   const all = [
     ...entries('Account', account),
     ...entries('Home', [HOME_LINK]),

@@ -93,6 +93,26 @@ test('the long tail is one keystroke away: the palette holds every nav path', ()
   for (const path of navPaths()) assert.ok(offered.has(path), `${path} is not in the palette`);
   const anonymous = paletteEntries({ signedIn: false, reviewer: false }).map((e) => e.href);
   assert.ok(!anonymous.includes(ACCOUNT_NAV.inbox.href), 'the inbox is offered to non-reviewers');
+  // Signed out, the desk says what it is and offers sign-in: it must be findable.
+  assert.ok(
+    anonymous.includes(ACCOUNT_NAV.desk.href),
+    'the desk is hidden from signed-out readers',
+  );
+});
+
+test('/portal and /desk lead to the desk, and the top bar links it for everyone', async () => {
+  // @ts-expect-error -- next.config.mjs is plain JavaScript with no declaration file.
+  const config = (await import('../next.config.mjs')).default;
+  const redirects = await config.redirects();
+  for (const source of ['/portal', '/portal/:path*', '/desk'])
+    assert.equal(
+      redirects.find((r: { source: string }) => r.source === source)?.destination,
+      ACCOUNT_NAV.desk.href,
+      `${source} does not reach the desk`,
+    );
+  const topBar = readFileSync(join(ROOT, 'components/shell/TopBar.tsx'), 'utf8');
+  assert.ok(topBar.includes('ACCOUNT_NAV.desk.href'), 'the top bar has no desk link');
+  assert.ok(!/signedIn\s*&&/.test(topBar), 'the desk link is behind a session again');
 });
 
 test('the palette ranks label matches first and needs every word', () => {
