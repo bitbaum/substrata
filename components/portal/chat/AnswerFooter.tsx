@@ -3,6 +3,7 @@
 import { AnswerCharts } from './AnswerCharts';
 import { AnswerTables } from './AnswerTables';
 import type { Turn } from './types';
+import { webSearchLine } from './webSearchLine';
 
 /**
  * What sits under an answer, in chatkit's `renderFooter` slot: Substrata's
@@ -24,7 +25,9 @@ export function AnswerFooter({ turn }: { turn: Turn }) {
   const web = turn.web ?? [];
   const tables = turn.tables ?? [];
   const charts = turn.charts ?? [];
+  const noWeb = web.length ? null : webSearchLine(turn.webSearch);
   if (
+    !noWeb &&
     !charts.length &&
     !tables.length &&
     !leads.length &&
@@ -72,6 +75,10 @@ export function AnswerFooter({ turn }: { turn: Turn }) {
           </ul>
         </details>
       )}
+
+      {/* The web was searched and no page came back: said, never left for the
+          reader to infer from a "Searching the web…" step that led nowhere. */}
+      {noWeb && <p className="answer-evidence">{noWeb}</p>}
 
       {web.length > 0 && (
         <details className="answer-block">

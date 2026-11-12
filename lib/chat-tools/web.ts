@@ -1,5 +1,6 @@
 /** The open web: pages read for the question, cited [W#] with their link and date. */
 import { domainOf } from '../chat-web';
+import { noteWebSearch } from './ledger';
 import { str, type ChatTool } from './tool';
 
 export const WEB_TOOLS: readonly ChatTool[] = [
@@ -23,6 +24,7 @@ export const WEB_TOOLS: readonly ChatTool[] = [
         env.step?.(`Reading ${domainOf(url)}…`),
       );
       if (lookup.status === 'off') return { status: 'off', error: 'Web search is not configured.' };
+      noteWebSearch(env.ledger, lookup.status);
       if (lookup.status === 'could_not_look')
         return { status: 'could_not_look', error: 'Could not reach a search backend just now.' };
       if (lookup.status === 'nothing')

@@ -12,6 +12,7 @@
  * Shared by the server and the browser: no imports with side effects.
  */
 import { parseChartBlock, type ChartBlock } from '@bitbaum/chatkit';
+import type { WebSearchOutcome } from '../chat-tools/ledger';
 import type { AnswerTable } from './answer-table';
 
 export interface AnswerChart {
@@ -40,11 +41,18 @@ export function isAnswerChart(v: unknown): v is AnswerChart {
 }
 
 /** The tables and charts an answer carries, for the done event (only the keys that have rows). */
-export function extrasOf(ledger: { tables: AnswerTable[]; charts: AnswerChart[] }): {
+export function extrasOf(ledger: {
+  tables: AnswerTable[];
+  charts: AnswerChart[];
+  webSearch?: WebSearchOutcome;
+}): {
   tables?: AnswerTable[];
   charts?: AnswerChart[];
+  webSearch?: WebSearchOutcome;
 } {
   return {
+    // How the web search went, so the reader is told when it brought nothing back.
+    ...(ledger.webSearch ? { webSearch: ledger.webSearch } : {}),
     ...(ledger.tables.length ? { tables: ledger.tables } : {}),
     ...(ledger.charts.length ? { charts: ledger.charts } : {}),
   };
