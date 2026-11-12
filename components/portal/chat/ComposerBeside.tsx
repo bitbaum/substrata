@@ -49,7 +49,7 @@ export function ComposerBeside({
         ) : (
           <>
             Have a source we should hold?{' '}
-            <button type="button" onClick={() => chat.setContribute((v) => !v)}>
+            <button type="button" onClick={() => chat.setContribute(!chat.contribute)}>
               {chat.contribute ? 'Cancel' : 'Send evidence'}
             </button>
           </>

@@ -11,6 +11,9 @@ export type ContributionFields = {
 
 /** The words /api/contributions asks for, said before the request rather than after it. */
 export const SHORT_MESSAGE = 'Add at least 10 characters so a reviewer can act on it.';
+/** The inbox's own cap (app/api/contributions/route.ts). */
+export const MESSAGE_MAX = 12_000;
+export const LONG_MESSAGE = `That is over ${MESSAGE_MAX.toLocaleString('en')} characters. Shorten it, or send a link to the source instead.`;
 export const NO_CONSENT = 'Tick the box to send this to the private inbox, then press Send again.';
 
 /**
@@ -30,6 +33,10 @@ export function useContribution(topic: string) {
   async function send(message: string, fields: ContributionFields): Promise<boolean> {
     if (message.trim().length < 10) {
       setError(SHORT_MESSAGE);
+      return false;
+    }
+    if (message.length > MESSAGE_MAX) {
+      setError(LONG_MESSAGE);
       return false;
     }
     if (!fields.consent) {
@@ -63,5 +70,11 @@ export function useContribution(topic: string) {
     }
   }
 
-  return { busy, error, receipt, contribute, setContribute, send };
+  /** Opening or closing the box starts clean: an old refusal is not shown over a new draft. */
+  function toggle(open: boolean) {
+    setError('');
+    setContribute(open);
+  }
+
+  return { busy, error, receipt, contribute, setContribute: toggle, send };
 }
