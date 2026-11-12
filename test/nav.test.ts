@@ -226,3 +226,20 @@ test('rule 6: no internal href is typed into the shell; it comes from config/sit
   for (const file of SHELL_FILES)
     assert.doesNotMatch(source(file), /href="\//, `${file} has a literal internal href`);
 });
+
+test('the mobile tab bar is suppressed on auth pages so it never covers sign-in controls', () => {
+  const appFrame = source('components/shell/AppFrame.tsx');
+  assert.match(appFrame, /isAuth/, 'AppFrame must detect auth pages');
+  assert.match(
+    appFrame,
+    /!isAuth\s*&&\s*\(?\s*<MobileTabBar/,
+    'AppFrame must hide MobileTabBar on auth pages',
+  );
+  assert.match(appFrame, /is-auth/, 'AppFrame must apply is-auth class to shell on auth pages');
+  const css = readFileSync(join(ROOT, 'app/styles/shell-overlays.css'), 'utf8');
+  assert.match(
+    css,
+    /\.shell\.is-auth\s+\.shell-tabbar\s*\{\s*display:\s*none;?\s*\}/,
+    'shell-overlays.css must hide .shell-tabbar on .shell.is-auth',
+  );
+});
