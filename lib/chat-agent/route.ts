@@ -112,6 +112,10 @@ const MONTHS = [
   'December',
 ];
 
+/** A span of time ending now, and measured in days, weeks or months. */
+const RECENT_SPAN =
+  /\s*\b((in|over|during|within|for) )?(the )?(last|past) ((few|couple of|\d+) )?(days?|weeks?|months?)\b/gi;
+
 /**
  * The words an engine is given: the question's subject (plan.ts `webQuery`),
  * with "this month", "today" and "latest" made into the dates they mean, so an
@@ -123,9 +127,17 @@ export function searchQueryFor(question: string, today: string): string {
   const month = MONTHS[(m || 1) - 1];
   const dated = base
     .replace(/\bthis month\b/gi, `${month} ${y}`)
+    // "in the last month", "over the past few weeks", "in the last 30 days":
+    // the reader means now, and an engine ranks a dated query by its date.
+    .replace(RECENT_SPAN, ` ${month} ${y}`)
     .replace(/\bthis year\b/gi, String(y))
-    .replace(/\b(today|right now|currently)\b/gi, `${month} ${y}`);
-  const timely = /\b(latest|recent|news|today|this (week|month)|now|current)\b/i.test(question);
+    .replace(/\b(today|right now|currently)\b/gi, `${month} ${y}`)
+    .replace(/\s+/g, ' ')
+    .trim();
+  const timely =
+    /\b(latest|recent(ly)?|lately|news|today|this (week|month)|now|current|(last|past) (few )?(days?|weeks?|months?))\b/i.test(
+      question,
+    );
   return timely && !dated.includes(String(y)) ? `${dated} ${y}` : dated;
 }
 

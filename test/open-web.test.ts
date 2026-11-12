@@ -56,6 +56,39 @@ test('"this month", "today" and "latest" become dates the engine can rank by', (
     /October 2026/,
   );
   assert.match(searchQueryFor('Latest news on Cameco McArthur River', '2026-10-24'), /2026/);
+  // Seen live 2026-11-12: this went to the engine with its "?" and the words
+  // said to the assistant, and came back empty.
+  assert.equal(
+    searchQueryFor(
+      'What changed for helium supply in the last month? Use the web too.',
+      '2026-11-12',
+    ),
+    'changed for helium supply November 2026',
+  );
+  assert.equal(
+    searchQueryFor(
+      'Please search the web: gallium export rules over the past few weeks',
+      '2026-11-12',
+    ),
+    'gallium export rules November 2026',
+  );
+  assert.equal(
+    searchQueryFor('Who bought Rapidus? Look it up online and cite your sources.', '2026-11-12'),
+    'Who bought Rapidus',
+  );
+  assert.equal(
+    searchQueryFor('Check the web for neon prices, please', '2026-11-12'),
+    'neon prices',
+  );
+  // A subject that only contains such words is left alone.
+  assert.equal(
+    searchQueryFor('Who makes web offset presses?', '2026-11-12'),
+    'Who makes web offset presses',
+  );
+  assert.equal(
+    searchQueryFor('uranium output in the last decade', '2026-11-12'),
+    'uranium output in the last decade',
+  );
 });
 
 // --- reading pages ---------------------------------------------------------------
