@@ -61,7 +61,12 @@ export const metadata: Metadata = {
     description:
       'Open-source research on the bottlenecks on the path to transformative technology: compute, energy, materials, actuation, talent, capital and permission.',
   },
-  twitter: { card: 'summary_large_image', title: SITE.name },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE.name,
+    description:
+      'Open-source research on the bottlenecks on the path to transformative technology: compute, energy, materials, actuation, talent, capital and permission.',
+  },
 };
 
 /**

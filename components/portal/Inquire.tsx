@@ -1,74 +1,54 @@
 'use client';
 
+import { Composer } from '@bitbaum/chatkit/react';
 import { useState } from 'react';
+
+import { useContribution } from './chat/useContribution';
 
 /**
  * The way a gap becomes a row: send what you know, or ask us to look.
  * Posts to the existing contributions inbox. Nothing is published from here.
+ * The box is chatkit's `Composer`, the one Ask uses: say it or type it,
+ * Enter sends, and a failed send keeps the draft.
  */
 export function Inquire({ topic }: { topic: string }) {
-  const [open, setOpen] = useState(false);
-  const [message, setMessage] = useState('');
+  const contribution = useContribution(topic);
   const [replyTo, setReplyTo] = useState('');
-  const [busy, setBusy] = useState(false);
-  const [receipt, setReceipt] = useState('');
-  const [error, setError] = useState('');
 
-  async function send(event: React.FormEvent) {
-    event.preventDefault();
-    setBusy(true);
-    setError('');
-    try {
-      const response = await fetch('/api/contributions', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          message,
-          topic,
-          replyTo,
-          consent: true,
-        }),
-      });
-      const result = await response.json();
-      if (!response.ok) throw new Error(result.error || 'Could not send.');
-      setReceipt(result.data.receipt);
-      setMessage('');
-    } catch (e) {
-      setError(e instanceof Error ? e.message : 'Could not send. Please retry.');
-    } finally {
-      setBusy(false);
-    }
-  }
-
-  if (receipt) {
+  if (contribution.receipt) {
     return (
       <p className="inquire-receipt" role="status">
-        Received. Reference {receipt}. Nothing is published until a reviewer reads it.
+        Received. Reference {contribution.receipt}. Nothing is published until a reviewer reads it.
       </p>
     );
   }
 
-  if (!open) {
+  if (!contribution.contribute) {
     return (
-      <button type="button" className="inquire-open" onClick={() => setOpen(true)}>
+      <button
+        type="button"
+        className="inquire-open"
+        onClick={() => contribution.setContribute(true)}
+      >
         Know something, or want us to look?
       </button>
     );
   }
 
   return (
-    <form onSubmit={send} className="inquire-form">
-      <label htmlFor="inquire-message">What should be on this page?</label>
-      <textarea
-        id="inquire-message"
-        required
-        minLength={10}
-        maxLength={12000}
-        rows={4}
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
+    <div className="inquire-form">
+      <p className="inquire-label">What should be on this page?</p>
+      <Composer
+        ariaLabel="What should be on this page?"
         placeholder="A source, a correction, or a question to research."
+        voice={{ transcribeUrl: '/api/transcribe' }}
+        labels={{ send: 'Send' }}
+        sending={contribution.busy}
+        autoFocus
+        // The note under the box is the consent: pressing Send says yes to it.
+        onSend={(text) => contribution.send(text, { replyTo, consent: true })}
       />
+      {contribution.error && <p role="alert">{contribution.error}</p>}
       <label htmlFor="inquire-email">Email if you want a reply (optional)</label>
       <input
         id="inquire-email"
@@ -77,10 +57,6 @@ export function Inquire({ topic }: { topic: string }) {
         onChange={(e) => setReplyTo(e.target.value)}
       />
       <p className="inquire-note">Sending this notifies the research inbox. It does not publish.</p>
-      {error && <p role="alert">{error}</p>}
-      <button type="submit" disabled={busy} className="research-button">
-        {busy ? 'Sending…' : 'Send'}
-      </button>
-    </form>
+    </div>
   );
 }

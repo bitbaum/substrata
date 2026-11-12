@@ -41,7 +41,9 @@ Atlas and World are one map with two views (`/atlas`, `/atlas?view=world`).
 ## Gaps a stranger can fill
 
 `Inquire` posts to `/api/contributions` (existing inbox, rate-limited, not
-published). Use it wherever a row is thin or empty. GitHub correction remains
+published). Its message box is chatkit's `Composer`, the one Ask uses, so a
+reader can dictate; "Send evidence" beside Ask (`ContributeForm`) is the same
+box with an explicit consent tick. Use it wherever a row is thin or empty. GitHub correction remains
 for sourced errors.
 
 ## Packages in this layer

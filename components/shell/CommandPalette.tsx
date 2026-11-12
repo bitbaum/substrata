@@ -9,8 +9,9 @@
  * /api/search, the same index behind /search, and the last row always opens
  * the full results page for the query.
  */
-import React, { useEffect, useId, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useSearchAsYouType } from '@bitbaum/searchkit/react';
 
 import { SEARCH_TYPE_LABEL, segments, type SearchResult } from '@/lib/search-types';
 import { Highlight } from '@/components/portal/Highlight';
@@ -36,33 +37,24 @@ function pageRow(e: PaletteEntry): Row {
   return { key: e.key, href: e.href, group: e.group, title: e.label, sub: e.hint };
 }
 
-function useSearch(query: string): SearchResult | null {
+/**
+ * Search as you type is searchkit's: each keystroke aborts the request before
+ * it and a late answer to an older query is dropped. While a newer query
+ * loads, the last answer stays on screen. What stays here is the cache, so
+ * backspacing to an earlier query costs no request.
+ */
+function useResearch(query: string) {
   const cache = useRef(new Map<string, SearchResult>());
-  const [latest, setLatest] = useState<SearchResult | null>(null);
-  useEffect(() => {
-    if (query.length < 2) return;
-    const hit = cache.current.get(query);
-    const controller = new AbortController();
-    const t = setTimeout(
-      () => {
-        if (hit) return setLatest(hit);
-        fetch(`/api/search?q=${encodeURIComponent(query)}`, { signal: controller.signal })
-          .then((r) => (r.ok ? (r.json() as Promise<SearchResult>) : null))
-          .then((data) => {
-            if (!data) return;
-            cache.current.set(query, data);
-            setLatest(data);
-          })
-          .catch(() => {});
-      },
-      hit ? 0 : DEBOUNCE_MS,
-    );
-    return () => {
-      clearTimeout(t);
-      controller.abort();
-    };
-  }, [query]);
-  return query.length >= 2 && latest?.query === query ? latest : null;
+  const search = useCallback(async (text: string, signal: AbortSignal) => {
+    const hit = cache.current.get(text);
+    if (hit) return hit;
+    const r = await fetch(`/api/search?q=${encodeURIComponent(text)}`, { signal });
+    if (!r.ok) throw new Error(`Search answered ${r.status}`);
+    const data = (await r.json()) as SearchResult;
+    cache.current.set(text, data);
+    return data;
+  }, []);
+  return useSearchAsYouType(query, search, { debounceMs: DEBOUNCE_MS, minLength: 2 });
 }
 
 export function CommandPalette({
@@ -79,7 +71,9 @@ export function CommandPalette({
   const [q, setQ] = useState('');
   const [active, setActive] = useState(0);
   const query = q.trim();
-  const result = useSearch(query);
+  const { results: result, error } = useResearch(query);
+  /** The answer on screen may be for an earlier query while this one loads. */
+  const fresh = result?.query === query;
   useDialog(panel, onClose, input);
 
   const rows = useMemo<Row[]>(() => {
@@ -102,11 +96,14 @@ export function CommandPalette({
       key: '__all',
       href: searchHref(query),
       group: 'Search',
-      title: result ? `All ${result.total} results for “${query}”` : `Search for “${query}”`,
-      sub: 'Every bottleneck, company, country, policy, note and event.',
+      title:
+        result && fresh ? `All ${result.total} results for “${query}”` : `Search for “${query}”`,
+      sub: error
+        ? 'The research search did not answer. Open the full results page to try again.'
+        : 'Every bottleneck, company, country, policy, note and event.',
     };
     return [...pages.slice(0, PAGE_LIMIT), ...research, all];
-  }, [entries, query, result]);
+  }, [entries, query, result, fresh, error]);
 
   const current = Math.min(active, rows.length - 1);
 

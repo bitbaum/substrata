@@ -14,6 +14,8 @@
  * Pure: the same seed gives the same set, so a page served from a cache and
  * the page rendered fresh agree.
  */
+import { daysBetween, isISODate } from '@bitbaum/whenkit';
+
 import { CHAT_STARTERS } from '@/config/substrata-chat';
 import type { HomeAsk } from '@/lib/home-asks';
 import { FACETS, GENERATORS, LABEL_MAX, fits, type Facet, type Starter } from './starter-facets';
@@ -36,9 +38,8 @@ export function hash(text: string): number {
  * A seed that is not a date walks by its hash instead.
  */
 function dayOf(seed: string): number {
-  const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(seed);
-  if (!m) return hash(seed);
-  return Math.floor(Date.UTC(Number(m[1]), Number(m[2]) - 1, Number(m[3])) / 86_400_000);
+  const day = seed.slice(0, 10);
+  return isISODate(day) ? daysBetween('1970-01-01', day) : hash(seed);
 }
 
 const cache = new Map<Facet, Starter[]>();

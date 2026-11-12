@@ -176,3 +176,19 @@ test('the hero is one box — the composer configuration /chat uses — and the 
   assert.match(box, /savePending\(\{ text, attachments \}\)/, 'attachments travel to /chat');
   assert.equal((hero.match(/<h1/g) ?? []).length, 1);
 });
+
+test('landing page carries opengraph image generator and twitter card metadata', async () => {
+  const layout = read('app/layout.tsx');
+  assert.match(layout, /openGraph:\s*\{/, 'layout has openGraph config');
+  assert.match(
+    layout,
+    /twitter:\s*\{[\s\S]*?card:\s*['"]summary_large_image['"]/,
+    'twitter card is summary_large_image',
+  );
+  const og = await import('../app/opengraph-image');
+  assert.equal(og.contentType, 'image/png');
+  assert.deepEqual(og.size, { width: 1200, height: 630 });
+  assert.ok(typeof og.alt === 'string' && og.alt.length > 0);
+  const rendered = og.default();
+  assert.ok(rendered !== null, 'opengraph-image generates an ImageResponse');
+});

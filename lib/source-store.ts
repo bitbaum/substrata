@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
 
+import { searchNotes } from '@/lib/search-note';
 import { evidenceKey, type EvidenceCandidate } from '@/config/substrata-evidence';
 import { database } from './db';
 import { examineRow, unsourcedRows } from './source';
@@ -80,6 +81,7 @@ export async function runScheduledSourcing(
   const runId = run.rows[0].id;
 
   const outcome: SourceOutcome = { examined: [], found: 0, couldNotLook: 0 };
+  const notes = searchNotes();
 
   for (const { material, producer } of queue) {
     if (Date.now() - started > budgetMs || signal?.aborted) {
@@ -87,7 +89,11 @@ export async function runScheduledSourcing(
     }
     const key = evidenceKey(material, producer.name);
     const remainingMs = Math.max(0, budgetMs - (Date.now() - started));
-    const { row } = await examineRow(producer, material, { signal, timeoutMs: remainingMs });
+    const { row } = await examineRow(producer, material, {
+      signal,
+      timeoutMs: remainingMs,
+      onSearch: notes.add,
+    });
     if (row.status === 'could_not_look') outcome.couldNotLook += 1;
 
     for (const candidate of row.candidates) {
@@ -123,9 +129,10 @@ export async function runScheduledSourcing(
 
   await db.query(
     `UPDATE research_source_runs
-        SET finished_at = now(), rows_examined = $2, candidates_found = $3, could_not_look = $4
+        SET finished_at = now(), rows_examined = $2, candidates_found = $3, could_not_look = $4,
+            search_note = $5
       WHERE id = $1`,
-    [runId, outcome.examined.length, outcome.found, outcome.couldNotLook],
+    [runId, outcome.examined.length, outcome.found, outcome.couldNotLook, notes.note],
   );
 
   return outcome;

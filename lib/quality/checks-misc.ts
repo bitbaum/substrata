@@ -3,6 +3,8 @@
  * boards, learning paths) and the freshness criterion, which reads the ages
  * config/substrata-freshness.ts already declares rather than restating them.
  */
+import { isISODate } from '@bitbaum/whenkit';
+
 import jobBoards from '@/research/job-boards.json';
 import learningPaths from '@/research/learning-paths.json';
 import eia from '@/research/eia-energy.json';
@@ -161,7 +163,7 @@ export function miscChecks(now = new Date()): CheckResult[] {
       ([slug, b]) =>
         b.evidence &&
         b.evidence.length > 10 &&
-        /^\d{4}-\d{2}-\d{2}$/.test(b.checkedOn) &&
+        isISODate(b.checkedOn) &&
         (b.careersUrl === null || web(b.careersUrl))
           ? null
           : {
@@ -180,7 +182,7 @@ export function miscChecks(now = new Date()): CheckResult[] {
       },
       learningPaths.paths,
       (p) =>
-        web(p.url) && /^\d{4}-\d{2}-\d{2}$/.test(p.checkedOn)
+        web(p.url) && isISODate(p.checkedOn)
           ? null
           : { row: p.name, problem: 'no link or date', link: p.url },
     ),

@@ -40,6 +40,10 @@
         {
           "file": "lib/chat-web.ts",
           "symbols": ["readPage", "webSearch"]
+        },
+        {
+          "file": "lib/quality/page-text.ts",
+          "symbols": ["defaultLookup", "validateFetchTarget"]
         }
       ]
     },
@@ -52,6 +56,14 @@
         },
         {
           "file": "app/_home/AskBox.tsx",
+          "symbols": ["Composer"]
+        },
+        {
+          "file": "components/portal/Inquire.tsx",
+          "symbols": ["Composer"]
+        },
+        {
+          "file": "components/portal/chat/ContributeForm.tsx",
           "symbols": ["Composer"]
         },
         {
@@ -96,6 +108,18 @@
         {
           "file": "components/portal/chat/chartRenderers.tsx",
           "symbols": ["BarChart", "LineChart", "ShareBars", "StatTiles", "Timeline"]
+        },
+        {
+          "file": "components/portal/Status.tsx",
+          "symbols": ["Meter"]
+        },
+        {
+          "file": "components/quality/Trend.tsx",
+          "symbols": ["LineChart"]
+        },
+        {
+          "file": "lib/profile/modules/quantities.tsx",
+          "symbols": ["Meter"]
         }
       ]
     },
@@ -106,6 +130,42 @@
           "file": "components/ui/date-input.tsx",
           "symbols": ["DateInput"],
           "usageFiles": ["components/review/LeadDraft.tsx"]
+        },
+        {
+          "file": "lib/entry/vocab.ts",
+          "symbols": ["isISODate"]
+        },
+        {
+          "file": "lib/registry/schema.ts",
+          "symbols": ["isISODate"]
+        },
+        {
+          "file": "lib/graph/validate.ts",
+          "symbols": ["isISODate"]
+        },
+        {
+          "file": "lib/event-rules.ts",
+          "symbols": ["isISODate"]
+        },
+        {
+          "file": "lib/event-draft.ts",
+          "symbols": ["isISODate"]
+        },
+        {
+          "file": "lib/quality/checks-corpus.ts",
+          "symbols": ["isISODate"]
+        },
+        {
+          "file": "lib/quality/checks-misc.ts",
+          "symbols": ["isISODate"]
+        },
+        {
+          "file": "lib/market-data/prices/compute.ts",
+          "symbols": ["addDays", "daysBetween"]
+        },
+        {
+          "file": "lib/starters.ts",
+          "symbols": ["daysBetween", "isISODate"]
         }
       ]
     },
@@ -115,6 +175,22 @@
         {
           "file": "components/portal/Board.tsx",
           "symbols": ["writeQuery"]
+        },
+        {
+          "file": "lib/universe/directory.ts",
+          "symbols": ["parseQuery", "applyQuery", "ListSpec"]
+        },
+        {
+          "file": "app/data/series/page.tsx",
+          "symbols": ["parseQuery", "applyQuery", "matches", "ListSpec"]
+        },
+        {
+          "file": "lib/list-more.ts",
+          "symbols": ["writeQuery"]
+        },
+        {
+          "file": "lib/careers-query.ts",
+          "symbols": ["likeContains"]
         }
       ]
     },
@@ -128,6 +204,10 @@
         {
           "file": "lib/search/build.ts",
           "symbols": ["createVocabulary"]
+        },
+        {
+          "file": "components/shell/CommandPalette.tsx",
+          "symbols": ["useSearchAsYouType"]
         }
       ]
     },

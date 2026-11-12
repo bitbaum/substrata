@@ -49,18 +49,13 @@ export function ComposerBeside({
         ) : (
           <>
             Have a source we should hold?{' '}
-            <button type="button" onClick={() => chat.setContribute((v) => !v)}>
+            <button type="button" onClick={() => chat.setContribute(!chat.contribute)}>
               {chat.contribute ? 'Cancel' : 'Send evidence'}
             </button>
           </>
         )}
       </p>
-      {chat.error && (
-        <p className="ask-aside" role="alert">
-          {chat.error}
-        </p>
-      )}
-      {chat.contribute && <ContributeForm busy={chat.busy} onSubmit={chat.sendContribution} />}
+      {chat.contribute && <ContributeForm chat={chat} />}
     </>
   );
 }

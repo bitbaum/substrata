@@ -38,21 +38,24 @@ export function stripNoise(sql: string): string {
 }
 
 /** What a file promises to leave behind, as far as it can be read without a SQL parser. */
+// Identifiers may be double-quoted ("accounts", as drizzle writes them): read
+// unquoted, `create table if not exists "users"` named a table called "if"
+// and 017-accounts.sql looked incomplete on every database (2026-11-12).
 export function declaredObjects(sql: string): Declared {
   const text = stripNoise(sql);
   const tables = [
-    ...text.matchAll(/\bcreate\s+table\s+(?:if\s+not\s+exists\s+)?(?:public\.)?(\w+)/gi),
+    ...text.matchAll(/\bcreate\s+table\s+(?:if\s+not\s+exists\s+)?(?:"?public"?\.)?"?(\w+)"?/gi),
   ];
   const indexes = [
     ...text.matchAll(
-      /\bcreate\s+(?:unique\s+)?index\s+(?:concurrently\s+)?(?:if\s+not\s+exists\s+)?(\w+)/gi,
+      /\bcreate\s+(?:unique\s+)?index\s+(?:concurrently\s+)?(?:if\s+not\s+exists\s+)?"?(\w+)"?/gi,
     ),
   ];
   const columns: [string, string][] = [];
   for (const alter of text.matchAll(
-    /\balter\s+table\s+(?:if\s+exists\s+)?(?:only\s+)?(?:public\.)?(\w+)([^;]*)/gi,
+    /\balter\s+table\s+(?:if\s+exists\s+)?(?:only\s+)?(?:"?public"?\.)?"?(\w+)"?([^;]*)/gi,
   )) {
-    for (const add of alter[2].matchAll(/\badd\s+column\s+(?:if\s+not\s+exists\s+)?(\w+)/gi)) {
+    for (const add of alter[2].matchAll(/\badd\s+column\s+(?:if\s+not\s+exists\s+)?"?(\w+)"?/gi)) {
       columns.push([alter[1].toLowerCase(), add[1].toLowerCase()]);
     }
   }

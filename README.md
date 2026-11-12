@@ -61,7 +61,9 @@ palette.
   in the account menu, never in the research list.
 - **⌘K / Ctrl+K / "/"** opens the command palette: every page (including the
   reader views, data and project pages that have no sidebar row) plus live
-  results from the search index; Enter on the last row opens `/search`.
+  results from the search index, typed through `@bitbaum/searchkit/react`'s
+  `useSearchAsYouType` (the last answer stays while a newer one loads, and a
+  failed search says so); Enter on the last row opens `/search`.
 - **Footer**: sitekit's `SiteFooter` (application appearance): About, Notes,
   Changelog, Roadmap, Join, Source, Correction, and the freshness badge.
 
@@ -99,7 +101,11 @@ Network checks (links with 3 tries, quotes still on the page, SEC ticker file,
 OpenFIGI mapping, USGS values on the chapter PDF) run every six hours on a
 rotation (`/api/cron/quality`, timer `appcron-substrata-quality`) into
 `research_quality_checks`; each run's scorecard goes to `research_quality_runs`
-for the trend (`scripts/db/014-quality.sql`). On demand: `pnpm run quality`
+for the trend (`scripts/db/014-quality.sql`). Every check that opens a link
+from the corpus fetches through `guardedFetch` (`lib/quality/page-text.ts`): ai-kit's `validateFetchTarget` on
+each redirect hop, so a source link that redirects into a private network is
+refused (`test/quality-network.test.ts`); the SEC ticker file and OpenFIGI
+calls go to their own fixed hosts. On demand: `pnpm run quality`
 (pure), `-- --network` (one slice), `-- --all` (everything), `-- --json out.json`.
 No AI anywhere in it.
 
@@ -192,6 +198,9 @@ and `pnpm run research:accept-events` carries it into
 `config/substrata-events-accepted.json` for a commit. The front page also shows
 up to four recent unchecked finds that report a change, labelled as not yet
 checked.
+
+How every scheduled run works, what it needs, where it leaves a trace and how
+to tell why it stopped: `docs/operations/auto-updates.md`.
 
 There is no hand-run CLI and no committed worklist any more (removed
 2026-09-25): SearXNG is only reachable from the box, and a second queue in git

@@ -69,26 +69,10 @@
   color: var(--color-fg-tertiary);
   margin: 0.5rem 0;
 }
+/* The run history is chartkit's LineChart; this only bounds its width. */
 .quality-trend {
   margin: 0.5rem 0;
-  max-width: 20rem;
-}
-.quality-trend svg {
-  width: 100%;
-  height: 2.75rem;
-}
-.quality-trend-ref {
-  stroke: var(--color-border-strong);
-  stroke-dasharray: 2 3;
-}
-.quality-trend-line {
-  fill: none;
-  stroke: var(--color-fg-primary);
-  stroke-width: 1.5;
-}
-.quality-trend figcaption {
-  font-size: 0.7rem;
-  color: var(--color-fg-muted);
+  max-width: 24rem;
 }
 .quality-check {
   margin-top: 1rem;

@@ -115,15 +115,23 @@ function fake(opts: { ledger?: string[]; tables?: string[] }): { run: SqlRunner;
     if (/to_regclass\('public\.schema_migrations'\)/.test(sql)) return opts.ledger ? 't' : 'f';
     if (/FROM public\.schema_migrations/.test(sql))
       return [String(opts.ledger!.length), ...opts.ledger!].join('\n');
+    const missing: string[] = [];
     if (/unnest/.test(sql)) {
-      const missing: string[] = [];
       for (const m of sql.matchAll(/'(table|index) ' \|\| n FROM unnest\(ARRAY\[([^\]]*)\]/g)) {
         for (const n of m[2].matchAll(/'([a-z0-9_]+)'/g)) {
           if (!(opts.tables ?? []).includes(n[1])) missing.push(`${m[1]} ${n[1]}`);
         }
       }
-      return missing.join('\n');
     }
+    if (/'column ' \|\| t/.test(sql)) {
+      // Columns are "table.column" in `tables`; the query is a VALUES list of pairs.
+      const values = sql.slice(sql.indexOf('(VALUES'));
+      for (const m of values.matchAll(/\('([a-z0-9_]+)','([a-z0-9_]+)'\)/g)) {
+        if (!(opts.tables ?? []).includes(`${m[1]}.${m[2]}`))
+          missing.push(`column ${m[1]}.${m[2]}`);
+      }
+    }
+    if (/unnest|'column '/.test(sql)) return missing.join('\n');
     if (/FROM pg_tables/.test(sql)) return '';
     throw new Error(`unexpected sql: ${sql.slice(0, 40)}`);
   };
@@ -142,20 +150,25 @@ test('plan, ledger present: recorded files skip, new ones apply, nothing is prob
 });
 
 test('plan, first run: baseline only what exists; say what is missing for the rest', async () => {
-  const have = files.slice(0, -1).flatMap((f) => {
-    const d = declaredObjects(f.sql);
-    return [...d.tables, ...d.indexes];
-  });
+  const objects = (sql: string) => {
+    const d = declaredObjects(sql);
+    return [...d.tables, ...d.indexes, ...d.columns.map(([t, c]) => `${t}.${c}`)];
+  };
+  const have = files.slice(0, -1).flatMap((f) => objects(f.sql));
   const plan = await planMigrations(fake({ tables: have }).run, files);
   const last = plan.steps.at(-1)!;
-  // The newest file, whichever it is; it creates at least one table.
+  // The newest file, whichever it is; it declares at least one table, index or column.
   const newest = files.at(-1)!;
-  const table = declaredObjects(newest.sql).tables[0];
+  const object = objects(newest.sql)[0];
+  assert.ok(object, `${newest.name} declares nothing the plan can check`);
   assert.equal(last.name, newest.name);
   assert.equal(last.action, 'apply');
-  assert.ok(last.missing.some((m) => m.includes(table)));
+  assert.ok(last.missing.some((m) => m.includes(object)));
   assert.ok(plan.steps.slice(0, -1).every((s) => s.action === 'baseline'));
-  assert.match(describePlan(plan).join('\n'), new RegExp(`missing: .*${table}`));
+  assert.match(
+    describePlan(plan).join('\n'),
+    new RegExp(`missing: .*${object.replace('.', '\\.')}`),
+  );
 });
 
 test('plan refuses a ledger read that came back short', async () => {
@@ -232,4 +245,23 @@ test('install: writes only what differs, reloads once, enables every timer, noth
   );
   await installUnits(remote, units, again, () => undefined);
   assert.ok(!sent.some((c) => c.startsWith('sudo tee') || c.includes('daemon-reload')));
+});
+
+test('quoted identifiers are read as names, never as the word before them', () => {
+  const accounts = files.find((f) => f.name === '017-accounts.sql')!;
+  const d = declaredObjects(accounts.sql);
+  assert.deepEqual(d.tables.sort(), [
+    'accounts',
+    'passkeys',
+    'sessions',
+    'two_factors',
+    'users',
+    'verifications',
+  ]);
+  assert.ok(d.indexes.includes('accounts_user_id_idx'));
+  assert.ok(!d.tables.includes('if') && !d.indexes.includes('if'));
+  assert.deepEqual(
+    declaredObjects('ALTER TABLE "public"."t" ADD COLUMN IF NOT EXISTS "c" text;').columns,
+    [['t', 'c']],
+  );
 });
