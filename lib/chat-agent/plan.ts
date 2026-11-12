@@ -25,8 +25,10 @@ import { graphCalls } from './graph-ask';
 import { marketCalls } from './market-ask';
 import type { ToolRequest } from './parse';
 import { bottleneckIn, bottlenecksIn, companiesIn, countriesIn } from './question';
+import { JOBS, webQuery } from './web-query';
 
 export { bottleneckIn, bottlenecksIn, companiesIn, countriesIn } from './question';
+export { webQuery } from './web-query';
 
 export interface Plan {
   calls: ToolRequest[];
@@ -34,32 +36,6 @@ export interface Plan {
   confident: boolean;
   /** What to search the web for when a planned lookup comes back empty. */
   webQuery: string;
-}
-
-/**
- * The search a web engine should run for the question: its subject, not its
- * wording. Seen live (2026-10-22): "What open jobs are there in Niger?" sent
- * verbatim brought back OpenAI and the Open University — the engine matched
- * "open". A jobs question searches for jobs in the country it names; any
- * other question loses its question words and keeps the names it carries.
- */
-export function webQuery(question: string): string {
-  const q = question.toLowerCase();
-  const countries = countriesIn(question);
-  const family = familyIn(question);
-  const named = bottleneckIn(question);
-  if (JOBS.test(q)) {
-    const where = countries[0] ? ` in ${countries[0].name}` : '';
-    const what = family ? family.replace(/-/g, ' ') : named ? named.name : '';
-    return `${what} jobs${where}`.trim();
-  }
-  const stripped = question
-    .replace(/^\s*(what|which|where|when|why|how (many|much|does|do|is|are))\b\s*/i, '')
-    .replace(/\b(is|are|was|were|do|does|did|can|could|there|tell me|show me|about)\b\s*/gi, ' ')
-    .replace(/[?.!]+\s*$/, '')
-    .replace(/\s+/g, ' ')
-    .trim();
-  return stripped || question.trim();
 }
 
 const NEWS =
@@ -70,8 +46,6 @@ const MAKERS = /\b(who makes|makers?|producers?|suppliers?|who (supplies|produce
 const DEPENDS =
   /\b(depends?|depending|dependen(t|ts|cy|cies)|rests? on|downstream|upstream|supply chain)\b/;
 
-const JOBS =
-  /\b(jobs?|roles?|hiring|hire|careers?|vacanc(y|ies)|openings?|positions?|retrain(ing)?|employers?|work (for|in|at))\b/;
 const RESOURCE_ASK =
   /\b(produc(e|es|er|ers|tion)|suppl(y|ies|ier|iers)|reserves?|mines?|mining|who else|output|country|countries)\b/;
 const SCENARIO =
