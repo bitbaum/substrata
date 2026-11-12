@@ -9,6 +9,7 @@ import assert from 'node:assert/strict';
 
 import recorded from './fixtures/kz-uranium-producers-in-2026-10-24.json';
 import { defaultDeny, kindOf, type DenyContext } from '../lib/chat-agent/default-deny';
+import { tidy } from '../lib/chat-agent/default-deny-tidy';
 import { tableFactsIn } from '../lib/chat-agent/table-guard';
 
 const facts = tableFactsIn(recorded.results)!;
@@ -177,4 +178,20 @@ test('a table with no row left goes whole, never as a bare rule', () => {
 test('a line opening in bold is not taken for a bullet', () => {
   const { answer } = defaultDeny('**What the sources show** [W1]', ctx);
   assert.equal(answer.trim(), '**What the sources show** [W1]');
+});
+
+test('an unclosed bracket goes, never the "(" of a link beside it', () => {
+  // Seen live 2026-11-12: the sentence that closed the bracket was cut, and
+  // the tidy took the link's own "(" — "[label]https://…" reached the reader.
+  const line =
+    'Beijing moved to restrict exports ([Edelgase: Exportkontrollen auf Helium](https://logistik-heute.de/news/helium.html), reporting on a 16.';
+  assert.equal(
+    tidy([line]),
+    'Beijing moved to restrict exports [Edelgase: Exportkontrollen auf Helium](https://logistik-heute.de/news/helium.html), reporting on a 16.',
+  );
+  // An opening note with no close still loses its "(".
+  assert.equal(
+    tidy(['(Note: USGS prints no capacity for it.']),
+    'Note: USGS prints no capacity for it.',
+  );
 });

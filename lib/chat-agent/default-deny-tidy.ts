@@ -9,6 +9,16 @@ const SETTLE = /\bwould settle\b|\bsource that would\b|\bwould (fill|close) (tha
 const SPLIT =
   /(?<=(?<!\b(?:Inc|Corp|Ltd|Co|Plc|plc|JSC|LLP|B\.V|N\.V|S\.A|e\.g|i\.e|No|St))[.!?])\s+(?=[A-Z“"*[(])/;
 
+/** Where the last "(" with no ")" sits, a link's "](" excepted; -1 when every one closes. */
+function unclosedParen(line: string): number {
+  const open: number[] = [];
+  for (let i = 0; i < line.length; i++) {
+    if (line[i] === '(') open.push(i);
+    else if (line[i] === ')') open.pop();
+  }
+  return open.filter((i) => line[i - 1] !== ']').at(-1) ?? -1;
+}
+
 /**
  * What is left once sentences have gone, cleaned so nothing points at nothing:
  * - a "what would settle it" sentence goes when no gap sentence survived to say
@@ -32,8 +42,16 @@ export function tidy(lines: string[]): string {
       line = line.replace(/\)(?=[.!?:]?\s*$)|\)(?![\s\S]*\))/, '');
     // An opening with no close ("*(Note: USGS prints no capacity…", seen live,
     // Mozambique): the "(" goes, and a lone "*" of emphasis that never closes.
-    while ((line.match(/\(/g) ?? []).length > (line.match(/\)/g) ?? []).length)
-      line = line.replace(/^(\s*(?:[-*•>]\s+)?\**)\(|\((?![\s\S]*\()/, '$1');
+    while ((line.match(/\(/g) ?? []).length > (line.match(/\)/g) ?? []).length) {
+      // The "(" that has no ")", not the last one on the line: the last one is
+      // often a link's own "](", and taking it left "[label]https://…" in the
+      // answer (seen live 2026-11-12, when a sentence inside brackets went).
+      const at = unclosedParen(line);
+      line =
+        at >= 0
+          ? line.slice(0, at) + line.slice(at + 1)
+          : line.replace(/^(\s*(?:[-*•>]\s+)?\**)\(|\((?![\s\S]*\()/, '$1');
+    }
     if ((line.replace(/\*\*/g, '').match(/\*/g) ?? []).length % 2)
       line = line.replace(/^(\s*(?:[-•>]\s+)?)\*(?!\*)/, '$1');
     return line;
