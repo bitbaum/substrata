@@ -4,6 +4,7 @@
  */
 import type { SearchReport } from '@/lib/search-note';
 import { createHash } from 'node:crypto';
+import { searchProviders } from '@/lib/web-search';
 import { webSearch, readPage } from '@bitbaum/ai-kit/web';
 
 import { MATERIALS } from '@/config/substrata';
@@ -138,7 +139,7 @@ export async function sweep(
   const search = await webSearch(
     query,
     { limit: RESULTS_PER_NODE, timeoutMs: searchTimeout },
-    customFetch ? { fetch: customFetch } : {},
+    { providers: searchProviders(customFetch) },
   );
   options.onSearch?.(search);
 

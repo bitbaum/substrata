@@ -1,5 +1,7 @@
-import { defaultProviders, webSearch } from '@bitbaum/ai-kit/web';
+import { webSearch } from '@bitbaum/ai-kit/web';
 import { searchNote } from '@/lib/search-note';
+import { webLookupEnabled } from '@/lib/chat-web';
+import { searchProviders } from '@/lib/web-search';
 
 export const dynamic = 'force-dynamic';
 
@@ -14,8 +16,14 @@ let last: { at: number; body: Probe } | null = null;
 let inflight: Promise<Probe> | null = null;
 
 async function probe(): Promise<Probe> {
-  const backends = defaultProviders(process.env).map((p) => p.name);
-  const search = await webSearch(PROBE_QUERY, { limit: 3, timeoutMs: 8000, lang: 'en' });
+  // The same gate as Ask: with no configured backend, nothing is searched at all.
+  const providers = webLookupEnabled() ? searchProviders() : [];
+  const backends = providers.map((p) => p.name);
+  const search = await webSearch(
+    PROBE_QUERY,
+    { limit: 3, timeoutMs: 8000, lang: 'en' },
+    { providers },
+  );
   const body = {
     ok: search.status === 'found',
     status: search.status,

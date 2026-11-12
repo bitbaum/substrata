@@ -1,4 +1,5 @@
-import { readPage, webSearch } from '@bitbaum/ai-kit/web';
+import { defaultProviders, readPage, webSearch } from '@bitbaum/ai-kit/web';
+import { searchProviders } from './web-search';
 import {
   passagesFor,
   printedDate,
@@ -75,9 +76,8 @@ export type WebLookup =
  * deployment that is not.
  */
 export function webLookupEnabled(env: NodeJS.ProcessEnv = process.env): boolean {
-  return Boolean(
-    env.SEARXNG_URL?.trim() || env.BRAVE_SEARCH_API_KEY?.trim() || env.TAVILY_API_KEY?.trim(),
-  );
+  // ai-kit's own list of what `webSearch` will try, so this cannot drift from it.
+  return defaultProviders(env).length > 0;
 }
 
 /** Pages read per search: four, in parallel, each bounded by its own timeout. */
@@ -172,11 +172,15 @@ export async function lookUp(
 ): Promise<WebLookup> {
   if (!webLookupEnabled(env)) return { status: 'off' };
 
-  const search = await deps.search(question, {
-    limit: 6,
-    timeoutMs: 6000,
-    lang: searchLanguage(question),
-  });
+  const search = await deps.search(
+    question,
+    {
+      limit: 6,
+      timeoutMs: 6000,
+      lang: searchLanguage(question),
+    },
+    { providers: searchProviders(globalThis.fetch, env) },
+  );
   if (search.status === 'could_not_look') return { status: 'could_not_look' };
   if (search.status === 'nothing' || search.results.length === 0) return { status: 'nothing' };
 
