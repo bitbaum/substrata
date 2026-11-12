@@ -1,7 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { CommentThread, type CommentItem, type CommentTransport } from '@bitbaum/chatkit/react';
+import {
+  CommentRefused,
+  CommentThread,
+  type CommentItem,
+  type CommentTransport,
+} from '@bitbaum/chatkit/react';
 
 import { useReader } from '@/components/shell/useReader';
 import { signInHref } from '@/lib/sign-in-href';
@@ -28,6 +33,10 @@ async function loadComments(path: string): Promise<CommentItem[]> {
 
 /** The day, as the page has always shown it (YYYY-MM-DD, UTC). */
 const day = (at: Date) => at.toISOString().slice(0, 10);
+
+/** The route's floor (app/api/comments/route.ts) and its own words for it. */
+const MIN_COMMENT = 3;
+const SHORT_COMMENT = 'Write a short comment.';
 
 /**
  * The discussion under a note, a lesson, a resource or a profile. The thread
@@ -59,13 +68,18 @@ export function PageDiscussion({ path }: { path: string }) {
 
   const transport: CommentTransport = {
     post: async (text) => {
+      // The route refuses fewer than 3 characters; say so before sending.
+      if (text.trim().length < MIN_COMMENT) throw new CommentRefused(SHORT_COMMENT);
       const response = await fetch('/api/comments', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ path, body: text }),
       });
       const result = (await response.json()) as { data?: Stored; error?: string };
-      if (!response.ok || !result.data) throw new Error(result.error || 'Could not comment.');
+      // The route's refusals are this site's own words ("Hourly comment limit
+      // reached.", "Sign in to comment."): shown as they are, not as "try again".
+      if (!response.ok || !result.data)
+        throw result.error ? new CommentRefused(result.error) : new Error('Could not comment.');
       return toComment(result.data);
     },
   };
@@ -124,7 +138,8 @@ export function PageDiscussion({ path }: { path: string }) {
           comments={comments}
           transport={transport}
           viewer={reader?.signedIn ? { name: reader.name ?? 'you' } : null}
-          signInHref={signInHref(path)}
+          // Only once /api/me has said sign-in exists here: no link to a sign-in that is off.
+          signInHref={reader?.authEnabled ? signInHref(path) : undefined}
           voice={{ transcribeUrl: '/api/transcribe' }}
           formatTime={day}
           headingLevel={3}
