@@ -27,13 +27,11 @@ function useShortcutLabel(): string {
 export function TopBar({
   pathname,
   name,
-  signedIn,
   account,
   onSearch,
 }: {
   pathname: string;
   name: string;
-  signedIn: boolean;
   account: ReactNode;
   onSearch: () => void;
 }) {
@@ -66,15 +64,16 @@ export function TopBar({
             Ask
           </button>
         )}
-        {signedIn && (
-          <Link
-            href={ACCOUNT_NAV.desk.href}
-            className="shell-topbar-link"
-            aria-current={isCurrent(pathname, ACCOUNT_NAV.desk.href) ? 'page' : undefined}
-          >
-            {ACCOUNT_NAV.desk.label}
-          </Link>
-        )}
+        {/* For every reader, not only a signed-in one: signed out, /account
+            says what the desk is and offers sign-in. Hidden behind the
+            session, nobody without an account could find it (2026-11-12). */}
+        <Link
+          href={ACCOUNT_NAV.desk.href}
+          className="shell-topbar-link"
+          aria-current={isCurrent(pathname, ACCOUNT_NAV.desk.href) ? 'page' : undefined}
+        >
+          {ACCOUNT_NAV.desk.label}
+        </Link>
         <Link
           href={NAV_ACTION.href}
           className="shell-join"

@@ -94,13 +94,7 @@ export function AppFrame({
       </a>
       <Sidebar pathname={pathname} name={name} />
       <div className="shell-column">
-        <TopBar
-          pathname={pathname}
-          name={name}
-          signedIn={signedIn}
-          account={account}
-          onSearch={openPalette}
-        />
+        <TopBar pathname={pathname} name={name} account={account} onSearch={openPalette} />
         <main id="main" className="shell-page">
           {children}
         </main>

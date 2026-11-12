@@ -55,7 +55,8 @@ palette.
   browser). **768–1023px**: the rail, icon over label; each section opens a
   flyout. **<768px**: four tabs and "More" at the bottom, above the
   safe-area inset; the Ask button sits above the tab bar.
-- **Top bar**: search (opens the palette), `Join`, and the account menu.
+- **Top bar**: search (opens the palette), `Desk`, `Join`, and the account menu.
+  `/portal` and `/desk` redirect to the desk at `/account`.
   Personal pages — Desk, Settings, the reviewer Inbox — and sign-in/out live
   in the account menu, never in the research list.
 - **⌘K / Ctrl+K / "/"** opens the command palette: every page (including the
