@@ -32,6 +32,14 @@
         {
           "file": "lib/byok-ask.ts",
           "symbols": ["complete"]
+        },
+        {
+          "file": "lib/chat-agent/turn.ts",
+          "symbols": ["completeStream", "createLinkCooldown", "freeChain", "usableChain"]
+        },
+        {
+          "file": "lib/chat-web.ts",
+          "symbols": ["readPage", "webSearch"]
         }
       ]
     },
@@ -40,7 +48,11 @@
       "bindings": [
         {
           "file": "components/portal/ResearchChat.tsx",
-          "symbols": ["ChatScreen", "ChatThread", "Composer"]
+          "symbols": ["ChatApp", "localConversationStore"]
+        },
+        {
+          "file": "app/_home/AskBox.tsx",
+          "symbols": ["Composer"]
         }
       ]
     },
