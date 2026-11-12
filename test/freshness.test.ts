@@ -14,6 +14,7 @@ import { join } from 'node:path';
 
 import { DATASETS, FEEDS } from '../config/substrata-freshness';
 import { ageDays, datasetState, feedState, queueState, worstOf } from '../lib/freshness/status';
+import { failureNote, feedSql } from '../lib/freshness/read';
 
 test('no committed dataset is older than its declared maximum age', () => {
   const now = new Date();
@@ -121,4 +122,38 @@ test('the machine face /api/health/freshness answers 200 without failing page lo
   assert.equal(typeof body.state, 'string');
   assert.ok(Array.isArray(body.feeds));
   assert.ok(Array.isArray(body.datasets));
+});
+
+test('a failing feed says why: its last failed run crashed, or achieved nothing', async () => {
+  for (const feed of FEEDS) {
+    assert.match(feed.failedMeans, /^In the last failed run, .+\.$/, feed.id);
+    assert.equal(failureNote(feed, false), feed.failedMeans);
+    assert.match(failureNote(feed, true), /did not finish/);
+  }
+  // The query itself, against a real Postgres: which kind the last failure was.
+  const { PGlite } = await import('@electric-sql/pglite');
+  const db = new PGlite();
+  await db.exec(`CREATE TABLE research_sweep_runs (
+    id bigserial PRIMARY KEY, started_at timestamptz NOT NULL DEFAULT now(), finished_at timestamptz,
+    nodes_swept integer NOT NULL DEFAULT 0, candidates_found integer NOT NULL DEFAULT 0,
+    could_not_look integer NOT NULL DEFAULT 0)`);
+  const sweep = FEEDS.find((f) => f.id === 'sweep')!;
+  const read = async () =>
+    (
+      await db.query<{ last_ok: Date | null; last_failure: Date | null; crashed: boolean | null }>(
+        feedSql(sweep),
+      )
+    ).rows[0];
+  assert.equal((await read()).crashed, null);
+  // A run in which every search could not look: failed, not crashed.
+  await db.exec(`INSERT INTO research_sweep_runs(started_at, finished_at, nodes_swept, could_not_look)
+    VALUES (now() - interval '3 hours', now() - interval '3 hours', 12, 12)`);
+  let row = await read();
+  assert.equal(row.crashed, false);
+  assert.ok(row.last_failure && !row.last_ok);
+  // A later run that never finished: crashed.
+  await db.exec(`INSERT INTO research_sweep_runs(started_at) VALUES (now() - interval '2 hours')`);
+  row = await read();
+  assert.equal(row.crashed, true);
+  await db.close();
 });

@@ -69,20 +69,34 @@ export interface FreshnessReport {
   attention: string[];
 }
 
-async function readFeed(feed: Feed, sweepEvery: number): Promise<FeedRow> {
-  const everyHours = feed.everyHours === 'settings' ? sweepEvery : feed.everyHours;
-  // Table names and conditions are constants from the config, never input.
-  const sql = `SELECT
+/** One row about a feed's runs. Table names and conditions are constants from the config, never input. */
+export function feedSql(feed: Pick<Feed, 'table' | 'failedWhen'>): string {
+  return `SELECT
       (SELECT max(finished_at) FROM ${feed.table}
         WHERE finished_at IS NOT NULL AND NOT (${feed.failedWhen})) AS last_ok,
       (SELECT max(started_at) FROM ${feed.table}
         WHERE (finished_at IS NULL AND started_at < now() - interval '${CRASHED_AFTER_MINUTES} minutes')
            OR (finished_at IS NOT NULL AND (${feed.failedWhen}))) AS last_failure,
+      (SELECT finished_at IS NULL FROM ${feed.table}
+        WHERE (finished_at IS NULL AND started_at < now() - interval '${CRASHED_AFTER_MINUTES} minutes')
+           OR (finished_at IS NOT NULL AND (${feed.failedWhen}))
+        ORDER BY started_at DESC LIMIT 1) AS crashed,
       (SELECT count(*) FROM ${feed.table} WHERE started_at > now() - interval '7 days') AS runs`;
+}
+
+/** Why a feed is failing, in words: its last failed run crashed, or achieved nothing. */
+export function failureNote(feed: Pick<Feed, 'failedMeans'>, crashed: boolean): string {
+  return crashed ? 'The last failed run started and did not finish.' : feed.failedMeans;
+}
+
+async function readFeed(feed: Feed, sweepEvery: number): Promise<FeedRow> {
+  const everyHours = feed.everyHours === 'settings' ? sweepEvery : feed.everyHours;
+  const sql = feedSql(feed);
   try {
     const result = await database().query<{
       last_ok: Date | null;
       last_failure: Date | null;
+      crashed: boolean | null;
       runs: string;
     }>(sql);
     const row = result.rows[0];
@@ -90,15 +104,20 @@ async function readFeed(feed: Feed, sweepEvery: number): Promise<FeedRow> {
       lastOk: row?.last_ok?.toISOString() ?? null,
       lastFailure: row?.last_failure?.toISOString() ?? null,
     };
+    const state = feed.onDemand ? 'demand' : feedState(reading, everyHours);
     return {
       feed,
       everyHours,
       ...reading,
       runsThisWeek: Number(row?.runs ?? 0),
-      state: feed.onDemand ? 'demand' : feedState(reading, everyHours),
+      state,
       note:
         feed.onDemand ??
-        (everyHours === null ? 'No timer on the server runs this yet.' : undefined),
+        (everyHours === null
+          ? 'No timer on the server runs this yet.'
+          : state === 'failing'
+            ? failureNote(feed, Boolean(row?.crashed))
+            : undefined),
     };
   } catch (error) {
     const missing = (error as { code?: string }).code === '42P01';

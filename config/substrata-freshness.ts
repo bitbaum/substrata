@@ -63,6 +63,11 @@ export interface Feed {
    */
   failedWhen: string;
   /**
+   * `failedWhen` in words, as a sentence about the last failed run. Shown
+   * beside a failing feed, so "Failing" comes with its reason.
+   */
+  failedMeans: string;
+  /**
    * Set when the feed runs when a reader asks, not on a clock — then it is
    * reported as "on demand" with this reason, never as late. Drafting is one:
    * it runs only on readers' own AI keys (George, 2026-09-25).
@@ -79,6 +84,7 @@ export const FEEDS: readonly Feed[] = [
     table: 'research_sweep_runs',
     everyHours: 'settings',
     failedWhen: 'nodes_swept > 0 AND could_not_look >= nodes_swept',
+    failedMeans: 'In the last failed run, no search reached a search backend.',
   },
   {
     id: 'drafts',
@@ -90,6 +96,8 @@ export const FEEDS: readonly Feed[] = [
     onDemand:
       'Runs when a reader presses “Summarise with AI”, and hourly only for readers who switched on automatic updates — each time on their own key.',
     failedWhen: 'drafted = 0 AND could_not_read > 0',
+    failedMeans:
+      'In the last failed run, nothing was drafted and at least one page could not be read.',
   },
   {
     id: 'filings',
@@ -99,6 +107,7 @@ export const FEEDS: readonly Feed[] = [
     table: 'research_filing_runs',
     everyHours: 1,
     failedWhen: 'failed > 0 AND failed >= registrants',
+    failedMeans: 'In the last failed run, the lookup failed for every registrant.',
   },
   {
     id: 'science',
@@ -108,6 +117,7 @@ export const FEEDS: readonly Feed[] = [
     table: 'research_science_runs',
     everyHours: 1,
     failedWhen: 'fetched = 0 AND cardinality(failed) > 0',
+    failedMeans: 'In the last failed run, nothing was fetched and at least one source failed.',
   },
   {
     id: 'jobs',
@@ -117,6 +127,7 @@ export const FEEDS: readonly Feed[] = [
     table: 'research_job_runs',
     everyHours: 24,
     failedWhen: 'failed > 0 AND failed >= boards',
+    failedMeans: 'In the last failed run, every job board failed.',
   },
   {
     id: 'series',
@@ -126,6 +137,7 @@ export const FEEDS: readonly Feed[] = [
     table: 'research_series_runs',
     everyHours: 24,
     failedWhen: 'failed > 0 AND series = 0',
+    failedMeans: 'In the last failed run, no series was read and at least one failed.',
   },
   {
     id: 'prices',
@@ -136,6 +148,7 @@ export const FEEDS: readonly Feed[] = [
     // Daily at :07 past 22 UTC, after the US close (appcron-substrata-prices; docs/INFRASTRUCTURE.md).
     everyHours: 24,
     failedWhen: 'failed > 0 AND tickers = 0',
+    failedMeans: 'In the last failed run, no ticker was read and at least one failed.',
   },
   {
     id: 'market-facts',
@@ -146,6 +159,7 @@ export const FEEDS: readonly Feed[] = [
     // Same run as the prices, in the time left after them.
     everyHours: 24,
     failedWhen: 'looked > 0 AND failed >= looked',
+    failedMeans: 'In the last failed run, every lookup failed.',
   },
   {
     id: 'source',
@@ -156,6 +170,7 @@ export const FEEDS: readonly Feed[] = [
     // Every six hours at :52 (appcron-substrata-source, loki install-app-crons.sh).
     everyHours: 6,
     failedWhen: 'rows_examined > 0 AND could_not_look >= rows_examined',
+    failedMeans: 'In the last failed run, no search reached a search backend.',
   },
   {
     id: 'quality',
@@ -166,6 +181,7 @@ export const FEEDS: readonly Feed[] = [
     // Every six hours at :41 (appcron-substrata-quality, loki install-app-crons.sh).
     everyHours: 6,
     failedWhen: 'looked > 0 AND failed >= looked',
+    failedMeans: 'In the last failed run, every lookup failed.',
   },
 ];
 

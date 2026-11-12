@@ -80,7 +80,9 @@ scheduled feed (run tables `research_*_runs`) and committed dataset (its own
 `checkedOn`/`generatedAt` date) against the cadence or maximum age declared in
 `config/substrata-freshness.ts`. `test/freshness.test.ts` fails the build when a
 committed dataset is past its maximum age, so stale data cannot be deployed as
-current; the endpoint reports `ok: false` when anything is stale or failing. The review
+current; the endpoint reports `ok: false` when anything is stale or failing. A
+failing feed carries its reason as `note` (each feed's `failedMeans`, or that
+the last failed run did not finish). The review
 queue is judged on OPEN leads only: a sweep lead nobody reviews within 30 days
 (`LEAD_EXPIRY_DAYS`, `lib/lead-expiry.ts`) expires at read time — kept in the
 table, listed at `/data/freshness/expired`, out of the queue — so a stale queue
