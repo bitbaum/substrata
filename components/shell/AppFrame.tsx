@@ -51,6 +51,12 @@ export function AppFrame({
   const signedIn = readerFromClient ? Boolean(client?.signedIn) : serverSignedIn;
   const reviewer = readerFromClient ? Boolean(client?.reviewer) : serverReviewer;
   const isChat = pathname === '/chat' || pathname.startsWith('/chat/');
+  const isAuth =
+    pathname === '/sign-in' ||
+    pathname === '/sign-up' ||
+    pathname.startsWith('/sign-in/') ||
+    pathname.startsWith('/sign-up/') ||
+    pathname.startsWith('/account/sign-in-error');
   const [palette, setPalette] = useState(false);
   const [more, setMore] = useState(false);
   const entries = useMemo(() => paletteEntries({ signedIn, reviewer }), [signedIn, reviewer]);
@@ -87,8 +93,10 @@ export function AppFrame({
     return () => window.removeEventListener('keydown', onKey);
   }, [pathname]);
 
+  const shellClass = isChat ? 'shell is-chat' : isAuth ? 'shell is-auth' : 'shell';
+
   return (
-    <div className={isChat ? 'shell is-chat' : 'shell'}>
+    <div className={shellClass}>
       <a href="#main" className="shell-skip">
         Skip to content
       </a>
@@ -100,7 +108,9 @@ export function AppFrame({
         </main>
         {!isChat && footer}
       </div>
-      <MobileTabBar pathname={pathname} moreOpen={more} onMore={() => setMore((o) => !o)} />
+      {!isChat && !isAuth && (
+        <MobileTabBar pathname={pathname} moreOpen={more} onMore={() => setMore((o) => !o)} />
+      )}
       {more && <MoreSheet pathname={pathname} onClose={closeMore} onSearch={openPalette} />}
       {palette && <CommandPalette entries={entries} onClose={closePalette} />}
     </div>

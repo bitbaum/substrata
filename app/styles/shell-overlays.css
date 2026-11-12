@@ -24,6 +24,12 @@
     display: none;
   }
 }
+.shell.is-auth .shell-tabbar {
+  display: none;
+}
+.shell.is-auth .shell-column {
+  padding-bottom: 0;
+}
 .shell-tab {
   display: flex;
   flex-direction: column;
