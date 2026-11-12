@@ -53,6 +53,10 @@
         {
           "file": "app/_home/AskBox.tsx",
           "symbols": ["Composer"]
+        },
+        {
+          "file": "components/portal/PageDiscussion.tsx",
+          "symbols": ["CommentThread"]
         }
       ]
     },

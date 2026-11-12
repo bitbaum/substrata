@@ -1,58 +1,77 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
+import { CommentThread, type CommentItem, type CommentTransport } from '@bitbaum/chatkit/react';
 
-type Item = { id: string; authorId: string; body: string; createdAt: string };
+import { useReader } from '@/components/shell/useReader';
+import { signInHref } from '@/lib/sign-in-href';
 
+/** As /api/comments answers: a threadkit message, visible to the public. */
+type Stored = { id: string; authorId: string; body: string; createdAt: string };
+
+const FACTCHECK_AUTHOR = 'substrata-factcheck';
+
+function toComment(item: Stored): CommentItem {
+  return {
+    id: item.id,
+    author: item.authorId === FACTCHECK_AUTHOR ? 'Substrata' : 'Reader',
+    body: item.body,
+    createdAt: item.createdAt,
+  };
+}
+
+async function loadComments(path: string): Promise<CommentItem[]> {
+  const response = await fetch(`/api/comments?path=${encodeURIComponent(path)}`);
+  const result = (await response.json()) as { data?: Stored[] };
+  return (result.data ?? []).map(toComment);
+}
+
+/** The day, as the page has always shown it (YYYY-MM-DD, UTC). */
+const day = (at: Date) => at.toISOString().slice(0, 10);
+
+/**
+ * The discussion under a note, a lesson, a resource or a profile. The thread
+ * and its box are chatkit's `CommentThread` (the box is chatkit's Composer, so
+ * it has the microphone); who may write is threadkit's, enforced by
+ * /api/comments. Fact-check stays here: it is Substrata's, not the package's.
+ */
 export function PageDiscussion({ path }: { path: string }) {
-  const [items, setItems] = useState<Item[]>([]);
-  const [body, setBody] = useState('');
+  // `null` until loaded: CommentThread takes its list once, at mount.
+  const [comments, setComments] = useState<CommentItem[] | null>(null);
+  // A new set (a fact-check landed) re-mounts the thread with it.
+  const [generation, setGeneration] = useState(0);
   const [error, setError] = useState('');
   const [check, setCheck] = useState('');
-  const [busy, setBusy] = useState(false);
-
-  async function refresh() {
-    const response = await fetch(`/api/comments?path=${encodeURIComponent(path)}`);
-    const result = await response.json();
-    setItems(result.data ?? []);
-  }
+  const [checking, setChecking] = useState(false);
+  const reader = useReader(true);
 
   useEffect(() => {
     let live = true;
-    void fetch(`/api/comments?path=${encodeURIComponent(path)}`)
-      .then((r) => r.json())
-      .then((result) => {
-        if (live) setItems(result.data ?? []);
+    void loadComments(path)
+      .catch(() => [])
+      .then((list) => {
+        if (live) setComments(list);
       });
     return () => {
       live = false;
     };
   }, [path]);
 
-  async function send(event: React.FormEvent) {
-    event.preventDefault();
-    setBusy(true);
-    setError('');
-    try {
+  const transport: CommentTransport = {
+    post: async (text) => {
       const response = await fetch('/api/comments', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ path, body }),
+        body: JSON.stringify({ path, body: text }),
       });
-      const result = await response.json();
-      if (!response.ok) throw new Error(result.error || 'Could not comment.');
-      setBody('');
-      await refresh();
-    } catch (e) {
-      setError(e instanceof Error ? e.message : 'Could not comment.');
-    } finally {
-      setBusy(false);
-    }
-  }
+      const result = (await response.json()) as { data?: Stored; error?: string };
+      if (!response.ok || !result.data) throw new Error(result.error || 'Could not comment.');
+      return toComment(result.data);
+    },
+  };
 
   async function factcheck() {
-    setBusy(true);
+    setChecking(true);
     setError('');
     setCheck('');
     try {
@@ -64,11 +83,12 @@ export function PageDiscussion({ path }: { path: string }) {
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || 'Fact-check failed.');
       setCheck(result.data.answer);
-      await refresh();
+      setComments(await loadComments(path));
+      setGeneration((n) => n + 1);
     } catch (e) {
       setError(e instanceof Error ? e.message : 'Fact-check failed.');
     } finally {
-      setBusy(false);
+      setChecking(false);
     }
   }
 
@@ -80,7 +100,7 @@ export function PageDiscussion({ path }: { path: string }) {
           type="button"
           className="research-button-ghost"
           onClick={() => void factcheck()}
-          disabled={busy}
+          disabled={checking}
         >
           Fact-check with Substrata
         </button>
@@ -89,43 +109,29 @@ export function PageDiscussion({ path }: { path: string }) {
         Comments use <code>threadkit</code> (permission is participation). Sign in with OrangeCat to
         write. Fact-check is the same assistant as Ask, grounded in the corpus.
       </p>
+      {error && <p role="alert">{error}</p>}
       {check && (
         <article className="factcheck-panel">
           <h3>Fact-check</h3>
           <pre>{check}</pre>
         </article>
       )}
-      <ul className="page-comments">
-        {items.length === 0 && <li className="text-sm text-fg-tertiary">No comments yet.</li>}
-        {items.map((item) => (
-          <li key={item.id}>
-            <p className="comment-meta">
-              {item.authorId === 'substrata-factcheck' ? 'Substrata' : 'Reader'} ·{' '}
-              {new Date(item.createdAt).toISOString().slice(0, 10)}
-            </p>
-            <p>{item.body}</p>
-          </li>
-        ))}
-      </ul>
-      <form onSubmit={send} className="comment-form">
-        <label htmlFor="comment-body">Add a comment</label>
-        <textarea
-          id="comment-body"
-          required
-          minLength={3}
-          maxLength={4000}
-          rows={3}
-          value={body}
-          onChange={(e) => setBody(e.target.value)}
+      {comments === null ? (
+        <p className="text-sm text-fg-tertiary">Loading comments…</p>
+      ) : (
+        <CommentThread
+          key={generation}
+          comments={comments}
+          transport={transport}
+          viewer={reader?.signedIn ? { name: reader.name ?? 'you' } : null}
+          signInHref={signInHref(path)}
+          voice={{ transcribeUrl: '/api/transcribe' }}
+          formatTime={day}
+          headingLevel={3}
+          labels={{ send: 'Comment', ariaLabel: 'Add a comment' }}
+          className="page-discussion-thread"
         />
-        <button type="submit" className="research-button" disabled={busy}>
-          Comment
-        </button>
-        <p className="text-xs text-fg-tertiary">
-          Need an account? <Link href="/account">Sign in</Link>.
-        </p>
-        {error && <p role="alert">{error}</p>}
-      </form>
+      )}
     </section>
   );
 }
