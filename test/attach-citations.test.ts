@@ -43,3 +43,19 @@ test('nothing is attached where no single row vouches for it', () => {
   const summary = 'Operators, as printed: OAO Apatit.';
   assert.equal(attachCitations(summary, recorded.results, [summary]), summary);
 });
+
+test('a "?" or "." inside a link title is not a sentence end: nothing is attached inside the title', () => {
+  // Seen live 2026-11-12: "[Is There a Helium Shortage in 2026 ([…](…))? Why…](…)".
+  const line =
+    'A post covers it: [Is there a shortage? OAO Apatit mines the Lovozerskoye deposit on the Kola Peninsula. Why it matters](https://example.org/post).';
+  const out = attachCitations(line, recorded.results);
+  assert.ok(
+    out.startsWith(
+      'A post covers it: [Is there a shortage? OAO Apatit mines the Lovozerskoye deposit on the Kola Peninsula. Why it matters](https://example.org/post)',
+    ),
+    out,
+  );
+  // A sentence already linked to the row's own page is not linked to it again.
+  const linked = `OAO Apatit mines the Lovozerskoye deposit on the Kola Peninsula ([USGS](${USGS})).`;
+  assert.equal(attachCitations(linked, recorded.results), linked);
+});
