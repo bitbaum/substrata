@@ -3,8 +3,19 @@
  * and is a quoted sentence still on its page. No AI, no judgement — HTTP and
  * string matching. Called by the scheduled run (lib/quality/run.ts) and the
  * on-demand CLI (scripts/quality/run.ts), never by `verify`.
+ *
+ * Every request goes through `guardedFetch` (ai-kit's SSRF guard on each
+ * redirect hop), so a corpus link that redirects into the private network is
+ * refused and reported as an error, never fetched.
  */
-import { AGENTS, pageText, quoteOnPage, ReadError } from './page-text';
+import {
+  AGENTS,
+  guardedFetch,
+  pageText,
+  quoteOnPage,
+  ReadError,
+  type GuardedFetchDeps,
+} from './page-text';
 
 /**
  * What a URL did, after up to three tries.
@@ -42,6 +53,7 @@ function failureOf(error: unknown, timeoutMs: number): Omit<LinkResult, 'url'> {
   const name = error instanceof Error ? error.name : '';
   if (name === 'TimeoutError' || name === 'AbortError')
     return { status: 'timeout', code: null, detail: `no answer in ${timeoutMs / 1000}s` };
+  if (error instanceof ReadError) return { status: 'error', code: null, detail: error.message };
   const cause = (error as Error)?.cause as (Error & { code?: string }) | undefined;
   const code = cause?.code ?? '';
   const detail = [code, cause?.message].filter(Boolean).join(': ').slice(0, 100) || 'fetch failed';
@@ -66,15 +78,15 @@ async function once(
   agent: string,
   timeoutMs: number,
   signal?: AbortSignal,
+  deps?: GuardedFetchDeps,
 ) {
   const timeout = AbortSignal.timeout(timeoutMs);
   const combinedSignal = signal ? AbortSignal.any([signal, timeout]) : timeout;
-  const response = await fetch(url, {
-    method,
-    headers: { 'User-Agent': agent, Accept: '*/*' },
-    redirect: 'follow',
-    signal: combinedSignal,
-  });
+  const response = await guardedFetch(
+    url,
+    { method, headers: { 'User-Agent': agent, Accept: '*/*' }, signal: combinedSignal },
+    deps,
+  );
   // Drain without reading a whole PDF into memory.
   await response.body?.cancel().catch(() => undefined);
   return response.status;
@@ -85,6 +97,7 @@ export async function probeUrl(
   url: string,
   timeoutMs = 15_000,
   signal?: AbortSignal,
+  deps?: GuardedFetchDeps,
 ): Promise<LinkResult> {
   let last: LinkResult = { url, status: 'error', code: null, detail: '' };
   for (let attempt = 0; attempt < 3; attempt++) {
@@ -92,15 +105,17 @@ export async function probeUrl(
     if (attempt > 0) await sleep(1000 * 2 ** attempt);
     if (signal?.aborted) break;
     try {
-      let code = await once(url, 'HEAD', AGENTS[0], timeoutMs, signal);
+      let code = await once(url, 'HEAD', AGENTS[0], timeoutMs, signal, deps);
       if (code >= 400 && !signal?.aborted) {
-        code = await once(url, 'GET', AGENTS[attempt % 2], timeoutMs, signal);
+        code = await once(url, 'GET', AGENTS[attempt % 2], timeoutMs, signal, deps);
       }
       const status = classify(code);
       last = { url, status, code, detail: `HTTP ${code}` };
       if (status !== 'server') return last;
     } catch (error) {
       last = { url, ...failureOf(error, timeoutMs) };
+      // A refused target stays refused; asking again would only wait.
+      if (error instanceof ReadError) return last;
     }
   }
   return last;
