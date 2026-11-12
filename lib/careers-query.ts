@@ -6,6 +6,8 @@
  * (lib/careers.ts) — a count of postings on the boards Substrata reads, never
  * a claim about how many people an industry is hiring.
  */
+import { likeContains } from 'listkit';
+
 import { database } from './db';
 import { SENIORITIES, type Seniority } from './careers';
 import { ROLE_FAMILY_IDS, type RoleFamilyId } from '@/config/careers-roles';
@@ -88,11 +90,9 @@ function where(f: JobFilter): { sql: string; args: unknown[] } {
   // Substring in SQL, not searchkit: the table is paged newest-first in
   // Postgres, and forgiving slips would need a vocabulary of every title kept
   // in step with the ingest — not worth it beside the role and rail pickers.
-  if (f.q)
-    add(
-      "title ILIKE '%' || ? || '%'",
-      f.q.replace(/[%_\\]/g, (c) => `\\${c}`),
-    );
+  // listkit's likeContains escapes `%`, `_` and `\` and wraps the text in `%`, so a
+  // typed underscore is an underscore, not "any one character".
+  if (f.q) add('title ILIKE ?', likeContains(f.q));
   return { sql: clauses.join(' AND '), args };
 }
 
