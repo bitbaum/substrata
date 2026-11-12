@@ -2,7 +2,7 @@
   "blocks": {
     "shell": {
       "package": "@bitbaum/sitekit",
-      "exception": "Substrata's desktop needs a persistent research/map workspace sidebar, mobile tabs, reviewer controls and a command palette. The shared masthead would duplicate those controls and cannot represent this navigation model; SiteKit still renders its typed hosted-content sections below."
+      "exception": "Substrata's desktop needs a persistent research/map workspace sidebar, mobile tabs, reviewer controls and a command palette. The shared masthead would duplicate those controls and cannot represent this navigation model; SiteKit still renders its typed hosted-content sections below, and the footer is SiteKit's SiteFooter."
     },
     "identity": {
       "package": "@bitbaum/accountkit",
@@ -62,6 +62,10 @@
         {
           "file": "app/[...path]/page.tsx",
           "symbols": ["SiteSections"]
+        },
+        {
+          "file": "components/portal/Shell.tsx",
+          "symbols": ["SiteFooter"]
         }
       ]
     },

@@ -62,7 +62,8 @@ palette.
 - **⌘K / Ctrl+K / "/"** opens the command palette: every page (including the
   reader views, data and project pages that have no sidebar row) plus live
   results from the search index; Enter on the last row opens `/search`.
-- **Footer**: About, Notes, Changelog, Roadmap, Join, Source, Correction.
+- **Footer**: sitekit's `SiteFooter` (application appearance): About, Notes,
+  Changelog, Roadmap, Join, Source, Correction, and the freshness badge.
 
 `test/nav.test.ts` holds the sections, tabs and this table together and checks
 nav contract rules 1, 2 and 6 in the shell's source.
