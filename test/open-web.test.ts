@@ -392,3 +392,20 @@ test('a [W#] stays only on a sentence its page supports: no chip on the model’
   assert.doesNotMatch(out, /cautious \[W1\]/, 'no chip on the analysis');
   assert.match(out, /31% in October \[W1\]/, 'the supported sentence keeps its chip');
 });
+
+test('the way a question asks for news is not searched, only what it is about and when', () => {
+  // Seen live 2026-11-12: "Latest news on gallium export controls 2026" found the Patriot missile.
+  for (const [q, want] of [
+    ['Latest news on gallium export controls', 'gallium export controls 2026'],
+    ['What is the latest on helium supply?', 'helium supply 2026'],
+    ['Any recent updates about Rapidus?', 'Rapidus 2026'],
+    ['Recent developments in HBM packaging', 'HBM packaging 2026'],
+    ['news on uranium enrichment this month', 'uranium enrichment November 2026'],
+  ])
+    assert.equal(searchQueryFor(q, '2026-11-12'), want, q);
+  // A subject that merely contains the words keeps them.
+  assert.match(
+    searchQueryFor('Who makes current sensors?', '2026-11-12'),
+    /^Who makes current sensors\b/,
+  );
+});

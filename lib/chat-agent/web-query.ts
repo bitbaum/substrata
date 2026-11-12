@@ -25,6 +25,7 @@ export function webQuery(question: string): string {
   const stripped = question
     .replace(TO_THE_ASSISTANT, ' ')
     .replace(/^\s*(what|which|where|when|why|how (many|much|does|do|is|are))\b\s*/i, '')
+    .replace(NEWS_FRAME, ' ')
     .replace(/\b(is|are|was|were|do|does|did|can|could|there|tell me|show me|about)\b\s*/gi, ' ')
     // Every "?" and "!", not only the last: a question followed by a second
     // sentence kept its "?" in the middle of the search.
@@ -43,5 +44,15 @@ export function webQuery(question: string): string {
  * as `changed for helium supply in the last month? Use the web too`, and the
  * engine answered with nothing.
  */
+/**
+ * How a question asks for news, not what it is about: "Latest news on",
+ * "the latest on", "any recent updates about". The date words that say "now"
+ * are turned into the month and year by route.ts, so the frame itself only
+ * dilutes the search (seen live 2026-11-12: Wikipedia answered "Latest news
+ * on gallium export controls 2026" with the Patriot missile).
+ */
+const NEWS_FRAME =
+  /\b(any |the |is there any )?(latest|recent|newest)( news| updates?| developments?| changes?)?( on| about| for| regarding| in| with| concerning)?\b|\b(news|updates?|developments?) (on|about|regarding|concerning)\b/gi;
+
 const TO_THE_ASSISTANT =
   /\b(please\b[, ]*)?((use|search|check|look (it )?up (on|in)|look (on|at)|browse|consult|include) (the )?(open |live )?(web|internet|online|news)( too| as well| also)?( for\b)?|search online|look (it|this|that) up( online)?|(with|cite|citing|give|include|show)( me)?( your| the)? sources|and cite (your |the )?sources)\b[.!]*|\bplease\b/gi;
