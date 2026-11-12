@@ -104,12 +104,11 @@ test('/portal and /desk lead to the desk, and the top bar links it for everyone'
   // @ts-expect-error -- next.config.mjs is plain JavaScript with no declaration file.
   const config = (await import('../next.config.mjs')).default;
   const redirects = await config.redirects();
-  for (const source of ['/portal', '/portal/:path*', '/desk'])
-    assert.equal(
-      redirects.find((r: { source: string }) => r.source === source)?.destination,
-      ACCOUNT_NAV.desk.href,
-      `${source} does not reach the desk`,
-    );
+  for (const source of ['/portal', '/portal/:path*', '/desk']) {
+    const entry = redirects.find((r: { source: string }) => r.source === source);
+    assert.equal(entry?.destination, ACCOUNT_NAV.desk.href, `${source} does not reach the desk`);
+    assert.equal(entry?.permanent, true, `${source} is not a permanent (308) redirect`);
+  }
   const topBar = readFileSync(join(ROOT, 'components/shell/TopBar.tsx'), 'utf8');
   assert.ok(topBar.includes('ACCOUNT_NAV.desk.href'), 'the top bar has no desk link');
   assert.ok(!/signedIn\s*&&/.test(topBar), 'the desk link is behind a session again');
