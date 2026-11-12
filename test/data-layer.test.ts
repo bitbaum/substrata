@@ -246,3 +246,22 @@ test('install: writes only what differs, reloads once, enables every timer, noth
   await installUnits(remote, units, again, () => undefined);
   assert.ok(!sent.some((c) => c.startsWith('sudo tee') || c.includes('daemon-reload')));
 });
+
+test('quoted identifiers are read as names, never as the word before them', () => {
+  const accounts = files.find((f) => f.name === '017-accounts.sql')!;
+  const d = declaredObjects(accounts.sql);
+  assert.deepEqual(d.tables.sort(), [
+    'accounts',
+    'passkeys',
+    'sessions',
+    'two_factors',
+    'users',
+    'verifications',
+  ]);
+  assert.ok(d.indexes.includes('accounts_user_id_idx'));
+  assert.ok(!d.tables.includes('if') && !d.indexes.includes('if'));
+  assert.deepEqual(
+    declaredObjects('ALTER TABLE "public"."t" ADD COLUMN IF NOT EXISTS "c" text;').columns,
+    [['t', 'c']],
+  );
+});
