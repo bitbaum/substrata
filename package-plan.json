@@ -124,6 +124,10 @@
         {
           "file": "lib/search/build.ts",
           "symbols": ["createVocabulary"]
+        },
+        {
+          "file": "components/shell/CommandPalette.tsx",
+          "symbols": ["useSearchAsYouType"]
         }
       ]
     },

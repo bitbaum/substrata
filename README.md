@@ -61,7 +61,9 @@ palette.
   in the account menu, never in the research list.
 - **⌘K / Ctrl+K / "/"** opens the command palette: every page (including the
   reader views, data and project pages that have no sidebar row) plus live
-  results from the search index; Enter on the last row opens `/search`.
+  results from the search index, typed through `@bitbaum/searchkit/react`'s
+  `useSearchAsYouType` (the last answer stays while a newer one loads, and a
+  failed search says so); Enter on the last row opens `/search`.
 - **Footer**: sitekit's `SiteFooter` (application appearance): About, Notes,
   Changelog, Roadmap, Join, Source, Correction, and the freshness badge.
 
