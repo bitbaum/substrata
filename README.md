@@ -99,7 +99,10 @@ Network checks (links with 3 tries, quotes still on the page, SEC ticker file,
 OpenFIGI mapping, USGS values on the chapter PDF) run every six hours on a
 rotation (`/api/cron/quality`, timer `appcron-substrata-quality`) into
 `research_quality_checks`; each run's scorecard goes to `research_quality_runs`
-for the trend (`scripts/db/014-quality.sql`). On demand: `pnpm run quality`
+for the trend (`scripts/db/014-quality.sql`). Every network check fetches through
+`guardedFetch` (`lib/quality/page-text.ts`): ai-kit's `validateFetchTarget` on
+each redirect hop, so a source link that redirects into a private network is
+refused (`test/quality-network.test.ts`). On demand: `pnpm run quality`
 (pure), `-- --network` (one slice), `-- --all` (everything), `-- --json out.json`.
 No AI anywhere in it.
 

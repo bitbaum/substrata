@@ -40,6 +40,10 @@
         {
           "file": "lib/chat-web.ts",
           "symbols": ["readPage", "webSearch"]
+        },
+        {
+          "file": "lib/quality/page-text.ts",
+          "symbols": ["defaultLookup", "validateFetchTarget"]
         }
       ]
     },

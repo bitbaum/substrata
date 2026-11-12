@@ -5,7 +5,16 @@
  *
  * PDFs need `pdftotext` (poppler). Where it is missing the read fails as
  * "cannot read PDF here", which is reported as not checked — never as a miss.
+ *
+ * Every request goes through `guardedFetch`: ai-kit's SSRF guard
+ * (`validateFetchTarget`) on the first URL and on every redirect hop, so a
+ * source link that redirects into the private network or the cloud metadata
+ * service is refused instead of read. ai-kit's `readPage` is not used for the
+ * body: it refuses PDFs, sends its own user agent and keeps only the
+ * article-like part of a page, and a quote in a table or a PDF must still be
+ * found where it is.
  */
+import { defaultLookup, validateFetchTarget, type LookupFn } from '@bitbaum/ai-kit/web';
 import { execFile } from 'node:child_process';
 import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
@@ -78,6 +87,55 @@ export class ReadError extends Error {
   }
 }
 
+/** Hops followed before giving up, each one checked again. */
+export const MAX_REDIRECTS = 5;
+
+export interface GuardedFetchDeps {
+  fetch?: typeof globalThis.fetch;
+  lookup?: LookupFn;
+}
+
+/**
+ * `fetch` with `redirect: 'manual'` and ai-kit's SSRF guard on every hop.
+ * A refused target throws a `ReadError` naming why. A lookup that failed is
+ * rethrown the way `fetch` reports it (a TypeError whose cause carries the
+ * resolver's code), so a resolver's "try again" still reads as the checker's
+ * own network and a name that does not exist still reads as the link's.
+ */
+export async function guardedFetch(
+  url: string,
+  init: Omit<RequestInit, 'redirect'>,
+  deps: GuardedFetchDeps = {},
+): Promise<Response> {
+  const doFetch = deps.fetch ?? globalThis.fetch;
+  const resolve = deps.lookup ?? defaultLookup;
+  let target = url;
+  for (let hop = 0; hop <= MAX_REDIRECTS; hop++) {
+    let lookupError: unknown;
+    const lookup: LookupFn = async (host) => {
+      try {
+        return await resolve(host);
+      } catch (error) {
+        lookupError = error;
+        throw error;
+      }
+    };
+    const verdict = await validateFetchTarget(target, lookup);
+    if (!verdict.ok) {
+      if (lookupError) throw new TypeError('fetch failed', { cause: lookupError });
+      throw new ReadError(`refused: ${verdict.reason}`);
+    }
+    const response = await doFetch(verdict.url.toString(), { ...init, redirect: 'manual' });
+    if (response.status < 300 || response.status >= 400) return response;
+    const location = response.headers.get('location');
+    // A 304 or a 3xx with nowhere to go is the answer itself.
+    if (!location) return response;
+    await response.body?.cancel().catch(() => undefined);
+    target = new URL(location, verdict.url).toString();
+  }
+  throw new ReadError(`more than ${MAX_REDIRECTS} redirects`);
+}
+
 function pdfToText(file: string, args: string[]): Promise<string> {
   return new Promise((resolve, reject) =>
     execFile('pdftotext', [...args, file, '-'], { maxBuffer: 64 << 20 }, (error, stdout) => {
@@ -95,14 +153,15 @@ export async function pageText(
   agent = AGENTS[0],
   timeoutMs = 45_000,
   signal?: AbortSignal,
+  deps?: GuardedFetchDeps,
 ): Promise<string> {
   const timeout = AbortSignal.timeout(timeoutMs);
   const combinedSignal = signal ? AbortSignal.any([signal, timeout]) : timeout;
-  const response = await fetch(url, {
-    headers: { 'User-Agent': agent, Accept: '*/*' },
-    redirect: 'follow',
-    signal: combinedSignal,
-  });
+  const response = await guardedFetch(
+    url,
+    { headers: { 'User-Agent': agent, Accept: '*/*' }, signal: combinedSignal },
+    deps,
+  );
   if (!response.ok) throw new ReadError(`HTTP ${response.status}`, response.status);
   const type = response.headers.get('content-type') ?? '';
   const body = Buffer.from(await response.arrayBuffer());
