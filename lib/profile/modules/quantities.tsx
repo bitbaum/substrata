@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Meter } from '@bitbaum/chartkit/react';
 
 import { Figure } from '@/components/portal/Figure';
 import { STAGE_LABEL, UNIT_LABEL, type Endowment } from '@/config/substrata-quantities';
@@ -95,14 +96,13 @@ const production: ProfileModule<Figures> = {
                   </span>
                 </div>
                 {row.share !== undefined && (
-                  <div
-                    className="mt-1.5 h-1 w-full overflow-hidden rounded bg-border-subtle"
-                    role="img"
-                    aria-label={`${(row.share * 100).toFixed(1)} per cent of the published world total`}
-                  >
-                    <div
-                      className="h-full bg-fg-primary"
-                      style={{ width: `${Math.max(row.share * 100, 0.5)}%` }}
+                  <div className="place-share">
+                    <Meter
+                      value={Math.round(row.share * 1000) / 10}
+                      max={100}
+                      tone="neutral"
+                      showValue={false}
+                      label={`${(row.share * 100).toFixed(1)} per cent of the published world total`}
                     />
                   </div>
                 )}

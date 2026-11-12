@@ -8,6 +8,7 @@
  */
 
 import React from 'react';
+import { Meter } from '@bitbaum/chartkit/react';
 import type { Verification } from '@/config/substrata-evidence';
 import { EVIDENCE_LABEL, EVIDENCE_SHORT } from '@/lib/labels';
 import { JUDGED_BY } from '@/config/substrata-about';
@@ -66,6 +67,8 @@ export function Progress({ sourced, total }: { sourced: number; total: number })
 /**
  * 0–12 severity as a number and a short bar. The number opens how it is
  * scored; `target` makes it a full-size tap target where it stands alone.
+ * The bar is chartkit's `Meter`, drawn without its own figure because the
+ * number beside it is the one that opens the method.
  */
 export function SeverityBar({
   value,
@@ -83,12 +86,7 @@ export function SeverityBar({
           {value}
         </Figure>
       </span>
-      <span
-        className="flex h-1.5 w-12 shrink-0 overflow-hidden rounded-full bg-border-subtle"
-        aria-hidden
-      >
-        <span className="bg-accent" style={{ width: `${(value / 12) * 100}%` }} />
-      </span>
+      <Meter value={value} max={12} label="Severity" showValue={false} />
     </span>
   );
 }
