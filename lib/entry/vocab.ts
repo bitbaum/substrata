@@ -5,6 +5,7 @@
  * vocabularies are refinements rather than enums so the printed shape stays
  * readable. Used by ./schemas.ts.
  */
+import { isISODate } from '@bitbaum/whenkit';
 import { z } from 'zod';
 
 import { COUNTRIES } from '@/config/substrata-countries';
@@ -24,11 +25,11 @@ import corpusSeriesFile from '../../research/series.json';
 
 export const tuple = <T extends string>(values: readonly T[]) => values as unknown as [T, ...T[]];
 
-const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 /** YYYY, YYYY-MM or YYYY-MM-DD: the precision the source gives, no more. */
 const PARTIAL_DATE = /^\d{4}(-\d{2}(-\d{2})?)?$/;
 
-export const isoDate = z.string().regex(ISO_DATE, 'a YYYY-MM-DD date');
+/** A real calendar day (whenkit's `isISODate`); printed as JSON Schema `format: date`. */
+export const isoDate = z.string().refine(isISODate, 'a YYYY-MM-DD date').meta({ format: 'date' });
 export const factDate = z
   .string()
   .regex(PARTIAL_DATE, 'YYYY, YYYY-MM or YYYY-MM-DD')

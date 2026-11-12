@@ -33,6 +33,7 @@ const wrap = (t: string) => (t.includes(' | ') ? `(${t})` : t);
 function constraint(node: any): string {
   const notes: string[] = [];
   if (node?.pattern) notes.push(`/${node.pattern}/`);
+  if (node?.format === 'date') notes.push('YYYY-MM-DD');
   if (node?.minLength !== undefined || node?.maxLength !== undefined)
     notes.push(`${node.minLength ?? 0}–${node.maxLength ?? '∞'} chars`);
   if (node?.minimum !== undefined || node?.maximum !== undefined)

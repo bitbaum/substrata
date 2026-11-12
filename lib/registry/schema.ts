@@ -4,11 +4,11 @@
  * registry/areas. A value is present only if an evidence row names its field:
  * no cite, no value. `validateCompany` returns every rule it finds broken.
  */
+import { isISODate } from '@bitbaum/whenkit';
 import { z } from 'zod';
 
 import { THEME_IDS } from '@/config/universe-themes';
 
-const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 
 export const KINDS = [
@@ -51,9 +51,9 @@ export const GRADE_LABEL: Record<Grade, string> = {
   estimated: 'Estimated by a third party',
 };
 
-const date = z.string().regex(ISO_DATE, 'a YYYY-MM-DD date');
+const date = z.string().refine(isISODate, 'a YYYY-MM-DD date');
 /** Empty only on a migrated row the old filter dated no more precisely than its source. */
-const maybeDate = z.string().regex(/^(\d{4}-\d{2}-\d{2})?$/, 'a YYYY-MM-DD date');
+const maybeDate = z.string().refine((d) => d === '' || isISODate(d), 'a YYYY-MM-DD date');
 
 export const EvidenceSchema = z
   .object({

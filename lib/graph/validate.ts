@@ -15,6 +15,8 @@
  * `validateRelations` throws with every problem listed, so a bad row stops the
  * build instead of rendering as a fact. Pure: no config, no network.
  */
+import { isISODate } from '@bitbaum/whenkit';
+
 import { relationId } from './id';
 import { ENTITY_KINDS } from '@/lib/entities/types';
 import {
@@ -38,7 +40,6 @@ export const LEAD_ONLY_TYPES: readonly RelationType[] = ['shares_parent_with', '
 export const GRADE_ORDER: readonly EvidenceGrade[] = ['lead', 'derived', 'stated', 'corroborated'];
 
 const PERIOD = /^\d{4}(-\d{2}(-\d{2})?)?$/;
-const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 const KINDS = new Set<string>(ENTITY_KINDS);
 /** Shorter than this, a "quote" cannot carry a claim (the event gate uses the same floor). */
 export const MIN_QUOTE = 10;
@@ -98,7 +99,7 @@ export function relationProblems(r: Relation, today = new Date()): string[] {
     if (!/^https?:\/\/\S+$/.test(e.source)) out.push(`evidence ${i}: source is not a web address`);
     if (e.quote.trim().length < (e.reading === 'table-cell' ? MIN_CELL : MIN_QUOTE))
       out.push(`evidence ${i}: the quote is too short to carry a claim`);
-    if (!ISO_DATE.test(e.readOn)) out.push(`evidence ${i}: readOn is not YYYY-MM-DD`);
+    if (!isISODate(e.readOn)) out.push(`evidence ${i}: readOn is not YYYY-MM-DD`);
     else if (e.readOn > day) out.push(`evidence ${i}: readOn ${e.readOn} is in the future`);
   }
   const sources = new Set(r.evidence.map((e) => e.source));
