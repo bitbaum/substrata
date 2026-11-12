@@ -18,6 +18,7 @@
  * - the row (or the result it sits in) carries a link: a site page or a
  *   source URL.
  */
+import { sentencesIn } from './sentences';
 import { numbersIn } from './grounding';
 
 interface Row {
@@ -124,7 +125,11 @@ export function attachCitations(
       if (/^\s*```/.test(line)) fence = !fence;
       if (fence || /^\s*```/.test(line) || /^\s*#/.test(line) || !line.trim()) return line;
       const lead = line.match(/^\s*(?:[-*•>]|\d+\.)?\s*/)?.[0] ?? '';
-      const parts = line.slice(lead.length).split(SPLIT);
+      // Through sentencesIn, so a "?" or "." inside a link's title is not a
+      // sentence end: split there, the row's link was attached INSIDE the
+      // title — "[Is There a Helium Shortage in 2026 ([…](…))? Why…](…)"
+      // (seen live 2026-11-12).
+      const parts = sentencesIn(line.slice(lead.length), SPLIT);
       return (
         lead +
         parts
@@ -133,7 +138,8 @@ export function attachCitations(
             // A title (no full stop) states nothing to cite: it is left as it is.
             if (!/[.!?]\s*$/.test(p)) return p;
             const row = rowFor(p, rows);
-            if (!row) return p;
+            // Already linked to that row's page: a second link says nothing new.
+            if (!row || p.includes(`](${row.href})`)) return p;
             const link = ` ([${row.label.replace(/[[\]]/g, '')}](${row.href}))`;
             const end = p.match(/[.!?:]\s*$/)?.[0] ?? '';
             return `${p.slice(0, p.length - end.length).trimEnd()}${link}${end}`;
