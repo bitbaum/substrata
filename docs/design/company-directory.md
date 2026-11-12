@@ -15,12 +15,16 @@ a separate list.
   word must match): name, aliases, ticker, country and theme. A slip is
   forgiven ("nvidai" finds NVIDIA). There is no ranker of ours.
 - **Filters** are a theme, a country, a tier and a page kind, in one GET form
-  (`AutoSubmitForm`), so the URL is the state and the back button works. The
-  count beside each option says how many rows that option would give with every
-  other filter kept (its own selection lifted), so an option never reads zero
+  (`AutoSubmitForm`), so the URL is the state and the back button works. They
+  are a `listkit` spec (`directorySpec`: `parseQuery`, `applyQuery`); a value no
+  option carries filters nothing. The count beside each option says how many
+  rows that option would give with every other filter kept (listkit's
+  `facetCounts`, its own selection lifted), so an option never reads zero
   because it is the one chosen.
 - **Phone**: one column of stacked rows (name and ticker; themes; tier, country
-  and page kind), sixty at a time with "Show more", no table, no sideways scroll.
+  and page kind), sixty at a time with "Show more" (`?n=`, written over the
+  reader's params by listkit's `writeQuery` in `lib/list-more.ts`), no table,
+  no sideways scroll.
 - **Honest counts**: "N companies" when nothing filters, "M of N companies match"
   when something does, and an empty result says what to do next.
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { applyQuery, matches, parseQuery, type ListSpec } from 'listkit';
 
 import { Figure } from '@/components/portal/Figure';
 import { Empty, Page, Shell } from '@/components/portal/Shell';
@@ -15,8 +16,9 @@ import {
   formatPoint,
   isPlanned,
   periodLabel,
-  type SeriesKind,
+  type Series,
 } from '@/lib/series';
+import { moreHref, rowsShown, shownQuery } from '@/lib/list-more';
 import { allSeries } from '@/lib/series-store';
 import { textFilter } from '@/lib/text-filter';
 
@@ -27,19 +29,41 @@ export const metadata = {
 };
 export const dynamic = 'force-dynamic';
 
-type Params = Record<string, string | undefined>;
+type Params = Record<string, string | string[] | undefined>;
 /** Rows drawn at once. Each carries a sparkline; all 145 made a 1 MB page. */
 const PAGE = 40;
+/** The most rows "Show more" will ever draw. */
+const MAX = 400;
+
+/**
+ * The index's filters: a bottleneck (`b`), a measure and an origin, each one
+ * value; a value no option carries filters nothing. Rows keep the order they
+ * are given in (`byRelevance`: newest change first within each measure).
+ */
+const SERIES_SPEC: ListSpec<Series> = {
+  facets: [
+    { key: 'b', kind: 'one', value: (s) => s.bottleneck, options: BOTTLENECKS.map((b) => b.slug) },
+    { key: 'kind', kind: 'one', value: (s) => s.kind, options: Object.keys(KIND_LABEL) },
+    { key: 'origin', kind: 'one', value: (s) => s.origin, options: ['official', 'corpus'] },
+  ],
+  sorts: [{ key: 'relevance-order', by: [] }],
+  defaultSort: 'relevance-order',
+  defaultPageSize: PAGE,
+};
 
 export default async function SeriesIndex({ searchParams }: { searchParams: Promise<Params> }) {
   const params = await searchParams;
   const { series: all, officialOk } = await allSeries();
-  const kind = params.kind && params.kind in KIND_LABEL ? (params.kind as SeriesKind) : undefined;
-  const origin = params.origin === 'official' || params.origin === 'corpus' ? params.origin : '';
-  const q = (params.q ?? '').trim().slice(0, 80);
-  const rail = BOTTLENECKS.find((b) => b.slug === params.b);
+  const typedRaw = Array.isArray(params.q) ? params.q[0] : params.q;
+  const query = shownQuery(
+    {
+      ...parseQuery(params, SERIES_SPEC, { maxPageSize: MAX }),
+      q: (typedRaw ?? '').trim().slice(0, 80),
+    },
+    rowsShown(params, PAGE, MAX),
+  );
+  const chosen = (key: string) => query.facets[key]?.[0] ?? '';
   const names = new Map(BOTTLENECKS.map((b) => [b.slug, b.name]));
-  const limit = Math.min(Math.max(Number(params.n) || PAGE, PAGE), 400);
   const typed = textFilter(
     all,
     {
@@ -50,22 +74,17 @@ export default async function SeriesIndex({ searchParams }: { searchParams: Prom
         { name: 'unit', get: (s) => s.unit },
       ],
     },
-    q,
+    query.q,
   );
-  const shown = all
-    .filter(
-      (s) =>
-        (!rail || s.bottleneck === rail.slug) &&
-        (!kind || s.kind === kind) &&
-        (!origin || s.origin === origin) &&
-        typed(s),
-    )
-    .sort(byRelevance);
+  // Typed words through searchkit (a slip forgiven); the facets and the rows
+  // drawn through listkit.
+  const pool = all.filter(typed).sort(byRelevance);
+  const facetsOnly = { ...query, q: '' };
+  const result = applyQuery(pool, SERIES_SPEC, facetsOnly);
+  const shown = result.matched;
+  const left = shown - result.rows.length;
   const withSeries = BOTTLENECKS.filter((b) => all.some((s) => s.bottleneck === b.slug));
-  const points = shown.reduce((n, s) => n + s.points.length, 0);
-  const more = new URLSearchParams(
-    Object.entries({ ...params, n: String(limit + PAGE) }).flatMap(([k, v]) => (v ? [[k, v]] : [])),
-  ).toString();
+  const points = matches(pool, SERIES_SPEC, facetsOnly).reduce((n, s) => n + s.points.length, 0);
 
   return (
     <Shell>
@@ -75,7 +94,7 @@ export default async function SeriesIndex({ searchParams }: { searchParams: Prom
           title="Data series"
           status={
             <>
-              <Figure method="series-points">{String(shown.length)}</Figure> series ·{' '}
+              <Figure method="series-points">{String(shown)}</Figure> series ·{' '}
               <Figure method="series-points">{String(points)}</Figure> dated points ·{' '}
               <Figure method="series-points">{String(withSeries.length)}</Figure> bottlenecks
               covered · newest change first within each measure
@@ -89,14 +108,14 @@ export default async function SeriesIndex({ searchParams }: { searchParams: Prom
             <input
               type="search"
               name="q"
-              defaultValue={params.q ?? ''}
+              defaultValue={query.q}
               placeholder="Search: gallium, backlog, US…"
               maxLength={80}
             />
           </label>
           <label className="desk-filter">
             <span className="sr-only">Bottleneck</span>
-            <select name="b" defaultValue={rail?.slug ?? ''}>
+            <select name="b" defaultValue={chosen('b')}>
               <option value="">All bottlenecks</option>
               {withSeries.map((b) => (
                 <option key={b.slug} value={b.slug}>
@@ -107,7 +126,7 @@ export default async function SeriesIndex({ searchParams }: { searchParams: Prom
           </label>
           <label className="desk-filter">
             <span className="sr-only">Measure</span>
-            <select name="kind" defaultValue={kind ?? ''}>
+            <select name="kind" defaultValue={chosen('kind')}>
               <option value="">All measures</option>
               {Object.entries(KIND_LABEL)
                 .filter(([k]) => all.some((s) => s.kind === k))
@@ -120,7 +139,7 @@ export default async function SeriesIndex({ searchParams }: { searchParams: Prom
           </label>
           <label className="desk-filter">
             <span className="sr-only">Origin</span>
-            <select name="origin" defaultValue={origin}>
+            <select name="origin" defaultValue={chosen('origin')}>
               <option value="">Any origin</option>
               <option value="corpus">Read from sources</option>
               <option value="official">Official statistics (API)</option>
@@ -133,7 +152,7 @@ export default async function SeriesIndex({ searchParams }: { searchParams: Prom
             listed.
           </p>
         )}
-        {shown.length === 0 ? (
+        {shown === 0 ? (
           <Empty
             what="No series match these filters."
             next="Search reads the measure, the place, the unit and the bottleneck's name."
@@ -146,7 +165,7 @@ export default async function SeriesIndex({ searchParams }: { searchParams: Prom
           />
         ) : (
           <ul className="series-index">
-            {shown.slice(0, limit).map((s) => {
+            {result.rows.map((s) => {
               const last = s.points[s.points.length - 1];
               return (
                 <li key={s.id} className="series-row">
@@ -182,10 +201,10 @@ export default async function SeriesIndex({ searchParams }: { searchParams: Prom
             })}
           </ul>
         )}
-        {shown.length > limit && (
+        {left > 0 && (
           <p className="list-more">
-            <Link href={`/data/series?${more}`} scroll={false}>
-              Show more ({shown.length - limit} left)
+            <Link href={moreHref('/data/series', params, query, SERIES_SPEC, PAGE)} scroll={false}>
+              Show more ({left} left)
             </Link>
           </p>
         )}

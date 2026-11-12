@@ -111,6 +111,22 @@
         {
           "file": "components/portal/Board.tsx",
           "symbols": ["writeQuery"]
+        },
+        {
+          "file": "lib/universe/directory.ts",
+          "symbols": ["parseQuery", "applyQuery", "ListSpec"]
+        },
+        {
+          "file": "app/data/series/page.tsx",
+          "symbols": ["parseQuery", "applyQuery", "matches", "ListSpec"]
+        },
+        {
+          "file": "lib/list-more.ts",
+          "symbols": ["writeQuery"]
+        },
+        {
+          "file": "lib/careers-query.ts",
+          "symbols": ["likeContains"]
         }
       ]
     },

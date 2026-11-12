@@ -4,9 +4,17 @@ import type { Metadata } from 'next';
 import { AutoSubmitForm } from '@/components/portal/AutoSubmitForm';
 import { Empty, Page, Shell } from '@/components/portal/Shell';
 import { PageHeader } from '@/components/portal/PageHeader';
-import { THEMES, TIERS, type ThemeId } from '@/config/universe-themes';
-import { directoryRows, queryDirectory, type DirectoryQuery } from '@/lib/universe/directory';
-import { PAGE_KINDS, pageKindCounts, type PageKind } from '@/lib/universe/page-kinds';
+import { THEMES, TIERS } from '@/config/universe-themes';
+import { moreHref, rowsShown, shownQuery } from '@/lib/list-more';
+import {
+  DIRECTORY_MAX,
+  DIRECTORY_PAGE,
+  directoryRows,
+  directorySpec,
+  parseDirectory,
+  queryDirectory,
+} from '@/lib/universe/directory';
+import { PAGE_KINDS, pageKindCounts } from '@/lib/universe/page-kinds';
 import { universeEntries } from '@/lib/universe/store';
 import { marketHref } from '@/lib/links';
 import { countryNameOf } from '@/lib/world/pages';
@@ -18,9 +26,7 @@ export const metadata: Metadata = {
 };
 export const dynamic = 'force-dynamic';
 
-type Params = Record<string, string | undefined>;
-/** Rows drawn at once: a phone paints these without scrolling through a thousand. */
-const PAGE = 60;
+type Params = Record<string, string | string[] | undefined>;
 
 const KIND = new Map(PAGE_KINDS.map((k) => [k.kind, k]));
 
@@ -33,22 +39,18 @@ export default async function CompanyDirectory({
   const entries = universeEntries();
   const rows = directoryRows(entries);
   const kinds = pageKindCounts(entries);
-  const query: DirectoryQuery = {
-    q: (params.q ?? '').trim().slice(0, 80),
-    tier: params.tier === 'A' || params.tier === 'B' ? params.tier : '',
-    theme: THEMES.some((t) => t.id === params.theme) ? (params.theme as ThemeId) : '',
-    country: /^[A-Z]{2}$/.test(params.country ?? '') ? params.country! : '',
-    kind: PAGE_KINDS.some((k) => k.kind === params.kind) ? (params.kind as PageKind) : '',
-  };
-  const result = queryDirectory(rows, query);
-  const limit = Math.min(Math.max(Number(params.n) || PAGE, PAGE), 2000);
+  const spec = directorySpec(rows);
+  const query = shownQuery(
+    parseDirectory(params, spec),
+    rowsShown(params, DIRECTORY_PAGE, DIRECTORY_MAX),
+  );
+  const result = queryDirectory(rows, spec, query);
+  const chosen = (key: string) => query.facets[key]?.[0] ?? '';
   const countries = [...new Set(rows.flatMap((r) => (r.country ? [r.country] : [])))]
     .map((iso) => ({ iso, name: countryNameOf(iso.toLowerCase()) ?? iso }))
     .sort((a, b) => a.name.localeCompare(b.name));
-  const more = new URLSearchParams(
-    Object.entries({ ...params, n: String(limit + PAGE) }).flatMap(([k, v]) => (v ? [[k, v]] : [])),
-  ).toString();
-  const n = (map: Record<string, number>, key: string) => map[key] ?? 0;
+  const n = (facet: string, key: string) => result.counts[facet]?.[key] ?? 0;
+  const left = result.matched - result.rows.length;
 
   return (
     <Shell>
@@ -81,51 +83,51 @@ export default async function CompanyDirectory({
             <input
               type="search"
               name="q"
-              defaultValue={params.q ?? ''}
+              defaultValue={query.q}
               placeholder="Name, ticker, theme: AMD, Rheinmetall, uranium…"
               maxLength={80}
             />
           </label>
           <label className="desk-filter">
             <span className="sr-only">Theme</span>
-            <select name="theme" defaultValue={query.theme}>
+            <select name="theme" defaultValue={chosen('theme')}>
               <option value="">All themes</option>
               {THEMES.map((t) => (
                 <option key={t.id} value={t.id}>
-                  {t.label} ({n(result.counts.theme, t.id)})
+                  {t.label} ({n('theme', t.id)})
                 </option>
               ))}
             </select>
           </label>
           <label className="desk-filter">
             <span className="sr-only">Country</span>
-            <select name="country" defaultValue={query.country}>
+            <select name="country" defaultValue={chosen('country')}>
               <option value="">All countries</option>
               {countries.map((c) => (
                 <option key={c.iso} value={c.iso}>
-                  {c.name} ({n(result.counts.country, c.iso)})
+                  {c.name} ({n('country', c.iso)})
                 </option>
               ))}
             </select>
           </label>
           <label className="desk-filter">
             <span className="sr-only">Tier</span>
-            <select name="tier" defaultValue={query.tier}>
+            <select name="tier" defaultValue={chosen('tier')}>
               <option value="">Any tier</option>
               {TIERS.filter((t) => t.tier !== 'C').map((t) => (
                 <option key={t.tier} value={t.tier}>
-                  {t.label} ({n(result.counts.tier, t.tier)})
+                  {t.label} ({n('tier', t.tier)})
                 </option>
               ))}
             </select>
           </label>
           <label className="desk-filter">
             <span className="sr-only">What the page shows</span>
-            <select name="kind" defaultValue={query.kind}>
+            <select name="kind" defaultValue={chosen('kind')}>
               <option value="">Any page</option>
               {PAGE_KINDS.map((k) => (
                 <option key={k.kind} value={k.kind}>
-                  {k.label} ({n(result.counts.kind, k.kind)})
+                  {k.label} ({n('kind', k.kind)})
                 </option>
               ))}
             </select>
@@ -149,7 +151,7 @@ export default async function CompanyDirectory({
           />
         ) : (
           <ul className="divide-y divide-subtle border-y border-subtle">
-            {result.rows.slice(0, limit).map((r) => (
+            {result.rows.map((r) => (
               <li key={r.slug} className="py-3">
                 <p className="flex flex-wrap items-baseline gap-x-3">
                   <Link
@@ -176,14 +178,14 @@ export default async function CompanyDirectory({
             ))}
           </ul>
         )}
-        {result.matched > limit && (
+        {left > 0 && (
           <p className="list-more">
             <Link
-              href={`/markets/directory?${more}`}
+              href={moreHref('/markets/directory', params, query, spec, DIRECTORY_PAGE)}
               scroll={false}
               className="tap inline-flex items-center"
             >
-              Show more ({result.matched - limit} left)
+              Show more ({left} left)
             </Link>
           </p>
         )}
