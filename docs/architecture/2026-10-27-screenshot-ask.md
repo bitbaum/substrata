@@ -53,8 +53,8 @@ of its attachments and the text read off them.
 When every reachable link is declared blind, ai-kit raises `NoVisionLinkError`
 before any request, and the reader gets one sentence (`BLIND_MESSAGE`): nothing
 was looked at, nothing is guessed — paste the text, or add a key that reads
-images. On the free chain the links declared able to see are Google's
-(when its key is set) and one OpenRouter model; a reader's own key is tried.
+images. On the free chain no Google link is built (Google bills); a link declared
+able to see is an OpenRouter `:free` model, and a reader's own key is tried.
 
 ## Tests
 
