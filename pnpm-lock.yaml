@@ -39,8 +39,8 @@ importers:
         specifier: ^0.2.3
         version: 0.2.3(react@19.3.1)
       '@bitbaum/threadkit':
-        specifier: ^0.1.1
-        version: 0.1.1
+        specifier: ^0.1.2
+        version: 0.1.2
       '@bitbaum/whenkit':
         specifier: ^0.3.3
         version: 0.3.3(react@19.3.1)
@@ -401,8 +401,8 @@ packages:
     peerDependencies:
       react: '>=18'
 
-  '@bitbaum/threadkit@0.1.1':
-    resolution: {integrity: sha512-tNsM2bVHBzmXaNzrsMeDipjNUssTwgeRIUVLA+SzzPOUSa21wgzX5Majo9HfEtTR4gxyHCrIFYzUWsvbdAkrRw==}
+  '@bitbaum/threadkit@0.1.2':
+    resolution: {integrity: sha512-DzM0A/xlOfJStLpoiqleJUEbLSatxAUpUXihvgz5U+ZABLnQ7nCdMT32dz0C6nyKXEXfrnnEakbsChluTFXwSA==}
     engines: {node: '>=20'}
 
   '@bitbaum/whenkit@0.3.3':
@@ -3536,7 +3536,7 @@ snapshots:
       react: 19.3.1
       zod: 4.6.7
 
-  '@bitbaum/threadkit@0.1.1': {}
+  '@bitbaum/threadkit@0.1.2': {}
 
   '@bitbaum/whenkit@0.3.3(react@19.3.1)':
     dependencies:

@@ -52,7 +52,7 @@
     "@bitbaum/geo-kit": "^0.8.0",
     "@bitbaum/mail-kit": "^0.2.0",
     "@bitbaum/searchkit": "^0.2.3",
-    "@bitbaum/threadkit": "^0.1.1",
+    "@bitbaum/threadkit": "^0.1.2",
     "@bitbaum/whenkit": "^0.3.3",
     "better-auth": "^1.7.17",
     "d3-geo": "^3.1.2",
