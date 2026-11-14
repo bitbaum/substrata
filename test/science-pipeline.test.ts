@@ -305,3 +305,20 @@ test('the scheduled science fetch enforces a runtime budget within the 300s box 
     'the route must forward the request abort signal',
   );
 });
+
+import { cleanDate, cleanInt } from '../lib/science-store';
+
+test('science store sanitizes date and integer fields for database resilience', () => {
+  assert.equal(cleanDate('2025-01-15T00:00:00Z'), '2025-01-15');
+  assert.equal(cleanDate('2025-02-28'), '2025-02-28');
+  assert.equal(cleanDate(''), null);
+  assert.equal(cleanDate('invalid-date'), null);
+  assert.equal(cleanDate(null), null);
+  assert.equal(cleanDate(undefined), null);
+
+  assert.equal(cleanInt(2025), 2025);
+  assert.equal(cleanInt('2025'), 2025);
+  assert.equal(cleanInt(NaN), null);
+  assert.equal(cleanInt('abc'), null);
+  assert.equal(cleanInt(null), null);
+});
